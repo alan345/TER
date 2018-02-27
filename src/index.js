@@ -61,7 +61,7 @@ ReactDOM.render(
             to="/create"
             className="f6 link dim br1 ba ph3 pv2 fr mb2 dib black"
           >
-            + Create Draft
+            + Create Draft ALAN
           </Link>
         </nav>
         <div className="fl w-100 pl4 pr4">
