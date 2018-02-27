@@ -20,7 +20,7 @@ import DetailPage from './components/DetailPage'
 import 'tachyons'
 import './index.css'
 
-const httpLink = new HttpLink({ uri: 'http://82.223.14.38/:4000' })
+const httpLink = new HttpLink({ uri: 'http://82.223.14.38:4000' })
 
 const client = new ApolloClient({
   link: httpLink,
