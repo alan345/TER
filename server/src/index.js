@@ -1,8 +1,14 @@
 const { GraphQLServer } = require('graphql-yoga')
 const { Prisma } = require('prisma-binding')
 
+// const { GraphQLServer } = require('graphql-yoga')
+const { importSchema } = require('graphql-import')
+// const { Prisma } = require('prisma-binding')
+const { me, signup, login, AuthPayload } = require('./auth')
+
 const resolvers = {
   Query: {
+    me,
     feed(parent, args, ctx, info) {
       return ctx.db.query.posts({ where: { isPublished: true } }, info)
     },
@@ -14,6 +20,8 @@ const resolvers = {
     },
   },
   Mutation: {
+    signup,
+    login,
     createDraft(parent, { title, text }, ctx, info) {
       return ctx.db.mutation.createPost(
         { data: { title, text, isPublished: false } },
