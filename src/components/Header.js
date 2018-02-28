@@ -10,7 +10,12 @@ class Header extends Component {
     return (
       <div className="flex pa1 justify-between nowrap orange">
         <div className="flex flex-fixed black">
-        YEAH
+          <Link
+            to="/"
+            title="Feed"
+          >
+            HOME
+          </Link>
         </div>
         <div className="flex flex-fixed">
           {authToken ? (
