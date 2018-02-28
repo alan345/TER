@@ -18,6 +18,7 @@ type User implements Node {
   updatedAt: DateTime!
   email: String!
   password: String!
+  name: String!
 }
 
 
@@ -417,6 +418,7 @@ type UserConnection {
 input UserCreateInput {
   email: String!
   password: String!
+  name: String!
 }
 
 """
@@ -444,6 +446,8 @@ enum UserOrderByInput {
   email_DESC
   password_ASC
   password_DESC
+  name_ASC
+  name_DESC
 }
 
 type UserPreviousValues {
@@ -452,6 +456,7 @@ type UserPreviousValues {
   updatedAt: DateTime!
   email: String!
   password: String!
+  name: String!
 }
 
 type UserSubscriptionPayload {
@@ -492,6 +497,7 @@ input UserSubscriptionWhereInput {
 input UserUpdateInput {
   email: String
   password: String
+  name: String
 }
 
 input UserWhereInput {
@@ -720,6 +726,59 @@ input UserWhereInput {
   All values not ending with the given string.
   """
   password_not_ends_with: String
+  name: String
+  """
+  All values that are not equal to given value.
+  """
+  name_not: String
+  """
+  All values that are contained in given list.
+  """
+  name_in: [String!]
+  """
+  All values that are not contained in given list.
+  """
+  name_not_in: [String!]
+  """
+  All values less than the given value.
+  """
+  name_lt: String
+  """
+  All values less than or equal the given value.
+  """
+  name_lte: String
+  """
+  All values greater than the given value.
+  """
+  name_gt: String
+  """
+  All values greater than or equal the given value.
+  """
+  name_gte: String
+  """
+  All values containing the given string.
+  """
+  name_contains: String
+  """
+  All values not containing the given string.
+  """
+  name_not_contains: String
+  """
+  All values starting with the given string.
+  """
+  name_starts_with: String
+  """
+  All values not starting with the given string.
+  """
+  name_not_starts_with: String
+  """
+  All values ending with the given string.
+  """
+  name_ends_with: String
+  """
+  All values not ending with the given string.
+  """
+  name_not_ends_with: String
 }
 
 input UserWhereUniqueInput {

@@ -11,4 +11,5 @@ type User {
   updatedAt: DateTime!
   email: String! @unique
   password: String!
+  name: String!
 }
