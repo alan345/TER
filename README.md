@@ -1,5 +1,5 @@
-<h1 align="center"><strong>Boilerplate for a Basic Fullstack GraphQL App with React</strong></h1>
-
+<h1 align="center"><strong>Boilerplate for a Fullstack GraphQL App with React</strong></h1>
+<h3 align="center">Authentification is ready. Backend & Frontend</h3>
 <br />
 
 ![](https://imgur.com/ousyQaC.png)
@@ -61,7 +61,7 @@ yarn start
 
 ![](https://imgur.com/95faUsa.png)
 
-| File name 　　　　　　　　　　　　　　| Description 　　　　　　　　<br><br>| 
+| File name 　　　　　　　　　　　　　　| Description 　　　　　　　　<br><br>|
 | :--  | :--         |
 | `├── .graphqlconfig.yml` | Configuration file based on [`graphql-config`](https://github.com/prisma/graphql-config) (e.g. used by GraphQL Playground).|
 | `└── database ` (_directory_) | _Contains all files that are related to the Prisma database service_ |\

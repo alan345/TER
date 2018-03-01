@@ -3,6 +3,7 @@ type Post {
   isPublished: Boolean!
   title: String!
   text: String!
+  owner: User
 }
 
 type User {

@@ -10,6 +10,7 @@ type Post implements Node {
   isPublished: Boolean!
   title: String!
   text: String!
+  owner(where: UserWhereInput): User
 }
 
 type User implements Node {
@@ -121,6 +122,7 @@ input PostCreateInput {
   isPublished: Boolean!
   title: String!
   text: String!
+  owner: UserCreateOneInput
 }
 
 """
@@ -198,6 +200,7 @@ input PostUpdateInput {
   isPublished: Boolean
   title: String
   text: String
+  owner: UserUpdateOneInput
 }
 
 input PostWhereInput {
@@ -373,6 +376,7 @@ input PostWhereInput {
   All values not ending with the given string.
   """
   text_not_ends_with: String
+  owner: UserWhereInput
 }
 
 input PostWhereUniqueInput {
@@ -419,6 +423,11 @@ input UserCreateInput {
   email: String!
   password: String!
   name: String!
+}
+
+input UserCreateOneInput {
+  create: UserCreateInput
+  connect: UserWhereUniqueInput
 }
 
 """
@@ -498,6 +507,13 @@ input UserUpdateInput {
   email: String
   password: String
   name: String
+}
+
+input UserUpdateOneInput {
+  create: UserCreateInput
+  connect: UserWhereUniqueInput
+  disconnect: UserWhereUniqueInput
+  delete: UserWhereUniqueInput
 }
 
 input UserWhereInput {
