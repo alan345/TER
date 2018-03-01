@@ -1,6 +1,6 @@
 const { GraphQLServer } = require('graphql-yoga')
 const { Prisma } = require('prisma-binding')
-
+const { isLoggedIn } = require('./utils')
 // const { GraphQLServer } = require('graphql-yoga')
 const { importSchema } = require('graphql-import')
 // const { Prisma } = require('prisma-binding')
@@ -9,13 +9,24 @@ const { me, signup, login, AuthPayload } = require('./auth')
 const resolvers = {
   Query: {
     me,
-    feed(parent, args, ctx, info) {
+    feed (parent, args, ctx, info) {
       return ctx.db.query.posts({ where: { isPublished: true } }, info)
     },
-    drafts(parent, args, ctx, info) {
-      return ctx.db.query.posts({ where: { isPublished: false } }, info)
+    drafts (parent, args, ctx, info) {
+      if (isLoggedIn(ctx)) {
+        return ctx.db.query.posts({ where: { isPublished: false } }, info)
+      }
+      return {
+        "data": null,
+        "errors": [
+          {
+            "message": "No rights",
+
+          }
+        ]
+      }
     },
-    post(parent, { id }, ctx, info) {
+    post (parent, { id }, ctx, info) {
       return ctx.db.query.post({ where: { id: id } }, info)
     },
   },

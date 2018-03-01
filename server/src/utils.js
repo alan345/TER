@@ -13,6 +13,24 @@ function getUserId(ctx) {
 
   throw new AuthError()
 }
+function isLoggedIn (ctx) {
+  const Authorization = ctx.request.get('Authorization')
+  if (Authorization) {
+    const token = Authorization.replace('Bearer ', '')
+    console.log(token)
+    console.log(typeof token)
+    if (token === 'null') {
+      console.log('alan aaaa')
+      return false
+    }
+    const { userId } = jwt.verify(token, APP_SECRET)
+    if (userId) {
+      return true
+    } else {
+      return false
+    }
+  }
+}
 
 class AuthError extends Error {
   constructor() {
@@ -24,4 +42,5 @@ module.exports = {
   getUserId,
   AuthError,
   APP_SECRET,
+  isLoggedIn,
 }
