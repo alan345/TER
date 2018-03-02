@@ -14,18 +14,7 @@ const resolvers = {
       return ctx.db.query.posts({ where: { isPublished: true } }, info)
     },
     drafts (parent, args, ctx, info) {
-      // if (isLoggedIn(ctx)) {
         return ctx.db.query.posts({ where: { isPublished: false } }, info)
-      // }
-      // return {
-      //   "data": null,
-      //   "errors": [
-      //     {
-      //       "message": "No rights",
-      //
-      //     }
-      //   ]
-      // }
     },
     post (parent, { id }, ctx, info) {
       return ctx.db.query.post({ where: { id: id } }, info)
