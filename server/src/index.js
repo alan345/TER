@@ -8,7 +8,6 @@ const { me, signup, login, updatePassword, AuthPayload } = require('./auth')
 const { user } = require('./users')
 const { request } = require('graphql-request')
 
-
 async function drafts(parent, args, ctx, info) {
 
   const id = getUserId(ctx)

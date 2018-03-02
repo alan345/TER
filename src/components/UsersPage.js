@@ -11,6 +11,11 @@ class UsersPage extends React.Component {
   }
 
   render() {
+    if (this.props.usersQuery.error) {
+      return (
+        <div>Not authentificated</div>
+      )
+    }
     if (this.props.usersQuery.loading) {
       return (
         <div className="flex w-100 h-100 items-center justify-center pt7">
