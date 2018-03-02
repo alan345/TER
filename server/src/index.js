@@ -14,9 +14,9 @@ async function drafts(parent, args, ctx, info) {
 
   const where = {
     isPublished: false,
-    // author: {
-    //   id
-    // }
+    author: {
+      id
+    }
   }
 
   return ctx.db.query.posts({ where }, info)
@@ -30,17 +30,17 @@ async function feed(parent, args, ctx, info) {
 async function createDraft(parent, { title, text }, ctx, info) {
 
   // ici nico, ma relation avec author: {id: userId}}
-  
-  // const userId = getUserId(ctx)
-  // await ctx.db.mutation.createPost(
-  //   { data: {title, text, isPublished: false, author: {id: userId}} },
-  //   info,
-  // )
 
-  return ctx.db.mutation.createPost(
-    { data: {title, text, isPublished: false} },
+  const userId = getUserId(ctx)
+  await ctx.db.mutation.createPost(
+    { data: {title, text, isPublished: false, author: {connect: {id: userId}}} },
     info,
   )
+
+  // return ctx.db.mutation.createPost(
+  //   { data: {title, text, isPublished: false} },
+  //   info,
+  // )
 
 }
 async function post(parent, { id }, ctx, info) {
