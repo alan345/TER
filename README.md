@@ -11,9 +11,12 @@
 ## login
 
 ![](https://user-images.githubusercontent.com/15246526/36925970-4315cf46-1e2a-11e8-8548-10f9b65d6387.png)
-![](https://user-images.githubusercontent.com/15246526/36925992-6301aa64-1e2a-11e8-8f82-184a5223ef0f.png)
+![](https://user-images.githubusercontent.com/15246526/36926055-a122e268-1e2a-11e8-8f68-b338d0d84dff.png)
 More details in the tuto: https://github.com/graphcool/prisma/tree/master/examples/auth
 
+## Upload File
+![](https://user-images.githubusercontent.com/15246526/36926072-b97b3964-1e2a-11e8-8bee-41ab6769a19f.png)
+Files are uploaded thanks to a ExpressJs server.
 
 ## Features
 
