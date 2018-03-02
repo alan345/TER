@@ -10,8 +10,9 @@
 
 ## login
 
-![](https://user-images.githubusercontent.com/15246526/36925876-d2fc2476-1e29-11e8-974a-b66eb6ace02e.png)
-
+![](https://user-images.githubusercontent.com/15246526/36925970-4315cf46-1e2a-11e8-8548-10f9b65d6387.png)
+![](https://user-images.githubusercontent.com/15246526/36925992-6301aa64-1e2a-11e8-8f82-184a5223ef0f.png)
+More details in the tuto: https://github.com/graphcool/prisma/tree/master/examples/auth
 
 
 ## Features
