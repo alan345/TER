@@ -30,10 +30,10 @@ async function feed(parent, args, ctx, info) {
   return ctx.db.query.posts({ where: { isPublished: true } }, info)
 }
 
-async function createDraft(parent, { title, text }, ctx, info) {
+async function createDraft(parent, { title, text, nameFile }, ctx, info) {
   const userId = getUserId(ctx)
   await ctx.db.mutation.createPost(
-    { data: {title, text, isPublished: false, author: {connect: {id: userId}}} },
+    { data: {title, text, nameFile, isPublished: false, author: {connect: {id: userId}}} },
     info,
   )
 }

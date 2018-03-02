@@ -23,6 +23,7 @@ class Main extends React.Component {
     }).then((response) => {
       response.json().then((body) => {
         this.setState({ imageURL: `http://localhost:8000/${body.file}` });
+        this.props.onSelectFile(body.file);
       });
     });
   }

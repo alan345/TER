@@ -7,7 +7,9 @@ class CreatePage extends React.Component {
   state = {
     title: '',
     text: '',
+    nameFile:'',
   }
+
 
   render() {
     return (
@@ -42,27 +44,33 @@ class CreatePage extends React.Component {
             or cancel
           </a>
         </form>
-        <Main />
+        <Main onSelectFile={this.handleFile}/>
       </div>
     )
   }
 
+  handleFile = (nameFile) => {
+      this.setState({nameFile: nameFile});
+  }
+
+
   handlePost = async e => {
     e.preventDefault()
-    const { title, text } = this.state
+    const { title, text, nameFile } = this.state
     await this.props.createDraftMutation({
-      variables: { title, text },
+      variables: { title, text, nameFile },
     })
     this.props.history.replace('/drafts')
   }
 }
 
 const CREATE_DRAFT_MUTATION = gql`
-  mutation CreateDraftMutation($title: String!, $text: String!) {
-    createDraft(title: $title, text: $text) {
+  mutation CreateDraftMutation($title: String!, $text: String!, $nameFile: String!) {
+    createDraft(title: $title, text: $text, nameFile: $nameFile) {
       id
       title
       text
+      nameFile
     }
   }
 `

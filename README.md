@@ -19,7 +19,7 @@ More details in the tuto: https://github.com/graphcool/prisma/tree/master/exampl
 ## Upload File
 ![](https://user-images.githubusercontent.com/15246526/36926072-b97b3964-1e2a-11e8-8bee-41ab6769a19f.png)
 ![](https://user-images.githubusercontent.com/15246526/36926125-f1130e2e-1e2a-11e8-928c-4a2c1f1c136b.png)
-Files are uploaded thanks to a ExpressJs server.
+Files are uploaded thanks to an ExpressJs server.
 
 ## Features
 
