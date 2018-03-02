@@ -7,7 +7,7 @@ const { importSchema } = require('graphql-import')
 const { me, signup, login, updatePassword, AuthPayload } = require('./auth')
 const { user } = require('./users')
 
-
+const { app } = require('./indexExpress')
 
 async function drafts(parent, args, ctx, info) {
 
