@@ -28,13 +28,14 @@ async function feed(parent, args, ctx, info) {
   return ctx.db.query.posts({ where: { isPublished: true } }, info)
 }
 async function createDraft(parent, { title, text }, ctx, info) {
-  // var mea = me(parent, {}, ctx, info)
+
+
   // const userId = getUserId(ctx)
-  // setTimeout(_=> {
-  //   console.log('meaaaa')
-  //   console.log(mea)
-  //   console.log('meaaaa')
-  // }, 2000)
+  // await ctx.db.mutation.createPost(
+  //   { data: {title, text, isPublished: false, author: {id: userId}} },
+  //   info,
+  // )
+
   return ctx.db.mutation.createPost(
     { data: {title, text, isPublished: false} },
     info,
