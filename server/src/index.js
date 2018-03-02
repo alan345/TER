@@ -29,7 +29,7 @@ async function feed(parent, args, ctx, info) {
 }
 async function createDraft(parent, { title, text }, ctx, info) {
   return ctx.db.mutation.createPost(
-    { data: { title, text, isPublished: false } },
+    { data: { title, text, isPublished: false, author: me(parent, {}, ctx, info) } },
     info,
   )
 }
