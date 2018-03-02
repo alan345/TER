@@ -24,11 +24,7 @@ class UsersPage extends React.Component {
         <div className="flex justify-between items-center">
           <h1>Users</h1>
         </div>
-        {this.props.usersQuery.users &&
-          this.props.usersQuery.users.map(user => (
-            <div>alan</div>
-          ))}
-        {this.props.children}
+    
       </React.Fragment>
     )
   }
