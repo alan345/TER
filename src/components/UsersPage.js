@@ -25,8 +25,8 @@ class UsersPage extends React.Component {
           <h1>Users</h1>
         </div>
         {this.props.usersQuery.users &&
-          this.props.usersQuery.users.map(user => (
-            <div>{user.email}</div>
+          this.props.usersQuery.users.map((user, i) => (
+            <div key={i}>{user.name} {user.email} {user.role}</div>
           ))}
         {this.props.children}
       </React.Fragment>
