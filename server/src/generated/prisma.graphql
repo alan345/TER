@@ -10,17 +10,18 @@ type Post implements Node {
   isPublished: Boolean!
   title: String!
   text: String!
-  owner(where: UserWhereInput): User
+  owner(where: UserWhereInput): User!
 }
 
 type User implements Node {
   id: ID!
-  createdAt: DateTime!
-  role: Role!
-  updatedAt: DateTime!
   email: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
   password: String!
   name: String!
+  posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post!]
+  role: Role!
 }
 
 
@@ -120,10 +121,21 @@ type PostConnection {
 }
 
 input PostCreateInput {
-  isPublished: Boolean!
+  isPublished: Boolean
   title: String!
   text: String!
-  owner: UserCreateOneInput
+  owner: UserCreateOneWithoutPostsInput!
+}
+
+input PostCreateManyWithoutOwnerInput {
+  create: [PostCreateWithoutOwnerInput!]
+  connect: [PostWhereUniqueInput!]
+}
+
+input PostCreateWithoutOwnerInput {
+  isPublished: Boolean
+  title: String!
+  text: String!
 }
 
 """
@@ -201,7 +213,33 @@ input PostUpdateInput {
   isPublished: Boolean
   title: String
   text: String
-  owner: UserUpdateOneInput
+  owner: UserUpdateOneWithoutPostsInput
+}
+
+input PostUpdateManyWithoutOwnerInput {
+  create: [PostCreateWithoutOwnerInput!]
+  connect: [PostWhereUniqueInput!]
+  disconnect: [PostWhereUniqueInput!]
+  delete: [PostWhereUniqueInput!]
+  update: [PostUpdateWithoutOwnerInput!]
+  upsert: [PostUpsertWithoutOwnerInput!]
+}
+
+input PostUpdateWithoutOwnerDataInput {
+  isPublished: Boolean
+  title: String
+  text: String
+}
+
+input PostUpdateWithoutOwnerInput {
+  where: PostWhereUniqueInput!
+  data: PostUpdateWithoutOwnerDataInput!
+}
+
+input PostUpsertWithoutOwnerInput {
+  where: PostWhereUniqueInput!
+  update: PostUpdateWithoutOwnerDataInput!
+  create: PostCreateWithoutOwnerInput!
 }
 
 input PostWhereInput {
@@ -426,15 +464,23 @@ type UserConnection {
 }
 
 input UserCreateInput {
-  role: Role
   email: String!
   password: String!
   name: String!
+  role: Role
+  posts: PostCreateManyWithoutOwnerInput
 }
 
-input UserCreateOneInput {
-  create: UserCreateInput
+input UserCreateOneWithoutPostsInput {
+  create: UserCreateWithoutPostsInput
   connect: UserWhereUniqueInput
+}
+
+input UserCreateWithoutPostsInput {
+  email: String!
+  password: String!
+  name: String!
+  role: Role
 }
 
 """
@@ -454,28 +500,28 @@ type UserEdge {
 enum UserOrderByInput {
   id_ASC
   id_DESC
-  createdAt_ASC
-  createdAt_DESC
-  role_ASC
-  role_DESC
-  updatedAt_ASC
-  updatedAt_DESC
   email_ASC
   email_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
   password_ASC
   password_DESC
   name_ASC
   name_DESC
+  role_ASC
+  role_DESC
 }
 
 type UserPreviousValues {
   id: ID!
-  createdAt: DateTime!
-  role: Role!
-  updatedAt: DateTime!
   email: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
   password: String!
   name: String!
+  role: Role!
 }
 
 type UserSubscriptionPayload {
@@ -514,17 +560,38 @@ input UserSubscriptionWhereInput {
 }
 
 input UserUpdateInput {
-  role: Role
   email: String
   password: String
   name: String
+  role: Role
+  posts: PostUpdateManyWithoutOwnerInput
 }
 
-input UserUpdateOneInput {
-  create: UserCreateInput
+input UserUpdateOneWithoutPostsInput {
+  create: UserCreateWithoutPostsInput
   connect: UserWhereUniqueInput
   disconnect: UserWhereUniqueInput
   delete: UserWhereUniqueInput
+  update: UserUpdateWithoutPostsInput
+  upsert: UserUpsertWithoutPostsInput
+}
+
+input UserUpdateWithoutPostsDataInput {
+  email: String
+  password: String
+  name: String
+  role: Role
+}
+
+input UserUpdateWithoutPostsInput {
+  where: UserWhereUniqueInput!
+  data: UserUpdateWithoutPostsDataInput!
+}
+
+input UserUpsertWithoutPostsInput {
+  where: UserWhereUniqueInput!
+  update: UserUpdateWithoutPostsDataInput!
+  create: UserCreateWithoutPostsInput!
 }
 
 input UserWhereInput {
@@ -589,77 +656,6 @@ input UserWhereInput {
   All values not ending with the given string.
   """
   id_not_ends_with: ID
-  createdAt: DateTime
-  """
-  All values that are not equal to given value.
-  """
-  createdAt_not: DateTime
-  """
-  All values that are contained in given list.
-  """
-  createdAt_in: [DateTime!]
-  """
-  All values that are not contained in given list.
-  """
-  createdAt_not_in: [DateTime!]
-  """
-  All values less than the given value.
-  """
-  createdAt_lt: DateTime
-  """
-  All values less than or equal the given value.
-  """
-  createdAt_lte: DateTime
-  """
-  All values greater than the given value.
-  """
-  createdAt_gt: DateTime
-  """
-  All values greater than or equal the given value.
-  """
-  createdAt_gte: DateTime
-  role: Role
-  """
-  All values that are not equal to given value.
-  """
-  role_not: Role
-  """
-  All values that are contained in given list.
-  """
-  role_in: [Role!]
-  """
-  All values that are not contained in given list.
-  """
-  role_not_in: [Role!]
-  updatedAt: DateTime
-  """
-  All values that are not equal to given value.
-  """
-  updatedAt_not: DateTime
-  """
-  All values that are contained in given list.
-  """
-  updatedAt_in: [DateTime!]
-  """
-  All values that are not contained in given list.
-  """
-  updatedAt_not_in: [DateTime!]
-  """
-  All values less than the given value.
-  """
-  updatedAt_lt: DateTime
-  """
-  All values less than or equal the given value.
-  """
-  updatedAt_lte: DateTime
-  """
-  All values greater than the given value.
-  """
-  updatedAt_gt: DateTime
-  """
-  All values greater than or equal the given value.
-  """
-  updatedAt_gte: DateTime
   email: String
   """
   All values that are not equal to given value.
@@ -713,6 +709,64 @@ input UserWhereInput {
   All values not ending with the given string.
   """
   email_not_ends_with: String
+  createdAt: DateTime
+  """
+  All values that are not equal to given value.
+  """
+  createdAt_not: DateTime
+  """
+  All values that are contained in given list.
+  """
+  createdAt_in: [DateTime!]
+  """
+  All values that are not contained in given list.
+  """
+  createdAt_not_in: [DateTime!]
+  """
+  All values less than the given value.
+  """
+  createdAt_lt: DateTime
+  """
+  All values less than or equal the given value.
+  """
+  createdAt_lte: DateTime
+  """
+  All values greater than the given value.
+  """
+  createdAt_gt: DateTime
+  """
+  All values greater than or equal the given value.
+  """
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  """
+  All values that are not equal to given value.
+  """
+  updatedAt_not: DateTime
+  """
+  All values that are contained in given list.
+  """
+  updatedAt_in: [DateTime!]
+  """
+  All values that are not contained in given list.
+  """
+  updatedAt_not_in: [DateTime!]
+  """
+  All values less than the given value.
+  """
+  updatedAt_lt: DateTime
+  """
+  All values less than or equal the given value.
+  """
+  updatedAt_lte: DateTime
+  """
+  All values greater than the given value.
+  """
+  updatedAt_gt: DateTime
+  """
+  All values greater than or equal the given value.
+  """
+  updatedAt_gte: DateTime
   password: String
   """
   All values that are not equal to given value.
@@ -819,6 +873,22 @@ input UserWhereInput {
   All values not ending with the given string.
   """
   name_not_ends_with: String
+  role: Role
+  """
+  All values that are not equal to given value.
+  """
+  role_not: Role
+  """
+  All values that are contained in given list.
+  """
+  role_in: [Role!]
+  """
+  All values that are not contained in given list.
+  """
+  role_not_in: [Role!]
+  posts_every: PostWhereInput
+  posts_some: PostWhereInput
+  posts_none: PostWhereInput
 }
 
 input UserWhereUniqueInput {

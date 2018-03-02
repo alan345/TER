@@ -27,6 +27,12 @@ async function users(parent, args, ctx, info) {
 async function feed(parent, args, ctx, info) {
   return ctx.db.query.posts({ where: { isPublished: true } }, info)
 }
+async function createDraft(parent, { title, text }, ctx, info) {
+  return ctx.db.mutation.createPost(
+    { data: { title, text, isPublished: false } },
+    info,
+  )
+}
 async function post(parent, { id }, ctx, info) {
   const userId = getUserId(ctx)
   const requestingUserIsAuthor = await ctx.db.exists.Post({
