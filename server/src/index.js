@@ -29,7 +29,8 @@ async function feed(parent, args, ctx, info) {
 }
 async function createDraft(parent, { title, text }, ctx, info) {
 
-
+  // ici nico, ma relation avec author: {id: userId}}
+  
   // const userId = getUserId(ctx)
   // await ctx.db.mutation.createPost(
   //   { data: {title, text, isPublished: false, author: {id: userId}} },
