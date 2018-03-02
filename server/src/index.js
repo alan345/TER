@@ -16,12 +16,17 @@ async function drafts(parent, args, ctx, info) {
   }
   return ctx.db.query.posts({ where: { isPublished: false } }, info)
 }
+async function users(parent, args, ctx, info) {
+
+  return ctx.db.query.users({}, info)
+}
 
 
 const resolvers = {
   Query: {
     me,
     user,
+    users,
     feed (parent, args, ctx, info) {
       return ctx.db.query.posts({ where: { isPublished: true } }, info)
     },
