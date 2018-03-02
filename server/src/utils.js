@@ -11,9 +11,8 @@ function getUserId(ctx) {
     const { userId } = jwt.verify(token, APP_SECRET)
     return userId
   } else {
-    return null
+    throw new AuthError()
   }
-  // throw new AuthError()
 }
 
 
