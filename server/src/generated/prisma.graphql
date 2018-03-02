@@ -10,7 +10,7 @@ type Post implements Node {
   isPublished: Boolean!
   title: String!
   text: String!
-  owner(where: UserWhereInput): User!
+  author(where: UserWhereInput): User!
 }
 
 type User implements Node {
@@ -124,15 +124,15 @@ input PostCreateInput {
   isPublished: Boolean
   title: String!
   text: String!
-  owner: UserCreateOneWithoutPostsInput!
+  author: UserCreateOneWithoutPostsInput!
 }
 
-input PostCreateManyWithoutOwnerInput {
-  create: [PostCreateWithoutOwnerInput!]
+input PostCreateManyWithoutAuthorInput {
+  create: [PostCreateWithoutAuthorInput!]
   connect: [PostWhereUniqueInput!]
 }
 
-input PostCreateWithoutOwnerInput {
+input PostCreateWithoutAuthorInput {
   isPublished: Boolean
   title: String!
   text: String!
@@ -213,33 +213,33 @@ input PostUpdateInput {
   isPublished: Boolean
   title: String
   text: String
-  owner: UserUpdateOneWithoutPostsInput
+  author: UserUpdateOneWithoutPostsInput
 }
 
-input PostUpdateManyWithoutOwnerInput {
-  create: [PostCreateWithoutOwnerInput!]
+input PostUpdateManyWithoutAuthorInput {
+  create: [PostCreateWithoutAuthorInput!]
   connect: [PostWhereUniqueInput!]
   disconnect: [PostWhereUniqueInput!]
   delete: [PostWhereUniqueInput!]
-  update: [PostUpdateWithoutOwnerInput!]
-  upsert: [PostUpsertWithoutOwnerInput!]
+  update: [PostUpdateWithoutAuthorInput!]
+  upsert: [PostUpsertWithoutAuthorInput!]
 }
 
-input PostUpdateWithoutOwnerDataInput {
+input PostUpdateWithoutAuthorDataInput {
   isPublished: Boolean
   title: String
   text: String
 }
 
-input PostUpdateWithoutOwnerInput {
+input PostUpdateWithoutAuthorInput {
   where: PostWhereUniqueInput!
-  data: PostUpdateWithoutOwnerDataInput!
+  data: PostUpdateWithoutAuthorDataInput!
 }
 
-input PostUpsertWithoutOwnerInput {
+input PostUpsertWithoutAuthorInput {
   where: PostWhereUniqueInput!
-  update: PostUpdateWithoutOwnerDataInput!
-  create: PostCreateWithoutOwnerInput!
+  update: PostUpdateWithoutAuthorDataInput!
+  create: PostCreateWithoutAuthorInput!
 }
 
 input PostWhereInput {
@@ -415,7 +415,7 @@ input PostWhereInput {
   All values not ending with the given string.
   """
   text_not_ends_with: String
-  owner: UserWhereInput
+  author: UserWhereInput
 }
 
 input PostWhereUniqueInput {
@@ -468,7 +468,7 @@ input UserCreateInput {
   password: String!
   name: String!
   role: Role
-  posts: PostCreateManyWithoutOwnerInput
+  posts: PostCreateManyWithoutAuthorInput
 }
 
 input UserCreateOneWithoutPostsInput {
@@ -564,7 +564,7 @@ input UserUpdateInput {
   password: String
   name: String
   role: Role
-  posts: PostUpdateManyWithoutOwnerInput
+  posts: PostUpdateManyWithoutAuthorInput
 }
 
 input UserUpdateOneWithoutPostsInput {

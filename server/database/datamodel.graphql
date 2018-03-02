@@ -9,7 +9,7 @@ type Post {
   isPublished: Boolean! @default(value: "false")
   title: String!
   text: String!
-  owner: User!
+  author: User!
 }
 
 type User {
