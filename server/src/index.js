@@ -1,11 +1,24 @@
 const { GraphQLServer } = require('graphql-yoga')
 const { Prisma } = require('prisma-binding')
-const { isLoggedIn } = require('./utils')
+const { getUserId } = require('./utils')
 // const { GraphQLServer } = require('graphql-yoga')
 const { importSchema } = require('graphql-import')
 // const { Prisma } = require('prisma-binding')
 const { me, signup, login, updatePassword, AuthPayload } = require('./auth')
 const { user } = require('./users')
+
+
+
+
+async function drafts(parent, args, ctx, info) {
+  const userId = getUserId(ctx)
+  if (!userId) {
+    throw new Error('You must be authenticated to view the posts.')
+  }
+  return ctx.db.query.posts({ where: { isPublished: false } }, info)
+}
+
+
 const resolvers = {
   Query: {
     me,
@@ -13,9 +26,7 @@ const resolvers = {
     feed (parent, args, ctx, info) {
       return ctx.db.query.posts({ where: { isPublished: true } }, info)
     },
-    drafts (parent, args, ctx, info) {
-        return ctx.db.query.posts({ where: { isPublished: false } }, info)
-    },
+    drafts,
     post (parent, { id }, ctx, info) {
       return ctx.db.query.post({ where: { id: id } }, info)
     },
