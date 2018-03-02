@@ -4,27 +4,28 @@ const { isLoggedIn } = require('./utils')
 // const { GraphQLServer } = require('graphql-yoga')
 const { importSchema } = require('graphql-import')
 // const { Prisma } = require('prisma-binding')
-const { me, signup, login, AuthPayload } = require('./auth')
-
+const { me, signup, login, updatePassword, AuthPayload } = require('./auth')
+const { user } = require('./users')
 const resolvers = {
   Query: {
     me,
+    user,
     feed (parent, args, ctx, info) {
       return ctx.db.query.posts({ where: { isPublished: true } }, info)
     },
     drafts (parent, args, ctx, info) {
-      if (isLoggedIn(ctx)) {
+      // if (isLoggedIn(ctx)) {
         return ctx.db.query.posts({ where: { isPublished: false } }, info)
-      }
-      return {
-        "data": null,
-        "errors": [
-          {
-            "message": "No rights",
-
-          }
-        ]
-      }
+      // }
+      // return {
+      //   "data": null,
+      //   "errors": [
+      //     {
+      //       "message": "No rights",
+      //
+      //     }
+      //   ]
+      // }
     },
     post (parent, { id }, ctx, info) {
       return ctx.db.query.post({ where: { id: id } }, info)
@@ -33,6 +34,7 @@ const resolvers = {
   Mutation: {
     signup,
     login,
+    updatePassword,
     createDraft(parent, { title, text }, ctx, info) {
       return ctx.db.mutation.createPost(
         { data: { title, text, isPublished: false } },

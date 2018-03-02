@@ -5,6 +5,10 @@ type Query {
   feed: [Post!]!
   drafts: [Post!]!
   post(id: ID!): Post
+
+
+  # Only admins can retrieve info about given users
+  user(id: ID!): User
 }
 
 type Mutation {
@@ -13,6 +17,12 @@ type Mutation {
   createDraft(title: String!, text: String): Post
   deletePost(id: ID!): Post
   publish(id: ID!): Post
+
+
+  # Users can only update their own passwords
+  # if `userId` is set, the user trying to update the password needs to be an admin
+  updatePassword(oldPassword: String, newPassword: String!, userId: ID): User!
+
 }
 
 type AuthPayload {
@@ -24,6 +34,8 @@ type AuthPayload {
 # It does not expose the `createdAt`, `updatedAt` and `password` fields.
 type User {
   id: ID!
+  createdAt: DateTime!
+  role: Role!
   email: String!
   name: String!
 }
