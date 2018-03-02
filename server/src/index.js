@@ -9,7 +9,6 @@ const { user } = require('./users')
 
 
 
-
 async function drafts(parent, args, ctx, info) {
   const userId = getUserId(ctx)
   if (!userId) {
