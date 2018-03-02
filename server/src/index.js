@@ -29,18 +29,11 @@ async function feed(parent, args, ctx, info) {
 }
 async function createDraft(parent, { title, text }, ctx, info) {
 
-  // ici nico, ma relation avec author: {id: userId}}
-
   const userId = getUserId(ctx)
   await ctx.db.mutation.createPost(
     { data: {title, text, isPublished: false, author: {connect: {id: userId}}} },
     info,
   )
-
-  // return ctx.db.mutation.createPost(
-  //   { data: {title, text, isPublished: false} },
-  //   info,
-  // )
 
 }
 async function post(parent, { id }, ctx, info) {
