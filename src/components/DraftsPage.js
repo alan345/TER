@@ -11,8 +11,6 @@ class DraftsPage extends React.Component {
   }
 
   render() {
-
-
     if (this.props.draftsQuery.loading) {
       return (
         <div className="flex w-100 h-100 items-center justify-center pt7">
