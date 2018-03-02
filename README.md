@@ -21,6 +21,15 @@ More details in the tuto: https://github.com/graphcool/prisma/tree/master/exampl
 ![](https://user-images.githubusercontent.com/15246526/36926125-f1130e2e-1e2a-11e8-928c-4a2c1f1c136b.png)
 Files are uploaded thanks to an ExpressJs server.
 
+
+```sh
+yarn install
+```
+then
+```sh
+yarn start
+```
+
 ## Features
 
 - **Scalable GraphQL server:** The server uses [`graphql-yoga`](https://github.com/prisma/graphql-yoga) which is based on Apollo Server & Express

@@ -44,6 +44,7 @@ const FEED_QUERY = gql`
       text
       title
       isPublished
+      nameFile
     }
   }
 `

@@ -23,11 +23,11 @@ class DetailPage extends React.Component {
       <React.Fragment>
         <h1 className="f3 black-80 fw4 lh-solid">{post.title}</h1>
         <p className="black-80 fw3">{post.text}</p>
-        <p className="black-80 fw3">
-          <ImageTemplate
-            nameFile={post.nameFile}
-          />
-        </p>
+
+        <ImageTemplate
+          nameFile={post.nameFile}
+        />
+
         {action}
       </React.Fragment>
     )
