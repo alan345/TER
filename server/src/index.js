@@ -17,46 +17,49 @@ async function drafts(parent, args, ctx, info) {
   return ctx.db.query.posts({ where: { isPublished: false } }, info)
 }
 async function users(parent, args, ctx, info) {
-
   return ctx.db.query.users({}, info)
 }
-
+async function feed(parent, args, ctx, info) {
+  return ctx.db.query.posts({ where: { isPublished: true } }, info)
+}
+async function post(parent, args, ctx, info) {
+  return ctx.db.query.post({ where: { id: id } }, info)
+}
+async function createDraft(parent, { title, text }, ctx, info) {
+  return ctx.db.mutation.createPost(
+    { data: { title, text, isPublished: false } },
+    info,
+  )
+}
+async function deletePost(parent, { id }, ctx, info) {
+  return ctx.db.mutation.deletePost({where: { id } }, info)
+}
+async function publish(parent, { id }, ctx, info) {
+  return ctx.db.mutation.updatePost(
+    {
+      where: { id },
+      data: { isPublished: true },
+    },
+    info,
+  )
+}
 
 const resolvers = {
   Query: {
     me,
     user,
     users,
-    feed (parent, args, ctx, info) {
-      return ctx.db.query.posts({ where: { isPublished: true } }, info)
-    },
+    feed,
     drafts,
-    post (parent, { id }, ctx, info) {
-      return ctx.db.query.post({ where: { id: id } }, info)
-    },
+    post,
   },
   Mutation: {
     signup,
     login,
     updatePassword,
-    createDraft(parent, { title, text }, ctx, info) {
-      return ctx.db.mutation.createPost(
-        { data: { title, text, isPublished: false } },
-        info,
-      )
-    },
-    deletePost(parent, { id }, ctx, info) {
-      return ctx.db.mutation.deletePost({where: { id } }, info)
-    },
-    publish(parent, { id }, ctx, info) {
-      return ctx.db.mutation.updatePost(
-        {
-          where: { id },
-          data: { isPublished: true },
-        },
-        info,
-      )
-    },
+    createDraft,
+    deletePost,
+    publish,
   },
 }
 

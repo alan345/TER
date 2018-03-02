@@ -16,7 +16,6 @@ type Post implements Node {
 type User implements Node {
   id: ID!
   createdAt: DateTime!
-  role: Role!
   updatedAt: DateTime!
   email: String!
   password: String!
@@ -400,11 +399,6 @@ type Query {
   id: ID!): Node
 }
 
-enum Role {
-  ADMIN
-  CUSTOMER
-}
-
 type Subscription {
   post(where: PostSubscriptionWhereInput): PostSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
@@ -426,7 +420,6 @@ type UserConnection {
 }
 
 input UserCreateInput {
-  role: Role
   email: String!
   password: String!
   name: String!
@@ -456,8 +449,6 @@ enum UserOrderByInput {
   id_DESC
   createdAt_ASC
   createdAt_DESC
-  role_ASC
-  role_DESC
   updatedAt_ASC
   updatedAt_DESC
   email_ASC
@@ -471,7 +462,6 @@ enum UserOrderByInput {
 type UserPreviousValues {
   id: ID!
   createdAt: DateTime!
-  role: Role!
   updatedAt: DateTime!
   email: String!
   password: String!
@@ -514,7 +504,6 @@ input UserSubscriptionWhereInput {
 }
 
 input UserUpdateInput {
-  role: Role
   email: String
   password: String
   name: String
@@ -618,19 +607,6 @@ input UserWhereInput {
   All values greater than or equal the given value.
   """
   createdAt_gte: DateTime
-  role: Role
-  """
-  All values that are not equal to given value.
-  """
-  role_not: Role
-  """
-  All values that are contained in given list.
-  """
-  role_in: [Role!]
-  """
-  All values that are not contained in given list.
-  """
-  role_not_in: [Role!]
   updatedAt: DateTime
   """
   All values that are not equal to given value.
