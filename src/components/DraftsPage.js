@@ -12,6 +12,11 @@ class DraftsPage extends React.Component {
 
   render() {
 
+    if (this.props.draftsQuery.error) {
+      return (
+        <div>Not authentificated</div>
+      )
+    }
 
     if (this.props.draftsQuery.loading) {
       return (
@@ -55,7 +60,6 @@ const DRAFTS_QUERY = gql`
 export default graphql(DRAFTS_QUERY, {
   name: 'draftsQuery', // name of the injected prop: this.props.feedQuery...
   options: {
-    errorPolicy: 'ignore',
     fetchPolicy: 'network-only',
   },
 })(DraftsPage)
