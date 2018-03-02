@@ -13,10 +13,6 @@ async function drafts(parent, args, ctx, info) {
 
   const id = getUserId(ctx)
 
-  if (!id) {
-    return []
-  }
-
   const where = {
     isPublished: false,
     author: {
