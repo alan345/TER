@@ -10,11 +10,16 @@ const { user } = require('./users')
 
 
 async function drafts(parent, args, ctx, info) {
-  const userId = getUserId(ctx)
-  if (!userId) {
-    throw new Error('You must be authenticated to view the posts.')
+  const id = getUserId(ctx)
+
+  const where = {
+    isPublished: false,
+    author: {
+      id
+    }
   }
-  return ctx.db.query.posts({ where: { isPublished: false } }, info)
+
+  return ctx.db.query.posts({ where }, info)
 }
 async function users(parent, args, ctx, info) {
   return ctx.db.query.users({}, info)
@@ -22,17 +27,44 @@ async function users(parent, args, ctx, info) {
 async function feed(parent, args, ctx, info) {
   return ctx.db.query.posts({ where: { isPublished: true } }, info)
 }
-async function post(parent, args, ctx, info) {
-  return ctx.db.query.post({ where: { id: id } }, info)
-}
-async function createDraft(parent, { title, text }, ctx, info) {
-  return ctx.db.mutation.createPost(
-    { data: { title, text, isPublished: false } },
-    info,
+async function post(parent, { id }, ctx, info) {
+  const userId = getUserId(ctx)
+  const requestingUserIsAuthor = await ctx.db.exists.Post({
+    id,
+    author: {
+      id: userId,
+    },
+  })
+  const requestingUserIsAdmin = await ctx.db.exists.User({
+    id: userId,
+    role: 'ADMIN',
+  })
+
+  if (requestingUserIsAdmin || requestingUserIsAuthor) {
+    return ctx.db.query.post({ where: { id } }, info)
+  }
+  throw new Error(
+    'Invalid permissions, you must be an admin or the author of this post to retrieve it.',
   )
+
 }
 async function deletePost(parent, { id }, ctx, info) {
-  return ctx.db.mutation.deletePost({where: { id } }, info)
+  const userId = getUserId(ctx)
+  const postExists = await ctx.db.exists.Post({
+    id,
+    author: { id: userId },
+  })
+
+  const requestingUserIsAdmin = await ctx.db.exists.User({
+    id: userId,
+    role: 'ADMIN',
+  })
+
+  if (!postExists && !requestingUserIsAdmin) {
+    throw new Error(`Post not found or you don't have access rights to delete it.`)
+  }
+
+  return ctx.db.mutation.deletePost({ where: { id } })
 }
 async function publish(parent, { id }, ctx, info) {
   return ctx.db.mutation.updatePost(

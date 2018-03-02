@@ -6,18 +6,19 @@ enum Role {
 
 type Post {
   id: ID! @unique
-  isPublished: Boolean!
+  isPublished: Boolean! @default(value: "false")
   title: String!
   text: String!
-  owner: User
+  owner: User!
 }
 
 type User {
   id: ID! @unique
-  createdAt: DateTime!
-  role: Role! @default(value: "CUSTOMER")
-  updatedAt: DateTime!
   email: String! @unique
+  createdAt: DateTime!
+  updatedAt: DateTime!
   password: String!
   name: String!
+  posts: [Post!]!
+  role: Role! @default(value: "CUSTOMER")
 }
