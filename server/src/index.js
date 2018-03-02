@@ -21,21 +21,23 @@ async function drafts(parent, args, ctx, info) {
 
   return ctx.db.query.posts({ where }, info)
 }
+
 async function users(parent, args, ctx, info) {
   return ctx.db.query.users({}, info)
 }
+
 async function feed(parent, args, ctx, info) {
   return ctx.db.query.posts({ where: { isPublished: true } }, info)
 }
-async function createDraft(parent, { title, text }, ctx, info) {
 
+async function createDraft(parent, { title, text }, ctx, info) {
   const userId = getUserId(ctx)
   await ctx.db.mutation.createPost(
     { data: {title, text, isPublished: false, author: {connect: {id: userId}}} },
     info,
   )
-
 }
+
 async function post(parent, { id }, ctx, info) {
   const userId = getUserId(ctx)
   const requestingUserIsAuthor = await ctx.db.exists.Post({
