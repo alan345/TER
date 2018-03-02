@@ -12,6 +12,11 @@ type Post {
   author: User
 }
 
+type Car {
+  id: ID! @unique
+  name: String
+}
+
 type User {
   id: ID! @unique
   email: String! @unique

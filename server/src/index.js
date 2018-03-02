@@ -6,7 +6,7 @@ const { importSchema } = require('graphql-import')
 // const { Prisma } = require('prisma-binding')
 const { me, signup, login, updatePassword, AuthPayload } = require('./auth')
 const { user } = require('./users')
-
+const { request } = require('graphql-request')
 
 
 async function drafts(parent, args, ctx, info) {
@@ -121,4 +121,26 @@ const server = new GraphQLServer({
   }),
 })
 
-server.start(() => console.log('Server is running on http://localhost:4000'))
+server.start(() => {
+
+  console.log('Server is running on http://localhost:4000')
+
+
+/* -----  Exemple de query sur node  -------------*/
+
+/*
+
+let query = `
+    mutation {
+      signup (email: "sdfsdfdsds@sdfsd", password: "nico", name: "dfd") {
+        user{
+          id
+        }
+      }
+    }`
+
+  request('http://localhost:4000', query).then(data => console.log('example query on the server', data))
+
+*/
+
+})
