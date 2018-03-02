@@ -4,6 +4,7 @@ type Query {
   me: User
   feed: [Post!]!
   drafts: [Post!]!
+  users: [User!]!
   post(id: ID!): Post
 
 
@@ -34,8 +35,7 @@ type AuthPayload {
 # It does not expose the `createdAt`, `updatedAt` and `password` fields.
 type User {
   id: ID!
-  createdAt: DateTime!
-  role: Role!
+  role: Role
   email: String!
   name: String!
 }

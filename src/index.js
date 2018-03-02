@@ -16,6 +16,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 
 import FeedPage from './components/FeedPage'
 import DraftsPage from './components/DraftsPage'
+import UsersPage from './components/UsersPage'
 import CreatePage from './components/CreatePage'
 import DetailPage from './components/DetailPage'
 import Login from './components/Login'
@@ -80,6 +81,15 @@ ReactDOM.render(
           >
             Drafts
           </NavLink>
+          <NavLink
+            className="link dim f6 f5-ns dib mr3 black"
+            activeClassName="gray"
+            exact={true}
+            to="/users"
+            title="Users"
+          >
+            Users
+          </NavLink>
           <Link
             to="/create"
             className="f6 link dim br1 ba ph3 pv2 fr mb2 dib black"
@@ -91,6 +101,7 @@ ReactDOM.render(
           <Switch>
             <Route exact path="/" component={FeedPage} />
             <Route path="/drafts" component={DraftsPage} />
+            <Route path="/users" component={UsersPage} />
             <Route path="/create" component={CreatePage} />
             <Route path="/post/:id" component={DetailPage} />
             <Route exact path="/login" component={Login} />
