@@ -15,7 +15,7 @@ type Post {
 type User {
   id: ID! @unique
   createdAt: DateTime!
-  role: Role!
+  role: Role! @default(value: "CUSTOMER")
   updatedAt: DateTime!
   email: String! @unique
   password: String!
