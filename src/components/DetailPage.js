@@ -2,6 +2,8 @@ import React from 'react'
 import { graphql, compose } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
+import ImageTemplate from '../components/ImageTemplate'
+
 
 class DetailPage extends React.Component {
   render() {
@@ -21,6 +23,11 @@ class DetailPage extends React.Component {
       <React.Fragment>
         <h1 className="f3 black-80 fw4 lh-solid">{post.title}</h1>
         <p className="black-80 fw3">{post.text}</p>
+        <p className="black-80 fw3">
+          <ImageTemplate
+            nameFile={post.nameFile}
+          />
+        </p>
         {action}
       </React.Fragment>
     )
@@ -77,6 +84,7 @@ const POST_QUERY = gql`
       title
       text
       isPublished
+      nameFile
     }
   }
 `
