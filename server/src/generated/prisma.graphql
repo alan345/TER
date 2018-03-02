@@ -16,7 +16,7 @@ type Post implements Node {
 type User implements Node {
   id: ID!
   createdAt: DateTime!
-  role: Role
+  role: Role!
   updatedAt: DateTime!
   email: String!
   password: String!
@@ -471,7 +471,7 @@ enum UserOrderByInput {
 type UserPreviousValues {
   id: ID!
   createdAt: DateTime!
-  role: Role
+  role: Role!
   updatedAt: DateTime!
   email: String!
   password: String!
