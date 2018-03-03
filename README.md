@@ -12,7 +12,7 @@
 
 ## Getting started
 
-in 3 different consoles:
+In 3 different terminals:
 ```sh
 # Front: react
 cd react

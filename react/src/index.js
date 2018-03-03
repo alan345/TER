@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom'
 import { AUTH_TOKEN } from './constants/constants'
 import { ApolloLink } from 'apollo-client-preset'
 import {
-  Link,
   BrowserRouter as Router,
   Route,
   Switch,
@@ -54,7 +53,7 @@ ReactDOM.render(
     <Router>
       <React.Fragment>
       <Header />
-        
+
         <div className="fl w-100 pl4 pr4">
           <Switch>
             <Route exact path="/" component={FeedPage} />
