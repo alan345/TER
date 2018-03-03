@@ -8,41 +8,9 @@
 <div align="center"><strong>🚀 Bootstrap your fullstack GraphQL app within seconds</strong></div>
 <div align="center">Basic starter kit for a fullstack GraphQL app with React and Node.js - based on best practices from the GraphQL community.</div>
 
-## login
-![](https://user-images.githubusercontent.com/15246526/36925970-4315cf46-1e2a-11e8-8548-10f9b65d6387.png)
-![](https://user-images.githubusercontent.com/15246526/36926055-a122e268-1e2a-11e8-8f68-b338d0d84dff.png)
-More details in the tuto: https://github.com/graphcool/prisma/tree/master/examples/auth
-
-
-
-
-## Upload File
-![](https://user-images.githubusercontent.com/15246526/36926072-b97b3964-1e2a-11e8-8bee-41ab6769a19f.png)
-![](https://user-images.githubusercontent.com/15246526/36926125-f1130e2e-1e2a-11e8-928c-4a2c1f1c136b.png)
-Files are uploaded thanks to an ExpressJs server.
-
-
 
 
 ## Getting started
-
-```sh
-# 1. Bootstrap GraphQL server in directory `my-app`, based on `react-fullstack-basic` boilerplate
-graphql create my-app --boilerplate react-fullstack-basic
-
-# 2. When prompted, deploy the Prisma service to a _public cluster_
-
-# 3. Navigate into the `server` directory of the new project
-cd my-app/server
-
-# 4. Start the server
-yarn dev # runs server on http://localhost:4000, and opens GraphQL PLayground
-
-# 5. Open a new tab in the terminal and navigate back into my-app;
-# then run the app
-cd ..
-yarn start
-```
 
 in 3 different consoles:
 ```sh
@@ -65,6 +33,24 @@ cd express
 yarn install
 yarn start
 ```
+
+
+
+
+## login
+![](https://user-images.githubusercontent.com/15246526/36925970-4315cf46-1e2a-11e8-8548-10f9b65d6387.png)
+![](https://user-images.githubusercontent.com/15246526/36926055-a122e268-1e2a-11e8-8f68-b338d0d84dff.png)
+More details in the tuto: https://github.com/graphcool/prisma/tree/master/examples/auth
+
+
+
+
+## Upload File
+![](https://user-images.githubusercontent.com/15246526/36926072-b97b3964-1e2a-11e8-8bee-41ab6769a19f.png)
+![](https://user-images.githubusercontent.com/15246526/36926125-f1130e2e-1e2a-11e8-928c-4a2c1f1c136b.png)
+Files are uploaded thanks to an ExpressJs server.
+
+
 
 
 
