@@ -36,10 +36,7 @@ yarn install
 yarn start
 ```
 
-Go to url:
-```sh
-http://localhost:3000
-```
+Go to url: http://localhost:3000
 
 
 
