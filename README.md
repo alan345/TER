@@ -11,8 +11,8 @@
 
 
 ## Getting started
-
-In 3 different terminals:
+1/ Install docker and Prisma cli. (https://www.prismagraphql.com/docs/quickstart/backend/node/node-phe8vai1oo)
+2/ In 3 different terminals:
 
 
 ```sh
