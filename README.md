@@ -30,7 +30,7 @@ yarn start
 ```
 
 ```sh
-# Front: react (port 3000)
+# Front: ReactJs (port 3000)
 cd react
 yarn install
 yarn start
@@ -40,7 +40,7 @@ Go to url: http://localhost:3000
 
 
 
-## login
+## Authentification
 ![](https://user-images.githubusercontent.com/15246526/36925970-4315cf46-1e2a-11e8-8548-10f9b65d6387.png)
 ![](https://user-images.githubusercontent.com/15246526/36926055-a122e268-1e2a-11e8-8f68-b338d0d84dff.png)
 More details in the tuto: https://github.com/graphcool/prisma/tree/master/examples/auth

@@ -62,5 +62,6 @@ export default graphql(DRAFTS_QUERY, {
   name: 'draftsQuery', // name of the injected prop: this.props.feedQuery...
   options: {
     fetchPolicy: 'network-only',
+    errorPolicy: 'ignore',
   },
 })(DraftsPage)
