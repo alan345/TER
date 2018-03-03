@@ -13,12 +13,7 @@
 ## Getting started
 
 In 3 different terminals:
-```sh
-# Front: react (port 3000)
-cd react
-yarn install
-yarn start
-```
+
 
 ```sh
 # Prisma: Graphql and mySql (port 4000)
@@ -34,6 +29,17 @@ yarn install
 yarn start
 ```
 
+```sh
+# Front: react (port 3000)
+cd react
+yarn install
+yarn start
+```
+
+Go to url:
+```sh
+http://localhost:3000
+```
 
 
 
