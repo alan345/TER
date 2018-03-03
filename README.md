@@ -14,21 +14,21 @@
 
 In 3 different terminals:
 ```sh
-# Front: react
+# Front: react (port 3000)
 cd react
 yarn install
 yarn start
 ```
 
 ```sh
-# Prisma: Graphql and mySql
+# Prisma: Graphql and mySql (port 4000)
 cd server
 yarn install
 yarn start
 ```
 
 ```sh
-# Backend: ExpressJs
+# Backend: ExpressJs (port 8000)
 cd express
 yarn install
 yarn start
