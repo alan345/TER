@@ -1,9 +1,7 @@
 const { GraphQLServer } = require('graphql-yoga')
-const { Prisma } = require('prisma-binding')
+const { Prisma, forwardTo } = require('prisma-binding')
 const { getUserId } = require('./utils')
-// const { GraphQLServer } = require('graphql-yoga')
 const { importSchema } = require('graphql-import')
-// const { Prisma } = require('prisma-binding')
 const { me, signup, login, updatePassword, AuthPayload } = require('./auth')
 const { user } = require('./users')
 const { request } = require('graphql-request')
@@ -124,7 +122,6 @@ async function publish(parent, { id }, ctx, info) {
   )
 }
 
-
 const resolvers = {
   Query: {
     me,
@@ -133,6 +130,7 @@ const resolvers = {
     feed,
     drafts,
     post,
+    cars: forwardTo('db')
   },
   Mutation: {
     signup,
@@ -142,6 +140,9 @@ const resolvers = {
     deletePost,
     deleteUser,
     publish,
+    createCar: forwardTo('db'),
+    deleteCar: forwardTo('db'),
+    updateCar: forwardTo('db')
   },
 }
 
