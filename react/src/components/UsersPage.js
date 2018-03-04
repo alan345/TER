@@ -2,6 +2,10 @@ import React from 'react'
 // import Post from '../components/Post'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
+import {
+  NavLink,
+  Link,
+} from 'react-router-dom'
 
 class UsersPage extends React.Component {
   componentWillReceiveProps(nextProps) {
@@ -31,7 +35,11 @@ class UsersPage extends React.Component {
         </div>
         {this.props.usersQuery.users &&
           this.props.usersQuery.users.map((user, i) => (
-            <div key={i}>{user.name} {user.email} {user.role}</div>
+            <Link key={i}to={user.id} >
+              <div>
+                {user.name} {user.email} {user.role}
+              </div>
+            </Link>
           ))}
         {this.props.children}
       </React.Fragment>

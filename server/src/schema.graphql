@@ -5,6 +5,7 @@ type Query {
   feed: [Post!]!
   drafts: [Post!]!
   users: [User!]!
+  getUser(id: ID!): User
   post(id: ID!): Post
 
 
@@ -17,6 +18,7 @@ type Mutation {
   login(email: String!, password: String!): AuthPayload!
   createDraft(title: String!, text: String, nameFile: String): Post
   deletePost(id: ID!): Post
+  deleteUser(id: ID!): User
   publish(id: ID!): Post
 
 

@@ -59,6 +59,26 @@ async function post(parent, { id }, ctx, info) {
   )
 
 }
+
+async function getUser(parent, { id }, ctx, info) {
+  return ctx.db.query.user({ where: { id } }, info)
+  // const userId = getUserId(ctx)
+  // const requestingUserIsAuthor = await ctx.db.exists.User({
+  //   id,
+  // })
+  // const requestingUserIsAdmin = await ctx.db.exists.User({
+  //   id: userId,
+  //   role: 'ADMIN',
+  // })
+  //
+  // if (requestingUserIsAdmin || requestingUserIsAuthor) {
+  //   return ctx.db.query.user({ where: { id } }, info)
+  // }
+  // throw new Error(
+  //   'Invalid permissions, you must be an admin or the author of this post to retrieve it.',
+  // )
+
+}
 async function deletePost(parent, { id }, ctx, info) {
   const userId = getUserId(ctx)
   const postExists = await ctx.db.exists.Post({
@@ -77,6 +97,23 @@ async function deletePost(parent, { id }, ctx, info) {
 
   return ctx.db.mutation.deletePost({ where: { id } })
 }
+async function deleteUser(parent, { id }, ctx, info) {
+  const userId = getUserId(ctx)
+  const userExists = await ctx.db.exists.User({
+    id
+  })
+
+  const requestingUserIsAdmin = await ctx.db.exists.User({
+    id: userId,
+    role: 'ADMIN',
+  })
+
+  if (!userExists && !requestingUserIsAdmin) {
+    throw new Error(`Post not found or you don't have access rights to delete it.`)
+  }
+
+  return ctx.db.mutation.deleteUser({ where: { id } })
+}
 async function publish(parent, { id }, ctx, info) {
   return ctx.db.mutation.updatePost(
     {
@@ -91,7 +128,7 @@ async function publish(parent, { id }, ctx, info) {
 const resolvers = {
   Query: {
     me,
-    user,
+    getUser,
     users,
     feed,
     drafts,
@@ -103,6 +140,7 @@ const resolvers = {
     updatePassword,
     createDraft,
     deletePost,
+    deleteUser,
     publish,
   },
 }

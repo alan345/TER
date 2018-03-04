@@ -17,6 +17,7 @@ import DraftsPage from './components/DraftsPage'
 import UsersPage from './components/UsersPage'
 import CreatePage from './components/CreatePage'
 import DetailPage from './components/DetailPage'
+import UserPage from './components/UserPage'
 import Login from './components/Login'
 import 'tachyons'
 import './index.css'
@@ -59,6 +60,7 @@ ReactDOM.render(
             <Route exact path="/" component={FeedPage} />
             <Route path="/drafts" component={DraftsPage} />
             <Route path="/users" component={UsersPage} />
+            <Route path="/user/:id" component={UserPage} />
             <Route path="/create" component={CreatePage} />
             <Route path="/post/:id" component={DetailPage} />
             <Route exact path="/login" component={Login} />
