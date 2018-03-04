@@ -8,6 +8,7 @@ import { AUTH_TOKEN } from '../constants/constants'
 
 class UserPage extends React.Component {
   state = {
+    isEditMode: false,
     user:{
       name: '',
       email: '',
@@ -36,23 +37,35 @@ class UserPage extends React.Component {
     let action = this._renderAction(this.state.user)
     return (
       <React.Fragment>
-        <h1 className="f3 black-80 fw4 lh-solid">{this.state.user.email}</h1>
-        <p className="black-80 fw3">{this.state.user.name}</p>
-        <p className="black-80 fw3">{this.state.user.role}</p>
-        <select value={this.state.user.role}
-          onChange={e => this.setState({ user:{ ...this.state.user, role: e.target.value} })}
-          >
-          <option value="CUSTOMER">CUSTOMER</option>
-          <option value="ADMIN">ADMIN</option>
-        </select>
-        <input
+        <h1 className="f3 black-80 fw4 lh-solid">
+        {this.state.user.name}{' '}
+        <i className="fa fa-edit" onClick={e => this.setState({ isEditMode:!this.state.isEditMode })}></i>
+        </h1>
+        {this.state.isEditMode && (
+          <input
           autoFocus
           className="w-100 pa2 mv2 br2 b--black-20 bw1"
           onChange={e => this.setState({ user:{ ...this.state.user, name: e.target.value} })}
           placeholder="name"
           type="text"
           value={this.state.user.name}
-        />
+          />
+        )}
+
+        <p className="black-80 fw3">Email: {this.state.user.email}</p>
+        <p className="black-80 fw3">Role: {this.state.user.role}</p>
+        {this.state.isEditMode && (
+          <select
+            className=""
+            value={this.state.user.role}
+            onChange={e => this.setState({ user:{ ...this.state.user, role: e.target.value} })}
+            >
+            <option value="CUSTOMER">CUSTOMER</option>
+            <option value="ADMIN">ADMIN</option>
+          </select>
+        )}
+        <br/>
+        <br/>
         {action}
         <br/>
         <br/>
