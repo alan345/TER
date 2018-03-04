@@ -93,8 +93,8 @@ class UserPage extends React.Component {
 }
 
 const UPDATE_USER_MUTATION = gql`
-  mutation UpdateUserMutation($id: Id!, $name: String!, $email: String!) {
-    createDraft(id: $id, name: $name, email: $email) {
+  mutation UpdateUserMutation($id: ID!, $name: String!, $email: String!) {
+    updateUser(id: $id, name: $name, email: $email) {
       id
       name
       email

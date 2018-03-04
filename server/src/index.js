@@ -35,6 +35,14 @@ async function createDraft(parent, { title, text, nameFile }, ctx, info) {
     info,
   )
 }
+async function updateUser(parent, { id, name, email }, ctx, info) {
+  // console.log( id, name, email)
+  await ctx.db.mutation.updateUser({
+    where: { id: id },
+    data: { name: name, email: email },
+  })
+
+}
 
 async function post(parent, { id }, ctx, info) {
   const userId = getUserId(ctx)
@@ -139,6 +147,7 @@ const resolvers = {
     createDraft,
     deletePost,
     deleteUser,
+    updateUser,
     publish,
     createCar: forwardTo('db'),
     deleteCar: forwardTo('db'),
