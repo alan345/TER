@@ -31,11 +31,6 @@ class UserPage extends React.Component {
       )
     }
 
-    // const { singleUser } = this.props.userQuery
-    // this.setState({ user: singleUser })
-
-
-
     let action = this._renderAction(this.state.user)
     return (
       <React.Fragment>

@@ -20,7 +20,7 @@ class Header extends Component {
               to="/"
               title="Feed"
             >
-              HOME
+              <i className="fa fa-home fa-2x"></i>
             </Link>
           </div>
           <div className="flex flex-fixed">
