@@ -32,7 +32,9 @@ class Main extends React.Component {
     return (
       <form onSubmit={this.handleUploadImage}>
         <div>
-          <input className="f6 link dim br1 ba ph3 pv2 fr mb2 dib black" ref={(ref) => { this.uploadInput = ref; }} type="file" />
+          <input
+            className="f6 link dim br1 ba ph3 pv2 fr mb2 dib black"
+            ref={(ref) => { this.uploadInput = ref; }} type="file" />
         </div>
         <br />
         <div>
