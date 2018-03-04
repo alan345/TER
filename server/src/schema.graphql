@@ -19,7 +19,7 @@ type Mutation {
   signup(email: String!, password: String!, name: String!): AuthPayload!
   login(email: String!, password: String!): AuthPayload!
   createDraft(title: String!, text: String, nameFile: String): Post
-  updateUser(id: ID!, name: String, email: String): User
+  updateUser(id: ID!, name: String, email: String, role: String): User
   deletePost(id: ID!): Post
   deleteUser(id: ID!): User
   publish(id: ID!): Post

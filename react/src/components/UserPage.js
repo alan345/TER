@@ -10,7 +10,8 @@ class UserPage extends React.Component {
   state = {
     user:{
       name: '',
-      email: ''
+      email: '',
+      role: '',
     },
   }
 
@@ -20,6 +21,7 @@ class UserPage extends React.Component {
           this.setState({ user: singleUser })
       }
   }
+
 
   render() {
     const authToken = localStorage.getItem(AUTH_TOKEN)
@@ -36,7 +38,13 @@ class UserPage extends React.Component {
       <React.Fragment>
         <h1 className="f3 black-80 fw4 lh-solid">{this.state.user.email}</h1>
         <p className="black-80 fw3">{this.state.user.name}</p>
-
+        <p className="black-80 fw3">{this.state.user.role}</p>
+        <select value={this.state.user.role}
+          onChange={e => this.setState({ user:{ ...this.state.user, role: e.target.value} })}
+          >
+          <option value="CUSTOMER">CUSTOMER</option>
+          <option value="ADMIN">ADMIN</option>
+        </select>
         <input
           autoFocus
           className="w-100 pa2 mv2 br2 b--black-20 bw1"
@@ -86,9 +94,9 @@ class UserPage extends React.Component {
   }
 
   updateUser = async id => {
-    const { name, email } = this.state.user
+    const { name, email, role } = this.state.user
     await this.props.updateUser({
-      variables: { id, name, email },
+      variables: { id, name, email, role },
     })
     // this.props.history.replace('/users')
   }
@@ -104,11 +112,12 @@ class UserPage extends React.Component {
 }
 
 const UPDATE_USER_MUTATION = gql`
-  mutation UpdateUserMutation($id: ID!, $name: String!, $email: String!) {
-    updateUser(id: $id, name: $name, email: $email) {
+  mutation UpdateUserMutation($id: ID!, $name: String!, $email: String!, $role: String!) {
+    updateUser(id: $id, name: $name, email: $email, role: $role) {
       id
       name
       email
+      role
     }
   }
 `
@@ -118,6 +127,7 @@ const POST_QUERY = gql`
     singleUser(id: $id) {
       id
       email
+      role
       name
       posts {
         id
