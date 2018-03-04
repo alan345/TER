@@ -1,4 +1,4 @@
-# import Post from "./generated/prisma.graphql"
+# import Post, Car from "./generated/prisma.graphql"
 
 type Query {
   me: User
@@ -6,6 +6,8 @@ type Query {
   drafts: [Post!]!
   users: [User!]!
   post(id: ID!): Post
+  car(id: ID!): Car
+  cars: [Car!]!
 
 
   # Only admins can retrieve info about given users
@@ -19,6 +21,9 @@ type Mutation {
   deletePost(id: ID!): Post
   publish(id: ID!): Post
 
+  createCar(data: CarCreateInput!): Car!
+  deleteCar(where: CarWhereUniqueInput!): Car
+  updateCar(data: CarUpdateInput!, where: CarWhereUniqueInput!): Car
 
   # Users can only update their own passwords
   # if `userId` is set, the user trying to update the password needs to be an admin
