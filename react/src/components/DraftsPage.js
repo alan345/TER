@@ -29,7 +29,7 @@ class DraftsPage extends React.Component {
     return (
       <React.Fragment>
         <div className="flex justify-between items-center">
-          <h1>Drafts ALAN</h1>
+          <h1>Drafts</h1>
         </div>
         {this.props.draftsQuery.drafts &&
           this.props.draftsQuery.drafts.map(draft => (
