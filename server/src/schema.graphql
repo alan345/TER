@@ -5,7 +5,7 @@ type Query {
   feed: [Post!]!
   drafts: [Post!]!
   users: [User!]!
-  getUser(id: ID!): User
+  singleUser(id: ID!): User
   post(id: ID!): Post
   car(id: ID!): Car
   cars: [Car!]!

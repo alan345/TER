@@ -15,17 +15,17 @@ class UserPage extends React.Component {
       )
     }
 
-    const { getUser } = this.props.userQuery
+    const { singleUser } = this.props.userQuery
     console.log(this.props.userQuery)
-    console.log(getUser)
+    console.log(singleUser)
     // console.log(this.props.match.params.id)
 
     // let action = this._renderAction(user)
     return (
       <React.Fragment>
       alan
-        <h1 className="f3 black-80 fw4 lh-solid">{getUser.email}</h1>
-        <p className="black-80 fw3">alan{getUser.name}</p>
+        <h1 className="f3 black-80 fw4 lh-solid">{singleUser.email}</h1>
+        <p className="black-80 fw3">alan{singleUser.name}</p>
 
 
       </React.Fragment>
@@ -73,7 +73,7 @@ class UserPage extends React.Component {
 
 const POST_QUERY = gql`
   query UserQuery($id: ID!) {
-    getUser(id: $id) {
+    singleUser(id: $id) {
       id
       email
       name

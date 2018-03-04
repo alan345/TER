@@ -35,7 +35,7 @@ class UsersPage extends React.Component {
         </div>
         {this.props.usersQuery.users &&
           this.props.usersQuery.users.map((user, i) => (
-            <Link key={i}to={user.id} >
+            <Link key={i} to={'user/' + user.id} >
               <div>
                 {user.name} {user.email} {user.role}
               </div>

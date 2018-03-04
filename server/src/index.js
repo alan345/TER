@@ -58,7 +58,7 @@ async function post(parent, { id }, ctx, info) {
 
 }
 
-async function getUser(parent, { id }, ctx, info) {
+async function singleUser(parent, { id }, ctx, info) {
   return ctx.db.query.user({ where: { id } }, info)
   // const userId = getUserId(ctx)
   // const requestingUserIsAuthor = await ctx.db.exists.User({
@@ -125,7 +125,7 @@ async function publish(parent, { id }, ctx, info) {
 const resolvers = {
   Query: {
     me,
-    getUser,
+    singleUser,
     users,
     feed,
     drafts,
