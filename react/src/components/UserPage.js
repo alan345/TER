@@ -3,7 +3,7 @@ import { graphql, compose } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
 // import ImageTemplate from '../components/ImageTemplate'
-
+import Post from '../components/Post'
 
 class UserPage extends React.Component {
   state = {
@@ -48,9 +48,17 @@ class UserPage extends React.Component {
           type="text"
           value={this.state.user.name}
         />
-
-
         {action}
+        <h1>Posts from {this.state.user.name}</h1>
+        {this.state.user.posts &&
+          this.state.user.posts.map(post => (
+            <Post
+              key={post.id}
+              post={post}
+            />
+          ))}
+
+
       </React.Fragment>
     )
   }
@@ -108,6 +116,12 @@ const POST_QUERY = gql`
       id
       email
       name
+      posts {
+        id
+        title
+        text
+        nameFile
+      }
     }
   }
 `
