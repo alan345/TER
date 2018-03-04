@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
 // import ImageTemplate from '../components/ImageTemplate'
 import Post from '../components/Post'
+import { AUTH_TOKEN } from '../constants/constants'
 
 class UserPage extends React.Component {
   state = {
@@ -21,6 +22,7 @@ class UserPage extends React.Component {
   }
 
   render() {
+    const authToken = localStorage.getItem(AUTH_TOKEN)
     if (this.props.userQuery.loading) {
       return (
         <div className="flex w-100 h-100 items-center justify-center pt7">
@@ -49,14 +51,18 @@ class UserPage extends React.Component {
           value={this.state.user.name}
         />
         {action}
-        <h1>Posts from {this.state.user.name}</h1>
-        {this.state.user.posts &&
-          this.state.user.posts.map(post => (
-            <Post
-              key={post.id}
-              post={post}
-            />
-          ))}
+        {authToken && (
+          <div>
+            <h1>Posts from {this.state.user.name}</h1>
+            {this.state.user.posts &&
+              this.state.user.posts.map(post => (
+                <Post
+                  key={post.id}
+                  post={post}
+                />
+              ))}
+          </div>
+        )}
 
 
       </React.Fragment>
