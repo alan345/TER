@@ -15,20 +15,17 @@ class UserPage extends React.Component {
       )
     }
 
-    const { user } = this.props.userQuery
-    console.log(user)
-    console.log(this.props.match.params.id)
+    const { getUser } = this.props.userQuery
+    console.log(this.props.userQuery)
+    console.log(getUser)
+    // console.log(this.props.match.params.id)
 
     // let action = this._renderAction(user)
     return (
       <React.Fragment>
-        <h1 className="f3 black-80 fw4 lh-solid">{user.email}</h1>
-        <p className="black-80 fw3">alan{user.name}</p>
-
-
-        <ImageTemplate
-          nameFile={user.nameFile}
-        />
+      alan
+        <h1 className="f3 black-80 fw4 lh-solid">{getUser.email}</h1>
+        <p className="black-80 fw3">alan{getUser.name}</p>
 
 
       </React.Fragment>
@@ -76,12 +73,10 @@ class UserPage extends React.Component {
 
 const POST_QUERY = gql`
   query UserQuery($id: ID!) {
-    user(id: $id) {
+    getUser(id: $id) {
       id
-      title
-      text
-      isPublished
-      nameFile
+      email
+      name
     }
   }
 `

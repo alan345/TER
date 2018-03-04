@@ -16,7 +16,7 @@ class DetailPage extends React.Component {
     }
 
     const { post } = this.props.postQuery
-
+    console.log(post)
     let action = this._renderAction(post)
 
     return (
