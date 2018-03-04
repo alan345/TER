@@ -20,7 +20,6 @@ class UserPage extends React.Component {
     console.log(this.props.match.params.id)
 
     // let action = this._renderAction(user)
-
     return (
       <React.Fragment>
         <h1 className="f3 black-80 fw4 lh-solid">{user.email}</h1>
