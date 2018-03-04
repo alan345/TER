@@ -60,7 +60,7 @@ class UserPage extends React.Component {
         <React.Fragment>
           <a
             className="f6 dim br1 ba ph3 pv2 mb2 dib black pointer"
-            onClick={() => this.saveUser(id)}
+            onClick={() => this.updateUser(id)}
           >
             Publish
           </a>{' '}
@@ -74,10 +74,10 @@ class UserPage extends React.Component {
     )
   }
 
-  saveUser = async id => {
+  updateUser = async id => {
     const { name, email } = this.state.user
-    await this.props.saveUser({
-      variables: { id, name },
+    await this.props.updateUser({
+      variables: { id, name, email },
     })
     // this.props.history.replace('/users')
   }
@@ -90,8 +90,17 @@ class UserPage extends React.Component {
     })
     this.props.history.replace('/users')
   }
-
 }
+
+const UPDATE_USER_MUTATION = gql`
+  mutation UpdateUserMutation($id: Id!, $name: String!, $email: String!) {
+    createDraft(id: $id, name: $name, email: $email) {
+      id
+      name
+      email
+    }
+  }
+`
 
 const POST_QUERY = gql`
   query UserQuery($id: ID!) {
@@ -121,6 +130,9 @@ export default compose(
         id: props.match.params.id,
       },
     }),
+  }),
+  graphql(UPDATE_USER_MUTATION, {
+    name: 'updateUser',
   }),
   graphql(DELETE_MUTATION, {
     name: 'deleteUser',
