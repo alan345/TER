@@ -62,7 +62,7 @@ class UserPage extends React.Component {
             className="f6 dim br1 ba ph3 pv2 mb2 dib black pointer"
             onClick={() => this.updateUser(id)}
           >
-            Publish
+            Save
           </a>{' '}
           <a
             className="f6 dim br1 ba ph3 pv2 mb2 dib black pointer"
