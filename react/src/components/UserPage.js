@@ -51,8 +51,10 @@ class UserPage extends React.Component {
           value={this.state.user.name}
         />
         {action}
+        <br/>
+        <br/>
         {authToken && (
-          <div>
+          <div className="f6 ba ph3 pv2 mb2 black">
             <h1>Posts from {this.state.user.name}</h1>
             {this.state.user.posts &&
               this.state.user.posts.map(post => (
