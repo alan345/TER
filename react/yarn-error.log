@@ -28,6 +28,7 @@ npm manifest:
       "apollo-client-preset": "^1.0.8",
       "apollo-link": "1.2.1",
       "apollo-link-http": "1.5.2",
+      "font-awesome": "^4.7.0",
       "graphql": "^0.13.1",
       "graphql-tag": "^2.8.0",
       "react": "16.2.0",
@@ -7160,7 +7161,7 @@ Lockfile:
 
 Trace: 
   Error: Command failed.
-  Exit code: 1
+  Exit code: 127
   Command: sh
   Arguments: -c react-scripts start
   Directory: /Users/alan/app/prisma/react

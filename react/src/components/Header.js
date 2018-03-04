@@ -13,6 +13,7 @@ class Header extends Component {
       <div>
         <div className="flex pa1 justify-between nowrap orange">
           <div className="flex flex-fixed black">
+            <i className="fa fa-arrow-left" onClick={this.props.history.goBack}></i>
             <Link
               to="/"
               title="Feed"

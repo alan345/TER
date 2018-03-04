@@ -22,8 +22,8 @@ import Login from './components/Login'
 import 'tachyons'
 import './index.css'
 import Header from './components/Header'
+import 'font-awesome/css/font-awesome.min.css';
 const httpLink = new HttpLink({ uri: 'http://localhost:4000' })
-
 
 // const httpLink = new HttpLink({ uri: 'http://82.223.14.38:4000' })
 // const httpLink = new HttpLink({ uri: 'http://159.65.108.215:4000/' })

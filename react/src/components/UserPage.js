@@ -16,9 +16,6 @@ class UserPage extends React.Component {
     }
 
     const { singleUser } = this.props.userQuery
-    console.log(this.props.userQuery)
-    console.log(singleUser)
-    // console.log(this.props.match.params.id)
 
     // let action = this._renderAction(user)
     return (
