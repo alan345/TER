@@ -4,5 +4,6 @@
 # dependencies
 node_modules
 
-# iamges
-public/images
+# images
+public/images/*
+!public/images/index.html 
