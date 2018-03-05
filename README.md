@@ -1,4 +1,4 @@
-<div align="center"><strong>N</strong>ode <strong>A</strong>pollo <strong>P</strong>risma  <strong>E</strong>xpress  <strong>R</strong>eact <strong>G</strong>raphQL
+<div align="center"><strong>N</strong>ode <strong>A</strong>pollo <strong>P</strong>risma <strong>E</strong>xpress <strong>R</strong>eact <strong>G</strong>raphQL
 </div>
   
 <h1 align="center"><strong>Boilerplate for a Fullstack GraphQL App with React</strong></h1>
