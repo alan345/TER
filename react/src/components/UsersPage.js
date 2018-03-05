@@ -34,11 +34,16 @@ class UsersPage extends React.Component {
         </div>
         {this.props.usersQuery.users &&
           this.props.usersQuery.users.map((user, i) => (
-            <Link key={i} to={'user/' + user.id} >
-              <div>
-                {user.name} {user.email} {user.role}
-              </div>
+            <div key={i}>
+            <Link to={'user/' + user.id} >
+              <h3>
+                {user.name}
+              </h3>
             </Link>
+              Email: {user.email}
+              <br/>
+              Role: {user.role}
+            </div>
           ))}
         {this.props.children}
       </React.Fragment>

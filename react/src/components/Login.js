@@ -38,16 +38,16 @@ class Login extends Component {
           />
         </div>
         <div className="flex mt3">
-          <div className="pointer mr2 button" onClick={() => this._confirm()}>
+          <div className="pointer f6 link dim br1 ba ph3 pv2 fr mb2 dib black" onClick={() => this._confirm()}>
             {this.state.login ? 'login' : 'create account'}
           </div>
           <div
-            className="pointer button"
+            className="pointer f6 link dim br1 ba ph3 pv2 fr mb2 dib black"
             onClick={() => this.setState({ login: !this.state.login })}
           >
             {this.state.login
-              ? 'need to create an account?'
-              : 'already have an account?'}
+              ? 'Sign Up'
+              : 'Log in'}
           </div>
         </div>
       </div>

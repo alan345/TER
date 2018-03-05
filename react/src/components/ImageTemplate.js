@@ -5,7 +5,7 @@ export default class ImageTemplate extends React.Component {
 
 
     return (
-      <div>
+      <div className="crop">
       {this.props.nameFile ? (
         <img src={"http://localhost:8000/" + this.props.nameFile} alt="img" />
       ) : (

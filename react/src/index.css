@@ -64,3 +64,19 @@ html {
   width: 20px;
   height: 20px;
 }
+
+
+.crop{
+  height: 150px;
+  width: 200px;
+  overflow: hidden;
+}
+.crop img{
+  width: 100%;
+  height: auto;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+  -ms-transform: translateY(-50%); /* IE 9 */
+  transform: translateY(-50%); /* IE 10, Fx 16+, Op 12.1+ */
+}

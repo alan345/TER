@@ -3,7 +3,7 @@ import { graphql, compose } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
 import ImageTemplate from '../components/ImageTemplate'
-
+import { Link } from 'react-router-dom'
 
 class DetailPage extends React.Component {
   render() {
@@ -16,12 +16,15 @@ class DetailPage extends React.Component {
     }
 
     const { post } = this.props.postQuery
-    console.log(post)
     let action = this._renderAction(post)
 
     return (
       <React.Fragment>
-        <h1 className="f3 black-80 fw4 lh-solid">{post.title}</h1>
+        <h1 className="f3 black-80 fw4 lh-solid">
+          {post.title} by <Link to={'/user/' + post.author.id} title="Feed">
+            {post.author.name}
+          </Link>
+        </h1>
         <p className="black-80 fw3">{post.text}</p>
 
         <ImageTemplate
@@ -85,6 +88,10 @@ const POST_QUERY = gql`
       text
       isPublished
       nameFile
+      author {
+        id
+        name
+      }
     }
   }
 `

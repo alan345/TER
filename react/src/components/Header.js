@@ -20,7 +20,7 @@ class Header extends Component {
               to="/"
               title="Feed"
             >
-              HOME
+              <i className="fa fa-home fa-2x"></i>
             </Link>
           </div>
           <div className="flex flex-fixed">
@@ -49,15 +49,7 @@ class Header extends Component {
           >
             Blog
           </Link>
-          <NavLink
-            className="link dim f6 f5-ns dib mr3 black"
-            activeClassName="gray"
-            exact={true}
-            to="/"
-            title="Feed"
-          >
-            Feed
-          </NavLink>
+          {authToken && (
           <NavLink
             className="link dim f6 f5-ns dib mr3 black"
             activeClassName="gray"
@@ -67,6 +59,7 @@ class Header extends Component {
           >
             Drafts
           </NavLink>
+        )}
           <NavLink
             className="link dim f6 f5-ns dib mr3 black"
             activeClassName="gray"
