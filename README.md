@@ -1,4 +1,4 @@
-<h3 align="center"><strong>N</strong>ode <strong>A</strong>pollo <strong>P</strong>risma  <strong>E</strong>xpress  <strong>R</strong>eact</h3>
+<div align="center"><strong>N</strong>ode <strong>A</strong>pollo <strong>P</strong>risma  <strong>E</strong>xpress  <strong>R</strong>eact</div>
   
 <h1 align="center"><strong>Boilerplate for a Fullstack GraphQL App with React</strong></h1>
 <h3 align="center">Authentification with permissions & roles. Backend & Frontend</h3>
