@@ -2,13 +2,14 @@ import React from 'react'
 import Post from '../components/Post'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
-
+import DownloadCSV from './DownloadCSV'
 class DraftsPage extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (this.props.location.key !== nextProps.location.key) {
       this.props.draftsQuery.refetch()
     }
   }
+
 
   render() {
 
@@ -31,6 +32,7 @@ class DraftsPage extends React.Component {
         <div className="flex justify-between items-center">
           <h1>Drafts</h1>
         </div>
+        <DownloadCSV/>
         {this.props.draftsQuery.drafts &&
           this.props.draftsQuery.drafts.map(draft => (
             <Post

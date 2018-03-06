@@ -92,6 +92,8 @@ class UserPage extends React.Component {
   _renderAction = ({ id }) => {
       return (
         <React.Fragment>
+        {this.state.isEditMode && (
+        <div>
           <a
             className="f6 dim br1 ba ph3 pv2 mb2 dib black pointer"
             onClick={() => this.updateUser(id)}
@@ -104,6 +106,8 @@ class UserPage extends React.Component {
           >
             Delete
           </a>
+          </div>
+        )}
       </React.Fragment>
     )
   }
@@ -113,6 +117,7 @@ class UserPage extends React.Component {
     await this.props.updateUser({
       variables: { id, name, email, role },
     })
+    this.setState({isEditMode: false})
     // this.props.history.replace('/users')
   }
 
