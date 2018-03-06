@@ -3,7 +3,7 @@ import Post from '../components/Post'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 // import FileSaver from 'file-saver';
-// import axios from 'axios'
+import axios from 'axios'
 // var fileDownload = require('react-file-download');
 
 class FeedPage extends React.Component {
@@ -13,18 +13,32 @@ class FeedPage extends React.Component {
     }
   }
   downloadCSV() {
-    // fetch('http://localhost:8000', {
-    //   method: 'GET',
-    //   headers: {
-    //     Accept: 'application/json',
-    //     'Content-Type': 'image/jpeg',
-    //   },
-    //
-    // })
-    // .then((response) => {
-    //   console.log(response.body)
-    //   fileDownload(response.data, 'filename.jpg')}
-    // )
+    // this.props.history.push('http://localhost:8000/')
+     window.location = 'http://localhost:8000/'
+
+    // return ({fetch}) => ({
+    //     payload: {
+    //         promise: fetch('http://localhost:8000', {
+    //             credentials: 'same-origin',
+    //             method: 'get',
+    //             headers: {'Content-Type': 'application/json'},
+    //         }).then(function(response) {
+    //             // return response;
+    //             console.log(response.blob())
+    //         })
+    //     }
+    // });
+
+
+
+    fetch('http://localhost:8000', {
+      method: 'GET',
+
+    })
+    .then((response) => {
+      // console.log(response)
+      // fileDownload(response.data, 'filename.jpg')
+    })
 
   //   axios.get('http://localhost:8000', {
   //     responseType: 'blob', // important
@@ -33,7 +47,7 @@ class FeedPage extends React.Component {
   //        console.log(response)
   //        // res.type('image/jpg');
   //
-  //           fileDownload(response.data, 'report.jpg');
+  //           // fileDownload(response.data, 'report.jpg');
   //      });
 
 

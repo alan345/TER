@@ -53,7 +53,9 @@ class UserPage extends React.Component {
         )}
 
         <p className="black-80 fw3">Email: {this.state.user.email}</p>
-        <p className="black-80 fw3">Role: {this.state.user.role}</p>
+        {!this.state.isEditMode && (
+          <p className="black-80 fw3">Role: {this.state.user.role}</p>
+        )}
         {this.state.isEditMode && (
           <select
             className=""

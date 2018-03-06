@@ -9,6 +9,7 @@
     "body-parser": "~1.18.2",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.4",
+    "csv-express": "^1.2.2",
     "debug": "~2.6.9",
     "express": "~4.15.5",
     "express-fileupload": "^0.4.0",
