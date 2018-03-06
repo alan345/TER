@@ -16,7 +16,6 @@ export default class DownloadCSV extends React.Component {
     }
     axios.get('http://localhost:8000', config)
     .then((response) => {
-      console.log(response)
       fileDownload(response.data, new Date() + '_export.csv');
     });
   }
