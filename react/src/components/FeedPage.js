@@ -9,6 +9,19 @@ class FeedPage extends React.Component {
       this.props.feedQuery.refetch()
     }
   }
+  downloadCSV() {
+    fetch('http://localhost:8000', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        firstParam: 'yourValue',
+        secondParam: 'yourOtherValue',
+      }),
+    });
+  }
 
   render() {
     if (this.props.feedQuery.loading) {
@@ -22,6 +35,7 @@ class FeedPage extends React.Component {
     return (
       <React.Fragment>
         <h1>Feed</h1>
+        <button onClick={() => this.downloadCSV()}>downloadCSV</button>
         {this.props.feedQuery.feed &&
           this.props.feedQuery.feed.map(post => (
             <Post
