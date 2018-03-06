@@ -28,6 +28,7 @@ npm manifest:
       "debug": "~2.6.9",
       "express": "~4.15.5",
       "express-fileupload": "^0.4.0",
+      "graphql-request": "^1.5.1",
       "morgan": "~1.9.0",
       "pug": "2.0.0-beta11",
       "serve-favicon": "~2.4.5"
@@ -234,6 +235,13 @@ Lockfile:
       object-assign "^4"
       vary "^1"
   
+  cross-fetch@2.0.0:
+    version "2.0.0"
+    resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-2.0.0.tgz#a17475449561e0f325146cea636a8619efb9b382"
+    dependencies:
+      node-fetch "2.0.0"
+      whatwg-fetch "2.0.3"
+  
   crypt@~0.0.1:
     version "0.0.2"
     resolved "https://registry.yarnpkg.com/crypt/-/crypt-0.0.2.tgz#88d7ff7ec0dfb86f713dc87bbb42d044d3e6c41b"
@@ -373,6 +381,12 @@ Lockfile:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
   
+  graphql-request@^1.5.1:
+    version "1.5.1"
+    resolved "https://registry.yarnpkg.com/graphql-request/-/graphql-request-1.5.1.tgz#cccdf5cce6432ca062b90f7b63793c77c821ff9a"
+    dependencies:
+      cross-fetch "2.0.0"
+  
   has@^1.0.1:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/has/-/has-1.0.1.tgz#8461733f538b0837c9361e39a9ab9e9704dc2f28"
@@ -511,6 +525,10 @@ Lockfile:
   negotiator@0.6.1:
     version "0.6.1"
     resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
+  
+  node-fetch@2.0.0:
+    version "2.0.0"
+    resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.0.0.tgz#982bba43ecd4f2922a29cc186a6bbb0bb73fcba6"
   
   object-assign@^4, object-assign@^4.0.1, object-assign@^4.1.0:
     version "4.1.1"
@@ -816,6 +834,10 @@ Lockfile:
   void-elements@^2.0.1:
     version "2.0.1"
     resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
+  
+  whatwg-fetch@2.0.3:
+    version "2.0.3"
+    resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-2.0.3.tgz#9c84ec2dcf68187ff00bc64e1274b442176e1c84"
   
   window-size@0.1.0:
     version "0.1.0"

@@ -2,6 +2,9 @@ import React from 'react'
 import Post from '../components/Post'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
+// import FileSaver from 'file-saver';
+// import axios from 'axios'
+// var fileDownload = require('react-file-download');
 
 class FeedPage extends React.Component {
   componentWillReceiveProps(nextProps) {
@@ -10,17 +13,30 @@ class FeedPage extends React.Component {
     }
   }
   downloadCSV() {
-    fetch('http://localhost:8000', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        firstParam: 'yourValue',
-        secondParam: 'yourOtherValue',
-      }),
-    });
+    // fetch('http://localhost:8000', {
+    //   method: 'GET',
+    //   headers: {
+    //     Accept: 'application/json',
+    //     'Content-Type': 'image/jpeg',
+    //   },
+    //
+    // })
+    // .then((response) => {
+    //   console.log(response.body)
+    //   fileDownload(response.data, 'filename.jpg')}
+    // )
+
+  //   axios.get('http://localhost:8000', {
+  //     responseType: 'blob', // important
+  // })
+  //      .then((response) => {
+  //        console.log(response)
+  //        // res.type('image/jpg');
+  //
+  //           fileDownload(response.data, 'report.jpg');
+  //      });
+
+
   }
 
   render() {
