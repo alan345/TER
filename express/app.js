@@ -1,6 +1,6 @@
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
+// var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -9,6 +9,7 @@ const fileUpload = require('express-fileupload');
 const cors = require('cors');
 var index = require('./routes/index');
 var users = require('./routes/users');
+var upload = require('./routes/upload');
 
 
 var app = express();
@@ -31,20 +32,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/upload', upload);
 
-app.post('/upload', (req, res, next) => {
-  // console.log(req);
-  let imageFile = req.files.file;
 
-  imageFile.mv(`${__dirname}/public/images/${req.files.file.name}.jpg`, function(err) {
-    if (err) {
-      return res.status(500).send(err);
-    }
-
-    res.json({file: `public/images/${req.files.file.name}.jpg`});
-  });
-
-})
 
 
 // catch 404 and forward to error handler
