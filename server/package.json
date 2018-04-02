@@ -9,18 +9,18 @@
   "dependencies": {
     "bcryptjs": "2.4.3",
     "graphql-import": "0.4.1",
-    "graphql-request": "^1.5.1",
-    "graphql-yoga": "1.4.3",
-    "jsonwebtoken": "8.1.1",
-    "prisma-binding": "1.5.13"
+    "graphql-request": "1.5.1",
+    "graphql-yoga": "1.7.0",
+    "jsonwebtoken": "8.2.0",
+    "prisma-binding": "1.5.16"
   },
   "devDependencies": {
-    "graphql-cli": "2.15.7",
+    "graphql-cli": "2.15.8",
     "npm-run-all": "4.1.2",
-    "prisma": "1.0.8"
+    "prisma": "1.5.1"
   },
   "resolutions": {
-    "graphql": "0.13.1"
+    "graphql": "0.13.2"
   },
   "prettier": {
     "semi": false,
