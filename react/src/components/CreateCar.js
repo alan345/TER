@@ -11,7 +11,7 @@ class CreatePage extends React.Component {
   render() {
     return (
       <div className="pa4 flex justify-center bg-white">
-        <form onSubmit={this.handlePost}>
+        <form onSubmit={this.handleCar}>
           <h1>Create Car</h1>
           <input
             autoFocus
@@ -41,7 +41,7 @@ class CreatePage extends React.Component {
   }
 
 
-  handlePost = async e => {
+  handleCar = async e => {
     e.preventDefault()
     const { name } = this.state
     await this.props.createCarMutation({
