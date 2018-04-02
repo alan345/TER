@@ -2,7 +2,7 @@ import React from 'react'
 import Post from '../components/Post'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
-
+import { Link} from 'react-router-dom'
 
 
 class CarsPage extends React.Component {
@@ -33,6 +33,13 @@ class CarsPage extends React.Component {
       <React.Fragment>
         <div className="flex justify-between items-center">
           <h1>Cars</h1>
+
+          <Link
+            to="car/create"
+            className="f6 link dim br1 ba ph3 pv2 fr mb2 dib black"
+          >
+            + Create Car
+          </Link>
         </div>
         {this.props.carsQuery.cars &&
           this.props.carsQuery.cars.map(car => (
