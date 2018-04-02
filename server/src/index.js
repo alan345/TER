@@ -6,8 +6,8 @@ const { me, signup, login, updatePassword, AuthPayload } = require('./auth')
 const { user } = require('./users')
 const { request } = require('graphql-request')
 
-async function drafts(parent, args, ctx, info) {
-
+async function drafts(parent, {skip}, ctx, info) {
+  // console.log(skip)
   const id = getUserId(ctx)
 
   const where = {

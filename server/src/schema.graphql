@@ -3,7 +3,7 @@
 type Query {
   me: User
   feed: [Post!]!
-  drafts: [Post!]!
+  drafts(orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post!]!
   users: [User!]!
   singleUser(id: ID!): User
   post(id: ID!): Post

@@ -3,6 +3,8 @@ import Post from '../components/Post'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import DownloadCSV from './DownloadCSV'
+
+
 class DraftsPage extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (this.props.location.key !== nextProps.location.key) {
@@ -49,8 +51,8 @@ class DraftsPage extends React.Component {
 }
 
 const DRAFTS_QUERY = gql`
-  query DraftsQuery {
-    drafts {
+  query DraftsQuery($skip : Int!) {
+    drafts(skip: $skip) {
       id
       text
       title
@@ -60,10 +62,15 @@ const DRAFTS_QUERY = gql`
   }
 `
 
+
 export default graphql(DRAFTS_QUERY, {
   name: 'draftsQuery', // name of the injected prop: this.props.feedQuery...
   options: {
     fetchPolicy: 'network-only',
     errorPolicy: 'ignore',
+    variables: {
+      skip: 3
+    }
+
   },
 })(DraftsPage)

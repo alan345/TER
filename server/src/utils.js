@@ -5,7 +5,7 @@ const APP_SECRET = 'appsecret321'
 
 function getUserId(ctx) {
   const Authorization = ctx.request.get('Authorization')
-  console.log(Authorization)
+  // console.log(Authorization)
   if (Authorization && Authorization !== 'null') {
     const token = Authorization.replace('Bearer ', '')
     const { userId } = jwt.verify(token, APP_SECRET)
