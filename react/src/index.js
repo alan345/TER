@@ -14,7 +14,9 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 
 import FeedPage from './components/FeedPage'
 import DraftsPage from './components/DraftsPage'
-import UsersPage from './components/UsersPage'
+import CarsPage from './components/CarsPage'
+import CreateCar from './components/CreateCar'
+import UsersPage from './components/UserPage'
 import CreatePage from './components/CreatePage'
 import DetailPage from './components/DetailPage'
 import UserPage from './components/UserPage'
@@ -58,7 +60,9 @@ ReactDOM.render(
         <div className="fl w-100 pl4 pr4">
           <Switch>
             <Route exact path="/" component={FeedPage} />
+            <Route path="/car/create" component={CreateCar} />
             <Route path="/drafts" component={DraftsPage} />
+            <Route path="/cars" component={CarsPage} />
             <Route path="/users" component={UsersPage} />
             <Route path="/user/:id" component={UserPage} />
             <Route path="/create" component={CreatePage} />

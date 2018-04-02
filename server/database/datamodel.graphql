@@ -15,7 +15,7 @@ type Post {
 
 type Car {
   id: ID! @unique
-  name: String
+  name: String!
 }
 
 type User {

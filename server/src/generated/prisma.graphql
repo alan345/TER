@@ -7,7 +7,7 @@
 
 type Car implements Node {
   id: ID!
-  name: String
+  name: String!
 }
 
 type Post implements Node {
@@ -70,7 +70,7 @@ type CarConnection {
 }
 
 input CarCreateInput {
-  name: String
+  name: String!
 }
 
 """
@@ -100,7 +100,7 @@ enum CarOrderByInput {
 
 type CarPreviousValues {
   id: ID!
-  name: String
+  name: String!
 }
 
 type CarSubscriptionPayload {

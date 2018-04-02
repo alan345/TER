@@ -25,6 +25,7 @@ type Mutation {
   publish(id: ID!): Post
 
   createCar(data: CarCreateInput!): Car!
+  # createCar(name: String!): Car!
   deleteCar(where: CarWhereUniqueInput!): Car
   updateCar(data: CarUpdateInput!, where: CarWhereUniqueInput!): Car
 
