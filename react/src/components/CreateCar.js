@@ -45,7 +45,7 @@ class CreatePage extends React.Component {
     e.preventDefault()
     const { name } = this.state
     await this.props.createCarMutation({
-      variables: { data: {name} },
+      variables: {name} ,
     })
     this.props.history.replace('/cars')
   }
@@ -53,7 +53,7 @@ class CreatePage extends React.Component {
 
 const CREATE_DRAFT_MUTATION = gql`
   mutation CreateCarMutation($name: String!) {
-    createCar(name: $name) {
+    createCar(data: {name: $name}) {
       id
       name
     }
