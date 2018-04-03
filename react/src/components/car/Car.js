@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import ImageTemplate from '../components/ImageTemplate'
+
 
 export default class Car extends React.Component {
   render() {
