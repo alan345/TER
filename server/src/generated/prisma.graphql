@@ -16,7 +16,7 @@ type Post implements Node {
   title: String!
   text: String!
   nameFile: String!
-  author: ID
+  author(where: UserWhereInput): User
 }
 
 type User implements Node {
@@ -350,12 +350,19 @@ input PostCreateInput {
   title: String!
   text: String!
   nameFile: String!
-  author: ID
+  author: UserCreateOneWithoutPostsInput
 }
 
-input PostCreateManyInput {
-  create: [PostCreateInput!]
+input PostCreateManyWithoutAuthorInput {
+  create: [PostCreateWithoutAuthorInput!]
   connect: [PostWhereUniqueInput!]
+}
+
+input PostCreateWithoutAuthorInput {
+  isPublished: Boolean
+  title: String!
+  text: String!
+  nameFile: String!
 }
 
 """
@@ -383,8 +390,6 @@ enum PostOrderByInput {
   text_DESC
   nameFile_ASC
   nameFile_DESC
-  author_ASC
-  author_DESC
   updatedAt_ASC
   updatedAt_DESC
   createdAt_ASC
@@ -397,7 +402,6 @@ type PostPreviousValues {
   title: String!
   text: String!
   nameFile: String!
-  author: ID
 }
 
 type PostSubscriptionPayload {
@@ -440,14 +444,34 @@ input PostUpdateInput {
   title: String
   text: String
   nameFile: String
-  author: ID
+  author: UserUpdateOneWithoutPostsInput
 }
 
-input PostUpdateManyInput {
-  create: [PostCreateInput!]
+input PostUpdateManyWithoutAuthorInput {
+  create: [PostCreateWithoutAuthorInput!]
   connect: [PostWhereUniqueInput!]
   disconnect: [PostWhereUniqueInput!]
   delete: [PostWhereUniqueInput!]
+  update: [PostUpdateWithWhereUniqueWithoutAuthorInput!]
+  upsert: [PostUpsertWithWhereUniqueWithoutAuthorInput!]
+}
+
+input PostUpdateWithoutAuthorDataInput {
+  isPublished: Boolean
+  title: String
+  text: String
+  nameFile: String
+}
+
+input PostUpdateWithWhereUniqueWithoutAuthorInput {
+  where: PostWhereUniqueInput!
+  data: PostUpdateWithoutAuthorDataInput!
+}
+
+input PostUpsertWithWhereUniqueWithoutAuthorInput {
+  where: PostWhereUniqueInput!
+  update: PostUpdateWithoutAuthorDataInput!
+  create: PostCreateWithoutAuthorInput!
 }
 
 input PostWhereInput {
@@ -676,59 +700,7 @@ input PostWhereInput {
   All values not ending with the given string.
   """
   nameFile_not_ends_with: String
-  author: ID
-  """
-  All values that are not equal to given value.
-  """
-  author_not: ID
-  """
-  All values that are contained in given list.
-  """
-  author_in: [ID!]
-  """
-  All values that are not contained in given list.
-  """
-  author_not_in: [ID!]
-  """
-  All values less than the given value.
-  """
-  author_lt: ID
-  """
-  All values less than or equal the given value.
-  """
-  author_lte: ID
-  """
-  All values greater than the given value.
-  """
-  author_gt: ID
-  """
-  All values greater than or equal the given value.
-  """
-  author_gte: ID
-  """
-  All values containing the given string.
-  """
-  author_contains: ID
-  """
-  All values not containing the given string.
-  """
-  author_not_contains: ID
-  """
-  All values starting with the given string.
-  """
-  author_starts_with: ID
-  """
-  All values not starting with the given string.
-  """
-  author_not_starts_with: ID
-  """
-  All values ending with the given string.
-  """
-  author_ends_with: ID
-  """
-  All values not ending with the given string.
-  """
-  author_not_ends_with: ID
+  author: UserWhereInput
 }
 
 input PostWhereUniqueInput {
@@ -785,7 +757,19 @@ input UserCreateInput {
   password: String!
   name: String!
   role: Role
-  posts: PostCreateManyInput
+  posts: PostCreateManyWithoutAuthorInput
+}
+
+input UserCreateOneWithoutPostsInput {
+  create: UserCreateWithoutPostsInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateWithoutPostsInput {
+  email: String!
+  password: String!
+  name: String!
+  role: Role
 }
 
 """
@@ -869,7 +853,28 @@ input UserUpdateInput {
   password: String
   name: String
   role: Role
-  posts: PostUpdateManyInput
+  posts: PostUpdateManyWithoutAuthorInput
+}
+
+input UserUpdateOneWithoutPostsInput {
+  create: UserCreateWithoutPostsInput
+  connect: UserWhereUniqueInput
+  disconnect: Boolean
+  delete: Boolean
+  update: UserUpdateWithoutPostsDataInput
+  upsert: UserUpsertWithoutPostsInput
+}
+
+input UserUpdateWithoutPostsDataInput {
+  email: String
+  password: String
+  name: String
+  role: Role
+}
+
+input UserUpsertWithoutPostsInput {
+  update: UserUpdateWithoutPostsDataInput!
+  create: UserCreateWithoutPostsInput!
 }
 
 input UserWhereInput {

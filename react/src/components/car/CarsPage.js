@@ -6,11 +6,27 @@ import { Link} from 'react-router-dom'
 
 
 class CarsPage extends React.Component {
-  componentWillReceiveProps(nextProps) {
-    if (this.props.location.key !== nextProps.location.key) {
-      this.props.carsQuery.refetch()
+  state = {
+    query: '',
+    pagination: {
+      skip: 0,
+      first: 0
     }
   }
+
+  componentWillReceiveProps(nextProps) {
+    // if (this.props.location.key !== nextProps.location.key) {
+    //   this.props.carsQuery.refetch({
+    //     first: 1,
+    //     skip: 2
+    //   })
+    // }
+  }
+
+  componentDidMount() {
+    // this.props.carsQuery.refetch(this.state.pagination)
+  }
+
 
 
   render() {
@@ -33,6 +49,42 @@ class CarsPage extends React.Component {
       <React.Fragment>
         <div className="flex justify-between items-center">
           <h1>Cars</h1>
+          <div>
+          <input
+            type="text"
+            autoFocus
+            onFocus={function(e) {
+              var val = e.target.value;
+              e.target.value = '';
+              e.target.value = val;
+            }}
+            className="w-100 pa2 mv2 br2 b--black-20 bw1"
+            onChange={e => {
+              this.setState({ query: e.target.value })
+              this.props.carsQuery.refetch({
+                where: {
+                  name_contains: e.target.value
+                }
+              })
+            }}
+            placeholder="Search"
+            value={this.state.query}
+          />
+          </div>
+
+          <div onClick={()=> {
+            this.props.carsQuery.refetch({
+              first: 1,
+              skip: 3,
+              orderBy: this.props.carsQuery.variables.orderBy === 'name_ASC' ? 'name_DESC' : 'name_ASC'
+            })
+          }}>
+          {this.props.carsQuery.variables.orderBy === 'name_ASC' ? (
+            <i className="fa fa-arrow-down"></i>
+          ) : (
+            <i className="fa fa-arrow-up"></i>
+          )}
+          </div>
 
           <Link
             to="car/create"
@@ -57,8 +109,8 @@ class CarsPage extends React.Component {
 }
 
 const DRAFTS_QUERY = gql`
-  query CarsQuery {
-    cars {
+  query CarsQuery($orderBy: CarOrderByInput, $where: CarWhereInput, $first: Int, $skip: Int) {
+    cars(orderBy: $orderBy, where: $where, first: $first, skip: $skip) {
       id
       name
     }
