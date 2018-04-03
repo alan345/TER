@@ -24,6 +24,7 @@ class CarsPage extends React.Component {
   }
 
   componentDidMount() {
+    console.log(this.props.carsQuery)
     // this.props.carsQuery.refetch(this.state.pagination)
   }
 

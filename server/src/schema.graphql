@@ -1,4 +1,4 @@
-# import Post, Car, CarCreateInput, CarWhereInput, CarOrderByInput from "./generated/prisma.graphql"
+# import Query.carsConnection, Post, Car, CarCreateInput, CarWhereInput, CarOrderByInput from "./generated/prisma.graphql"
 
 type Query {
   me: User
@@ -9,8 +9,7 @@ type Query {
   post(id: ID!): Post
   # car(where: CarWhereUniqueInput!): Car
   cars(where: CarWhereInput, orderBy: CarOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Car]!
-
-
+  
 
   # Only admins can retrieve info about given users
   user(id: ID!): User
