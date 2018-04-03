@@ -45,7 +45,7 @@ class CreatePage extends React.Component {
     e.preventDefault()
     const { name } = this.state
     await this.props.createCarMutation({
-      variables: { name },
+      variables: { data: {name} },
     })
     this.props.history.replace('/cars')
   }

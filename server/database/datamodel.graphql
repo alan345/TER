@@ -13,6 +13,7 @@ type Post {
   author: User
 }
 
+
 type Car {
   id: ID! @unique
   name: String!
