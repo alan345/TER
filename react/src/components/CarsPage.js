@@ -1,5 +1,5 @@
 import React from 'react'
-import Post from '../components/Post'
+import Car from '../components/Car'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import { Link} from 'react-router-dom'
@@ -43,9 +43,9 @@ class CarsPage extends React.Component {
         </div>
         {this.props.carsQuery.cars &&
           this.props.carsQuery.cars.map(car => (
-            <Post
+            <Car
               key={car.id}
-              post={car}
+              car={car}
               refresh={() => this.props.carsQuery.refetch()}
               isCar={!car.isPublished}
             />
