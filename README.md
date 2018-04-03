@@ -111,6 +111,14 @@ npm install -g graphql-cli
 | `　　└── generated` (_directory_) | _Contains generated files_ |
 | `　　　　└── prisma.grapghql` | The **Prisma database schema** defining the Prisma GraphQL API  |
 
+## CLI
+
+`prisma local nuke`
+`prisma reset`
+`prisma local start` to start your local Prisma cluster.
+
+
+
 ## Contributing
 
 
