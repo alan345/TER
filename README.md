@@ -72,8 +72,14 @@ Files are uploaded thanks to an ExpressJs server.
 ## Pagination - search - orderBy
 |  Description | Image |
 | ------------- | ------------- |
-| Car screen  | ![](https://user-images.githubusercontent.com/15246526/38333662-186973f8-380e-11e8-9289-f6240ffc5a6c.png)
-  |
+| Car screen  | ![](https://user-images.githubusercontent.com/15246526/38333662-186973f8-380e-11e8-9289-f6240ffc5a6c.png) |
+
+
+
+## Link objects with `connect` relationship
+|  Description | Image |
+| ------------- | ------------- |
+| A post is lreated to a user  | ![](https://user-images.githubusercontent.com/15246526/38334670-d1f58404-3810-11e8-9304-4f08fada617a.png) |
 
 
 
