@@ -75,8 +75,6 @@ class CarsPage extends React.Component {
 
           <div onClick={()=> {
             this.props.carsQuery.refetch({
-              first: 1,
-              skip: 3,
               orderBy: this.props.carsQuery.variables.orderBy === 'name_ASC' ? 'name_DESC' : 'name_ASC'
             })
           }}>
