@@ -54,12 +54,7 @@ Go to url: http://localhost:3000
 | Authentification: Login | ![](https://user-images.githubusercontent.com/15246526/36925970-4315cf46-1e2a-11e8-8548-10f9b65d6387.png)  |
 | Authentification: Signup | ![](https://user-images.githubusercontent.com/15246526/38334318-d8a8177c-380f-11e8-8c77-5128e9679b8d.png)  |
 | Upload File  | ![](https://user-images.githubusercontent.com/15246526/38334196-9079c748-380f-11e8-9e46-a5f98fee87f8.png)  |
-| Upload File| ![](https://user-images.githubusercontent.com/15246526/36926125-f1130e2e-1e2a-11e8-928c-4a2c1f1c136b.png)  |
-
-
-Files are uploaded thanks to an ExpressJs server.
-
-
+| Files are uploaded thanks to an ExpressJs server| ![](https://user-images.githubusercontent.com/15246526/36926125-f1130e2e-1e2a-11e8-928c-4a2c1f1c136b.png)  |
 | Pagination - orderBy | ![](https://user-images.githubusercontent.com/15246526/38333662-186973f8-380e-11e8-9289-f6240ffc5a6c.png) |
 | Filter | ![](https://user-images.githubusercontent.com/15246526/38334877-78e62f70-3811-11e8-9492-00429e054987.png) |
 
