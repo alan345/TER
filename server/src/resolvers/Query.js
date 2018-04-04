@@ -40,10 +40,8 @@ async function feed(parent, args, ctx, info) {
     }
   }, info)
 }
-async function drafts(parent, {
-  skip
-}, ctx, info) {
-  // console.log(skip)
+async function drafts(parent, args, ctx, info) {
+
   const id = getUserId(ctx)
 
   const where = {
@@ -57,6 +55,8 @@ async function drafts(parent, {
     where
   }, info)
 }
+
+
 
 async function post(parent, {
   id
@@ -87,7 +87,11 @@ const Query = {
   feed,
   drafts,
   post,
-  cars: forwardTo('db')
+  cars: forwardTo('db'),
+  carsConnection: (parent, args, ctx, info) => {
+    getUserId(ctx)
+    return forwardTo("db")(parent, args, ctx, info)
+  }
 }
 
 module.exports = {

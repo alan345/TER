@@ -16,7 +16,7 @@ class CarsPage extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     // if (this.props.location.key !== nextProps.location.key) {
-    //   this.props.carsQuery.refetch({
+    //   this.props.carsQueryConnection.refetch({
     //     first: 1,
     //     skip: 2
     //   })
@@ -24,21 +24,24 @@ class CarsPage extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props.carsQuery)
-    // this.props.carsQuery.refetch(this.state.pagination)
+
+    // this.props.carsQueryConnection.refetch(this.state.pagination)
   }
 
 
 
   render() {
-
-    if (this.props.carsQuery.error) {
+    if(!this.props.carsQueryConnection.carsConnection) {
+      return null
+    }
+    console.log(this.props.carsQueryConnection.carsConnection.pageInfo)
+    if (this.props.carsQueryConnection.error) {
       return (
         <div>Not authentificated</div>
       )
     }
 
-    if (this.props.carsQuery.loading) {
+    if (this.props.carsQueryConnection.loading) {
       return (
         <div className="flex w-100 h-100 items-center justify-center pt7">
           <div>Loading (from {process.env.REACT_APP_GRAPHQL_ENDPOINT})</div>
@@ -62,7 +65,7 @@ class CarsPage extends React.Component {
             className="w-100 pa2 mv2 br2 b--black-20 bw1"
             onChange={e => {
               this.setState({ query: e.target.value })
-              this.props.carsQuery.refetch({
+              this.props.carsQueryConnection.refetch({
                 where: {
                   name_contains: e.target.value
                 }
@@ -74,11 +77,11 @@ class CarsPage extends React.Component {
           </div>
 
           <div onClick={()=> {
-            this.props.carsQuery.refetch({
-              orderBy: this.props.carsQuery.variables.orderBy === 'name_ASC' ? 'name_DESC' : 'name_ASC'
+            this.props.carsQueryConnection.refetch({
+              orderBy: this.props.carsQueryConnection.variables.orderBy === 'name_ASC' ? 'name_DESC' : 'name_ASC'
             })
           }}>
-          {this.props.carsQuery.variables.orderBy === 'name_ASC' ? (
+          {this.props.carsQueryConnection.variables.orderBy === 'name_ASC' ? (
             <i className="fa fa-arrow-down"></i>
           ) : (
             <i className="fa fa-arrow-up"></i>
@@ -92,13 +95,13 @@ class CarsPage extends React.Component {
             + Create Car
           </Link>
         </div>
-        {this.props.carsQuery.cars &&
-          this.props.carsQuery.cars.map(car => (
+        {this.props.carsQueryConnection.carsConnection.edges &&
+          this.props.carsQueryConnection.carsConnection.edges.map(car => (
             <Car
-              key={car.id}
-              car={car}
-              refresh={() => this.props.carsQuery.refetch()}
-              isCar={!car.isPublished}
+              key={car.node.id}
+              car={car.node}
+              refresh={() => this.props.carsQueryConnection.refetch()}
+              isCar={!car.node.isPublished}
             />
           ))}
         {this.props.children}
@@ -108,17 +111,26 @@ class CarsPage extends React.Component {
 }
 
 const DRAFTS_QUERY = gql`
-  query CarsQuery($orderBy: CarOrderByInput, $where: CarWhereInput, $first: Int, $skip: Int) {
-    cars(orderBy: $orderBy, where: $where, first: $first, skip: $skip) {
-      id
-      name
+  query CarsQueryConnection($orderBy: CarOrderByInput, $where: CarWhereInput, $first: Int, $skip: Int) {
+    carsConnection(orderBy: $orderBy, where: $where, first: $first, skip: $skip) {
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+      edges {
+        node {
+          id
+          name
+        }
+      }
+
     }
   }
 `
 
 
 export default graphql(DRAFTS_QUERY, {
-  name: 'carsQuery', // name of the injected prop: this.props.feedQuery...
+  name: 'carsQueryConnection', // name of the injected prop: this.props.feedQuery...
   options: {
     fetchPolicy: 'network-only',
     errorPolicy: 'ignore',
