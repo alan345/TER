@@ -44,7 +44,7 @@ class Header extends Component {
         <nav className="pa3 pa4-ns">
           <Link
             className="link dim black b f6 f5-ns dib mr3"
-            to="cars"
+            to="/cars"
             title="Cars"
           >
             Cars
