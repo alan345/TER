@@ -1,17 +1,14 @@
 const {forwardTo} = require('prisma-binding')
-const {me, signup, login, updatePassword, AuthPayload} = require('./auth')
+const {signup, login, updatePassword} = require('./auth')
 const { getUserId } = require('../utils')
 
-const { importSchema } = require('graphql-import')
-const { user } = require('../users')
-const { request } = require('graphql-request')
 
 
 async function updateUser(parent, { id, name, email, role }, ctx, info) {
    // console.log( id, name, email)
   await ctx.db.mutation.updateUser({
     where: { id: id },
-    data: { name: name, email: email, role: role},
+    data: {name: name, email: email, role: role},
   })
 
 }

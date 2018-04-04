@@ -1,9 +1,6 @@
 const {forwardTo} = require('prisma-binding')
 const {getUserId} = require('../utils')
-const {importSchema} = require('graphql-import')
-const {me, signup, login, updatePassword, AuthPayload} = require('./auth')
-const {user} = require('../users')
-const {request} = require('graphql-request')
+const {me} = require('./auth')
 
 
 async function singleUser(parent, {
