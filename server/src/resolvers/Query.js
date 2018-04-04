@@ -43,7 +43,6 @@ async function feed(parent, args, ctx, info) {
 async function drafts(parent, args, ctx, info) {
 
   const id = getUserId(ctx)
-
   const where = {
     isPublished: false,
     author: {

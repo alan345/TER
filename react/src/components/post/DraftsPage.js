@@ -51,8 +51,8 @@ class DraftsPage extends React.Component {
 }
 
 const DRAFTS_QUERY = gql`
-  query DraftsQuery($skip : Int!) {
-    drafts(skip: $skip) {
+  query DraftsQuery {
+    drafts {
       id
       text
       title
