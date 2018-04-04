@@ -1,4 +1,6 @@
-# import Query.carsConnection, Post, Car, CarCreateInput, CarWhereInput, CarOrderByInput from "./generated/prisma.graphql"
+# import Query.carsConnection, Query.car, Mutation.deleteCar from "./generated/prisma.graphql"
+# import Car, CarCreateInput, CarWhereInput, CarOrderByInput from "./generated/prisma.graphql"
+# import Post from "./generated/prisma.graphql"
 
 type Query {
   me: User
@@ -7,6 +9,7 @@ type Query {
   users: [User!]!
   singleUser(id: ID!): User
   post(id: ID!): Post
+  # carAlan(id: ID!): Car
   # car(where: CarWhereUniqueInput!): Car
   cars(where: CarWhereInput, orderBy: CarOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Car]!
 
@@ -26,7 +29,7 @@ type Mutation {
 
   createCar(data: CarCreateInput!): Car!
   # createCar(name: String!): Car!
-  deleteCar(where: CarWhereUniqueInput!): Car
+  # deleteCar(where: CarWhereUniqueInput!): Car
   updateCar(data: CarUpdateInput!, where: CarWhereUniqueInput!): Car
 
   # Users can only update their own passwords

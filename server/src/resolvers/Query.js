@@ -88,6 +88,7 @@ const Query = {
   drafts,
   post,
   cars: forwardTo('db'),
+  car: forwardTo('db'),
   carsConnection: (parent, args, ctx, info) => {
     getUserId(ctx)
     return forwardTo("db")(parent, args, ctx, info)

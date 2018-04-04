@@ -19,6 +19,7 @@ import CreateCar from './components/car/CreateCar'
 import UsersPage from './components/UsersPage'
 import CreatePage from './components/CreatePage'
 import DetailPage from './components/DetailPage'
+import DetailCar from './components/car/DetailCar'
 import UserPage from './components/UserPage'
 import Login from './components/Login'
 import 'tachyons'
@@ -61,6 +62,7 @@ ReactDOM.render(
           <Switch>
             <Route exact path="/" component={FeedPage} />
             <Route path="/car/create" component={CreateCar} />
+            <Route path="/car/:id" component={DetailCar} />
             <Route path="/drafts" component={DraftsPage} />
             <Route path="/cars" component={CarsPage} />
             <Route path="/users" component={UsersPage} />

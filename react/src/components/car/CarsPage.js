@@ -69,7 +69,8 @@ class CarsPage extends React.Component {
       </div>)
     }
 
-    return (<React.Fragment>
+    return (
+      <React.Fragment>
       <div className="flex justify-between items-center">
         <h1>Cars</h1>
         <div>
