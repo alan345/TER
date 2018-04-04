@@ -53,7 +53,7 @@ More details in the tuto: https://github.com/graphcool/prisma/tree/master/exampl
 
 | First Header  | Second Header |
 | ------------- | ------------- |
-| Content Cell  | Content Cell  |
+| Content Cell  | ![](https://user-images.githubusercontent.com/15246526/36926055-a122e268-1e2a-11e8-8f68-b338d0d84dff.png)  |
 | Content Cell  | Content Cell  |
 
 
