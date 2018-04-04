@@ -79,7 +79,7 @@ Files are uploaded thanks to an ExpressJs server.
 ## Link objects with `connect` relationship
 |  Description | Image |
 | ------------- | ------------- |
-| A post is lreated to a user  | ![](https://user-images.githubusercontent.com/15246526/38334670-d1f58404-3810-11e8-9304-4f08fada617a.png) |
+| A post is related to a user  | ![](https://user-images.githubusercontent.com/15246526/38334670-d1f58404-3810-11e8-9304-4f08fada617a.png) |
 
 
 
