@@ -55,6 +55,7 @@ Go to url: http://localhost:3000
 | ------------- | ------------- |
 | Create draft available if user is logged in  | ![](https://user-images.githubusercontent.com/15246526/36926055-a122e268-1e2a-11e8-8f68-b338d0d84dff.png)  |
 | Login | ![](https://user-images.githubusercontent.com/15246526/36925970-4315cf46-1e2a-11e8-8548-10f9b65d6387.png)  |
+| Signup | ![](https://user-images.githubusercontent.com/15246526/38334318-d8a8177c-380f-11e8-8c77-5128e9679b8d.png)  |
 
 
 ## Upload File
