@@ -55,11 +55,16 @@ Go to url: http://localhost:3000
 | ------------- | ------------- |
 | Create draft available if user is logged in  | ![](https://user-images.githubusercontent.com/15246526/36926055-a122e268-1e2a-11e8-8f68-b338d0d84dff.png)  |
 | Login | ![](https://user-images.githubusercontent.com/15246526/36925970-4315cf46-1e2a-11e8-8548-10f9b65d6387.png)  |
-More details in the tuto: https://github.com/graphcool/prisma/tree/master/examples/auth
+
 
 ## Upload File
-![](https://user-images.githubusercontent.com/15246526/36926072-b97b3964-1e2a-11e8-8bee-41ab6769a19f.png)
-![](https://user-images.githubusercontent.com/15246526/36926125-f1130e2e-1e2a-11e8-928c-4a2c1f1c136b.png)
+
+|  Description | Image |
+| ------------- | ------------- |
+| Upload page  | ![](https://user-images.githubusercontent.com/15246526/38334196-9079c748-380f-11e8-9e46-a5f98fee87f8.png)  |
+| With uploaded image | ![](https://user-images.githubusercontent.com/15246526/36926125-f1130e2e-1e2a-11e8-928c-4a2c1f1c136b.png)  |
+
+
 Files are uploaded thanks to an ExpressJs server.
 
 
@@ -86,7 +91,7 @@ npm install -g graphql-cli
 ```
 
 
-
+More details in the tuto: https://github.com/graphcool/prisma/tree/master/examples/auth
 
 ## Documentation
 
