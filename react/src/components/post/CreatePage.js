@@ -2,7 +2,7 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
-import Main from './uploadFile';
+import Main from '../uploadFile';
 class CreatePage extends React.Component {
   state = {
     title: '',
