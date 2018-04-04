@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import ImageTemplate from '../components/ImageTemplate'
+import ImageTemplate from '../../components/ImageTemplate'
 
 export default class Post extends React.Component {
   render() {
@@ -8,6 +8,7 @@ export default class Post extends React.Component {
     if (this.props.isDraft) {
       title = `${title} (Draft)`
     }
+
 
     return (
       <Link className="no-underline ma1" to={`/post/${this.props.post.id}`}>

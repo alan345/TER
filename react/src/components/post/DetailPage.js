@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, compose } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
-import ImageTemplate from '../components/ImageTemplate'
+import ImageTemplate from '../../components/ImageTemplate'
 import { Link } from 'react-router-dom'
 
 class DetailPage extends React.Component {

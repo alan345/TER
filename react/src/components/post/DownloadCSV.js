@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import { AUTH_TOKEN } from '../constants/constants'
+import { AUTH_TOKEN } from '../../constants/constants'
 var fileDownload = require('react-file-download');
 
 

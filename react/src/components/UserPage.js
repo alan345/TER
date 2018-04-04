@@ -3,7 +3,7 @@ import { graphql, compose } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
 // import ImageTemplate from '../components/ImageTemplate'
-import Post from '../components/Post'
+import Post from '../components/post/Post'
 import { AUTH_TOKEN } from '../constants/constants'
 
 class UserPage extends React.Component {
