@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router'
 import { AUTH_TOKEN } from '../constants/constants'
-import {
-  NavLink,
-  Link,
-} from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
 class Header extends Component {
   render() {
@@ -76,16 +73,6 @@ class Header extends Component {
           >
             Users
           </NavLink>
-          {authToken ? (
-          <Link
-            to="/create"
-            className="f6 link dim br1 ba ph3 pv2 fr mb2 dib black"
-          >
-            + Create Draft
-          </Link>
-        ) : (
-          <div></div>
-        )}
         </nav>
       </div>
     )

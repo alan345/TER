@@ -3,7 +3,8 @@ import Post from './Post'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import DownloadCSV from './DownloadCSV'
-
+import { AUTH_TOKEN } from '../../constants/constants'
+import { Link } from 'react-router-dom'
 
 class DraftsPage extends React.Component {
   componentWillReceiveProps(nextProps) {
@@ -14,7 +15,7 @@ class DraftsPage extends React.Component {
 
 
   render() {
-
+    const authToken = localStorage.getItem(AUTH_TOKEN)
     if (this.props.draftsQuery.error) {
       return (
         <div>Not authentificated</div>
@@ -34,6 +35,15 @@ class DraftsPage extends React.Component {
         <div className="flex justify-between items-center">
           <h1>Drafts</h1>
         </div>
+
+        {authToken && (
+          <Link
+            to="/create"
+            className="f6 link dim br1 ba ph3 pv2 fr mb2 dib black"
+          >
+            + Create Draft
+          </Link>
+        ) }
         <DownloadCSV/>
         {this.props.draftsQuery.drafts &&
           this.props.draftsQuery.drafts.map(draft => (
