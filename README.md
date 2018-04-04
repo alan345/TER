@@ -48,9 +48,6 @@ Go to url: http://localhost:3000
 ## Authentification
 
 
-
-
-
 |  Description | Image |
 | ------------- | ------------- |
 | Create draft available if user is logged in  | ![](https://user-images.githubusercontent.com/15246526/36926055-a122e268-1e2a-11e8-8f68-b338d0d84dff.png)  |
@@ -73,6 +70,7 @@ Files are uploaded thanks to an ExpressJs server.
 |  Description | Image |
 | ------------- | ------------- |
 | Car screen  | ![](https://user-images.githubusercontent.com/15246526/38333662-186973f8-380e-11e8-9289-f6240ffc5a6c.png) |
+| Car screen filtered | ![](https://user-images.githubusercontent.com/15246526/38334877-78e62f70-3811-11e8-9492-00429e054987.png) |
 
 
 
