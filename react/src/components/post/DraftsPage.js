@@ -44,7 +44,7 @@ class DraftsPage extends React.Component {
             + Create Draft
           </Link>
         ) }
-        <DownloadCSV/>
+
         {this.props.draftsQuery.drafts &&
           this.props.draftsQuery.drafts.map(draft => (
             <Post
