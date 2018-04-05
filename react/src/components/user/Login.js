@@ -93,7 +93,8 @@ const SIGNUP_MUTATION = gql`
       token
       user {
         name
-      }      
+        id
+      }
     }
   }
 `
@@ -104,6 +105,7 @@ const LOGIN_MUTATION = gql`
       token
       user {
         name
+        id
       }
     }
   }

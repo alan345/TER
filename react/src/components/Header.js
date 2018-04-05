@@ -4,6 +4,7 @@ import { AUTH_TOKEN } from '../constants/constants'
 import { NavLink, Link } from 'react-router-dom'
 
 class Header extends Component {
+
   render() {
     const authToken = localStorage.getItem(AUTH_TOKEN)
     const userToken = JSON.parse(localStorage.getItem('userToken'))
@@ -23,7 +24,11 @@ class Header extends Component {
             </Link>
           </div>
           <div className="flex flex-fixed">
-            Hi {userToken.name}!
+            {userToken && (
+              <div>
+                Hi {userToken.name}!
+              </div>
+            )}
             {authToken ? (
               <div
                 className="ml1 pointer black"
