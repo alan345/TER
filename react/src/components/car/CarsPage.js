@@ -43,7 +43,8 @@ class CarsPage extends React.Component {
         }
         return {
           carsConnection: {
-            __typename: 'ProductConnection',
+            __typename: 'CarConnection',
+            aggregate : fetchMoreResult.carsConnection.aggregate,
             pageInfo: fetchMoreResult.carsConnection.pageInfo,
             edges: [
               ...previousResult.carsConnection.edges,
@@ -56,7 +57,6 @@ class CarsPage extends React.Component {
   }
 
   render() {
-
     if (this.props.carsQueryConnection.error) {
       return (
         <div>Not authentificated</div>
@@ -67,9 +67,6 @@ class CarsPage extends React.Component {
       return null
     }
 
-    // if (this.props.carsQueryConnection.error) {
-    //   return (<div>Not authentificated</div>)
-    // }
 
     if (this.props.carsQueryConnection.loading) {
       return (<div className="flex w-100 h-100 items-center justify-center pt7">
@@ -80,7 +77,8 @@ class CarsPage extends React.Component {
     return (
       <React.Fragment>
       <div className="flex justify-between items-center">
-        <h1>Cars</h1>
+        <h1>Cars ({this.props.carsQueryConnection.carsConnection.edges.length}/{this.props.carsQueryConnection.carsConnection.aggregate.count})</h1>
+
         <div>
           <input type="text" autoFocus="autoFocus" onFocus={function(e) {
               var val = e.target.value;
@@ -114,7 +112,16 @@ class CarsPage extends React.Component {
           + Create Car
         </Link>
       </div>
-      {this.props.carsQueryConnection.carsConnection.edges && this.props.carsQueryConnection.carsConnection.edges.map(car => (<Car key={car.node.id} car={car.node} refresh={() => this.props.carsQueryConnection.refetch()} isCar={!car.node.isPublished}/>))}
+      {this.props.carsQueryConnection.carsConnection.edges &&
+        this.props.carsQueryConnection.carsConnection.edges.map(car =>
+          (
+            <Car
+              key={car.node.id}
+              car={car.node}
+              refresh={() => this.props.carsQueryConnection.refetch()}
+              isCar={!car.node.isPublished}/>
+            ))
+          }
       <i className="fa fa-plus" onClick={() => this.loadMore()}></i>
 
       {this.props.children}
@@ -134,6 +141,9 @@ const DRAFTS_QUERY = gql `
           id
           name
         }
+      }
+      aggregate {
+        count
       }
 
     }
