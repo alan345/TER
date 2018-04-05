@@ -111,4 +111,9 @@ More details in the tuto: https://github.com/graphcool/prisma/tree/master/exampl
 
 
 Your feedback is **very helpful**, please share your opinion and thoughts! If you have any questions or want to contribute yourself, don't hesitate!
-# prisma
+
+# To do
+
+* Use File Handling instead of express to upload file: https://github.com/graphcool/prisma/tree/master/examples/file-handling-s3
+* Implement materials https://material-ui-next.com/
+* Implement Apollo Client 2.0
