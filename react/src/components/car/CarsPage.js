@@ -9,66 +9,25 @@ import {Link} from 'react-router-dom'
 class CarsPage extends React.Component {
   state = {
     query: '',
-    pagination: {
-      skip: 0,
-      first: 0
-    }
   }
 
-  componentWillReceiveProps(nextProps) {
-    // if (this.props.location.key !== nextProps.location.key) {
-    //   this.props.carsQueryConnection.refetch({
-    //     first: 1,
-    //     skip: 2
-    //   })
-    // }
-  }
-
-  componentDidMount() {
-    // this.props.carsQueryConnection.refetch(this.state.pagination)
-  }
-
-  loadMore() {
-    if (!this.props.carsQueryConnection.carsConnection.pageInfo.hasNextPage) {
-      return
-    }
-    this.props.carsQueryConnection.fetchMore({
-      variables: {
-        after: this.props.carsQueryConnection.carsConnection.pageInfo.endCursor
-      },
-
-      updateQuery: (previousResult, {fetchMoreResult}) => {
-        if (!fetchMoreResult) {
-          return previousResult;
-        }
-        return {
-          carsConnection: {
-            __typename: 'CarConnection',
-            aggregate : fetchMoreResult.carsConnection.aggregate,
-            pageInfo: fetchMoreResult.carsConnection.pageInfo,
-            edges: [
-              ...previousResult.carsConnection.edges,
-              ...fetchMoreResult.carsConnection.edges
-            ]
-          }
-        };
-      }
-    })
-  }
 
   render() {
-    if (this.props.carsQueryConnection.error) {
+    const {carsQueryConnection} = this.props
+    if (carsQueryConnection.error) {
       return (
         <div>Not authentificated</div>
       )
     }
 
-    if (!this.props.carsQueryConnection.carsConnection) {
+    if (!carsQueryConnection.carsConnection) {
       return null
     }
+    const {edges, aggregate} = this.props.carsQueryConnection.carsConnection
+    const {orderBy} = this.props.carsQueryConnection.variables
 
 
-    if (this.props.carsQueryConnection.loading) {
+    if (carsQueryConnection.loading) {
       return (<div className="flex w-100 h-100 items-center justify-center pt7">
         <div>Loading (from {process.env.REACT_APP_GRAPHQL_ENDPOINT})</div>
       </div>)
@@ -77,8 +36,7 @@ class CarsPage extends React.Component {
     return (
       <React.Fragment>
       <div className="flex justify-between items-center">
-        <h1>Cars ({this.props.carsQueryConnection.carsConnection.edges.length}/{this.props.carsQueryConnection.carsConnection.aggregate.count})</h1>
-
+        <h1>Cars ({edges.length}/{aggregate.count})</h1>
         <div>
           <input type="text" autoFocus="autoFocus" onFocus={function(e) {
               var val = e.target.value;
@@ -86,7 +44,7 @@ class CarsPage extends React.Component {
               e.target.value = val;
             }} className="w-100 pa2 mv2 br2 b--black-20 bw1" onChange={e => {
               this.setState({query: e.target.value})
-              this.props.carsQueryConnection.refetch({
+              carsQueryConnection.refetch({
                 where: {
                   name_contains: e.target.value
                 }
@@ -95,14 +53,14 @@ class CarsPage extends React.Component {
         </div>
 
         <div onClick={() => {
-            this.props.carsQueryConnection.refetch({
-              orderBy: this.props.carsQueryConnection.variables.orderBy === 'name_ASC'
+            carsQueryConnection.refetch({
+              orderBy: orderBy === 'name_ASC'
                 ? 'name_DESC'
                 : 'name_ASC'
             })
           }}>
           {
-            this.props.carsQueryConnection.variables.orderBy === 'name_ASC'
+            orderBy === 'name_ASC'
               ? (<i className="fa fa-arrow-down"></i>)
               : (<i className="fa fa-arrow-up"></i>)
           }
@@ -112,21 +70,53 @@ class CarsPage extends React.Component {
           + Create Car
         </Link>
       </div>
-      {this.props.carsQueryConnection.carsConnection.edges &&
-        this.props.carsQueryConnection.carsConnection.edges.map(car =>
+      {edges && edges.map(car =>
           (
             <Car
               key={car.node.id}
               car={car.node}
-              refresh={() => this.props.carsQueryConnection.refetch()}
+              refresh={() => carsQueryConnection.refetch()}
               isCar={!car.node.isPublished}/>
             ))
           }
-      <i className="fa fa-plus" onClick={() => this.loadMore()}></i>
+
+      {(edges.length !== aggregate.count) && (
+        <i className="fa fa-plus" onClick={() => this.loadMore()}></i>
+      )}
 
       {this.props.children}
     </React.Fragment>)
   }
+
+    loadMore() {
+      const {carsQueryConnection} = this.props
+      if (!carsQueryConnection.carsConnection.pageInfo.hasNextPage) {
+        return
+      }
+      carsQueryConnection.fetchMore({
+        variables: {
+          after: carsQueryConnection.carsConnection.pageInfo.endCursor
+        },
+
+        updateQuery: (previousResult, {fetchMoreResult}) => {
+          if (!fetchMoreResult) {
+            return previousResult;
+          }
+          return {
+            carsConnection: {
+              __typename: 'CarConnection',
+              aggregate : fetchMoreResult.carsConnection.aggregate,
+              pageInfo: fetchMoreResult.carsConnection.pageInfo,
+              edges: [
+                ...previousResult.carsConnection.edges,
+                ...fetchMoreResult.carsConnection.edges
+              ]
+            }
+          };
+        }
+      })
+    }
+
 }
 
 const DRAFTS_QUERY = gql `
