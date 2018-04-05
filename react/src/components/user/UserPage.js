@@ -6,6 +6,7 @@ import Post from '../../components/post/Post'
 import { AUTH_TOKEN } from '../../constants/constants'
 
 class UserPage extends React.Component {
+
   state = {
     isEditMode: false,
     user:{
@@ -14,9 +15,10 @@ class UserPage extends React.Component {
       role: '',
     },
   }
-
+  componentWillMount() {
+    this.setState({ user: this.props.userQuery.user })
+  }
   componentWillReceiveProps(newProps){
-    console.log('componentWillReceiveProps')
     const { user } = newProps.userQuery
       if(!newProps.userQuery.loading){
           this.setState({ user: user })
