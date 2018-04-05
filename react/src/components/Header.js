@@ -39,22 +39,22 @@ class Header extends Component {
           </div>
         </div>
         <nav className="pa3 pa4-ns">
-        {authToken && (
           <NavLink
-            className="link dim black b f6 f5-ns dib mr3"
-            to="/cars"
-            title="Cars"
-          >
-            Cars
-          </NavLink>
-        )}
-          <Link
             className="link dim black b f6 f5-ns dib mr3"
             to="/"
             title="Feed"
           >
             Blog
-          </Link>
+          </NavLink>
+          {authToken && (
+            <NavLink
+              className="link dim black b f6 f5-ns dib mr3"
+              to="/cars"
+              title="Cars"
+            >
+              Cars
+            </NavLink>
+          )}          
           {authToken && (
           <NavLink
             className="link dim f6 f5-ns dib mr3 black"
