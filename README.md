@@ -123,3 +123,4 @@ Your feedback is **very helpful**, please share your opinion and thoughts! If yo
 * Implement Apollo Client 2.0
 * Send emails: Welcome emails
 * change/Reset password
+* Organize logo image in readMe
