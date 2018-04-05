@@ -17,14 +17,20 @@ class UserPage extends React.Component {
   }
 
   componentWillReceiveProps(newProps){
-    const { singleUser } = newProps.userQuery
+    const { user } = newProps.userQuery
       if(!newProps.userQuery.loading){
-          this.setState({ user: singleUser })
+          this.setState({ user: user })
       }
   }
 
 
   render() {
+    if (this.props.userQuery.error) {
+      return (
+        <div>Not authentificated</div>
+      )
+    }
+
     const authToken = localStorage.getItem(AUTH_TOKEN)
     if (this.props.userQuery.loading) {
       return (
@@ -143,8 +149,8 @@ const UPDATE_USER_MUTATION = gql`
 `
 
 const POST_QUERY = gql`
-  query UserQuery($id: ID!) {
-    singleUser(id: $id) {
+  query UserQuery($where: UserWhereUniqueInput!) {
+    user(where: $where) {
       id
       email
       role
@@ -174,8 +180,10 @@ export default compose(
     name: 'userQuery',
     options: props => ({
       variables: {
-        id: props.match.params.id,
-      },
+          where: {
+            id: props.match.params.id,
+          }
+        },
     }),
   }),
   graphql(UPDATE_USER_MUTATION, {

@@ -1,13 +1,14 @@
-# import Query.carsConnection, Query.car, Mutation.deleteCar from "./generated/prisma.graphql"
+# import Query.carsConnection, Query.car, Mutation.deleteCar, Query.user from "./generated/prisma.graphql"
 # import Car, CarCreateInput, CarWhereInput, CarOrderByInput from "./generated/prisma.graphql"
 # import Post from "./generated/prisma.graphql"
+
 
 type Query {
   me: User
   feed: [Post!]!
   drafts(orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post!]!
   users: [User!]!
-  singleUser(id: ID!): User
+  # singleUser(id: ID!): User
   post(id: ID!): Post
   # carAlan(id: ID!): Car
   # car(where: CarWhereUniqueInput!): Car
@@ -15,7 +16,7 @@ type Query {
 
 
   # Only admins can retrieve info about given users
-  user(id: ID!): User
+  # user(id: ID!): User
 }
 
 type Mutation {
