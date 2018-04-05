@@ -47,15 +47,6 @@ class Header extends Component {
             Blog
           </NavLink>
           {authToken && (
-            <NavLink
-              className="link dim black b f6 f5-ns dib mr3"
-              to="/cars"
-              title="Cars"
-            >
-              Cars
-            </NavLink>
-          )}          
-          {authToken && (
           <NavLink
             className="link dim f6 f5-ns dib mr3 black"
             activeClassName="gray"
@@ -66,6 +57,15 @@ class Header extends Component {
             Drafts
           </NavLink>
         )}
+        {authToken && (
+          <NavLink
+            className="link dim black b f6 f5-ns dib mr3"
+            to="/cars"
+            title="Cars"
+          >
+            Cars
+          </NavLink>
+        )}           
         {authToken && (
           <NavLink
             className="link dim f6 f5-ns dib mr3 black"
