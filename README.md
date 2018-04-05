@@ -7,9 +7,9 @@
 <br />
 
 ![](https://imgur.com/ousyQaC.png)
-![image](https://user-images.githubusercontent.com/15246526/38383005-374917c6-38c0-11e8-8f1c-f36793f153d6.png)
-![image](https://user-images.githubusercontent.com/15246526/38383110-76853488-38c0-11e8-9c44-28af8ef4cd42.png)
-![image](https://user-images.githubusercontent.com/15246526/38383171-9e0df3dc-38c0-11e8-95da-675a7bfdfbbc.png)
+![image](https://user-images.githubusercontent.com/15246526/38383005-374917c6-38c0-11e8-8f1c-f36793f153d6.png | width=100)
+![image](https://user-images.githubusercontent.com/15246526/38383110-76853488-38c0-11e8-9c44-28af8ef4cd42.png | width=100)
+![image](https://user-images.githubusercontent.com/15246526/38383171-9e0df3dc-38c0-11e8-95da-675a7bfdfbbc.png | width=100)
 
 
 <div align="center"><strong>🚀 Bootstrap your fullstack GraphQL app within seconds</strong></div>
