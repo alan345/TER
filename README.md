@@ -7,6 +7,8 @@
 <br />
 
 ![](https://imgur.com/ousyQaC.png)
+![image](https://user-images.githubusercontent.com/15246526/38383005-374917c6-38c0-11e8-8f1c-f36793f153d6.png)
+
 
 <div align="center"><strong>🚀 Bootstrap your fullstack GraphQL app within seconds</strong></div>
 <div align="center">Basic starter kit for a fullstack GraphQL app with React and Node.js - based on best practices from the GraphQL community.</div>
@@ -107,7 +109,7 @@ More details in the tuto: https://github.com/graphcool/prisma/tree/master/exampl
 
 
 
-## Contributing
+# Contributing
 
 
 Your feedback is **very helpful**, please share your opinion and thoughts! If you have any questions or want to contribute yourself, don't hesitate!
