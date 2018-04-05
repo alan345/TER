@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn prisma local nuke
+  /usr/local/bin/node /usr/local/bin/yarn start
 
 PATH: 
   /Library/Frameworks/Python.framework/Versions/3.5/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/alan/Library/Android/sdk/tools:/Users/alan/Library/Android/sdk/platform-tools
@@ -8,7 +8,7 @@ Yarn version:
   1.5.0
 
 Node version: 
-  8.3.0
+  9.10.1
 
 Platform: 
   darwin x64
@@ -23,7 +23,7 @@ Lockfile:
   No lockfile
 
 Trace: 
-  Error: Couldn't find a package.json file in "/Users/alan/app/prisma"
+  Error: Couldn't find a package.json file in "/Users/alan/app/naperg"
       at new MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
       at /usr/local/lib/node_modules/yarn/lib/cli.js:40048:15
       at Generator.next (<anonymous>)

@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql, compose } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
-// import ImageTemplate from '../components/ImageTemplate'
 import Post from '../../components/post/Post'
 import { AUTH_TOKEN } from '../../constants/constants'
 
@@ -17,6 +16,7 @@ class UserPage extends React.Component {
   }
 
   componentWillReceiveProps(newProps){
+    console.log('componentWillReceiveProps')
     const { user } = newProps.userQuery
       if(!newProps.userQuery.loading){
           this.setState({ user: user })
