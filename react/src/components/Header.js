@@ -39,13 +39,15 @@ class Header extends Component {
           </div>
         </div>
         <nav className="pa3 pa4-ns">
-          <Link
+        {authToken && (
+          <NavLink
             className="link dim black b f6 f5-ns dib mr3"
             to="/cars"
             title="Cars"
           >
             Cars
-          </Link>
+          </NavLink>
+        )}
           <Link
             className="link dim black b f6 f5-ns dib mr3"
             to="/"
@@ -64,6 +66,7 @@ class Header extends Component {
             Drafts
           </NavLink>
         )}
+        {authToken && (
           <NavLink
             className="link dim f6 f5-ns dib mr3 black"
             activeClassName="gray"
@@ -73,6 +76,7 @@ class Header extends Component {
           >
             Users
           </NavLink>
+        )}
         </nav>
       </div>
     )

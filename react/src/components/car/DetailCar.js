@@ -16,7 +16,7 @@ class DetailPage extends React.Component {
     }
 
     const { car } = this.props.carQuery
-    console.log(car)
+    // console.log(car)
     let action = this._renderAction(car)
 
     return (

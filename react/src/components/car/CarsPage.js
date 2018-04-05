@@ -4,6 +4,8 @@ import {graphql} from 'react-apollo'
 import gql from 'graphql-tag'
 import {Link} from 'react-router-dom'
 
+
+
 class CarsPage extends React.Component {
   state = {
     query: '',
@@ -23,7 +25,6 @@ class CarsPage extends React.Component {
   }
 
   componentDidMount() {
-
     // this.props.carsQueryConnection.refetch(this.state.pagination)
   }
 
@@ -55,6 +56,13 @@ class CarsPage extends React.Component {
   }
 
   render() {
+
+    if (this.props.carsQueryConnection.error) {
+      return (
+        <div>Not authentificated</div>
+      )
+    }
+
     if (!this.props.carsQueryConnection.carsConnection) {
       return null
     }
@@ -136,7 +144,6 @@ export default graphql(DRAFTS_QUERY, {
   name: 'carsQueryConnection',
   options: {
     fetchPolicy: 'network-only',
-    errorPolicy: 'ignore',
     variables: {
       orderBy: 'createdAt_ASC'
     }

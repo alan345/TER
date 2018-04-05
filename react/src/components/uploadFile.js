@@ -34,16 +34,13 @@ class Main extends React.Component {
         <div>
           <input
             className="f6 link dim br1 ba ph3 pv2 fr mb2 dib black"
-            ref={(ref) => { this.uploadInput = ref; }} type="file" />
+            ref={(ref) => { this.uploadInput = ref; }}
+            onChange={this.handleUploadImage}
+            type="file" />
         </div>
         <br />
-        <div>
-          <button className="f6 link dim br1 ba ph3 pv2 fr mb2 dib black">Upload</button>
-        </div>
-        {this.state.imageURL ? (
+        {this.state.imageURL && (
           <img src={this.state.imageURL} alt="img" />
-        ) : (
-          <div></div>
         )
 
         }

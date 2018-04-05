@@ -6,11 +6,15 @@ import {
   Link,
 } from 'react-router-dom'
 
+
+
 class UsersPage extends React.Component {
   componentWillReceiveProps(nextProps) {
-    if (this.props.location.key !== nextProps.location.key) {
-      this.props.usersQuery.refetch()
-    }
+    // if (this.props.location.key !== nextProps.location.key) {
+    //   this.props.usersQuery.refetch()
+    // }
+  }
+  componentDidMount() {
   }
 
   render() {
@@ -19,6 +23,7 @@ class UsersPage extends React.Component {
         <div>Not authentificated</div>
       )
     }
+
     if (this.props.usersQuery.loading) {
       return (
         <div className="flex w-100 h-100 items-center justify-center pt7">

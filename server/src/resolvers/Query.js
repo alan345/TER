@@ -29,9 +29,9 @@ async function singleUser(parent, {
 
 }
 
-async function users(parent, args, ctx, info) {
-  return ctx.db.query.users({}, info)
-}
+// async function users(parent, args, ctx, info) {
+//   return ctx.db.query.users({}, info)
+// }
 
 async function feed(parent, args, ctx, info) {
   return ctx.db.query.posts({
@@ -82,7 +82,6 @@ async function post(parent, {
 const Query = {
   me,
   singleUser,
-  users,
   feed,
   drafts,
   post,
@@ -90,7 +89,11 @@ const Query = {
   car: forwardTo('db'),
   carsConnection: (parent, args, ctx, info) => {
     getUserId(ctx)
-    return forwardTo("db")(parent, args, ctx, info)
+    return forwardTo('db')(parent, args, ctx, info)
+  },
+  users: (parent, args, ctx, info) => {
+    getUserId(ctx)
+    return forwardTo('db')(parent, args, ctx, info)
   }
 }
 
