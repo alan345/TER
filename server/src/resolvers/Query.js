@@ -68,7 +68,6 @@ async function post(parent, {
     }
   })
   const requestingUserIsAdmin = await ctx.db.exists.User({id: userId, role: 'ADMIN'})
-
   if (requestingUserIsAdmin || requestingUserIsAuthor) {
     return ctx.db.query.post({
       where: {
