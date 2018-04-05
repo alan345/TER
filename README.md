@@ -60,7 +60,7 @@ Go to url: http://localhost:3000
 | Authentification: Create draft available if user is logged in  | ![](https://user-images.githubusercontent.com/15246526/36926055-a122e268-1e2a-11e8-8f68-b338d0d84dff.png)  |
 | User Details  | ![](https://user-images.githubusercontent.com/15246526/38337858-fa9219bc-381b-11e8-85d8-891ad26b8620.png)  |
 | User Role  | ![](https://user-images.githubusercontent.com/15246526/38337916-2785943a-381c-11e8-9c5e-b2a86e66796d.png)  |
-| Must have role Admin  | ![](https://user-images.githubusercontent.com/15246526/38383830-5cfa143c-38c2-11e8-86ac-8d38dd44bbc1.png) |
+| Must have role Admin to see a specific page | ![](https://user-images.githubusercontent.com/15246526/38383830-5cfa143c-38c2-11e8-86ac-8d38dd44bbc1.png) |
 | Upload File  | ![](https://user-images.githubusercontent.com/15246526/38334196-9079c748-380f-11e8-9e46-a5f98fee87f8.png)  |
 | Files are uploaded thanks to an ExpressJs server| ![](https://user-images.githubusercontent.com/15246526/36926125-f1130e2e-1e2a-11e8-928c-4a2c1f1c136b.png)  |
 | Pagination - orderBy | ![](https://user-images.githubusercontent.com/15246526/38333662-186973f8-380e-11e8-9289-f6240ffc5a6c.png) |
@@ -125,4 +125,5 @@ Your feedback is **very helpful**, please share your opinion and thoughts! If yo
 * Send emails: Welcome emails
 * change/Reset password. send email confirmation
 * Organize logo image in readMe
+* Write medium post
 * Use File Handling instead of express to upload file: https://github.com/graphcool/prisma/tree/master/examples/file-handling-s3
