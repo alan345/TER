@@ -11,6 +11,7 @@
 ![](https://user-images.githubusercontent.com/15246526/38383110-76853488-38c0-11e8-9c44-28af8ef4cd42.png)
 ![](https://user-images.githubusercontent.com/15246526/38383171-9e0df3dc-38c0-11e8-95da-675a7bfdfbbc.png)
 
+<img src="https://github.com/favicon.ico" width="48">
 
 <div align="center"><strong>🚀 Bootstrap your fullstack GraphQL app within seconds</strong></div>
 <div align="center">Basic starter kit for a fullstack GraphQL app with React and Node.js - based on best practices from the GraphQL community.</div>
