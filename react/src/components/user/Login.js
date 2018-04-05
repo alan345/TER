@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { AUTH_TOKEN } from '../constants/constants'
+import { AUTH_TOKEN } from '../../constants/constants'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 
