@@ -126,4 +126,5 @@ Your feedback is **very helpful**, please share your opinion and thoughts! If yo
 * change/Reset password. send email confirmation
 * Organize logo image in readMe
 * Write medium post
+* Upload all filetypes. A logo of a file will appear instead of picture
 * Use File Handling instead of express to upload file: https://github.com/graphcool/prisma/tree/master/examples/file-handling-s3

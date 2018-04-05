@@ -12,6 +12,7 @@ class Login extends Component {
   }
 
   render() {
+
     return (
       <div>
         <h4 className="mv3">{this.state.login ? 'Login' : 'Sign Up'}</h4>
@@ -63,8 +64,9 @@ class Login extends Component {
           password,
         },
       })
-      const { token } = result.data.login
-      this._saveUserData(token)
+      console.log(result.data)
+      const { token, user } = result.data.login
+      this._saveUserData(token, user)
     } else {
       const result = await this.props.signupMutation({
         variables: {
@@ -73,14 +75,15 @@ class Login extends Component {
           password,
         },
       })
-      const { token } = result.data.signup
-      this._saveUserData(token)
+      const { token, user } = result.data.signup
+      this._saveUserData(token, user)
     }
     this.props.history.push(`/`)
   }
 
-  _saveUserData = (token) => {
+  _saveUserData = (token, user) => {
     localStorage.setItem(AUTH_TOKEN, token)
+    localStorage.setItem('userToken', JSON.stringify(user))
   }
 }
 
@@ -88,6 +91,9 @@ const SIGNUP_MUTATION = gql`
   mutation SignupMutation($email: String!, $password: String!, $name: String!) {
     signup(email: $email, password: $password, name: $name) {
       token
+      user {
+        name
+      }      
     }
   }
 `
@@ -96,6 +102,9 @@ const LOGIN_MUTATION = gql`
   mutation LoginMutation($email: String!, $password: String!) {
     login(email: $email, password: $password) {
       token
+      user {
+        name
+      }
     }
   }
 `

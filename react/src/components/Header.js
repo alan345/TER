@@ -6,6 +6,8 @@ import { NavLink, Link } from 'react-router-dom'
 class Header extends Component {
   render() {
     const authToken = localStorage.getItem(AUTH_TOKEN)
+    const userToken = JSON.parse(localStorage.getItem('userToken'))
+    console.log(userToken)
     return (
       <div>
         <div className="flex pa1 justify-between nowrap orange">
@@ -21,6 +23,7 @@ class Header extends Component {
             </Link>
           </div>
           <div className="flex flex-fixed">
+            Hi {userToken.name}!
             {authToken ? (
               <div
                 className="ml1 pointer black"
@@ -65,7 +68,7 @@ class Header extends Component {
           >
             Cars
           </NavLink>
-        )}           
+        )}
         {authToken && (
           <NavLink
             className="link dim f6 f5-ns dib mr3 black"
