@@ -43,6 +43,7 @@ class UserPage extends React.Component {
     let action = this._renderAction(this.state.user)
     return (
       <React.Fragment>
+      {this.props.match.params.id}
         <h1 className="f3 black-80 fw4 lh-solid">
         {this.state.user.name}{' '}
         <i className="fa fa-edit" onClick={e => this.setState({ isEditMode:!this.state.isEditMode })}></i>
@@ -90,7 +91,7 @@ class UserPage extends React.Component {
           </div>
         )}
 
-
+        {this.props.children}
       </React.Fragment>
     )
   }
