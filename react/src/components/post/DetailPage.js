@@ -7,6 +7,13 @@ import { Link } from 'react-router-dom'
 
 class DetailPage extends React.Component {
   render() {
+
+    if (this.props.postQuery.error) {
+      return (
+        <div>No rights. must be an admin</div>
+      )
+    }
+
     if (this.props.postQuery.loading) {
       return (
         <div className="flex w-100 h-100 items-center justify-center pt7">
