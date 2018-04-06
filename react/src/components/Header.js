@@ -24,9 +24,20 @@ class Header extends Component {
             </Link>
           </div>
           <div className="flex flex-fixed">
-            {userToken && (
+            {authToken ? (
               <div>
-                Hi {userToken.name}!
+                Hi{' '}
+                <Link to={`/user/${userToken.id}`}>
+                  {userToken.name}
+                </Link>!
+              </div>
+            ) : (
+              <div>
+                {userToken && (
+                  <div>
+                  Hi {userToken.name}!
+                  </div>
+                )}
               </div>
             )}
             {authToken ? (
