@@ -23,7 +23,7 @@ import UserPage from './components/user/UserPage'
 import Login from './components/user/Login'
 import 'tachyons'
 import './index.css'
-import Header from './components/Header'
+import Header from './components/nav/Header'
 import 'font-awesome/css/font-awesome.min.css';
 const httpLink = new HttpLink({ uri: 'http://localhost:4000' })
 

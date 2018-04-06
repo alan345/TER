@@ -1,20 +1,19 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router'
-import { AUTH_TOKEN } from '../constants/constants'
+import { AUTH_TOKEN } from '../../constants/constants'
 import { NavLink, Link } from 'react-router-dom'
-
+import TopHello  from './TopHello'
 class Header extends Component {
 
   render() {
     const authToken = localStorage.getItem(AUTH_TOKEN)
-    const userToken = JSON.parse(localStorage.getItem('userToken'))
-    console.log(userToken)
     return (
       <div>
         <div className="flex pa1 justify-between nowrap orange">
           <div className="flex flex-fixed black">
             <i className="fa fa-arrow-left" onClick={this.props.history.goBack}></i>
           </div>
+
           <div className="flex flex-fixed black">
             <Link
               to="/"
@@ -24,37 +23,7 @@ class Header extends Component {
             </Link>
           </div>
           <div className="flex flex-fixed">
-            {authToken ? (
-              <div>
-                Hi{' '}
-                <Link to={`/user/${userToken.id}`}>
-                  {userToken.name}
-                </Link>!
-              </div>
-            ) : (
-              <div>
-                {userToken && (
-                  <div>
-                  Hi {userToken.name}!
-                  </div>
-                )}
-              </div>
-            )}
-            {authToken ? (
-              <div
-                className="ml1 pointer black"
-                onClick={() => {
-                  localStorage.removeItem(AUTH_TOKEN)
-                  this.props.history.push(`/`)
-                }}
-              >
-                logout
-              </div>
-            ) : (
-              <Link to="/login" className="ml1 no-underline black">
-                login
-              </Link>
-            )}
+            <TopHello/>
           </div>
         </div>
         <nav className="pa3 pa4-ns">

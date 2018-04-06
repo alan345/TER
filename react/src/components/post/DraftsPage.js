@@ -2,7 +2,6 @@ import React from 'react'
 import Post from './Post'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
-import DownloadCSV from './DownloadCSV'
 import { AUTH_TOKEN } from '../../constants/constants'
 import { Link } from 'react-router-dom'
 
