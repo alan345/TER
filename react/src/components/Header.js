@@ -45,7 +45,7 @@ class Header extends Component {
                 className="ml1 pointer black"
                 onClick={() => {
                   localStorage.removeItem(AUTH_TOKEN)
-                  this.props.history.push(`/new/1`)
+                  this.props.history.push(`/`)
                 }}
               >
                 logout
