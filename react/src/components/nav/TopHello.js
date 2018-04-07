@@ -26,17 +26,7 @@ class TopHello extends Component {
           )}
         </div>
       )}
-      {authToken ? (
-        <div
-          className="ml1 pointer black"
-          onClick={() => {
-            localStorage.removeItem(AUTH_TOKEN)
-            this.props.history.replace(`/`)
-          }}
-        >
-          logout
-        </div>
-      ) : (
+      {!authToken && (
         <Link to="/login" className="ml1 no-underline black">
           login
         </Link>
