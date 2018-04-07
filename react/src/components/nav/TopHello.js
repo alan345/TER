@@ -1,18 +1,16 @@
-import React, {Component} from 'react'
-import { withRouter } from 'react-router'
+import React from 'react'
 import { AUTH_TOKEN } from '../../constants/constants'
 import { Link } from 'react-router-dom'
 
-// function TopHello(props) {
-class TopHello extends Component {
-    render() {
-      const authToken = localStorage.getItem(AUTH_TOKEN)
-      const userToken = JSON.parse(localStorage.getItem('userToken'))
+function TopHello(props) {
+
+    const authToken = localStorage.getItem(AUTH_TOKEN)
+    const userToken = JSON.parse(localStorage.getItem('userToken'))
 
     return (
-      <div className="flex flex-fixed">
+      <div className='flex flex-fixed'>
       {authToken ? (
-        <div className="black link">
+        <div className='black link'>
           Hi{' '}<Link to={`/user/${userToken.id}`}>
             {userToken.name}
           </Link>!
@@ -27,13 +25,12 @@ class TopHello extends Component {
         </div>
       )}
       {!authToken && (
-        <Link to="/login" className="ml1 no-underline black">
+        <Link to='/login' className='ml1 no-underline black'>
           login
         </Link>
       )}
       </div>
     )
   }
-}
 
-export default withRouter(TopHello)
+export default TopHello
