@@ -11,66 +11,47 @@ import IconButton from 'material-ui/IconButton';
 import MenuIcon from 'material-ui/Menu';
 import Drawer from 'material-ui/Drawer';
 import SideBar from './SideBar'
-
-
+import Icon from 'material-ui/Icon';
 
 class Header extends Component {
 
-  state = {
-    isSideBarOpen: false,
-  };
-
-  toggleDrawer = (isSideBarOpen) => () => {
-    this.setState({
-      isSideBarOpen: isSideBarOpen,
-    });
-  };
+  // state = {
+  //   isSideBarOpen: false,
+  // };
+//
+// toggleDrawer = (isSideBarOpen) => () => {
+//   this.setState({
+//     isSideBarOpen: isSideBarOpen,
+//   });
+// };
 
 
 
   render() {
     const authToken = localStorage.getItem(AUTH_TOKEN)
-    console.log(this.state.isSideBarOpen)
     return (
       <div>
       <SideBar ref={instance => { this.child = instance; }}/>
-
-
       <div className="flexGrow">
 
             <AppBar position="static">
               <Toolbar>
-              <Button onClick={() => { this.child.toggleDrawerFunction(true); }}>Open Left</Button>
-              <div className="flex flex-fixed black">
-                <i className="fa fa-arrow-left" onClick={this.props.history.goBack}></i>
-              </div>
-              <div className="flex flex-fixed black">
-                <Link
-                  to="/"
-                  title="Feed"
-                >
-                  <i className="fa fa-home fa-2x"></i>
-                </Link>
-              </div>
-                <Typography variant="title" color="inherit" className="flex">
 
-                  Title
-                </Typography>
-
-                  <TopHello/>
+                <Button onClick={this.props.history.goBack}>
+                  <Icon>arrow_back</Icon>
+                </Button>
+                <Button onClick={() => { this.child.toggleDrawerFunction(true); }}>
+                  <Icon>menu</Icon>
+                </Button>
+                <Button onClick={()=> {this.props.history.replace('/')}}>
+                  <Icon>home</Icon>
+                </Button>
+                <TopHello/>
 
               </Toolbar>
             </AppBar>
           </div>
-
-
-
-
         <div className="flex pa1 justify-between nowrap orange">
-
-
-
-
         </div>
         <nav className="pa3 pa4-ns">
           <NavLink

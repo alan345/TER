@@ -22,30 +22,38 @@ import List from 'material-ui/List';
 
   const mailFolderListItems = (
   <div>
+  <Link to="/">
     <ListItem button>
       <ListItemIcon>
         <InboxIcon />
       </ListItemIcon>
-      <ListItemText primary="Inbox" />
+      <ListItemText primary="Blog" />
     </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <StarIcon />
-      </ListItemIcon>
-      <ListItemText primary="Starred" />
-    </ListItem>
+    </Link>
+    <Link to="/drafts">
+      <ListItem button>
+        <ListItemIcon>
+          <StarIcon />
+        </ListItemIcon>
+        <ListItemText primary="Drafts" />
+      </ListItem>
+    </Link>
+    <Link to="/cars">
     <ListItem button>
       <ListItemIcon>
         <SendIcon />
       </ListItemIcon>
-      <ListItemText primary="Send mail" />
+      <ListItemText primary="Cars" />
     </ListItem>
+    </Link>
+    <Link to="/users">
     <ListItem button>
       <ListItemIcon>
         <DraftsIcon />
       </ListItemIcon>
-      <ListItemText primary="Drafts" />
+      <ListItemText primary="Users" />
     </ListItem>
+    </Link>
   </div>
 );
 

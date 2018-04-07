@@ -52,11 +52,10 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-
     <Router>
       <React.Fragment>
       <Header />
-
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
         <div className="fl w-100 pl4 pr4">
           <Switch>
             <Route exact path="/" component={FeedPage} />
