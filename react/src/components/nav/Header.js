@@ -1,17 +1,12 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router'
 import { AUTH_TOKEN } from '../../constants/constants'
-import { NavLink, Link } from 'react-router-dom'
 import TopHello  from './TopHello'
-import AppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';
-import Typography from 'material-ui/Typography';
-import Button from 'material-ui/Button';
-import IconButton from 'material-ui/IconButton';
-import MenuIcon from 'material-ui/Menu';
-import Drawer from 'material-ui/Drawer';
+import AppBar from 'material-ui/AppBar'
+import Toolbar from 'material-ui/Toolbar'
+import Button from 'material-ui/Button'
 import SideBar from './SideBar'
-import Icon from 'material-ui/Icon';
+import Icon from 'material-ui/Icon'
 
 class Header extends Component {
 
