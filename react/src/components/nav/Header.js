@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router'
-import { AUTH_TOKEN } from '../../constants/constants'
 import TopHello  from './TopHello'
 import AppBar from 'material-ui/AppBar'
 import Toolbar from 'material-ui/Toolbar'
@@ -23,7 +22,6 @@ class Header extends Component {
 
 
   render() {
-    const authToken = localStorage.getItem(AUTH_TOKEN)
     return (
       <div>
       <SideBar ref={instance => { this.child = instance; }}/>

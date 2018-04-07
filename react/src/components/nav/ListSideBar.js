@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import {withRouter} from 'react-router'
-import {AUTH_TOKEN} from '../../constants/constants'
 import {Link} from 'react-router-dom'
 import { ListItem, ListItemIcon, ListItemText } from 'material-ui/List'
 import List from 'material-ui/List'
@@ -62,7 +61,6 @@ class ListSideBar extends Component {
 
 
   render() {
-    const authToken = localStorage.getItem(AUTH_TOKEN)
     return (
       <div>
         <List>{mailFolderListItems}</List>
