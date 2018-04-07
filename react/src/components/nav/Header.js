@@ -25,12 +25,12 @@ class Header extends Component {
   render() {
     return (
       <div>
-      <SideBar ref={instance => { this.child = instance }}/>
+
       <div className='flexGrow'>
 
             <AppBar position='static'>
               <Toolbar>
-                <BackButton toggleDrawerFunction={() => { this.child.toggleDrawerFunction(true) }}/>
+                <BackButton toggleDrawerFunction={() => { this.props.toggleDrawerFunction(true) }}/>
                 <Button onClick={()=> {this.props.history.replace('/')}}>
                   <Icon>home</Icon>
                 </Button>

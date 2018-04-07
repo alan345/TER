@@ -24,6 +24,7 @@ import Login from './components/user/Login'
 import 'tachyons'
 import './index.css'
 import Header from './components/nav/Header'
+import SideBar from './components/nav/SideBar'
 import 'font-awesome/css/font-awesome.min.css';
 const httpLink = new HttpLink({ uri: 'http://localhost:4000' })
 
@@ -54,8 +55,9 @@ ReactDOM.render(
   <ApolloProvider client={client}>
     <Router>
       <React.Fragment>
-      <Header />
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+        <SideBar ref={instance => { this.child = instance }}/>
+        <Header toggleDrawerFunction={() => { this.child.toggleDrawerFunction(true) }}/>
         <div className="fl w-100 pl4 pr4">
           <Switch>
             <Route exact path="/" component={FeedPage} />
