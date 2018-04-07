@@ -80,3 +80,16 @@ html {
   -ms-transform: translateY(-50%); /* IE 9 */
   transform: translateY(-50%); /* IE 10, Fx 16+, Op 12.1+ */
 }
+
+
+
+.menuButton {
+  margin-left: -12;
+  margin-right: 20;
+}
+.flexGrow {
+  flex-grow:1;
+}
+.flex {
+  flex:1;
+}
