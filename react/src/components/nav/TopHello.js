@@ -1,12 +1,14 @@
-import React from 'react'
+import React, {Component} from 'react'
 import { withRouter } from 'react-router'
 import { AUTH_TOKEN } from '../../constants/constants'
 import { Link } from 'react-router-dom'
 
-function TopHello(props) {
+// function TopHello(props) {
+class TopHello extends Component {
+    render() {
+      const authToken = localStorage.getItem(AUTH_TOKEN)
+      const userToken = JSON.parse(localStorage.getItem('userToken'))
 
-  const authToken = localStorage.getItem(AUTH_TOKEN)
-  const userToken = JSON.parse(localStorage.getItem('userToken'))
     return (
       <div className="flex flex-fixed">
       {authToken ? (
@@ -29,7 +31,7 @@ function TopHello(props) {
           className="ml1 pointer black"
           onClick={() => {
             localStorage.removeItem(AUTH_TOKEN)
-            this.props.history.push(`/`)
+            this.props.history.replace(`/`)
           }}
         >
           logout
@@ -41,6 +43,7 @@ function TopHello(props) {
       )}
       </div>
     )
+  }
 }
 
 export default withRouter(TopHello)
