@@ -5,6 +5,7 @@ import AppBar from 'material-ui/AppBar'
 import Toolbar from 'material-ui/Toolbar'
 import Button from 'material-ui/Button'
 import SideBar from './SideBar'
+import BackButton from './BackButton'
 import Icon from 'material-ui/Icon'
 
 class Header extends Component {
@@ -24,20 +25,12 @@ class Header extends Component {
   render() {
     return (
       <div>
-      <SideBar ref={instance => { this.child = instance; }}/>
-      <div className="flexGrow">
+      <SideBar ref={instance => { this.child = instance }}/>
+      <div className='flexGrow'>
 
-            <AppBar position="static">
+            <AppBar position='static'>
               <Toolbar>
-                {this.props.history.location.pathname !== '/' ? (
-                  <Button onClick={this.props.history.goBack}>
-                    <Icon>arrow_back</Icon>
-                  </Button>
-                ) : (
-                  <Button onClick={() => { this.child.toggleDrawerFunction(true); }}>
-                    <Icon>menu</Icon>
-                  </Button>
-                )}
+                <BackButton toggleDrawerFunction={() => { this.child.toggleDrawerFunction(true) }}/>
                 <Button onClick={()=> {this.props.history.replace('/')}}>
                   <Icon>home</Icon>
                 </Button>
