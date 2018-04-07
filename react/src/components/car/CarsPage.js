@@ -3,7 +3,7 @@ import Car from './Car'
 import {graphql} from 'react-apollo'
 import gql from 'graphql-tag'
 import {Link} from 'react-router-dom'
-
+import Icon from 'material-ui/Icon'
 
 
 class CarsPage extends React.Component {
@@ -35,21 +35,21 @@ class CarsPage extends React.Component {
 
     return (
       <React.Fragment>
-      <div className="flex justify-between items-center">
+      <div className='flex justify-between items-center'>
         <h1>Cars ({edges.length}/{aggregate.count})</h1>
         <div>
-          <input type="text" autoFocus="autoFocus" onFocus={function(e) {
+          <input type='text' autoFocus='autoFocus' onFocus={function(e) {
               var val = e.target.value;
               e.target.value = '';
               e.target.value = val;
-            }} className="w-100 pa2 mv2 br2 b--black-20 bw1" onChange={e => {
+            }} className='w-100 pa2 mv2 br2 b--black-20 bw1' onChange={e => {
               this.setState({query: e.target.value})
               carsQueryConnection.refetch({
                 where: {
                   name_contains: e.target.value
                 }
               })
-            }} placeholder="Search" value={this.state.query}/>
+            }} placeholder='Search' value={this.state.query}/>
         </div>
 
         <div onClick={() => {
@@ -61,12 +61,12 @@ class CarsPage extends React.Component {
           }}>
           {
             orderBy === 'name_ASC'
-              ? (<i className="fa fa-arrow-down"></i>)
-              : (<i className="fa fa-arrow-up"></i>)
+              ? (<Icon>keyboard_arrow_down</Icon>)
+              : (<Icon>keyboard_arrow_up</Icon>)
           }
         </div>
 
-        <Link to="car/create" className="f6 link dim br1 ba ph3 pv2 fr mb2 dib black">
+        <Link to='car/create' className='f6 link dim br1 ba ph3 pv2 fr mb2 dib black'>
           + Create Car
         </Link>
       </div>
@@ -81,7 +81,7 @@ class CarsPage extends React.Component {
           }
 
       {(edges.length !== aggregate.count) && (
-        <i className="fa fa-plus" onClick={() => this.loadMore()}></i>
+        <Icon onClick={() => this.loadMore()}>add</Icon>
       )}
 
       {this.props.children}
@@ -100,7 +100,7 @@ class CarsPage extends React.Component {
 
         updateQuery: (previousResult, {fetchMoreResult}) => {
           if (!fetchMoreResult) {
-            return previousResult;
+            return previousResult
           }
           return {
             carsConnection: {
@@ -112,7 +112,7 @@ class CarsPage extends React.Component {
                 ...fetchMoreResult.carsConnection.edges
               ]
             }
-          };
+          }
         }
       })
     }

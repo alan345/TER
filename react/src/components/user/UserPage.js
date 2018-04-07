@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
 import Post from '../../components/post/Post'
 import { AUTH_TOKEN } from '../../constants/constants'
+import Icon from 'material-ui/Icon'
 
 class UserPage extends React.Component {
 
@@ -47,7 +48,8 @@ class UserPage extends React.Component {
       <React.Fragment>
         <h1 className="f3 black-80 fw4 lh-solid">
         {this.state.user.name}{' '}
-        <i className="fa fa-edit" onClick={e => this.setState({ isEditMode:!this.state.isEditMode })}></i>
+        <Icon onClick={e => this.setState({ isEditMode:!this.state.isEditMode })}>border_color</Icon>
+
         </h1>
         {this.state.isEditMode && (
           <input
