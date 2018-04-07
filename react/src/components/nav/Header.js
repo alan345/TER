@@ -36,13 +36,15 @@ class Header extends Component {
 
             <AppBar position="static">
               <Toolbar>
-
-                <Button onClick={this.props.history.goBack}>
-                  <Icon>arrow_back</Icon>
-                </Button>
-                <Button onClick={() => { this.child.toggleDrawerFunction(true); }}>
-                  <Icon>menu</Icon>
-                </Button>
+                {this.props.history.location.pathname !== '/' ? (
+                  <Button onClick={this.props.history.goBack}>
+                    <Icon>arrow_back</Icon>
+                  </Button>
+                ) : (
+                  <Button onClick={() => { this.child.toggleDrawerFunction(true); }}>
+                    <Icon>menu</Icon>
+                  </Button>
+                )}
                 <Button onClick={()=> {this.props.history.replace('/')}}>
                   <Icon>home</Icon>
                 </Button>
