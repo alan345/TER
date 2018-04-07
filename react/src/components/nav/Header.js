@@ -12,6 +12,8 @@ import MenuIcon from 'material-ui/Menu';
 import Drawer from 'material-ui/Drawer';
 import SideBar from './SideBar'
 
+
+
 class Header extends Component {
 
   state = {
@@ -31,13 +33,14 @@ class Header extends Component {
     console.log(this.state.isSideBarOpen)
     return (
       <div>
-      <SideBar isSideBarOpen={this.state.isSideBarOpen}/>
+      <SideBar ref={instance => { this.child = instance; }}/>
 
 
       <div className="flexGrow">
+
             <AppBar position="static">
               <Toolbar>
-              <Button onClick={this.toggleDrawer(true)}>Open Left</Button>
+              <Button onClick={() => { this.child.toggleDrawerFunction(true); }}>Open Left</Button>
               <div className="flex flex-fixed black">
                 <i className="fa fa-arrow-left" onClick={this.props.history.goBack}></i>
               </div>

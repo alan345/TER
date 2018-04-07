@@ -25,6 +25,14 @@ class SideBar extends Component {
     });
   };
 
+  toggleDrawerFunction(isSideBarOpen) {
+    this.setState({
+      isSideBarOpen: isSideBarOpen,
+    });
+  }
+
+
+
   componentWillReceiveProps(nextProps) {
     this.setState({ isSideBarOpen: nextProps.isSideBarOpen })
   }
@@ -46,4 +54,4 @@ class SideBar extends Component {
   }
 }
 
-export default withRouter(SideBar)
+export default SideBar
