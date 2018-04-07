@@ -19,37 +19,38 @@ import MailIcon from 'material-ui-icons/Mail';
 import DeleteIcon from 'material-ui-icons/Delete';
 import ReportIcon from 'material-ui-icons/Report';
 import List from 'material-ui/List';
+import Icon from 'material-ui/Icon';
 
   const mailFolderListItems = (
   <div>
-  <Link to="/">
+  <Link to="/" className="link">
     <ListItem button>
       <ListItemIcon>
-        <InboxIcon />
+        <Icon>view_quilt</Icon>
       </ListItemIcon>
       <ListItemText primary="Blog" />
     </ListItem>
     </Link>
-    <Link to="/drafts">
+    <Link to="/drafts" className="link">
       <ListItem button>
         <ListItemIcon>
-          <StarIcon />
+          <Icon>mode_edit</Icon>
         </ListItemIcon>
         <ListItemText primary="Drafts" />
       </ListItem>
     </Link>
-    <Link to="/cars">
+    <Link to="/cars" className="link">
     <ListItem button>
       <ListItemIcon>
-        <SendIcon />
+        <Icon>directions_car</Icon>
       </ListItemIcon>
       <ListItemText primary="Cars" />
     </ListItem>
     </Link>
-    <Link to="/users">
+    <Link to="/users" className="link">
     <ListItem button>
       <ListItemIcon>
-        <DraftsIcon />
+        <Icon>group</Icon>
       </ListItemIcon>
       <ListItemText primary="Users" />
     </ListItem>
