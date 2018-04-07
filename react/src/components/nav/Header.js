@@ -51,48 +51,6 @@ class Header extends Component {
               </Toolbar>
             </AppBar>
           </div>
-        <div className="flex pa1 justify-between nowrap orange">
-        </div>
-        <nav className="pa3 pa4-ns">
-          <NavLink
-            className="link dim black b f6 f5-ns dib mr3"
-            to="/"
-            title="Feed"
-          >
-            Blog
-          </NavLink>
-          {authToken && (
-          <NavLink
-            className="link dim f6 f5-ns dib mr3 black"
-            activeClassName="gray"
-            exact={true}
-            to="/drafts"
-            title="Drafts"
-          >
-            Drafts
-          </NavLink>
-        )}
-        {authToken && (
-          <NavLink
-            className="link dim black b f6 f5-ns dib mr3"
-            to="/cars"
-            title="Cars"
-          >
-            Cars
-          </NavLink>
-        )}
-        {authToken && (
-          <NavLink
-            className="link dim f6 f5-ns dib mr3 black"
-            activeClassName="gray"
-            exact={true}
-            to="/users"
-            title="Users"
-          >
-            Users
-          </NavLink>
-        )}
-        </nav>
       </div>
     )
   }

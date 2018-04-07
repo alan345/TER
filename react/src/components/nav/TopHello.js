@@ -12,7 +12,7 @@ class TopHello extends Component {
     return (
       <div className="flex flex-fixed">
       {authToken ? (
-        <div className="black">
+        <div className="black link">
           Hi{' '}<Link to={`/user/${userToken.id}`}>
             {userToken.name}
           </Link>!
