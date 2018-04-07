@@ -32,7 +32,8 @@ class SideBar extends Component {
     return (
       <div>
 
-      <Drawer open={this.state.isSideBarOpen} onClose={this.toggleDrawer(false)}>
+      <Drawer
+        open={this.state.isSideBarOpen} onClose={this.toggleDrawer(false)}>
         <div tabIndex={0} role='button' onClick={this.toggleDrawer(false)} onKeyDown={this.toggleDrawer(false)}>
           <ListSideBar/>
         </div>

@@ -7,6 +7,12 @@ import Icon from 'material-ui/Icon'
 
   const mailFolderListItems = (
   <div>
+    <ListItem button>
+      <ListItemIcon>
+        <Icon>arrow_back</Icon>
+      </ListItemIcon>
+    </ListItem>
+
   <Link to='/' className='link'>
     <ListItem button>
       <ListItemIcon>
