@@ -10,7 +10,6 @@ type Query {
   users: [User!]!
   # singleUser(id: ID!): User
   post(id: ID!): Post
-  # carAlan(id: ID!): Car
   # car(where: CarWhereUniqueInput!): Car
   cars(where: CarWhereInput, orderBy: CarOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Car]!
 

@@ -2,37 +2,6 @@ const {forwardTo} = require('prisma-binding')
 const {getUserId} = require('../utils')
 const {me} = require('./auth')
 
-//
-// async function singleUser(parent, {
-//   id
-// }, ctx, info) {
-//   return ctx.db.query.user({
-//     where: {
-//       id
-//     }
-//   }, info)
-//   // const userId = getUserId(ctx)
-//   // const requestingUserIsAuthor = await ctx.db.exists.User({
-//   //   id,
-//   // })
-//   // const requestingUserIsAdmin = await ctx.db.exists.User({
-//   //   id: userId,
-//   //   role: 'ADMIN',
-//   // })
-//   //
-//   // if (requestingUserIsAdmin || requestingUserIsAuthor) {
-//   //   return ctx.db.query.user({ where: { id } }, info)
-//   // }
-//   // throw new Error(
-//   //   'Invalid permissions, you must be an admin or the author of this post to retrieve it.',
-//   // )
-//
-// }
-
-// async function users(parent, args, ctx, info) {
-//   return ctx.db.query.users({}, info)
-// }
-
 async function feed(parent, args, ctx, info) {
   return ctx.db.query.posts({
     where: {
