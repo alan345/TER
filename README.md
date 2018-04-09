@@ -55,8 +55,8 @@ Go to url: http://localhost:3000
 
 |  Description | Image |
 | ------------- | ------------- |
-| Authentification: Signup | ![](https://user-images.githubusercontent.com/15246526/38334318-d8a8177c-380f-11e8-8c77-5128e9679b8d.png)  |
-| Authentification: Login | ![](https://user-images.githubusercontent.com/15246526/36925970-4315cf46-1e2a-11e8-8548-10f9b65d6387.png)  |
+| Authentification: Signup | ![image](https://user-images.githubusercontent.com/15246526/38527677-da8c5e9a-3c10-11e8-87e8-ef22fb20b201.png) |
+| Authentification: Login | ![image](https://user-images.githubusercontent.com/15246526/38527663-c200be34-3c10-11e8-8333-5df41e5e9f2a.png)  |
 | Authentification: Create draft available if user is logged in  | ![](https://user-images.githubusercontent.com/15246526/36926055-a122e268-1e2a-11e8-8f68-b338d0d84dff.png)  |
 | User Details  | ![](https://user-images.githubusercontent.com/15246526/38337858-fa9219bc-381b-11e8-85d8-891ad26b8620.png)  |
 | User Role  | ![](https://user-images.githubusercontent.com/15246526/38337916-2785943a-381c-11e8-9c5e-b2a86e66796d.png)  |

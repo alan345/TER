@@ -2,7 +2,7 @@ import React from 'react'
 import Post from './Post'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
-
+import Paper from 'material-ui/Paper'
 
 class FeedPage extends React.Component {
   componentWillReceiveProps(nextProps) {
@@ -24,6 +24,8 @@ class FeedPage extends React.Component {
 
     return (
       <React.Fragment>
+        <div className='paperOut'>
+          <Paper className='paperIn'>
         <h1>Feed</h1>
 
         {this.props.feedQuery.feed &&
@@ -36,6 +38,8 @@ class FeedPage extends React.Component {
             />
           ))}
         {this.props.children}
+        </Paper>
+        </div>
       </React.Fragment>
     )
   }

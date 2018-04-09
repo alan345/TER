@@ -3,6 +3,9 @@ import { AUTH_TOKEN } from '../../constants/constants'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 import SnackBarCustom from './SnackBarCustom'
+import Paper from 'material-ui/Paper'
+import Button from 'material-ui/Button'
+
 const queryString = require('query-string')
 
 class Login extends Component {
@@ -28,7 +31,8 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
+      <div className='paperOut'>
+        <Paper className='paperIn'>
         <h4 className='mv3'>
           {this.state.stateLogin === 'login' && 'Login'}
           {this.state.stateLogin === 'signup' && 'Sign Up'}
@@ -69,28 +73,26 @@ class Login extends Component {
       )}
         </div>
         <div className='flex mt3'>
-          <div className='pointer f6 link dim br1 ba ph3 pv2 fr mb2 dib black' onClick={() => this._confirm()}>
+          <Button variant='raised' onClick={() => this._confirm()}>
             Ok
-          </div>
-          <div
-            className='pointer f6 link dim br1 ba ph3 pv2 fr mb2 dib black'
+          </Button>
+          <Button variant='flat'
             onClick={() => this.setState({ stateLogin: 'login', openSnackBar: false })}
           >Login
-          </div>
-          <div
-            className='pointer f6 link dim br1 ba ph3 pv2 fr mb2 dib black'
+          </Button>
+          <Button variant='flat'
             onClick={() => this.setState({ stateLogin: 'signup', openSnackBar: false })}
           >signup
-          </div>
-          <div
-            className='pointer f6 link dim br1 ba ph3 pv2 fr mb2 dib black'
+          </Button>
+          <Button variant='flat'
             onClick={() => this.setState({ stateLogin: 'forget', openSnackBar: false })}
           >Forget Password
-          </div>
+          </Button>
         </div>
         <SnackBarCustom
           openSnackBar={this.state.openSnackBar}
           messageSnackBar={this.state.messageSnackBar}/>
+      </Paper>
       </div>
     )
   }

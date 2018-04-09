@@ -4,6 +4,8 @@ import {graphql} from 'react-apollo'
 import gql from 'graphql-tag'
 import {Link} from 'react-router-dom'
 import Icon from 'material-ui/Icon'
+import Paper from 'material-ui/Paper'
+
 
 
 class CarsPage extends React.Component {
@@ -35,6 +37,8 @@ class CarsPage extends React.Component {
 
     return (
       <React.Fragment>
+        <div className='paperOut'>
+          <Paper className='paperIn'>
       <div className='flex justify-between items-center'>
         <h1>Cars ({edges.length}/{aggregate.count})</h1>
         <div>
@@ -85,6 +89,8 @@ class CarsPage extends React.Component {
       )}
 
       {this.props.children}
+      </Paper>      
+      </div>
     </React.Fragment>)
   }
 

@@ -43,7 +43,9 @@ module.exports = {
       subject: 'Forget Password - Naperg APP',
       html: `
       <div>hello</div>
-      <div>Please find link. ${ctx.request.headers.origin}/login?resetPasswordToken=${uniqueId}</div>
+      <div>Please find link to reset your password.
+         ${ctx.request.headers.origin}/login?resetPasswordToken=${uniqueId}
+      </div>
     `
     }
     mailer.sendMail(mailOptions, function (err) {

@@ -4,6 +4,7 @@ import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import { AUTH_TOKEN } from '../../constants/constants'
 import { Link } from 'react-router-dom'
+import Paper from 'material-ui/Paper'
 
 class DraftsPage extends React.Component {
   componentWillReceiveProps(nextProps) {
@@ -31,14 +32,16 @@ class DraftsPage extends React.Component {
 
     return (
       <React.Fragment>
-        <div className="flex justify-between items-center">
+        <div className='paperOut'>
+          <Paper className='paperIn'>
+        <div className='flex justify-between items-center'>
           <h1>Drafts</h1>
         </div>
 
         {authToken && (
           <Link
-            to="/create"
-            className="f6 link dim br1 ba ph3 pv2 fr mb2 dib black"
+            to='/create'
+            className='f6 link dim br1 ba ph3 pv2 fr mb2 dib black'
           >
             + Create Draft
           </Link>
@@ -54,6 +57,8 @@ class DraftsPage extends React.Component {
             />
           ))}
         {this.props.children}
+        </Paper>
+      </div>
       </React.Fragment>
     )
   }
