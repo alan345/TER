@@ -25,7 +25,6 @@ import 'tachyons'
 import './index.css'
 import Header from './components/nav/Header'
 import SideBar from './components/nav/SideBar'
-import 'font-awesome/css/font-awesome.min.css'
 const httpLink = new HttpLink({ uri: 'http://localhost:4000' })
 
 // const httpLink = new HttpLink({ uri: 'http://82.223.14.38:4000' })

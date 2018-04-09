@@ -3,7 +3,7 @@ import { AUTH_TOKEN } from '../../constants/constants'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 import SnackBarCustom from './SnackBarCustom'
-
+const queryString = require('query-string')
 
 class Login extends Component {
   state = {
@@ -12,11 +12,21 @@ class Login extends Component {
     password: '',
     name: '',
     messageSnackBar: '',
-    openSnackBar: false
+    openSnackBar: false,
+    resetPasswordToken: ''
+  }
+  componentDidMount() {
+    let resetPasswordToken = queryString.parse(this.props.location.search).resetPasswordToken
+    if(resetPasswordToken) {
+      // console.log(resetPasswordToken)
+      this.setState({
+        stateLogin: 'resetPassword',
+        resetPasswordToken: resetPasswordToken
+      })
+    }
   }
 
   render() {
-
     return (
       <div>
         <h4 className='mv3'>
@@ -33,13 +43,23 @@ class Login extends Component {
               placeholder='Your name'
             />
           )}
+          {(
+            this.state.stateLogin === 'login' ||
+            this.state.stateLogin === 'signup' ||
+            this.state.stateLogin === 'forget'
+          ) && (
           <input
             value={this.state.email}
             onChange={e => this.setState({ email: e.target.value })}
             type='text'
             placeholder='Your email address'
           />
-        {(this.state.stateLogin === 'signup' || this.state.stateLogin === 'login') && (
+        )}
+        {(
+          this.state.stateLogin === 'signup' ||
+          this.state.stateLogin === 'login' ||
+          this.state.stateLogin === 'resetPassword'
+        ) && (
           <input
             value={this.state.password}
             onChange={e => this.setState({ password: e.target.value })}
@@ -76,7 +96,7 @@ class Login extends Component {
   }
 
   _confirm = async () => {
-    const { name, email, password } = this.state
+    const { name, email, password, resetPasswordToken } = this.state
     if (this.state.stateLogin === 'login') {
       const result = await this.props.loginMutation({
         variables: {
@@ -103,6 +123,23 @@ class Login extends Component {
         stateLogin: 'login'
 
       })
+    }
+    if (this.state.stateLogin === 'resetPassword') {
+      const result = await this.props.resetPasswordMutation({
+        variables: {
+          resetPasswordToken,
+          password
+        },
+      })
+      // let messageSnackBar = `A mail has been sent with a
+      //   link available until
+      //   ${new Date(result.data.forgetPassword.resetPasswordExpires).toLocaleString()}`
+      // this.setState({
+      //   messageSnackBar: messageSnackBar,
+      //   openSnackBar: true,
+      //   stateLogin: 'login'
+      //
+      // })
     }
     if (this.state.stateLogin === 'signup') {
       const result = await this.props.signupMutation({
@@ -147,7 +184,7 @@ const LOGIN_MUTATION = gql`
     }
   }
 `
-const RESET_PASSWORD_MUTATION = gql`
+const FORGET_PASSWORD_MUTATION = gql`
   mutation ForgetPasswordMutation($email: String!) {
     forgetPassword(email: $email) {
       name
@@ -156,9 +193,21 @@ const RESET_PASSWORD_MUTATION = gql`
     }
   }
 `
+const RESET_PASSWORD_MUTATION = gql`
+  mutation ResetPasswordMutation($password: String!, $resetPasswordToken: String!) {
+    resetPassword(password: $password, resetPasswordToken: $resetPasswordToken) {
+      user {
+        name
+        id
+        resetPasswordExpires
+      }
+    }
+  }
+`
 
 export default compose(
   graphql(SIGNUP_MUTATION, { name: 'signupMutation' }),
   graphql(LOGIN_MUTATION, { name: 'loginMutation' }),
-  graphql(RESET_PASSWORD_MUTATION, { name: 'forgetPasswordMutation' }),
+  graphql(FORGET_PASSWORD_MUTATION, { name: 'forgetPasswordMutation' }),
+  graphql(RESET_PASSWORD_MUTATION, { name: 'resetPasswordMutation' }),
 )(Login)

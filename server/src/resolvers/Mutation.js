@@ -1,5 +1,5 @@
 const {forwardTo} = require('prisma-binding')
-const {signup, login, updatePassword, forgetPassword} = require('./auth')
+const {signup, login, updatePassword, forgetPassword, resetPassword} = require('./auth')
 const { getUserId } = require('../utils')
 
 
@@ -83,6 +83,7 @@ async function deletePost(parent, { id }, ctx, info) {
 const Mutation = {
 
   signup,
+  resetPassword,
   login,
   updatePassword,
   forgetPassword,

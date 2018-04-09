@@ -18,6 +18,7 @@
     "material-ui": "^1.0.0-beta.40",
     "material-ui-icons": "^1.0.0-beta.36",
     "material-ui-next": "^1.0.0-beta.40",
+    "query-string": "^6.0.0",
     "react": "16.3.1",
     "react-apollo": "2.1.1",
     "react-dom": "16.3.0",

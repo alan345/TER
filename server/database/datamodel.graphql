@@ -23,11 +23,11 @@ type Car {
 
 type User {
   id: ID! @unique
+  resetPasswordToken: String! @unique
   email: String! @unique
   createdAt: DateTime!
   updatedAt: DateTime!
   password: String!
-  resetPasswordToken: String
   resetPasswordExpires: Float
   name: String!
   posts: [Post!]!

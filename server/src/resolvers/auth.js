@@ -37,6 +37,26 @@ async function signup(parent, args, ctx, info) {
     user,
   }
 }
+async function resetPassword(parent, args, ctx, info) {
+  const password = await bcrypt.hash(args.password, 10)
+
+  try {
+    const user = await ctx.db.mutation.updateUser({
+      // Must check resetPasswordExpires
+      where: { resetPasswordToken: args.resetPasswordToken },
+      data: {
+        password: password,
+        resetPasswordToken: ''
+      }
+    })
+    return {
+      token: jwt.sign({ userId: user.id }, APP_SECRET),
+      user
+    }
+  } catch (e) {
+    return e
+  }
+}
 
 // log in an existing user
 async function login(parent, { email, password }, ctx, info) {
@@ -134,6 +154,7 @@ async function updatePassword (
 module.exports = {
   me,
   signup,
+  resetPassword,
   login,
   updatePassword,
   forgetPassword,

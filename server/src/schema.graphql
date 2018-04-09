@@ -1,4 +1,4 @@
-# import Query.carsConnection, Query.car, Mutation.deleteCar, Query.user from "./generated/prisma.graphql"
+# import Query.carsConnection, Query.car, Mutation.deleteCar, Query.user, Mutation.updateUser from "./generated/prisma.graphql"
 # import Car, CarCreateInput, CarWhereInput, CarOrderByInput from "./generated/prisma.graphql"
 # import Post from "./generated/prisma.graphql"
 
@@ -20,9 +20,10 @@ type Query {
 
 type Mutation {
   signup(email: String!, password: String!, name: String!): AuthPayload!
+  resetPassword(password: String!, resetPasswordToken: String!): AuthPayload!
   login(email: String!, password: String!): AuthPayload!
   createDraft(title: String!, text: String, nameFile: String): Post
-  updateUser(id: ID!, name: String, email: String, role: String): User
+  # updateUser(id: ID!, name: String, email: String, role: String): User
   deletePost(id: ID!): Post
   deleteUser(id: ID!): User
   publish(id: ID!): Post
