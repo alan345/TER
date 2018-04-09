@@ -52,7 +52,7 @@ Go to url: http://localhost:3000
 
 ## Screenshots
 
-[![Demo CountPages alpha](https://share.gifyoutube.com/KzB6Gb.gif)](https://www.youtube.com/watch?v=ek1j272iAmc)
+[![Demo NAPERG](https://j.gifs.com/VPk441.gif)](https://www.youtube.com/watch?v=UfeEpOWeaDQ&feature=youtu.be)
 
 |  Description | Image |
 | ------------- | ------------- |
