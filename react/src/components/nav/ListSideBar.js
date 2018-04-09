@@ -7,8 +7,6 @@ import Icon from 'material-ui/Icon'
 import { AUTH_TOKEN } from '../../constants/constants'
 
 
-
-
 class ListSideBar extends Component {
 
   state = {
@@ -31,13 +29,15 @@ class ListSideBar extends Component {
     return (
       <div>
         <List>
-
           <div>
-            <ListItem button>
-              <ListItemIcon>
-                <Icon>arrow_back</Icon>
-              </ListItemIcon>
-            </ListItem>
+            {this.props.isMobile() && (
+              <ListItem button>
+                <ListItemIcon>
+                  <Icon>arrow_back</Icon>
+                </ListItemIcon>
+              </ListItem>
+
+            )}
 
           <Link to='/' className='link'>
             <ListItem button>

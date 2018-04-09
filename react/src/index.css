@@ -93,3 +93,9 @@ html {
 .flex {
   flex:1;
 }
+
+@media only screen and (min-width: 600px) {
+  .desktopMargin {
+    margin-left: 165px
+  }
+}

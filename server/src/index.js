@@ -1,5 +1,5 @@
 const { GraphQLServer } = require('graphql-yoga')
-const { Prisma, forwardTo } = require('prisma-binding')
+const { Prisma } = require('prisma-binding')
 const resolvers = require('./resolvers')
 
 const server = new GraphQLServer({

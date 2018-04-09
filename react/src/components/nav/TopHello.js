@@ -8,7 +8,7 @@ function TopHello(props) {
     const userToken = JSON.parse(localStorage.getItem('userToken'))
 
     return (
-      <div className='flex flex-fixed'>
+      <div>
       {authToken ? (
         <div className='black link'>
           Hi{' '}<Link to={`/user/${userToken.id}`}>

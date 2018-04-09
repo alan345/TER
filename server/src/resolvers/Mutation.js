@@ -23,15 +23,6 @@ async function publish(parent, { id }, ctx, info) {
   )
 }
 
-const resolvers = {
-  Query: {
-
-  },
-  Mutation: {
-
-  },
-}
-
 async function deleteUser(parent, { id }, ctx, info) {
   const userId = getUserId(ctx)
   const userExists = await ctx.db.exists.User({

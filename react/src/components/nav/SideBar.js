@@ -7,6 +7,7 @@ class SideBar extends Component {
 
   state = {
     isSideBarOpen: false,
+    variant: 'permanent'
   };
 
   toggleDrawer = (isSideBarOpen) => () => {
@@ -21,21 +22,30 @@ class SideBar extends Component {
     })
   }
 
-
+  componentDidMount() {
+    let variant = this.props.isMobile() ? 'persistent' : 'permanent'
+    this.setState({
+      variant: variant
+    })
+  }
 
   componentWillReceiveProps(nextProps) {
+    console.log(nextProps)
     this.setState({ isSideBarOpen: nextProps.isSideBarOpen })
   }
 
 
+
   render() {
+
     return (
       <div>
 
       <Drawer
+        variant={this.state.variant}
         open={this.state.isSideBarOpen} onClose={this.toggleDrawer(false)}>
         <div tabIndex={0} role='button' onClick={this.toggleDrawer(false)} onKeyDown={this.toggleDrawer(false)}>
-          <ListSideBar/>
+          <ListSideBar isMobile={this.props.isMobile}/>
         </div>
       </Drawer>
 

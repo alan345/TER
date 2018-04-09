@@ -25,7 +25,7 @@ import 'tachyons'
 import './index.css'
 import Header from './components/nav/Header'
 import SideBar from './components/nav/SideBar'
-import 'font-awesome/css/font-awesome.min.css';
+import 'font-awesome/css/font-awesome.min.css'
 const httpLink = new HttpLink({ uri: 'http://localhost:4000' })
 
 // const httpLink = new HttpLink({ uri: 'http://82.223.14.38:4000' })
@@ -51,27 +51,32 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 })
 
+
+
 ReactDOM.render(
+
   <ApolloProvider client={client}>
     <Router>
       <React.Fragment>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
-        <SideBar ref={instance => { this.child = instance }}/>
-        <Header toggleDrawerFunction={() => { this.child.toggleDrawerFunction(true) }}/>
-        <div className="fl w-100 pl4 pr4">
-          <Switch>
-            <Route exact path="/" component={FeedPage} />
-            <Route path="/car/create" component={CreateCar} />
-            <Route path="/car/:id" component={DetailCar} />
-            <Route path="/drafts" component={DraftsPage} />
-            <Route path="/cars" component={CarsPage} />
-            <Route path="/users" component={UsersPage} />
-            <Route path="/user/:id" component={UserPage} />
-            <Route path="/create" component={CreatePage} />
-            <Route path="/post/:id" component={DetailPage} />
-            <Route exact path="/login" component={Login} />
+        <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'/>
+        <SideBar isMobile={()=> window.innerWidth<600 ? true : false } ref={instance => { this.child = instance }}/>
+        <div className='desktopMargin'>
+          <Header toggleDrawerFunction={() => { this.child.toggleDrawerFunction(true) }}/>
 
-          </Switch>
+          <div>
+            <Switch>
+              <Route exact path='/' component={FeedPage} />
+              <Route path='/car/create' component={CreateCar} />
+              <Route path='/car/:id' component={DetailCar} />
+              <Route path='/drafts' component={DraftsPage} />
+              <Route path='/cars' component={CarsPage} />
+              <Route path='/users' component={UsersPage} />
+              <Route path='/user/:id' component={UserPage} />
+              <Route path='/create' component={CreatePage} />
+              <Route path='/post/:id' component={DetailPage} />
+              <Route exact path='/login' component={Login} />
+            </Switch>
+          </div>
         </div>
       </React.Fragment>
     </Router>
