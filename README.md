@@ -52,8 +52,10 @@ Go to url: http://localhost:3000
 
 ## Screenshots
 
+Video
 [![Demo NAPERG](https://j.gifs.com/VPk441.gif)](https://www.youtube.com/watch?v=UfeEpOWeaDQ&feature=youtu.be)
 
+Details
 |  Description | Image |
 | ------------- | ------------- |
 | Authentification: Signup | ![image](https://user-images.githubusercontent.com/15246526/38527677-da8c5e9a-3c10-11e8-87e8-ef22fb20b201.png) |
