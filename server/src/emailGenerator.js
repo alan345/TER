@@ -27,5 +27,31 @@ module.exports = {
         console.log('Mail sent to: ' + user.email)
       }
     })
+  },
+  sendForgetPassword (uniqueId, email) {
+    var mailer = nodemailer.createTransport({
+      service: 'Gmail',
+      auth: {
+        user: config.userMail,
+        pass: config.passMail
+      }
+    })
+
+    var mailOptions = {
+      to: email,
+      from: 'naperg@naperg.io',
+      subject: 'Forget Password - Naperg APP',
+      html: `
+      <div>hello</div>
+      <div>Please find link. ${uniqueId}</div>
+    `
+    }
+    mailer.sendMail(mailOptions, function (err) {
+      if (err) {
+        console.log(err)
+      } else {
+        console.log('Mail sent to: ' + user.email)
+      }
+    })
   }
 }

@@ -2,6 +2,8 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const { Context, getUserId, APP_SECRET } = require('../utils')
 var emailGenerator = require('../emailGenerator.js');
+var uniqid = require('uniqid');
+
 
 // resolve the `AuthPayload` type
 const AuthPayload = {
@@ -55,7 +57,6 @@ async function login(parent, { email, password }, ctx, info) {
 }
 // log in an existing user
 async function forgetPassword (parent, { email }, ctx, info) {
-  console.log('forgetPassword')
   const user = await ctx.db.query.user({ where: { email } })
   if (!user) {
     throw new Error(`No such user found for email: ${email}`)
@@ -63,10 +64,15 @@ async function forgetPassword (parent, { email }, ctx, info) {
 
 
   try {
+    let uniqueId = uniqid()
     await ctx.db.mutation.updateUser({
       where: { id: user.id },
-      data: { resetPasswordExpires: new Date().getTime() + 1000 * 60 * 60 * 5 },
+      data: {
+        resetPasswordExpires: new Date().getTime() + 1000 * 60 * 60 * 5,
+        resetPasswordToken: uniqueId
+      }
     })
+    emailGenerator.sendForgetPassword(uniqueId, email)
   } catch (e) {
     return e
   }
