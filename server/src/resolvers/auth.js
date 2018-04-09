@@ -1,6 +1,7 @@
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const { Context, getUserId, APP_SECRET } = require('../utils')
+var emailGenerator = require('../emailGenerator.js');
 
 // resolve the `AuthPayload` type
 const AuthPayload = {
@@ -28,6 +29,7 @@ async function signup(parent, args, ctx, info) {
     data: { ...data, role, password },
   })
 
+  emailGenerator.sendWelcomeEmail(user)
   return {
     token: jwt.sign({ userId: user.id }, APP_SECRET),
     user,

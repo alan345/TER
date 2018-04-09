@@ -12,6 +12,7 @@
     "graphql-request": "1.5.1",
     "graphql-yoga": "1.7.0",
     "jsonwebtoken": "8.2.0",
+    "nodemailer": "^4.6.4",
     "prisma-binding": "1.5.16"
   },
   "devDependencies": {
