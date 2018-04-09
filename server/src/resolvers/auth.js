@@ -23,12 +23,13 @@ function me(parent, args, ctx, info) {
 async function signup(parent, args, ctx, info) {
   const password = await bcrypt.hash(args.password, 10)
   const role = args.admin ? 'ADMIN' : 'CUSTOMER'
+  const resetPasswordToken = uniqid()
 
   // remove `admin` from `args`
   const { admin, ...data } = args
 
   const user = await ctx.db.mutation.createUser({
-    data: { ...data, role, password },
+    data: { ...data, role, resetPasswordToken, password },
   })
 
   emailGenerator.sendWelcomeEmail(user)
