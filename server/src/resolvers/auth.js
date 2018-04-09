@@ -47,7 +47,7 @@ async function resetPassword(parent, args, ctx, info) {
       where: { resetPasswordToken: args.resetPasswordToken },
       data: {
         password: password,
-        resetPasswordToken: ''
+        resetPasswordExpires: new Date().getTime()
       }
     })
     return {
@@ -78,11 +78,11 @@ async function login(parent, { email, password }, ctx, info) {
 }
 // log in an existing user
 async function forgetPassword (parent, { email }, ctx, info) {
+
   const user = await ctx.db.query.user({ where: { email } })
   if (!user) {
     throw new Error(`No such user found for email: ${email}`)
   }
-
 
   try {
     let uniqueId = uniqid()
@@ -93,7 +93,7 @@ async function forgetPassword (parent, { email }, ctx, info) {
         resetPasswordToken: uniqueId
       }
     })
-    emailGenerator.sendForgetPassword(uniqueId, email)
+    emailGenerator.sendForgetPassword(uniqueId, email, ctx)
   } catch (e) {
     return e
   }

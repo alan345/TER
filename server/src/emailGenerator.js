@@ -28,7 +28,7 @@ module.exports = {
       }
     })
   },
-  sendForgetPassword (uniqueId, email) {
+  sendForgetPassword (uniqueId, email, ctx) {
     var mailer = nodemailer.createTransport({
       service: 'Gmail',
       auth: {
@@ -43,7 +43,7 @@ module.exports = {
       subject: 'Forget Password - Naperg APP',
       html: `
       <div>hello</div>
-      <div>Please find link. ${uniqueId}</div>
+      <div>Please find link. ${ctx.request.headers.origin}/login?resetPasswordToken=${uniqueId}</div>
     `
     }
     mailer.sendMail(mailOptions, function (err) {

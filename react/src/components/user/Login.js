@@ -131,15 +131,11 @@ class Login extends Component {
           password
         },
       })
-      // let messageSnackBar = `A mail has been sent with a
-      //   link available until
-      //   ${new Date(result.data.forgetPassword.resetPasswordExpires).toLocaleString()}`
-      // this.setState({
-      //   messageSnackBar: messageSnackBar,
-      //   openSnackBar: true,
-      //   stateLogin: 'login'
-      //
-      // })
+
+      const { token, user } = result.data.resetPassword
+      this._saveUserData(token, user)
+      this.props.history.push(`/`)
+
     }
     if (this.state.stateLogin === 'signup') {
       const result = await this.props.signupMutation({
@@ -196,10 +192,10 @@ const FORGET_PASSWORD_MUTATION = gql`
 const RESET_PASSWORD_MUTATION = gql`
   mutation ResetPasswordMutation($password: String!, $resetPasswordToken: String!) {
     resetPassword(password: $password, resetPasswordToken: $resetPasswordToken) {
+      token
       user {
         name
         id
-        resetPasswordExpires
       }
     }
   }
