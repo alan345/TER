@@ -1,4 +1,5 @@
 
+
 enum Role {
   ADMIN
   CUSTOMER
@@ -19,12 +20,15 @@ type Car {
   name: String!
 }
 
+
 type User {
   id: ID! @unique
   email: String! @unique
   createdAt: DateTime!
   updatedAt: DateTime!
   password: String!
+  resetPasswordToken: String
+  resetPasswordExpires: Float
   name: String!
   posts: [Post!]!
   role: Role! @default(value: "CUSTOMER")

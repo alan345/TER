@@ -53,9 +53,32 @@ async function login(parent, { email, password }, ctx, info) {
     user,
   }
 }
+// log in an existing user
+async function forgetPassword (parent, { email }, ctx, info) {
+  console.log('forgetPassword')
+  const user = await ctx.db.query.user({ where: { email } })
+  if (!user) {
+    throw new Error(`No such user found for email: ${email}`)
+  }
+
+
+  try {
+    await ctx.db.mutation.updateUser({
+      where: { id: user.id },
+      data: { resetPasswordExpires: new Date().getTime() + 1000 * 60 * 60 * 5 },
+    })
+  } catch (e) {
+    return e
+  }
+  return user
+  // return {
+  //   token: jwt.sign({ userId: user.id }, APP_SECRET),
+  //   user,
+  // }
+}
 
 // update the password of an existing user
-async function updatePassword(
+async function updatePassword (
   parent,
   { oldPassword, newPassword, userId },
   ctx,
@@ -107,5 +130,6 @@ module.exports = {
   signup,
   login,
   updatePassword,
+  forgetPassword,
   AuthPayload,
 }

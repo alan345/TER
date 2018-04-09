@@ -2,72 +2,109 @@ import React, { Component } from 'react'
 import { AUTH_TOKEN } from '../../constants/constants'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
+import SnackBarCustom from './SnackBarCustom'
+
 
 class Login extends Component {
   state = {
-    login: true, // switch between Login and SignUp
+    stateLogin: 'login', // switch between Login and SignUp
     email: '',
     password: '',
     name: '',
+    messageSnackBar: '',
+    openSnackBar: false
   }
 
   render() {
 
     return (
       <div>
-        <h4 className="mv3">{this.state.login ? 'Login' : 'Sign Up'}</h4>
-        <div className="flex flex-column">
-          {!this.state.login && (
+        <h4 className='mv3'>
+          {this.state.stateLogin === 'login' && 'Login'}
+          {this.state.stateLogin === 'signup' && 'Sign Up'}
+          {this.state.stateLogin === 'forget' && 'Forget Password'}
+        </h4>
+        <div className='flex flex-column'>
+          {this.state.stateLogin === 'signup' && (
             <input
               value={this.state.name}
               onChange={e => this.setState({ name: e.target.value })}
-              type="text"
-              placeholder="Your name"
+              type='text'
+              placeholder='Your name'
             />
           )}
           <input
             value={this.state.email}
             onChange={e => this.setState({ email: e.target.value })}
-            type="text"
-            placeholder="Your email address"
+            type='text'
+            placeholder='Your email address'
           />
+        {(this.state.stateLogin === 'signup' || this.state.stateLogin === 'login') && (
           <input
             value={this.state.password}
             onChange={e => this.setState({ password: e.target.value })}
-            type="password"
-            placeholder="Choose a safe password"
+            type='password'
+            placeholder='Choose a safe password'
           />
+      )}
         </div>
-        <div className="flex mt3">
-          <div className="pointer f6 link dim br1 ba ph3 pv2 fr mb2 dib black" onClick={() => this._confirm()}>
-            {this.state.login ? 'login' : 'create account'}
+        <div className='flex mt3'>
+          <div className='pointer f6 link dim br1 ba ph3 pv2 fr mb2 dib black' onClick={() => this._confirm()}>
+            Ok
           </div>
           <div
-            className="pointer f6 link dim br1 ba ph3 pv2 fr mb2 dib black"
-            onClick={() => this.setState({ login: !this.state.login })}
-          >
-            {this.state.login
-              ? 'Sign Up'
-              : 'Log in'}
+            className='pointer f6 link dim br1 ba ph3 pv2 fr mb2 dib black'
+            onClick={() => this.setState({ stateLogin: 'login', openSnackBar: false })}
+          >Login
+          </div>
+          <div
+            className='pointer f6 link dim br1 ba ph3 pv2 fr mb2 dib black'
+            onClick={() => this.setState({ stateLogin: 'signup', openSnackBar: false })}
+          >signup
+          </div>
+          <div
+            className='pointer f6 link dim br1 ba ph3 pv2 fr mb2 dib black'
+            onClick={() => this.setState({ stateLogin: 'forget', openSnackBar: false })}
+          >Forget Password
           </div>
         </div>
+        <SnackBarCustom
+          openSnackBar={this.state.openSnackBar}
+          messageSnackBar={this.state.messageSnackBar}/>
       </div>
     )
   }
 
   _confirm = async () => {
     const { name, email, password } = this.state
-    if (this.state.login) {
+    if (this.state.stateLogin === 'login') {
       const result = await this.props.loginMutation({
         variables: {
           email,
           password,
         },
       })
-      console.log(result.data)
       const { token, user } = result.data.login
       this._saveUserData(token, user)
-    } else {
+      this.props.history.push(`/`)
+    }
+    if (this.state.stateLogin === 'forget') {
+      const result = await this.props.forgetPasswordMutation({
+        variables: {
+          email
+        },
+      })
+      let messageSnackBar = `A mail has been sent with a
+        link available until
+        ${new Date(result.data.forgetPassword.resetPasswordExpires).toLocaleString()}`
+      this.setState({
+        messageSnackBar: messageSnackBar,
+        openSnackBar: true,
+        stateLogin: 'login'
+
+      })
+    }
+    if (this.state.stateLogin === 'signup') {
       const result = await this.props.signupMutation({
         variables: {
           name,
@@ -77,8 +114,8 @@ class Login extends Component {
       })
       const { token, user } = result.data.signup
       this._saveUserData(token, user)
+      this.props.history.push(`/`)
     }
-    this.props.history.push(`/`)
   }
 
   _saveUserData = (token, user) => {
@@ -110,8 +147,18 @@ const LOGIN_MUTATION = gql`
     }
   }
 `
+const RESET_PASSWORD_MUTATION = gql`
+  mutation ForgetPasswordMutation($email: String!) {
+    forgetPassword(email: $email) {
+      name
+      id
+      resetPasswordExpires
+    }
+  }
+`
 
 export default compose(
   graphql(SIGNUP_MUTATION, { name: 'signupMutation' }),
   graphql(LOGIN_MUTATION, { name: 'loginMutation' }),
+  graphql(RESET_PASSWORD_MUTATION, { name: 'forgetPasswordMutation' }),
 )(Login)

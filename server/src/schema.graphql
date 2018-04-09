@@ -35,6 +35,7 @@ type Mutation {
   # Users can only update their own passwords
   # if `userId` is set, the user trying to update the password needs to be an admin
   updatePassword(oldPassword: String, newPassword: String!, userId: ID): User!
+  forgetPassword(email: String!): User!
 
 }
 
