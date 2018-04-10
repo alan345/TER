@@ -125,8 +125,14 @@ class UserPage extends React.Component {
   updateUser = async id => {
     const { name, email, role } = this.state.user
     await this.props.updateUser({
-      variables: { id, name, email, role },
+      variables: {
+        where: {email: id},
+        data: {name: name, email: email, role: role },
+      }
     })
+    // await this.props.updateUser({
+    //   variables: { id, name, email, role },
+    // })
     this.setState({isEditMode: false})
     // this.props.history.replace('/users')
   }
@@ -141,9 +147,12 @@ class UserPage extends React.Component {
   }
 }
 
+
+// mutation UpdateUserMutation($id: ID!, $name: String!, $email: String!, $role: Role!) {
+//   updateUser(data: {name: $name, email: $email, role: $role}, where: {id: $id}) {
 const UPDATE_USER_MUTATION = gql`
-  mutation UpdateUserMutation($id: ID!, $name: String!, $email: String!, $role: String!) {
-    updateUser(id: $id, name: $name, email: $email, role: $role) {
+  mutation UpdateUserMutation($data: UserUpdateInput!, $where: UserWhereUniqueInput!) {
+    updateUser(data: $data, where: $where) {
       id
       name
       email
@@ -152,7 +161,7 @@ const UPDATE_USER_MUTATION = gql`
   }
 `
 
-const POST_QUERY = gql`
+const USER_QUERY = gql`
   query UserQuery($where: UserWhereUniqueInput!) {
     user(where: $where) {
       id
@@ -180,7 +189,7 @@ const DELETE_MUTATION = gql`
 `
 
 export default compose(
-  graphql(POST_QUERY, {
+  graphql(USER_QUERY, {
     name: 'userQuery',
     options: props => ({
       variables: {
