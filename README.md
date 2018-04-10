@@ -10,7 +10,8 @@
 
 <img src="https://imgur.com/ousyQaC.png">
 <img src="https://user-images.githubusercontent.com/15246526/38383005-374917c6-38c0-11e8-8f1c-f36793f153d6.png" width="200">
-<img src="https://user-images.githubusercontent.com/15246526/38383110-76853488-38c0-11e8-9c44-28af8ef4cd42.png" width="100">
+
+<img src="https://user-images.githubusercontent.com/15246526/38530508-c8fa7446-3c1f-11e8-8ab4-12bac6488fe1.png" width="100">
 <img src="https://user-images.githubusercontent.com/15246526/38383171-9e0df3dc-38c0-11e8-95da-675a7bfdfbbc.png" width="200">
 
 <div align="center"><strong>🚀 Bootstrap your fullstack GraphQL app within seconds</strong></div>
@@ -52,12 +53,12 @@ Go to url: http://localhost:3000
 
 ## Screenshots
 
-Video
+#Video
 
 
 [![Demo NAPERG](https://j.gifs.com/VPk441.gif)](https://www.youtube.com/watch?v=UfeEpOWeaDQ&feature=youtu.be)
 
-Details
+#Details
 
 
 |  Description | Image |
