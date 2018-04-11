@@ -126,7 +126,7 @@ class UserPage extends React.Component {
     const { name, email, role } = this.state.user
     await this.props.updateUser({
       variables: {
-        where: {email: id},
+        where: {id: id},
         data: {name: name, email: email, role: role },
       }
     })

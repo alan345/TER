@@ -50,7 +50,7 @@ async function post(parent, {
 const Query = {
   me,
   user: (parent, args, ctx, info) => {
-    getUserId(ctx)
+    // getUserId(ctx)
     return forwardTo('db')(parent, args, ctx, info)
   },
   feed,
