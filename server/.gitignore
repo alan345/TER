@@ -8,4 +8,4 @@ node_modules
 
 
 # config
-server/src/config/config.js
+/server/src/config/config.js
