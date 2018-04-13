@@ -5,3 +5,7 @@ node_modules
 .idea
 .vscode
 *.log
+
+
+# config
+server/src/config/config.js
