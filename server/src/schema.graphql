@@ -1,4 +1,4 @@
-# import User, Query.carsConnection, Query.car, Mutation.deleteCar, Query.user, Mutation.updateUser from "./generated/prisma.graphql"
+# import Query.carsConnection, Query.car, Mutation.deleteCar, Query.user, Mutation.updateUser from "./generated/prisma.graphql"
 # import Car, CarCreateInput, CarWhereInput, CarOrderByInput from "./generated/prisma.graphql"
 # import Post from "./generated/prisma.graphql"
 
@@ -23,6 +23,7 @@ type Mutation {
   login(email: String!, password: String!): AuthPayload!
   createDraft(title: String!, text: String, nameFile: String): Post
   # updateUser(id: ID!, name: String, email: String, role: String): User
+  # updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   deletePost(id: ID!): Post
   deleteUser(id: ID!): User
   publish(id: ID!): Post

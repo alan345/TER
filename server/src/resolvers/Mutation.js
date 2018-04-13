@@ -4,14 +4,7 @@ const { getUserId } = require('../utils')
 
 
 
-async function updateUser(parent, { id, name, email, role }, ctx, info) {
-   // console.log( id, name, email)
-  await ctx.db.mutation.updateUser({
-    where: { id: id },
-    data: {name: name, email: email, role: role},
-  })
 
-}
 
 async function publish(parent, { id }, ctx, info) {
   return ctx.db.mutation.updatePost(
@@ -90,7 +83,10 @@ const Mutation = {
   createDraft,
   deletePost,
   deleteUser,
-  updateUser,
+  updateUser: (parent, args, ctx, info) => {
+    // getUserId(ctx)
+    return forwardTo('db')(parent, args, ctx, info)
+  },
   publish,
   createCar: forwardTo('db'),
   deleteCar: forwardTo('db'),

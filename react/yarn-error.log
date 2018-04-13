@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn imnstall
+  /usr/local/bin/node /usr/local/bin/yarn start
 
 PATH: 
   /Library/Frameworks/Python.framework/Versions/3.5/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/alan/Library/Android/sdk/tools:/Users/alan/Library/Android/sdk/platform-tools
@@ -24,17 +24,18 @@ npm manifest:
     },
     "dependencies": {
       "apollo-cache-inmemory": "1.1.12",
-      "apollo-client": "2.2.5",
-      "apollo-client-preset": "^1.0.8",
+      "apollo-client": "2.2.8",
+      "apollo-client-preset": "1.0.8",
       "apollo-link": "1.2.1",
       "apollo-link-http": "1.5.3",
       "axios": "0.18.0",
-      "font-awesome": "^4.7.0",
-      "graphql": "^0.13.1",
+      "graphql": "0.13.2",
       "graphql-tag": "2.8.0",
       "material-ui": "^1.0.0-beta.40",
+      "material-ui-icons": "^1.0.0-beta.36",
       "material-ui-next": "^1.0.0-beta.40",
-      "react": "16.3.0",
+      "query-string": "^6.0.0",
+      "react": "16.3.1",
       "react-apollo": "2.1.1",
       "react-dom": "16.3.0",
       "react-file-download": "0.3.5",
@@ -247,7 +248,7 @@ Lockfile:
     dependencies:
       apollo-utilities "^1.0.11"
   
-  apollo-client-preset@^1.0.8:
+  apollo-client-preset@1.0.8:
     version "1.0.8"
     resolved "https://registry.yarnpkg.com/apollo-client-preset/-/apollo-client-preset-1.0.8.tgz#23bd7176849d0d815f12c648774d009b258a449e"
     dependencies:
@@ -257,7 +258,21 @@ Lockfile:
       apollo-link-http "^1.3.1"
       graphql-tag "^2.4.2"
   
-  apollo-client@2.2.5, apollo-client@^2.2.2:
+  apollo-client@2.2.8:
+    version "2.2.8"
+    resolved "https://registry.yarnpkg.com/apollo-client/-/apollo-client-2.2.8.tgz#b604d31ab2d2dd00db3105d8793b93ee02ce567e"
+    dependencies:
+      "@types/zen-observable" "^0.5.3"
+      apollo-cache "^1.1.7"
+      apollo-link "^1.0.0"
+      apollo-link-dedup "^1.0.0"
+      apollo-utilities "^1.0.11"
+      symbol-observable "^1.0.2"
+      zen-observable "^0.7.0"
+    optionalDependencies:
+      "@types/async" "2.0.47"
+  
+  apollo-client@^2.2.2:
     version "2.2.5"
     resolved "https://registry.yarnpkg.com/apollo-client/-/apollo-client-2.2.5.tgz#bc00704aa181d0ec299fd5bb2b72d0b44800f5d0"
     dependencies:
@@ -2011,6 +2026,10 @@ Lockfile:
     version "1.2.0"
     resolved "https://registry.yarnpkg.com/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
   
+  decode-uri-component@^0.2.0:
+    version "0.2.0"
+    resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
+  
   deep-equal@^1.0.1:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/deep-equal/-/deep-equal-1.0.1.tgz#f5d260292b660e084eff4cdbc9f08ad3247448b5"
@@ -2922,10 +2941,6 @@ Lockfile:
     dependencies:
       debug "^3.1.0"
   
-  font-awesome@^4.7.0:
-    version "4.7.0"
-    resolved "https://registry.yarnpkg.com/font-awesome/-/font-awesome-4.7.0.tgz#8fa8cf0411a1a31afd07b06d2902bb9fc815a133"
-  
   for-in@^1.0.1:
     version "1.0.2"
     resolved "https://registry.yarnpkg.com/for-in/-/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"
@@ -3186,11 +3201,11 @@ Lockfile:
     version "2.8.0"
     resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.8.0.tgz#52cdea07a842154ec11a2e840c11b977f9b835ce"
   
-  graphql@^0.13.1:
-    version "0.13.1"
-    resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.13.1.tgz#9b3db3d8e40d1827e4172404bfdd2e4e17a58b55"
+  graphql@0.13.2:
+    version "0.13.2"
+    resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.13.2.tgz#4c740ae3c222823e7004096f832e7b93b2108270"
     dependencies:
-      iterall "^1.2.0"
+      iterall "^1.2.1"
   
   growly@^1.3.0:
     version "1.3.0"
@@ -3897,9 +3912,9 @@ Lockfile:
     dependencies:
       handlebars "^4.0.3"
   
-  iterall@^1.2.0:
-    version "1.2.0"
-    resolved "https://registry.yarnpkg.com/iterall/-/iterall-1.2.0.tgz#434e9f41f0b99911ab9c3d49d95f0e079176a2a2"
+  iterall@^1.2.1:
+    version "1.2.2"
+    resolved "https://registry.yarnpkg.com/iterall/-/iterall-1.2.2.tgz#92d70deb8028e0c39ff3164fdbf4d8b088130cd7"
   
   jest-changed-files@^20.0.3:
     version "20.0.3"
@@ -4551,9 +4566,48 @@ Lockfile:
     version "2.0.0"
     resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-2.0.0.tgz#a65cd29087a92598b8791257a523e021222ac1f9"
   
+  material-ui-icons@^1.0.0-beta.36:
+    version "1.0.0-beta.36"
+    resolved "https://registry.yarnpkg.com/material-ui-icons/-/material-ui-icons-1.0.0-beta.36.tgz#86390a61f4c83f718eaba77ccce575834f2cf2a8"
+    dependencies:
+      recompose "^0.26.0"
+  
   material-ui-next@^1.0.0-beta.40:
     version "1.0.0-beta.40"
     resolved "https://registry.yarnpkg.com/material-ui-next/-/material-ui-next-1.0.0-beta.40.tgz#6387d8ae6da9be2fa5633e167397f7c2a0efa6c7"
+    dependencies:
+      "@types/jss" "^9.3.0"
+      "@types/react-transition-group" "^2.0.6"
+      babel-runtime "^6.26.0"
+      brcast "^3.0.1"
+      classnames "^2.2.5"
+      deepmerge "^2.0.1"
+      dom-helpers "^3.2.1"
+      hoist-non-react-statics "^2.5.0"
+      jss "^9.3.3"
+      jss-camel-case "^6.0.0"
+      jss-default-unit "^8.0.2"
+      jss-global "^3.0.0"
+      jss-nested "^6.0.1"
+      jss-props-sort "^6.0.0"
+      jss-vendor-prefixer "^7.0.0"
+      keycode "^2.1.9"
+      lodash "^4.2.0"
+      normalize-scroll-left "^0.1.2"
+      prop-types "^15.6.0"
+      react-event-listener "^0.5.1"
+      react-jss "^8.1.0"
+      react-lifecycles-compat "^1.0.2"
+      react-popper "^0.8.0"
+      react-scrollbar-size "^2.0.2"
+      react-transition-group "^2.2.1"
+      recompose "^0.26.0"
+      scroll "^2.0.3"
+      warning "^3.0.0"
+  
+  material-ui@^1.0.0-beta.40:
+    version "1.0.0-beta.40"
+    resolved "https://registry.yarnpkg.com/material-ui/-/material-ui-1.0.0-beta.40.tgz#eaf0a0b264739c2c4d2cfe82fe100338814962bb"
     dependencies:
       "@types/jss" "^9.3.0"
       "@types/react-transition-group" "^2.0.6"
@@ -5716,6 +5770,13 @@ Lockfile:
       object-assign "^4.1.0"
       strict-uri-encode "^1.0.0"
   
+  query-string@^6.0.0:
+    version "6.0.0"
+    resolved "https://registry.yarnpkg.com/query-string/-/query-string-6.0.0.tgz#8b8f39447b73e8290d6f5e3581779218e9171142"
+    dependencies:
+      decode-uri-component "^0.2.0"
+      strict-uri-encode "^2.0.0"
+  
   querystring-es3@^0.2.0:
     version "0.2.1"
     resolved "https://registry.yarnpkg.com/querystring-es3/-/querystring-es3-0.2.1.tgz#9ec61f79049875707d69414596fd907a4d711e73"
@@ -5964,9 +6025,9 @@ Lockfile:
       prop-types "^15.5.8"
       warning "^3.0.0"
   
-  react@16.3.0:
-    version "16.3.0"
-    resolved "https://registry.yarnpkg.com/react/-/react-16.3.0.tgz#fc5a01c68f91e9b38e92cf83f7b795ebdca8ddff"
+  react@16.3.1:
+    version "16.3.1"
+    resolved "https://registry.yarnpkg.com/react/-/react-16.3.1.tgz#4a2da433d471251c69b6033ada30e2ed1202cfd8"
     dependencies:
       fbjs "^0.8.16"
       loose-envify "^1.1.0"
@@ -6651,6 +6712,10 @@ Lockfile:
   strict-uri-encode@^1.0.0:
     version "1.1.0"
     resolved "https://registry.yarnpkg.com/strict-uri-encode/-/strict-uri-encode-1.1.0.tgz#279b225df1d582b1f54e65addd4352e18faa0713"
+  
+  strict-uri-encode@^2.0.0:
+    version "2.0.0"
+    resolved "https://registry.yarnpkg.com/strict-uri-encode/-/strict-uri-encode-2.0.0.tgz#b9c7330c7042862f6b142dc274bbcc5866ce3546"
   
   string-length@^1.0.1:
     version "1.0.1"
@@ -7542,14 +7607,16 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/zen-observable/-/zen-observable-0.8.6.tgz#e2419311497019419d7bb56d8f6a56356a607272"
 
 Trace: 
-  Error: Command "imnstall" not found.
-      at new MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
-      at /usr/local/lib/node_modules/yarn/lib/cli.js:87307:17
-      at Generator.next (<anonymous>)
-      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:98:30)
-      at /usr/local/lib/node_modules/yarn/lib/cli.js:116:14
-      at new Promise (<anonymous>)
-      at new F (/usr/local/lib/node_modules/yarn/lib/cli.js:23451:28)
-      at /usr/local/lib/node_modules/yarn/lib/cli.js:95:12
-      at runCommand (/usr/local/lib/node_modules/yarn/lib/cli.js:87312:22)
-      at Object.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:87412:14)
+  Error: Command failed.
+  Exit code: 1
+  Command: sh
+  Arguments: -c react-scripts start
+  Directory: /Users/alan/app/naperg/react
+  Output:
+  
+      at ProcessTermError.MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
+      at new ProcessTermError (/usr/local/lib/node_modules/yarn/lib/cli.js:226:113)
+      at ChildProcess.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:30281:17)
+      at ChildProcess.emit (events.js:180:13)
+      at maybeClose (internal/child_process.js:936:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:220:5)
