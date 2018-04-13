@@ -17,7 +17,8 @@ class UsersPage extends React.Component {
       </div>)
     }
 
-    return (<React.Fragment>
+    return (
+    <React.Fragment>
       <div className='paperOut'>
         <Paper className='paperIn'>
             <div className='flex justify-between items-center'>

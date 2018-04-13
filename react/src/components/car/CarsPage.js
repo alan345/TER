@@ -2,10 +2,9 @@ import React from 'react'
 import Car from './Car'
 import {graphql} from 'react-apollo'
 import gql from 'graphql-tag'
-import {Link} from 'react-router-dom'
 import Icon from 'material-ui/Icon'
 import Paper from 'material-ui/Paper'
-
+import Button from 'material-ui/Button'
 
 
 class CarsPage extends React.Component {
@@ -69,10 +68,10 @@ class CarsPage extends React.Component {
               : (<Icon>keyboard_arrow_up</Icon>)
           }
         </div>
-
-        <Link to='car/create' className='f6 link dim br1 ba ph3 pv2 fr mb2 dib black'>
+        <Button onClick={() => this.props.history.replace('/car/create')} variant='raised' color='primary'>
           + Create Car
-        </Link>
+        </Button>
+
       </div>
       {edges && edges.map(car =>
           (
@@ -89,7 +88,7 @@ class CarsPage extends React.Component {
       )}
 
       {this.props.children}
-      </Paper>      
+      </Paper>
       </div>
     </React.Fragment>)
   }

@@ -5,6 +5,7 @@ import gql from 'graphql-tag'
 import Post from '../../components/post/Post'
 import { AUTH_TOKEN } from '../../constants/constants'
 import Icon from 'material-ui/Icon'
+import Paper from 'material-ui/Paper'
 
 class UserPage extends React.Component {
 
@@ -46,55 +47,59 @@ class UserPage extends React.Component {
     let action = this._renderAction(this.state.user)
     return (
       <React.Fragment>
-        <h1 className="f3 black-80 fw4 lh-solid">
-        {this.state.user.name}{' '}
-        <Icon onClick={e => this.setState({ isEditMode:!this.state.isEditMode })}>border_color</Icon>
+        <div className='paperOut'>
+          <Paper className='paperIn'>
+            <h1 className="f3 black-80 fw4 lh-solid">
+            {this.state.user.name}{' '}
+            <Icon onClick={e => this.setState({ isEditMode:!this.state.isEditMode })}>border_color</Icon>
 
-        </h1>
-        {this.state.isEditMode && (
-          <input
-          autoFocus
-          className="w-100 pa2 mv2 br2 b--black-20 bw1"
-          onChange={e => this.setState({ user:{ ...this.state.user, name: e.target.value} })}
-          placeholder="name"
-          type="text"
-          value={this.state.user.name}
-          />
-        )}
+            </h1>
+            {this.state.isEditMode && (
+              <input
+              autoFocus
+              className="w-100 pa2 mv2 br2 b--black-20 bw1"
+              onChange={e => this.setState({ user:{ ...this.state.user, name: e.target.value} })}
+              placeholder="name"
+              type="text"
+              value={this.state.user.name}
+              />
+            )}
 
-        <p className="black-80 fw3">Email: {this.state.user.email}</p>
-        {!this.state.isEditMode && (
-          <p className="black-80 fw3">Role: {this.state.user.role}</p>
-        )}
-        {this.state.isEditMode && (
-          <select
-            className=""
-            value={this.state.user.role}
-            onChange={e => this.setState({ user:{ ...this.state.user, role: e.target.value} })}
-            >
-            <option value="CUSTOMER">CUSTOMER</option>
-            <option value="ADMIN">ADMIN</option>
-          </select>
-        )}
-        <br/>
-        <br/>
-        {action}
-        <br/>
-        <br/>
-        {authToken && (
-          <div className="f6 ba ph3 pv2 mb2 black">
-            <h1>Posts from {this.state.user.name}</h1>
-            {this.state.user.posts &&
-              this.state.user.posts.map(post => (
-                <Post
-                  key={post.id}
-                  post={post}
-                />
-              ))}
-          </div>
-        )}
+            <p className="black-80 fw3">Email: {this.state.user.email}</p>
+            {!this.state.isEditMode && (
+              <p className="black-80 fw3">Role: {this.state.user.role}</p>
+            )}
+            {this.state.isEditMode && (
+              <select
+                className=""
+                value={this.state.user.role}
+                onChange={e => this.setState({ user:{ ...this.state.user, role: e.target.value} })}
+                >
+                <option value="CUSTOMER">CUSTOMER</option>
+                <option value="ADMIN">ADMIN</option>
+              </select>
+            )}
+            <br/>
+            <br/>
+            {action}
+            <br/>
+            <br/>
+            {authToken && (
+              <div className="f6 ba ph3 pv2 mb2 black">
+                <h1>Posts from {this.state.user.name}</h1>
+                {this.state.user.posts &&
+                  this.state.user.posts.map(post => (
+                    <Post
+                      key={post.id}
+                      post={post}
+                    />
+                  ))}
+              </div>
+            )}
 
-        {this.props.children}
+            {this.props.children}
+          </Paper>
+        </div>
       </React.Fragment>
     )
   }

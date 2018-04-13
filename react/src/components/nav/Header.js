@@ -4,7 +4,6 @@ import TopHello  from './TopHello'
 import AppBar from 'material-ui/AppBar'
 import Toolbar from 'material-ui/Toolbar'
 import Button from 'material-ui/Button'
-import SideBar from './SideBar'
 import BackButton from './BackButton'
 import Icon from 'material-ui/Icon'
 
