@@ -24,15 +24,16 @@ async function signup(parent, args, ctx, info) {
   const password = await bcrypt.hash(args.password, 10)
   const role = args.admin ? 'ADMIN' : 'CUSTOMER'
   const resetPasswordToken = uniqid()
+  const validateEmailToken = uniqid()
 
   // remove `admin` from `args`
   const { admin, ...data } = args
 
   const user = await ctx.db.mutation.createUser({
-    data: { ...data, role, resetPasswordToken, password },
+    data: { ...data, role, resetPasswordToken, validateEmailToken, password }
   })
 
-  emailGenerator.sendWelcomeEmail(user)
+  emailGenerator.sendWelcomeEmail(user, ctx)
   return {
     token: jwt.sign({ userId: user.id }, APP_SECRET),
     user,
@@ -40,7 +41,6 @@ async function signup(parent, args, ctx, info) {
 }
 async function resetPassword(parent, args, ctx, info) {
   const password = await bcrypt.hash(args.password, 10)
-
   try {
     const user = await ctx.db.mutation.updateUser({
       // Must check resetPasswordExpires
@@ -54,6 +54,20 @@ async function resetPassword(parent, args, ctx, info) {
       token: jwt.sign({ userId: user.id }, APP_SECRET),
       user
     }
+  } catch (e) {
+    return e
+  }
+}
+async function validateEmail (parent, args, ctx, info) {
+  try {
+    const user = await ctx.db.mutation.updateUser({
+      // Must check resetPasswordExpires
+      where: { validateEmailToken: args.validateEmailToken },
+      data: {
+        emailvalidated: true
+      }
+    })
+    return user
   } catch (e) {
     return e
   }
@@ -78,12 +92,10 @@ async function login(parent, { email, password }, ctx, info) {
 }
 // log in an existing user
 async function forgetPassword (parent, { email }, ctx, info) {
-
   const user = await ctx.db.query.user({ where: { email } })
   if (!user) {
     throw new Error(`No such user found for email: ${email}`)
   }
-
   try {
     let uniqueId = uniqid()
     await ctx.db.mutation.updateUser({
@@ -98,10 +110,6 @@ async function forgetPassword (parent, { email }, ctx, info) {
     return e
   }
   return user
-  // return {
-  //   token: jwt.sign({ userId: user.id }, APP_SECRET),
-  //   user,
-  // }
 }
 
 // update the password of an existing user
@@ -155,6 +163,7 @@ async function updatePassword (
 module.exports = {
   me,
   signup,
+  validateEmail,
   resetPassword,
   login,
   updatePassword,

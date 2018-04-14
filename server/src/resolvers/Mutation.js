@@ -1,5 +1,5 @@
 const {forwardTo} = require('prisma-binding')
-const {signup, login, updatePassword, forgetPassword, resetPassword} = require('./auth')
+const {signup, login, updatePassword, forgetPassword, resetPassword, validateEmail} = require('./auth')
 const { getUserId } = require('../utils')
 
 
@@ -77,6 +77,7 @@ const Mutation = {
 
   signup,
   resetPassword,
+  validateEmail,
   login,
   updatePassword,
   forgetPassword,

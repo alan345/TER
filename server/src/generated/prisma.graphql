@@ -21,11 +21,13 @@ type Post implements Node {
 
 type User implements Node {
   id: ID!
-  resetPasswordToken: String!
   email: String!
+  emailvalidated: Boolean!
+  validateEmailToken: String!
   createdAt: DateTime!
   updatedAt: DateTime!
   password: String!
+  resetPasswordToken: String!
   resetPasswordExpires: Float
   name: String!
   posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post!]
@@ -755,9 +757,11 @@ type UserConnection {
 }
 
 input UserCreateInput {
-  resetPasswordToken: String!
   email: String!
+  emailvalidated: Boolean
+  validateEmailToken: String!
   password: String!
+  resetPasswordToken: String!
   resetPasswordExpires: Float
   name: String!
   role: Role
@@ -770,9 +774,11 @@ input UserCreateOneWithoutPostsInput {
 }
 
 input UserCreateWithoutPostsInput {
-  resetPasswordToken: String!
   email: String!
+  emailvalidated: Boolean
+  validateEmailToken: String!
   password: String!
+  resetPasswordToken: String!
   resetPasswordExpires: Float
   name: String!
   role: Role
@@ -795,16 +801,20 @@ type UserEdge {
 enum UserOrderByInput {
   id_ASC
   id_DESC
-  resetPasswordToken_ASC
-  resetPasswordToken_DESC
   email_ASC
   email_DESC
+  emailvalidated_ASC
+  emailvalidated_DESC
+  validateEmailToken_ASC
+  validateEmailToken_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
   updatedAt_DESC
   password_ASC
   password_DESC
+  resetPasswordToken_ASC
+  resetPasswordToken_DESC
   resetPasswordExpires_ASC
   resetPasswordExpires_DESC
   name_ASC
@@ -815,11 +825,13 @@ enum UserOrderByInput {
 
 type UserPreviousValues {
   id: ID!
-  resetPasswordToken: String!
   email: String!
+  emailvalidated: Boolean!
+  validateEmailToken: String!
   createdAt: DateTime!
   updatedAt: DateTime!
   password: String!
+  resetPasswordToken: String!
   resetPasswordExpires: Float
   name: String!
   role: Role!
@@ -861,9 +873,11 @@ input UserSubscriptionWhereInput {
 }
 
 input UserUpdateInput {
-  resetPasswordToken: String
   email: String
+  emailvalidated: Boolean
+  validateEmailToken: String
   password: String
+  resetPasswordToken: String
   resetPasswordExpires: Float
   name: String
   role: Role
@@ -880,9 +894,11 @@ input UserUpdateOneWithoutPostsInput {
 }
 
 input UserUpdateWithoutPostsDataInput {
-  resetPasswordToken: String
   email: String
+  emailvalidated: Boolean
+  validateEmailToken: String
   password: String
+  resetPasswordToken: String
   resetPasswordExpires: Float
   name: String
   role: Role
@@ -955,59 +971,6 @@ input UserWhereInput {
   All values not ending with the given string.
   """
   id_not_ends_with: ID
-  resetPasswordToken: String
-  """
-  All values that are not equal to given value.
-  """
-  resetPasswordToken_not: String
-  """
-  All values that are contained in given list.
-  """
-  resetPasswordToken_in: [String!]
-  """
-  All values that are not contained in given list.
-  """
-  resetPasswordToken_not_in: [String!]
-  """
-  All values less than the given value.
-  """
-  resetPasswordToken_lt: String
-  """
-  All values less than or equal the given value.
-  """
-  resetPasswordToken_lte: String
-  """
-  All values greater than the given value.
-  """
-  resetPasswordToken_gt: String
-  """
-  All values greater than or equal the given value.
-  """
-  resetPasswordToken_gte: String
-  """
-  All values containing the given string.
-  """
-  resetPasswordToken_contains: String
-  """
-  All values not containing the given string.
-  """
-  resetPasswordToken_not_contains: String
-  """
-  All values starting with the given string.
-  """
-  resetPasswordToken_starts_with: String
-  """
-  All values not starting with the given string.
-  """
-  resetPasswordToken_not_starts_with: String
-  """
-  All values ending with the given string.
-  """
-  resetPasswordToken_ends_with: String
-  """
-  All values not ending with the given string.
-  """
-  resetPasswordToken_not_ends_with: String
   email: String
   """
   All values that are not equal to given value.
@@ -1061,6 +1024,64 @@ input UserWhereInput {
   All values not ending with the given string.
   """
   email_not_ends_with: String
+  emailvalidated: Boolean
+  """
+  All values that are not equal to given value.
+  """
+  emailvalidated_not: Boolean
+  validateEmailToken: String
+  """
+  All values that are not equal to given value.
+  """
+  validateEmailToken_not: String
+  """
+  All values that are contained in given list.
+  """
+  validateEmailToken_in: [String!]
+  """
+  All values that are not contained in given list.
+  """
+  validateEmailToken_not_in: [String!]
+  """
+  All values less than the given value.
+  """
+  validateEmailToken_lt: String
+  """
+  All values less than or equal the given value.
+  """
+  validateEmailToken_lte: String
+  """
+  All values greater than the given value.
+  """
+  validateEmailToken_gt: String
+  """
+  All values greater than or equal the given value.
+  """
+  validateEmailToken_gte: String
+  """
+  All values containing the given string.
+  """
+  validateEmailToken_contains: String
+  """
+  All values not containing the given string.
+  """
+  validateEmailToken_not_contains: String
+  """
+  All values starting with the given string.
+  """
+  validateEmailToken_starts_with: String
+  """
+  All values not starting with the given string.
+  """
+  validateEmailToken_not_starts_with: String
+  """
+  All values ending with the given string.
+  """
+  validateEmailToken_ends_with: String
+  """
+  All values not ending with the given string.
+  """
+  validateEmailToken_not_ends_with: String
   createdAt: DateTime
   """
   All values that are not equal to given value.
@@ -1172,6 +1193,59 @@ input UserWhereInput {
   All values not ending with the given string.
   """
   password_not_ends_with: String
+  resetPasswordToken: String
+  """
+  All values that are not equal to given value.
+  """
+  resetPasswordToken_not: String
+  """
+  All values that are contained in given list.
+  """
+  resetPasswordToken_in: [String!]
+  """
+  All values that are not contained in given list.
+  """
+  resetPasswordToken_not_in: [String!]
+  """
+  All values less than the given value.
+  """
+  resetPasswordToken_lt: String
+  """
+  All values less than or equal the given value.
+  """
+  resetPasswordToken_lte: String
+  """
+  All values greater than the given value.
+  """
+  resetPasswordToken_gt: String
+  """
+  All values greater than or equal the given value.
+  """
+  resetPasswordToken_gte: String
+  """
+  All values containing the given string.
+  """
+  resetPasswordToken_contains: String
+  """
+  All values not containing the given string.
+  """
+  resetPasswordToken_not_contains: String
+  """
+  All values starting with the given string.
+  """
+  resetPasswordToken_starts_with: String
+  """
+  All values not starting with the given string.
+  """
+  resetPasswordToken_not_starts_with: String
+  """
+  All values ending with the given string.
+  """
+  resetPasswordToken_ends_with: String
+  """
+  All values not ending with the given string.
+  """
+  resetPasswordToken_not_ends_with: String
   resetPasswordExpires: Float
   """
   All values that are not equal to given value.
@@ -1274,6 +1348,7 @@ input UserWhereInput {
 
 input UserWhereUniqueInput {
   id: ID
-  resetPasswordToken: String
   email: String
+  validateEmailToken: String
+  resetPasswordToken: String
 }

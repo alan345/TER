@@ -2,7 +2,8 @@ const nodemailer = require('nodemailer')
 var config = require('./config/config')
 
 module.exports = {
-  sendWelcomeEmail (user) {
+  sendWelcomeEmail (user, ctx) {
+    console.log(user)
     var mailer = nodemailer.createTransport({
       service: 'Gmail',
       auth: {
@@ -16,8 +17,11 @@ module.exports = {
       from: 'naperg@naperg.io',
       subject: 'Welcome in the Naperg APP',
       html: `
-      <div>hello ${user.email}</div>
+      <div>hello ${user.name}</div>
       <div>Welcome in the Naperg App.</div>
+        <div>Please find link to reset your password.
+           ${ctx.request.headers.origin}/login?validateEmailToken=${user.validateEmailToken}
+        </div>
     `
     }
     mailer.sendMail(mailOptions, function (err) {
