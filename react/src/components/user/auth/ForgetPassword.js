@@ -8,18 +8,25 @@ import TextField from 'material-ui/TextField'
 
 
 class ForgetPassword extends Component {
+  constructor(props) {
+    super(props)
+    this.closeSnackBar = this.closeSnackBar.bind(this)
+  }
+
   state = {
     email: '',
-    password: '',
-    name: '',
     messageSnackBar: '',
     openSnackBar: false,
-    resetPasswordToken: '',
-    validateEmailToken: '',
+  }
+
+
+  closeSnackBar() {
+    this.setState({ openSnackBar: false })
   }
 
 
   render() {
+
     return (
       <div className='paperOut'>
         <Paper className='paperIn'>
@@ -42,6 +49,7 @@ class ForgetPassword extends Component {
           </Button>
         </div>
         <SnackBarCustom
+          _closeSnackBar={this.closeSnackBar}
           openSnackBar={this.state.openSnackBar}
           messageSnackBar={this.state.messageSnackBar}/>
       </Paper>
@@ -67,6 +75,7 @@ class ForgetPassword extends Component {
         messageSnackBar: messageSnackBar,
         openSnackBar: true,
       })
+
   }
 
 }

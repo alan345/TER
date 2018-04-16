@@ -11,7 +11,9 @@ class SnackBarCustom extends Component {
        return
      }
      this.setState({ openSnackBar: false })
-   };
+     this.props._closeSnackBar()
+   }
+
    componentWillReceiveProps(newProps) {
      this.setState({
        messageSnackBar: newProps.messageSnackBar,
@@ -22,6 +24,7 @@ class SnackBarCustom extends Component {
   render() {
 
     return (
+      <div>
         <Snackbar
           anchorOrigin={{
             vertical: 'bottom',
@@ -35,6 +38,7 @@ class SnackBarCustom extends Component {
           }}
           message={<span>{this.state.messageSnackBar}</span>}
         />
+    </div>
     )
   }
 }
