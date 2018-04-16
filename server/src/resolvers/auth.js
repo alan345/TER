@@ -59,7 +59,20 @@ async function resetPassword(parent, args, ctx, info) {
   }
 }
 async function validateEmail (parent, args, ctx, info) {
-  try {
+  const userCheck = await ctx.db.query.user({
+    where: {
+      validateEmailToken: args.validateEmailToken
+    }
+  })
+  if (!userCheck) {
+    throw new Error(`No such user found.`)
+  } else {
+    if (userCheck.emailvalidated) {
+      throw new Error(`User Already validated`)
+    }
+  }
+
+  // try {
     const user = await ctx.db.mutation.updateUser({
       // Must check resetPasswordExpires
       where: { validateEmailToken: args.validateEmailToken },
@@ -68,9 +81,9 @@ async function validateEmail (parent, args, ctx, info) {
       }
     })
     return user
-  } catch (e) {
-    return e
-  }
+  // } catch (e) {
+  //   return e
+  // }
 }
 
 // log in an existing user
