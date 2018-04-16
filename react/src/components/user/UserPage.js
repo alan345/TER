@@ -3,6 +3,7 @@ import { graphql, compose } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
 import Post from '../../components/post/Post'
+import NotAuth from '../nav/NotAuth'
 import { AUTH_TOKEN } from '../../constants/constants'
 import Icon from 'material-ui/Icon'
 import Paper from 'material-ui/Paper'
@@ -31,7 +32,7 @@ class UserPage extends React.Component {
   render() {
     if (this.props.userQuery.error) {
       return (
-        <div>Not authentificated</div>
+        <NotAuth/>
       )
     }
 

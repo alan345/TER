@@ -20,6 +20,7 @@ import DetailPage from './components/post/DetailPage'
 import DetailCar from './components/car/DetailCar'
 import UsersPage from './components/user/UsersPage'
 import UserPage from './components/user/UserPage'
+import ForgetPassword from './components/user/auth/ForgetPassword'
 import Login from './components/user/auth/Login'
 import Signup from './components/user/auth/Signup'
 import 'tachyons'
@@ -76,6 +77,7 @@ ReactDOM.render(
               <Route path='/post/:id' component={DetailPage} />
               <Route exact path='/login' component={Login} />
               <Route exact path='/signup' component={Signup} />
+              <Route exact path='/forgetPassword' component={ForgetPassword} />
             </Switch>
           </div>
         </div>

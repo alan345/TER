@@ -40,12 +40,10 @@ class Login extends Component {
         <Paper className='paperIn'>
         <h4 className='mv3'>
           {this.state.stateLogin === 'login' && 'Login'}
-          {this.state.stateLogin === 'forget' && 'Forget Password'}
         </h4>
         <div className='flex flex-column'>
           {(
-            this.state.stateLogin === 'login' ||
-            this.state.stateLogin === 'forget'
+            this.state.stateLogin === 'login'
           ) && (
           <input
             value={this.state.email}
@@ -75,7 +73,7 @@ class Login extends Component {
           >signup
           </Button>
           <Button variant='flat'
-            onClick={() => this.setState({ stateLogin: 'forget', openSnackBar: false })}
+            onClick={() => this.props.history.push('/forgetPassword')}
           >Forget Password
           </Button>
         </div>
@@ -103,7 +101,7 @@ class Login extends Component {
     })
   }
   _confirm = async () => {
-    const { name, email, password, resetPasswordToken } = this.state
+    const { email, password, resetPasswordToken } = this.state
     if (this.state.stateLogin === 'login') {
       await this.props.loginMutation({
         variables: {
@@ -124,23 +122,7 @@ class Login extends Component {
         })
       })
     }
-    if (this.state.stateLogin === 'forget') {
-      let messageSnackBar
-      await this.props.forgetPasswordMutation({
-        variables: {
-          email
-        },
-      })
-      .then((result) => { messageSnackBar = `A mail has been sent with a link available until
-        ${new Date(result.data.forgetPassword.resetPasswordExpires).toLocaleString()}` })
-      .catch((e) => { messageSnackBar = e.graphQLErrors[0].message })
 
-      this.setState({
-        messageSnackBar: messageSnackBar,
-        openSnackBar: true,
-        stateLogin: 'login'
-      })
-    }
     if (this.state.stateLogin === 'resetPassword') {
       const result = await this.props.resetPasswordMutation({
         variables: {
@@ -182,15 +164,7 @@ const VALIDATE_EMAIL_TOKEN_MUTATION = gql`
     }
   }
 `
-const FORGET_PASSWORD_MUTATION = gql`
-  mutation ForgetPasswordMutation($email: String!) {
-    forgetPassword(email: $email) {
-      name
-      id
-      resetPasswordExpires
-    }
-  }
-`
+
 const RESET_PASSWORD_MUTATION = gql`
   mutation ResetPasswordMutation($password: String!, $resetPasswordToken: String!) {
     resetPassword(password: $password, resetPasswordToken: $resetPasswordToken) {
@@ -205,7 +179,6 @@ const RESET_PASSWORD_MUTATION = gql`
 
 export default compose(
   graphql(LOGIN_MUTATION, { name: 'loginMutation' }),
-  graphql(FORGET_PASSWORD_MUTATION, { name: 'forgetPasswordMutation' }),
   graphql(RESET_PASSWORD_MUTATION, { name: 'resetPasswordMutation' }),
   graphql(VALIDATE_EMAIL_TOKEN_MUTATION, { name: 'validateEmailMutation' }),
 )(Login)

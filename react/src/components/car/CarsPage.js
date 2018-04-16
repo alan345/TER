@@ -5,7 +5,7 @@ import gql from 'graphql-tag'
 import Icon from 'material-ui/Icon'
 import Paper from 'material-ui/Paper'
 import Button from 'material-ui/Button'
-
+import NotAuth from '../nav/NotAuth'
 
 class CarsPage extends React.Component {
   state = {
@@ -17,7 +17,7 @@ class CarsPage extends React.Component {
     const {carsQueryConnection} = this.props
     if (carsQueryConnection.error) {
       return (
-        <div>Not authentificated</div>
+        <NotAuth/>
       )
     }
 
@@ -29,7 +29,7 @@ class CarsPage extends React.Component {
 
 
     if (carsQueryConnection.loading) {
-      return (<div className="flex w-100 h-100 items-center justify-center pt7">
+      return (<div className='flex w-100 h-100 items-center justify-center pt7'>
         <div>Loading (from {process.env.REACT_APP_GRAPHQL_ENDPOINT})</div>
       </div>)
     }
@@ -42,9 +42,9 @@ class CarsPage extends React.Component {
         <h1>Cars ({edges.length}/{aggregate.count})</h1>
         <div>
           <input type='text' autoFocus='autoFocus' onFocus={function(e) {
-              var val = e.target.value;
-              e.target.value = '';
-              e.target.value = val;
+              var val = e.target.value
+              e.target.value = ''
+              e.target.value = val
             }} className='w-100 pa2 mv2 br2 b--black-20 bw1' onChange={e => {
               this.setState({query: e.target.value})
               carsQueryConnection.refetch({

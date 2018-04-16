@@ -4,11 +4,12 @@ import {graphql} from 'react-apollo'
 import gql from 'graphql-tag'
 import {Link} from 'react-router-dom'
 import Paper from 'material-ui/Paper'
+import NotAuth from '../nav/NotAuth'
 
 class UsersPage extends React.Component {
   render() {
     if (this.props.usersQuery.error) {
-      return (<div>Not authentificated</div>)
+      return (<NotAuth/>)
     }
 
     if (this.props.usersQuery.loading) {

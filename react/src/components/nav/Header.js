@@ -9,18 +9,6 @@ import Icon from 'material-ui/Icon'
 
 class Header extends Component {
 
-  // state = {
-  //   isSideBarOpen: false,
-  // };
-//
-// toggleDrawer = (isSideBarOpen) => () => {
-//   this.setState({
-//     isSideBarOpen: isSideBarOpen,
-//   });
-// };
-
-
-
   render() {
     return (
       <div>
