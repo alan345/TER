@@ -97,8 +97,6 @@ More details in the tuto: https://github.com/graphcool/prisma/tree/master/exampl
 
 
 
-
-
 # Contributing
 
 
