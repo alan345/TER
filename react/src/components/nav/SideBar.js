@@ -40,17 +40,15 @@ class SideBar extends Component {
 
     return (
       <div>
-
-      <Drawer
-        variant={this.state.variant}
-        open={this.state.isSideBarOpen} onClose={this.toggleDrawer(false)}>
-        <div tabIndex={0} role='button' onClick={this.toggleDrawer(false)} onKeyDown={this.toggleDrawer(false)}>
-          <ListSideBar isMobile={this.props.isMobile}/>
-        </div>
-      </Drawer>
-
-    </div>
-  )
+        <Drawer
+          variant={this.state.variant}
+          open={this.state.isSideBarOpen} onClose={this.toggleDrawer(false)}>
+          <div tabIndex={0} role='button' onClick={this.toggleDrawer(false)} onKeyDown={this.toggleDrawer(false)}>
+            <ListSideBar isMobile={this.props.isMobile}/>
+          </div>
+        </Drawer>
+      </div>
+    )
   }
 }
 

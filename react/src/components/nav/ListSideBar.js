@@ -86,7 +86,7 @@ class ListSideBar extends Component {
             {authToken && (
               <ListItem button onClick={() => {
                 localStorage.removeItem(AUTH_TOKEN)
-                this.props.history.replace(`/`)
+                this.props.history.replace(`/login`)
               }}>
                 <ListItemIcon>
                   <Icon>exit_to_app</Icon>

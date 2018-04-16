@@ -126,7 +126,7 @@ class CarsPage extends React.Component {
 
 const DRAFTS_QUERY = gql `
   query CarsQueryConnection($after: String, $orderBy: CarOrderByInput, $where: CarWhereInput, $skip: Int) {
-    carsConnection(after: $after, orderBy: $orderBy, where: $where, first: 2, skip: $skip) {
+    carsConnection(after: $after, orderBy: $orderBy, where: $where, first: 5, skip: $skip) {
       pageInfo {
         hasNextPage
         endCursor

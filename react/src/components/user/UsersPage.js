@@ -5,6 +5,8 @@ import gql from 'graphql-tag'
 import {Link} from 'react-router-dom'
 import Paper from 'material-ui/Paper'
 import NotAuth from '../nav/NotAuth'
+import Icon from 'material-ui/Icon'
+
 
 class UsersPage extends React.Component {
   render() {
@@ -26,16 +28,18 @@ class UsersPage extends React.Component {
               <h1>Users</h1>
             </div>
             {
-              this.props.usersQuery.users && this.props.usersQuery.users.map((user, i) => (<div key={i}>
-                <Link to={'user/' + user.id}>
-                  <h3>
-                    {user.name}
-                  </h3>
-                </Link>
-                Email: {user.email}
-                <br/>
-                Role: {user.role}
-              </div>))
+              this.props.usersQuery.users && this.props.usersQuery.users.map((user, i) => (
+                <div key={i}>
+                  <Link to={'user/' + user.id}>
+                    <h3 className='black'>
+                      <Icon>fingerprint</Icon>{user.name}
+                    </h3>
+                  </Link>
+                  Email: {user.email}
+                  <br/>
+                  Role: {user.role}
+                </div>
+            ))
             }
             {this.props.children}
         </Paper>
