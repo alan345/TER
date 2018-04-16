@@ -110,16 +110,13 @@ class Login extends Component {
         validateEmailToken
       },
     })
-    console.log(result)
-    // let messageSnackBar = `A mail has been sent with a link available until`
-    //
-    // this.setState({
-    //   messageSnackBar: messageSnackBar,
-    //   openSnackBar: true,
-    //   stateLogin: 'login'
-    // })
 
-    console.log('validateEmailMutation')
+    let messageSnackBar = `${result.data.validateEmail.email} is now validated.`
+    this.setState({
+      messageSnackBar: messageSnackBar,
+      openSnackBar: true,
+      stateLogin: 'login'
+    })
   }
   _confirm = async () => {
     const { name, email, password, resetPasswordToken } = this.state

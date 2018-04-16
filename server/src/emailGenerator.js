@@ -19,7 +19,7 @@ module.exports = {
       html: `
       <div>hello ${user.name}</div>
       <div>Welcome in the Naperg App.</div>
-        <div>Please find link to reset your password.
+        <div>Please find link to validate your email.
            ${ctx.request.headers.origin}/login?validateEmailToken=${user.validateEmailToken}
         </div>
     `
