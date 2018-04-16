@@ -17,18 +17,10 @@ class Login extends Component {
     name: '',
     messageSnackBar: '',
     openSnackBar: false,
-    resetPasswordToken: '',
     validateEmailToken: '',
   }
 
   componentDidMount() {
-    let resetPasswordToken = queryString.parse(this.props.location.search).resetPasswordToken
-    if(resetPasswordToken) {
-      this.setState({
-        stateLogin: 'resetPassword',
-        resetPasswordToken: resetPasswordToken
-      })
-    }
     let validateEmailToken = queryString.parse(this.props.location.search).validateEmailToken
     if(validateEmailToken) {
       this.validateEmailMutation(validateEmailToken)
@@ -55,8 +47,7 @@ class Login extends Component {
           />
         )}
         {(
-          this.state.stateLogin === 'login' ||
-          this.state.stateLogin === 'resetPassword'
+          this.state.stateLogin === 'login'
         ) && (
           <TextField
             value={this.state.password}
@@ -103,7 +94,7 @@ class Login extends Component {
     })
   }
   _confirm = async () => {
-    const { email, password, resetPasswordToken } = this.state
+    const { email, password } = this.state
     if (this.state.stateLogin === 'login') {
       await this.props.loginMutation({
         variables: {
@@ -125,19 +116,7 @@ class Login extends Component {
       })
     }
 
-    if (this.state.stateLogin === 'resetPassword') {
-      const result = await this.props.resetPasswordMutation({
-        variables: {
-          resetPasswordToken,
-          password
-        },
-      })
 
-      const { token, user } = result.data.resetPassword
-      this._saveUserData(token, user)
-      this.props.history.push(`/`)
-
-    }
   }
 
   _saveUserData = (token, user) => {
@@ -167,20 +146,9 @@ const VALIDATE_EMAIL_TOKEN_MUTATION = gql`
   }
 `
 
-const RESET_PASSWORD_MUTATION = gql`
-  mutation ResetPasswordMutation($password: String!, $resetPasswordToken: String!) {
-    resetPassword(password: $password, resetPasswordToken: $resetPasswordToken) {
-      token
-      user {
-        name
-        id
-      }
-    }
-  }
-`
+
 
 export default compose(
   graphql(LOGIN_MUTATION, { name: 'loginMutation' }),
-  graphql(RESET_PASSWORD_MUTATION, { name: 'resetPasswordMutation' }),
   graphql(VALIDATE_EMAIL_TOKEN_MUTATION, { name: 'validateEmailMutation' }),
 )(Login)

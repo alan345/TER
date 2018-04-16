@@ -23,6 +23,7 @@ import UserPage from './components/user/UserPage'
 import ForgetPassword from './components/user/auth/ForgetPassword'
 import Login from './components/user/auth/Login'
 import Signup from './components/user/auth/Signup'
+import ResetPassword from './components/user/auth/ResetPassword'
 import 'tachyons'
 import './index.css'
 import Header from './components/nav/Header'
@@ -80,6 +81,7 @@ ReactDOM.render(
               <Route path='/login' component={Login} />
               <Route path='/signup' component={Signup} />
               <Route path='/forgetPassword' component={ForgetPassword} />
+              <Route path='/resetPassword' component={ResetPassword} />
               <Route component={NotFound} />
             </Switch>
           </div>

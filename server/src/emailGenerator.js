@@ -48,7 +48,7 @@ module.exports = {
       html: `
       <div>hello</div>
       <div>Please find link to reset your password.
-         ${ctx.request.headers.origin}/login?resetPasswordToken=${uniqueId}
+         ${ctx.request.headers.origin}/resetPassword?resetPasswordToken=${uniqueId}
       </div>
     `
     }

@@ -40,10 +40,20 @@ async function signup(parent, args, ctx, info) {
   }
 }
 async function resetPassword(parent, args, ctx, info) {
-  const password = await bcrypt.hash(args.password, 10)
-  try {
+
+
+
+  const userCheck = await ctx.db.query.user({
+    where: { resetPasswordToken: args.resetPasswordToken }
+  })
+  if (!userCheck) {
+    throw new Error(`Link is not valid`)
+  } else {
+    if (userCheck.resetPasswordExpires < new Date().getTime()) {
+      throw new Error(`Link expired`)
+    }
+    const password = await bcrypt.hash(args.password, 10)
     const user = await ctx.db.mutation.updateUser({
-      // Must check resetPasswordExpires
       where: { resetPasswordToken: args.resetPasswordToken },
       data: {
         password: password,
@@ -54,9 +64,19 @@ async function resetPassword(parent, args, ctx, info) {
       token: jwt.sign({ userId: user.id }, APP_SECRET),
       user
     }
-  } catch (e) {
-    return e
+
+    // if (userCheck.emailvalidated) {
+    //   throw new Error(`User Already validated`)
+    // }
   }
+
+
+
+
+
+  // } catch (e) {
+  //   return e
+  // }
 }
 async function validateEmail (parent, args, ctx, info) {
   const userCheck = await ctx.db.query.user({
@@ -114,7 +134,7 @@ async function forgetPassword (parent, { email }, ctx, info) {
     await ctx.db.mutation.updateUser({
       where: { id: user.id },
       data: {
-        resetPasswordExpires: new Date().getTime() + 1000 * 60 * 60 * 5,
+        resetPasswordExpires: new Date().getTime() + 1000 * 60 * 60 * 5, // 5 hours
         resetPasswordToken: uniqueId
       }
     })
