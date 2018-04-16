@@ -2,7 +2,11 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
-import Main from '../uploadFile';
+import Main from '../uploadFile'
+import Paper from 'material-ui/Paper'
+
+
+
 class CreatePage extends React.Component {
   state = {
     title: '',
@@ -13,7 +17,8 @@ class CreatePage extends React.Component {
 
   render() {
     return (
-      <div className="pa4 flex justify-center bg-white">
+      <div className='paperOut'>
+        <Paper className='paperIn'>
         <form onSubmit={this.handlePost}>
           <h1>Create Draft</h1>
           <input
@@ -45,6 +50,7 @@ class CreatePage extends React.Component {
           </a>
         </form>
         <Main onSelectFile={this.handleFile}/>
+        </Paper>
       </div>
     )
   }

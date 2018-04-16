@@ -36,18 +36,7 @@ class Login extends Component {
   }
 
   render() {
-    const authToken = localStorage.getItem(AUTH_TOKEN)
-    if (authToken) {
-      return (
-        <div className='paperOut'>
-          <Paper className='paperIn'>
-            <h4 className='mv3'>
-              AUTH
-            </h4>
-          </Paper>
-        </div>
-      )
-    }
+
     return (
       <div className='paperOut'>
         <Paper className='paperIn'>

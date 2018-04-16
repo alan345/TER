@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
 import ImageTemplate from '../../components/ImageTemplate'
 import { Link } from 'react-router-dom'
+import Paper from 'material-ui/Paper'
+
 
 class DetailPage extends React.Component {
   render() {
@@ -16,7 +18,7 @@ class DetailPage extends React.Component {
 
     if (this.props.postQuery.loading) {
       return (
-        <div className="flex w-100 h-100 items-center justify-center pt7">
+        <div className='flex w-100 h-100 items-center justify-center pt7'>
           <div>Loading (from {process.env.REACT_APP_GRAPHQL_ENDPOINT})</div>
         </div>
       )
@@ -27,18 +29,22 @@ class DetailPage extends React.Component {
 
     return (
       <React.Fragment>
-        <h1 className="f3 black-80 fw4 lh-solid">
-          {post.title} by <Link to={'/user/' + post.author.id} title="Feed">
-            {post.author.name}
-          </Link>
-        </h1>
-        <p className="black-80 fw3">{post.text}</p>
+        <div className='paperOut'>
+          <Paper className='paperIn'>
+            <h1 className='f3 black-80 fw4 lh-solid'>
+              {post.title} by <Link to={'/user/' + post.author.id} title="Feed">
+                {post.author.name}
+              </Link>
+            </h1>
+            <p className='black-80 fw3'>{post.text}</p>
 
-        <ImageTemplate
-          nameFile={post.nameFile}
-        />
+            <ImageTemplate
+              nameFile={post.nameFile}
+            />
 
-        {action}
+            {action}
+          </Paper>
+        </div>
       </React.Fragment>
     )
   }
@@ -48,7 +54,7 @@ class DetailPage extends React.Component {
       return (
         <React.Fragment>
           <a
-            className="f6 dim br1 ba ph3 pv2 mb2 dib black pointer"
+            className='f6 dim br1 ba ph3 pv2 mb2 dib black pointer'
             onClick={() => this.publishDraft(id)}
           >
             Publish
