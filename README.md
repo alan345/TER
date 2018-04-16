@@ -110,6 +110,7 @@ Your feedback is **very helpful**, please share your opinion and thoughts! If yo
 * ✓Send emails: validate Email
 * ✓change/Reset password. send email confirmation
 * ✓Organize logo image in readMe
+* Create 3 Screenshots GIFS. Mobile friendly / auth / Post
 * Implement Apollo Client 2.0
 * Write medium post
 * Upload all filetypes. A logo of a file will appear instead of picture
