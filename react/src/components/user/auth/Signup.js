@@ -5,6 +5,8 @@ import gql from 'graphql-tag'
 import SnackBarCustom from '../SnackBarCustom'
 import Paper from 'material-ui/Paper'
 import Button from 'material-ui/Button'
+import TextField from 'material-ui/TextField'
+
 
 class Signup extends Component {
   state = {
@@ -25,26 +27,26 @@ class Signup extends Component {
         </h4>
         <div className='flex flex-column'>
 
-            <input
+            <TextField
               value={this.state.name}
               onChange={e => this.setState({ name: e.target.value })}
               type='text'
-              placeholder='Your name'
+              label='Your name'
             />
 
-          <input
+          <TextField
             value={this.state.email}
             onChange={e => this.setState({ email: e.target.value })}
             type='text'
-            placeholder='Your email address'
+            label='Your email address'
           />
 
 
-          <input
+          <TextField
             value={this.state.password}
             onChange={e => this.setState({ password: e.target.value })}
             type='password'
-            placeholder='Choose a safe password'
+            label='Choose a safe password'
           />
         </div>
         <div className='flex mt3'>

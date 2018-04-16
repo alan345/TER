@@ -4,6 +4,7 @@ import gql from 'graphql-tag'
 import SnackBarCustom from '../SnackBarCustom'
 import Paper from 'material-ui/Paper'
 import Button from 'material-ui/Button'
+import TextField from 'material-ui/TextField'
 
 
 class ForgetPassword extends Component {
@@ -27,11 +28,11 @@ class ForgetPassword extends Component {
         </h4>
         <div className='flex flex-column'>
 
-          <input
+          <TextField
             value={this.state.email}
             onChange={e => this.setState({ email: e.target.value })}
             type='text'
-            placeholder='Your email address'
+            label='Your email address'
           />
 
         </div>

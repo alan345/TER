@@ -5,6 +5,7 @@ import gql from 'graphql-tag'
 import SnackBarCustom from '../SnackBarCustom'
 import Paper from 'material-ui/Paper'
 import Button from 'material-ui/Button'
+import TextField from 'material-ui/TextField'
 
 const queryString = require('query-string')
 
@@ -45,22 +46,22 @@ class Login extends Component {
           {(
             this.state.stateLogin === 'login'
           ) && (
-          <input
+          <TextField
             value={this.state.email}
             onChange={e => this.setState({ email: e.target.value })}
             type='text'
-            placeholder='Your email address'
+            label='Your email address'
           />
         )}
         {(
           this.state.stateLogin === 'login' ||
           this.state.stateLogin === 'resetPassword'
         ) && (
-          <input
+          <TextField
             value={this.state.password}
             onChange={e => this.setState({ password: e.target.value })}
             type='password'
-            placeholder='Choose a safe password'
+            label='Choose a safe password'
           />
       )}
         </div>
