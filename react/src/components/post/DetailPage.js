@@ -32,7 +32,7 @@ class DetailPage extends React.Component {
         <div className='paperOut'>
           <Paper className='paperIn'>
             <h1 className='f3 black-80 fw4 lh-solid'>
-              {post.title} by <Link to={'/user/' + post.author.id} title="Feed">
+              {post.title} by <Link to={'/user/' + post.author.id} title='Feed'>
                 {post.author.name}
               </Link>
             </h1>
@@ -60,7 +60,7 @@ class DetailPage extends React.Component {
             Publish
           </a>{' '}
           <a
-            className="f6 dim br1 ba ph3 pv2 mb2 dib black pointer"
+            className='f6 dim br1 ba ph3 pv2 mb2 dib black pointer'
             onClick={() => this.deletePost(id)}
           >
             Delete
@@ -70,7 +70,7 @@ class DetailPage extends React.Component {
     }
     return (
       <a
-        className="f6 dim br1 ba ph3 pv2 mb2 dib black pointer"
+        className='f6 dim br1 ba ph3 pv2 mb2 dib black pointer'
         onClick={() => this.deletePost(id)}
       >
         Delete
