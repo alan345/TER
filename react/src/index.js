@@ -26,6 +26,7 @@ import Signup from './components/user/auth/Signup'
 import 'tachyons'
 import './index.css'
 import Header from './components/nav/Header'
+import NotFound from './components/nav/NotFound'
 import SideBar from './components/nav/SideBar'
 const httpLink = new HttpLink({ uri: 'http://localhost:4000' })
 
@@ -75,9 +76,10 @@ ReactDOM.render(
               <Route path='/user/:id' component={UserPage} />
               <Route path='/create' component={CreatePage} />
               <Route path='/post/:id' component={DetailPage} />
-              <Route exact path='/login' component={Login} />
-              <Route exact path='/signup' component={Signup} />
-              <Route exact path='/forgetPassword' component={ForgetPassword} />
+              <Route path='/login' component={Login} />
+              <Route path='/signup' component={Signup} />
+              <Route path='/forgetPassword' component={ForgetPassword} />
+              <Route component={NotFound} />
             </Switch>
           </div>
         </div>
