@@ -2,6 +2,11 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
+import Paper from 'material-ui/Paper'
+import Button from 'material-ui/Button'
+
+
+
 class CreatePage extends React.Component {
   state = {
     name: '',
@@ -10,7 +15,8 @@ class CreatePage extends React.Component {
 
   render() {
     return (
-      <div className="pa4 flex justify-center bg-white">
+      <div className='paperOut'>
+        <Paper className='paperIn'>
         <form onSubmit={this.handleCar}>
           <h1>Create Car</h1>
           <input
@@ -22,16 +28,19 @@ class CreatePage extends React.Component {
             value={this.state.name}
           />
 
-          <input
-            className={`pa3 bg-black-10 bn`}
-            disabled={!this.state.name}
-            type="submit"
-            value="Create"
-          />{' '}
+
+          <Button             className={`pa3 bg-black-10 bn`}
+                      disabled={!this.state.name}
+                      type="submit"
+                      variant='raised' color='primary'>
+            Create
+          </Button>
+          {' '}
           <a className="f6 pointer" onClick={this.props.history.goBack}>
             or cancel
           </a>
         </form>
+      </Paper>
       </div>
     )
   }

@@ -7,6 +7,8 @@ import NotAuth from '../nav/NotAuth'
 import { AUTH_TOKEN } from '../../constants/constants'
 import Icon from 'material-ui/Icon'
 import Paper from 'material-ui/Paper'
+import Select from 'material-ui/Select';
+import { MenuItem } from 'material-ui/Menu';
 
 class UserPage extends React.Component {
 
@@ -39,7 +41,7 @@ class UserPage extends React.Component {
     const authToken = localStorage.getItem(AUTH_TOKEN)
     if (this.props.userQuery.loading) {
       return (
-        <div className="flex w-100 h-100 items-center justify-center pt7">
+        <div className='flex w-100 h-100 items-center justify-center pt7'>
           <div>Loading (from {process.env.REACT_APP_GRAPHQL_ENDPOINT})</div>
         </div>
       )
@@ -50,7 +52,7 @@ class UserPage extends React.Component {
       <React.Fragment>
         <div className='paperOut'>
           <Paper className='paperIn'>
-            <h1 className="f3 black-80 fw4 lh-solid">
+            <h1 className='f3 black-80 fw4 lh-solid'>
             {this.state.user.name}{' '}
             <Icon onClick={e => this.setState({ isEditMode:!this.state.isEditMode })}>border_color</Icon>
 
@@ -58,7 +60,7 @@ class UserPage extends React.Component {
             {this.state.isEditMode && (
               <input
               autoFocus
-              className="w-100 pa2 mv2 br2 b--black-20 bw1"
+              className='w-100 pa2 mv2 br2 b--black-20 bw1'
               onChange={e => this.setState({ user:{ ...this.state.user, name: e.target.value} })}
               placeholder="name"
               type="text"
@@ -71,14 +73,19 @@ class UserPage extends React.Component {
               <p className="black-80 fw3">Role: {this.state.user.role}</p>
             )}
             {this.state.isEditMode && (
-              <select
-                className=""
+
+
+
+
+
+
+              <Select
                 value={this.state.user.role}
                 onChange={e => this.setState({ user:{ ...this.state.user, role: e.target.value} })}
                 >
-                <option value="CUSTOMER">CUSTOMER</option>
-                <option value="ADMIN">ADMIN</option>
-              </select>
+                <MenuItem value="CUSTOMER">CUSTOMER</MenuItem>
+                <MenuItem value="ADMIN">ADMIN</MenuItem>
+              </Select>
             )}
             <br/>
             <br/>

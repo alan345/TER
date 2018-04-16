@@ -38,57 +38,57 @@ class CarsPage extends React.Component {
       <React.Fragment>
         <div className='paperOut'>
           <Paper className='paperIn'>
-      <div className='flex justify-between items-center'>
-        <h1>Cars ({edges.length}/{aggregate.count})</h1>
-        <div>
-          <input type='text' autoFocus='autoFocus' onFocus={function(e) {
-              var val = e.target.value
-              e.target.value = ''
-              e.target.value = val
-            }} className='w-100 pa2 mv2 br2 b--black-20 bw1' onChange={e => {
-              this.setState({query: e.target.value})
-              carsQueryConnection.refetch({
-                where: {
-                  name_contains: e.target.value
+            <div className='flex justify-between items-center'>
+              <h1>Cars ({edges.length}/{aggregate.count})</h1>
+              <div>
+                <input type='text' autoFocus='autoFocus' onFocus={function(e) {
+                    var val = e.target.value
+                    e.target.value = ''
+                    e.target.value = val
+                  }} className='w-100 pa2 mv2 br2 b--black-20 bw1' onChange={e => {
+                    this.setState({query: e.target.value})
+                    carsQueryConnection.refetch({
+                      where: {
+                        name_contains: e.target.value
+                      }
+                    })
+                  }} placeholder='Search' value={this.state.query}/>
+              </div>
+
+              <div onClick={() => {
+                  carsQueryConnection.refetch({
+                    orderBy: orderBy === 'name_ASC'
+                      ? 'name_DESC'
+                      : 'name_ASC'
+                  })
+                }}>
+                {
+                  orderBy === 'name_ASC'
+                    ? (<Icon>keyboard_arrow_down</Icon>)
+                    : (<Icon>keyboard_arrow_up</Icon>)
                 }
-              })
-            }} placeholder='Search' value={this.state.query}/>
-        </div>
+              </div>
+              <Button onClick={() => this.props.history.push('/car/create')} variant='raised' color='primary'>
+                + Create Car
+              </Button>
 
-        <div onClick={() => {
-            carsQueryConnection.refetch({
-              orderBy: orderBy === 'name_ASC'
-                ? 'name_DESC'
-                : 'name_ASC'
-            })
-          }}>
-          {
-            orderBy === 'name_ASC'
-              ? (<Icon>keyboard_arrow_down</Icon>)
-              : (<Icon>keyboard_arrow_up</Icon>)
-          }
-        </div>
-        <Button onClick={() => this.props.history.replace('/car/create')} variant='raised' color='primary'>
-          + Create Car
-        </Button>
+            </div>
+            {edges && edges.map(car =>
+                (
+                  <Car
+                    key={car.node.id}
+                    car={car.node}
+                    refresh={() => carsQueryConnection.refetch()}
+                    isCar={!car.node.isPublished}/>
+                  ))
+                }
 
-      </div>
-      {edges && edges.map(car =>
-          (
-            <Car
-              key={car.node.id}
-              car={car.node}
-              refresh={() => carsQueryConnection.refetch()}
-              isCar={!car.node.isPublished}/>
-            ))
-          }
+            {(edges.length !== aggregate.count) && (
+              <Icon onClick={() => this.loadMore()}>add</Icon>
+            )}
 
-      {(edges.length !== aggregate.count) && (
-        <Icon onClick={() => this.loadMore()}>add</Icon>
-      )}
-
-      {this.props.children}
-      </Paper>
+            {this.props.children}
+          </Paper>
       </div>
     </React.Fragment>)
   }

@@ -53,6 +53,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 })
 
+const isMobile = ()=> window.innerWidth<600 ? true : false
 
 
 ReactDOM.render(
@@ -61,9 +62,9 @@ ReactDOM.render(
     <Router>
       <React.Fragment>
         <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'/>
-        <SideBar isMobile={()=> window.innerWidth<600 ? true : false } ref={instance => { this.child = instance }}/>
+        <SideBar isMobile={isMobile} ref={instance => { this.child = instance }}/>
         <div className='desktopMargin'>
-          <Header toggleDrawerFunction={() => { this.child.toggleDrawerFunction(true) }}/>
+          <Header isMobile={isMobile} toggleDrawerFunction={() => { this.child.toggleDrawerFunction(true) }}/>
 
           <div>
             <Switch>

@@ -2,6 +2,8 @@ import React from 'react'
 import { graphql, compose } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
+import Paper from 'material-ui/Paper'
+
 
 class DetailPage extends React.Component {
   render() {
@@ -19,13 +21,16 @@ class DetailPage extends React.Component {
 
     return (
       <React.Fragment>
+        <div className='paperOut'>
+          <Paper className='paperIn'>
         <h1 className="f3 black-80 fw4 lh-solid">
           {car.name}
 
         </h1>
         <p className="black-80 fw3">{car.text}</p>
         {action}
-
+        </Paper>
+        </div>
       </React.Fragment>
     )
   }

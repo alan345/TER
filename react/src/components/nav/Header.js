@@ -11,21 +11,16 @@ class Header extends Component {
 
   render() {
     return (
-      <div>
-
       <div className='flexGrow'>
-
-            <AppBar position='static'>
-              <Toolbar>
-                <BackButton toggleDrawerFunction={() => { this.props.toggleDrawerFunction(true) }}/>
-                <Button onClick={()=> {this.props.history.replace('/')}}>
-                  <Icon>home</Icon>
-                </Button>
-                <TopHello/>
-
-              </Toolbar>
-            </AppBar>
-          </div>
+        <AppBar position='static'>
+          <Toolbar>
+            <BackButton isMobile={this.props.isMobile} toggleDrawerFunction={() => { this.props.toggleDrawerFunction(true) }}/>
+            <Button onClick={()=> {this.props.history.replace('/')}}>
+              <Icon>home</Icon>
+            </Button>
+            <TopHello/>
+          </Toolbar>
+        </AppBar>
       </div>
     )
   }
