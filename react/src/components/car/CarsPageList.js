@@ -3,8 +3,7 @@ import Car from './Car'
 import {graphql} from 'react-apollo'
 import gql from 'graphql-tag'
 import Icon from 'material-ui/Icon'
-import Paper from 'material-ui/Paper'
-import Button from 'material-ui/Button'
+
 import NotAuth from '../nav/NotAuth'
 
 class CarsPage extends React.Component {
@@ -35,9 +34,7 @@ class CarsPage extends React.Component {
     }
 
     return (
-      <React.Fragment>
-        <div className='paperOut'>
-          <Paper className='paperIn'>
+      <div>
             <div className='flex justify-between items-center'>
               <h1>Cars ({edges.length}/{aggregate.count})</h1>
               <div>
@@ -68,9 +65,7 @@ class CarsPage extends React.Component {
                     : (<Icon>keyboard_arrow_up</Icon>)
                 }
               </div>
-              <Button onClick={() => this.props.history.push('/car/create')} variant='raised' color='primary'>
-                + Create Car
-              </Button>
+
 
             </div>
             {edges && edges.map(car =>
@@ -88,9 +83,8 @@ class CarsPage extends React.Component {
             )}
 
             {this.props.children}
-          </Paper>
-      </div>
-    </React.Fragment>)
+          </div>
+  )
   }
 
     loadMore() {

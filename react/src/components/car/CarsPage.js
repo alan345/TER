@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router'
 import CarsPageList from './CarsPageList'
-
-
+import Button from 'material-ui/Button'
+import Paper from 'material-ui/Paper'
 
 class CarsPage extends Component {
   // state = {
@@ -11,11 +11,17 @@ class CarsPage extends Component {
 
 
   render() {
-    console.log(this.carsQueryConnection)
     return (
-      <div>
+      <React.Fragment>
+        <div className='paperOut'>
+          <Paper className='paperIn'>
+        <Button onClick={() => this.props.history.push('/car/create')} variant='raised' color='primary'>
+          + Create Car
+        </Button>
         <CarsPageList/>
-      </div>
+        </Paper>
+    </div>
+  </React.Fragment>
     )
   }
 }
