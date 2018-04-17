@@ -8,20 +8,9 @@ import TextField from 'material-ui/TextField'
 
 
 class ForgetPassword extends Component {
-  constructor(props) {
-    super(props)
-    this.closeSnackBar = this.closeSnackBar.bind(this)
-  }
 
   state = {
     email: '',
-    messageSnackBar: '',
-    openSnackBar: false,
-  }
-
-
-  closeSnackBar() {
-    this.setState({ openSnackBar: false })
   }
 
 
@@ -48,10 +37,7 @@ class ForgetPassword extends Component {
             Ok
           </Button>
         </div>
-        <SnackBarCustom
-          _closeSnackBar={this.closeSnackBar}
-          openSnackBar={this.state.openSnackBar}
-          messageSnackBar={this.state.messageSnackBar}/>
+        <SnackBarCustom ref={instance => { this.child = instance }}/>
       </Paper>
       </div>
     )
@@ -70,11 +56,7 @@ class ForgetPassword extends Component {
         ${new Date(result.data.forgetPassword.resetPasswordExpires).toLocaleString()}`
       })
       .catch((e) => { messageSnackBar = e.graphQLErrors[0].message })
-
-      this.setState({
-        messageSnackBar: messageSnackBar,
-        openSnackBar: true,
-      })
+      this.child._openSnackBar(messageSnackBar)
 
   }
 

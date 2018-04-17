@@ -15,8 +15,6 @@ class Login extends Component {
     email: '',
     password: '',
     name: '',
-    messageSnackBar: '',
-    openSnackBar: false,
     validateEmailToken: '',
   }
 
@@ -70,9 +68,7 @@ class Login extends Component {
           >Forget Password
           </Button>
         </div>
-        <SnackBarCustom
-          openSnackBar={this.state.openSnackBar}
-          messageSnackBar={this.state.messageSnackBar}/>
+        <SnackBarCustom ref={instance => { this.child = instance }}/>
       </Paper>
       </div>
     )
@@ -86,10 +82,8 @@ class Login extends Component {
     })
     .then((result) => { messageSnackBar = `${result.data.validateEmail.email} is now validated.` })
     .catch((e) => { messageSnackBar = e.graphQLErrors[0].message })
-
+    this.child._openSnackBar(messageSnackBar)
     this.setState({
-      messageSnackBar: messageSnackBar,
-      openSnackBar: true,
       stateLogin: 'login'
     })
   }
@@ -108,11 +102,7 @@ class Login extends Component {
         this.props.history.push(`/`)
       })
       .catch((e) => {
-        let messageSnackBar = e.graphQLErrors[0].message
-        this.setState({
-          messageSnackBar: messageSnackBar,
-          openSnackBar: true,
-        })
+        this.child._openSnackBar(e.graphQLErrors[0].message)
       })
     }
 

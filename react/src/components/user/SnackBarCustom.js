@@ -6,12 +6,19 @@ class SnackBarCustom extends Component {
     messageSnackBar: '',
     openSnackBar: false
   }
+
+  _openSnackBar(messageSnackBar){
+    this.setState({
+      messageSnackBar: messageSnackBar,
+      openSnackBar: true
+    })
+  }
+  
   handleClose = (event, reason) => {
      if (reason === 'clickaway') {
        return
      }
      this.setState({ openSnackBar: false })
-     this.props._closeSnackBar()
    }
 
    componentWillReceiveProps(newProps) {

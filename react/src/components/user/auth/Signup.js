@@ -13,8 +13,6 @@ class Signup extends Component {
     email: '',
     password: '',
     name: '',
-    messageSnackBar: '',
-    openSnackBar: false,
   }
 
 
@@ -55,9 +53,7 @@ class Signup extends Component {
           </Button>
 
         </div>
-        <SnackBarCustom
-          openSnackBar={this.state.openSnackBar}
-          messageSnackBar={this.state.messageSnackBar}/>
+        <SnackBarCustom ref={instance => { this.child = instance }}/>
       </Paper>
       </div>
     )
@@ -78,11 +74,7 @@ class Signup extends Component {
         this.props.history.push(`/`)
       })
       .catch((e) => {
-        let messageSnackBar = e.graphQLErrors[0].message
-        this.setState({
-          messageSnackBar: messageSnackBar,
-          openSnackBar: true,
-        })
+        this.child._openSnackBar(e.graphQLErrors[0].message)
       })
 
   }
