@@ -59,7 +59,7 @@ Go to url: http://localhost:3000
 | Mobile Friendly  | Demo |
 | ------------- | ------------- |
 | ![Mobile friendly](https://j.gifs.com/1rDk1o.gif) | [![Demo NAPERG](https://j.gifs.com/VPk441.gif)](https://www.youtube.com/watch?v=UfeEpOWeaDQ&feature=youtu.be)  |
-| Order by/pagination | Email Validation
+| Order by / pagination | Email Validation
 | ![Mobile friendly](https://j.gifs.com/W7RALn.gif) | ![image](https://user-images.githubusercontent.com/15246526/38842888-58a8858e-41a1-11e8-91d0-1d5535da7e1e.png)  |
 | ![image](https://user-images.githubusercontent.com/15246526/38843148-8eaa2a06-41a2-11e8-9130-d74194d39031.png)  | FORGET PASSWORD ![image](https://user-images.githubusercontent.com/15246526/38843003-f05421a4-41a1-11e8-96a8-3c442a5fd07c.png) |
 | Users List | User |

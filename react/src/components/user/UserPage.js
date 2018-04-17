@@ -21,6 +21,10 @@ class UserPage extends React.Component {
     },
   }
 
+  componentWillMount() {
+    this.setState({ user: this.props.userQuery.user })
+  }
+  
   componentWillReceiveProps(newProps){
     const { user } = newProps.userQuery
     if(!newProps.userQuery.loading){

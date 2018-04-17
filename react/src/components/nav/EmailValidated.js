@@ -65,7 +65,7 @@ class EmailValidated extends Component {
     }
   }
   initTimer() {
-    this.setState({ interval: 5 })
+    this.setState({ interval: 40 })
   }
 }
 
