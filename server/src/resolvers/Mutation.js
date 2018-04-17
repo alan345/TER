@@ -1,30 +1,29 @@
 const {forwardTo} = require('prisma-binding')
-const {signup, login, updatePassword, forgetPassword, resetPassword, validateEmail} = require('./auth')
+const {
+  signup, login,
+  updatePassword,
+  forgetPassword, resetPassword,
+  validateEmail, sendLinkValidateEmail } = require('./auth')
 const { getUserId } = require('../utils')
 
-
-
-
-
-async function publish(parent, { id }, ctx, info) {
+async function publish (parent, { id }, ctx, info) {
   return ctx.db.mutation.updatePost(
     {
       where: { id },
-      data: { isPublished: true },
+      data: { isPublished: true }
     },
-    info,
+    info
   )
 }
 
-async function deleteUser(parent, { id }, ctx, info) {
+async function deleteUser (parent, { id }, ctx, info) {
   const userId = getUserId(ctx)
   const userExists = await ctx.db.exists.User({
     id
   })
-
   const requestingUserIsAdmin = await ctx.db.exists.User({
     id: userId,
-    role: 'ADMIN',
+    role: 'ADMIN'
   })
 
   if (!userExists && !requestingUserIsAdmin) {
@@ -84,6 +83,7 @@ const Mutation = {
   createDraft,
   deletePost,
   deleteUser,
+  sendLinkValidateEmail,
   updateUser: (parent, args, ctx, info) => {
     // getUserId(ctx)
     return forwardTo('db')(parent, args, ctx, info)

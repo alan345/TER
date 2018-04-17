@@ -13,7 +13,7 @@ const AuthPayload = {
 }
 
 // query the currently logged in user
-function me(parent, args, ctx, info) {
+async function me (parent, args, ctx, info) {
   const id = getUserId(ctx)
   return ctx.db.query.user({ where: { id } }, info)
 }
@@ -37,8 +37,22 @@ async function signup(parent, args, ctx, info) {
     user,
   }
 }
-async function resetPassword(parent, args, ctx, info) {
+async function sendLinkValidateEmail (parent, args, ctx, info) {
+  const id = getUserId(ctx)
+  let userMe = await ctx.db.query.user({ where: { id } })
+  emailGenerator.sendWelcomeEmail(userMe, ctx)
+    .then(data => {
+      console.log('data1')
+      console.log(data)
+      return userMe
+    })
+    .catch(data => {
+      console.log(data)
+      throw new Error(`User Already validated`)
+    })
+}
 
+async function resetPassword (parent, args, ctx, info) {
   const userCheck = await ctx.db.query.user({
     where: { resetPasswordToken: args.resetPasswordToken }
   })
@@ -169,7 +183,7 @@ async function updatePassword (
     try {
       await ctx.db.mutation.updateUser({
         where: { id: userId },
-        data: { password: newPasswordHash },
+        data: { password: newPasswordHash }
       })
     } catch (e) {
       return e
@@ -185,6 +199,7 @@ module.exports = {
   resetPassword,
   login,
   updatePassword,
+  sendLinkValidateEmail,
   forgetPassword,
-  AuthPayload,
+  AuthPayload
 }

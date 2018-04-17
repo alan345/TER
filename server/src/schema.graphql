@@ -20,6 +20,7 @@ type Query {
 type Mutation {
   signup(email: String!, password: String!, name: String!): AuthPayload!
   resetPassword(password: String!, resetPasswordToken: String!): AuthPayload!
+  sendLinkValidateEmail: User!
   validateEmail(validateEmailToken: String!): AuthPayload!
   login(email: String!, password: String!): AuthPayload!
   createDraft(title: String!, text: String, nameFile: String): Post

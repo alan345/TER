@@ -2,8 +2,7 @@ const nodemailer = require('nodemailer')
 var config = require('./config/config')
 
 module.exports = {
-  sendWelcomeEmail (user, ctx) {
-    console.log(user)
+  async sendWelcomeEmail (user, ctx) {
     var mailer = nodemailer.createTransport({
       service: 'Gmail',
       auth: {
@@ -24,13 +23,15 @@ module.exports = {
         </div>
     `
     }
-    mailer.sendMail(mailOptions, function (err) {
-      if (err) {
-        console.log(err)
-      } else {
-        console.log('Mail sent to: ' + user.email)
-      }
-    })
+    return mailer.sendMail(mailOptions)
+    // , function (err) {
+    //   if (err) {
+    //     console.log(err)
+    //     retur
+    //   } else {
+    //     console.log('Mail sent to: ' + user.email)
+    //   }
+    // })
   },
   sendForgetPassword (uniqueId, email, ctx) {
     var mailer = nodemailer.createTransport({
