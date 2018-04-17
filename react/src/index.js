@@ -24,6 +24,7 @@ import ForgetPassword from './components/user/auth/ForgetPassword'
 import Login from './components/user/auth/Login'
 import Signup from './components/user/auth/Signup'
 import ResetPassword from './components/user/auth/ResetPassword'
+import ValidateEmail from './components/user/auth/ValidateEmail'
 import 'tachyons'
 import './index.css'
 import Header from './components/nav/Header'
@@ -82,6 +83,7 @@ ReactDOM.render(
               <Route path='/signup' component={Signup} />
               <Route path='/forgetPassword' component={ForgetPassword} />
               <Route path='/resetPassword' component={ResetPassword} />
+              <Route path='/validateEmail' component={ValidateEmail} />
               <Route component={NotFound} />
             </Switch>
           </div>
