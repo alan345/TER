@@ -56,7 +56,7 @@ Go to url: http://localhost:3000
 
 
 
-| Mobile Friendly  | Image |
+| Mobile Friendly  | Demo |
 | ------------- | ------------- |
 | ![Mobile friendly](https://j.gifs.com/1rDk1o.gif) | [![Demo NAPERG](https://j.gifs.com/VPk441.gif)](https://www.youtube.com/watch?v=UfeEpOWeaDQ&feature=youtu.be)  |
 | Mobile Friendly 2 | Email Validation | ![image](https://user-images.githubusercontent.com/15246526/38843172-9e8c44cc-41a2-11e8-8729-ae522bd257cb.png)  | ![image](https://user-images.githubusercontent.com/15246526/38842888-58a8858e-41a1-11e8-91d0-1d5535da7e1e.png)  |
