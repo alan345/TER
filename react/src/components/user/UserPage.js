@@ -72,11 +72,6 @@ class UserPage extends React.Component {
             )}
             {this.state.isEditMode && (
 
-
-
-
-
-
               <Select
                 value={this.state.user.role}
                 onChange={e => this.setState({ user:{ ...this.state.user, role: e.target.value} })}

@@ -11,9 +11,9 @@ const queryString = require('query-string')
 
 class ResetPassword extends Component {
   state = {
-    email: '',
+
     password: '',
-    name: '',
+    password2: '',
     resetPasswordToken: '',
   }
 
@@ -42,6 +42,12 @@ class ResetPassword extends Component {
             type='password'
             label='Choose a safe password'
           />
+          <TextField
+            value={this.state.password2}
+            onChange={e => this.setState({ password2: e.target.value })}
+            type='password'
+            label='Retype your safe password'
+          />
 
         </div>
         <div className='flex mt3'>
@@ -57,6 +63,10 @@ class ResetPassword extends Component {
   }
 
   _confirm = async () => {
+    if(this.state.password !== this.state.password2) {
+      this.child._openSnackBar('Error: Passwords are differents')
+      return
+    }
     let messageSnackBar
     const { password, resetPasswordToken } = this.state
     await this.props.resetPasswordMutation({
@@ -75,7 +85,6 @@ class ResetPassword extends Component {
 
     })
     .catch((e) => {
-      // console.log(e)
       messageSnackBar = e.graphQLErrors[0].message
     })
 
