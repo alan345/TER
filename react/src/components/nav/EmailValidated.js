@@ -13,14 +13,8 @@ function EmailValidated(props) {
       return (
         <div className='paperOut'>
           <Paper className='paperIn'>
-            <div>
-
-              <div>
-                <Icon>error_outline</Icon>{' '}
-                  Email not validated. Click on the Link sent by email!
-                </div>
-
-              </div>
+            <Icon>error_outline</Icon>{' '}
+              Email not validated. Click on the Link sent by email!
             </Paper>
           </div>
         )
