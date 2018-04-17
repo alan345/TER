@@ -55,7 +55,7 @@ Go to url: http://localhost:3000
 
 
 
-| Description  | Image |
+| _________Description_________  | Image |
 | ------------- | ------------- |
 | Demo | [![Demo NAPERG](https://j.gifs.com/VPk441.gif)](https://www.youtube.com/watch?v=UfeEpOWeaDQ&feature=youtu.be)  |
 | Email Validation  | ![image](https://user-images.githubusercontent.com/15246526/38842888-58a8858e-41a1-11e8-91d0-1d5535da7e1e.png)  |
