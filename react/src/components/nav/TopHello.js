@@ -10,9 +10,6 @@ function TopHello(props) {
       <div>
       {authToken ? (
         <div className='black link'>
-          {!userToken.emailvalidated && (
-            <div>Email not validated. Link sent by email.</div>
-          )}
           Hi{' '}<Link to={`/user/${userToken.id}`}>
             {userToken.name}
           </Link>!

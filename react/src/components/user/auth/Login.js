@@ -7,22 +7,15 @@ import Paper from 'material-ui/Paper'
 import Button from 'material-ui/Button'
 import TextField from 'material-ui/TextField'
 
-const queryString = require('query-string')
 
 class Login extends Component {
   state = {
     email: '',
     password: '',
     name: '',
-    validateEmailToken: '',
   }
 
-  componentDidMount() {
-    let validateEmailToken = queryString.parse(this.props.location.search).validateEmailToken
-    if(validateEmailToken) {
-      this.validateEmailMutation(validateEmailToken)
-    }
-  }
+
 
   render() {
     return (
@@ -67,23 +60,7 @@ class Login extends Component {
       </div>
     )
   }
-  validateEmailMutation = async (validateEmailToken) => {
-    let messageSnackBar
-    await this.props.validateEmailMutation({
-      variables: {
-        validateEmailToken
-      },
-    })
-    .then((result) => {
-      const { token, user } = result.data.validateEmail
-      this._saveUserData(token, user)
-      console.log(user)
-      messageSnackBar = `${user.name}, your email is now validated.`
-    })
-    .catch((e) => { messageSnackBar = e.graphQLErrors[0].message })
-    this.child._openSnackBar(messageSnackBar)
 
-  }
   _confirm = async () => {
     const { email, password } = this.state
 

@@ -25,8 +25,10 @@ import Login from './components/user/auth/Login'
 import Signup from './components/user/auth/Signup'
 import ResetPassword from './components/user/auth/ResetPassword'
 import ValidateEmail from './components/user/auth/ValidateEmail'
+
 import 'tachyons'
 import './index.css'
+import EmailValidated from './components/nav/EmailValidated'
 import Header from './components/nav/Header'
 import NotFound from './components/nav/NotFound'
 import SideBar from './components/nav/SideBar'
@@ -67,7 +69,7 @@ ReactDOM.render(
         <SideBar isMobile={isMobile} ref={instance => { this.child = instance }}/>
         <div className='desktopMargin'>
           <Header isMobile={isMobile} toggleDrawerFunction={() => { this.child.toggleDrawerFunction(true) }}/>
-
+          <EmailValidated/>
           <div>
             <Switch>
               <Route exact path='/' component={FeedPage} />

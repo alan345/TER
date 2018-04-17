@@ -4,8 +4,6 @@ import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 import SnackBarCustom from '../SnackBarCustom'
 import Paper from 'material-ui/Paper'
-import Button from 'material-ui/Button'
-import TextField from 'material-ui/TextField'
 
 const queryString = require('query-string')
 
@@ -54,9 +52,7 @@ class ValidateEmail extends Component {
     })
     .catch((e) => { messageSnackBar = e.graphQLErrors[0].message })
     this.child._openSnackBar(messageSnackBar)
-    this.setState({
-      stateLogin: 'login'
-    })
+
   }
 
 
