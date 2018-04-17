@@ -23,6 +23,7 @@ module.exports = {
         </div>
     `
     }
+    console.log('data4', user.email)
     return mailer.sendMail(mailOptions)
     // , function (err) {
     //   if (err) {
