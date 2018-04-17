@@ -59,6 +59,8 @@ Go to url: http://localhost:3000
 | ------------- | ------------- |
 | Demo | [![Demo NAPERG](https://j.gifs.com/VPk441.gif)](https://www.youtube.com/watch?v=UfeEpOWeaDQ&feature=youtu.be)  |
 | Email Validation  | ![image](https://user-images.githubusercontent.com/15246526/38842888-58a8858e-41a1-11e8-91d0-1d5535da7e1e.png)  |
+| Forget Password  | ![image](https://user-images.githubusercontent.com/15246526/38843003-f05421a4-41a1-11e8-96a8-3c442a5fd07c.png)
+  |
 
 
 
