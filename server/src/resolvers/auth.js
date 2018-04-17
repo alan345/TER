@@ -25,7 +25,6 @@ async function signup(parent, args, ctx, info) {
   const resetPasswordToken = uniqid()
   const validateEmailToken = uniqid()
 
-  // remove `admin` from `args`
   const { admin, ...data } = args
 
   const user = await ctx.db.mutation.createUser({
@@ -39,8 +38,6 @@ async function signup(parent, args, ctx, info) {
   }
 }
 async function resetPassword(parent, args, ctx, info) {
-
-
 
   const userCheck = await ctx.db.query.user({
     where: { resetPasswordToken: args.resetPasswordToken }
@@ -63,19 +60,7 @@ async function resetPassword(parent, args, ctx, info) {
       token: jwt.sign({ userId: user.id }, APP_SECRET),
       user
     }
-
-    // if (userCheck.emailvalidated) {
-    //   throw new Error(`User Already validated`)
-    // }
   }
-
-
-
-
-
-  // } catch (e) {
-  //   return e
-  // }
 }
 async function validateEmail (parent, args, ctx, info) {
   const userCheck = await ctx.db.query.user({
@@ -102,11 +87,8 @@ async function validateEmail (parent, args, ctx, info) {
   // return user
   return {
     token: jwt.sign({ userId: user.id }, APP_SECRET),
-    user,
+    user
   }
-  // } catch (e) {
-  //   return e
-  // }
 }
 
 // log in an existing user

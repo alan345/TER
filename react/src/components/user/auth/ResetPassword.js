@@ -87,12 +87,7 @@ class ResetPassword extends Component {
     .catch((e) => {
       messageSnackBar = e.graphQLErrors[0].message
     })
-
-
     this.child._openSnackBar(messageSnackBar)
-
-
-
   }
 
   _saveUserData = (token, user) => {
