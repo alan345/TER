@@ -62,7 +62,8 @@ Go to url: http://localhost:3000
 | ![image](https://user-images.githubusercontent.com/15246526/38843148-8eaa2a06-41a2-11e8-9130-d74194d39031.png)  | FORGET PASSWORD ![image](https://user-images.githubusercontent.com/15246526/38843003-f05421a4-41a1-11e8-96a8-3c442a5fd07c.png) |
 | Users List | User |
 |![image](https://user-images.githubusercontent.com/15246526/38844311-9df6f228-41a7-11e8-917c-1527ec90daec.png)
-||
+|![image](https://user-images.githubusercontent.com/15246526/38844346-dc22ec8c-41a7-11e8-9347-49cfc4e97424.png)
+|
 
 
 
