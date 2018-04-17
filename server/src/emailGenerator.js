@@ -23,16 +23,7 @@ module.exports = {
         </div>
     `
     }
-    console.log('data4', user.email)
     return mailer.sendMail(mailOptions)
-    // , function (err) {
-    //   if (err) {
-    //     console.log(err)
-    //     retur
-    //   } else {
-    //     console.log('Mail sent to: ' + user.email)
-    //   }
-    // })
   },
   sendForgetPassword (uniqueId, email, ctx) {
     var mailer = nodemailer.createTransport({

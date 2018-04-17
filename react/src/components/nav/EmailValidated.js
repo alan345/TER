@@ -9,7 +9,9 @@ import SnackBarCustom from './SnackBarCustom'
 
 
 class EmailValidated extends Component {
-
+  state = {
+    interval : 0
+  }
   render() {
     const authToken = localStorage.getItem(AUTH_TOKEN)
     const userToken = JSON.parse(localStorage.getItem('userToken'))
@@ -19,9 +21,13 @@ class EmailValidated extends Component {
           <Paper className='paperIn'>
             <Icon>error_outline</Icon>{' '}
               Email not validated. Link sent by email, or {' '}
-              <Button variant='raised' onClick={() => this.sendEmail()}>
-                Resend
-              </Button>
+              {this.state.interval ? (
+                <span>wait {this.state.interval}s to resend.</span>
+              ) : (
+                <Button variant='raised' onClick={() => this.sendEmail()}>
+                  Resend
+                </Button>
+              )}
               <SnackBarCustom ref={instance => { this.child = instance }}/>
             </Paper>
           </div>
@@ -31,6 +37,7 @@ class EmailValidated extends Component {
     }
   }
   sendEmail = async () => {
+    this.startTimer()
     await this.props.sendLinkValidateEmailMutation({
       variables: {
       },
@@ -43,6 +50,22 @@ class EmailValidated extends Component {
     .catch((e) => {
       this.child._openSnackBar(e.graphQLErrors[0].message)
     })
+  }
+
+  startTimer = () => {
+    this.initTimer()
+    let intervalId = setInterval(this.timer, 1000)
+    this.setState({ intervalId })
+  };
+  timer = () => {
+    if (this.state.interval > 0) {
+      this.setState({ interval: this.state.interval -1 })
+    } else {
+      clearTimeout(this.state.intervalId)
+    }
+  }
+  initTimer() {
+    this.setState({ interval: 5 })
   }
 }
 

@@ -40,16 +40,11 @@ async function signup(parent, args, ctx, info) {
 async function sendLinkValidateEmail (parent, args, ctx, info) {
   const id = getUserId(ctx)
   let userMe = await ctx.db.query.user({ where: { id } })
-  console.log('data0', userMe.email)
   return emailGenerator.sendWelcomeEmail(userMe, ctx)
     .then(data => {
-      console.log('data1', userMe.email)
-      // console.log(data)
       return userMe
     })
     .catch(data => {
-      console.log('data2', userMe.email)
-      // console.log(data)
       throw new Error(`Error. cannot send email to: ${userMe.email}`)
     })
 }
