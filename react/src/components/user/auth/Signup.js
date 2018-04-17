@@ -91,6 +91,7 @@ const SIGNUP_MUTATION = gql`
       token
       user {
         name
+        emailvalidated
         id
       }
     }

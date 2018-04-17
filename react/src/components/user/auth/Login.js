@@ -80,7 +80,12 @@ class Login extends Component {
         validateEmailToken
       },
     })
-    .then((result) => { messageSnackBar = `${result.data.validateEmail.email} is now validated.` })
+    .then((result) => {
+      const { token, user } = result.data.validateEmail
+      this._saveUserData(token, user)
+      console.log(user)
+      messageSnackBar = `${user.name}, your email is now validated.`
+    })
     .catch((e) => { messageSnackBar = e.graphQLErrors[0].message })
     this.child._openSnackBar(messageSnackBar)
     this.setState({
@@ -123,6 +128,7 @@ const LOGIN_MUTATION = gql`
       token
       user {
         name
+        emailvalidated
         id
       }
     }
@@ -131,7 +137,12 @@ const LOGIN_MUTATION = gql`
 const VALIDATE_EMAIL_TOKEN_MUTATION = gql`
   mutation ValidateEmailMutation($validateEmailToken: String!) {
     validateEmail(validateEmailToken: $validateEmailToken) {
-      email
+      token
+      user {
+        name
+        emailvalidated
+        id
+      }
     }
   }
 `

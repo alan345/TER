@@ -92,14 +92,18 @@ async function validateEmail (parent, args, ctx, info) {
   }
 
   // try {
-    const user = await ctx.db.mutation.updateUser({
-      // Must check resetPasswordExpires
-      where: { validateEmailToken: args.validateEmailToken },
-      data: {
-        emailvalidated: true
-      }
-    })
-    return user
+  const user = await ctx.db.mutation.updateUser({
+    // Must check resetPasswordExpires
+    where: { validateEmailToken: args.validateEmailToken },
+    data: {
+      emailvalidated: true
+    }
+  })
+  // return user
+  return {
+    token: jwt.sign({ userId: user.id }, APP_SECRET),
+    user,
+  }
   // } catch (e) {
   //   return e
   // }
