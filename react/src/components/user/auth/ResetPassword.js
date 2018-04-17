@@ -77,10 +77,8 @@ class ResetPassword extends Component {
     .then((result) => {
       console.log(result)
       messageSnackBar = `Your password has been reset successfully!`
-
       const { token, user } = result.data.resetPassword
       this._saveUserData(token, user)
-      // this.props.history.push(`/`)
 
     })
     .catch((e) => {

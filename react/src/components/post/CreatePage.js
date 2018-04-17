@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import Main from '../uploadFile'
+import Autocomplete from './Autocomplete'
 import Paper from 'material-ui/Paper'
 
 
@@ -50,6 +51,7 @@ class CreatePage extends React.Component {
           </a>
         </form>
         <Main onSelectFile={this.handleFile}/>
+        <Autocomplete/>
         </Paper>
       </div>
     )
