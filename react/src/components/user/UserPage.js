@@ -7,8 +7,8 @@ import NotAuth from '../nav/NotAuth'
 import { AUTH_TOKEN } from '../../constants/constants'
 import Icon from 'material-ui/Icon'
 import Paper from 'material-ui/Paper'
-import Select from 'material-ui/Select';
-import { MenuItem } from 'material-ui/Menu';
+import Select from 'material-ui/Select'
+import { MenuItem } from 'material-ui/Menu'
 
 class UserPage extends React.Component {
 
@@ -21,13 +21,14 @@ class UserPage extends React.Component {
     },
   }
   componentWillMount() {
-    this.setState({ user: this.props.userQuery.user })
+    // console.log(this.props.userQuery.user )
+    // this.setState({ user: this.props.userQuery.user })
   }
   componentWillReceiveProps(newProps){
     const { user } = newProps.userQuery
-      if(!newProps.userQuery.loading){
-          this.setState({ user: user })
-      }
+    if(!newProps.userQuery.loading){
+      this.setState({ user: user })
+    }
   }
 
 

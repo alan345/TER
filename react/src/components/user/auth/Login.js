@@ -53,7 +53,7 @@ class Login extends Component {
             value={this.state.password}
             onChange={e => this.setState({ password: e.target.value })}
             type='password'
-            label='Choose a safe password'
+            label='Password'
           />
       )}
         </div>

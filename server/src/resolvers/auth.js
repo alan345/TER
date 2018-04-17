@@ -8,9 +8,8 @@ var uniqid = require('uniqid');
 // resolve the `AuthPayload` type
 const AuthPayload = {
   user: async ({ user: { id } }, args, ctx, info) => {
-    console.log(`resolve AuthPayload`)
     return ctx.db.query.user({ where: { id } }, info)
-  },
+  }
 }
 
 // query the currently logged in user
