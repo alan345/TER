@@ -55,13 +55,13 @@ Go to url: http://localhost:3000
 
 
 
-| _________Description_________  | Image | Image |
+| Description  | Image |
 | ------------- | ------------- |
-| Demo | [![Demo NAPERG](https://j.gifs.com/VPk441.gif)](https://www.youtube.com/watch?v=UfeEpOWeaDQ&feature=youtu.be)  | ![image](https://user-images.githubusercontent.com/15246526/38843148-8eaa2a06-41a2-11e8-9130-d74194d39031.png) |
-| Email Validation  | ![image](https://user-images.githubusercontent.com/15246526/38842888-58a8858e-41a1-11e8-91d0-1d5535da7e1e.png)  | ![image](https://user-images.githubusercontent.com/15246526/38843148-8eaa2a06-41a2-11e8-9130-d74194d39031.png) |
-| Forget Password  | ![image](https://user-images.githubusercontent.com/15246526/38843003-f05421a4-41a1-11e8-96a8-3c442a5fd07c.png) | ![image](https://user-images.githubusercontent.com/15246526/38843148-8eaa2a06-41a2-11e8-9130-d74194d39031.png) |
-| Mobile friendly  | ![image](https://user-images.githubusercontent.com/15246526/38843148-8eaa2a06-41a2-11e8-9130-d74194d39031.png) | ![image](https://user-images.githubusercontent.com/15246526/38843148-8eaa2a06-41a2-11e8-9130-d74194d39031.png) |
-| Mobile friendly 2| ![image](https://user-images.githubusercontent.com/15246526/38843172-9e8c44cc-41a2-11e8-8729-ae522bd257cb.png) | ![image](https://user-images.githubusercontent.com/15246526/38843148-8eaa2a06-41a2-11e8-9130-d74194d39031.png) |
+| Demo | [![Demo NAPERG](https://j.gifs.com/VPk441.gif)](https://www.youtube.com/watch?v=UfeEpOWeaDQ&feature=youtu.be)  |
+| Email Validation  | ![image](https://user-images.githubusercontent.com/15246526/38842888-58a8858e-41a1-11e8-91d0-1d5535da7e1e.png)  |
+| Forget Password  | ![image](https://user-images.githubusercontent.com/15246526/38843003-f05421a4-41a1-11e8-96a8-3c442a5fd07c.png) |
+| Mobile friendly  | ![image](https://user-images.githubusercontent.com/15246526/38843148-8eaa2a06-41a2-11e8-9130-d74194d39031.png) |
+| Mobile friendly 2| ![image](https://user-images.githubusercontent.com/15246526/38843172-9e8c44cc-41a2-11e8-8729-ae522bd257cb.png) |
 
 
 
