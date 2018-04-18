@@ -60,25 +60,14 @@ async function createDraft(parent, { title, text, nameFile, idCar }, ctx, info) 
 }
 
 async function createPost (parent, args, ctx, info) {
-  const { title, text, nameFile, car } = args.data
   const userId = getUserId(ctx)
-  return ctx.db.mutation.createPost(
-    {
-      data: {
-        title,
-        text,
-        nameFile,
-        isPublished: false,
-        author: {
-          connect: {
-            id: userId
-          }
-        },
-        car
-      }
-    },
-    info,
-  )
+  args.data.isPublished = false
+  args.data.author = {
+    connect: {
+      id: userId
+    }
+  }
+  return forwardTo('db')(parent, args, ctx, info)
 }
 
 async function deletePost(parent, { id }, ctx, info) {
