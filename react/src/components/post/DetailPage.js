@@ -37,7 +37,11 @@ class DetailPage extends React.Component {
               </Link>
             </h1>
             <p className='black-80 fw3'>{post.text}</p>
-
+            {post.car && (
+              <Link to={'/car/' + post.car.id} title='Car'>
+                {post.car.name}
+              </Link>
+            )}
             <ImageTemplate
               nameFile={post.nameFile}
             />
@@ -101,6 +105,10 @@ const POST_QUERY = gql`
       text
       isPublished
       nameFile
+      car {
+        id
+        name
+      }
       author {
         id
         name

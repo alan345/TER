@@ -17,6 +17,7 @@ type Post implements Node {
   text: String!
   nameFile: String!
   author(where: UserWhereInput): User
+  car(where: CarWhereInput): Car
 }
 
 type User implements Node {
@@ -75,6 +76,11 @@ type CarConnection {
 
 input CarCreateInput {
   name: String!
+}
+
+input CarCreateOneInput {
+  create: CarCreateInput
+  connect: CarWhereUniqueInput
 }
 
 """
@@ -142,8 +148,26 @@ input CarSubscriptionWhereInput {
   node: CarWhereInput
 }
 
+input CarUpdateDataInput {
+  name: String
+}
+
 input CarUpdateInput {
   name: String
+}
+
+input CarUpdateOneInput {
+  create: CarCreateInput
+  connect: CarWhereUniqueInput
+  disconnect: Boolean
+  delete: Boolean
+  update: CarUpdateDataInput
+  upsert: CarUpsertNestedInput
+}
+
+input CarUpsertNestedInput {
+  update: CarUpdateDataInput!
+  create: CarCreateInput!
 }
 
 input CarWhereInput {
@@ -355,6 +379,7 @@ input PostCreateInput {
   text: String!
   nameFile: String!
   author: UserCreateOneWithoutPostsInput
+  car: CarCreateOneInput
 }
 
 input PostCreateManyWithoutAuthorInput {
@@ -367,6 +392,7 @@ input PostCreateWithoutAuthorInput {
   title: String!
   text: String!
   nameFile: String!
+  car: CarCreateOneInput
 }
 
 """
@@ -449,6 +475,7 @@ input PostUpdateInput {
   text: String
   nameFile: String
   author: UserUpdateOneWithoutPostsInput
+  car: CarUpdateOneInput
 }
 
 input PostUpdateManyWithoutAuthorInput {
@@ -465,6 +492,7 @@ input PostUpdateWithoutAuthorDataInput {
   title: String
   text: String
   nameFile: String
+  car: CarUpdateOneInput
 }
 
 input PostUpdateWithWhereUniqueWithoutAuthorInput {
@@ -705,6 +733,7 @@ input PostWhereInput {
   """
   nameFile_not_ends_with: String
   author: UserWhereInput
+  car: CarWhereInput
 }
 
 input PostWhereUniqueInput {

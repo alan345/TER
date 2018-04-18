@@ -13,9 +13,11 @@ class CreatePage extends React.Component {
     title: '',
     text: '',
     nameFile:'',
+    idCar:'',
   }
   onElemSelected(elem){
-    console.log(elem)
+    this.setState({idCar: elem.id})
+    // console.log(elem)
   }
 
 
@@ -54,7 +56,7 @@ class CreatePage extends React.Component {
           </a>
         </form>
         <Main onSelectFile={this.handleFile}/>
-        <Autocomplete onElemSelected={this.onElemSelected}/>
+        <Autocomplete onElemSelected={this.onElemSelected.bind(this)}/>
         </Paper>
       </div>
     )
@@ -68,7 +70,7 @@ class CreatePage extends React.Component {
   handlePost = async e => {
     e.preventDefault()
     const { title, text, nameFile } = this.state
-    let idCar = 'sfdasfdasd'
+    let idCar = this.state.idCar
     await this.props.createDraftMutation({
       variables: { title, text, nameFile, idCar },
     })

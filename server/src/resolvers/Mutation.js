@@ -50,6 +50,11 @@ async function createDraft(parent, { title, text, nameFile, idCar }, ctx, info) 
           connect: {
             id: userId
           }
+        },
+        car: {
+          connect: {
+            id: idCar
+          }
         }
       }
     },
