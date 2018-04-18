@@ -23,7 +23,7 @@ type Mutation {
   sendLinkValidateEmail: User!
   validateEmail(validateEmailToken: String!): AuthPayload!
   login(email: String!, password: String!): AuthPayload!
-  createDraft(title: String!, text: String, nameFile: String): Post
+  createDraft(title: String!, text: String, nameFile: String, idCar: String): Post
   # updateUser(id: ID!, name: String, email: String, role: String): User
   # updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   deletePost(id: ID!): Post

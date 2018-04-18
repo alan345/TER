@@ -68,16 +68,17 @@ class CreatePage extends React.Component {
   handlePost = async e => {
     e.preventDefault()
     const { title, text, nameFile } = this.state
+    let idCar = 'sfdasfdasd'
     await this.props.createDraftMutation({
-      variables: { title, text, nameFile },
+      variables: { title, text, nameFile, idCar },
     })
     this.props.history.replace('/drafts')
   }
 }
 
 const CREATE_DRAFT_MUTATION = gql`
-  mutation CreateDraftMutation($title: String!, $text: String!, $nameFile: String!) {
-    createDraft(title: $title, text: $text, nameFile: $nameFile) {
+  mutation CreateDraftMutation($title: String!, $text: String!, $nameFile: String!, $idCar: String!) {
+    createDraft(title: $title, text: $text, nameFile: $nameFile, idCar:$idCar) {
       id
       title
       text
