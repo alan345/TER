@@ -1,11 +1,10 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import Main from '../uploadFile'
 import Autocomplete from './Autocomplete'
 import Paper from 'material-ui/Paper'
-
+import { graphql, compose } from 'react-apollo'
 
 
 class CreatePage extends React.Component {
@@ -70,9 +69,9 @@ class CreatePage extends React.Component {
   handlePost = async e => {
     e.preventDefault()
     const { title, text, nameFile } = this.state
-    let idCar = this.state.idCar
-    await this.props.createDraftMutation({
-      variables: { title, text, nameFile, idCar },
+    let id = this.state.idCar
+    await this.props.createPostMutation({
+      variables: { title, text, nameFile, id },
     })
     this.props.history.replace('/drafts')
   }
@@ -88,9 +87,20 @@ const CREATE_DRAFT_MUTATION = gql`
     }
   }
 `
+const CREATE_POST_MUTATION = gql`
+  mutation CreatePostMutation($title: String!, $text: String!, $nameFile: String!, $id: ID!) {
+    createPost(data: {title: $title, text: $text, nameFile: $nameFile, car: {connect: {id: $id}}}) {
+      id
+      title
+      text
+      nameFile
+    }
+  }
+`
 
-const CreatePageWithMutation = graphql(CREATE_DRAFT_MUTATION, {
-  name: 'createDraftMutation', // name of the injected prop: this.props.createDraftMutation...
-})(CreatePage)
 
-export default withRouter(CreatePageWithMutation)
+export default compose(
+  graphql(CREATE_DRAFT_MUTATION, { name: 'createDraftMutation'}),
+  graphql(CREATE_POST_MUTATION, { name: 'createPostMutation'}),
+  withRouter
+)(CreatePage)

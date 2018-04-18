@@ -97,7 +97,9 @@ const Mutation = {
   publish,
   createCar: forwardTo('db'),
   deleteCar: forwardTo('db'),
-  updateCar: forwardTo('db')
+  updateCar: forwardTo('db'),
+  createPost: forwardTo('db')
+
 
 }
 
