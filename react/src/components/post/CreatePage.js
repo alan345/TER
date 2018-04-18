@@ -29,17 +29,17 @@ class CreatePage extends React.Component {
           <h1>Create Draft</h1>
           <input
             autoFocus
-            className="w-100 pa2 mv2 br2 b--black-20 bw1"
+            className='w-100 pa2 mv2 br2 b--black-20 bw1'
             onChange={e => this.setState({ title: e.target.value })}
-            placeholder="Title"
-            type="text"
+            placeholder='Title'
+            type='text'
             value={this.state.title}
           />
           <textarea
-            className="db w-100 ba bw1 b--black-20 pa2 br2 mb2"
+            className='db w-100 ba bw1 b--black-20 pa2 br2 mb2'
             cols={50}
             onChange={e => this.setState({ text: e.target.value })}
-            placeholder="Content"
+            placeholder='Content'
             rows={8}
             value={this.state.text}
           />
@@ -55,15 +55,15 @@ class CreatePage extends React.Component {
             or cancel
           </a>
         </form>
-        <Main onSelectFile={this.handleFile}/>
         <Autocomplete onElemSelected={this.onElemSelected.bind(this)}/>
+        <Main onSelectFile={this.handleFile}/>
         </Paper>
       </div>
     )
   }
 
   handleFile = (nameFile) => {
-      this.setState({nameFile: nameFile});
+    this.setState({nameFile: nameFile});
   }
 
 
