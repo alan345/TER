@@ -91,16 +91,7 @@ class CreatePage extends React.Component {
   }
 }
 
-const CREATE_DRAFT_MUTATION = gql`
-  mutation CreateDraftMutation($title: String!, $text: String!, $nameFile: String!, $idCar: String!) {
-    createDraft(title: $title, text: $text, nameFile: $nameFile, idCar:$idCar) {
-      id
-      title
-      text
-      nameFile
-    }
-  }
-`
+
 const CREATE_POST_MUTATION = gql`
   mutation CreatePostMutation($data: PostCreateInput!) {
     createPost(data: $data) {
@@ -108,18 +99,12 @@ const CREATE_POST_MUTATION = gql`
       title
       text
       nameFile
-      isPublished
-      author {
-        id
-        name
-      }
     }
   }
 `
 
 
 export default compose(
-  graphql(CREATE_DRAFT_MUTATION, { name: 'createDraftMutation'}),
   graphql(CREATE_POST_MUTATION, { name: 'createPostMutation'}),
   withRouter
 )(CreatePage)

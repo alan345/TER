@@ -33,32 +33,6 @@ async function deleteUser (parent, { id }, ctx, info) {
   return ctx.db.mutation.deleteUser({ where: { id } })
 }
 
-async function createDraft(parent, { title, text, nameFile, idCar }, ctx, info) {
-
-  const userId = getUserId(ctx)
-  await ctx.db.mutation.createPost(
-    {
-      data: {
-        title,
-        text,
-        nameFile,
-        isPublished: false,
-        author: {
-          connect: {
-            id: userId
-          }
-        },
-        car: {
-          connect: {
-            id: idCar
-          }
-        }
-      }
-    },
-    info,
-  )
-}
-
 async function createPost (parent, args, ctx, info) {
   const userId = getUserId(ctx)
   args.data.isPublished = false
@@ -97,7 +71,6 @@ const Mutation = {
   login,
   updatePassword,
   forgetPassword,
-  createDraft,
   deletePost,
   deleteUser,
   sendLinkValidateEmail,
