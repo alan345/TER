@@ -59,6 +59,28 @@ async function createDraft(parent, { title, text, nameFile, idCar }, ctx, info) 
   )
 }
 
+async function createPost (parent, args, ctx, info) {
+  const { title, text, nameFile, car } = args.data
+  const userId = getUserId(ctx)
+  return ctx.db.mutation.createPost(
+    {
+      data: {
+        title,
+        text,
+        nameFile,
+        isPublished: false,
+        author: {
+          connect: {
+            id: userId
+          }
+        },
+        car
+      }
+    },
+    info,
+  )
+}
+
 async function deletePost(parent, { id }, ctx, info) {
   const userId = getUserId(ctx)
   const postExists = await ctx.db.exists.Post({
@@ -98,7 +120,8 @@ const Mutation = {
   createCar: forwardTo('db'),
   deleteCar: forwardTo('db'),
   updateCar: forwardTo('db'),
-  createPost: forwardTo('db')
+  createPost
+
 
 
 }

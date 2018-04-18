@@ -70,9 +70,23 @@ class CreatePage extends React.Component {
     e.preventDefault()
     const { title, text, nameFile } = this.state
     let id = this.state.idCar
+
+
     await this.props.createPostMutation({
-      variables: { title, text, nameFile, id },
+      variables: {
+        data: {
+          title,
+          text,
+          nameFile,
+          car: {
+            connect: {
+              id: id
+            }
+          }
+        }
+      }
     })
+
     this.props.history.replace('/drafts')
   }
 }
@@ -88,12 +102,17 @@ const CREATE_DRAFT_MUTATION = gql`
   }
 `
 const CREATE_POST_MUTATION = gql`
-  mutation CreatePostMutation($title: String!, $text: String!, $nameFile: String!, $id: ID!) {
-    createPost(data: {title: $title, text: $text, nameFile: $nameFile, car: {connect: {id: $id}}}) {
+  mutation CreatePostMutation($data: PostCreateInput!) {
+    createPost(data: $data) {
       id
       title
       text
       nameFile
+      isPublished
+      author {
+        id
+        name
+      }
     }
   }
 `
