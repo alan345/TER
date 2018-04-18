@@ -35,9 +35,6 @@ async function deleteUser (parent, { id }, ctx, info) {
 
 async function createDraft(parent, { title, text, nameFile, idCar }, ctx, info) {
 
-
-  console.log('///////////////////////////')
-  console.log(idCar)
   const userId = getUserId(ctx)
   await ctx.db.mutation.createPost(
     {
