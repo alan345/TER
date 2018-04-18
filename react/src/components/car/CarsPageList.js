@@ -8,6 +8,7 @@ import NotAuth from '../nav/NotAuth'
 
 class CarsPage extends React.Component {
 
+
   render() {
     const {carsQueryConnection} = this.props
     if (carsQueryConnection.error) {
@@ -28,7 +29,7 @@ class CarsPage extends React.Component {
         {this.props.showTitle && (
           <h1>Cars ({edges.length}/{aggregate.count})</h1>
         )}
-        {edges && edges.map(car => (<Car key={car.node.id} car={car.node} isCar={!car.node.isPublished}/>))}
+        {edges && edges.map(car => (<Car key={car.node.id} elemClicked={this.props.elemClicked} car={car.node}/>))}
 
         {(edges.length !== aggregate.count && this.props.showMore) && (<Icon onClick={() => this.loadMore()}>add</Icon>)}
 

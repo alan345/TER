@@ -8,7 +8,9 @@ class Autocomplete extends Component {
   state = {
     query : ''
   }
-
+  elemClicked(elem) {
+    console.log(elem)
+  }
   render() {
     return (
       <div>
@@ -18,10 +20,11 @@ class Autocomplete extends Component {
           type='text'
           label='Search'
         />
-      
+
         <CarsPageList
           showTitle={false}
           showMore={false}
+          elemClicked={this.elemClicked.bind(this)}
           query={this.state.query}
           orderBy={this.state.orderBy}/>
       </div>

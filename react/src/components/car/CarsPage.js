@@ -13,6 +13,10 @@ class CarsPage extends Component {
     orderBy: 'name_ASC'
   }
 
+  elemClicked(elem) {
+    this.props.history.push('/car/' + elem.id)
+  }
+
   render() {
     return (<React.Fragment>
       <div className='paperOut'>
@@ -43,6 +47,7 @@ class CarsPage extends Component {
         <CarsPageList
           showTitle={true}
           showMore={true}
+          elemClicked={this.elemClicked.bind(this)}
           query={this.state.query}
           orderBy={this.state.orderBy}/>
         </Paper>
