@@ -11,9 +11,7 @@ class CarsPage extends React.Component {
   render() {
     const {carsQueryConnection} = this.props
     if (carsQueryConnection.error) {
-      return (
-        <NotAuth/>
-      )
+      return (<NotAuth/>)
     }
 
     if (!carsQueryConnection.carsConnection) {
@@ -26,59 +24,47 @@ class CarsPage extends React.Component {
       </div>)
     }
     return (
-
       <div>
-            <div className='flex justify-between items-center'>
-              <h1>Cars ({edges.length}/{aggregate.count})</h1>
+        {this.props.showTitle && (
+          <h1>Cars ({edges.length}/{aggregate.count})</h1>
+        )}
+        {edges && edges.map(car => (<Car key={car.node.id} car={car.node} isCar={!car.node.isPublished}/>))}
 
-            </div>
-            {edges && edges.map(car =>
-                (
-                  <Car
-                    key={car.node.id}
-                    car={car.node}
+        {(edges.length !== aggregate.count && this.props.showMore) && (<Icon onClick={() => this.loadMore()}>add</Icon>)}
 
-                    isCar={!car.node.isPublished}/>
-                  ))
-                }
-
-            {(edges.length !== aggregate.count) && (
-              <Icon onClick={() => this.loadMore()}>add</Icon>
-            )}
-
-            {this.props.children}
-          </div>
+        {this.props.children}
+      </div>
   )
   }
 
-    loadMore() {
-      const {carsQueryConnection} = this.props
-      if (!carsQueryConnection.carsConnection.pageInfo.hasNextPage) {
-        return
-      }
-      carsQueryConnection.fetchMore({
-        variables: {
-          after: carsQueryConnection.carsConnection.pageInfo.endCursor
-        },
+  loadMore() {
+    const {carsQueryConnection} = this.props
+    if (!carsQueryConnection.carsConnection.pageInfo.hasNextPage) {
+      return
+    }
+    carsQueryConnection.fetchMore({
+      variables: {
+        after: carsQueryConnection.carsConnection.pageInfo.endCursor
+      },
 
-        updateQuery: (previousResult, {fetchMoreResult}) => {
-          if (!fetchMoreResult) {
-            return previousResult
-          }
-          return {
-            carsConnection: {
-              __typename: 'CarConnection',
-              aggregate : fetchMoreResult.carsConnection.aggregate,
-              pageInfo: fetchMoreResult.carsConnection.pageInfo,
-              edges: [
-                ...previousResult.carsConnection.edges,
-                ...fetchMoreResult.carsConnection.edges
-              ]
-            }
+      updateQuery: (previousResult, {fetchMoreResult}) => {
+        if (!fetchMoreResult) {
+          return previousResult
+        }
+        return {
+          carsConnection: {
+            __typename: 'CarConnection',
+            aggregate: fetchMoreResult.carsConnection.aggregate,
+            pageInfo: fetchMoreResult.carsConnection.pageInfo,
+            edges: [
+              ...previousResult.carsConnection.edges,
+              ...fetchMoreResult.carsConnection.edges
+            ]
           }
         }
-      })
-    }
+      }
+    })
+  }
 
 }
 

@@ -40,7 +40,11 @@ class CarsPage extends Component {
             }
           </div>
 
-        <CarsPageList query={this.state.query} orderBy={this.state.orderBy}/>
+        <CarsPageList
+          showTitle={true}
+          showMore={true}
+          query={this.state.query}
+          orderBy={this.state.orderBy}/>
         </Paper>
       </div>
     </React.Fragment>)
