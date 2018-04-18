@@ -24,7 +24,7 @@ class UserPage extends React.Component {
   componentWillMount() {
     this.setState({ user: this.props.userQuery.user })
   }
-  
+
   componentWillReceiveProps(newProps){
     const { user } = newProps.userQuery
     if(!newProps.userQuery.loading){
@@ -90,7 +90,7 @@ class UserPage extends React.Component {
             <br/>
             <br/>
             {authToken && (
-              <div className="f6 ba ph3 pv2 mb2 black">
+              <div className='f6 ba ph3 pv2 mb2 black'>
                 <h1>Posts from {this.state.user.name}</h1>
                 {this.state.user.posts &&
                   this.state.user.posts.map(post => (

@@ -12,7 +12,7 @@ type Post {
   text: String!
   nameFile: String!
   author: User
-  car: Car
+  cars: [Car!]!
 }
 
 

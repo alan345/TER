@@ -12,10 +12,10 @@ class CreatePage extends React.Component {
     title: '',
     text: '',
     nameFile:'',
-    idCar:'',
+    idCars:[],
   }
   onElemSelected(elem){
-    this.setState({idCar: elem.id})
+    this.setState({idCars: [...this.state.idCars,  {id: elem.id}]})
     // console.log(elem)
   }
 
@@ -69,8 +69,8 @@ class CreatePage extends React.Component {
   handlePost = async e => {
     e.preventDefault()
     const { title, text, nameFile } = this.state
-    let id = this.state.idCar
-
+    let idCars = this.state.idCars
+    console.log(idCars)
 
     await this.props.createPostMutation({
       variables: {
@@ -78,10 +78,8 @@ class CreatePage extends React.Component {
           title,
           text,
           nameFile,
-          car: {
-            connect: {
-              id: id
-            }
+          cars: {
+            connect: idCars
           }
         }
       }

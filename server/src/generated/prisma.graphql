@@ -17,7 +17,7 @@ type Post implements Node {
   text: String!
   nameFile: String!
   author(where: UserWhereInput): User
-  car(where: CarWhereInput): Car
+  cars(where: CarWhereInput, orderBy: CarOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Car!]
 }
 
 type User implements Node {
@@ -78,9 +78,9 @@ input CarCreateInput {
   name: String!
 }
 
-input CarCreateOneInput {
-  create: CarCreateInput
-  connect: CarWhereUniqueInput
+input CarCreateManyInput {
+  create: [CarCreateInput!]
+  connect: [CarWhereUniqueInput!]
 }
 
 """
@@ -156,16 +156,22 @@ input CarUpdateInput {
   name: String
 }
 
-input CarUpdateOneInput {
-  create: CarCreateInput
-  connect: CarWhereUniqueInput
-  disconnect: Boolean
-  delete: Boolean
-  update: CarUpdateDataInput
-  upsert: CarUpsertNestedInput
+input CarUpdateManyInput {
+  create: [CarCreateInput!]
+  connect: [CarWhereUniqueInput!]
+  disconnect: [CarWhereUniqueInput!]
+  delete: [CarWhereUniqueInput!]
+  update: [CarUpdateWithWhereUniqueNestedInput!]
+  upsert: [CarUpsertWithWhereUniqueNestedInput!]
 }
 
-input CarUpsertNestedInput {
+input CarUpdateWithWhereUniqueNestedInput {
+  where: CarWhereUniqueInput!
+  data: CarUpdateDataInput!
+}
+
+input CarUpsertWithWhereUniqueNestedInput {
+  where: CarWhereUniqueInput!
   update: CarUpdateDataInput!
   create: CarCreateInput!
 }
@@ -379,7 +385,7 @@ input PostCreateInput {
   text: String!
   nameFile: String!
   author: UserCreateOneWithoutPostsInput
-  car: CarCreateOneInput
+  cars: CarCreateManyInput
 }
 
 input PostCreateManyWithoutAuthorInput {
@@ -392,7 +398,7 @@ input PostCreateWithoutAuthorInput {
   title: String!
   text: String!
   nameFile: String!
-  car: CarCreateOneInput
+  cars: CarCreateManyInput
 }
 
 """
@@ -475,7 +481,7 @@ input PostUpdateInput {
   text: String
   nameFile: String
   author: UserUpdateOneWithoutPostsInput
-  car: CarUpdateOneInput
+  cars: CarUpdateManyInput
 }
 
 input PostUpdateManyWithoutAuthorInput {
@@ -492,7 +498,7 @@ input PostUpdateWithoutAuthorDataInput {
   title: String
   text: String
   nameFile: String
-  car: CarUpdateOneInput
+  cars: CarUpdateManyInput
 }
 
 input PostUpdateWithWhereUniqueWithoutAuthorInput {
@@ -733,7 +739,9 @@ input PostWhereInput {
   """
   nameFile_not_ends_with: String
   author: UserWhereInput
-  car: CarWhereInput
+  cars_every: CarWhereInput
+  cars_some: CarWhereInput
+  cars_none: CarWhereInput
 }
 
 input PostWhereUniqueInput {
