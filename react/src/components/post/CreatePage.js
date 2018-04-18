@@ -14,6 +14,9 @@ class CreatePage extends React.Component {
     text: '',
     nameFile:'',
   }
+  onElemSelected(elem){
+    console.log(elem)
+  }
 
 
   render() {
@@ -51,7 +54,7 @@ class CreatePage extends React.Component {
           </a>
         </form>
         <Main onSelectFile={this.handleFile}/>
-        <Autocomplete/>
+        <Autocomplete onElemSelected={this.onElemSelected}/>
         </Paper>
       </div>
     )

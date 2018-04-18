@@ -6,19 +6,30 @@ import CarsPageList from '../car/CarsPageList'
 
 class Autocomplete extends Component {
   state = {
-    query : ''
+    query : '',
+    queryAutocomplete : '',
+    elemSelected: {}
   }
   elemClicked(elem) {
-    console.log(elem)
+    this.setState({
+      queryAutocomplete: elem.name,
+      query: '',
+      elemSelected: elem
+    })
+    this.props.onElemSelected(elem)
   }
   render() {
     return (
       <div>
         <TextField
-          value={this.state.searchAutocomplete}
-          onChange={e => this.setState({query:e.target.value})}
+          value={this.state.queryAutocomplete}
+          onChange={e => this.setState({
+            query:e.target.value,
+            queryAutocomplete: e.target.value,
+            elemSelected: {}
+          })}
           type='text'
-          label='Search'
+          label='Search Car'
         />
 
         <CarsPageList

@@ -10,6 +10,9 @@ class CarsPage extends React.Component {
 
 
   render() {
+    if(!this.props.query) {
+      return(<div></div>)
+    }
     const {carsQueryConnection} = this.props
     if (carsQueryConnection.error) {
       return (<NotAuth/>)
