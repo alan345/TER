@@ -19,7 +19,7 @@
   "devDependencies": {
     "graphql-cli": "2.15.9",
     "npm-run-all": "4.1.2",
-    "prisma": "1.6.0"
+    "prisma": "1.6.3"
   },
   "resolutions": {
     "graphql": "0.13.2"
