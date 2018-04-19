@@ -1,16 +1,13 @@
 import React from 'react'
 import Car from './Car'
-import {graphql} from 'react-apollo'
+import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 import Icon from 'material-ui/Icon'
-
 import NotAuth from '../nav/NotAuth'
 
 class CarsPage extends React.Component {
-
-
   render() {
-    if(!this.props.query) {
+    if(!this.props.query && !this.props.showWhenQueryEmpty) {
       return(<div></div>)
     }
     const {carsQueryConnection} = this.props
@@ -93,15 +90,17 @@ const DRAFTS_QUERY = gql `
   }
 `
 
-export default graphql(DRAFTS_QUERY, {
-  name: 'carsQueryConnection',
-  options: props => ({
-    fetchPolicy: 'network-only',
-    variables: {
-      orderBy: props.orderBy,
-      where: {
-        name_contains: props.query
+
+export default compose(
+  graphql(DRAFTS_QUERY, {
+    name: 'carsQueryConnection',
+    options: props => ({
+      variables: {
+        orderBy: props.orderBy,
+        where: {
+          name_contains: props.query
+        }
       }
-    }
+    })
   })
-})(CarsPage)
+)(CarsPage)

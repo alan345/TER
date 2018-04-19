@@ -67,8 +67,6 @@ class CreatePage extends React.Component {
     e.preventDefault()
     const { title, text, nameFile } = this.state
     let idCars = this.state.idCars
-    console.log(idCars)
-
     await this.props.createPostMutation({
       variables: {
         data: {

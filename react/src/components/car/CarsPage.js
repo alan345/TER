@@ -45,10 +45,11 @@ class CarsPage extends Component {
           </div>
 
         <CarsPageList
+          showWhenQueryEmpty={true}
+          query={this.state.query}
           showTitle={true}
           showMore={true}
           elemClicked={this.elemClicked.bind(this)}
-          query={this.state.query}
           orderBy={this.state.orderBy}/>
         </Paper>
       </div>

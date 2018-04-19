@@ -1,13 +1,12 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import Paper from 'material-ui/Paper'
 import Button from 'material-ui/Button'
+import { graphql, compose } from 'react-apollo'
 
 
-
-class CreatePage extends React.Component {
+class CreateCar extends React.Component {
   state = {
     name: '',
   }
@@ -69,8 +68,7 @@ const CREATE_DRAFT_MUTATION = gql`
   }
 `
 
-const CreatePageWithMutation = graphql(CREATE_DRAFT_MUTATION, {
-  name: 'createCarMutation', // name of the injected prop: this.props.createCarMutation...
-})(CreatePage)
-
-export default withRouter(CreatePageWithMutation)
+export default compose(
+  graphql(CREATE_DRAFT_MUTATION, { name: 'createCarMutation' }),
+  withRouter
+)(CreateCar)
