@@ -4,6 +4,8 @@ import CarsPageList from './CarsPageList'
 import Button from 'material-ui/Button'
 import Paper from 'material-ui/Paper'
 import TextField from 'material-ui/TextField'
+import ArrowOrderBy from './ArrowOrderBy'
+import { InputAdornment } from 'material-ui/Input'
 import Icon from 'material-ui/Icon'
 
 
@@ -18,31 +20,39 @@ class CarsPage extends Component {
   }
 
   render() {
+    const clearQuery = () => {
+      this.setState({
+        query : ''
+      })
+    }
     return (<React.Fragment>
       <div className='paperOut'>
         <Paper className='paperIn'>
           <TextField
             onChange={e => this.setState({query: e.target.value})}
+            value={this.state.query}
             type='text'
             label='Search'
+            InputProps={{
+              endAdornment: <InputAdornment position='end'>
+              {this.state.query ? (
+                <Icon onClick={clearQuery}>clear</Icon>
+              ) : (
+                <Icon className='white'>sentiment_satisfied</Icon>
+              )}
+              <ArrowOrderBy
+                orderBy={this.state.orderBy}
+                onOrderBy={(orderBy) => this.setState({ orderBy: orderBy })}
+              />
+            </InputAdornment>,
+            }}
             />
           {' '}
           <Button onClick={() => this.props.history.push('/car/create')} variant='raised' color='primary'>
             + Create Car
           </Button>
-          <div onClick={() => {
-              this.setState({
-                orderBy: this.state.orderBy === 'name_ASC'
-                  ? 'name_DESC'
-                  : 'name_ASC'
-              })
-            }}>
-            {
-              this.state.orderBy === 'name_ASC'
-                ? (<Icon>keyboard_arrow_down</Icon>)
-                : (<Icon>keyboard_arrow_up</Icon>)
-            }
-          </div>
+
+
 
         <CarsPageList
           showWhenQueryEmpty={true}
