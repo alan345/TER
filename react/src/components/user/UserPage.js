@@ -80,8 +80,8 @@ class UserPage extends React.Component {
                 value={this.state.user.role}
                 onChange={e => this.setState({ user:{ ...this.state.user, role: e.target.value} })}
                 >
-                <MenuItem value="CUSTOMER">CUSTOMER</MenuItem>
-                <MenuItem value="ADMIN">ADMIN</MenuItem>
+                <MenuItem value='CUSTOMER'>CUSTOMER</MenuItem>
+                <MenuItem value='ADMIN'>ADMIN</MenuItem>
               </Select>
             )}
             <br/>

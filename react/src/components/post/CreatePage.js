@@ -5,6 +5,7 @@ import Main from '../uploadFile'
 import Autocomplete from './Autocomplete'
 import Paper from 'material-ui/Paper'
 import { graphql, compose } from 'react-apollo'
+import Button from 'material-ui/Button'
 
 
 class CreatePage extends React.Component {
@@ -14,9 +15,9 @@ class CreatePage extends React.Component {
     nameFile:'',
     idCars:[],
   }
-  onElemSelected(elem){
-    this.setState({idCars: [...this.state.idCars,  {id: elem.id}]})
-    // console.log(elem)
+  onElemSelected(elems){
+    let idCars = elems.map(el => {return {id: el.id}})
+    this.setState({idCars})
   }
 
 
@@ -24,7 +25,7 @@ class CreatePage extends React.Component {
     return (
       <div className='paperOut'>
         <Paper className='paperIn'>
-        <form onSubmit={this.handlePost}>
+
           <h1>Create Draft</h1>
           <input
             autoFocus
@@ -42,27 +43,23 @@ class CreatePage extends React.Component {
             rows={8}
             value={this.state.text}
           />
-          <input
-            className={`pa3 bg-black-10 bn ${this.state.text &&
-              this.state.title &&
-              'dim pointer'}`}
-            disabled={!this.state.text || !this.state.title}
-            type="submit"
-            value="Create"
-          />{' '}
-          <a className="f6 pointer" onClick={this.props.history.goBack}>
-            or cancel
-          </a>
-        </form>
-        <Autocomplete onElemSelected={this.onElemSelected.bind(this)}/>
-        <Main onSelectFile={this.handleFile}/>
+          <Autocomplete onElemSelected={this.onElemSelected.bind(this)}/>
+          <br/>
+          <Main onSelectFile={this.handleFile}/>
+          <br/>
+          <Button onClick={this.handlePost} variant='raised' color='primary'>
+            + Create Post
+          </Button>
+          <Button onClick={this.props.history.goBack}>
+            Cancel
+          </Button>
         </Paper>
       </div>
     )
   }
 
   handleFile = (nameFile) => {
-    this.setState({nameFile: nameFile});
+    this.setState({nameFile: nameFile})
   }
 
 

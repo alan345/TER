@@ -40,8 +40,8 @@ class DetailPage extends React.Component {
             {post.cars.map(car => (
 
               <Link to={'/car/' + car.id} title='Car' key={car.id}>
-
                 {car.name}
+                <br/>
               </Link>
             ))}
             <ImageTemplate
