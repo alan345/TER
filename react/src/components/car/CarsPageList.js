@@ -85,7 +85,6 @@ const DRAFTS_QUERY = gql `
       aggregate {
         count
       }
-
     }
   }
 `
@@ -94,6 +93,7 @@ const DRAFTS_QUERY = gql `
 export default compose(
   graphql(DRAFTS_QUERY, {
     name: 'carsQueryConnection',
+    fetchPolicy: 'network-only',
     options: props => ({
       variables: {
         orderBy: props.orderBy,

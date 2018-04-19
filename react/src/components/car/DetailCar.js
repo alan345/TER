@@ -3,6 +3,7 @@ import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 import { withRouter } from 'react-router-dom'
 import Paper from 'material-ui/Paper'
+import NotFound from '../nav/NotFound'
 
 
 class DetailPage extends React.Component {
@@ -16,7 +17,11 @@ class DetailPage extends React.Component {
     }
 
     const { car } = this.props.carQuery
-    // console.log(car)
+    if(!car) {
+      return (
+        <NotFound/>
+      )
+    }
     let action = this._renderAction(car)
 
     return (
@@ -86,6 +91,7 @@ export default compose(
   graphql(POST_QUERY, {
     name: 'carQuery',
     options: props => ({
+      fetchPolicy: 'network-only',
       variables: {
         where: {
           id: props.match.params.id,
