@@ -31,7 +31,7 @@
 |Login|Resend Link to validate email|
 |![Login](https://j.gifs.com/wml6jg.gif)|![Link to validate email](https://j.gifs.com/PZ8V2z.gif)|
 |Create Draft with connected object (car & user)||
-|![Login](https://j.gifs.com/MQ6zDP.gif)||
+|![connected object](https://j.gifs.com/VP9G0o.gif)||
 
 
 
