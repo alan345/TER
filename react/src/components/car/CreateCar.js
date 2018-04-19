@@ -20,22 +20,23 @@ class CreateCar extends React.Component {
           <h1>Create Car</h1>
           <input
             autoFocus
-            className="w-100 pa2 mv2 br2 b--black-20 bw1"
+            className='w-100 pa2 mv2 br2 b--black-20 bw1'
             onChange={e => this.setState({ name: e.target.value })}
-            placeholder="Name"
-            type="text"
+            placeholder='Name'
+            type='text'
             value={this.state.name}
           />
 
 
-          <Button             className={`pa3 bg-black-10 bn`}
-                      disabled={!this.state.name}
-                      type="submit"
-                      variant='raised' color='primary'>
+          <Button
+            className={`pa3 bg-black-10 bn`}
+            disabled={!this.state.name}
+            type='submit'
+            variant='raised' color='primary'>
             Create
           </Button>
           {' '}
-          <a className="f6 pointer" onClick={this.props.history.goBack}>
+          <a className='f6 pointer' onClick={this.props.history.goBack}>
             or cancel
           </a>
         </form>
@@ -45,7 +46,7 @@ class CreateCar extends React.Component {
   }
 
   handleFile = (nameFile) => {
-      this.setState({nameFile: nameFile});
+      this.setState({nameFile: nameFile})
   }
 
 

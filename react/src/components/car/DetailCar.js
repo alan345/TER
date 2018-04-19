@@ -23,11 +23,11 @@ class DetailPage extends React.Component {
       <React.Fragment>
         <div className='paperOut'>
           <Paper className='paperIn'>
-        <h1 className="f3 black-80 fw4 lh-solid">
+        <h1 className='f3 black-80 fw4 lh-solid'>
           {car.name}
 
         </h1>
-        <p className="black-80 fw3">{car.text}</p>
+        <p className='black-80 fw3'>{car.text}</p>
         {action}
         </Paper>
         </div>
@@ -38,7 +38,7 @@ class DetailPage extends React.Component {
   _renderAction = ({ id, isPublished }) => {
     return (
       <a
-        className="f6 dim br1 ba ph3 pv2 mb2 dib black pointer"
+        className='f6 dim br1 ba ph3 pv2 mb2 dib black pointer'
         onClick={() => this.deleteCar(id)}
       >
         Delete
@@ -93,9 +93,6 @@ export default compose(
       },
     }),
   }),
-  // graphql(PUBLISH_MUTATION, {
-  //   name: 'publishDraft',
-  // }),
   graphql(DELETE_MUTATION, {
     name: 'deleteCar',
   }),

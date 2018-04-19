@@ -64,15 +64,15 @@ class UserPage extends React.Component {
               autoFocus
               className='w-100 pa2 mv2 br2 b--black-20 bw1'
               onChange={e => this.setState({ user:{ ...this.state.user, name: e.target.value} })}
-              placeholder="name"
-              type="text"
+              placeholder='name'
+              type='text'
               value={this.state.user.name}
               />
             )}
 
-            <p className="black-80 fw3">Email: {this.state.user.email}</p>
+            <p className='black-80 fw3'>Email: {this.state.user.email}</p>
             {!this.state.isEditMode && (
-              <p className="black-80 fw3">Role: {this.state.user.role}</p>
+              <p className='black-80 fw3'>Role: {this.state.user.role}</p>
             )}
             {this.state.isEditMode && (
 
@@ -115,13 +115,13 @@ class UserPage extends React.Component {
         {this.state.isEditMode && (
         <div>
           <a
-            className="f6 dim br1 ba ph3 pv2 mb2 dib black pointer"
+            className='f6 dim br1 ba ph3 pv2 mb2 dib black pointer'
             onClick={() => this.updateUser(id)}
           >
             Save
           </a>{' '}
           <a
-            className="f6 dim br1 ba ph3 pv2 mb2 dib black pointer"
+            className='f6 dim br1 ba ph3 pv2 mb2 dib black pointer'
             onClick={() => this.deleteUser(id)}
           >
             Delete
@@ -158,8 +158,6 @@ class UserPage extends React.Component {
 }
 
 
-// mutation UpdateUserMutation($id: ID!, $name: String!, $email: String!, $role: Role!) {
-//   updateUser(data: {name: $name, email: $email, role: $role}, where: {id: $id}) {
 const UPDATE_USER_MUTATION = gql`
   mutation UpdateUserMutation($data: UserUpdateInput!, $where: UserWhereUniqueInput!) {
     updateUser(data: $data, where: $where) {
