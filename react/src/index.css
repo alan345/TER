@@ -34,6 +34,10 @@ input {
   flex: 0 0 350px;
 }
 
+.cursor { 
+  cursor: pointer;
+}
+
 .post .description {
   flex: 1;
   padding-left: 25px;

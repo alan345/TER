@@ -25,16 +25,15 @@ class UsersPageList extends React.Component {
 
       {
         edges && edges.map((user) => (
-          <div key={user.node.id} onClick={()=>this.props.elemClicked(user.node)}>
-
-          <h3 className='black'>
-            <Icon>fingerprint</Icon>{user.node.name}
-          </h3>
-
-          Email: {user.node.email}
-          <br/>
-          Role: {user.node.role}
-        </div>))
+          <div className='cursor' key={user.node.id} onClick={()=>this.props.elemClicked(user.node)}>
+            <h3 className='black'>
+              <Icon>fingerprint</Icon>{user.node.name}
+            </h3>
+            Email: {user.node.email}
+            <br/>
+            Role: {user.node.role}
+          </div>
+      ))
       }
       {this.props.children}
 
