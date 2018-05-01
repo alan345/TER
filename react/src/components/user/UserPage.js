@@ -9,9 +9,11 @@ import Icon from 'material-ui/Icon'
 import Paper from 'material-ui/Paper'
 import Select from 'material-ui/Select'
 import { MenuItem } from 'material-ui/Menu'
+import NotFound from '../nav/NotFound'
+
+
 
 class UserPage extends React.Component {
-
   state = {
     isEditMode: false,
     user:{
@@ -37,6 +39,14 @@ class UserPage extends React.Component {
     if (this.props.userQuery.error) {
       return (
         <NotAuth/>
+      )
+    }
+
+
+    const { user } = this.props.userQuery
+    if(!user) {
+      return (
+        <NotFound/>
       )
     }
 

@@ -62,7 +62,7 @@ const Query = {
     getUserId(ctx)
     return forwardTo('db')(parent, args, ctx, info)
   },
-  users: (parent, args, ctx, info) => {
+  usersConnection: (parent, args, ctx, info) => {
     getUserId(ctx)
     return forwardTo('db')(parent, args, ctx, info)
   }
