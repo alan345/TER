@@ -5,6 +5,7 @@ import gql from 'graphql-tag'
 import ImageTemplate from '../../components/ImageTemplate'
 import { Link } from 'react-router-dom'
 import Paper from 'material-ui/Paper'
+import NotFound from '../nav/NotFound'
 
 
 class DetailPage extends React.Component {
@@ -12,7 +13,7 @@ class DetailPage extends React.Component {
 
     if (this.props.postQuery.error) {
       return (
-        <div>No rights. must be an admin</div>
+        <NotFound/>
       )
     }
 
