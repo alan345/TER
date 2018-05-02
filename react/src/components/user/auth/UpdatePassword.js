@@ -6,6 +6,7 @@ import SnackBarCustom from '../../nav/SnackBarCustom'
 import Paper from 'material-ui/Paper'
 import Button from 'material-ui/Button'
 import TextField from 'material-ui/TextField'
+import NotAuth from '../../nav/NotAuth'
 
 // const queryString = require('query-string')
 
@@ -21,6 +22,14 @@ class ChangePassword extends Component {
   }
 
   render() {
+
+    const authToken = localStorage.getItem(AUTH_TOKEN)
+    if(!authToken) {
+      return (
+        <NotAuth/>
+      )
+    }
+
     return (
       <div className='paperOut'>
         <Paper className='paperIn'>

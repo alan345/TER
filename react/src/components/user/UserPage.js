@@ -76,7 +76,7 @@ class UserPage extends React.Component {
               </h1>
               {this.isUserMyself() && (
                 <Tooltip title='Change your password'>
-                <Icon className='cursor' onClick={() => this.props.history.push('/updatePassword')}>security</Icon>
+                <Icon onClick={() => this.props.history.push('/updatePassword')}>security</Icon>
                 </Tooltip>
               )}
             </div>
