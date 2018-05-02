@@ -6,6 +6,11 @@ import Icon from 'material-ui/Icon'
 import NotAuth from '../nav/NotAuth'
 
 class CarsPage extends React.Component {
+
+  componentDidMount(data) {
+    this.props.carsQueryConnection.refetch()
+  }
+
   render() {
     if(!this.props.query && !this.props.showWhenQueryEmpty) {
       return(<div></div>)
@@ -31,7 +36,12 @@ class CarsPage extends React.Component {
         )}
         {edges && edges.map(car => (<Car key={car.node.id} elemClicked={this.props.elemClicked} car={car.node}/>))}
 
-        {(edges.length !== aggregate.count && this.props.showMore) && (<Icon onClick={() => this.loadMore()}>add</Icon>)}
+        {(edges.length !== aggregate.count && this.props.showMore) && (
+          <div onClick={() => this.loadMore()} className='cursor'>
+            <Icon>add</Icon>
+            Load More
+          </div>
+          )}
 
         {this.props.children}
       </div>

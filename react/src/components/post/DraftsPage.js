@@ -9,6 +9,7 @@ import Button from 'material-ui/Button'
 
 class DraftsPage extends React.Component {
   componentWillReceiveProps(nextProps) {
+    console.log(nextProps.location)
     if (this.props.location.key !== nextProps.location.key) {
       this.props.draftsQuery.refetch()
     }
