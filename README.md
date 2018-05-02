@@ -31,8 +31,8 @@
 |![connected object](https://j.gifs.com/xvwg93.gif) | ![image](https://user-images.githubusercontent.com/15246526/38844346-dc22ec8c-41a7-11e8-9347-49cfc4e97424.png) |
 |Login|Resend Link to validate email|
 |![Login](https://j.gifs.com/wml6jg.gif)|![Link to validate email](https://j.gifs.com/PZ8V2z.gif)|
-|Create Draft with connected object (car & user)||
-|![connected object](https://j.gifs.com/VP9G0o.gif)||
+|Create Draft with connected object (car & user)| Update Password in app|
+|![connected object](https://j.gifs.com/VP9G0o.gif)|![connected object](https://j.gifs.com/860QVr.gif)|
 
 
 
