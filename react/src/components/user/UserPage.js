@@ -10,19 +10,23 @@ import Paper from 'material-ui/Paper'
 import Select from 'material-ui/Select'
 import { MenuItem } from 'material-ui/Menu'
 import NotFound from '../nav/NotFound'
-
+import Tooltip from 'material-ui/Tooltip';
 
 
 class UserPage extends React.Component {
   state = {
     isEditMode: false,
-    user:{
+    user: {
+      id: '',
       name: '',
       email: '',
       role: '',
     },
   }
-
+  isUserMyself = () => {
+    const userToken = JSON.parse(localStorage.getItem('userToken'))
+    return userToken.id === this.state.user.id
+  }
   componentWillMount() {
     this.setState({ user: this.props.userQuery.user })
   }
@@ -51,6 +55,7 @@ class UserPage extends React.Component {
     }
 
     const authToken = localStorage.getItem(AUTH_TOKEN)
+
     if (this.props.userQuery.loading) {
       return (
         <div className='flex w-100 h-100 items-center justify-center pt7'>
@@ -64,11 +69,18 @@ class UserPage extends React.Component {
       <React.Fragment>
         <div className='paperOut'>
           <Paper className='paperIn'>
-            <h1 className='f3 black-80 fw4 lh-solid'>
-            {this.state.user.name}{' '}
-            <Icon onClick={e => this.setState({ isEditMode:!this.state.isEditMode })}>border_color</Icon>
+            <div className='flex justify-between items-center'>
+              <h1 className='f3 black-80 fw4 lh-solid'>
+                {this.state.user.name}{' '}
+                <Icon onClick={e => this.setState({ isEditMode:!this.state.isEditMode })}>border_color</Icon>
+              </h1>
+              {this.isUserMyself() && (
+                <Tooltip title='Change your password'>
+                <Icon className='cursor' onClick={() => this.props.history.push('/updatePassword')}>security</Icon>
+                </Tooltip>
+              )}
+            </div>
 
-            </h1>
             {this.state.isEditMode && (
               <input
               autoFocus

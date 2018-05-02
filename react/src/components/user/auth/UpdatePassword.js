@@ -7,22 +7,16 @@ import Paper from 'material-ui/Paper'
 import Button from 'material-ui/Button'
 import TextField from 'material-ui/TextField'
 
-const queryString = require('query-string')
+// const queryString = require('query-string')
 
-class ResetPassword extends Component {
+class ChangePassword extends Component {
   state = {
-    password: '',
-    password2: '',
-    resetPasswordToken: '',
+    oldPassword: '',
+    newPassword: '',
+    newPassword2: '',
   }
 
   componentDidMount() {
-    let resetPasswordToken = queryString.parse(this.props.location.search).resetPasswordToken
-    if(resetPasswordToken) {
-      this.setState({
-        resetPasswordToken: resetPasswordToken
-      })
-    }
 
   }
 
@@ -31,19 +25,25 @@ class ResetPassword extends Component {
       <div className='paperOut'>
         <Paper className='paperIn'>
         <h4 className='mv3'>
-          Reset Password
+          Change Password
         </h4>
         <div className='flex flex-column'>
 
           <TextField
-            value={this.state.password}
-            onChange={e => this.setState({ password: e.target.value })}
+            value={this.state.oldPassword}
+            onChange={e => this.setState({ oldPassword: e.target.value })}
+            type='password'
+            label='Your actual password'
+          />
+          <TextField
+            value={this.state.newPassword}
+            onChange={e => this.setState({ newPassword: e.target.value })}
             type='password'
             label='Choose a safe password'
           />
           <TextField
-            value={this.state.password2}
-            onChange={e => this.setState({ password2: e.target.value })}
+            value={this.state.newPassword2}
+            onChange={e => this.setState({ newPassword2: e.target.value })}
             type='password'
             label='Retype your safe password'
           />
@@ -62,26 +62,33 @@ class ResetPassword extends Component {
   }
 
   _confirm = async () => {
-    if(this.state.password !== this.state.password2) {
+    if(!this.state.newPassword || !this.state.newPassword2 || !this.state.oldPassword) {
+      this.child._openSnackBar('Password cannot be null')
+      return
+    }
+    if(this.state.newPassword !== this.state.newPassword2) {
       this.child._openSnackBar('Error: Passwords are differents')
       return
     }
     let messageSnackBar
-    const { password, resetPasswordToken } = this.state
-    await this.props.resetPasswordMutation({
+    const { oldPassword, newPassword } = this.state
+    await this.props.updatePasswordMutation({
       variables: {
-        resetPasswordToken,
-        password
+        oldPassword,
+        newPassword
       },
     })
     .then((result) => {
-      console.log(result)
-      messageSnackBar = `Your password has been reset successfully!`
-      const { token, user } = result.data.resetPassword
-      this._saveUserData(token, user)
+      messageSnackBar = `Your password has been changed successfully!`
+      this.setState({
+        oldPassword: '',
+        newPassword: '',
+        newPassword2: '',
+      })
 
     })
     .catch((e) => {
+      // console.log(e)
       messageSnackBar = e.graphQLErrors[0].message
     })
     this.child._openSnackBar(messageSnackBar)
@@ -95,18 +102,14 @@ class ResetPassword extends Component {
 
 
 
-const RESET_PASSWORD_MUTATION = gql`
-  mutation ResetPasswordMutation($password: String!, $resetPasswordToken: String!) {
-    resetPassword(password: $password, resetPasswordToken: $resetPasswordToken) {
-      token
-      user {
-        name
-        id
-      }
+const UPDATE_PASSWORD_MUTATION = gql`
+  mutation UpdatePasswordMutation($oldPassword: String!, $newPassword: String!) {
+    updatePassword(oldPassword: $oldPassword, newPassword: $newPassword) {
+      id
     }
   }
 `
 
 export default compose(
-  graphql(RESET_PASSWORD_MUTATION, { name: 'resetPasswordMutation' }),
-)(ResetPassword)
+  graphql(UPDATE_PASSWORD_MUTATION, { name: 'updatePasswordMutation' }),
+)(ChangePassword)

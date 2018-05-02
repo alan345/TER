@@ -73,6 +73,7 @@ async function resetPassword (parent, args, ctx, info) {
     }
   }
 }
+
 async function validateEmail (parent, args, ctx, info) {
   const userCheck = await ctx.db.query.user({
     where: {
@@ -103,7 +104,7 @@ async function validateEmail (parent, args, ctx, info) {
 }
 
 // log in an existing user
-async function login(parent, { email, password }, ctx, info) {
+async function login (parent, { email, password }, ctx, info) {
   const user = await ctx.db.query.user({ where: { email } })
   if (!user) {
     throw new Error(`No such user found for email: ${email}`)
@@ -142,51 +143,25 @@ async function forgetPassword (parent, { email }, ctx, info) {
 }
 
 // update the password of an existing user
-async function updatePassword (
-  parent,
-  { oldPassword, newPassword, userId },
-  ctx,
-  info,
-) {
-  if (!userId) {
-    // a user updates her own password
-    userId = getUserId(ctx)
-    const user = await ctx.db.query.user({ where: { id: userId } })
-    const oldPasswordValid = await bcrypt.compare(oldPassword, user.password)
-    if (!oldPasswordValid) {
-      throw new Error(
-        'Old password was wrong, please try again or contact an admin to reset your password',
-      )
-    }
-    const newPasswordHash = await bcrypt.hash(newPassword, 10)
-    try {
-      await ctx.db.mutation.updateUser({
-        where: { id: userId },
-        data: { password: newPasswordHash },
-      })
-    } catch (e) {
-      return e
-    }
-    return user
-  } else {
-    // a user updates the password of another user -> must be an admin
-    const requestingUserId = getUserId(ctx)
-    const userIsAdmin = ctx.db.exists.User({
-      id: requestingUserId,
-      role: 'ADMIN',
-    })
-    const user = await ctx.db.query.user({ where: { id: userId } })
-    const newPasswordHash = await bcrypt.hash(newPassword, 10)
-    try {
-      await ctx.db.mutation.updateUser({
-        where: { id: userId },
-        data: { password: newPasswordHash }
-      })
-    } catch (e) {
-      return e
-    }
-    return user
+async function updatePassword (parent, { oldPassword, newPassword }, ctx, info) {
+  let userId = getUserId(ctx)
+  console.log(userId)
+  const user = await ctx.db.query.user({ where: { id: userId } })
+  const oldPasswordValid = await bcrypt.compare(oldPassword, user.password)
+  if (!oldPasswordValid) {
+    console.log('old Password not Valid')
+    throw new Error('Old password is wrong, please try again.')
   }
+  const newPasswordHash = await bcrypt.hash(newPassword, 10)
+  try {
+    await ctx.db.mutation.updateUser({
+      where: { id: userId },
+      data: { password: newPasswordHash }
+    })
+  } catch (e) {
+    return e
+  }
+  return user
 }
 
 module.exports = {

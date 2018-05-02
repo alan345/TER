@@ -20,6 +20,7 @@ type Query {
 type Mutation {
   signup(email: String!, password: String!, name: String!): AuthPayload!
   resetPassword(password: String!, resetPasswordToken: String!): AuthPayload!
+
   sendLinkValidateEmail: User!
   validateEmail(validateEmailToken: String!): AuthPayload!
   login(email: String!, password: String!): AuthPayload!
@@ -36,7 +37,7 @@ type Mutation {
 
   # Users can only update their own passwords
   # if `userId` is set, the user trying to update the password needs to be an admin
-  updatePassword(oldPassword: String, newPassword: String!, userId: ID): User!
+  updatePassword(oldPassword: String, newPassword: String!): User!
   forgetPassword(email: String!): User!
 
 }
