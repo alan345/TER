@@ -9,7 +9,6 @@ import Button from 'material-ui/Button'
 
 class DraftsPage extends React.Component {
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps.location)
     if (this.props.location.key !== nextProps.location.key) {
       this.props.draftsQuery.refetch()
     }
@@ -26,7 +25,7 @@ class DraftsPage extends React.Component {
 
     if (this.props.draftsQuery.loading) {
       return (
-        <div className="flex w-100 h-100 items-center justify-center pt7">
+        <div className='flex w-100 h-100 items-center justify-center pt7'>
           <div>Loading (from {process.env.REACT_APP_GRAPHQL_ENDPOINT})</div>
         </div>
       )
