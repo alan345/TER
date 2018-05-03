@@ -7,7 +7,8 @@ import TextField from 'material-ui/TextField'
 import ArrowOrderBy from './ArrowOrderBy'
 import { InputAdornment } from 'material-ui/Input'
 import Icon from 'material-ui/Icon'
-
+import NotAuth from '../nav/NotAuth'
+import { AUTH_TOKEN } from '../../constants/constants'
 
 class CarsPage extends Component {
   state = {
@@ -25,7 +26,12 @@ class CarsPage extends Component {
         query : ''
       })
     }
-    return (<React.Fragment>
+    const authToken = localStorage.getItem(AUTH_TOKEN)
+    if(!authToken) {
+      return (<NotAuth/>)
+    }
+    return (
+      <React.Fragment>
       <div className='paperOut'>
         <Paper className='paperIn'>
           <TextField

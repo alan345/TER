@@ -3,6 +3,9 @@ import Paper from 'material-ui/Paper'
 import TextField from 'material-ui/TextField'
 import UsersPageList from './UsersPageList'
 import {withRouter} from 'react-router'
+import NotAuth from '../nav/NotAuth'
+import { AUTH_TOKEN } from '../../constants/constants'
+
 
 class UsersPage extends React.Component {
   state = {
@@ -15,7 +18,10 @@ class UsersPage extends React.Component {
   }
 
   render() {
-
+    const authToken = localStorage.getItem(AUTH_TOKEN)
+    if(!authToken) {
+      return (<NotAuth/>)
+    }
     return (<React.Fragment>
       <div className='paperOut'>
         <Paper className='paperIn'>
