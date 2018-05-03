@@ -33,6 +33,8 @@
 |![Login](https://j.gifs.com/wml6jg.gif)|![Link to validate email](https://j.gifs.com/PZ8V2z.gif)|
 |Create Draft with connected object (car & user)| Update Password in app|
 |![connected object](https://j.gifs.com/VP9G0o.gif)|![connected object](https://j.gifs.com/860QVr.gif)|
+|Signup| |
+|![connected object](https://j.gifs.com/kZNYPK.gif)||
 
 
 
