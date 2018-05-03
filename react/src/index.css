@@ -15,8 +15,10 @@ html {
 
 
 input {
-  height: 30px!important;
+  height: 40px!important;
 }
+
+
 
 *,
 *:before,
@@ -33,8 +35,18 @@ input {
   height: 350px;
   flex: 0 0 350px;
 }
+.tac {
+  text-align: center;
+}
 
-.cursor { 
+
+.width50Perc {
+  width: 50%;
+}
+.width100Perc {
+  width: 100%;
+}
+.cursor {
   cursor: pointer;
 }
 
@@ -121,3 +133,17 @@ input {
     margin-left: 165px
   }
 }
+
+
+
+/* signup */
+.wrapperAnimate{
+  transition: width .25s linear;
+}
+.focusField {
+  width: 70%
+}
+.notFocusField {
+  width: 40%
+}
+/* signup */
