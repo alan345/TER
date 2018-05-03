@@ -33,7 +33,7 @@
 |![Login](https://j.gifs.com/wml6jg.gif)|![Link to validate email](https://j.gifs.com/PZ8V2z.gif)|
 |Create Draft with connected object (car & user)| Update Password in app|
 |![connected object](https://j.gifs.com/VP9G0o.gif)|![connected object](https://j.gifs.com/860QVr.gif)|
-|Signup| signup with key 'Enter'|
+|Signup| Signup with key 'Enter' to change field|
 |![connected object](https://j.gifs.com/kZNYPK.gif)|![connected object](https://j.gifs.com/E9mYnk.gif)|
 
 
@@ -128,7 +128,7 @@ Your feedback is **very helpful**, please share your opinion and thoughts! If yo
 * ✓Send emails: validate Email
 * ✓change/Reset password. send email confirmation
 * ✓Organize logo image in readMe
-* Create 3 Screenshots GIFS. Mobile friendly / auth / Post
+* ✓Create  Screenshots GIFS. Mobile friendly / auth / Post
 * Implement Apollo Client 2.0
 * Write medium post
 * Upload all filetypes. A logo of a file will appear instead of picture
