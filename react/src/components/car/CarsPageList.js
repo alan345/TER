@@ -12,25 +12,28 @@ class CarsPage extends React.Component {
   }
 
   render() {
-    if(!this.props.query && !this.props.showWhenQueryEmpty) {
-      return(<div></div>)
-    }
-    const {carsQueryConnection} = this.props
-    if (carsQueryConnection.error) {
+
+
+    if (this.props.carsQueryConnection.error) {
       return (<NotAuth/>)
     }
 
-    if (!carsQueryConnection.carsConnection) {
-      return null
-    }
-    const {edges, aggregate} = this.props.carsQueryConnection.carsConnection
-    if (carsQueryConnection.loading) {
+    if (this.props.carsQueryConnection.loading) {
+      console.log('test')
       return (<div className='flex w-100 h-100 items-center justify-center pt7'>
         <div>Loading (from {process.env.REACT_APP_GRAPHQL_ENDPOINT})</div>
       </div>)
     }
+    const {edges, aggregate} = this.props.carsQueryConnection.carsConnection
+
+
+    if(!this.props.query && !this.props.showWhenQueryEmpty) {
+      return null
+    }
+
     return (
-      <div>
+      <React.Fragment>
+
         {this.props.showTitle && (
           <h1>Cars ({edges.length}/{aggregate.count})</h1>
         )}
@@ -44,7 +47,8 @@ class CarsPage extends React.Component {
           )}
 
         {this.props.children}
-      </div>
+
+    </React.Fragment>
   )
   }
 

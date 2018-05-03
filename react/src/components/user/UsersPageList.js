@@ -14,14 +14,19 @@ class UsersPageList extends React.Component {
     if (this.props.usersQueryConnection.error) {
       return (<NotAuth/>)
     }
-
+    console.log('test')
     if (this.props.usersQueryConnection.loading) {
-      return (<div className='flex w-100 h-100 items-center justify-center pt7'>
+      console.log('test')
+      return (
+      <div className='flex w-100 h-100 items-center justify-center pt7'>
         <div>Loading (from {process.env.REACT_APP_GRAPHQL_ENDPOINT})</div>
       </div>)
     }
+    // console.log('test')
     const {edges} = this.props.usersQueryConnection.usersConnection
-    return (<React.Fragment>
+    // console.log('test')
+    return (
+      <React.Fragment>
 
       {
         edges && edges.map((user) => (
