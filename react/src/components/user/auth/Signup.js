@@ -22,15 +22,22 @@ class Signup extends Component {
   }
 
   handleNext = () => {
-    this.setState({
-      activeStep: this.state.activeStep + 1,
-    })
-    if(this.state.activeStep === 2) {
-      this._confirm()
+    if(this.state.name) {
+      this.setState({
+        activeStep: this.state.activeStep + 1,
+      }, function () {
+        if(this.state.activeStep === 1 ) { this.input1.focus() }
+        if(this.state.activeStep === 2 ) { this.input2.focus() }
+      })
+      // this.textInput.focus()
+      if(this.state.activeStep === 2) {
+        this._confirm()
+      }
     }
   };
 
   handleKey = (data) => {
+
     if(data.charCode === 13) { //keyPress enter
       this.handleNext()
     }
@@ -59,6 +66,7 @@ class Signup extends Component {
             <div className='tac'>
               <TextField
                 value={this.state.name}
+                inputRef={node => this.input0 = node}
                 onChange={e => this.setState({ name: e.target.value })}
                 type='text'
                 className={'wrapperAnimate ' + (this.state.activeStep === 0 ? 'focusField' : 'notFocusField')}
@@ -78,9 +86,11 @@ class Signup extends Component {
             <br/><br/>
             {this.state.activeStep >= 1 && (
               <TextField
+                inputRef={node => this.input1 = node}
                 value={this.state.email}
                 onChange={e => this.setState({ email: e.target.value })}
                 type='text'
+                onKeyPress={this.handleKey}
                 className={'wrapperAnimate ' + (this.state.activeStep === 1 ? 'focusField' : 'notFocusField')}
                 label='Your email address'
                 InputProps={{
@@ -100,10 +110,12 @@ class Signup extends Component {
             {this.state.activeStep >= 2 && (
             <TextField
               value={this.state.password}
+              inputRef={node => this.input2 = node}
               onChange={e => this.setState({ password: e.target.value })}
               className={'wrapperAnimate ' + (this.state.activeStep === 2 ? 'focusField' : 'notFocusField')}
               type='password'
               label='Choose a safe password'
+              onKeyPress={this.handleKey}
               InputProps={{
                 endAdornment: (
                 <InputAdornment position='end'>
