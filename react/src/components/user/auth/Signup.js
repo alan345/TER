@@ -20,7 +20,20 @@ class Signup extends Component {
     activeStep: 0,
     maxStep: 3,
   }
-
+  calculateBuffer() {
+    let data = ''
+    if(this.state.activeStep === 0) {
+      data = this.state.name
+    }
+    if(this.state.activeStep === 1) {
+      data = this.state.email
+    }
+    if(this.state.activeStep === 2) {
+      data = this.state.password
+    }
+    let maxValue = data.length/10 > 1 ? 1 : data.length/10
+    return (this.state.activeStep + maxValue) * 100 / this.state.maxStep
+  }
   handleNext = () => {
     if(this.state.name) {
       this.setState({
@@ -29,7 +42,6 @@ class Signup extends Component {
         if(this.state.activeStep === 1 ) { this.input1.focus() }
         if(this.state.activeStep === 2 ) { this.input2.focus() }
       })
-      // this.textInput.focus()
       if(this.state.activeStep === 2) {
         this._confirm()
       }
@@ -37,7 +49,6 @@ class Signup extends Component {
   };
 
   handleKey = (data) => {
-
     if(data.charCode === 13) { //keyPress enter
       this.handleNext()
     }
@@ -58,7 +69,10 @@ class Signup extends Component {
         </h4>
         <div className='flex flex-column'>
 
-          <LinearProgress variant='buffer' value={this.state.activeStep * 100 / this.state.maxStep } valueBuffer={0.1} />
+          <LinearProgress variant='buffer'
+            value={this.state.activeStep * 100 / this.state.maxStep }
+            valueBuffer={this.calculateBuffer()}
+               />
 
 
 
