@@ -141,9 +141,10 @@ input {
   transition: width .25s linear;
 }
 .focusField {
-  width: 70%
+  width: 70%;
 }
 .notFocusField {
-  width: 40%
+  width: 40%;
+  opacity: 0.5;
 }
 /* signup */
