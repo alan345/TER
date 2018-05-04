@@ -17,6 +17,7 @@ class Signup extends Component {
     email: '',
     password: '',
     name: '',
+    nameFile: '',
     activeStep: 0,
     maxStep: 3,
   }
@@ -153,12 +154,13 @@ class Signup extends Component {
   }
 
   _confirm = async () => {
-    const { name, email, password } = this.state
+    const { name, email, password, nameFile } = this.state
       await this.props.signupMutation({
         variables: {
           name,
           email,
           password,
+          nameFile,
         },
       })
       .then((result) => {
@@ -179,8 +181,8 @@ class Signup extends Component {
 }
 
 const SIGNUP_MUTATION = gql`
-  mutation SignupMutation($email: String!, $password: String!, $name: String!) {
-    signup(email: $email, password: $password, name: $name) {
+  mutation SignupMutation($email: String!, $password: String!, $name: String!, $nameFile: String!) {
+    signup(email: $email, password: $password, name: $name, nameFile:$nameFile) {
       token
       user {
         name

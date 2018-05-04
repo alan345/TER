@@ -53,7 +53,7 @@ async function deletePost(parent, { id }, ctx, info) {
 
   const requestingUserIsAdmin = await ctx.db.exists.User({
     id: userId,
-    role: 'ADMIN',
+    role: 'ADMIN'
   })
 
   if (!postExists && !requestingUserIsAdmin) {
@@ -83,9 +83,6 @@ const Mutation = {
   deleteCar: forwardTo('db'),
   updateCar: forwardTo('db'),
   createPost
-
-
-
 }
 
 module.exports = {

@@ -49,7 +49,7 @@ module.exports = {
       if (err) {
         console.log(err)
       } else {
-        console.log('Mail sent to: ' + user.email)
+        console.log('Mail sent to: ' + email)
       }
     })
   }

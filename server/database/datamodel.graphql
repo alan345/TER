@@ -30,6 +30,7 @@ type User {
   createdAt: DateTime!
   updatedAt: DateTime!
   password: String!
+  nameFile_: String!
   resetPasswordToken: String! @unique
   resetPasswordExpires: Float
   name: String!

@@ -1,14 +1,16 @@
-# the name for the service (will be part of the service's HTTP endpoint)
-service: my-app
+# The endpoint of your Prisma API (deployed to a Prisma Sandbox).
+endpoint: http://localhost:4466
+
+# The file containing the definition of your data model.
+datamodel: datamodel.graphql
 
 # the cluster and stage the service is deployed to
-stage: dev
+# stage: dev
 
 # to disable authentication:
 # disableAuth: true
-secret: mysecret123
+secret: my-server-secret-123
 
 # the file path pointing to your data model
-datamodel: datamodel.graphql
 
-cluster: local
+# cluster: local

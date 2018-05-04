@@ -103,6 +103,12 @@ More details in the tuto: https://github.com/graphcool/prisma/tree/master/exampl
 * `prisma local nuke`
 * `prisma reset`
 * `prisma local start` to start your local Prisma cluster.
+* `docker container ls` list container
+* `docker stop database_prisma_1` stop container
+* `docker rm database_prisma_1` remove container
+* `docker stop $(docker ps -a -q)` all
+* `docker rm $(docker ps -a -q)` all
+* `docker-compose up -d` init app
 
 * `yarn start` starts GraphQL server on `http://localhost:4000`
 * `yarn dev` starts GraphQL server on `http://localhost:4000` _and_ opens GraphQL Playground

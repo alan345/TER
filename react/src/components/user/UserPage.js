@@ -11,6 +11,7 @@ import Select from 'material-ui/Select'
 import { MenuItem } from 'material-ui/Menu'
 import NotFound from '../nav/NotFound'
 import Tooltip from 'material-ui/Tooltip'
+import UploadFile from '../nav/UploadFile'
 
 
 class UserPage extends React.Component {
@@ -21,6 +22,7 @@ class UserPage extends React.Component {
       name: '',
       email: '',
       role: '',
+      nameFile: '',
     },
   }
   isUserMyself = () => {
@@ -111,6 +113,9 @@ class UserPage extends React.Component {
             {action}
             <br/>
             <br/>
+            <UploadFile onSelectFile={(nameFile) => {this.setState({user:{nameFile: nameFile}})}}/>
+            <br/>
+            <br/>
             {authToken && (
               <div className='f6 ba ph3 pv2 mb2 black'>
                 <h1>Posts from {this.state.user.name}</h1>
@@ -187,6 +192,7 @@ const UPDATE_USER_MUTATION = gql`
       name
       email
       role
+      nameFile
     }
   }
 `
@@ -198,6 +204,7 @@ const USER_QUERY = gql`
       email
       role
       name
+      nameFile
       posts {
         id
         title
