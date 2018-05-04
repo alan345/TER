@@ -8,9 +8,9 @@ const server = new GraphQLServer({
   context: req => ({
     ...req,
     db: new Prisma({
-      typeDefs: 'src/generated/prisma.graphql',
+      typeDefs: 'src/generated/prisma.graphql', // the auto-generated GraphQL schema of the Prisma API
       endpoint: process.env.PRISMA_ENDPOINT,
-      secret: process.env.PRISMA_SECRET, // only needed if specified in `database/prisma.yml`
+      // secret: process.env.PRISMA_SECRET, // only needed if specified in `database/prisma.yml`
       debug: true
     })
   })
