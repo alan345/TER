@@ -9,8 +9,8 @@ const server = new GraphQLServer({
     ...req,
     db: new Prisma({
       typeDefs: 'src/generated/prisma.graphql',
-      endpoint: 'http://localhost:4466',
-      secret: 'my-server-secret-123', // only needed if specified in `database/prisma.yml`
+      endpoint: process.env.PRISMA_ENDPOINT,
+      secret: process.env.PRISMA_SECRET, // only needed if specified in `database/prisma.yml`
       debug: true
     })
   })

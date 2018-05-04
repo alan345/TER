@@ -1,0 +1,48 @@
+# import Mutation.createPost, Query.carsConnection, Query.usersConnection, Query.car, Mutation.deleteCar, Query.user, Mutation.updateUser from "./generated/prisma.graphql"
+# import Car, CarCreateInput, CarWhereInput, CarOrderByInput from "./generated/prisma.graphql"
+# import Post from "./generated/prisma.graphql"
+
+
+type Query {
+  me: User
+  feed: [Post!]!
+  drafts(orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post!]!
+  # users: [User!]!
+  # singleUser(id: ID!): User
+  post(id: ID!): Post
+  # car(where: CarWhereUniqueInput!): Car
+  cars(where: CarWhereInput, orderBy: CarOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Car]!
+
+  # Only admins can retrieve info about given users
+  # user(id: ID!): User
+}
+
+type Mutation {
+  signup(email: String!, password: String!, name: String!): AuthPayload!
+  resetPassword(password: String!, resetPasswordToken: String!): AuthPayload!
+
+  sendLinkValidateEmail: User!
+  validateEmail(validateEmailToken: String!): AuthPayload!
+  login(email: String!, password: String!): AuthPayload!
+  # updateUser(id: ID!, name: String, email: String, role: String): User
+  # updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+  deletePost(id: ID!): Post
+  deleteUser(id: ID!): User
+  publish(id: ID!): Post
+
+  createCar(data: CarCreateInput!): Car!
+  # createCar(name: String!): Car!
+  # deleteCar(where: CarWhereUniqueInput!): Car
+  updateCar(data: CarUpdateInput!, where: CarWhereUniqueInput!): Car
+
+  # Users can only update their own passwords
+  # if `userId` is set, the user trying to update the password needs to be an admin
+  updatePassword(oldPassword: String, newPassword: String!): User!
+  forgetPassword(email: String!): User!
+
+}
+
+type AuthPayload {
+  token: String!
+  user: User!
+}
