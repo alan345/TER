@@ -113,12 +113,16 @@ input {
   margin-left: -12;
   margin-right: 20;
 }
+
+/* heder */
 .flexGrow {
   flex-grow:1;
 }
 .flex {
   flex:1;
 }
+/* heder */
+
 
 .paperIn {
   padding: 20px;

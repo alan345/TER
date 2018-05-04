@@ -7,6 +7,8 @@ import Button from 'material-ui/Button'
 import BackButton from './BackButton'
 import Icon from 'material-ui/Icon'
 
+
+
 class Header extends Component {
 
   render() {
@@ -15,9 +17,11 @@ class Header extends Component {
         <AppBar position='static'>
           <Toolbar>
             <BackButton isMobile={this.props.isMobile} toggleDrawerFunction={() => { this.props.toggleDrawerFunction(true) }}/>
-            <Button onClick={()=> {this.props.history.replace('/')}}>
+            <div className='flex'></div>
+            <Button onClick={()=> {this.props.history.push('/')}} >
               <Icon>home</Icon>
             </Button>
+            <div className='flex'></div>
             <TopHello/>
           </Toolbar>
         </AppBar>

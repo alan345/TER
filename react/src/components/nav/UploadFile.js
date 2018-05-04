@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Main extends React.Component {
+class UploadFile extends React.Component {
   constructor(props) {
     super(props);
 
@@ -50,4 +50,4 @@ class Main extends React.Component {
   }
 }
 
-export default Main;
+export default UploadFile;
