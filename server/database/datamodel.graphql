@@ -11,7 +11,7 @@ type Post {
   title: String!
   text: String!
   nameFile: String!
-  author: User
+  author: User!
   cars: [Car!]!
 }
 
@@ -30,6 +30,7 @@ type User {
   createdAt: DateTime!
   updatedAt: DateTime!
   password: String!
+  nameFile: String!
   resetPasswordToken: String! @unique
   resetPasswordExpires: Float
   name: String!

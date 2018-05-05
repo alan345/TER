@@ -1,15 +1,13 @@
 {
   "name": "my-app",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "dotenv node src/index.js",
     "playground": "prisma playground",
     "dev": "npm-run-all --parallel start playground",
     "prisma": "prisma"
   },
   "dependencies": {
     "bcryptjs": "2.4.3",
-    "graphql-import": "0.5.2",
-    "graphql-request": "1.5.2",
     "graphql-yoga": "1.13.1",
     "jsonwebtoken": "8.2.1",
     "nodemailer": "4.6.4",
@@ -17,7 +15,8 @@
     "uniqid": "4.1.1"
   },
   "devDependencies": {
-    "graphql-cli": "2.15.9",
+    "graphql-cli": "^2.15.14",
+    "dotenv-cli": "1.4.0",
     "npm-run-all": "4.1.2",
     "prisma": "1.7.4"
   },
