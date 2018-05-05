@@ -11,7 +11,7 @@ type Post {
   title: String!
   text: String!
   nameFile: String!
-  author: User!
+  author: User
   cars: [Car!]!
 }
 

@@ -1,5 +1,5 @@
 # source: http://localhost:4466/my-app/dev
-# timestamp: Fri May 04 2018 17:41:06 GMT-0700 (PDT)
+# timestamp: Fri May 04 2018 18:23:16 GMT-0700 (PDT)
 
 type AggregateCar {
   count: Int!
@@ -291,7 +291,7 @@ type Post implements Node {
   title: String!
   text: String!
   nameFile: String!
-  author(where: UserWhereInput): User!
+  author(where: UserWhereInput): User
   cars(where: CarWhereInput, orderBy: CarOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Car!]
 }
 
@@ -310,7 +310,7 @@ input PostCreateInput {
   title: String!
   text: String!
   nameFile: String!
-  author: UserCreateOneWithoutPostsInput!
+  author: UserCreateOneWithoutPostsInput
   cars: CarCreateManyInput
 }
 
@@ -811,6 +811,7 @@ input UserUpdateInput {
 input UserUpdateOneWithoutPostsInput {
   create: UserCreateWithoutPostsInput
   connect: UserWhereUniqueInput
+  disconnect: Boolean
   delete: Boolean
   update: UserUpdateWithoutPostsDataInput
   upsert: UserUpsertWithoutPostsInput

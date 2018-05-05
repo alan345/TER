@@ -23,7 +23,7 @@ class UserPage extends React.Component {
       email: '',
       role: '',
       nameFile: '',
-    },
+    }
   }
   isUserMyself = () => {
     const userToken = JSON.parse(localStorage.getItem('userToken'))
@@ -99,21 +99,27 @@ class UserPage extends React.Component {
               <p className='black-80 fw3'>Role: {this.state.user.role}</p>
             )}
             {this.state.isEditMode && (
+              <div>
+                <Select
+                  value={this.state.user.role}
+                  onChange={e => this.setState({ user:{ ...this.state.user, role: e.target.value} })}
+                  >
+                  <MenuItem value='CUSTOMER'>CUSTOMER</MenuItem>
+                  <MenuItem value='ADMIN'>ADMIN</MenuItem>
+                </Select>
 
-              <Select
-                value={this.state.user.role}
-                onChange={e => this.setState({ user:{ ...this.state.user, role: e.target.value} })}
-                >
-                <MenuItem value='CUSTOMER'>CUSTOMER</MenuItem>
-                <MenuItem value='ADMIN'>ADMIN</MenuItem>
-              </Select>
+              </div>
             )}
+            <UploadFile
+              isEditMode={this.state.isEditMode}
+              nameFile={this.state.user.nameFile}
+              onSelectFile={nameFile =>  this.setState({ user:{ ...this.state.user, nameFile: nameFile} })}
+              />
             <br/>
             <br/>
             {action}
             <br/>
             <br/>
-            <UploadFile onSelectFile={(nameFile) => {this.setState({user:{nameFile: nameFile}})}}/>
             <br/>
             <br/>
             {authToken && (
@@ -160,11 +166,11 @@ class UserPage extends React.Component {
   }
 
   updateUser = async id => {
-    const { name, email, role } = this.state.user
+    const { name, email, role, nameFile } = this.state.user
     await this.props.updateUser({
       variables: {
         where: {id: id},
-        data: {name: name, email: email, role: role },
+        data: {name: name, email: email, role: role, nameFile: nameFile },
       }
     })
     // await this.props.updateUser({
