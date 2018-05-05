@@ -1,7 +1,7 @@
 {
   "name": "my-app",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "dotenv node src/index.js",
     "playground": "prisma playground",
     "dev": "npm-run-all --parallel start playground",
     "prisma": "prisma"
@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "graphql-cli": "^2.15.14",
+    "dotenv-cli": "1.4.0",
     "npm-run-all": "4.1.2",
     "prisma": "1.7.4"
   },

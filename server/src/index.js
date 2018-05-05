@@ -2,6 +2,7 @@ const { GraphQLServer } = require('graphql-yoga')
 const { Prisma } = require('prisma-binding')
 const resolvers = require('./resolvers')
 
+console.log(process.env.PRISMA_ENDPOINT)
 const server = new GraphQLServer({
   typeDefs: './src/schema.graphql',
   resolvers,
