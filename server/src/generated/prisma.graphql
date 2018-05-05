@@ -1,5 +1,5 @@
-# source: https://us1.prisma.sh/public-lightthief-781/myapp/dev
-# timestamp: Fri May 04 2018 17:13:21 GMT-0700 (PDT)
+# source: http://localhost:4466/my-app/dev
+# timestamp: Fri May 04 2018 17:41:06 GMT-0700 (PDT)
 
 type AggregateCar {
   count: Int!
@@ -291,7 +291,7 @@ type Post implements Node {
   title: String!
   text: String!
   nameFile: String!
-  author(where: UserWhereInput): User
+  author(where: UserWhereInput): User!
   cars(where: CarWhereInput, orderBy: CarOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Car!]
 }
 
@@ -310,7 +310,7 @@ input PostCreateInput {
   title: String!
   text: String!
   nameFile: String!
-  author: UserCreateOneWithoutPostsInput
+  author: UserCreateOneWithoutPostsInput!
   cars: CarCreateManyInput
 }
 
@@ -657,7 +657,7 @@ type User implements Node {
   createdAt: DateTime!
   updatedAt: DateTime!
   password: String!
-  nameFile_: String!
+  nameFile: String!
   resetPasswordToken: String!
   resetPasswordExpires: Float
   name: String!
@@ -680,7 +680,7 @@ input UserCreateInput {
   emailvalidated: Boolean
   validateEmailToken: String!
   password: String!
-  nameFile_: String!
+  nameFile: String!
   resetPasswordToken: String!
   resetPasswordExpires: Float
   name: String!
@@ -698,7 +698,7 @@ input UserCreateWithoutPostsInput {
   emailvalidated: Boolean
   validateEmailToken: String!
   password: String!
-  nameFile_: String!
+  nameFile: String!
   resetPasswordToken: String!
   resetPasswordExpires: Float
   name: String!
@@ -729,8 +729,8 @@ enum UserOrderByInput {
   updatedAt_DESC
   password_ASC
   password_DESC
-  nameFile__ASC
-  nameFile__DESC
+  nameFile_ASC
+  nameFile_DESC
   resetPasswordToken_ASC
   resetPasswordToken_DESC
   resetPasswordExpires_ASC
@@ -749,7 +749,7 @@ type UserPreviousValues {
   createdAt: DateTime!
   updatedAt: DateTime!
   password: String!
-  nameFile_: String!
+  nameFile: String!
   resetPasswordToken: String!
   resetPasswordExpires: Float
   name: String!
@@ -800,7 +800,7 @@ input UserUpdateInput {
   emailvalidated: Boolean
   validateEmailToken: String
   password: String
-  nameFile_: String
+  nameFile: String
   resetPasswordToken: String
   resetPasswordExpires: Float
   name: String
@@ -811,7 +811,6 @@ input UserUpdateInput {
 input UserUpdateOneWithoutPostsInput {
   create: UserCreateWithoutPostsInput
   connect: UserWhereUniqueInput
-  disconnect: Boolean
   delete: Boolean
   update: UserUpdateWithoutPostsDataInput
   upsert: UserUpsertWithoutPostsInput
@@ -822,7 +821,7 @@ input UserUpdateWithoutPostsDataInput {
   emailvalidated: Boolean
   validateEmailToken: String
   password: String
-  nameFile_: String
+  nameFile: String
   resetPasswordToken: String
   resetPasswordExpires: Float
   name: String
@@ -1051,46 +1050,46 @@ input UserWhereInput {
 
   """All values not ending with the given string."""
   password_not_ends_with: String
-  nameFile_: String
+  nameFile: String
 
   """All values that are not equal to given value."""
-  nameFile__not: String
+  nameFile_not: String
 
   """All values that are contained in given list."""
-  nameFile__in: [String!]
+  nameFile_in: [String!]
 
   """All values that are not contained in given list."""
-  nameFile__not_in: [String!]
+  nameFile_not_in: [String!]
 
   """All values less than the given value."""
-  nameFile__lt: String
+  nameFile_lt: String
 
   """All values less than or equal the given value."""
-  nameFile__lte: String
+  nameFile_lte: String
 
   """All values greater than the given value."""
-  nameFile__gt: String
+  nameFile_gt: String
 
   """All values greater than or equal the given value."""
-  nameFile__gte: String
+  nameFile_gte: String
 
   """All values containing the given string."""
-  nameFile__contains: String
+  nameFile_contains: String
 
   """All values not containing the given string."""
-  nameFile__not_contains: String
+  nameFile_not_contains: String
 
   """All values starting with the given string."""
-  nameFile__starts_with: String
+  nameFile_starts_with: String
 
   """All values not starting with the given string."""
-  nameFile__not_starts_with: String
+  nameFile_not_starts_with: String
 
   """All values ending with the given string."""
-  nameFile__ends_with: String
+  nameFile_ends_with: String
 
   """All values not ending with the given string."""
-  nameFile__not_ends_with: String
+  nameFile_not_ends_with: String
   resetPasswordToken: String
 
   """All values that are not equal to given value."""
