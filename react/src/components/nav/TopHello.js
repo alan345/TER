@@ -1,6 +1,10 @@
 import React from 'react'
 import { AUTH_TOKEN } from '../../constants/constants'
 import { Link } from 'react-router-dom'
+import { graphql, compose } from 'react-apollo'
+import gql from 'graphql-tag'
+import MenuAvatar from '../nav/MenuAvatar'
+
 
 function TopHello(props) {
 
@@ -9,10 +13,10 @@ function TopHello(props) {
     return (
       <div>
       {authToken ? (
-        <div className='black link'>
-          Hi{' '}<Link to={`/user/${userToken.id}`}>
-            {userToken.name}
-          </Link>!
+        <div>
+          {props.userQuery.user && (
+            <MenuAvatar user={props.userQuery.user} nameFile={props.userQuery.user.nameFile}/>
+          )}
         </div>
       ) : (
         <div>
@@ -32,4 +36,28 @@ function TopHello(props) {
     )
   }
 
-export default TopHello
+  const USER_QUERY = gql`
+    query UserQuery($where: UserWhereUniqueInput!) {
+      user(where: $where) {
+        id
+        email
+        role
+        name
+        nameFile
+      }
+    }
+  `
+
+const userToken = JSON.parse(localStorage.getItem('userToken'))
+export default compose(
+  graphql(USER_QUERY, {
+    name: 'userQuery',
+    options: props => ({
+      variables: {
+          where: {
+            id: userToken.id
+          }
+        },
+    }),
+  })
+  )(TopHello)

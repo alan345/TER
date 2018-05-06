@@ -16,7 +16,7 @@ class ListSideBar extends Component {
   toggleDrawer = (isSideBarOpen) => () => {
     this.setState({
       isSideBarOpen: isSideBarOpen,
-    });
+    })
   };
 
   componentWillReceiveProps(nextProps) {
@@ -83,17 +83,6 @@ class ListSideBar extends Component {
             </Link>
           )}
 
-            {authToken && (
-              <ListItem button onClick={() => {
-                localStorage.removeItem(AUTH_TOKEN)
-                this.props.history.replace(`/login`)
-              }}>
-                <ListItemIcon>
-                  <Icon>exit_to_app</Icon>
-                </ListItemIcon>
-                <ListItemText primary='logout' />
-              </ListItem>
-            )}
 
           </div>
         </List>

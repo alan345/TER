@@ -1,5 +1,5 @@
 import React from 'react'
-import ImageTemplate from '../../components/ImageTemplate'
+import ImageTemplate from './ImageTemplate'
 
 
 class UploadFile extends React.Component {

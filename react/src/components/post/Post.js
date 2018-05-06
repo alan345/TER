@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import ImageTemplate from '../../components/ImageTemplate'
+import ImageTemplate from '../nav/ImageTemplate'
 
 export default class Post extends React.Component {
   render() {
