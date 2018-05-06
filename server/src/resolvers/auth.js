@@ -19,7 +19,7 @@ async function me (parent, args, ctx, info) {
 }
 
 // register a new user
-async function signup(parent, args, ctx, info) {
+async function signup (parent, args, ctx, info) {
   const password = await bcrypt.hash(args.password, 10)
   const role = args.admin ? 'ADMIN' : 'CUSTOMER'
   const resetPasswordToken = uniqid()
@@ -117,7 +117,7 @@ async function login (parent, { email, password }, ctx, info) {
 
   return {
     token: jwt.sign({ userId: user.id }, APP_SECRET),
-    user,
+    user
   }
 }
 // log in an existing user

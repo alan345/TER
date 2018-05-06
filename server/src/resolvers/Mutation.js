@@ -44,11 +44,11 @@ async function createPost (parent, args, ctx, info) {
   return forwardTo('db')(parent, args, ctx, info)
 }
 
-async function deletePost(parent, { id }, ctx, info) {
+async function deletePost (parent, { id }, ctx, info) {
   const userId = getUserId(ctx)
   const postExists = await ctx.db.exists.Post({
     id,
-    author: { id: userId },
+    author: { id: userId }
   })
 
   const requestingUserIsAdmin = await ctx.db.exists.User({

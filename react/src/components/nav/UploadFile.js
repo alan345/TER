@@ -9,14 +9,11 @@ class UploadFile extends React.Component {
     imageURL: '',
   }
   constructor(props) {
-    super(props);
-
-    this.handleUploadImage = this.handleUploadImage.bind(this);
+    super(props)
+    this.handleUploadImage = this.handleUploadImage.bind(this)
   }
   componentWillReceiveProps(newProps){
-
-      this.setState({ isEditMode: newProps.isEditMode })
-
+    this.setState({ isEditMode: newProps.isEditMode })
   }
   componentWillMount(){
     this.setState({ isEditMode: this.props.isEditMode })
@@ -30,9 +27,9 @@ class UploadFile extends React.Component {
   //   console.log(newProps)
   // }
   handleUploadImage(ev) {
-    ev.preventDefault();
+    ev.preventDefault()
 
-    const data = new FormData();
+    const data = new FormData()
     data.append('file', this.uploadInput.files[0])
 
     fetch('http://localhost:8000/upload', {
@@ -42,8 +39,8 @@ class UploadFile extends React.Component {
       response.json().then((body) => {
         this.setState({ imageURL: body.file })
         this.props.onSelectFile(body.file)
-      });
-    });
+      })
+    })
   }
 
   render() {
@@ -67,8 +64,8 @@ class UploadFile extends React.Component {
         )}
 
     </div>
-    );
+    )
   }
 }
 
-export default UploadFile;
+export default UploadFile

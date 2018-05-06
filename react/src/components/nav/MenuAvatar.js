@@ -1,11 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router'
-import TopHello  from './TopHello'
-import AppBar from 'material-ui/AppBar'
-import Toolbar from 'material-ui/Toolbar'
 import Button from 'material-ui/Button'
-import BackButton from './BackButton'
-import Icon from 'material-ui/Icon'
 import ImageTemplate from '../nav/ImageTemplate'
 import Menu, { MenuItem } from 'material-ui/Menu'
 import { AUTH_TOKEN } from '../../constants/constants'
@@ -51,13 +46,6 @@ class MenuAvatar extends Component {
         >
           <MenuItem onClick={()=>this.handleClose('profile')}>My Profile</MenuItem>
           <MenuItem onClick={()=>this.handleClose('logout')}>Logout</MenuItem>
-
-
-
-
-
-
-
 
         </Menu>
       </div>
