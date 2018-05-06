@@ -45,7 +45,9 @@ class CreatePage extends React.Component {
           />
           <Autocomplete onElemSelected={this.onElemSelected.bind(this)}/>
           <br/>
-          <UploadFile onSelectFile={(nameFile) => {this.setState({nameFile: nameFile})}}/>
+          <UploadFile
+            isEditMode={true}
+            onSelectFile={(nameFile) => {this.setState({nameFile: nameFile})}}/>
           <br/>
           <Button onClick={this.handlePost} variant='raised' color='primary'>
             + Create Post
