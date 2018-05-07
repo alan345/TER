@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 const fileUpload = require('express-fileupload');
 const cors = require('cors');
-var index = require('./routes/index');
+// var index = require('./routes/index');
 var users = require('./routes/users');
 var upload = require('./routes/upload');
 
@@ -30,7 +30,7 @@ app.use(cookieParser());
 app.use(fileUpload());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
+// app.use('/', index);
 app.use('/users', users);
 app.use('/upload', upload);
 

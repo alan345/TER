@@ -1,17 +1,28 @@
-var express = require('express');
-var router = express.Router();
-var path = require('path');
-/* GET users listing. */
-// router.get('/', function(req, res, next) {
-//   res.send('respond with a resource');
-// });
+var express = require('express')
+var router = express.Router()
+var path = require('path')
+const { GraphQLClient } = require('graphql-request')
 
-router.get('/', function(req, res, next) {
-  res.send('respond with a resourcea');
-});
-
-
-
+// Checking if user is authenticated or not, security middleware
+router.use('/', function (req, res, next) {
+  const client = new GraphQLClient('http://localhost:4000', {
+    headers: req.headers
+  })
+  let queryMe = `
+    query {
+      me {
+        id
+      }
+    }`
+  client.request(queryMe)
+    .then(data => {
+      next()
+    })
+    .catch(err => {
+      console.log('err', err) // GraphQL response errors
+      return res.status(500).send(err)
+    })
+})
 
 router.post('/', (req, res, next) => {
   let imageFile = req.files.file;

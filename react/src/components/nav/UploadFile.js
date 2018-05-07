@@ -1,5 +1,7 @@
 import React from 'react'
 import ImageTemplate from './ImageTemplate'
+import { AUTH_TOKEN } from '../../constants/constants'
+
 
 
 class UploadFile extends React.Component {
@@ -28,13 +30,16 @@ class UploadFile extends React.Component {
   // }
   handleUploadImage(ev) {
     ev.preventDefault()
-
+    const authToken = localStorage.getItem(AUTH_TOKEN)
     const data = new FormData()
     data.append('file', this.uploadInput.files[0])
 
     fetch('http://localhost:8000/upload', {
       method: 'POST',
       body: data,
+      headers: new Headers({
+        'Authorization': 'Bearer '+ authToken
+      }),
     }).then((response) => {
       response.json().then((body) => {
         this.setState({ imageURL: body.file })

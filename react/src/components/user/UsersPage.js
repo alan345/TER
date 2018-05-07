@@ -2,7 +2,7 @@ import React from 'react'
 import Paper from 'material-ui/Paper'
 import TextField from 'material-ui/TextField'
 import UsersPageList from './UsersPageList'
-import {withRouter} from 'react-router'
+import { withRouter } from 'react-router'
 import NotAuth from '../nav/NotAuth'
 import { AUTH_TOKEN } from '../../constants/constants'
 
