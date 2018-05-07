@@ -6,7 +6,6 @@ import SnackBarCustom from '../../nav/SnackBarCustom'
 import Paper from 'material-ui/Paper'
 import Button from 'material-ui/Button'
 import TextField from 'material-ui/TextField'
-
 import { InputAdornment } from 'material-ui/Input'
 import Icon from 'material-ui/Icon'
 import { LinearProgress } from 'material-ui/Progress'
@@ -55,11 +54,6 @@ class Signup extends Component {
     }
   }
 
-  handleBack = () => {
-    this.setState({
-      activeStep: this.state.activeStep - 1,
-    })
-  };
 
   render() {
     return (
@@ -70,10 +64,10 @@ class Signup extends Component {
         </h4>
         <div className='flex flex-column'>
 
-          <LinearProgress variant='buffer'
-            value={this.state.activeStep * 100 / this.state.maxStep }
-            valueBuffer={this.calculateBuffer()}
-               />
+        <LinearProgress variant='buffer'
+          value={this.state.activeStep * 100 / this.state.maxStep }
+          valueBuffer={this.calculateBuffer()}
+             />
 
 
 
@@ -101,13 +95,13 @@ class Signup extends Component {
             <br/><br/>
             {this.state.activeStep >= 1 && (
               <TextField
-                inputRef={node => this.input1 = node}
                 value={this.state.email}
                 onChange={e => this.setState({ email: e.target.value })}
+                label='Your email address'
                 type='text'
+                inputRef={node => this.input1 = node}
                 onKeyPress={this.handleKey}
                 className={'wrapperAnimate ' + (this.state.activeStep === 1 ? 'focusField' : 'notFocusField')}
-                label='Your email address'
                 InputProps={{
                   endAdornment: (
                   <InputAdornment position='end'>
@@ -119,17 +113,16 @@ class Signup extends Component {
                   </InputAdornment>
                 )}}
                 />
-
             )}
             <br/><br/>
             {this.state.activeStep >= 2 && (
             <TextField
               value={this.state.password}
-              inputRef={node => this.input2 = node}
+              label='Choose a safe password'
               onChange={e => this.setState({ password: e.target.value })}
               className={'wrapperAnimate ' + (this.state.activeStep === 2 ? 'focusField' : 'notFocusField')}
               type='password'
-              label='Choose a safe password'
+              inputRef={node => this.input2 = node}
               onKeyPress={this.handleKey}
               InputProps={{
                 endAdornment: (
