@@ -14,11 +14,24 @@ import { LinearProgress } from 'material-ui/Progress'
 class Signup extends Component {
   state = {
     email: '',
+    emailValidation: true,
     password: '',
     name: '',
     nameFile: '',
     activeStep: 0,
     maxStep: 3,
+  }
+  onChange1(e){
+    this.setState({ email: e.target.value })
+    if (this.validateEmail(e.target.value )) {
+      this.setState({emailValidation: true})
+    } else {
+      this.setState({emailValidation: false})
+    }
+  }
+  validateEmail(email) {
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      return re.test(String(email).toLowerCase())
   }
   calculateBuffer() {
     let data = ''
@@ -36,14 +49,28 @@ class Signup extends Component {
   }
   handleNext = () => {
     if(this.state.name) {
-      this.setState({
-        activeStep: this.state.activeStep + 1,
-      }, function () {
-        if(this.state.activeStep === 1 ) { this.input1.focus() }
-        if(this.state.activeStep === 2 ) { this.input2.focus() }
-      })
-      if(this.state.activeStep === 2) {
-        this._confirm()
+      if(this.state.activeStep === 0 ) {
+        this.setState({
+          activeStep: this.state.activeStep + 1,
+        }, () => {
+           this.input1.focus()
+        })
+      }
+      if(this.state.activeStep === 1 ) {
+        if(this.state.emailValidation ) {
+          this.setState({
+            activeStep: this.state.activeStep + 1,
+          }, () => {
+            this.input2.focus()
+          })
+        }
+      }
+      if(this.state.activeStep === 2 ) {
+        this.setState({
+          activeStep: this.state.activeStep + 1,
+        }, () => {
+          this._confirm()
+        })
       }
     }
   };
@@ -96,7 +123,8 @@ class Signup extends Component {
             {this.state.activeStep >= 1 && (
               <TextField
                 value={this.state.email}
-                onChange={e => this.setState({ email: e.target.value })}
+                error={!this.state.emailValidation}
+                onChange={this.onChange1.bind(this)}
                 label='Your email address'
                 type='text'
                 inputRef={node => this.input1 = node}
