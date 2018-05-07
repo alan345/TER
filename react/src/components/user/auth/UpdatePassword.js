@@ -10,9 +10,7 @@ import NotAuth from '../../nav/NotAuth'
 import { InputAdornment } from 'material-ui/Input'
 import Icon from 'material-ui/Icon'
 import { LinearProgress } from 'material-ui/Progress'
-
-
-// const queryString = require('query-string')
+import IconButton from 'material-ui/IconButton'
 
 class ChangePassword extends Component {
   state = {
@@ -58,6 +56,12 @@ class ChangePassword extends Component {
     }
   }
 
+  showPassword(fieldNum) {
+    if(fieldNum === 0) this.setState({showPassword0: !this.state.showPassword0})
+    if(fieldNum === 1) this.setState({showPassword1: !this.state.showPassword1})
+    if(fieldNum === 2) this.setState({showPassword2: !this.state.showPassword2})
+  }
+
   render() {
 
     const authToken = localStorage.getItem(AUTH_TOKEN)
@@ -66,6 +70,7 @@ class ChangePassword extends Component {
         <NotAuth/>
       )
     }
+
 
     return (
       <div className='paperOut'>
@@ -85,7 +90,7 @@ class ChangePassword extends Component {
             <TextField
               value={this.state.oldPassword}
               onChange={e => this.setState({ oldPassword: e.target.value })}
-              type='password'
+              type={this.state.showPassword0 ? 'text' : 'password'}
               label='Your actual password'
               inputRef={node => this.input0 = node}
               className={'wrapperAnimate ' + (this.state.activeStep === 0 ? 'focusField' : 'notFocusField')}
@@ -99,14 +104,24 @@ class ChangePassword extends Component {
                     </Button>
                   )}
                 </InputAdornment>
-              )}}
+                ),
+                startAdornment: (
+                <InputAdornment position='start'>
+                  {this.state.activeStep === 0 && (
+                    <IconButton onClick={()=>this.showPassword(0)}>
+                      <Icon>{this.state.showPassword0 ? 'visibility_off' : 'visibility'}</Icon>
+                    </IconButton>
+                  )}
+                </InputAdornment>
+              )
+              }}
             />
             <br/><br/>
             {this.state.activeStep >= 1 && (
             <TextField
               value={this.state.newPassword}
               onChange={e => this.setState({ newPassword: e.target.value })}
-              type='password'
+              type={this.state.showPassword1 ? 'text' : 'password'}
               label='Choose a safe password'
               inputRef={node => this.input1 = node}
               onKeyPress={this.handleKey}
@@ -120,7 +135,17 @@ class ChangePassword extends Component {
                     </Button>
                   )}
                 </InputAdornment>
-              )}}
+              ),
+              startAdornment: (
+              <InputAdornment position='start'>
+                {this.state.activeStep === 1 && (
+                  <IconButton onClick={()=>this.showPassword(1)}>
+                    <Icon>{this.state.showPassword0 ? 'visibility_off' : 'visibility'}</Icon>
+                  </IconButton>
+                )}
+              </InputAdornment>
+              )
+            }}
             />
             )}
             <br/><br/>
@@ -128,7 +153,7 @@ class ChangePassword extends Component {
             <TextField
               value={this.state.newPassword2}
               onChange={e => this.setState({ newPassword2: e.target.value })}
-              type='password'
+              type={this.state.showPassword2 ? 'text' : 'password'}
               label='Retype your safe password'
               inputRef={node => this.input2 = node}
               className={'wrapperAnimate ' + (this.state.activeStep === 2 ? 'focusField' : 'notFocusField')}
@@ -142,7 +167,17 @@ class ChangePassword extends Component {
                     </Button>
                   )}
                 </InputAdornment>
-              )}}
+              ),
+              startAdornment: (
+              <InputAdornment position='start'>
+                {this.state.activeStep === 2 && (
+                  <IconButton onClick={()=>this.showPassword(2)}>
+                    <Icon>{this.state.showPassword0 ? 'visibility_off' : 'visibility'}</Icon>
+                  </IconButton>
+                )}
+              </InputAdornment>
+              )
+            }}
             />
             )}
 
@@ -190,7 +225,6 @@ class ChangePassword extends Component {
 
     })
     .catch((e) => {
-      // console.log(e)
       this.setState({activeStep:0})
       messageSnackBar = e.graphQLErrors[0].message
     })
