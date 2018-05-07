@@ -9,7 +9,6 @@ import MenuAvatar from '../nav/MenuAvatar'
 function TopHello(props) {
     const authToken = localStorage.getItem(AUTH_TOKEN)
     const userToken = JSON.parse(localStorage.getItem('userToken'))
-    console.log(userToken)
     return (
       <div>
       {authToken ? (
