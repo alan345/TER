@@ -4,6 +4,9 @@ import Avatar from 'material-ui/Avatar'
 export default class ImageTemplate extends React.Component {
   render() {
     var urlFile = 'http://localhost:8000/public/no-files.png'
+    if(this.props.format === 'avatar') {
+      urlFile = 'http://localhost:8000/public/avatar.jpg'
+    }
     if(this.props.nameFile) {
       urlFile = 'http://localhost:8000/' + this.props.nameFile
     }
