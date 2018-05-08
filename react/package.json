@@ -2,7 +2,7 @@
   "name": "react-apollo-naperg",
   "jest": {
     "verbose": true
-  },  
+  },
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
@@ -31,6 +31,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "jest": "jest",
     "eject": "react-scripts eject",
     "prettier": "prettier-eslint --write \"src/**/*.+(js|jsx)\"",
     "prettier-dry-run": "prettier-eslint \"src/**/*.+(js|jsx)\" -l debug"
