@@ -1,5 +1,8 @@
 {
   "name": "react-apollo-naperg",
+  "jest": {
+    "verbose": true
+  },  
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
