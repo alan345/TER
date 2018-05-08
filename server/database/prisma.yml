@@ -1,4 +1,5 @@
 # The endpoint of your Prisma API (deployed to a Prisma Sandbox).
+# endpoint: https://eu1.prisma.sh/alan-223747/demo/dev
 endpoint: ${env:PRISMA_ENDPOINT}
 
 # The file containing the definition of your data model.
