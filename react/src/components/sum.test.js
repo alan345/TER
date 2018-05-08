@@ -1,5 +1,10 @@
-const sum = require('./sum');
+import React from 'react'
+import CarsPageList from './car/CarsPageList'
+import renderer from 'react-test-renderer'
 
-test('adds 1 + 2 to equal 3', () => {
-  expect(sum(1, 2)).toBe(3);
-});
+test('Renders Cars', () => {
+  const component = renderer.create(
+    <CarsPageList/>
+  )
+  expect(component).toMatchSnapshot()
+})

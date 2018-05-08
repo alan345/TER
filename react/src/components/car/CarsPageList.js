@@ -5,7 +5,7 @@ import gql from 'graphql-tag'
 import Icon from 'material-ui/Icon'
 import NotAuth from '../nav/NotAuth'
 
-class CarsPage extends React.Component {
+class CarsPageList extends React.Component {
 
   componentDidMount(data) {
     this.props.carsQueryConnection.refetch()
@@ -117,4 +117,4 @@ export default compose(
       }
     })
   })
-)(CarsPage)
+)(CarsPageList)
