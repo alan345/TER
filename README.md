@@ -102,7 +102,6 @@ More details in the tuto: https://github.com/graphcool/prisma/tree/master/exampl
 
 * `prisma local nuke`
 * `prisma reset`
-* `prisma local start` to start your local Prisma cluster.
 * `docker container ls` list container
 * `docker stop database_prisma_1` stop container
 * `docker rm database_prisma_1` remove container

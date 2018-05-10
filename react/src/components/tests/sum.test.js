@@ -10,8 +10,8 @@
 import { configure, shallow, mount, render } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 import React from 'react'
-
-import Signup from './user/auth/Signup'
+import { ApolloProvider } from 'react-apollo'
+import Signup from '../user/auth/Signup'
 
 
 configure({ adapter: new Adapter() })
