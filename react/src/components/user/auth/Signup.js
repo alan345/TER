@@ -9,6 +9,7 @@ import TextField from 'material-ui/TextField'
 import { InputAdornment } from 'material-ui/Input'
 import Icon from 'material-ui/Icon'
 import { LinearProgress } from 'material-ui/Progress'
+var validator = require('email-validator')
 
 
 class Signup extends Component {
@@ -30,8 +31,9 @@ class Signup extends Component {
     }
   }
   validateEmail(email) {
-      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      return re.test(String(email).toLowerCase())
+      return validator.validate(email)
+      // var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      // return re.test(String(email).toLowerCase())
   }
   calculateBuffer() {
     let data = ''

@@ -108,6 +108,7 @@ More details in the tuto: https://github.com/graphcool/prisma/tree/master/exampl
 * `docker stop $(docker ps -a -q)` stop all container
 * `docker rm $(docker ps -a -q)` remove all container
 * `docker-compose up -d` init app
+* `prisma deploy` Deploy app
 
 * `yarn start` starts GraphQL server on `http://localhost:4000`
 * `yarn dev` starts GraphQL server on `http://localhost:4000` _and_ opens GraphQL Playground
