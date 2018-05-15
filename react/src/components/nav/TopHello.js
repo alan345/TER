@@ -47,7 +47,10 @@ function TopHello(props) {
     }
   `
 
-const userToken = JSON.parse(localStorage.getItem('userToken'))
+let userToken = JSON.parse(localStorage.getItem('userToken'))
+if(!userToken) {
+  userToken = {id: ''}
+}
 export default compose(
   graphql(USER_QUERY, {
     name: 'userQuery',
