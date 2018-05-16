@@ -6,7 +6,7 @@ import SnackBarCustom from '../../nav/SnackBarCustom'
 import Paper from 'material-ui/Paper'
 import Button from 'material-ui/Button'
 import TextField from 'material-ui/TextField'
-
+import { withApollo } from 'react-apollo'
 
 class Login extends Component {
   state = {
@@ -73,8 +73,8 @@ class Login extends Component {
       .then((result) => {
         const { token, user } = result.data.login
         this._saveUserData(token, user)
-        this.props.history.push(`/`)
-        window.location.reload()
+        // this.props.history.push(`/`)
+        // window.location.reload()
       })
       .catch((e) => {
         this.child._openSnackBar(e.graphQLErrors[0].message)
@@ -87,6 +87,9 @@ class Login extends Component {
   _saveUserData = (token, user) => {
     localStorage.setItem(AUTH_TOKEN, token)
     localStorage.setItem('userToken', JSON.stringify(user))
+    this.props.client.resetStore().then(data=> {
+      this.props.history.push(`/`)
+    })
   }
 }
 
@@ -108,5 +111,6 @@ const LOGIN_MUTATION = gql`
 
 
 export default compose(
+  withApollo,
   graphql(LOGIN_MUTATION, { name: 'loginMutation' }),
 )(Login)

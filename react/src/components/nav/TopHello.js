@@ -7,9 +7,54 @@ import MenuAvatar from '../nav/MenuAvatar'
 import { withApollo } from 'react-apollo'
 
 class TopHello extends Component {
-
+  // // state = {
+  // //   userToken: JSON.parse(localStorage.getItem('userToken'))
+  // // }
+  //
+  // // componentDidMount(){
+  // //   console.log('componentDidMount')
+  // //   const authToken = localStorage.getItem(AUTH_TOKEN)
+  // //   if(authToken && this.props.me.me) {
+  // //     this.refresh()
+  // //   }
+  // //   // const authToken = localStorage.getItem(AUTH_TOKEN)
+  // //   // if(authToken) {
+  // //   //   // console.log(authToken)
+  // //   //   // console.log(this.props.me)
+  // //   //   this.props.me.refetch()
+  // //   // }
+  // // }
+  // componentWillReceiveProps(nextProps){
+  //   console.log('componentWillReceiveProps')
+  //   const authToken = localStorage.getItem(AUTH_TOKEN)
+  //   console.log(authToken)
+  //   console.log(this.props.me)
+  //   if(authToken && this.props.me.me) {
+  //     // this.refresh()
+  //   }
+  // }
+  // //
+  // refresh() {
+  //   // const authToken = localStorage.getItem(AUTH_TOKEN)
+  //   // if(authToken) {
+  //   console.log('refresh')
+  //       this.props.client.resetStore().then(data=> {
+  //         this.props.me.refetch()
+  //       //
+  //       })
+  //       // this.render();
+  //       // .then(data=> {
+  //       //   console.log(data.data.me)
+  //       //   console.log(this.props.me)
+  //       //   this.forceUpdate()
+  //       // })
+  //   // }
+  // }
   render() {
+    // console.log(  this.props.me)
     const authToken = localStorage.getItem(AUTH_TOKEN)
+    // const userToken = JSON.parse(localStorage.getItem('userToken'))
+    // console.log(this.props.me.me)
       return (
         <div>
         {authToken ? (
