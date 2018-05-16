@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import ListSideBar from './ListSideBar'
-import Drawer from 'material-ui/Drawer'
+import Drawer from '@material-ui/core/Drawer'
 
 class SideBar extends Component {
 

@@ -3,12 +3,12 @@ import { AUTH_TOKEN } from '../../../constants/constants'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 import SnackBarCustom from '../../nav/SnackBarCustom'
-import Paper from 'material-ui/Paper'
-import Button from 'material-ui/Button'
-import TextField from 'material-ui/TextField'
-import { InputAdornment } from 'material-ui/Input'
-import Icon from 'material-ui/Icon'
-import { LinearProgress } from 'material-ui/Progress'
+import Paper from '@material-ui/core/Paper'
+import Button from '@material-ui/core/Button'
+import Input from '@material-ui/core/Input'
+import InputAdornment from '@material-ui/core/InputAdornment'
+import Icon from '@material-ui/core/Icon'
+import LinearProgress from '@material-ui/core/LinearProgress'
 var validator = require('email-validator')
 
 
@@ -102,7 +102,7 @@ class Signup extends Component {
 
           <br/>
             <div className='tac'>
-              <TextField
+              <Input
                 value={this.state.name}
                 inputRef={node => this.input0 = node}
                 onChange={e => this.setState({ name: e.target.value })}
@@ -110,8 +110,7 @@ class Signup extends Component {
                 className={'wrapperAnimate ' + (this.state.activeStep === 0 ? 'focusField' : 'notFocusField')}
                 label='Your name'
                 onKeyPress={this.handleKey}
-                InputProps={{
-                  endAdornment: (
+                endAdornment={
                   <InputAdornment position='end'>
                     {this.state.activeStep === 0 && (
                       <Button onClick={this.handleNext} variant='fab' color='primary' mini>
@@ -119,11 +118,11 @@ class Signup extends Component {
                       </Button>
                     )}
                   </InputAdornment>
-                )}}
+                }
               />
             <br/><br/>
             {this.state.activeStep >= 1 && (
-              <TextField
+              <Input
                 value={this.state.email}
                 error={!this.state.emailValidation}
                 onChange={this.onChange1.bind(this)}
@@ -132,8 +131,7 @@ class Signup extends Component {
                 inputRef={node => this.input1 = node}
                 onKeyPress={this.handleKey}
                 className={'wrapperAnimate ' + (this.state.activeStep === 1 ? 'focusField' : 'notFocusField')}
-                InputProps={{
-                  endAdornment: (
+                endAdornment={
                   <InputAdornment position='end'>
                     {this.state.activeStep === 1 && (
                       <Button onClick={this.handleNext} variant='fab' color='primary' mini>
@@ -141,12 +139,12 @@ class Signup extends Component {
                       </Button>
                     )}
                   </InputAdornment>
-                )}}
+                }
                 />
             )}
             <br/><br/>
             {this.state.activeStep >= 2 && (
-            <TextField
+            <Input
               value={this.state.password}
               label='Choose a safe password'
               onChange={e => this.setState({ password: e.target.value })}
@@ -154,8 +152,7 @@ class Signup extends Component {
               type='password'
               inputRef={node => this.input2 = node}
               onKeyPress={this.handleKey}
-              InputProps={{
-                endAdornment: (
+              endAdornment={
                 <InputAdornment position='end'>
                   {this.state.activeStep === 2 && (
                     <Button onClick={this.handleNext} variant='fab' color='primary' mini>
@@ -163,7 +160,7 @@ class Signup extends Component {
                     </Button>
                   )}
                 </InputAdornment>
-              )}}
+              }
             />
             )}
           </div>

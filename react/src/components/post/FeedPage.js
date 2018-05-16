@@ -2,7 +2,7 @@ import React from 'react'
 import Post from './Post'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
-import Paper from 'material-ui/Paper'
+import Paper from '@material-ui/core/Paper'
 
 class FeedPage extends React.Component {
   componentWillReceiveProps(nextProps) {

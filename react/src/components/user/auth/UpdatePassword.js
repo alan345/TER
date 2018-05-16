@@ -3,14 +3,15 @@ import { AUTH_TOKEN } from '../../../constants/constants'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 import SnackBarCustom from '../../nav/SnackBarCustom'
-import Paper from 'material-ui/Paper'
-import Button from 'material-ui/Button'
-import TextField from 'material-ui/TextField'
+import Paper from '@material-ui/core/Paper'
+import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField'
 import NotAuth from '../../nav/NotAuth'
-import { InputAdornment } from 'material-ui/Input'
-import Icon from 'material-ui/Icon'
-import { LinearProgress } from 'material-ui/Progress'
-import IconButton from 'material-ui/IconButton'
+import InputAdornment from '@material-ui/core/InputAdornment'
+import Input from '@material-ui/core/Input'
+import Icon from '@material-ui/core/Icon'
+import LinearProgress from '@material-ui/core/LinearProgress'
+import IconButton from '@material-ui/core/IconButton'
 
 class ChangePassword extends Component {
   state = {
@@ -87,7 +88,7 @@ class ChangePassword extends Component {
 
                <br/>
                  <div className='tac'>
-            <TextField
+            <Input
               value={this.state.oldPassword}
               onChange={e => this.setState({ oldPassword: e.target.value })}
               type={this.state.showPassword0 ? 'text' : 'password'}
@@ -95,17 +96,14 @@ class ChangePassword extends Component {
               inputRef={node => this.input0 = node}
               className={'wrapperAnimate ' + (this.state.activeStep === 0 ? 'focusField' : 'notFocusField')}
               onKeyPress={this.handleKey}
-              InputProps={{
-                endAdornment: (
+              endAdornment={
                 <InputAdornment position='end'>
                   {this.state.activeStep === 0 && (
                     <Button onClick={this.handleNext} variant='fab' color='primary' mini>
                       <Icon>navigate_next</Icon>
                     </Button>
                   )}
-                </InputAdornment>
-                ),
-                startAdornment: (
+                </InputAdornment>,
                 <InputAdornment position='start'>
                   {this.state.activeStep === 0 && (
                     <IconButton onClick={()=>this.showPassword(0)}>
@@ -113,8 +111,7 @@ class ChangePassword extends Component {
                     </IconButton>
                   )}
                 </InputAdornment>
-              )
-              }}
+              }
             />
             <br/><br/>
             {this.state.activeStep >= 1 && (
@@ -126,17 +123,15 @@ class ChangePassword extends Component {
               inputRef={node => this.input1 = node}
               onKeyPress={this.handleKey}
               className={'wrapperAnimate ' + (this.state.activeStep === 1 ? 'focusField' : 'notFocusField')}
-              InputProps={{
-                endAdornment: (
+              endAdornment={
                 <InputAdornment position='end'>
                   {this.state.activeStep === 1 && (
                     <Button onClick={this.handleNext} variant='fab' color='primary' mini>
                       <Icon>navigate_next</Icon>
                     </Button>
                   )}
-                </InputAdornment>
-              ),
-              startAdornment: (
+                </InputAdornment>,
+
               <InputAdornment position='start'>
                 {this.state.activeStep === 1 && (
                   <IconButton onClick={()=>this.showPassword(1)}>
@@ -144,8 +139,8 @@ class ChangePassword extends Component {
                   </IconButton>
                 )}
               </InputAdornment>
-              )
-            }}
+
+            }
             />
             )}
             <br/><br/>
@@ -158,8 +153,7 @@ class ChangePassword extends Component {
               inputRef={node => this.input2 = node}
               className={'wrapperAnimate ' + (this.state.activeStep === 2 ? 'focusField' : 'notFocusField')}
               onKeyPress={this.handleKey}
-              InputProps={{
-                endAdornment: (
+              endAdornment={
                 <InputAdornment position='end'>
                   {this.state.activeStep === 2 && (
                     <Button onClick={this.handleNext} variant='fab' color='primary' mini>
@@ -167,8 +161,7 @@ class ChangePassword extends Component {
                     </Button>
                   )}
                 </InputAdornment>
-              ),
-              startAdornment: (
+                ,
               <InputAdornment position='start'>
                 {this.state.activeStep === 2 && (
                   <IconButton onClick={()=>this.showPassword(2)}>
@@ -176,8 +169,8 @@ class ChangePassword extends Component {
                   </IconButton>
                 )}
               </InputAdornment>
-              )
-            }}
+
+            }
             />
             )}
 

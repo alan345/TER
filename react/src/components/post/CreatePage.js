@@ -3,9 +3,9 @@ import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
 import UploadFile from '../nav/UploadFile'
 import Autocomplete from './Autocomplete'
-import Paper from 'material-ui/Paper'
+import Paper from '@material-ui/core/Paper'
 import { graphql, compose } from 'react-apollo'
-import Button from 'material-ui/Button'
+import Button from '@material-ui/core/Button'
 
 
 class CreatePage extends React.Component {

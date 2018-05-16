@@ -2,7 +2,7 @@ import React from 'react'
 import {graphql} from 'react-apollo'
 import gql from 'graphql-tag'
 import NotAuth from '../nav/NotAuth'
-import Icon from 'material-ui/Icon'
+import Icon from '@material-ui/core/Icon'
 
 class UsersPageList extends React.Component {
   state = {

@@ -1,9 +1,13 @@
 import React, {Component} from 'react'
 import {withRouter} from 'react-router'
 import {Link} from 'react-router-dom'
-import { ListItem, ListItemIcon, ListItemText } from 'material-ui/List'
-import List from 'material-ui/List'
-import Icon from 'material-ui/Icon'
+import MenuList from '@material-ui/core/MenuList'
+import MenuItem from '@material-ui/core/MenuItem'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import ListItemText from '@material-ui/core/ListItemText'
+
+import List from '@material-ui/core/List'
+import Icon from '@material-ui/core/Icon'
 import { AUTH_TOKEN } from '../../constants/constants'
 
 
@@ -31,55 +35,55 @@ class ListSideBar extends Component {
         <List>
           <div>
             {this.props.isMobile() && (
-              <ListItem button>
+              <MenuItem>
                 <ListItemIcon>
                   <Icon>arrow_back</Icon>
                 </ListItemIcon>
-              </ListItem>
+              </MenuItem>
 
             )}
 
           <Link to='/' className='link'>
-            <ListItem button>
+            <MenuItem>
               <ListItemIcon>
                 <Icon>view_quilt</Icon>
               </ListItemIcon>
               <ListItemText primary='Blog' />
-            </ListItem>
+            </MenuItem>
             </Link>
             <Link to='/drafts' className='link'>
-              <ListItem button>
+              <MenuItem>
                 <ListItemIcon>
                   <Icon>mode_edit</Icon>
                 </ListItemIcon>
                 <ListItemText primary='Drafts' />
-              </ListItem>
+              </MenuItem>
             </Link>
             <Link to='/cars' className='link'>
-            <ListItem button>
+            <MenuItem>
               <ListItemIcon>
                 <Icon>directions_car</Icon>
               </ListItemIcon>
               <ListItemText primary='Cars' />
-            </ListItem>
+            </MenuItem>
             </Link>
             <Link to='/users' className='link'>
-            <ListItem button>
+            <MenuItem>
               <ListItemIcon>
                 <Icon>group</Icon>
               </ListItemIcon>
               <ListItemText primary='Users' />
-            </ListItem>
+            </MenuItem>
             </Link>
 
             {!authToken && (
             <Link to='/login' className='link'>
-            <ListItem button>
+            <MenuItem>
               <ListItemIcon>
                 <Icon>account_circle</Icon>
               </ListItemIcon>
               <ListItemText primary='Login' />
-            </ListItem>
+            </MenuItem>
             </Link>
           )}
 

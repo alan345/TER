@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
 import {withRouter} from 'react-router'
 import CarsPageList from './CarsPageList'
-import Button from 'material-ui/Button'
-import Paper from 'material-ui/Paper'
-import TextField from 'material-ui/TextField'
+import Button from '@material-ui/core/Button'
+import Paper from '@material-ui/core/Paper'
 import ArrowOrderBy from './ArrowOrderBy'
-import { InputAdornment } from 'material-ui/Input'
-import Icon from 'material-ui/Icon'
+import InputAdornment from '@material-ui/core/InputAdornment'
+import Input from '@material-ui/core/Input'
+import Icon from '@material-ui/core/Icon'
 import NotAuth from '../nav/NotAuth'
 import { AUTH_TOKEN } from '../../constants/constants'
 
@@ -34,13 +34,13 @@ class CarsPage extends Component {
       <React.Fragment>
       <div className='paperOut'>
         <Paper className='paperIn'>
-          <TextField
+          <Input
             onChange={e => this.setState({query: e.target.value})}
             value={this.state.query}
             type='text'
             label='Search'
-            InputProps={{
-              endAdornment: <InputAdornment position='end'>
+            endAdornment={
+              <InputAdornment position='end'>
               {this.state.query ? (
                 <Icon onClick={clearQuery}>clear</Icon>
               ) : (
@@ -50,8 +50,8 @@ class CarsPage extends Component {
                 orderBy={this.state.orderBy}
                 onOrderBy={(orderBy) => this.setState({ orderBy: orderBy })}
               />
-            </InputAdornment>,
-            }}
+              </InputAdornment>
+            }
             />
           {' '}
           <Button onClick={() => this.props.history.push('/car/create')} variant='raised' color='primary'>
@@ -69,7 +69,8 @@ class CarsPage extends Component {
           orderBy={this.state.orderBy}/>
         </Paper>
       </div>
-    </React.Fragment>)
+    </React.Fragment>
+  )
   }
 }
 

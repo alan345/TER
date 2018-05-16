@@ -2,7 +2,7 @@ import React from 'react'
 import Car from './Car'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
-import Icon from 'material-ui/Icon'
+import Icon from '@material-ui/core/Icon'
 import NotAuth from '../nav/NotAuth'
 
 class CarsPageList extends React.Component {

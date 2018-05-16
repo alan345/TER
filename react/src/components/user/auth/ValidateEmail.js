@@ -3,7 +3,7 @@ import { AUTH_TOKEN } from '../../../constants/constants'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 import SnackBarCustom from '../../nav/SnackBarCustom'
-import Paper from 'material-ui/Paper'
+import Paper from '@material-ui/core/Paper'
 
 const queryString = require('query-string')
 

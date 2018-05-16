@@ -3,8 +3,8 @@ import Post from './Post'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import { AUTH_TOKEN } from '../../constants/constants'
-import Paper from 'material-ui/Paper'
-import Button from 'material-ui/Button'
+import Paper from '@material-ui/core/Paper'
+import Button from '@material-ui/core/Button'
 
 
 class DraftsPage extends React.Component {

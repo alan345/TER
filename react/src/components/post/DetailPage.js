@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
 import ImageTemplate from '../nav/ImageTemplate'
 import { Link } from 'react-router-dom'
-import Paper from 'material-ui/Paper'
+import Paper from '@material-ui/core/Paper'
 import NotFound from '../nav/NotFound'
 
 

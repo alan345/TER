@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Snackbar from 'material-ui/Snackbar'
+import Snackbar from '@material-ui/core/Snackbar'
 
 class SnackBarCustom extends Component {
   state = {

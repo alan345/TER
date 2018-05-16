@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { AUTH_TOKEN } from '../../constants/constants'
-import Paper from 'material-ui/Paper'
-import Icon from 'material-ui/Icon'
+import Paper from '@material-ui/core/Paper'
+import Icon from '@material-ui/core/Icon'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
-import Button from 'material-ui/Button'
+import Button from '@material-ui/core/Button'
 import SnackBarCustom from './SnackBarCustom'
 
 

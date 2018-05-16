@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router'
-import TextField from 'material-ui/TextField'
+import TextField from '@material-ui/core/TextField'
 import CarsPageList from '../car/CarsPageList'
-import Chip from 'material-ui/Chip'
+import Chip from '@material-ui/core/Chip'
 
 class Autocomplete extends Component {
   state = {

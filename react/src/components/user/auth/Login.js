@@ -3,9 +3,9 @@ import { AUTH_TOKEN } from '../../../constants/constants'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 import SnackBarCustom from '../../nav/SnackBarCustom'
-import Paper from 'material-ui/Paper'
-import Button from 'material-ui/Button'
-import TextField from 'material-ui/TextField'
+import Paper from '@material-ui/core/Paper'
+import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField'
 import { withApollo } from 'react-apollo'
 
 class Login extends Component {

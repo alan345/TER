@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 import { withRouter } from 'react-router-dom'
-import Paper from 'material-ui/Paper'
+import Paper from '@material-ui/core/Paper'
 import NotFound from '../nav/NotFound'
 import { withApollo } from 'react-apollo'
 

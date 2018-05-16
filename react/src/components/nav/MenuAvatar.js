@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router'
-import Button from 'material-ui/Button'
+import Button from '@material-ui/core/Button';
 import ImageTemplate from '../nav/ImageTemplate'
-import Menu, { MenuItem } from 'material-ui/Menu'
+import Menu from '@material-ui/core/Menu'
+import MenuItem from '@material-ui/core/MenuItem'
 import { AUTH_TOKEN } from '../../constants/constants'
+
 
 
 

@@ -1,8 +1,8 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
-import Paper from 'material-ui/Paper'
-import Button from 'material-ui/Button'
+import Paper from '@material-ui/core/Paper'
+import Button from '@material-ui/core/Button'
 import { graphql, compose } from 'react-apollo'
 import { withApollo } from 'react-apollo'
 
