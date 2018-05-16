@@ -4,57 +4,25 @@ import { Link } from 'react-router-dom'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 import MenuAvatar from '../nav/MenuAvatar'
-
+import { withApollo } from 'react-apollo'
 
 class TopHello extends Component {
-  state = {
-    userToken: JSON.parse(localStorage.getItem('userToken'))
-  }
 
-  componentDidMount(){
-    // const authToken = localStorage.getItem(AUTH_TOKEN)
-    // if(authToken) {
-    //   // console.log(authToken)
-    //   // console.log(this.props.me)
-    //   this.props.me.refetch()
-    // }
-  }
-  componentWillReceiveProps(nextProps){
-    this.refresh()
-  }
-
-  refresh() {
-    const authToken = localStorage.getItem(AUTH_TOKEN)
-    if(authToken) {
-      if(!this.state.userToken) {
-        this.props.me.refetch()
-        .then(data=> {
-          console.log(data.data.me)
-          this.setState({userToken: data.data.me})
-        })
-      }
-    }
-  }
   render() {
-
     const authToken = localStorage.getItem(AUTH_TOKEN)
-    // const userToken = JSON.parse(localStorage.getItem('userToken'))
-    // console.log(this.props.me.me)
       return (
         <div>
         {authToken ? (
           <div>
-            {this.state.userToken ? (
-              <MenuAvatar user={this.state.userToken} nameFile={this.state.userToken.nameFile}/>
-            ) : (
-              <div onClick={()=>this.refresh()}>Refresh</div>
+            {this.props.me.me && (
+              <MenuAvatar user={this.props.me.me } nameFile={this.props.me.me.nameFile}/>
             )}
           </div>
         ) : (
           <div>
-            {this.state.userToken && (
+            {this.props.me.me  && (
               <div>
-              Hi {this.state.userToken.name}!
+              Hi {this.props.me.me.name}!
               </div>
             )}
           </div>
@@ -86,5 +54,6 @@ class TopHello extends Component {
 //   userToken = {id: ''}
 // }
 export default compose(
-  graphql(USER_QUERY, {name: 'me'})
+  graphql(USER_QUERY, {name: 'me'}),
+  withApollo
 )(TopHello)

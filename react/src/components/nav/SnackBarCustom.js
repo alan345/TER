@@ -40,9 +40,6 @@ class SnackBarCustom extends Component {
           open={this.state.openSnackBar}
           autoHideDuration={5000}
           onClose={this.handleClose}
-          SnackbarContentProps={{
-            'aria-describedby': 'message-id',
-          }}
           message={<span>{this.state.messageSnackBar}</span>}
         />
     </div>

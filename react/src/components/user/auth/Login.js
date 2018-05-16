@@ -74,6 +74,7 @@ class Login extends Component {
         const { token, user } = result.data.login
         this._saveUserData(token, user)
         this.props.history.push(`/`)
+        window.location.reload()
       })
       .catch((e) => {
         this.child._openSnackBar(e.graphQLErrors[0].message)

@@ -6,10 +6,10 @@ import Icon from 'material-ui/Icon'
 import NotAuth from '../nav/NotAuth'
 
 class CarsPageList extends React.Component {
-  //
-  // componentDidMount(data) {
-  //   this.props.carsQueryConnection.refetch()
-  // }
+  
+  componentDidMount(data) {
+    this.props.carsQueryConnection.refetch()
+  }
 
   render() {
 
