@@ -4,6 +4,7 @@ import gql from 'graphql-tag'
 import { withRouter } from 'react-router-dom'
 import Paper from 'material-ui/Paper'
 import NotFound from '../nav/NotFound'
+import { withApollo } from 'react-apollo'
 
 
 class DetailPage extends React.Component {
@@ -57,7 +58,9 @@ class DetailPage extends React.Component {
         id: id
       } },
     })
-    this.props.history.replace('/cars')
+    this.props.client.resetStore().then(data=> {
+      this.props.history.push('/cars')
+    })
   }
 
   publishDraft = async id => {
@@ -103,4 +106,5 @@ export default compose(
     name: 'deleteCar',
   }),
   withRouter,
+  withApollo
 )(DetailPage)

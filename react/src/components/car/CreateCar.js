@@ -4,7 +4,7 @@ import gql from 'graphql-tag'
 import Paper from 'material-ui/Paper'
 import Button from 'material-ui/Button'
 import { graphql, compose } from 'react-apollo'
-
+import { withApollo } from 'react-apollo'
 
 class CreateCar extends React.Component {
   state = {
@@ -56,7 +56,9 @@ class CreateCar extends React.Component {
     await this.props.createCarMutation({
       variables: {name} ,
     })
-    this.props.history.replace('/cars')
+    this.props.client.resetStore().then(data=> {
+      this.props.history.push('/cars')
+    })
   }
 }
 
@@ -71,5 +73,6 @@ const CREATE_DRAFT_MUTATION = gql`
 
 export default compose(
   graphql(CREATE_DRAFT_MUTATION, { name: 'createCarMutation' }),
-  withRouter
+  withRouter,
+  withApollo
 )(CreateCar)
