@@ -9,6 +9,8 @@ import Input from '@material-ui/core/Input'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import Icon from '@material-ui/core/Icon'
 import LinearProgress from '@material-ui/core/LinearProgress'
+import InputLabel from '@material-ui/core/InputLabel'
+import FormControl from '@material-ui/core/FormControl'
 var validator = require('email-validator')
 
 
@@ -102,35 +104,38 @@ class Signup extends Component {
 
           <br/>
             <div className='tac'>
-              <Input
-                value={this.state.name}
-                inputRef={node => this.input0 = node}
-                onChange={e => this.setState({ name: e.target.value })}
-                type='text'
-                className={'wrapperAnimate ' + (this.state.activeStep === 0 ? 'focusField' : 'notFocusField')}
-                label='Your name'
-                onKeyPress={this.handleKey}
-                endAdornment={
-                  <InputAdornment position='end'>
-                    {this.state.activeStep === 0 && (
-                      <Button onClick={this.handleNext} variant='fab' color='primary' mini>
-                        <Icon>navigate_next</Icon>
-                      </Button>
-                    )}
-                  </InputAdornment>
-                }
-              />
+              <FormControl className={'wrapperAnimate ' + (this.state.activeStep === 0 ? 'focusField' : 'notFocusField')}>
+                <InputLabel htmlFor='name'>Your name</InputLabel>
+                <Input
+                  id='name'
+                  value={this.state.name}
+                  inputRef={node => this.input0 = node}
+                  onChange={e => this.setState({ name: e.target.value })}
+                  type='text'
+                  onKeyPress={this.handleKey}
+                  endAdornment={
+                    <InputAdornment position='end'>
+                      {this.state.activeStep === 0 && (
+                        <Button onClick={this.handleNext} variant='fab' color='primary' mini>
+                          <Icon>navigate_next</Icon>
+                        </Button>
+                      )}
+                    </InputAdornment>
+                  }
+                />
+            </FormControl>
             <br/><br/>
             {this.state.activeStep >= 1 && (
+              <FormControl className={'wrapperAnimate ' + (this.state.activeStep === 1 ? 'focusField' : 'notFocusField')}>
+                <InputLabel htmlFor='email'>Your email address</InputLabel>
               <Input
+                id='email'
                 value={this.state.email}
                 error={!this.state.emailValidation}
                 onChange={this.onChange1.bind(this)}
-                label='Your email address'
                 type='text'
                 inputRef={node => this.input1 = node}
                 onKeyPress={this.handleKey}
-                className={'wrapperAnimate ' + (this.state.activeStep === 1 ? 'focusField' : 'notFocusField')}
                 endAdornment={
                   <InputAdornment position='end'>
                     {this.state.activeStep === 1 && (
@@ -141,14 +146,16 @@ class Signup extends Component {
                   </InputAdornment>
                 }
                 />
+              </FormControl>
             )}
             <br/><br/>
             {this.state.activeStep >= 2 && (
+              <FormControl className={'wrapperAnimate ' + (this.state.activeStep === 2 ? 'focusField' : 'notFocusField')}>
+                <InputLabel htmlFor='password'>Choose a safe password</InputLabel>
             <Input
+              id='password'
               value={this.state.password}
-              label='Choose a safe password'
               onChange={e => this.setState({ password: e.target.value })}
-              className={'wrapperAnimate ' + (this.state.activeStep === 2 ? 'focusField' : 'notFocusField')}
               type='password'
               inputRef={node => this.input2 = node}
               onKeyPress={this.handleKey}
@@ -162,6 +169,7 @@ class Signup extends Component {
                 </InputAdornment>
               }
             />
+          </FormControl>
             )}
           </div>
         </div>

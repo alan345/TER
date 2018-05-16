@@ -12,6 +12,10 @@ import Input from '@material-ui/core/Input'
 import Icon from '@material-ui/core/Icon'
 import LinearProgress from '@material-ui/core/LinearProgress'
 import IconButton from '@material-ui/core/IconButton'
+import FormControl from '@material-ui/core/FormControl'
+import InputLabel from '@material-ui/core/InputLabel'
+
+
 
 class ChangePassword extends Component {
   state = {
@@ -88,11 +92,13 @@ class ChangePassword extends Component {
 
                <br/>
                  <div className='tac'>
+                   <FormControl className={'wrapperAnimate ' + (this.state.activeStep === 0 ? 'focusField' : 'notFocusField')}>
+                     <InputLabel htmlFor='oldPassword'>Your actual password</InputLabel>
             <Input
+              id='oldPassword'
               value={this.state.oldPassword}
               onChange={e => this.setState({ oldPassword: e.target.value })}
               type={this.state.showPassword0 ? 'text' : 'password'}
-              label='Your actual password'
               inputRef={node => this.input0 = node}
               className={'wrapperAnimate ' + (this.state.activeStep === 0 ? 'focusField' : 'notFocusField')}
               onKeyPress={this.handleKey}
@@ -103,7 +109,9 @@ class ChangePassword extends Component {
                       <Icon>navigate_next</Icon>
                     </Button>
                   )}
-                </InputAdornment>,
+                </InputAdornment>
+              }
+              startAdornment={
                 <InputAdornment position='start'>
                   {this.state.activeStep === 0 && (
                     <IconButton onClick={()=>this.showPassword(0)}>
@@ -113,16 +121,27 @@ class ChangePassword extends Component {
                 </InputAdornment>
               }
             />
+            </FormControl>
             <br/><br/>
             {this.state.activeStep >= 1 && (
-            <TextField
+              <FormControl className={'wrapperAnimate ' + (this.state.activeStep === 1 ? 'focusField' : 'notFocusField')}>
+                <InputLabel htmlFor='newPassword'>Choose a safe password</InputLabel>
+            <Input
+              id='newPassword'
               value={this.state.newPassword}
               onChange={e => this.setState({ newPassword: e.target.value })}
               type={this.state.showPassword1 ? 'text' : 'password'}
-              label='Choose a safe password'
               inputRef={node => this.input1 = node}
               onKeyPress={this.handleKey}
-              className={'wrapperAnimate ' + (this.state.activeStep === 1 ? 'focusField' : 'notFocusField')}
+              startAdornment={
+                <InputAdornment position='start'>
+                  {this.state.activeStep === 1 && (
+                    <IconButton onClick={()=>this.showPassword(1)}>
+                      <Icon>{this.state.showPassword0 ? 'visibility_off' : 'visibility'}</Icon>
+                    </IconButton>
+                  )}
+                </InputAdornment>
+              }
               endAdornment={
                 <InputAdornment position='end'>
                   {this.state.activeStep === 1 && (
@@ -130,29 +149,32 @@ class ChangePassword extends Component {
                       <Icon>navigate_next</Icon>
                     </Button>
                   )}
-                </InputAdornment>,
-
-              <InputAdornment position='start'>
-                {this.state.activeStep === 1 && (
-                  <IconButton onClick={()=>this.showPassword(1)}>
-                    <Icon>{this.state.showPassword0 ? 'visibility_off' : 'visibility'}</Icon>
-                  </IconButton>
-                )}
-              </InputAdornment>
-
+                </InputAdornment>
             }
             />
+          </FormControl>
             )}
             <br/><br/>
             {this.state.activeStep >= 2 && (
-            <TextField
+              <FormControl className={'wrapperAnimate ' + (this.state.activeStep === 2 ? 'focusField' : 'notFocusField')}>
+                <InputLabel htmlFor='newPassword2'>Choose a safe password</InputLabel>
+            <Input
+              id='newPassword2'
               value={this.state.newPassword2}
               onChange={e => this.setState({ newPassword2: e.target.value })}
               type={this.state.showPassword2 ? 'text' : 'password'}
               label='Retype your safe password'
               inputRef={node => this.input2 = node}
-              className={'wrapperAnimate ' + (this.state.activeStep === 2 ? 'focusField' : 'notFocusField')}
               onKeyPress={this.handleKey}
+              startAdornment={
+                <InputAdornment position='start'>
+                  {this.state.activeStep === 2 && (
+                    <IconButton onClick={()=>this.showPassword(2)}>
+                      <Icon>{this.state.showPassword0 ? 'visibility_off' : 'visibility'}</Icon>
+                    </IconButton>
+                  )}
+                </InputAdornment>                
+              }
               endAdornment={
                 <InputAdornment position='end'>
                   {this.state.activeStep === 2 && (
@@ -161,17 +183,10 @@ class ChangePassword extends Component {
                     </Button>
                   )}
                 </InputAdornment>
-                ,
-              <InputAdornment position='start'>
-                {this.state.activeStep === 2 && (
-                  <IconButton onClick={()=>this.showPassword(2)}>
-                    <Icon>{this.state.showPassword0 ? 'visibility_off' : 'visibility'}</Icon>
-                  </IconButton>
-                )}
-              </InputAdornment>
 
             }
             />
+          </FormControl>
             )}
 
           </div>
