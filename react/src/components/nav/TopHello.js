@@ -7,11 +7,9 @@ import MenuAvatar from '../nav/MenuAvatar'
 
 
 class TopHello extends Component {
-  // state = {
-  //   userToken: {
-  //     id: ''
-  //   }
-  // }
+  state = {
+    userToken: JSON.parse(localStorage.getItem('userToken'))
+  }
 
   componentDidMount(){
     // const authToken = localStorage.getItem(AUTH_TOKEN)
@@ -22,32 +20,41 @@ class TopHello extends Component {
     // }
   }
   componentWillReceiveProps(nextProps){
-    console.log(nextProps)
+    this.refresh()
+  }
+
+  refresh() {
     const authToken = localStorage.getItem(AUTH_TOKEN)
     if(authToken) {
-      // console.log(authToken)
-      // console.log(this.props.me)
-      nextProps.me.refetch()
+      if(!this.state.userToken) {
+        this.props.me.refetch()
+        .then(data=> {
+          console.log(data.data.me)
+          this.setState({userToken: data.data.me})
+        })
+      }
     }
-    // console.log(authToken)
   }
   render() {
+
     const authToken = localStorage.getItem(AUTH_TOKEN)
-    const userToken = JSON.parse(localStorage.getItem('userToken'))
+    // const userToken = JSON.parse(localStorage.getItem('userToken'))
     // console.log(this.props.me.me)
       return (
         <div>
         {authToken ? (
           <div>
-            {this.props.me.me && (
-              <MenuAvatar user={this.props.me.me} nameFile={this.props.me.me.nameFile}/>
+            {this.state.userToken ? (
+              <MenuAvatar user={this.state.userToken} nameFile={this.state.userToken.nameFile}/>
+            ) : (
+              <div onClick={()=>this.refresh()}>Refresh</div>
             )}
           </div>
         ) : (
           <div>
-            {userToken && (
+            {this.state.userToken && (
               <div>
-              Hi {userToken.name}!
+              Hi {this.state.userToken.name}!
               </div>
             )}
           </div>
@@ -74,10 +81,10 @@ class TopHello extends Component {
     }
   `
 
-let userToken = JSON.parse(localStorage.getItem('userToken'))
-if(!userToken) {
-  userToken = {id: ''}
-}
+// let userToken = JSON.parse(localStorage.getItem('userToken'))
+// if(!userToken) {
+//   userToken = {id: ''}
+// }
 export default compose(
   graphql(USER_QUERY, {name: 'me'})
 )(TopHello)

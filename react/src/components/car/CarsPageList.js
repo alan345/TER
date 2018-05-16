@@ -6,10 +6,10 @@ import Icon from 'material-ui/Icon'
 import NotAuth from '../nav/NotAuth'
 
 class CarsPageList extends React.Component {
-
-  componentDidMount(data) {
-    this.props.carsQueryConnection.refetch()
-  }
+  //
+  // componentDidMount(data) {
+  //   this.props.carsQueryConnection.refetch()
+  // }
 
   render() {
 
@@ -19,7 +19,6 @@ class CarsPageList extends React.Component {
     }
 
     if (this.props.carsQueryConnection.loading) {
-      console.log('test')
       return (<div className='flex w-100 h-100 items-center justify-center pt7'>
         <div>Loading (from {process.env.REACT_APP_GRAPHQL_ENDPOINT})</div>
       </div>)
