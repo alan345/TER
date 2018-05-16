@@ -11,6 +11,8 @@ import Icon from '@material-ui/core/Icon'
 import LinearProgress from '@material-ui/core/LinearProgress'
 import InputLabel from '@material-ui/core/InputLabel'
 import FormControl from '@material-ui/core/FormControl'
+import { withApollo } from 'react-apollo'
+
 var validator = require('email-validator')
 
 
@@ -194,7 +196,7 @@ class Signup extends Component {
       .then((result) => {
         const { token, user } = result.data.signup
         this._saveUserData(token, user)
-        this.props.history.push(`/`)
+
       })
       .catch((e) => {
         this.child._openSnackBar(e.graphQLErrors[0].message)
@@ -205,6 +207,9 @@ class Signup extends Component {
   _saveUserData = (token, user) => {
     localStorage.setItem(AUTH_TOKEN, token)
     localStorage.setItem('userToken', JSON.stringify(user))
+    this.props.client.resetStore().then(data=> {
+      this.props.history.push(`/`)
+    })
   }
 }
 
@@ -223,6 +228,7 @@ const SIGNUP_MUTATION = gql`
 
 
 export default compose(
+  withApollo,
   graphql(SIGNUP_MUTATION, { name: 'signupMutation' }),
 
 )(Signup)
