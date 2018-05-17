@@ -33,8 +33,8 @@
 |![Login](https://j.gifs.com/wml6jg.gif)|![Link to validate email](https://j.gifs.com/PZ8V2z.gif)|
 |Create Draft with connected object (car & user)| Update Password in app|
 |![connected object](https://j.gifs.com/VP9G0o.gif)|![connected object](https://j.gifs.com/860QVr.gif)|
-|Signup with key 'Enter' to change field| |
-|![connected object](https://j.gifs.com/W7X5rn.gif)||
+|Signup with key 'Enter' to change field| Chat |
+|![connected object](https://j.gifs.com/W7X5rn.gif)|![Chat](https://j.gifs.com/PZV19W.gif)|
 
 
 

@@ -26,9 +26,7 @@ async function drafts(parent, args, ctx, info) {
 
 
 
-async function post(parent, {
-  id
-}, ctx, info) {
+async function post (parent, {id}, ctx, info) {
   const userId = getUserId(ctx)
   const requestingUserIsAuthor = await ctx.db.exists.Post({
     id,

@@ -2,19 +2,14 @@ import React, {Component} from 'react'
 import {withRouter} from 'react-router'
 import ChatsPageList from './ChatsPageList'
 import CreateChat from './CreateChat'
-import Button from '@material-ui/core/Button'
 import Paper from '@material-ui/core/Paper'
-
-import InputAdornment from '@material-ui/core/InputAdornment'
-import Input from '@material-ui/core/Input'
-import Icon from '@material-ui/core/Icon'
 import NotAuth from '../nav/NotAuth'
 import { AUTH_TOKEN } from '../../constants/constants'
 
 class ChatsPage extends Component {
   state = {
     query: '',
-    orderBy: 'message_ASC'
+    orderBy: 'createdAt_ASC'
   }
 
   elemClicked(elem) {
@@ -22,11 +17,6 @@ class ChatsPage extends Component {
   }
 
   render() {
-    const clearQuery = () => {
-      this.setState({
-        query : ''
-      })
-    }
     const authToken = localStorage.getItem(AUTH_TOKEN)
     if(!authToken) {
       return (<NotAuth/>)

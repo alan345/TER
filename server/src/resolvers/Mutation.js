@@ -43,6 +43,15 @@ async function createPost (parent, args, ctx, info) {
   }
   return forwardTo('db')(parent, args, ctx, info)
 }
+async function createChat (parent, args, ctx, info) {
+  const userId = getUserId(ctx)
+  args.data.author = {
+    connect: {
+      id: userId
+    }
+  }
+  return forwardTo('db')(parent, args, ctx, info)
+}
 
 async function deletePost (parent, { id }, ctx, info) {
   const userId = getUserId(ctx)
@@ -79,8 +88,8 @@ const Mutation = {
     return forwardTo('db')(parent, args, ctx, info)
   },
   publish,
-  createChat: forwardTo('db'),
   createCar: forwardTo('db'),
+  createChat,
   deleteCar: forwardTo('db'),
   updateCar: forwardTo('db'),
   createPost

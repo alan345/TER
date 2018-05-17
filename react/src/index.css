@@ -18,6 +18,10 @@ input {
   height: 40px!important;
 }
 
+.containerFlex{
+    display: flex;
+}
+
 
 
 *,

@@ -68,6 +68,14 @@ class ListSideBar extends Component {
               <ListItemText primary='Users'/>
             </MenuItem>
           </Link>
+          <Link to='/chats' className='link'>
+            <MenuItem>
+              <ListItemIcon>
+                <Icon>chat</Icon>
+              </ListItemIcon>
+              <ListItemText primary='Chats'/>
+            </MenuItem>
+          </Link>
 
           {
             !authToken && (<Link to='/login' className='link'>

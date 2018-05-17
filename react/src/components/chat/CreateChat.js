@@ -5,6 +5,9 @@ import Paper from '@material-ui/core/Paper'
 import Button from '@material-ui/core/Button'
 import { graphql, compose } from 'react-apollo'
 import { withApollo } from 'react-apollo'
+import FormControl from '@material-ui/core/FormControl'
+import InputLabel from '@material-ui/core/InputLabel'
+import Input from '@material-ui/core/Input'
 
 class CreateChat extends React.Component {
   state = {
@@ -17,14 +20,15 @@ class CreateChat extends React.Component {
       <div className='paperOut'>
         <Paper className='paperIn'>
         <form onSubmit={this.handleChat}>
-          <input
-            autoFocus
-            className='w-100 pa2 mv2 br2 b--black-20 bw1'
+          <FormControl>
+            <InputLabel htmlFor='message'>SEND</InputLabel>
+          <Input
+            id='message'
+            autoComplete='off'
             onChange={e => this.setState({ message: e.target.value })}
-            placeholder='Name'
-            type='text'
-            value={this.state.name}
+            value={this.state.message}
           />
+        </FormControl>
 
 
           <Button
@@ -51,6 +55,7 @@ class CreateChat extends React.Component {
     await this.props.createChatMutation({
       variables: {message} ,
     })
+    this.setState({message: ''})
     // this.props.client.resetStore().then(data=> {
     //   this.props.history.push('/chats')
     // })

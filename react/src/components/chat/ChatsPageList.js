@@ -2,108 +2,82 @@ import React from 'react'
 import Chat from './Chat'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
-import Icon from '@material-ui/core/Icon'
 import NotAuth from '../nav/NotAuth'
 
+
+
 class ChatsPageList extends React.Component {
-  state = {
-    chats : []
-  }
-  componentDidMount(data) {
 
-    // this.props.chatsQueryConnection.refetch()
-  }
-  componentWillReceiveProps(nextProps) {
-    // console.log(nextProps)
-    if(nextProps) {
-      console.log(nextProps.chatSubscription.chat.node)
-      this.setState({
-        chats: [...this.state.chats, nextProps.chatSubscription.chat.node]
-      })
-    }
+  componentDidMount() {
+    this.props.chatsQueryConnection.subscribeToMore({
+      document: CHAT_SUBSCRIPTION,
+      updateQuery: (prev, { subscriptionData }) => {
+        if (!subscriptionData) {
+          return prev
+        }
+        return Object.assign({}, prev, {
+          chatsConnection: {
+            __typename: 'ChatConnection',
+            edges: [...prev.chatsConnection.edges, subscriptionData.data.chat]
+          }
+        })
+      }
+    })
   }
 
+  componentDidUpdate() {
+    this.scrollToBottom()
+  }
+  scrollToBottom = () => {
+    this.messagesEnd.scrollIntoView({ behavior: 'smooth' })
+  }
   render() {
 
+    if (this.props.chatsQueryConnection.error) {
+      return (<NotAuth/>)
+    }
 
-    // if (this.props.chatsQueryConnection.error) {
-    //   return (<NotAuth/>)
-    // }
-
-    // if (this.props.chatSubscription.loading) {
-    //   return (<div className='flex w-100 h-100 items-center justify-center pt7'>
-    //     <div>Loading (from {process.env.REACT_APP_GRAPHQL_ENDPOINT})</div>
-    //   </div>)
-    // }
-    // const {edges, aggregate} = this.props.chatsQueryConnection.chatsConnection
+    if (this.props.chatsQueryConnection.loading) {
+      return (<div className='flex w-100 h-100 items-center justify-center pt7'>
+        <div>Loading (from {process.env.REACT_APP_GRAPHQL_ENDPOINT})</div>
+      </div>)
+    }
 
 
     if(!this.props.query && !this.props.showWhenQueryEmpty) {
       return null
     }
+    const {edges} = this.props.chatsQueryConnection.chatsConnection
 
-    console.log(this.state.chats)
     return (
       <React.Fragment>
 
+        <div style={{  height:'170px', overflow: 'scroll' }} className='listChats' >
 
-          
-          {this.state.chats && this.state.chats.map(chat => (
-            <Chat key={chat.id} chat={chat}/>
+          {edges && edges.map(chat => (
+            <Chat key={chat.node.id} chat={chat.node}/>
           ))}
-
-
+          <div ref={(el) => { this.messagesEnd = el }}></div>
+        </div>
     </React.Fragment>
-  )
-  }
-
-  loadMore() {
-    const {chatsQueryConnection} = this.props
-    if (!chatsQueryConnection.chatsConnection.pageInfo.hasNextPage) {
-      return
-    }
-    chatsQueryConnection.fetchMore({
-      variables: {
-        after: chatsQueryConnection.chatsConnection.pageInfo.endCursor
-      },
-
-      updateQuery: (previousResult, {fetchMoreResult}) => {
-        if (!fetchMoreResult) {
-          return previousResult
-        }
-        return {
-          chatsConnection: {
-            __typename: 'ChatConnection',
-            aggregate: fetchMoreResult.chatsConnection.aggregate,
-            pageInfo: fetchMoreResult.chatsConnection.pageInfo,
-            edges: [
-              ...previousResult.chatsConnection.edges,
-              ...fetchMoreResult.chatsConnection.edges
-            ]
-          }
-        }
-      }
-    })
-  }
-
+  )}
 }
 
 const DRAFTS_QUERY = gql `
   query ChatsQueryConnection($after: String, $orderBy: ChatOrderByInput, $where: ChatWhereInput, $skip: Int) {
-    chatsConnection(after: $after, orderBy: $orderBy, where: $where, first: 5, skip: $skip) {
-      pageInfo {
-        hasNextPage
-        endCursor
-      }
+    chatsConnection(after: $after, orderBy: $orderBy, where: $where, last: 5, skip: $skip) {
+
       edges {
         node {
           id
           message
+          author {
+            name
+            nameFile
+          }
         }
       }
-      aggregate {
-        count
-      }
+
     }
   }
 `
@@ -114,6 +88,10 @@ subscription {
     node {
       id
       message
+      author {
+        name
+        nameFile
+      }
     }
   }
 }
@@ -122,15 +100,12 @@ subscription {
 
 
 export default compose(
-  graphql(CHAT_SUBSCRIPTION, {
-    name: 'chatSubscription',
+  graphql(DRAFTS_QUERY, {
+    name: 'chatsQueryConnection',
     fetchPolicy: 'network-only',
     options: props => ({
       variables: {
         orderBy: props.orderBy,
-        // where: {
-        //   message_contains: props.query
-        // }
       }
     })
   })
