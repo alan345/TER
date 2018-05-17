@@ -7,13 +7,9 @@ import NotAuth from '../nav/NotAuth'
 import { AUTH_TOKEN } from '../../constants/constants'
 import Icon from '@material-ui/core/Icon'
 import Paper from '@material-ui/core/Paper'
-import Select from '@material-ui/core/Select'
-import MenuItem from '@material-ui/core/Menu'
 import NotFound from '../nav/NotFound'
 import Tooltip from '@material-ui/core/Tooltip'
 import UploadFile from '../nav/UploadFile'
-import FormControl from '@material-ui/core/FormControl'
-import InputLabel from '@material-ui/core/InputLabel'
 
 
 class UserPage extends React.Component {
@@ -43,13 +39,7 @@ class UserPage extends React.Component {
     }
   }
 
-  handleOpen = () => {
-    this.setState({ open: true });
-  };
 
-  handleClose = () => {
-    this.setState({ open: false });
-  };
 
   render() {
     if (this.props.userQuery.error) {
@@ -114,7 +104,7 @@ class UserPage extends React.Component {
 
                   value={this.state.user.role}
                   onChange={e => this.setState({ user:{ ...this.state.user, role: e.target.value} })}
-        
+
                   >
                   <option value='CUSTOMER'>CUSTOMER</option>
                   <option value='ADMIN'>ADMIN</option>
