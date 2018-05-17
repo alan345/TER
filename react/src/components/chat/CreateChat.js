@@ -21,14 +21,14 @@ class CreateChat extends React.Component {
         <Paper className='paperIn'>
         <form onSubmit={this.handleChat}>
           <FormControl>
-            <InputLabel htmlFor='message'>SEND</InputLabel>
-          <Input
-            id='message'
-            autoComplete='off'
-            onChange={e => this.setState({ message: e.target.value })}
-            value={this.state.message}
-          />
-        </FormControl>
+            <InputLabel htmlFor='message'>Message</InputLabel>
+            <Input
+              id='message'
+              autoComplete='off'
+              onChange={e => this.setState({ message: e.target.value })}
+              value={this.state.message}
+            />
+          </FormControl>
 
 
           <Button
@@ -36,7 +36,7 @@ class CreateChat extends React.Component {
             disabled={!this.state.message}
             type='submit'
             variant='raised' color='primary'>
-            Create
+            Send
           </Button>
         </form>
       </Paper>

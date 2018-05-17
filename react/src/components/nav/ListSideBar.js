@@ -73,7 +73,7 @@ class ListSideBar extends Component {
               <ListItemIcon>
                 <Icon>chat</Icon>
               </ListItemIcon>
-              <ListItemText primary='Chats'/>
+              <ListItemText primary='Chat'/>
             </MenuItem>
           </Link>
 
