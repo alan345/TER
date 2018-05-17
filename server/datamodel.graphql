@@ -17,7 +17,7 @@ type Post {
 type Chat {
   id: ID! @unique
   message: String!
-  author: User!
+  author: User
 }
 
 

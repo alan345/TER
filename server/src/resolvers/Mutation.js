@@ -79,6 +79,7 @@ const Mutation = {
     return forwardTo('db')(parent, args, ctx, info)
   },
   publish,
+  createChat: forwardTo('db'),
   createCar: forwardTo('db'),
   deleteCar: forwardTo('db'),
   updateCar: forwardTo('db'),

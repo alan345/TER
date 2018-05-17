@@ -57,6 +57,7 @@ const Query = {
   drafts,
   post,
   cars: forwardTo('db'),
+  chatsConnection: forwardTo('db'),
   car: forwardTo('db'),
   carsConnection: (parent, args, ctx, info) => {
     getUserId(ctx)

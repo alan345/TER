@@ -1,5 +1,5 @@
 # source: http://localhost:4466/my-app/dev
-# timestamp: Wed May 16 2018 18:56:20 GMT-0700 (PDT)
+# timestamp: Wed May 16 2018 19:14:18 GMT-0700 (PDT)
 
 type AggregateCar {
   count: Int!
@@ -236,7 +236,7 @@ input CarWhereUniqueInput {
 type Chat implements Node {
   id: ID!
   message: String!
-  author(where: UserWhereInput): User!
+  author(where: UserWhereInput): User
 }
 
 """A connection to a list of items."""
@@ -251,7 +251,7 @@ type ChatConnection {
 
 input ChatCreateInput {
   message: String!
-  author: UserCreateOneInput!
+  author: UserCreateOneInput
 }
 
 """An edge in a connection."""
@@ -1029,6 +1029,7 @@ input UserUpdateInput {
 input UserUpdateOneInput {
   create: UserCreateInput
   connect: UserWhereUniqueInput
+  disconnect: Boolean
   delete: Boolean
   update: UserUpdateDataInput
   upsert: UserUpsertNestedInput

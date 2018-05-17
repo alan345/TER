@@ -14,6 +14,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 import FeedPage from './components/post/FeedPage'
 import DraftsPage from './components/post/DraftsPage'
 import CarsPage from './components/car/CarsPage'
+import ChatsPage from './components/chat/ChatsPage'
 import CreateCar from './components/car/CreateCar'
 import CreatePage from './components/post/CreatePage'
 import DetailPage from './components/post/DetailPage'
@@ -33,7 +34,16 @@ import EmailValidated from './components/nav/EmailValidated'
 import Header from './components/nav/Header'
 import NotFound from './components/nav/NotFound'
 import SideBar from './components/nav/SideBar'
+import { split } from 'apollo-link'
+import { WebSocketLink } from 'apollo-link-ws'
+import { getMainDefinition } from 'apollo-utilities'
 
+const wsLink = new WebSocketLink({
+  uri: 'ws://localhost:4000/',
+  options: {
+    reconnect: true
+  }
+})
 const httpLink = new HttpLink({ uri: 'http://localhost:4000' })
 // const httpLink = new HttpLink({ uri: 'https://eu1.prisma.sh/alan-223747/demo/dev' })
 
@@ -55,8 +65,18 @@ const middlewareAuthLink = new ApolloLink((operation, forward) => {
 const httpLinkWithAuthToken = middlewareAuthLink.concat(httpLink)
 
 
+const link = split(
+  // split based on operation type
+  ({ query }) => {
+    const { kind, operation } = getMainDefinition(query);
+    return kind === 'OperationDefinition' && operation === 'subscription';
+  },
+  wsLink,
+  httpLinkWithAuthToken,
+);
+
 const client = new ApolloClient({
-  link: httpLinkWithAuthToken,
+  link,
   cache: new InMemoryCache(),
 })
 
@@ -80,6 +100,7 @@ ReactDOM.render(
               <Route path='/car/:id' component={DetailCar} />
               <Route path='/drafts' component={DraftsPage} />
               <Route path='/cars' component={CarsPage} />
+              <Route path='/chats' component={ChatsPage} />
               <Route path='/users' component={UsersPage} />
               <Route path='/user/:id' component={UserPage} />
               <Route path='/create' component={CreatePage} />

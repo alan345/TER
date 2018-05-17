@@ -1,4 +1,4 @@
-# import Mutation.createPost, Query.carsConnection, Query.usersConnection, Query.car, Mutation.deleteCar, Query.user, Mutation.updateUser from "./generated/prisma.graphql"
+# import Mutation.createPost, Mutation.createChat, Query.chatsConnection, Query.chat, Query.carsConnection, Query.usersConnection, Query.car, Mutation.deleteCar, Query.user, Mutation.updateUser from "./generated/prisma.graphql"
 # import Car, CarCreateInput, CarWhereInput, CarOrderByInput from "./generated/prisma.graphql"
 # import Post, Subscription.chat from "./generated/prisma.graphql"
 
