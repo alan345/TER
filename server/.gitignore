@@ -7,5 +7,6 @@ node_modules
 *.log
 
 
+
 # config
-/server/src/config/config.js
+/src/config/config.js
