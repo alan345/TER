@@ -1,5 +1,5 @@
 # source: http://localhost:4466/my-app/dev
-# timestamp: Wed May 16 2018 19:14:18 GMT-0700 (PDT)
+# timestamp: Fri May 18 2018 13:28:18 GMT-0700 (PDT)
 
 type AggregateCar {
   count: Int!
@@ -235,6 +235,8 @@ input CarWhereUniqueInput {
 
 type Chat implements Node {
   id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
   message: String!
   author(where: UserWhereInput): User
 }
@@ -266,16 +268,18 @@ type ChatEdge {
 enum ChatOrderByInput {
   id_ASC
   id_DESC
-  message_ASC
-  message_DESC
-  updatedAt_ASC
-  updatedAt_DESC
   createdAt_ASC
   createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  message_ASC
+  message_DESC
 }
 
 type ChatPreviousValues {
   id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
   message: String!
 }
 
@@ -372,6 +376,50 @@ input ChatWhereInput {
 
   """All values not ending with the given string."""
   id_not_ends_with: ID
+  createdAt: DateTime
+
+  """All values that are not equal to given value."""
+  createdAt_not: DateTime
+
+  """All values that are contained in given list."""
+  createdAt_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  createdAt_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  createdAt_lt: DateTime
+
+  """All values less than or equal the given value."""
+  createdAt_lte: DateTime
+
+  """All values greater than the given value."""
+  createdAt_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+
+  """All values that are not equal to given value."""
+  updatedAt_not: DateTime
+
+  """All values that are contained in given list."""
+  updatedAt_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  updatedAt_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  updatedAt_lt: DateTime
+
+  """All values less than or equal the given value."""
+  updatedAt_lte: DateTime
+
+  """All values greater than the given value."""
+  updatedAt_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  updatedAt_gte: DateTime
   message: String
 
   """All values that are not equal to given value."""

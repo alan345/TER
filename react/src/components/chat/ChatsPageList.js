@@ -74,6 +74,7 @@ const CHATS_QUERY = gql `
         node {
           id
           message
+          createdAt
           author {
             name
             nameFile
@@ -91,6 +92,7 @@ const CHAT_SUBSCRIPTION = gql `
       node {
         id
         message
+        createdAt
         author {
           name
           nameFile
