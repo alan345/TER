@@ -68,12 +68,12 @@ const httpLinkWithAuthToken = middlewareAuthLink.concat(httpLink)
 const link = split(
   // split based on operation type
   ({ query }) => {
-    const { kind, operation } = getMainDefinition(query);
-    return kind === 'OperationDefinition' && operation === 'subscription';
+    const { kind, operation } = getMainDefinition(query)
+    return kind === 'OperationDefinition' && operation === 'subscription'
   },
   wsLink,
   httpLinkWithAuthToken,
-);
+)
 
 const client = new ApolloClient({
   link,

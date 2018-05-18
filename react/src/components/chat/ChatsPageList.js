@@ -87,7 +87,7 @@ const CHATS_QUERY = gql `
 
 const CHAT_SUBSCRIPTION = gql `
   subscription {
-    chat(where:{mutation_in: CREATED}) {
+    chat(where:{mutation_in: [CREATED]}) {
       node {
         id
         message
