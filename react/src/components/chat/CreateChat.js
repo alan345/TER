@@ -8,6 +8,9 @@ import { withApollo } from 'react-apollo'
 import FormControl from '@material-ui/core/FormControl'
 import InputLabel from '@material-ui/core/InputLabel'
 import Input from '@material-ui/core/Input'
+import InputAdornment from '@material-ui/core/InputAdornment'
+import Icon from '@material-ui/core/Icon'
+
 
 class CreateChat extends React.Component {
   state = {
@@ -19,27 +22,29 @@ class CreateChat extends React.Component {
     return (
       <div className='paperOut'>
         <Paper className='paperIn'>
-        <form onSubmit={this.handleChat}>
-          <FormControl>
-            <InputLabel htmlFor='message'>Message</InputLabel>
-            <Input
-              id='message'
-              autoComplete='off'
-              onChange={e => this.setState({ message: e.target.value })}
-              value={this.state.message}
-            />
-          </FormControl>
-
-
-          <Button
-            className={`pa3 bg-black-10 bn`}
-            disabled={!this.state.message}
-            type='submit'
-            variant='raised' color='primary'>
-            Send
-          </Button>
-        </form>
-      </Paper>
+          <form onSubmit={this.handleChat}>
+            <FormControl className='width100Perc'>
+              <InputLabel htmlFor='message'>Message</InputLabel>
+              <Input
+                id='message'
+                autoComplete='off'
+                onChange={e => this.setState({ message: e.target.value })}
+                value={this.state.message}
+                endAdornment={
+                  <InputAdornment position='end'>
+                      <Button
+                        onClick={this.handleNext}
+                        disabled={!this.state.message}
+                        type='submit'
+                        variant='fab' color='primary' mini>
+                        <Icon>navigate_next</Icon>
+                      </Button>
+                  </InputAdornment>
+                }
+              />
+            </FormControl>
+          </form>
+        </Paper>
       </div>
     )
   }
