@@ -85,20 +85,11 @@ Go to url: http://localhost:3000
 
 For a fully-fledged **React & Apollo tutorial**, visit [How to GraphQL](https://www.howtographql.com/react-apollo/0-introduction/). You can more learn about the idea behind GraphQL boilerplates [here](https://blog.graph.cool/graphql-boilerplates-graphql-create-how-to-setup-a-graphql-project-6428be2f3a5).
 
-## Requirements
 
-You need to have the [GraphQL CLI](https://github.com/graphql-cli/graphql-cli) installed to bootstrap your GraphQL server using `graphql create`:
-
-```sh
-npm install -g graphql-cli
-```
-
-
-More details in the tuto: https://github.com/graphcool/prisma/tree/master/examples/auth
 
 ## Documentation
 
-### Commands
+### useful Commands
 
 
 * `prisma local nuke`
@@ -121,22 +112,21 @@ More details in the tuto: https://github.com/graphcool/prisma/tree/master/exampl
 
 
 
+## Made with..
+
+Frontend:
+* User interfaces: React https://reactjs.org/
+* Design: material-ui-next https://material-ui-next.com/
+* GraphQL tool: Apollo Client https://www.apollographql.com/
+
+Backend:
+* Server JS: ExpressJs http://expressjs.com/fr/
+* Server GraphQL: Prisma https://www.prisma.io/
+* Database: MySQL: https://www.mysql.com/
+* Send email: nodemailer https://nodemailer.com/
+
 
 # Contributing
 
 
 Your feedback is **very helpful**, please share your opinion and thoughts! If you have any questions or want to contribute yourself, don't hesitate!
-
-## To do
-
-* ✓Implement materials https://material-ui-next.com/
-* ✓Send emails: Welcome emails
-* ✓Send emails: Forget Password
-* ✓Send emails: validate Email
-* ✓change/Reset password. send email confirmation
-* ✓Organize logo image in readMe
-* ✓Create  Screenshots GIFS. Mobile friendly / auth / Post
-* Implement Apollo Client 2.0
-* Write medium post
-* Upload all filetypes. A logo of a file will appear instead of picture
-* Use File Handling instead of express to upload file: https://github.com/graphcool/prisma/tree/master/examples/file-handling-s3
