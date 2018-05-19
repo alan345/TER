@@ -51,8 +51,10 @@
 
 3/ In folder `/server`, run:
 ```sh
-`docker-compose up -d` init app
-`prisma deploy` Deploy app
+#init app
+docker-compose up -d
+#Deploy app
+prisma deploy
 ```
 
 4/ In 3 different terminals:
