@@ -53,6 +53,8 @@
 ```sh
 #init app
 docker-compose up -d
+
+
 #Deploy app
 prisma deploy
 ```
