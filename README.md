@@ -43,10 +43,12 @@
 
 
 ## Getting started
-1/ Install docker and Prisma cli. (https://www.prisma.io/docs/quickstart/)
-
-
-2/ In 3 different terminals:
+1/ In folder `/server/src/config` rename file `config_example.js` to `config.js` and add your own settings
+2/ Install docker and Prisma cli. (https://www.prisma.io/docs/quickstart/)
+3/ In folder `/server`, run:
+* `docker-compose up -d` init app
+* `prisma deploy` Deploy app
+4/ In 3 different terminals:
 
 
 ```sh
@@ -91,8 +93,6 @@ For a fully-fledged **React & Apollo tutorial**, visit [How to GraphQL](https://
 
 ### useful Commands
 
-
-* `prisma local nuke`
 * `prisma reset`
 * `docker container ls` list container
 * `docker stop database_prisma_1` stop container
@@ -122,7 +122,7 @@ Frontend:
 Backend:
 * Server JS: ExpressJs http://expressjs.com/fr/
 * Server GraphQL: Prisma https://www.prisma.io/
-* Database: MySQL: https://www.mysql.com/
+* Database MySQL: https://www.mysql.com/
 * Send email: nodemailer https://nodemailer.com/
 
 
