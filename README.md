@@ -45,11 +45,15 @@
 ## Getting started
 1/ In folder `/server/src/config` rename file `config_example.js` to `config.js` and add your own settings
 
+
 2/ Install docker and Prisma cli. (https://www.prisma.io/docs/quickstart/)
 
+
 3/ In folder `/server`, run:
-* `docker-compose up -d` init app
-* `prisma deploy` Deploy app
+```sh
+`docker-compose up -d` init app
+`prisma deploy` Deploy app
+```
 
 4/ In 3 different terminals:
 
