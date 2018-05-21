@@ -3,6 +3,7 @@ import { AUTH_TOKEN } from '../../../constants/constants'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 import SnackBarCustom from '../../nav/SnackBarCustom'
+import Password from './Password'
 import Paper from '@material-ui/core/Paper'
 import Button from '@material-ui/core/Button'
 import Input from '@material-ui/core/Input'
@@ -12,7 +13,6 @@ import LinearProgress from '@material-ui/core/LinearProgress'
 import InputLabel from '@material-ui/core/InputLabel'
 import FormControl from '@material-ui/core/FormControl'
 import { withApollo } from 'react-apollo'
-import FormHelperText from '@material-ui/core/FormHelperText'
 
 var validator = require('email-validator')
 
@@ -22,44 +22,45 @@ class Signup extends Component {
     email: '',
     emailValidation: true,
     inputValidation2: true,
-    isPasswordLongEnough: true,
-    hasLowerCase: true,
     password: '',
     name: '',
     nameFile: '',
     activeStep: 0,
     maxStep: 3,
-    passwordMinimumLength: 10
+    // isPasswordLongEnough: true,
+    // hasLowerCase: true,
+    // isPasswordActiveStep: false,
+    // passwordMinimumLength: 10
   }
   onChange2(e){
 
     this.setState({
       password: e.target.value,
-      hasLowerCase: this.hasLowerCase(e.target.value),
-      isPasswordLongEnough: this.isPasswordLongEnough(e.target.value)
+      // hasLowerCase: this.hasLowerCase(e.target.value),
+      // isPasswordLongEnough: this.isPasswordLongEnough(e.target.value)
     })
-    if(this.state.hasLowerCase && this.state.isPasswordLongEnough) {
-      this.setState({inputValidation2: true})
-    } else {
-      this.setState({inputValidation2: false})
-    }
+    // if(this.state.hasLowerCase && this.state.isPasswordLongEnough) {
+    //   this.setState({inputValidation2: true})
+    // } else {
+    //   this.setState({inputValidation2: false})
+    // }
   }
 
-  hasLowerCase(str) {
-     if(str.toUpperCase() !== str) {
-       return true
-     }
-     return false
-  }
+  // hasLowerCase(str) {
+  //    if(str.toUpperCase() !== str) {
+  //      return true
+  //    }
+  //    return false
+  // }
 
-  isPasswordLongEnough(password) {
-    if(password.length > this.state.passwordMinimumLength) {
-      this.setState({isPasswordLongEnough: true})
-      return true
-    }
-    this.setState({isPasswordLongEnough: false})
-    return false
-  }
+  // isPasswordLongEnough(password) {
+  //   if(password.length > this.state.passwordMinimumLength) {
+  //     this.setState({isPasswordLongEnough: true})
+  //     return true
+  //   }
+  //   this.setState({isPasswordLongEnough: false})
+  //   return false
+  // }
   onChange1(e){
     this.setState({ email: e.target.value })
     if (this.validateEmail(e.target.value )) {
@@ -101,7 +102,8 @@ class Signup extends Component {
           this.setState({
             activeStep: this.state.activeStep + 1,
           }, () => {
-            this.input2.focus()
+            // this.input2.focus()
+            this.setState({isPasswordActiveStep:true})
           })
         }
       }
@@ -183,33 +185,10 @@ class Signup extends Component {
             )}
             <br/><br/>
             {this.state.activeStep >= 2 && (
-              <FormControl className={'wrapperAnimate ' + (this.state.activeStep === 2 ? 'focusField' : 'notFocusField')}>
-                <InputLabel htmlFor='password'>Choose a safe password</InputLabel>
-                <Input
-                  id='password'
-                  value={this.state.password}
-                  error={!this.state.inputValidation2}
-                  onChange={this.onChange2.bind(this)}
-                  type='password'
-                  inputRef={node => this.input2 = node}
-                  onKeyPress={this.handleKey}
-                  endAdornment={
-                    <InputAdornment position='end'>
-                      {this.state.activeStep === 2 && (
-                        <Button onClick={this.handleNext} variant='fab' color='primary' mini>
-                          <Icon>done</Icon>
-                        </Button>
-                      )}
-                    </InputAdornment>
-                  }
-                />
-              {!this.state.isPasswordLongEnough && (
-                <FormHelperText>At least {this.state.passwordMinimumLength} characters long.</FormHelperText>
-              )}
-              {!this.state.hasLowerCase && (
-                <FormHelperText>At least a lower case.</FormHelperText>
-              )}
-          </FormControl>
+              <Password
+                handleNext={this.handleNext.bind(this)}
+                activeStep={this.state.isPasswordActiveStep}
+                onChange2={this.onChange2.bind(this)}/>
             )}
           </div>
         </div>
