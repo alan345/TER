@@ -11,8 +11,7 @@
     "graphql-yoga": "1.13.1",
     "jsonwebtoken": "8.2.1",
     "nodemailer": "4.6.4",
-    "prisma-binding": "2.0.0",
-    "uniqid": "4.1.1"
+    "prisma-binding": "2.0.0"
   },
   "devDependencies": {
     "dotenv-cli": "1.4.0",

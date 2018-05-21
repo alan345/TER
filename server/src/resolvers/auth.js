@@ -2,8 +2,7 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const { Context, getUserId, APP_SECRET } = require('../utils')
 var emailGenerator = require('../emailGenerator.js');
-var uniqid = require('uniqid');
-
+const crypto = require('crypto')
 
 // resolve the `AuthPayload` type
 const AuthPayload = {
@@ -21,9 +20,11 @@ async function me (parent, args, ctx, info) {
 // register a new user
 async function signup (parent, args, ctx, info) {
   const password = await bcrypt.hash(args.password, 10)
+  const buf1 = crypto.randomBytes(64)
+  const buf2 = crypto.randomBytes(64)
   const role = args.admin ? 'ADMIN' : 'CUSTOMER'
-  const resetPasswordToken = uniqid()
-  const validateEmailToken = uniqid()
+  const resetPasswordToken = buf1.toString('hex')
+  const validateEmailToken = buf2.toString('hex')
 
   const { admin, ...data } = args
 
@@ -127,7 +128,7 @@ async function forgetPassword (parent, { email }, ctx, info) {
     throw new Error(`No such user found for email: ${email}`)
   }
   try {
-    let uniqueId = uniqid()
+    let uniqueId = crypto.randomBytes(64)
     await ctx.db.mutation.updateUser({
       where: { id: user.id },
       data: {
