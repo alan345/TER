@@ -12,6 +12,7 @@ import LinearProgress from '@material-ui/core/LinearProgress'
 import InputLabel from '@material-ui/core/InputLabel'
 import FormControl from '@material-ui/core/FormControl'
 import { withApollo } from 'react-apollo'
+import FormHelperText from '@material-ui/core/FormHelperText'
 
 var validator = require('email-validator')
 
@@ -20,11 +21,44 @@ class Signup extends Component {
   state = {
     email: '',
     emailValidation: true,
+    inputValidation2: true,
+    isPasswordLongEnough: true,
+    hasLowerCase: true,
     password: '',
     name: '',
     nameFile: '',
     activeStep: 0,
     maxStep: 3,
+    passwordMinimumLength: 10
+  }
+  onChange2(e){
+
+    this.setState({
+      password: e.target.value,
+      hasLowerCase: this.hasLowerCase(e.target.value),
+      isPasswordLongEnough: this.isPasswordLongEnough(e.target.value)
+    })
+    if(this.state.hasLowerCase && this.state.isPasswordLongEnough) {
+      this.setState({inputValidation2: true})
+    } else {
+      this.setState({inputValidation2: false})
+    }
+  }
+
+  hasLowerCase(str) {
+     if(str.toUpperCase() !== str) {
+       return true
+     }
+     return false
+  }
+
+  isPasswordLongEnough(password) {
+    if(password.length > this.state.passwordMinimumLength) {
+      this.setState({isPasswordLongEnough: true})
+      return true
+    }
+    this.setState({isPasswordLongEnough: false})
+    return false
   }
   onChange1(e){
     this.setState({ email: e.target.value })
@@ -101,9 +135,6 @@ class Signup extends Component {
           value={this.state.activeStep * 100 / this.state.maxStep }
           valueBuffer={this.calculateBuffer()}
              />
-
-
-
           <br/>
             <div className='tac'>
               <FormControl className={'wrapperAnimate ' + (this.state.activeStep === 0 ? 'focusField' : 'notFocusField')}>
@@ -154,23 +185,30 @@ class Signup extends Component {
             {this.state.activeStep >= 2 && (
               <FormControl className={'wrapperAnimate ' + (this.state.activeStep === 2 ? 'focusField' : 'notFocusField')}>
                 <InputLabel htmlFor='password'>Choose a safe password</InputLabel>
-            <Input
-              id='password'
-              value={this.state.password}
-              onChange={e => this.setState({ password: e.target.value })}
-              type='password'
-              inputRef={node => this.input2 = node}
-              onKeyPress={this.handleKey}
-              endAdornment={
-                <InputAdornment position='end'>
-                  {this.state.activeStep === 2 && (
-                    <Button onClick={this.handleNext} variant='fab' color='primary' mini>
-                      <Icon>done</Icon>
-                    </Button>
-                  )}
-                </InputAdornment>
-              }
-            />
+                <Input
+                  id='password'
+                  value={this.state.password}
+                  error={!this.state.inputValidation2}
+                  onChange={this.onChange2.bind(this)}
+                  type='password'
+                  inputRef={node => this.input2 = node}
+                  onKeyPress={this.handleKey}
+                  endAdornment={
+                    <InputAdornment position='end'>
+                      {this.state.activeStep === 2 && (
+                        <Button onClick={this.handleNext} variant='fab' color='primary' mini>
+                          <Icon>done</Icon>
+                        </Button>
+                      )}
+                    </InputAdornment>
+                  }
+                />
+              {!this.state.isPasswordLongEnough && (
+                <FormHelperText>At least {this.state.passwordMinimumLength} characters long.</FormHelperText>
+              )}
+              {!this.state.hasLowerCase && (
+                <FormHelperText>At least a lower case.</FormHelperText>
+              )}
           </FormControl>
             )}
           </div>
