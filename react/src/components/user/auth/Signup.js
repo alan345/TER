@@ -24,12 +24,12 @@ class Signup extends Component {
     inputValidation2: true,
     password: '',
     name: '',
+    isPasswordActiveStep: false,
     nameFile: '',
     activeStep: 0,
     maxStep: 3,
     // isPasswordLongEnough: true,
     // hasLowerCase: true,
-    // isPasswordActiveStep: false,
     // passwordMinimumLength: 10
   }
   onChange2(e){

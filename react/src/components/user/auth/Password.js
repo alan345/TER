@@ -15,6 +15,9 @@ export default class Password extends Component {
     inputValidation2: true,
     isPasswordLongEnough: true,
     hasLowerCase: true,
+    hasUpperCase: true,
+    hasNumber: true,
+    hasSpecialChar: true,
     password: '',
     // name: '',
     // nameFile: '',
@@ -28,6 +31,9 @@ export default class Password extends Component {
   onChange2(e){
     this.props.onChange2(e)
     this.setState({
+      hasNumber: this.hasNumber(e.target.value),
+      hasSpecialChar: this.hasSpecialChar(e.target.value),
+      hasUpperCase: this.hasUpperCase(e.target.value),
       hasLowerCase: this.hasLowerCase(e.target.value),
       isPasswordLongEnough: this.isPasswordLongEnough(e.target.value)
     })
@@ -39,10 +45,22 @@ export default class Password extends Component {
   }
 
   hasLowerCase(str) {
-     if(str.toUpperCase() !== str) {
-       return true
-     }
-     return false
+     return str.toUpperCase() !== str
+  }
+  hasUpperCase(str) {
+     return str.toLowerCase() !== str
+  }
+  hasNumber(string) {
+    return /\d/.test(string)
+  }
+
+  hasSpecialChar(str) {
+    var format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/
+    if(format.test(str)){
+      return true
+    } else {
+      return false
+    }
   }
 
   isPasswordLongEnough(password) {
@@ -94,7 +112,16 @@ export default class Password extends Component {
                 <FormHelperText>At least {this.state.passwordMinimumLength} characters long.</FormHelperText>
               )}
               {!this.state.hasLowerCase && (
-                <FormHelperText>At least a lower case.</FormHelperText>
+                <FormHelperText>At least a lower case letter.</FormHelperText>
+              )}
+              {!this.state.hasUpperCase && (
+                <FormHelperText>At least an upper case letter.</FormHelperText>
+              )}
+              {!this.state.hasNumber && (
+                <FormHelperText>At least an number.</FormHelperText>
+              )}
+              {!this.state.hasSpecialChar && (
+                <FormHelperText>At least a spceial character.</FormHelperText>
               )}
           </FormControl>
 
