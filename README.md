@@ -94,9 +94,14 @@ Go to url: http://localhost:3000
 - **GraphQL database:** Includes GraphQL database binding to [Prisma](https://www.prismagraphql.com) (running on MySQL)
 - **Tooling**: Out-of-the-box support for [GraphQL Playground](https://github.com/prisma/graphql-playground) & [query performance tracing](https://github.com/apollographql/apollo-tracing)
 - **Extensible**: Simple and flexible data model – easy to adjust and extend
-- **Email management**: Simple and flexible data model – easy to adjust and extend
-  - Welcome email
+- **Chat**: Made with Prisma & apollo subscription. (WebSocket)
+- **Email management**:
+  - Welcome email + link to validate the email
   - Forget password email
+- **Signup management**:
+  - Check password strength
+  - Send welcome email + link to validate the email
+  - App knows if email has been approved by the link
 
 
 For a fully-fledged **React & Apollo tutorial**, visit [How to GraphQL](https://www.howtographql.com/react-apollo/0-introduction/). You can more learn about the idea behind GraphQL boilerplates [here](https://blog.graph.cool/graphql-boilerplates-graphql-create-how-to-setup-a-graphql-project-6428be2f3a5).
