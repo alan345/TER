@@ -12,17 +12,13 @@ class ChatsPage extends Component {
     orderBy: 'createdAt_ASC'
   }
 
-  elemClicked(elem) {
-    this.props.history.push('/chat/' + elem.id)
-  }
-
   render() {
     const authToken = localStorage.getItem(AUTH_TOKEN)
     if(!authToken) {
       return (<NotAuth/>)
     }
     return (
-      <React.Fragment>
+    <React.Fragment>
       <div className='paperOut'>
         <Paper className='paperIn'>
           <h1>Chat</h1>
@@ -31,14 +27,13 @@ class ChatsPage extends Component {
             query={this.state.query}
             showTitle={true}
             showMore={true}
-            elemClicked={this.elemClicked.bind(this)}
-            orderBy={this.state.orderBy}/>
+            orderBy={this.state.orderBy}
+          />
           <CreateChat/>
         </Paper>
       </div>
     </React.Fragment>
-  )
-  }
+  )}
 }
 
 export default withRouter(ChatsPage)
