@@ -14,6 +14,7 @@ import FormControl from '@material-ui/core/FormControl'
 import Select from '@material-ui/core/Select'
 import InputLabel from '@material-ui/core/InputLabel'
 import MenuItem from '@material-ui/core/MenuItem'
+import { withApollo } from 'react-apollo'
 
 
 class UserPage extends React.Component {
@@ -197,7 +198,9 @@ class UserPage extends React.Component {
     await this.props.deleteUser({
       variables: { id },
     })
-    this.props.history.replace('/users')
+    this.props.client.resetStore().then(data=> {
+      this.props.history.push('/users')
+    })
   }
 }
 
@@ -260,4 +263,5 @@ export default compose(
     name: 'deleteUser',
   }),
   withRouter,
+  withApollo
 )(UserPage)
