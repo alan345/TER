@@ -10,6 +10,10 @@ import Paper from '@material-ui/core/Paper'
 import NotFound from '../nav/NotFound'
 import Tooltip from '@material-ui/core/Tooltip'
 import UploadFile from '../nav/UploadFile'
+import FormControl from '@material-ui/core/FormControl'
+import Select from '@material-ui/core/Select'
+import InputLabel from '@material-ui/core/InputLabel'
+import MenuItem from '@material-ui/core/MenuItem'
 
 
 class UserPage extends React.Component {
@@ -99,16 +103,22 @@ class UserPage extends React.Component {
               <p className='black-80 fw3'>Role: {this.state.user.role}</p>
             )}
             {this.state.isEditMode && (
-
-                <select
+              <FormControl>
+                <InputLabel htmlFor='role'>Role</InputLabel>
+                <Select
+                  inputProps={{
+                    name: 'role',
+                    id: 'role',
+                  }}
 
                   value={this.state.user.role}
                   onChange={e => this.setState({ user:{ ...this.state.user, role: e.target.value} })}
 
                   >
-                  <option value='CUSTOMER'>CUSTOMER</option>
-                  <option value='ADMIN'>ADMIN</option>
-                </select>
+                  <MenuItem value='CUSTOMER'>CUSTOMER</MenuItem>
+                  <MenuItem value='ADMIN'>ADMIN</MenuItem>
+                </Select>
+              </FormControl>
 
             )}
             <UploadFile
