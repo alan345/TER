@@ -216,7 +216,11 @@ class Signup extends Component {
 
       })
       .catch((e) => {
-        this.child._openSnackBar(e.graphQLErrors[0].message)
+        if(e.graphQLErrors.length) {
+          this.child._openSnackBar(e.graphQLErrors[0].message)
+        } else {
+          this.child._openSnackBar('error: No connection with server')
+        }
       })
 
   }
