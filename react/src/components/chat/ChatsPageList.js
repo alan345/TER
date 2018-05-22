@@ -12,7 +12,6 @@ class ChatsPageList extends React.Component {
     this.props.chatsQueryConnection.subscribeToMore({
       document: CHAT_SUBSCRIPTION,
       updateQuery: (prev, { subscriptionData }) => {
-        console.log('componentDidMountSub')
         if (!subscriptionData) {
           return prev
         }
@@ -30,11 +29,12 @@ class ChatsPageList extends React.Component {
   }
 
   componentDidUpdate() {
-    this.scrollToBottom()
+    if(this.messagesEnd) {
+      this.messagesEnd.scrollIntoView({ behavior: 'smooth' })
+    }
   }
-  scrollToBottom = () => {
-    this.messagesEnd.scrollIntoView({ behavior: 'smooth' })
-  }
+
+
   render() {
 
     if (this.props.chatsQueryConnection.error) {
@@ -48,22 +48,17 @@ class ChatsPageList extends React.Component {
     }
 
 
-    if(!this.props.query && !this.props.showWhenQueryEmpty) {
-      return null
-    }
     const {edges} = this.props.chatsQueryConnection.chatsConnection
 
     return (
       <React.Fragment>
-
         <div style={{  height:'170px', overflow: 'scroll' }} className='listChats' >
-
           {edges && edges.map(chat => (
             <Chat key={chat.node.id} chat={chat.node}/>
           ))}
           <div ref={(el) => { this.messagesEnd = el }}></div>
         </div>
-    </React.Fragment>
+      </React.Fragment>
   )}
 }
 
@@ -81,7 +76,6 @@ const CHATS_QUERY = gql `
           }
         }
       }
-
     }
   }
 `

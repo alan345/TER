@@ -49,10 +49,6 @@ class CreateChat extends React.Component {
     )
   }
 
-  handleFile = (nameFile) => {
-      this.setState({nameFile: nameFile})
-  }
-
 
   handleChat = async e => {
     e.preventDefault()
@@ -61,9 +57,6 @@ class CreateChat extends React.Component {
       variables: {message} ,
     })
     this.setState({message: ''})
-    // this.props.client.resetStore().then(data=> {
-    //   this.props.history.push('/chats')
-    // })
   }
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import ImageTemplate from '../nav/ImageTemplate'
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
+import Card from '@material-ui/core/Card'
+import CardHeader from '@material-ui/core/CardHeader'
 
 var parse = require('date-fns/parse')
 var format = require('date-fns/format')

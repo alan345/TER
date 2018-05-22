@@ -8,7 +8,6 @@ import { AUTH_TOKEN } from '../../constants/constants'
 
 class ChatsPage extends Component {
   state = {
-    query: '',
     orderBy: 'createdAt_ASC'
   }
 
@@ -23,10 +22,6 @@ class ChatsPage extends Component {
         <Paper className='paperIn'>
           <h1>Chat</h1>
           <ChatsPageList
-            showWhenQueryEmpty={true}
-            query={this.state.query}
-            showTitle={true}
-            showMore={true}
             orderBy={this.state.orderBy}
           />
           <CreateChat/>
