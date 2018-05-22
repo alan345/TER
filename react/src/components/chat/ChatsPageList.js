@@ -52,7 +52,7 @@ class ChatsPageList extends React.Component {
 
     return (
       <React.Fragment>
-        <div style={{  height:'170px', overflow: 'scroll' }} className='listChats' >
+        <div style={{  height:'350px', overflow: 'scroll' }} className='listChats' >
           {edges && edges.map(chat => (
             <Chat key={chat.node.id} chat={chat.node}/>
           ))}

@@ -5,7 +5,6 @@ import gql from 'graphql-tag'
 import SnackBarCustom from '../../nav/SnackBarCustom'
 import Paper from '@material-ui/core/Paper'
 import Button from '@material-ui/core/Button'
-import TextField from '@material-ui/core/TextField'
 import NotAuth from '../../nav/NotAuth'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import Input from '@material-ui/core/Input'
@@ -173,7 +172,7 @@ class ChangePassword extends Component {
                       <Icon>{this.state.showPassword0 ? 'visibility_off' : 'visibility'}</Icon>
                     </IconButton>
                   )}
-                </InputAdornment>                
+                </InputAdornment>
               }
               endAdornment={
                 <InputAdornment position='end'>
