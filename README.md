@@ -18,9 +18,11 @@
 
 ## Project
 
-![GitHub commits](https://img.shields.io/github/commits-since/SubtitleEdit/subtitleedit/3.4.7.svg)
-![Github All Releases](https://img.shields.io/github/downloads/atom/atom/total.svg)
-![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)
+
+[![GitHub issues](https://img.shields.io/github/issues/alan345/naperg.svg)](https://github.com/alan345/naperg/issues)
+[![GitHub forks](https://img.shields.io/github/forks/alan345/naperg.svg)](https://github.com/alan345/naperg/network)
+[![GitHub stars](https://img.shields.io/github/stars/alan345/naperg.svg)](https://github.com/alan345/naperg/stargazers)
+[![GitHub license](https://img.shields.io/github/license/alan345/naperg.svg)](https://github.com/alan345/naperg/blob/master/LICENSE)
 ![price](https://img.shields.io/badge/Price-Free-green.svg)
 
 
