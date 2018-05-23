@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { AUTH_TOKEN } from '../../../constants/constants'
 import { graphql, compose } from 'react-apollo'
+import { withApollo } from 'react-apollo'
 import gql from 'graphql-tag'
 import SnackBarCustom from '../../nav/SnackBarCustom'
 import Paper from '@material-ui/core/Paper'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
-import { withApollo } from 'react-apollo'
 
 class Login extends Component {
   state = {
@@ -27,6 +27,7 @@ class Login extends Component {
         <div className='flex flex-column'>
 
           <TextField
+            id='email'
             value={this.state.email}
             onChange={e => this.setState({ email: e.target.value })}
             type='text'
@@ -35,6 +36,7 @@ class Login extends Component {
 
 
           <TextField
+            id='password'
             value={this.state.password}
             onChange={e => this.setState({ password: e.target.value })}
             type='password'

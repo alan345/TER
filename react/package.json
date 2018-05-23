@@ -1,8 +1,5 @@
 {
   "name": "react-apollo-naperg",
-  "jest": {
-    "verbose": true
-  },
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
@@ -22,7 +19,7 @@
     "email-validator": "^2.0.3",
     "enzyme": "3.3.0",
     "enzyme-adapter-react-16": "^1.0.1",
-    "graphql": "0.13.2",
+    "graphql": "0.13.0",
     "graphql-tag": "2.8.0",
     "moment-timezone": "^0.5.17",
     "query-string": "^6.0.0",
