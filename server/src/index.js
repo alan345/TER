@@ -2,7 +2,7 @@ const { GraphQLServer } = require('graphql-yoga')
 const { Prisma } = require('prisma-binding')
 const resolvers = require('./resolvers')
 
-console.log(process.env.PRISMA_ENDPOINT)
+// console.log(process.env.PRISMA_ENDPOINT)
 const server = new GraphQLServer({
   typeDefs: './src/schema.graphql',
   resolvers,
@@ -21,5 +21,16 @@ const options = {
 // playground: null, // Dissable playground endpoint,
 // playground: '/docs/, // Move playground to /docs/,
 }
+
+// server.express.get(server.options.endpoint, (req, res, done) => {
+//   res.send('respond with a resource');
+//
+//   // getUser(req, res, done, db)
+// })
+
+// router.get('/', function(req, res, next) {
+//   res.send('respond with a resource');
+// });
+
 
 server.start(options, () => { console.log('Server is running on http://localhost:4000') })
