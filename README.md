@@ -20,10 +20,8 @@
 
 ![GitHub commit activity the past week, 4 weeks, year](https://img.shields.io/github/commit-activity/y/eslint/eslint.svg)
 ![Github All Releases](https://img.shields.io/github/downloads/atom/atom/total.svg)
-
-[![License](https://poser.pugx.org/phpstan/phpstan/license)](https://packagist.org/packages/phpstan/phpstan)
-[![Naperg](https://img.shields.io/badge/PHPStan-enabled-brightgreen.svg?style=flat)](https://github.com/phpstan/phpstan)
-
+![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)
+![price](https://img.shields.io/badge/Price-Free-green.svg)
 ## Screenshots
 
 
