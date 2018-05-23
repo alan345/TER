@@ -18,10 +18,12 @@
 
 ## Project
 
-![GitHub commit activity the past week, 4 weeks, year](https://img.shields.io/github/commit-activity/y/eslint/eslint.svg)
+![GitHub commits](https://img.shields.io/github/commits-since/SubtitleEdit/subtitleedit/3.4.7.svg)
 ![Github All Releases](https://img.shields.io/github/downloads/atom/atom/total.svg)
 ![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)
 ![price](https://img.shields.io/badge/Price-Free-green.svg)
+
+
 ## Screenshots
 
 
