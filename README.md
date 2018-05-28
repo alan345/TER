@@ -78,14 +78,14 @@ yarn start
 ```
 
 ```sh
-# Backend: ExpressJs (port 8000)
+# Media server: ExpressJs (port 8000)
 cd express
 yarn install
 yarn start
 ```
 
 ```sh
-# Front: ReactJs (port 3000)
+# Frontend: ReactJs (port 3000)
 cd react
 yarn install
 yarn start
