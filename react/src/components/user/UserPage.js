@@ -185,11 +185,7 @@ class UserPage extends React.Component {
         data: {name: name, email: email, role: role, nameFile: nameFile },
       }
     })
-    // await this.props.updateUser({
-    //   variables: { id, name, email, role },
-    // })
     this.setState({isEditMode: false})
-    // this.props.history.replace('/users')
   }
 
 
