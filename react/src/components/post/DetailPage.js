@@ -6,6 +6,7 @@ import ImageTemplate from '../nav/ImageTemplate'
 import { Link } from 'react-router-dom'
 import Paper from '@material-ui/core/Paper'
 import NotFound from '../nav/NotFound'
+import Loading from '../nav/Loading'
 
 
 class DetailPage extends React.Component {
@@ -18,11 +19,7 @@ class DetailPage extends React.Component {
     }
 
     if (this.props.postQuery.loading) {
-      return (
-        <div className='flex w-100 h-100 items-center justify-center pt7'>
-          <div>Loading (from {process.env.REACT_APP_GRAPHQL_ENDPOINT})</div>
-        </div>
-      )
+      return (<Loading />)
     }
 
     const { post } = this.props.postQuery

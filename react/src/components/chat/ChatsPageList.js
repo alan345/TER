@@ -3,6 +3,7 @@ import Chat from './Chat'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 import NotAuth from '../nav/NotAuth'
+import Loading from '../nav/Loading'
 
 
 
@@ -42,9 +43,7 @@ class ChatsPageList extends React.Component {
     }
 
     if (this.props.chatsQueryConnection.loading) {
-      return (<div className='flex w-100 h-100 items-center justify-center pt7'>
-        <div>Loading (from {process.env.REACT_APP_GRAPHQL_ENDPOINT})</div>
-      </div>)
+      return (<Loading />)
     }
 
 

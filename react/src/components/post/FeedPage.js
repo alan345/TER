@@ -3,6 +3,9 @@ import Post from './Post'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import Paper from '@material-ui/core/Paper'
+import Loading from '../nav/Loading'
+
+
 
 class FeedPage extends React.Component {
   componentWillReceiveProps(nextProps) {
@@ -15,11 +18,7 @@ class FeedPage extends React.Component {
 
   render() {
     if (this.props.feedQuery.loading) {
-      return (
-        <div className="flex w-100 h-100 items-center justify-center pt7">
-          <div>Loading (from {process.env.REACT_APP_GRAPHQL_ENDPOINT})</div>
-        </div>
-      )
+      return (<Loading />)
     }
 
     return (

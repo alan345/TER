@@ -15,6 +15,8 @@ import Select from '@material-ui/core/Select'
 import InputLabel from '@material-ui/core/InputLabel'
 import MenuItem from '@material-ui/core/MenuItem'
 import { withApollo } from 'react-apollo'
+import Loading from '../nav/Loading'
+
 
 
 class UserPage extends React.Component {
@@ -64,11 +66,7 @@ class UserPage extends React.Component {
     const authToken = localStorage.getItem(AUTH_TOKEN)
 
     if (this.props.userQuery.loading) {
-      return (
-        <div className='flex w-100 h-100 items-center justify-center pt7'>
-          <div>Loading (from {process.env.REACT_APP_GRAPHQL_ENDPOINT})</div>
-        </div>
-      )
+      return (<Loading />)
     }
 
     let action = this._renderAction(this.state.user)

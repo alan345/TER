@@ -3,6 +3,9 @@ import {graphql} from 'react-apollo'
 import gql from 'graphql-tag'
 import NotAuth from '../nav/NotAuth'
 import Icon from '@material-ui/core/Icon'
+import Loading from '../nav/Loading'
+
+
 
 class UsersPageList extends React.Component {
   state = {
@@ -15,10 +18,7 @@ class UsersPageList extends React.Component {
       return (<NotAuth/>)
     }
     if (this.props.usersQueryConnection.loading) {
-      return (
-      <div className='flex w-100 h-100 items-center justify-center pt7'>
-        <div>Loading (from {process.env.REACT_APP_GRAPHQL_ENDPOINT})</div>
-      </div>)
+      return (<Loading />)
     }
     const {edges} = this.props.usersQueryConnection.usersConnection
     return (

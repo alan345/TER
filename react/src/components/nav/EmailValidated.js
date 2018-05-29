@@ -15,12 +15,10 @@ class EmailValidated extends Component {
   }
   render() {
     if (this.props.me.loading) {
-      return (<Loading endpoint={process.env.REACT_APP_GRAPHQL_ENDPOINT}/>)
+      return (<Loading />)
     }
 
     const authToken = localStorage.getItem(AUTH_TOKEN)
-    // const userToken = JSON.parse(localStorage.getItem('userToken'))
-    // console.log(this.props.me.loading)
     if(authToken && !this.props.me.me.emailvalidated) {
       return (
         <div className='paperOut'>
@@ -97,6 +95,3 @@ export default compose(
   graphql(USER_QUERY, {name: 'me'}),
   graphql(SEND_LINK_VALIDATE_EMAIL_MUTATION, { name: 'sendLinkValidateEmailMutation' }),
 )(EmailValidated)
-
-
-// http://localhost:3000/validateEmail?validateEmailToken=69da3ebc6fbe8d7ce7438a2b2240755b6c2b8ce22842d8517d47b4faf69e33778e26473caa251a23955684b2200c1a4adb05aca1563b4378ff45abf3155a6a92
