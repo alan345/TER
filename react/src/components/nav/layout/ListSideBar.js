@@ -59,20 +59,28 @@ class ListSideBar extends Component {
               <ListItemText primary='Cars'/>
             </MenuItem>
           </Link>
-          <Link to='/users' className='link'>
-            <MenuItem>
-              <ListItemIcon>
-                <Icon>group</Icon>
-              </ListItemIcon>
-              <ListItemText primary='Users'/>
-            </MenuItem>
-          </Link>
           <Link to='/chats' className='link'>
             <MenuItem>
               <ListItemIcon>
                 <Icon>chat</Icon>
               </ListItemIcon>
               <ListItemText primary='Chat'/>
+            </MenuItem>
+          </Link>
+          <Link to='/api' className='link'>
+            <MenuItem>
+              <ListItemIcon>
+                <Icon>cloud_queue</Icon>
+              </ListItemIcon>
+              <ListItemText primary='API'/>
+            </MenuItem>
+          </Link>
+          <Link to='/users' className='link'>
+            <MenuItem>
+              <ListItemIcon>
+                <Icon>group</Icon>
+              </ListItemIcon>
+              <ListItemText primary='Users'/>
             </MenuItem>
           </Link>
 

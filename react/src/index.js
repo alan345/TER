@@ -21,6 +21,7 @@ import DetailPage from './components/post/DetailPage'
 import DetailCar from './components/car/DetailCar'
 import UsersPage from './components/user/UsersPage'
 import UserPage from './components/user/UserPage'
+import Api from './components/api/Api'
 import ForgetPassword from './components/user/auth/ForgetPassword'
 import Login from './components/user/auth/Login'
 import Signup from './components/user/auth/Signup'
@@ -101,6 +102,7 @@ ReactDOM.render(
               <Route path='/cars' component={CarsPage} />
               <Route path='/chats' component={ChatsPage} />
               <Route path='/users' component={UsersPage} />
+              <Route path='/api' component={Api} />
               <Route path='/user/:id' component={UserPage} />
               <Route path='/create' component={CreatePage} />
               <Route path='/post/:id' component={DetailPage} />

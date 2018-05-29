@@ -23,7 +23,11 @@ const options = {
 }
 
 server.express.get(server.options.endpoint + 'user', (req, res, done) => {
-  res.send('respond with a resource from your API REST')
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.status(200).json({
+    message: 'Message from graphql-yoga (Express API)',
+    obj: 'You can use graphql-yoga as a simple REST API'
+  })
 })
 
 
