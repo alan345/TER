@@ -24,7 +24,7 @@ async function signup (parent, args, ctx, info) {
   const role = args.admin ? 'ADMIN' : 'CUSTOMER'
   const resetPasswordToken = crypto.randomBytes(64).toString('hex')
   const validateEmailToken = crypto.randomBytes(64).toString('hex')
-
+  console.log('validateEmailToken', validateEmailToken)
   const { admin, ...data } = args
 
   const user = await ctx.db.mutation.createUser({

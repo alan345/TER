@@ -1,6 +1,6 @@
 # import Mutation.createPost, Mutation.createChat, Query.chatsConnection, Query.chat, Query.carsConnection, Query.usersConnection, Query.car, Mutation.deleteCar, Query.user, Mutation.updateUser from "./generated/prisma.graphql"
 # import Car, CarCreateInput, CarWhereInput, CarOrderByInput from "./generated/prisma.graphql"
-# import Post, Subscription.chat from "./generated/prisma.graphql"
+# import Post, User, Subscription.chat from "./generated/prisma.graphql"
 
 
 type Query {
@@ -8,7 +8,7 @@ type Query {
   feed: [Post!]!
   drafts(orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post!]!
   post(id: ID!): Post
-  cars(where: CarWhereInput, orderBy: CarOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Car]!
+  # cars(where: CarWhereInput, orderBy: CarOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Car]!
 
 }
 

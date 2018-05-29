@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
-import { AUTH_TOKEN } from '../../../constants/constants'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 import SnackBarCustom from '../../nav/SnackBarCustom'
 import Paper from '@material-ui/core/Paper'
+import { withApollo } from 'react-apollo'
+// import { AUTH_TOKEN } from '../../../constants/constants'
+
 
 const queryString = require('query-string')
 
@@ -47,7 +49,6 @@ class ValidateEmail extends Component {
     .then((result) => {
       const { token, user } = result.data.validateEmail
       this._saveUserData(token, user)
-      console.log(user)
       messageSnackBar = `${user.name}, your email is now validated.`
     })
     .catch((e) => { messageSnackBar = e.graphQLErrors[0].message })
@@ -57,8 +58,13 @@ class ValidateEmail extends Component {
 
 
   _saveUserData = (token, user) => {
-    localStorage.setItem(AUTH_TOKEN, token)
-    localStorage.setItem('userToken', JSON.stringify(user))
+    // localStorage.setItem(AUTH_TOKEN, token)
+    // localStorage.setItem('userToken', JSON.stringify(user))
+
+    this.props.client.resetStore().then(data=> {
+      // this.props.history.push('/')
+    })
+
   }
 }
 
@@ -80,4 +86,5 @@ const VALIDATE_EMAIL_TOKEN_MUTATION = gql`
 
 export default compose(
   graphql(VALIDATE_EMAIL_TOKEN_MUTATION, { name: 'validateEmailMutation' }),
+  withApollo
 )(ValidateEmail)

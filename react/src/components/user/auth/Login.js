@@ -102,8 +102,6 @@ const LOGIN_MUTATION = gql`
       token
       user {
         name
-        emailvalidated
-        role
         id
       }
     }

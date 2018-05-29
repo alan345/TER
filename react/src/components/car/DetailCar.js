@@ -5,23 +5,23 @@ import { withRouter } from 'react-router-dom'
 import Paper from '@material-ui/core/Paper'
 import NotFound from '../nav/NotFound'
 import { withApollo } from 'react-apollo'
+import Button from '@material-ui/core/Button'
+import Icon from '@material-ui/core/Icon'
+import Loading from '../nav/Loading'
 
 
 class DetailPage extends React.Component {
   render() {
+    if (this.props.me.loading) {
+      return (<Loading endpoint={process.env.REACT_APP_GRAPHQL_ENDPOINT}/>)
+    }
     if (this.props.carQuery.loading) {
-      return (
-        <div className='flex w-100 h-100 items-center justify-center pt7'>
-          <div>Loading (from {process.env.REACT_APP_GRAPHQL_ENDPOINT})</div>
-        </div>
-      )
+      return (<Loading endpoint={process.env.REACT_APP_GRAPHQL_ENDPOINT}/>)
     }
 
     const { car } = this.props.carQuery
     if(!car) {
-      return (
-        <NotFound/>
-      )
+      return (<NotFound/>)
     }
     let action = this._renderAction(car)
 
@@ -41,18 +41,18 @@ class DetailPage extends React.Component {
   }
 
   _renderAction = ({ id, isPublished }) => {
-    const userToken = JSON.parse(localStorage.getItem('userToken'))
     return (
-      <div>
-      {userToken.role === 'ADMIN' && (
-        <a
-          className='f6 dim br1 ba ph3 pv2 mb2 dib black pointer'
-          onClick={() => this.deleteCar(id)}
-          >
-          Delete
-        </a>
-      )}
-    </div>
+      <Button
+        disabled={this.props.me.me.role !== 'ADMIN'}
+        onClick={() => this.deleteCar(id)}>
+          {this.props.me.me.role !== 'ADMIN' ? (
+            <p>Must be an admin to delete</p>
+          ) : (
+            <div>
+              <Icon>arrow_back</Icon>{' '}Delete
+            </div>
+          )}
+      </Button>
     )
   }
 
@@ -87,6 +87,16 @@ const DELETE_MUTATION = gql`
   }
 `
 
+const USER_QUERY = gql`
+  query Me {
+    me {
+      id
+      role
+    }
+  }
+`
+
+
 export default compose(
   graphql(POST_QUERY, {
     name: 'carQuery',
@@ -99,9 +109,8 @@ export default compose(
       },
     }),
   }),
-  graphql(DELETE_MUTATION, {
-    name: 'deleteCar',
-  }),
+  graphql(DELETE_MUTATION, {name: 'deleteCar'}),
+  graphql(USER_QUERY, {name: 'me'}),
   withRouter,
   withApollo
 )(DetailPage)

@@ -2,8 +2,11 @@ const {forwardTo} = require('prisma-binding')
 const {
   signup, login,
   updatePassword,
-  forgetPassword, resetPassword,
-  validateEmail, sendLinkValidateEmail } = require('./auth')
+  forgetPassword,
+  resetPassword,
+  validateEmail,
+  sendLinkValidateEmail
+} = require('./auth')
 const { getUserId } = require('../utils')
 
 async function publish (parent, { id }, ctx, info) {
@@ -42,6 +45,8 @@ async function deleteCar (parent, args, ctx, info) {
     id: userId,
     role: 'ADMIN'
   })
+  console.log('requestingUserIsAdmin ////////////////////////////////')
+  console.log(requestingUserIsAdmin)
 
   if (!carExists && !requestingUserIsAdmin) {
     throw new Error(`Car not found or you don't have access rights to delete it.`)
