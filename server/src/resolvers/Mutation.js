@@ -37,16 +37,22 @@ async function deleteUser (parent, { id }, ctx, info) {
 }
 
 async function deleteCar (parent, args, ctx, info) {
+  
   const userId = getUserId(ctx) // check if user is loggin
+  const user = await ctx.db.query.user({ where: { id: userId } })
+  console.log('user', user)
+
+  const requestingUserIsAdmin = await ctx.db.exists.User({
+    id: userId,
+    role: 'CUSTOMER'
+  })
+  console.log('requestingUserIsAdmin', requestingUserIsAdmin)
+
+
+
   const carExists = await ctx.db.exists.Car({
     id: args.id
   })
-  const requestingUserIsAdmin = await ctx.db.exists.User({
-    id: userId,
-    role: 'ADMIN'
-  })
-  console.log('requestingUserIsAdmin ////////////////////////////////')
-  console.log(requestingUserIsAdmin)
 
   if (!carExists && !requestingUserIsAdmin) {
     throw new Error(`Car not found or you don't have access rights to delete it.`)
