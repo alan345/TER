@@ -33,6 +33,23 @@ async function deleteUser (parent, { id }, ctx, info) {
   return ctx.db.mutation.deleteUser({ where: { id } })
 }
 
+async function deleteCar (parent, args, ctx, info) {
+  const userId = getUserId(ctx) // check if user is loggin
+  const carExists = await ctx.db.exists.Car({
+    id: args.id
+  })
+  const requestingUserIsAdmin = await ctx.db.exists.User({
+    id: userId,
+    role: 'ADMIN'
+  })
+
+  if (!carExists && !requestingUserIsAdmin) {
+    throw new Error(`Car not found or you don't have access rights to delete it.`)
+  }
+  return forwardTo('db')(parent, args, ctx, info)
+  // return ctx.db.mutation.deleteCar({ where: { id } })
+}
+
 async function createPost (parent, args, ctx, info) {
   const userId = getUserId(ctx)
   args.data.isPublished = false
@@ -90,7 +107,7 @@ const Mutation = {
   publish,
   createCar: forwardTo('db'),
   createChat,
-  deleteCar: forwardTo('db'),
+  deleteCar: deleteCar,
   updateCar: forwardTo('db'),
   createPost
 }

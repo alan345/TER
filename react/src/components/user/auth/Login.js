@@ -103,6 +103,7 @@ const LOGIN_MUTATION = gql`
       user {
         name
         emailvalidated
+        role
         id
       }
     }

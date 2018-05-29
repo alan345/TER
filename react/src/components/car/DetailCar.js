@@ -31,7 +31,6 @@ class DetailPage extends React.Component {
           <Paper className='paperIn'>
         <h1 className='f3 black-80 fw4 lh-solid'>
           {car.name}
-
         </h1>
         <p className='black-80 fw3'>{car.text}</p>
         {action}
@@ -42,13 +41,18 @@ class DetailPage extends React.Component {
   }
 
   _renderAction = ({ id, isPublished }) => {
+    const userToken = JSON.parse(localStorage.getItem('userToken'))
     return (
-      <a
-        className='f6 dim br1 ba ph3 pv2 mb2 dib black pointer'
-        onClick={() => this.deleteCar(id)}
-      >
-        Delete
-      </a>
+      <div>
+      {userToken.role === 'ADMIN' && (
+        <a
+          className='f6 dim br1 ba ph3 pv2 mb2 dib black pointer'
+          onClick={() => this.deleteCar(id)}
+          >
+          Delete
+        </a>
+      )}
+    </div>
     )
   }
 
