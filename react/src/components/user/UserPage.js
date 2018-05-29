@@ -16,6 +16,7 @@ import InputLabel from '@material-ui/core/InputLabel'
 import MenuItem from '@material-ui/core/MenuItem'
 import { withApollo } from 'react-apollo'
 import Loading from '../nav/error/Loading'
+import Input from '@material-ui/core/Input'
 
 
 class UserPage extends React.Component {
@@ -86,14 +87,17 @@ class UserPage extends React.Component {
             </div>
 
             {this.state.isEditMode && (
-              <input
-              autoFocus
-              className='w-100 pa2 mv2 br2 b--black-20 bw1'
-              onChange={e => this.setState({ user:{ ...this.state.user, name: e.target.value} })}
-              placeholder='name'
-              type='text'
-              value={this.state.user.name}
-              />
+
+              <FormControl>
+                <InputLabel htmlFor='name'>Name</InputLabel>
+                <Input
+                  id='name'
+                  onChange={e => this.setState({ user:{ ...this.state.user, name: e.target.value} })}
+                  placeholder='name'
+                  type='text'
+                  value={this.state.user.name}
+                />
+              </FormControl>
             )}
 
             <p className='black-80 fw3'>Email: {this.state.user.email}</p>
@@ -162,12 +166,14 @@ class UserPage extends React.Component {
           >
             Save
           </a>{' '}
-          <a
-            className='f6 dim br1 ba ph3 pv2 mb2 dib black pointer'
-            onClick={() => this.deleteUser(id)}
-          >
-            Delete
-          </a>
+          {!this.isUserMyself() && (
+            <a
+              className='f6 dim br1 ba ph3 pv2 mb2 dib black pointer'
+              onClick={() => this.deleteUser(id)}
+              >
+              Delete
+            </a>
+          )}
           </div>
         )}
       </React.Fragment>

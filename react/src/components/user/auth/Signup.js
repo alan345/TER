@@ -138,21 +138,21 @@ class Signup extends Component {
             {this.state.activeStep >= 1 && (
               <FormControl className={'wrapperAnimate ' + (this.state.activeStep === 1 ? 'focusField' : 'notFocusField')}>
                 <InputLabel htmlFor='email'>Your email address</InputLabel>
-              <Input
-                id='email'
-                value={this.state.email}
-                error={!this.state.emailValidation}
-                onChange={this.onChange1.bind(this)}
-                type='text'
-                inputRef={node => this.input1 = node}
-                onKeyPress={this.handleKey}
-                endAdornment={
-                  <InputAdornment position='end'>
-                    {this.state.activeStep === 1 && (
-                      <Button onClick={this.handleNext} variant='fab' color='primary' mini>
-                        <Icon>navigate_next</Icon>
-                      </Button>
-                    )}
+                <Input
+                  id='email'
+                  value={this.state.email}
+                  error={!this.state.emailValidation}
+                  onChange={this.onChange1.bind(this)}
+                  type='text'
+                  inputRef={node => this.input1 = node}
+                  onKeyPress={this.handleKey}
+                  endAdornment={
+                    <InputAdornment position='end'>
+                      {this.state.activeStep === 1 && (
+                        <Button onClick={this.handleNext} variant='fab' color='primary' mini>
+                          <Icon>navigate_next</Icon>
+                        </Button>
+                      )}
                   </InputAdornment>
                 }
                 />
