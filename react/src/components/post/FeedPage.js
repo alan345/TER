@@ -26,7 +26,6 @@ class FeedPage extends React.Component {
         <div className='paperOut'>
           <Paper className='paperIn'>
         <h1>Feed</h1>
-
         {this.props.feedQuery.feed &&
           this.props.feedQuery.feed.map(post => (
             <Post
