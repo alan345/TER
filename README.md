@@ -2,7 +2,7 @@
 </div>
   
 <h1 align="center"><strong>Boilerplate for a Fullstack GraphQL App with React & Prisma</strong></h1>
-<h3 align="center">Authentication with roles. Backend & Frontend</h3>
+<h3 align="center">Authentication with roles & permissions. Backend & Frontend</h3>
 <h3 align="center">Upload image with expressJs</h3>
 <h3 align="center">Chat with GraphQL Subscriptions</h3>
 <br />
