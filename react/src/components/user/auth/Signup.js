@@ -28,39 +28,14 @@ class Signup extends Component {
     nameFile: '',
     activeStep: 0,
     maxStep: 3,
-    // isPasswordLongEnough: true,
-    // hasLowerCase: true,
-    // passwordMinimumLength: 10
   }
-  onChange2(e){
-
+  onChange2(statePasword){
     this.setState({
-      password: e.target.value,
-      // hasLowerCase: this.hasLowerCase(e.target.value),
-      // isPasswordLongEnough: this.isPasswordLongEnough(e.target.value)
+      password: statePasword.password,
+      inputValidation2: statePasword.inputValidation2
     })
-    // if(this.state.hasLowerCase && this.state.isPasswordLongEnough) {
-    //   this.setState({inputValidation2: true})
-    // } else {
-    //   this.setState({inputValidation2: false})
-    // }
   }
 
-  // hasLowerCase(str) {
-  //    if(str.toUpperCase() !== str) {
-  //      return true
-  //    }
-  //    return false
-  // }
-
-  // isPasswordLongEnough(password) {
-  //   if(password.length > this.state.passwordMinimumLength) {
-  //     this.setState({isPasswordLongEnough: true})
-  //     return true
-  //   }
-  //   this.setState({isPasswordLongEnough: false})
-  //   return false
-  // }
   onChange1(e){
     this.setState({ email: e.target.value })
     if (this.validateEmail(e.target.value )) {
@@ -71,8 +46,6 @@ class Signup extends Component {
   }
   validateEmail(email) {
       return validator.validate(email)
-      // var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      // return re.test(String(email).toLowerCase())
   }
   calculateBuffer() {
     let data = ''
@@ -108,11 +81,13 @@ class Signup extends Component {
         }
       }
       if(this.state.activeStep === 2 ) {
-        this.setState({
-          activeStep: this.state.activeStep + 1,
-        }, () => {
-          this._confirm()
-        })
+        if(this.state.inputValidation2 ) {
+          this.setState({
+            activeStep: this.state.activeStep + 1,
+          }, () => {
+            this._confirm()
+          })
+        }
       }
     }
   };
@@ -240,7 +215,6 @@ const SIGNUP_MUTATION = gql`
       token
       user {
         name
-        emailvalidated
         id
       }
     }

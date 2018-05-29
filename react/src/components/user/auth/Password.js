@@ -29,19 +29,30 @@ export default class Password extends Component {
     this.input2.focus()
   }
   onChange2(e){
-    this.props.onChange2(e)
+    let inputValidation2 = false
+    if(
+      this.isPasswordLongEnough(e.target.value) &&
+      this.hasLowerCase(e.target.value) &&
+      this.hasUpperCase(e.target.value) &&
+      this.hasNumber(e.target.value) &&
+      this.hasSpecialChar(e.target.value)
+    ) {
+      inputValidation2 = true
+    }
+
     this.setState({
+      password: e.target.value,
+      inputValidation2:inputValidation2,
       hasNumber: this.hasNumber(e.target.value),
       hasSpecialChar: this.hasSpecialChar(e.target.value),
       hasUpperCase: this.hasUpperCase(e.target.value),
       hasLowerCase: this.hasLowerCase(e.target.value),
       isPasswordLongEnough: this.isPasswordLongEnough(e.target.value)
+    }, () => {
+      this.props.onChange2(this.state)
     })
-    if(this.state.hasLowerCase && this.state.isPasswordLongEnough) {
-      this.setState({inputValidation2: true})
-    } else {
-      this.setState({inputValidation2: false})
-    }
+
+
   }
 
   hasLowerCase(str) {
@@ -88,42 +99,42 @@ export default class Password extends Component {
   render() {
     return (
 
-              <FormControl className={'wrapperAnimate ' + (this.props.activeStep ? 'focusField' : 'notFocusField')}>
-                <InputLabel htmlFor='password'>Choose a safe password</InputLabel>
-                <Input
-                  id='password'
-                  value={this.props.password}
-                  error={!this.state.inputValidation2}
-                  onChange={this.onChange2.bind(this)}
-                  type='password'
-                  inputRef={node => this.input2 = node}
-                  onKeyPress={this.handleKey}
-                  endAdornment={
-                    <InputAdornment position='end'>
-                      {this.props.activeStep && (
-                        <Button onClick={this.handleNext} variant='fab' color='primary' mini>
-                          <Icon>done</Icon>
-                        </Button>
-                      )}
-                    </InputAdornment>
-                  }
-                />
-              {!this.state.isPasswordLongEnough && (
-                <FormHelperText>At least {this.state.passwordMinimumLength} characters long.</FormHelperText>
+      <FormControl className={'wrapperAnimate ' + (this.props.activeStep ? 'focusField' : 'notFocusField')}>
+        <InputLabel htmlFor='password'>Choose a safe password</InputLabel>
+        <Input
+          id='password'
+          value={this.props.password}
+          error={!this.state.inputValidation2}
+          onChange={this.onChange2.bind(this)}
+          type='password'
+          inputRef={node => this.input2 = node}
+          onKeyPress={this.handleKey}
+          endAdornment={
+            <InputAdornment position='end'>
+              {this.props.activeStep && (
+                <Button onClick={this.handleNext} variant='fab' color='primary' mini>
+                  <Icon>done</Icon>
+                </Button>
               )}
-              {!this.state.hasLowerCase && (
-                <FormHelperText>At least a lower case letter.</FormHelperText>
-              )}
-              {!this.state.hasUpperCase && (
-                <FormHelperText>At least an upper case letter.</FormHelperText>
-              )}
-              {!this.state.hasNumber && (
-                <FormHelperText>At least an number.</FormHelperText>
-              )}
-              {!this.state.hasSpecialChar && (
-                <FormHelperText>At least a spceial character.</FormHelperText>
-              )}
-          </FormControl>
+            </InputAdornment>
+          }
+        />
+      {!this.state.isPasswordLongEnough && (
+        <FormHelperText>At least {this.state.passwordMinimumLength} characters long.</FormHelperText>
+      )}
+      {!this.state.hasLowerCase && (
+        <FormHelperText>At least a lower case letter.</FormHelperText>
+      )}
+      {!this.state.hasUpperCase && (
+        <FormHelperText>At least an upper case letter.</FormHelperText>
+      )}
+      {!this.state.hasNumber && (
+        <FormHelperText>At least an number.</FormHelperText>
+      )}
+      {!this.state.hasSpecialChar && (
+        <FormHelperText>At least a spceial character.</FormHelperText>
+      )}
+  </FormControl>
 
     )
   }
