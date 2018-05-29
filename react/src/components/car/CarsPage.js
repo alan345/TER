@@ -7,7 +7,7 @@ import ArrowOrderBy from './ArrowOrderBy'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import Input from '@material-ui/core/Input'
 import Icon from '@material-ui/core/Icon'
-import NotAuth from '../nav/NotAuth'
+import NotAuth from '../nav/error/NotAuth'
 import { AUTH_TOKEN } from '../../constants/constants'
 
 class CarsPage extends Component {

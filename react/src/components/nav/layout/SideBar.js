@@ -34,10 +34,7 @@ class SideBar extends Component {
     this.setState({ isSideBarOpen: nextProps.isSideBarOpen })
   }
 
-
-
   render() {
-
     return (
       <div>
         <Drawer

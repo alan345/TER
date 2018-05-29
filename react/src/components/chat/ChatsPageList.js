@@ -2,8 +2,8 @@ import React from 'react'
 import Chat from './Chat'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
-import NotAuth from '../nav/NotAuth'
-import Loading from '../nav/Loading'
+import NotAuth from '../nav/error/NotAuth'
+import Loading from '../nav/error/Loading'
 
 
 

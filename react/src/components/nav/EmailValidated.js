@@ -4,7 +4,7 @@ import Paper from '@material-ui/core/Paper'
 import Icon from '@material-ui/core/Icon'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
-import Loading from './Loading'
+import Loading from './error/Loading'
 import ResendEmailValidation from './ResendEmailValidation'
 
 

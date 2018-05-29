@@ -9,7 +9,7 @@ class NotFound extends Component {
     return (
       <div className='paperOut'>
         <Paper className='paperIn'>
-          ERREUR 404 !!
+          404 Error !!
           <br/>
           <br/>
           <Link to='/'>Home</Link>

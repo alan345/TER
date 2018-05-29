@@ -3,11 +3,11 @@ import { graphql, compose } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
 import Post from '../../components/post/Post'
-import NotAuth from '../nav/NotAuth'
+import NotAuth from '../nav/error/NotAuth'
 import { AUTH_TOKEN } from '../../constants/constants'
 import Icon from '@material-ui/core/Icon'
 import Paper from '@material-ui/core/Paper'
-import NotFound from '../nav/NotFound'
+import NotFound from '../nav/error/NotFound'
 import Tooltip from '@material-ui/core/Tooltip'
 import UploadFile from '../nav/UploadFile'
 import FormControl from '@material-ui/core/FormControl'
@@ -15,8 +15,7 @@ import Select from '@material-ui/core/Select'
 import InputLabel from '@material-ui/core/InputLabel'
 import MenuItem from '@material-ui/core/MenuItem'
 import { withApollo } from 'react-apollo'
-import Loading from '../nav/Loading'
-
+import Loading from '../nav/error/Loading'
 
 
 class UserPage extends React.Component {

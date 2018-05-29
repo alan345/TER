@@ -3,7 +3,7 @@ import Post from './Post'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import Paper from '@material-ui/core/Paper'
-import Loading from '../nav/Loading'
+import Loading from '../nav/error/Loading'
 
 
 

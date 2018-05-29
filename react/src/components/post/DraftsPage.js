@@ -5,7 +5,7 @@ import gql from 'graphql-tag'
 import { AUTH_TOKEN } from '../../constants/constants'
 import Paper from '@material-ui/core/Paper'
 import Button from '@material-ui/core/Button'
-import Loading from '../nav/Loading'
+import Loading from '../nav/error/Loading'
 
 
 class DraftsPage extends React.Component {

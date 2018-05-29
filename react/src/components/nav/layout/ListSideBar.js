@@ -4,10 +4,9 @@ import {Link} from 'react-router-dom'
 import MenuItem from '@material-ui/core/MenuItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
-
 import List from '@material-ui/core/List'
 import Icon from '@material-ui/core/Icon'
-import {AUTH_TOKEN} from '../../constants/constants'
+import {AUTH_TOKEN} from '../../../constants/constants'
 
 class ListSideBar extends Component {
 

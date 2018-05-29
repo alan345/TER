@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
-import { AUTH_TOKEN } from '../../constants/constants'
+import { AUTH_TOKEN } from '../../../constants/constants'
 import { Link } from 'react-router-dom'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
-import MenuAvatar from '../nav/MenuAvatar'
+import MenuAvatar from './MenuAvatar'
 import { withApollo } from 'react-apollo'
 
 class TopHello extends Component {

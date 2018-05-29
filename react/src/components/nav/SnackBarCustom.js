@@ -21,12 +21,6 @@ class SnackBarCustom extends Component {
      this.setState({ openSnackBar: false })
    }
 
-   // componentWillReceiveProps(newProps) {
-   //   this.setState({
-   //     messageSnackBar: newProps.messageSnackBar,
-   //     openSnackBar: newProps.openSnackBar
-   //   })
-   // }
 
   render() {
 

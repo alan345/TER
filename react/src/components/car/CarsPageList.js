@@ -3,8 +3,8 @@ import Car from './Car'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 import Icon from '@material-ui/core/Icon'
-import NotAuth from '../nav/NotAuth'
-import Loading from '../nav/Loading'
+import NotAuth from '../nav/error/NotAuth'
+import Loading from '../nav/error/Loading'
 
 
 

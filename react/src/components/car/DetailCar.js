@@ -3,11 +3,11 @@ import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 import { withRouter } from 'react-router-dom'
 import Paper from '@material-ui/core/Paper'
-import NotFound from '../nav/NotFound'
+import NotFound from '../nav/error/NotFound'
 import { withApollo } from 'react-apollo'
 import Button from '@material-ui/core/Button'
 import Icon from '@material-ui/core/Icon'
-import Loading from '../nav/Loading'
+import Loading from '../nav/error/Loading'
 
 
 class DetailPage extends React.Component {
