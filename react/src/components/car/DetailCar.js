@@ -66,13 +66,6 @@ class DetailPage extends React.Component {
       this.props.history.push('/cars')
     })
   }
-
-  publishDraft = async id => {
-    await this.props.publishDraft({
-      variables: { id },
-    })
-    this.props.history.replace('/')
-  }
 }
 
 const POST_QUERY = gql`
