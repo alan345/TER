@@ -46,7 +46,6 @@ const wsLink = new WebSocketLink({
 })
 const httpLink = new HttpLink({ uri: 'http://localhost:4000' })
 // const httpLink = new HttpLink({ uri: 'https://eu1.prisma.sh/alan-223747/demo/dev' })
-
 // const httpLink = new HttpLink({ uri: 'http://82.223.14.38:4000' })
 // const httpLink = new HttpLink({ uri: 'http://159.65.108.215:4000/' })
 
