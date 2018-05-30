@@ -6,6 +6,7 @@ import { AUTH_TOKEN } from '../../constants/constants'
 import Paper from '@material-ui/core/Paper'
 import Button from '@material-ui/core/Button'
 import Loading from '../nav/error/Loading'
+import NotAuth from '../nav/error/NotAuth'
 
 
 class DraftsPage extends React.Component {
@@ -19,9 +20,7 @@ class DraftsPage extends React.Component {
   render() {
     const authToken = localStorage.getItem(AUTH_TOKEN)
     if (this.props.draftsQuery.error) {
-      return (
-        <div>Not authentificated</div>
-      )
+      return (<NotAuth/>)
     }
 
     if (this.props.draftsQuery.loading) {
