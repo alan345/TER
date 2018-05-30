@@ -37,8 +37,10 @@ async function deleteUser (parent, { id }, ctx, info) {
 }
 
 async function deleteCar (parent, args, ctx, info) {
-  
-  const userId = getUserId(ctx) // check if user is loggin
+
+
+  console.log('****ISSUE*****')
+  const userId = getUserId(ctx)
   const user = await ctx.db.query.user({ where: { id: userId } })
   console.log('user', user)
 

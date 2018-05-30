@@ -5,6 +5,7 @@ import Icon from '@material-ui/core/Icon'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 import Loading from './error/Loading'
+import NotAuth from './error/NotAuth'
 import ResendEmailValidation from './ResendEmailValidation'
 
 
@@ -16,8 +17,14 @@ class EmailValidated extends Component {
     if (this.props.me.loading) {
       return (<Loading />)
     }
+    if (this.props.me.error) {
+      return (<NotAuth />)
+    }
+
+
 
     const authToken = localStorage.getItem(AUTH_TOKEN)
+
     if(authToken && !this.props.me.me.emailvalidated) {
       return (
         <div className='paperOut'>
