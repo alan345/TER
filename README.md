@@ -24,7 +24,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/alan345/naperg.svg)](https://github.com/alan345/naperg/stargazers)
 [![GitHub license](https://img.shields.io/github/license/alan345/naperg.svg)](https://github.com/alan345/naperg/blob/master/LICENSE)
 ![price](https://img.shields.io/badge/Price-Free-green.svg)
-
+[![paypal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CLPDWGN5UA4CU)
 
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/alan345/naperg.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Falan345%2Fnaperg)
 
