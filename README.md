@@ -44,8 +44,8 @@
 |![connected object](https://j.gifs.com/VP9G0o.gif)|![connected object](https://j.gifs.com/860QVr.gif)|
 | Mobile Friendly  | Login with Avatar Profile |
 | ![Mobile friendly](https://j.gifs.com/1rDk1o.gif) | ![avatar profile](https://j.gifs.com/Q0Gk67.gif) |
-| REST API qith graphql-Yoga | |
-| ![REST API with graphql-Yoga](https://j.gifs.com/L8mnpg.gif) ||
+| REST API with graphql-yoga | |
+| ![REST API with graphql-yoga](https://j.gifs.com/L8mnpg.gif) ||
 
 
 
