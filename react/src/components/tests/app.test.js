@@ -7,7 +7,7 @@ import { Login } from '../user/auth/Login'
 import { ApolloProvider } from 'react-apollo'
 import { graphql, compose } from 'react-apollo'
 import { withApollo } from 'react-apollo'
-
+import { setMockGraphQLProps } from 'react-apollo';
 
 
 configure({ adapter: new Adapter() })
@@ -47,7 +47,15 @@ describe('Password input', () => {
   })
 })
 
+
+
 // describe('Login', () => {
+//
+//   // https://github.com/apollographql/apollo-test-utils/issues/30
+//   beforeAll(() => {
+//     setMockGraphQLProps({ data: { error: true } }); // or { loading: true }
+//   });
+//
 //   it('Login', () => {
 //     const wrapper = shallow(<Login />)
 //     wrapper.find('#email').simulate('change', {target: {name: 'email', value: 'alan345@gmail.com'}})

@@ -51,6 +51,7 @@ ShallowWrapper {
                 className="flex mt3"
         >
                 <WithStyles(Button)
+                        id="ok"
                         onClick={[Function]}
                         variant="raised"
                 >
@@ -111,6 +112,7 @@ ShallowWrapper {
             className="flex mt3"
 >
             <WithStyles(Button)
+                        id="ok"
                         onClick={[Function]}
                         variant="raised"
             >
@@ -220,6 +222,7 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <WithStyles(Button)
+                id="ok"
                 onClick={[Function]}
                 variant="raised"
 >
@@ -248,6 +251,7 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "children": "Ok",
+                "id": "ok",
                 "onClick": [Function],
                 "variant": "raised",
               },
@@ -338,6 +342,7 @@ ShallowWrapper {
                     className="flex mt3"
           >
                     <WithStyles(Button)
+                              id="ok"
                               onClick={[Function]}
                               variant="raised"
                     >
@@ -398,6 +403,7 @@ ShallowWrapper {
               className="flex mt3"
 >
               <WithStyles(Button)
+                            id="ok"
                             onClick={[Function]}
                             variant="raised"
               >
@@ -507,6 +513,7 @@ ShallowWrapper {
             "props": Object {
               "children": Array [
                 <WithStyles(Button)
+                  id="ok"
                   onClick={[Function]}
                   variant="raised"
 >
@@ -535,6 +542,7 @@ ShallowWrapper {
                 "nodeType": "class",
                 "props": Object {
                   "children": "Ok",
+                  "id": "ok",
                   "onClick": [Function],
                   "variant": "raised",
                 },
