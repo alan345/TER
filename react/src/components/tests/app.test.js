@@ -12,7 +12,7 @@ import Adapter from 'enzyme-adapter-react-16'
 import React from 'react'
 import { ApolloProvider } from 'react-apollo'
 import Signup from '../user/auth/Signup'
-import Login from '../user/auth/Login'
+import { Login } from '../user/auth/Login'
 
 import { graphql, compose } from 'react-apollo'
 import { withApollo } from 'react-apollo'
@@ -37,7 +37,7 @@ it('Login', () => {
 })
 
 it('renders a email input', () => {
-  const wrapper = shallow(<Login />)
+  const wrapper = shallow(<Login />);
   expect(wrapper.find('#email').length).toEqual(1)
 })
 
