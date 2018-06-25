@@ -6,17 +6,8 @@ import Icon from '@material-ui/core/Icon'
 import NotAuth from '../nav/error/NotAuth'
 import Loading from '../nav/error/Loading'
 
-
-
 class CarsPageList extends React.Component {
-
-  // componentDidMount(data) {
-  //   this.props.carsQueryConnection.refetch()
-  // }
-
   render() {
-
-
     if (this.props.carsQueryConnection.error) {
       return (<NotAuth/>)
     }
@@ -24,8 +15,8 @@ class CarsPageList extends React.Component {
     if (this.props.carsQueryConnection.loading) {
       return (<Loading />)
     }
-    const {edges, aggregate} = this.props.carsQueryConnection.carsConnection
 
+    const {edges, aggregate} = this.props.carsQueryConnection.carsConnection
 
     if(!this.props.query && !this.props.showWhenQueryEmpty) {
       return null
@@ -33,7 +24,6 @@ class CarsPageList extends React.Component {
 
     return (
       <React.Fragment>
-
         {this.props.showTitle && (
           <h1>Cars ({edges.length}/{aggregate.count})</h1>
         )}
@@ -45,11 +35,9 @@ class CarsPageList extends React.Component {
             Load More
           </div>
           )}
-
         {this.props.children}
-
-    </React.Fragment>
-  )
+      </React.Fragment>
+    )
   }
 
   loadMore() {
@@ -80,7 +68,6 @@ class CarsPageList extends React.Component {
       }
     })
   }
-
 }
 
 const DRAFTS_QUERY = gql `
@@ -102,7 +89,6 @@ const DRAFTS_QUERY = gql `
     }
   }
 `
-
 
 export default compose(
   graphql(DRAFTS_QUERY, {

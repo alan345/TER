@@ -7,7 +7,6 @@ import Paper from '@material-ui/core/Paper'
 import { graphql, compose } from 'react-apollo'
 import Button from '@material-ui/core/Button'
 
-
 class CreatePage extends React.Component {
   state = {
     title: '',
@@ -19,7 +18,6 @@ class CreatePage extends React.Component {
     let idCars = elems.map(el => {return {id: el.id}})
     this.setState({idCars})
   }
-
 
   render() {
     return (
@@ -60,11 +58,6 @@ class CreatePage extends React.Component {
     )
   }
 
-  // handleFile = (nameFile) => {
-  //   this.setState({nameFile: nameFile})
-  // }
-
-
   handlePost = async e => {
     e.preventDefault()
     const { title, text, nameFile } = this.state
@@ -86,7 +79,6 @@ class CreatePage extends React.Component {
   }
 }
 
-
 const CREATE_POST_MUTATION = gql`
   mutation CreatePostMutation($data: PostCreateInput!) {
     createPost(data: $data) {
@@ -97,7 +89,6 @@ const CREATE_POST_MUTATION = gql`
     }
   }
 `
-
 
 export default compose(
   graphql(CREATE_POST_MUTATION, { name: 'createPostMutation'}),

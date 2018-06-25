@@ -8,10 +8,8 @@ import Paper from '@material-ui/core/Paper'
 import NotFound from '../nav/error/NotFound'
 import Loading from '../nav/error/Loading'
 
-
 class DetailPage extends React.Component {
   render() {
-
     if (this.props.postQuery.error) {
       return (
         <NotFound/>

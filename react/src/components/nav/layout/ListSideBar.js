@@ -9,14 +9,13 @@ import Icon from '@material-ui/core/Icon'
 import {AUTH_TOKEN} from '../../../constants/constants'
 
 class ListSideBar extends Component {
-
   state = {
     isSideBarOpen: false
-  };
+  }
 
   toggleDrawer = (isSideBarOpen) => () => {
     this.setState({isSideBarOpen: isSideBarOpen})
-  };
+  }
 
   componentWillReceiveProps(nextProps) {
     this.setState({isSideBarOpen: nextProps.isSideBarOpen})

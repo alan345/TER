@@ -5,10 +5,7 @@ import gql from 'graphql-tag'
 import NotAuth from '../nav/error/NotAuth'
 import Loading from '../nav/error/Loading'
 
-
-
 class ChatsPageList extends React.Component {
-
   componentDidMount() {
     this.props.chatsQueryConnection.subscribeToMore({
       document: CHAT_SUBSCRIPTION,
@@ -35,9 +32,7 @@ class ChatsPageList extends React.Component {
     }
   }
 
-
   render() {
-
     if (this.props.chatsQueryConnection.error) {
       return (<NotAuth/>)
     }
@@ -45,7 +40,6 @@ class ChatsPageList extends React.Component {
     if (this.props.chatsQueryConnection.loading) {
       return (<Loading />)
     }
-
 
     const {edges} = this.props.chatsQueryConnection.chatsConnection
 
@@ -96,8 +90,6 @@ const CHAT_SUBSCRIPTION = gql `
     }
   }
 `
-
-
 
 export default compose(
   graphql(CHATS_QUERY, {

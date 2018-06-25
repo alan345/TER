@@ -3,8 +3,6 @@ import ListSideBar from './ListSideBar'
 import Drawer from '@material-ui/core/Drawer'
 
 class SideBar extends Component {
-
-
   state = {
     isSideBarOpen: false,
     variant: 'permanent'

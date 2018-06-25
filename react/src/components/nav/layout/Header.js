@@ -7,10 +7,7 @@ import Button from '@material-ui/core/Button'
 import BackButton from './BackButton'
 import Icon from '@material-ui/core/Icon'
 
-
-
 class Header extends Component {
-
   render() {
     return (
       <div className='flexGrow'>

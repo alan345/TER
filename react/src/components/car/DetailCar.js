@@ -9,7 +9,6 @@ import Button from '@material-ui/core/Button'
 import Icon from '@material-ui/core/Icon'
 import Loading from '../nav/error/Loading'
 
-
 class DetailPage extends React.Component {
   render() {
     if (this.props.me.loading) {
@@ -40,7 +39,7 @@ class DetailPage extends React.Component {
     )
   }
 
-  _renderAction = ({ id, isPublished }) => {
+  _renderAction({ id }) {
     return (
       <Button
         disabled={this.props.me.me.role !== 'ADMIN'}
@@ -62,7 +61,7 @@ class DetailPage extends React.Component {
         id: id
       } },
     })
-    this.props.client.resetStore().then(data=> {
+    this.props.client.resetStore().then(() => {
       this.props.history.push('/cars')
     })
   }
@@ -76,8 +75,6 @@ const POST_QUERY = gql`
     }
   }
 `
-
-
 
 const DELETE_MUTATION = gql`
   mutation deleteCar($where: CarWhereUniqueInput!) {
@@ -95,7 +92,6 @@ const USER_QUERY = gql`
     }
   }
 `
-
 
 export default compose(
   graphql(POST_QUERY, {

@@ -9,12 +9,10 @@ import Input from '@material-ui/core/Input'
 import InputLabel from '@material-ui/core/InputLabel'
 import FormControl from '@material-ui/core/FormControl'
 
-
 class CreateCar extends React.Component {
   state = {
     name: '',
   }
-
 
   render() {
     return (
@@ -22,9 +20,6 @@ class CreateCar extends React.Component {
         <Paper className='paperIn'>
         <form onSubmit={this.handleCar}>
           <h1>Create Car</h1>
-
-
-
             <FormControl>
               <InputLabel htmlFor='name'>Name</InputLabel>
               <Input
@@ -59,14 +54,13 @@ class CreateCar extends React.Component {
       this.setState({nameFile: nameFile})
   }
 
-
   handleCar = async e => {
     e.preventDefault()
     const { name } = this.state
     await this.props.createCarMutation({
       variables: {name} ,
     })
-    this.props.client.resetStore().then(data=> {
+    this.props.client.resetStore().then( () => {
       this.props.history.push('/cars')
     })
   }

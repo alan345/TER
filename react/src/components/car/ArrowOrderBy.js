@@ -2,8 +2,6 @@ import React from 'react'
 import Icon from '@material-ui/core/Icon'
 
 export default class ArrowOrderBy extends React.Component {
-
-
   render() {
     const orderBy = () => {
       if(this.props.orderBy === 'name_ASC') {

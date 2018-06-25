@@ -8,7 +8,6 @@ import Loading from './error/Loading'
 import NotAuth from './error/NotAuth'
 import ResendEmailValidation from './ResendEmailValidation'
 
-
 class EmailValidated extends Component {
   state = {
     interval : 0
@@ -20,8 +19,6 @@ class EmailValidated extends Component {
     if (this.props.me.error) {
       return (<NotAuth />)
     }
-
-
 
     const authToken = localStorage.getItem(AUTH_TOKEN)
 
@@ -40,7 +37,6 @@ class EmailValidated extends Component {
   }
 }
 
-
 const USER_QUERY = gql`
   query Me {
     me {
@@ -49,7 +45,6 @@ const USER_QUERY = gql`
     }
   }
 `
-
 
 export default compose(
   graphql(USER_QUERY, {name: 'me'}),

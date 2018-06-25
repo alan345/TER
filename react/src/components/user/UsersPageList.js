@@ -5,8 +5,6 @@ import NotAuth from '../nav/error/NotAuth'
 import Icon from '@material-ui/core/Icon'
 import Loading from '../nav/error/Loading'
 
-
-
 class UsersPageList extends React.Component {
   state = {
     query: '',

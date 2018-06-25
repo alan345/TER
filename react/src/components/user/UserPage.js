@@ -18,7 +18,6 @@ import { withApollo } from 'react-apollo'
 import Loading from '../nav/error/Loading'
 import Input from '@material-ui/core/Input'
 
-
 class UserPage extends React.Component {
   state = {
     open: false,
