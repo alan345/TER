@@ -10,12 +10,12 @@
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.4",
     "csv-express": "^1.2.2",
-    "debug": "~2.6.9",
-    "express": "~4.15.5",
+    "debug": "~3.1.0",
+    "express": "~4.16.3",
     "express-fileupload": "^0.4.0",
     "graphql-request": "^1.5.1",
     "morgan": "~1.9.0",
-    "pug": "2.0.0-beta11",
-    "serve-favicon": "~2.4.5"
+    "pug": "2.0.3",
+    "serve-favicon": "~2.5.0"
   }
 }
