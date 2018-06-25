@@ -20,7 +20,7 @@ class SideBar extends Component {
     })
   }
 
-  UNSAFE_componentDidMount() {
+  componentDidMount() {
     let variant = this.props.isMobile() ? 'persistent' : 'permanent'
     this.setState({
       variant: variant

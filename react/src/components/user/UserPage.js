@@ -34,7 +34,8 @@ class UserPage extends React.Component {
     const userToken = JSON.parse(localStorage.getItem('userToken'))
     return userToken.id === this.state.user.id
   }
-  UNSAFE_componentWillMount() {
+
+  componentDidMount() {
     this.setState({ user: this.props.userQuery.user })
   }
 

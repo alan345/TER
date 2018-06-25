@@ -14,6 +14,7 @@ class UploadFile extends React.Component {
   UNSAFE_componentWillReceiveProps(newProps){
     this.setState({ isEditMode: newProps.isEditMode })
   }
+  
   UNSAFE_componentWillMount(){
     this.setState({ isEditMode: this.props.isEditMode })
     if(this.props.nameFile) {
