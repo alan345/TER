@@ -12,6 +12,7 @@ module.exports = {
     "plugins": [
       "react"
     ],
+    "parser": "babel-eslint",
     "parserOptions": {
       "ecmaVersion": 7,
       "sourceType": "module",
@@ -20,7 +21,8 @@ module.exports = {
       }
     },
     "globals": {
-      "localStorage": true
+      "localStorage": true,
+      "process": true
     }
 
 }
