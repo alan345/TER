@@ -40,7 +40,7 @@ class DetailPage extends React.Component {
     )
   }
 
-  _renderAction = ({ id, isPublished }) => {
+  _renderAction({ id, isPublished }) {
     return (
       <Button
         disabled={this.props.me.me.role !== 'ADMIN'}

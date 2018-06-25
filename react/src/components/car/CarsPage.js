@@ -11,9 +11,12 @@ import NotAuth from '../nav/error/NotAuth'
 import { AUTH_TOKEN } from '../../constants/constants'
 
 class CarsPage extends Component {
-  state = {
-    query: '',
-    orderBy: 'name_ASC'
+  constructor(props) {
+    super(props)
+    this.state = {
+      query: '',
+      orderBy: 'name_ASC'
+    }
   }
 
   elemClicked(elem) {
@@ -57,8 +60,6 @@ class CarsPage extends Component {
           <Button onClick={() => this.props.history.push('/car/create')} variant='raised' color='primary'>
             + Create Car
           </Button>
-
-
 
         <CarsPageList
           showWhenQueryEmpty={true}
