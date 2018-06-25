@@ -7,7 +7,6 @@ import InputLabel from '@material-ui/core/InputLabel'
 import FormControl from '@material-ui/core/FormControl'
 import FormHelperText from '@material-ui/core/FormHelperText'
 
-
 export default class Password extends Component {
   state = {
     inputValidation2: true,
@@ -19,7 +18,7 @@ export default class Password extends Component {
     password: '',
     passwordMinimumLength: 10
   }
-  componentWillReceiveProps(newProps) {
+  UNSAFE_componentWillReceiveProps() {
     this.input2.focus()
   }
   onChange2(e){
@@ -45,8 +44,6 @@ export default class Password extends Component {
     }, () => {
       this.props.onChange2(this.state)
     })
-
-
   }
 
   hasLowerCase(str) {
@@ -76,8 +73,6 @@ export default class Password extends Component {
     this.setState({isPasswordLongEnough: false})
     return false
   }
-
-
 
   handleNext = () => {
     this.props.handleNext()
@@ -127,7 +122,7 @@ export default class Password extends Component {
       {!this.state.hasSpecialChar && (
         <FormHelperText>At least a spceial character.</FormHelperText>
       )}
-  </FormControl>
+      </FormControl>
 
     )
   }

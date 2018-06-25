@@ -5,8 +5,6 @@ import gql from 'graphql-tag'
 import Paper from '@material-ui/core/Paper'
 import Loading from '../nav/error/Loading'
 
-
-
 class FeedPage extends React.Component {
   UNSAFE_componentWillReceiveProps(nextProps) {
     if (this.props.location.key !== nextProps.location.key) {

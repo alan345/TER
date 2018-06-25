@@ -54,8 +54,6 @@ class ResendEmailValidation extends Component {
   }
 }
 
-
-
 const SEND_LINK_VALIDATE_EMAIL_MUTATION = gql`
   mutation sendLinkValidateEmailMutation {
     sendLinkValidateEmail {

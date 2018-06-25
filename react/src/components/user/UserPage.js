@@ -34,18 +34,16 @@ class UserPage extends React.Component {
     const userToken = JSON.parse(localStorage.getItem('userToken'))
     return userToken.id === this.state.user.id
   }
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.setState({ user: this.props.userQuery.user })
   }
 
-  componentWillReceiveProps(newProps){
+  UNSAFE_componentWillReceiveProps(newProps){
     const { user } = newProps.userQuery
     if(!newProps.userQuery.loading){
       this.setState({ user: user })
     }
   }
-
-
 
   render() {
     if (this.props.userQuery.error) {
@@ -53,7 +51,6 @@ class UserPage extends React.Component {
         <NotAuth/>
       )
     }
-
 
     const { user } = this.props.userQuery
     if(!user) {
@@ -76,7 +73,7 @@ class UserPage extends React.Component {
             <div className='flex justify-between items-center'>
               <h1 className='f3 black-80 fw4 lh-solid'>
                 {this.state.user.name}{' '}
-                <Icon onClick={e => this.setState({ isEditMode:!this.state.isEditMode })}>border_color</Icon>
+                <Icon onClick={ () => this.setState({ isEditMode:!this.state.isEditMode })}>border_color</Icon>
               </h1>
               {this.isUserMyself() && (
                 <Tooltip title='Change your password'>
@@ -190,18 +187,15 @@ class UserPage extends React.Component {
     this.setState({isEditMode: false})
   }
 
-
-
   deleteUser = async id => {
     await this.props.deleteUser({
       variables: { id },
     })
-    this.props.client.resetStore().then(data=> {
+    this.props.client.resetStore().then( () => {
       this.props.history.push('/users')
     })
   }
 }
-
 
 const UPDATE_USER_MUTATION = gql`
   mutation UpdateUserMutation($data: UserUpdateInput!, $where: UserWhereUniqueInput!) {
@@ -232,8 +226,6 @@ const USER_QUERY = gql`
     }
   }
 `
-
-
 
 const DELETE_MUTATION = gql`
   mutation deleteUser($id: ID!) {

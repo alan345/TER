@@ -15,8 +15,6 @@ export class Login extends Component {
     name: '',
   }
 
-
-
   render() {
     return (
       <div className='paperOut'>
@@ -33,8 +31,6 @@ export class Login extends Component {
             type='text'
             label='Your email address'
           />
-
-
           <TextField
             id='password'
             value={this.state.password}
@@ -81,20 +77,16 @@ export class Login extends Component {
       .catch((e) => {
         this.child._openSnackBar(e.graphQLErrors[0].message)
       })
-
-
-
   }
 
   _saveUserData = (token, user) => {
     localStorage.setItem(AUTH_TOKEN, token)
     localStorage.setItem('userToken', JSON.stringify(user))
-    this.props.client.resetStore().then(data=> {
+    this.props.client.resetStore().then( () => {
       this.props.history.push(`/`)
     })
   }
 }
-
 
 const LOGIN_MUTATION = gql`
   mutation LoginMutation($email: String!, $password: String!) {
@@ -107,9 +99,6 @@ const LOGIN_MUTATION = gql`
     }
   }
 `
-
-
-
 
 export default compose(
   withApollo,

@@ -23,7 +23,6 @@ class ResetPassword extends Component {
         resetPasswordToken: resetPasswordToken
       })
     }
-
   }
 
   render() {
@@ -75,11 +74,9 @@ class ResetPassword extends Component {
       },
     })
     .then((result) => {
-      console.log(result)
       messageSnackBar = `Your password has been reset successfully!`
       const { token, user } = result.data.resetPassword
       this._saveUserData(token, user)
-
     })
     .catch((e) => {
       messageSnackBar = e.graphQLErrors[0].message
@@ -92,8 +89,6 @@ class ResetPassword extends Component {
     localStorage.setItem('userToken', JSON.stringify(user))
   }
 }
-
-
 
 const RESET_PASSWORD_MUTATION = gql`
   mutation ResetPasswordMutation($password: String!, $resetPasswordToken: String!) {

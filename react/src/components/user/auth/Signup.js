@@ -16,7 +16,6 @@ import { withApollo } from 'react-apollo'
 
 var validator = require('email-validator')
 
-
 class Signup extends Component {
   state = {
     email: '',
@@ -98,7 +97,6 @@ class Signup extends Component {
     }
   }
 
-
   render() {
     return (
       <div className='paperOut'>
@@ -167,8 +165,6 @@ class Signup extends Component {
             )}
           </div>
         </div>
-
-
         <SnackBarCustom ref={instance => { this.child = instance }}/>
       </Paper>
       </div>
@@ -188,7 +184,6 @@ class Signup extends Component {
       .then((result) => {
         const { token, user } = result.data.signup
         this._saveUserData(token, user)
-
       })
       .catch((e) => {
         if(e.graphQLErrors.length) {
@@ -197,13 +192,12 @@ class Signup extends Component {
           this.child._openSnackBar('error: No connection with server')
         }
       })
-
   }
 
   _saveUserData = (token, user) => {
     localStorage.setItem(AUTH_TOKEN, token)
     localStorage.setItem('userToken', JSON.stringify(user))
-    this.props.client.resetStore().then(data=> {
+    this.props.client.resetStore().then(() => {
       this.props.history.push(`/`)
     })
   }
@@ -220,7 +214,6 @@ const SIGNUP_MUTATION = gql`
     }
   }
 `
-
 
 export default compose(
   withApollo,

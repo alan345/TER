@@ -31,7 +31,6 @@ it('email input', () => {
   expect(wrapper.state('email')).toEqual('blah@gmail.com')
 })
 
-
 describe('Password input', () => {
   it('should respond to change event and change the state of the Login Component', () => {
     const wrapper = shallow(<Login />)

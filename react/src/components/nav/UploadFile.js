@@ -21,7 +21,6 @@ class UploadFile extends React.Component {
     }
   }
 
-
   handleUploadImage(ev) {
     ev.preventDefault()
     const authToken = localStorage.getItem(AUTH_TOKEN)
@@ -53,7 +52,7 @@ class UploadFile extends React.Component {
                 onChange={this.handleUploadImage}
                 type='file' />
 
-          </form>
+            </form>
           )}
         <br/>
         {this.state.imageURL && (

@@ -1,6 +1,8 @@
 module.exports = {
     "env": {
-      "amd": true
+      "amd": true,
+      "browser": true,
+      "jest": true
     },
     "extends": ["eslint:recommended", "plugin:react/recommended"],
     "rules": {

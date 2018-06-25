@@ -4,8 +4,6 @@ import gql from 'graphql-tag'
 import SnackBarCustom from '../../nav/SnackBarCustom'
 import Paper from '@material-ui/core/Paper'
 import { withApollo } from 'react-apollo'
-// import { AUTH_TOKEN } from '../../../constants/constants'
-
 
 const queryString = require('query-string')
 
@@ -23,7 +21,6 @@ class ValidateEmail extends Component {
   }
 
   render() {
-
     return (
       <div className='paperOut'>
         <Paper className='paperIn'>
@@ -53,21 +50,13 @@ class ValidateEmail extends Component {
     })
     .catch((e) => { messageSnackBar = e.graphQLErrors[0].message })
     this.child._openSnackBar(messageSnackBar)
-
   }
 
-
-  _saveUserData = (token, user) => {
-    // localStorage.setItem(AUTH_TOKEN, token)
-    // localStorage.setItem('userToken', JSON.stringify(user))
-
-    this.props.client.resetStore().then(data=> {
-      // this.props.history.push('/')
+  _saveUserData = () => {
+    this.props.client.resetStore().then( ()=> {
     })
-
   }
 }
-
 
 const VALIDATE_EMAIL_TOKEN_MUTATION = gql`
   mutation ValidateEmailMutation($validateEmailToken: String!) {
@@ -81,8 +70,6 @@ const VALIDATE_EMAIL_TOKEN_MUTATION = gql`
     }
   }
 `
-
-
 
 export default compose(
   graphql(VALIDATE_EMAIL_TOKEN_MUTATION, { name: 'validateEmailMutation' }),

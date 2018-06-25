@@ -14,8 +14,6 @@ import IconButton from '@material-ui/core/IconButton'
 import FormControl from '@material-ui/core/FormControl'
 import InputLabel from '@material-ui/core/InputLabel'
 
-
-
 class ChangePassword extends Component {
   state = {
     oldPassword: '',
@@ -40,7 +38,6 @@ class ChangePassword extends Component {
   }
 
   handleNext = () => {
-    console.log(this.state.activeStep)
     if(this.state.oldPassword) {
       this.setState({
         activeStep: this.state.activeStep + 1,
@@ -67,14 +64,12 @@ class ChangePassword extends Component {
   }
 
   render() {
-
     const authToken = localStorage.getItem(AUTH_TOKEN)
     if(!authToken) {
       return (
         <NotAuth/>
       )
     }
-
 
     return (
       <div className='paperOut'>
@@ -221,7 +216,7 @@ class ChangePassword extends Component {
         newPassword
       },
     })
-    .then((result) => {
+    .then(() => {
       messageSnackBar = `Your password has been changed successfully!`
       this.setState({
         oldPassword: '',
@@ -229,7 +224,6 @@ class ChangePassword extends Component {
         newPassword2: '',
         activeStep: 0
       })
-
     })
     .catch((e) => {
       this.setState({activeStep:0})
@@ -243,8 +237,6 @@ class ChangePassword extends Component {
     localStorage.setItem('userToken', JSON.stringify(user))
   }
 }
-
-
 
 const UPDATE_PASSWORD_MUTATION = gql`
   mutation UpdatePasswordMutation($oldPassword: String!, $newPassword: String!) {

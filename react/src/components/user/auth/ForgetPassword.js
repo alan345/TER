@@ -6,16 +6,12 @@ import Paper from '@material-ui/core/Paper'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 
-
 class ForgetPassword extends Component {
-
   state = {
     email: '',
   }
 
-
   render() {
-
     return (
       <div className='paperOut'>
         <Paper className='paperIn'>
@@ -57,12 +53,8 @@ class ForgetPassword extends Component {
       })
       .catch((e) => { messageSnackBar = e.graphQLErrors[0].message })
       this.child._openSnackBar(messageSnackBar)
-
   }
-
 }
-
-
 
 const FORGET_PASSWORD_MUTATION = gql`
   mutation ForgetPasswordMutation($email: String!) {
@@ -75,7 +67,5 @@ const FORGET_PASSWORD_MUTATION = gql`
 `
 
 export default compose(
-
   graphql(FORGET_PASSWORD_MUTATION, { name: 'forgetPasswordMutation' }),
-
 )(ForgetPassword)
