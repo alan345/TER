@@ -93,7 +93,6 @@ const USER_QUERY = gql`
   }
 `
 
-
 export default compose(
   graphql(POST_QUERY, {
     name: 'carQuery',

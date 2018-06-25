@@ -11,12 +11,10 @@ import Input from '@material-ui/core/Input'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import Icon from '@material-ui/core/Icon'
 
-
 class CreateChat extends React.Component {
   state = {
     message: '',
   }
-
 
   render() {
     return (
@@ -48,7 +46,6 @@ class CreateChat extends React.Component {
       </div>
     )
   }
-
 
   handleChat = async e => {
     e.preventDefault()

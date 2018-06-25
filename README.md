@@ -134,6 +134,8 @@ For a fully-fledged **React & Apollo tutorial**, visit [How to GraphQL](https://
 * `docker-compose up -d` init app
 * `prisma deploy` Deploy app
 
+* `eslint .` Check JS/react syntax with eslint-plugin-react
+
 * `yarn start` starts GraphQL server on `http://localhost:4000`
 * `yarn dev` starts GraphQL server on `http://localhost:4000` _and_ opens GraphQL Playground
 * `yarn playground` opens the GraphQL Playground for the `projects` from `.graphqlconfig.yml`

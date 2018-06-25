@@ -5,10 +5,7 @@ import gql from 'graphql-tag'
 import NotAuth from '../nav/error/NotAuth'
 import Loading from '../nav/error/Loading'
 
-
-
 class ChatsPageList extends React.Component {
-
   componentDidMount() {
     this.props.chatsQueryConnection.subscribeToMore({
       document: CHAT_SUBSCRIPTION,
