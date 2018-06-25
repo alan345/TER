@@ -9,7 +9,6 @@ class ResendEmailValidation extends Component {
     interval : 0
   }
   render() {
-
     return (
       <span>
         {this.state.interval ? (
@@ -32,7 +31,6 @@ class ResendEmailValidation extends Component {
     .then((result) => {
       const messageSnackBar = `Email sent successfully to ${result.data.sendLinkValidateEmail.email}!`
       this.child._openSnackBar(messageSnackBar)
-
     })
     .catch((e) => {
       this.child._openSnackBar(e.graphQLErrors[0].message)

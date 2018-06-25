@@ -8,14 +8,12 @@ import Button from '@material-ui/core/Button'
 import Loading from '../nav/error/Loading'
 import NotAuth from '../nav/error/NotAuth'
 
-
 class DraftsPage extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (this.props.location.key !== nextProps.location.key) {
       this.props.draftsQuery.refetch()
     }
   }
-
 
   render() {
     const authToken = localStorage.getItem(AUTH_TOKEN)
@@ -69,7 +67,6 @@ const DRAFTS_QUERY = gql`
     }
   }
 `
-
 
 export default graphql(DRAFTS_QUERY, {
   name: 'draftsQuery', // name of the injected prop: this.props.feedQuery...

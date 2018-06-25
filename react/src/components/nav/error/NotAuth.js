@@ -4,7 +4,6 @@ import Paper from '@material-ui/core/Paper'
 import {Link} from 'react-router-dom'
 
 class NotAuth extends Component {
-
   render() {
     return (
       <div className='paperOut'>

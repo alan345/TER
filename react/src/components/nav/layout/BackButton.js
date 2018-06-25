@@ -4,8 +4,7 @@ import Button from '@material-ui/core/Button'
 import Icon from '@material-ui/core/Icon'
 
 class BackButton extends Component {
-    render() {
-
+  render() {
     return (
       <div>
 

@@ -14,13 +14,11 @@ class Api extends React.Component {
           message: res.data
         })
       })
-      .catch(function (error) {
-        console.log(error);
-      });
+      .catch(function () {
+      })
   }
 
   render() {
-
     return (
       <React.Fragment>
         <div className='paperOut'>

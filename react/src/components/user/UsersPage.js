@@ -6,7 +6,6 @@ import { withRouter } from 'react-router'
 import NotAuth from '../nav/error/NotAuth'
 import { AUTH_TOKEN } from '../../constants/constants'
 
-
 class UsersPage extends React.Component {
   state = {
     query: '',

@@ -8,7 +8,6 @@ import {Manager, Target, Popper} from 'react-popper'
 import Paper from '@material-ui/core/Paper'
 import ClickAwayListener from '@material-ui/core/ClickAwayListener'
 import Grow from '@material-ui/core/Grow'
-
 import MenuList from '@material-ui/core/MenuList'
 
 class MenuAvatar extends Component {
@@ -64,8 +63,8 @@ class MenuAvatar extends Component {
           </ClickAwayListener>
         </Popper>
       </Manager>
-
-    </div>)
+    </div>
+  )
   }
 }
 

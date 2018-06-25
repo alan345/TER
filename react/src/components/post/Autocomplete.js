@@ -39,7 +39,7 @@ class Autocomplete extends Component {
           <Chip
             key={i}
             label={elem.name}
-            onDelete={(e)=>this.handleDelete(elem)}
+            onDelete={()=>this.handleDelete(elem)}
           />
       ))}
 

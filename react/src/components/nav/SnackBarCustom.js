@@ -21,9 +21,7 @@ class SnackBarCustom extends Component {
      this.setState({ openSnackBar: false })
    }
 
-
   render() {
-
     return (
       <div>
         <Snackbar

@@ -7,9 +7,7 @@ import MenuAvatar from './MenuAvatar'
 import { withApollo } from 'react-apollo'
 
 class TopHello extends Component {
-
   render() {
-
     const authToken = localStorage.getItem(AUTH_TOKEN)
       return (
         <div>

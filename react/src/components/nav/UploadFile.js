@@ -2,10 +2,7 @@ import React from 'react'
 import ImageTemplate from './ImageTemplate'
 import { AUTH_TOKEN } from '../../constants/constants'
 
-
-
 class UploadFile extends React.Component {
-
   state = {
     isEditMode: true,
     imageURL: '',
@@ -25,9 +22,7 @@ class UploadFile extends React.Component {
 
   }
 
-  // componentWillReceiveProps(newProps){
-  //   console.log(newProps)
-  // }
+
   handleUploadImage(ev) {
     ev.preventDefault()
     const authToken = localStorage.getItem(AUTH_TOKEN)
@@ -67,7 +62,6 @@ class UploadFile extends React.Component {
             nameFile={this.state.imageURL}
           />
         )}
-
     </div>
     )
   }

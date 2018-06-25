@@ -5,7 +5,6 @@ import CardHeader from '@material-ui/core/CardHeader'
 import Tooltip from '@material-ui/core/Tooltip'
 import {withRouter} from 'react-router'
 
-
 var parse = require('date-fns/parse')
 var format = require('date-fns/format')
 

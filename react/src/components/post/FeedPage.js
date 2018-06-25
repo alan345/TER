@@ -14,8 +14,6 @@ class FeedPage extends React.Component {
     }
   }
 
-
-
   render() {
     if (this.props.feedQuery.loading) {
       return (<Loading />)

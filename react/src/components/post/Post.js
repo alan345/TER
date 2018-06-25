@@ -9,7 +9,6 @@ export default class Post extends React.Component {
       title = `${title} (Draft)`
     }
 
-
     return (
       <Link className="no-underline ma1" to={`/post/${this.props.post.id}`}>
         <h2 className="f3 black-80 fw4 lh-solid">{title}</h2>
