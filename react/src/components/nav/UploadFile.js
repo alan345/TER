@@ -11,15 +11,14 @@ class UploadFile extends React.Component {
     super(props)
     this.handleUploadImage = this.handleUploadImage.bind(this)
   }
-  componentWillReceiveProps(newProps){
+  UNSAFE_componentWillReceiveProps(newProps){
     this.setState({ isEditMode: newProps.isEditMode })
   }
-  componentWillMount(){
+  UNSAFE_componentWillMount(){
     this.setState({ isEditMode: this.props.isEditMode })
     if(this.props.nameFile) {
       this.setState({ imageURL: this.props.nameFile })
     }
-
   }
 
 

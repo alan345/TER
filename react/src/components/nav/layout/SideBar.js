@@ -20,15 +20,14 @@ class SideBar extends Component {
     })
   }
 
-  componentDidMount() {
+  UNSAFE_componentDidMount() {
     let variant = this.props.isMobile() ? 'persistent' : 'permanent'
     this.setState({
       variant: variant
     })
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log(nextProps)
+  UNSAFE_componentWillReceiveProps(nextProps) {
     this.setState({ isSideBarOpen: nextProps.isSideBarOpen })
   }
 

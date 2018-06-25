@@ -8,7 +8,7 @@ import Loading from '../nav/error/Loading'
 
 
 class FeedPage extends React.Component {
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (this.props.location.key !== nextProps.location.key) {
       this.props.feedQuery.refetch()
     }

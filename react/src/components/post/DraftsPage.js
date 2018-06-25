@@ -9,7 +9,7 @@ import Loading from '../nav/error/Loading'
 import NotAuth from '../nav/error/NotAuth'
 
 class DraftsPage extends React.Component {
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (this.props.location.key !== nextProps.location.key) {
       this.props.draftsQuery.refetch()
     }
@@ -31,8 +31,6 @@ class DraftsPage extends React.Component {
           <Paper className='paperIn'>
         <div className='flex justify-between items-center'>
           <h1>Drafts</h1>
-
-
           {authToken && (
             <Button onClick={() => this.props.history.replace('/create')} variant='raised' color='primary'>
               + Create Draft

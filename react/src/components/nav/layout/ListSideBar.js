@@ -17,7 +17,7 @@ class ListSideBar extends Component {
     this.setState({isSideBarOpen: isSideBarOpen})
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     this.setState({isSideBarOpen: nextProps.isSideBarOpen})
   }
 
