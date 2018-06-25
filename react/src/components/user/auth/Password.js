@@ -10,8 +10,6 @@ import FormHelperText from '@material-ui/core/FormHelperText'
 
 export default class Password extends Component {
   state = {
-    // email: '',
-    // emailValidation: true,
     inputValidation2: true,
     isPasswordLongEnough: true,
     hasLowerCase: true,
@@ -19,10 +17,6 @@ export default class Password extends Component {
     hasNumber: true,
     hasSpecialChar: true,
     password: '',
-    // name: '',
-    // nameFile: '',
-    // activeStep: 0,
-    // maxStep: 3,
     passwordMinimumLength: 10
   }
   componentWillReceiveProps(newProps) {
@@ -66,7 +60,7 @@ export default class Password extends Component {
   }
 
   hasSpecialChar(str) {
-    var format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/
+    var format = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/
     if(format.test(str)){
       return true
     } else {
@@ -94,7 +88,6 @@ export default class Password extends Component {
       this.handleNext()
     }
   }
-
 
   render() {
     return (
