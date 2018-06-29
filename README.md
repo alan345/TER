@@ -155,7 +155,8 @@ Frontend:
 
 Backend:
 * Server JS: ExpressJs http://expressjs.com/fr/
-* Server GraphQL: Prisma https://www.prisma.io/
+* Server GraphQL: GraphQL yoga https://github.com/prismagraphql/graphql-yoga
+* ORM (object-relational mapping): Prisma https://www.prisma.io/
 * Database MySQL: https://www.mysql.com/
 * Send email: nodemailer https://nodemailer.com/
 
