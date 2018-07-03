@@ -25,40 +25,54 @@ import EmailValidated from '../../nav/EmailValidated'
 import Header from '../../nav/layout/Header'
 import NotFound from '../../nav/error/NotFound'
 import SideBar from '../../nav/layout/SideBar'
+const ThemeContext = React.createContext('light')
+
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      theme: true,
+    }
+
+    this.toggleTheme = () => {
+      this.setState({theme: !this.theme})
+    }
+  }
   render() {
     const isMobile = ()=> window.innerWidth<600 ? true : false
     return (
       <Router>
       <div>
-        <SideBar isMobile={isMobile} ref={instance => { this.child = instance }}/>
-        <div className='desktopMargin'>
-          <Header isMobile={isMobile} toggleDrawerFunction={() => { this.child.toggleDrawerFunction(true) }}/>
-          <EmailValidated/>
-          <div>
-            <Switch>
-              <Route exact path='/' component={FeedPage} />
-              <Route path='/car/create' component={CreateCar} />
-              <Route path='/car/:id' component={DetailCar} />
-              <Route path='/drafts' component={DraftsPage} />
-              <Route path='/cars' component={CarsPage} />
-              <Route path='/chats' component={ChatsPage} />
-              <Route path='/users' component={UsersPage} />
-              <Route path='/api' component={Api} />
-              <Route path='/user/:id' component={UserPage} />
-              <Route path='/create' component={CreatePage} />
-              <Route path='/post/:id' component={DetailPage} />
-              <Route path='/login' component={Login} />
-              <Route path='/signup' component={Signup} />
-              <Route path='/forgetPassword' component={ForgetPassword} />
-              <Route path='/resetPassword' component={ResetPassword} />
-              <Route path='/updatePassword' component={UpdatePassword} />
-              <Route path='/validateEmail' component={ValidateEmail} />
-              <Route component={NotFound} />
-            </Switch>
+        <ThemeContext.Provider value={this.state.theme}>
+          <SideBar isMobile={isMobile} ref={instance => { this.child = instance }}/>
+          <div className='desktopMargin'>
+            <Header isMobile={isMobile} toggleDrawerFunction={() => { this.child.toggleDrawerFunction(true) }}/>
+            <EmailValidated/>
+            <div>
+              <Switch>
+                <Route exact path='/' component={FeedPage} />
+                <Route path='/car/create' component={CreateCar} />
+                <Route path='/car/:id' component={DetailCar} />
+                <Route path='/drafts' component={DraftsPage} />
+                <Route path='/cars' component={CarsPage} />
+                <Route path='/chats' component={ChatsPage} />
+                <Route path='/users' component={UsersPage} />
+                <Route path='/api' component={Api} />
+                <Route path='/user/:id' component={UserPage} />
+                <Route path='/create' component={CreatePage} />
+                <Route path='/post/:id' component={DetailPage} />
+                <Route path='/login' component={Login} />
+                <Route path='/signup' component={Signup} />
+                <Route path='/forgetPassword' component={ForgetPassword} />
+                <Route path='/resetPassword' component={ResetPassword} />
+                <Route path='/updatePassword' component={UpdatePassword} />
+                <Route path='/validateEmail' component={ValidateEmail} />
+                <Route component={NotFound} />
+              </Switch>
+            </div>
           </div>
-        </div>
+        </ThemeContext.Provider>
       </div>
     </Router>
     )
