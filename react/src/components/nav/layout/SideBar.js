@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import ListSideBar from './ListSideBar'
 import Drawer from '@material-ui/core/Drawer'
+const ThemeContext = React.createContext('light')
 
 class SideBar extends Component {
   state = {
@@ -34,6 +35,10 @@ class SideBar extends Component {
   render() {
     return (
       <div>
+        alan
+        <ThemeContext.Consumer>
+          {theme => (<div>{theme}</div>)}
+        </ThemeContext.Consumer>
         <Drawer
           variant={this.state.variant}
           open={this.state.isSideBarOpen} onClose={this.toggleDrawer(false)}>
