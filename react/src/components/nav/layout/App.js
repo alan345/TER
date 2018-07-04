@@ -48,7 +48,7 @@ class App extends Component {
     })
   }
 
-  isMobile = () => window.innerWidth<600 ? true : false
+  isMobile = () => window.innerWidth < 600 ? true : false
 
   render() {
     return (
