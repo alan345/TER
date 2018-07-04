@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router'
 import TopHello  from './TopHello'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -13,7 +12,7 @@ class Header extends Component {
       <div className='flexGrow'>
         <AppBar position='static'>
           <Toolbar>
-            <BackButton isMobile={this.props.isMobile} toggleDrawerFunction={() => { this.props.toggleDrawerFunction(true) }}/>
+            <BackButton />
             <div className='flex'></div>
             <Button onClick={()=> {this.props.history.push('/')}} >
               <Icon>home</Icon>
@@ -27,4 +26,4 @@ class Header extends Component {
   }
 }
 
-export default withRouter(Header)
+export default Header

@@ -1,32 +1,32 @@
 import React, {Component} from 'react'
 import ListSideBar from './ListSideBar'
 import Drawer from '@material-ui/core/Drawer'
-const ThemeContext = React.createContext('light')
+import {SideBarContext} from './SideBarContext'
 
 class SideBar extends Component {
-  state = {
-    isSideBarOpen: false,
-    variant: 'permanent'
-  };
+  // state = {
+  //   isSideBarOpen: false,
+  //   variant: 'permanent'
+  // };
+  //
+  // toggleDrawer = (isSideBarOpen) => () => {
+  //   this.setState({
+  //     isSideBarOpen: isSideBarOpen,
+  //   })
+  // };
 
-  toggleDrawer = (isSideBarOpen) => () => {
-    this.setState({
-      isSideBarOpen: isSideBarOpen,
-    })
-  };
+  // toggleDrawerFunction(isSideBarOpen) {
+  //   this.setState({
+  //     isSideBarOpen: isSideBarOpen,
+  //   })
+  // }
 
-  toggleDrawerFunction(isSideBarOpen) {
-    this.setState({
-      isSideBarOpen: isSideBarOpen,
-    })
-  }
-
-  componentDidMount() {
-    let variant = this.props.isMobile() ? 'persistent' : 'permanent'
-    this.setState({
-      variant: variant
-    })
-  }
+  // componentDidMount() {
+  //   let variant = this.props.isMobile() ? 'persistent' : 'permanent'
+  //   this.setState({
+  //     variant: variant
+  //   })
+  // }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
     this.setState({ isSideBarOpen: nextProps.isSideBarOpen })
@@ -35,17 +35,22 @@ class SideBar extends Component {
   render() {
     return (
       <div>
-        alan
-        <ThemeContext.Consumer>
-          {theme => (<div>{theme}</div>)}
-        </ThemeContext.Consumer>
-        <Drawer
-          variant={this.state.variant}
-          open={this.state.isSideBarOpen} onClose={this.toggleDrawer(false)}>
-          <div tabIndex={0} role='button' onClick={this.toggleDrawer(false)} onKeyDown={this.toggleDrawer(false)}>
-            <ListSideBar isMobile={this.props.isMobile}/>
-          </div>
-        </Drawer>
+        <SideBarContext.Consumer>
+          {context => (
+            <Drawer
+              variant={context.state.variant}
+              open={context.state.isSideBarOpen}
+              onClose={context.toggleDrawer(false)}>
+              <div
+                tabIndex={0}
+                role='button'
+                onClick={context.toggleDrawer(false)}
+                >
+                <ListSideBar isMobile={context.state.isMobile}/>
+              </div>
+            </Drawer>
+      )}
+      </SideBarContext.Consumer>
       </div>
     )
   }

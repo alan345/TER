@@ -25,29 +25,43 @@ import EmailValidated from '../../nav/EmailValidated'
 import Header from '../../nav/layout/Header'
 import NotFound from '../../nav/error/NotFound'
 import SideBar from '../../nav/layout/SideBar'
-const ThemeContext = React.createContext('light')
-
+import {SideBarContext} from './SideBarContext'
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      theme: true,
-    }
+  state = {
+    isSideBarOpen: false,
+    variant: 'permanent',
+    isMobile: false
+  };
 
-    this.toggleTheme = () => {
-      this.setState({theme: !this.theme})
-    }
+  toggleDrawer = (isSideBarOpen) => () => {
+    this.setState({
+      isSideBarOpen: isSideBarOpen,
+    })
   }
+
+  componentDidMount() {
+    let variant = this.isMobile() ? 'persistent' : 'permanent'
+    this.setState({
+      variant: variant,
+      isMobile: this.isMobile()
+    })
+  }
+
+  isMobile = () => window.innerWidth<600 ? true : false
+
   render() {
-    const isMobile = ()=> window.innerWidth<600 ? true : false
     return (
       <Router>
       <div>
-        <ThemeContext.Provider value={this.state.theme}>
-          <SideBar isMobile={isMobile} ref={instance => { this.child = instance }}/>
+        <SideBarContext.Provider
+          value={{
+            state: this.state,
+            toggleDrawer: this.toggleDrawer
+          }}>
+          <SideBar />
           <div className='desktopMargin'>
-            <Header isMobile={isMobile} toggleDrawerFunction={() => { this.child.toggleDrawerFunction(true) }}/>
+            <Header />
             <EmailValidated/>
             <div>
               <Switch>
@@ -72,7 +86,7 @@ class App extends Component {
               </Switch>
             </div>
           </div>
-        </ThemeContext.Provider>
+        </SideBarContext.Provider>
       </div>
     </Router>
     )

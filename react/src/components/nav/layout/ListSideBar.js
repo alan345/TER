@@ -23,11 +23,12 @@ class ListSideBar extends Component {
 
   render() {
     const authToken = localStorage.getItem(AUTH_TOKEN)
-    return (<div>
+    return (
+      <div>
       <List>
         <div>
           {
-            this.props.isMobile() && (<MenuItem>
+            this.props.isMobile && (<MenuItem>
               <ListItemIcon>
                 <Icon>arrow_back</Icon>
               </ListItemIcon>
