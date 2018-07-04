@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router'
 import TopHello  from './TopHello'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -26,4 +27,4 @@ class Header extends Component {
   }
 }
 
-export default Header
+export default withRouter(Header)

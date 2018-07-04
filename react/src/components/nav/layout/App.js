@@ -35,16 +35,31 @@ class App extends Component {
   };
 
   toggleDrawer = (isSideBarOpen) => () => {
+    if(!isSideBarOpen && !this.state.isMobile) {
+      return
+    }
     this.setState({
       isSideBarOpen: isSideBarOpen,
     })
   }
 
   componentDidMount() {
+    window.addEventListener('resize', this.resize)
     let variant = this.isMobile() ? 'persistent' : 'permanent'
     this.setState({
       variant: variant,
       isMobile: this.isMobile()
+    })
+  }
+
+  resize = () => {
+    let isSideBarOpen = false
+    if(!this.isMobile()) {
+      isSideBarOpen = true
+    }
+    this.setState({
+      isMobile: this.isMobile(),
+      isSideBarOpen: isSideBarOpen
     })
   }
 
