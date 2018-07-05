@@ -66,7 +66,6 @@ class UserPage extends React.Component {
       return (<Loading />)
     }
 
-    let action = this._renderAction(this.state.user)
     return (
       <React.Fragment>
         <div className='paperOut'>
@@ -127,7 +126,26 @@ class UserPage extends React.Component {
               />
             <br/>
             <br/>
-            {action}
+              <React.Fragment>
+              {this.state.isEditMode && (
+              <div>
+                <a
+                  className='f6 dim br1 ba ph3 pv2 mb2 dib black pointer'
+                  onClick={() => this.updateUser(this.state.user.id)}
+                >
+                  Save
+                </a>{' '}
+                {!this.isUserMyself() && (
+                  <a
+                    className='f6 dim br1 ba ph3 pv2 mb2 dib black pointer'
+                    onClick={() => this.deleteUser(this.state.user.id)}
+                    >
+                    Delete
+                  </a>
+                )}
+                </div>
+              )}
+            </React.Fragment>
             <br/>
             <br/>
             <br/>
@@ -148,31 +166,6 @@ class UserPage extends React.Component {
             {this.props.children}
           </Paper>
         </div>
-      </React.Fragment>
-    )
-  }
-
-  _renderAction = ({ id }) => {
-      return (
-        <React.Fragment>
-        {this.state.isEditMode && (
-        <div>
-          <a
-            className='f6 dim br1 ba ph3 pv2 mb2 dib black pointer'
-            onClick={() => this.updateUser(id)}
-          >
-            Save
-          </a>{' '}
-          {!this.isUserMyself() && (
-            <a
-              className='f6 dim br1 ba ph3 pv2 mb2 dib black pointer'
-              onClick={() => this.deleteUser(id)}
-              >
-              Delete
-            </a>
-          )}
-          </div>
-        )}
       </React.Fragment>
     )
   }
