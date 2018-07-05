@@ -35,7 +35,11 @@ class App extends Component {
   };
 
   toggleDrawer = (isSideBarOpen) => () => {
-    if(!isSideBarOpen && !this.state.isMobile) {
+    // console.log('toggleDrawer')
+    // console.log(isSideBarOpen)
+    // console.log(this.isMobile())
+    if(!isSideBarOpen && !this.isMobile()) {
+      // console.log('toggleDrawer')
       return
     }
     this.setState({
@@ -45,21 +49,18 @@ class App extends Component {
 
   componentDidMount() {
     window.addEventListener('resize', this.resize)
-    let variant = this.isMobile() ? 'persistent' : 'permanent'
     this.setState({
-      variant: variant,
-      isMobile: this.isMobile()
+      isMobile: this.isMobile(),
+      variant: this.isMobile() ? 'persistent' : 'permanent',
+      isSideBarOpen: this.isMobile() ? false: true
     })
   }
 
   resize = () => {
-    let isSideBarOpen = false
-    if(!this.isMobile()) {
-      isSideBarOpen = true
-    }
     this.setState({
       isMobile: this.isMobile(),
-      isSideBarOpen: isSideBarOpen
+      variant: this.isMobile() ? 'persistent' : 'permanent',
+      isSideBarOpen: this.isMobile() ? false: true
     })
   }
 
