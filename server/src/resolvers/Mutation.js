@@ -37,8 +37,6 @@ async function deleteUser (parent, { id }, ctx, info) {
 }
 
 async function deleteCar (parent, args, ctx, info) {
-
-
   console.log('****ISSUE*****')
   const userId = getUserId(ctx)
   const user = await ctx.db.query.user({ where: { id: userId } })
@@ -49,8 +47,6 @@ async function deleteCar (parent, args, ctx, info) {
     role: 'CUSTOMER'
   })
   console.log('requestingUserIsAdmin', requestingUserIsAdmin)
-
-
 
   const carExists = await ctx.db.exists.Car({
     id: args.id
@@ -119,6 +115,7 @@ const Mutation = {
   },
   publish,
   createCar: forwardTo('db'),
+  createUser: forwardTo('db'),
   createChat,
   deleteCar: deleteCar,
   updateCar: forwardTo('db'),

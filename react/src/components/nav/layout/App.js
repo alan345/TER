@@ -8,6 +8,7 @@ import CreatePage from '../../post/CreatePage'
 import DetailPage from '../../post/DetailPage'
 import DetailCar from '../../car/DetailCar'
 import UsersPage from '../../user/UsersPage'
+import UserPageCreate from '../../user/UserPageCreate'
 import UserPage from '../../user/UserPage'
 import Api from '../../.../../api/Api'
 import ForgetPassword from '../../user/auth/ForgetPassword'
@@ -35,11 +36,7 @@ class App extends Component {
   };
 
   toggleDrawer = (isSideBarOpen) => () => {
-    // console.log('toggleDrawer')
-    // console.log(isSideBarOpen)
-    // console.log(this.isMobile())
     if(!isSideBarOpen && !this.isMobile()) {
-      // console.log('toggleDrawer')
       return
     }
     this.setState({
@@ -88,8 +85,9 @@ class App extends Component {
                 <Route path='/cars' component={CarsPage} />
                 <Route path='/chats' component={ChatsPage} />
                 <Route path='/users' component={UsersPage} />
-                <Route path='/api' component={Api} />
+                <Route path='/user/create' component={UserPageCreate} />
                 <Route path='/user/:id' component={UserPage} />
+                <Route path='/api' component={Api} />
                 <Route path='/create' component={CreatePage} />
                 <Route path='/post/:id' component={DetailPage} />
                 <Route path='/login' component={Login} />

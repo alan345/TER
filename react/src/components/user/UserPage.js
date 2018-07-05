@@ -18,32 +18,16 @@ class UserPage extends React.Component {
   state = {
     open: false,
     isEditMode: false,
-    user: {
-      id: '',
-      name: '',
-      email: '',
-      role: '',
-      nameFile: '',
-    }
   }
+
   isUserMyself = () => {
     const userToken = JSON.parse(localStorage.getItem('userToken'))
-    return userToken.id === this.state.user.id
-  }
-
-  componentDidMount() {
-    this.setState({ user: this.props.userQuery.user })
-  }
-
-  UNSAFE_componentWillReceiveProps(newProps){
-    const { user } = newProps.userQuery
-    if(!newProps.userQuery.loading){
-      this.setState({ user: user })
-    }
+    return userToken.id === this.props.userQuery.user.id
   }
 
   updateUserData(user) {
-    this.setState({user})
+    this.props.userQuery.user = user
+    this.forceUpdate()
   }
 
   render() {
@@ -60,13 +44,11 @@ class UserPage extends React.Component {
       )
     }
 
-    const authToken = localStorage.getItem(AUTH_TOKEN)
-
     if (this.props.userQuery.loading) {
       return (<Loading />)
     }
 
-
+    const authToken = localStorage.getItem(AUTH_TOKEN)
 
     return (
       <React.Fragment>
@@ -74,7 +56,7 @@ class UserPage extends React.Component {
           <Paper className='paperIn'>
             <div className='flex justify-between items-center'>
               <h1 className='f3 black-80 fw4 lh-solid'>
-                {this.state.user.name}{' '}
+                { this.props.userQuery.user.name}{' '}
                 <Icon onClick={ () => this.setState({ isEditMode:!this.state.isEditMode })}>border_color</Icon>
               </h1>
               {this.isUserMyself() && (
@@ -87,28 +69,25 @@ class UserPage extends React.Component {
             {this.state.isEditMode && (
               <UserPageForm
                 updateUserData={this.updateUserData.bind(this)}
-                user={this.state.user}
+                user={this.props.userQuery.user}
               />
             )}
 
             {!this.state.isEditMode && (
             <div>
-              <p className='black-80 fw3'>Role: {this.state.user.role}</p>
+              <p className='black-80 fw3'>Role: {this.props.userQuery.user.role}</p>
               <UploadFile
-                isEditMode={this.state.isEditMode}
-                nameFile={this.state.user.nameFile}
-                onSelectFile={nameFile =>  this.setState({ user:{ ...this.state.user, nameFile: nameFile} })}
+                isEditMode={false}
+                nameFile={this.props.userQuery.user.nameFile}
                 />
             </div>
             )}
-            <br/>
-            <br/>
-              <React.Fragment>
+              <div>
               {this.state.isEditMode && (
               <div>
                 <a
                   className='f6 dim br1 ba ph3 pv2 mb2 dib black pointer'
-                  onClick={() => this.updateUser(this.state.user.id)}
+                  onClick={() => this.updateUser(this.props.userQuery.user.id)}
                 >
                   Save
                 </a>{' '}
@@ -122,16 +101,12 @@ class UserPage extends React.Component {
                 )}
                 </div>
               )}
-            </React.Fragment>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
+            </div>
             {authToken && (
               <div className='f6 ba ph3 pv2 mb2 black'>
-                <h1>Posts from {this.state.user.name}</h1>
-                {this.state.user.posts &&
-                  this.state.user.posts.map(post => (
+                <h1>Posts from {this.props.userQuery.user.name}</h1>
+                {this.props.userQuery.user.posts &&
+                  this.props.userQuery.user.posts.map(post => (
                     <Post
                       key={post.id}
                       post={post}
@@ -139,7 +114,6 @@ class UserPage extends React.Component {
                   ))}
               </div>
             )}
-
             {this.props.children}
           </Paper>
         </div>
@@ -148,7 +122,7 @@ class UserPage extends React.Component {
   }
 
   updateUser = async id => {
-    const { name, email, role, nameFile } = this.state.user
+    const { name, email, role, nameFile } = this.props.userQuery.user
     await this.props.updateUser({
       variables: {
         where: {id: id},
