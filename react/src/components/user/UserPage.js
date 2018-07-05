@@ -10,13 +10,9 @@ import Paper from '@material-ui/core/Paper'
 import NotFound from '../nav/error/NotFound'
 import Tooltip from '@material-ui/core/Tooltip'
 import UploadFile from '../nav/UploadFile'
-import FormControl from '@material-ui/core/FormControl'
-import Select from '@material-ui/core/Select'
-import InputLabel from '@material-ui/core/InputLabel'
-import MenuItem from '@material-ui/core/MenuItem'
 import { withApollo } from 'react-apollo'
 import Loading from '../nav/error/Loading'
-import Input from '@material-ui/core/Input'
+import UserPageForm from './UserPageForm'
 
 class UserPage extends React.Component {
   state = {
@@ -46,6 +42,10 @@ class UserPage extends React.Component {
     }
   }
 
+  updateUserData(user) {
+    this.setState({user})
+  }
+
   render() {
     if (this.props.userQuery.error) {
       return (
@@ -66,6 +66,8 @@ class UserPage extends React.Component {
       return (<Loading />)
     }
 
+
+
     return (
       <React.Fragment>
         <div className='paperOut'>
@@ -83,47 +85,22 @@ class UserPage extends React.Component {
             </div>
 
             {this.state.isEditMode && (
-
-              <FormControl>
-                <InputLabel htmlFor='name'>Name</InputLabel>
-                <Input
-                  id='name'
-                  onChange={e => this.setState({ user:{ ...this.state.user, name: e.target.value} })}
-                  placeholder='name'
-                  type='text'
-                  value={this.state.user.name}
-                />
-              </FormControl>
-            )}
-
-            <p className='black-80 fw3'>Email: {this.state.user.email}</p>
-            {!this.state.isEditMode && (
-              <p className='black-80 fw3'>Role: {this.state.user.role}</p>
-            )}
-            {this.state.isEditMode && (
-              <FormControl>
-                <InputLabel htmlFor='role'>Role</InputLabel>
-                <Select
-                  inputProps={{
-                    name: 'role',
-                    id: 'role',
-                  }}
-
-                  value={this.state.user.role}
-                  onChange={e => this.setState({ user:{ ...this.state.user, role: e.target.value} })}
-
-                  >
-                  <MenuItem value='CUSTOMER'>CUSTOMER</MenuItem>
-                  <MenuItem value='ADMIN'>ADMIN</MenuItem>
-                </Select>
-              </FormControl>
-
-            )}
-            <UploadFile
-              isEditMode={this.state.isEditMode}
-              nameFile={this.state.user.nameFile}
-              onSelectFile={nameFile =>  this.setState({ user:{ ...this.state.user, nameFile: nameFile} })}
+              <UserPageForm
+                updateUserData={this.updateUserData.bind(this)}
+                user={this.state.user}
               />
+            )}
+
+            {!this.state.isEditMode && (
+            <div>
+              <p className='black-80 fw3'>Role: {this.state.user.role}</p>
+              <UploadFile
+                isEditMode={this.state.isEditMode}
+                nameFile={this.state.user.nameFile}
+                onSelectFile={nameFile =>  this.setState({ user:{ ...this.state.user, nameFile: nameFile} })}
+                />
+            </div>
+            )}
             <br/>
             <br/>
               <React.Fragment>
