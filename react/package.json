@@ -23,7 +23,7 @@
     "date-fns": "1.29.0",
     "email-validator": "2.0.4",
     "enzyme": "3.3.0",
-    "enzyme-adapter-react-16": "1.1.1",
+    "enzyme-adapter-react-16": "1.2.0",
     "graphql": "0.13.2",
     "graphql-tag": "2.9.2",
     "moment-timezone": "0.5.21",
