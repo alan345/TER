@@ -1,9 +1,9 @@
-# import User, Query.usersConnection, Query.user, Mutation.updateUser, Mutation.createUser from "./generated/prisma.graphql"
-# import Car, CarCreateInput, CarWhereInput, CarOrderByInput from "./generated/prisma.graphql"
-# import Query.car, Mutation.deleteCar, Query.carsConnection from "./generated/prisma.graphql"
-# import Subscription.chat from "./generated/prisma.graphql"
-# import Mutation.createPost, Post from "./generated/prisma.graphql"
-# import Mutation.createChat, Query.chatsConnection, Query.chat from "./generated/prisma.graphql"
+# import User, Query.usersConnection, Query.user, Mutation.updateUser, Mutation.createUser from "./generated-schema.graphql"
+# import Car, CarCreateInput, CarWhereInput, CarOrderByInput from "./generated-schema.graphql"
+# import Query.car, Mutation.deleteCar, Query.carsConnection from "./generated-schema.graphql"
+# import Subscription.chat from "./generated-schema.graphql"
+# import Mutation.createPost, Post from "./generated-schema.graphql"
+# import Mutation.createChat, Query.chatsConnection, Query.chat from "./generated-schema.graphql"
 
 type Query {
   me: User

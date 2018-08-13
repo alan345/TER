@@ -1,7 +1,7 @@
 {
   "name": "my-app",
   "scripts": {
-    "start": "dotenv node src/index.js",
+    "start": "node index.js",
     "playground": "prisma playground",
     "dev": "npm-run-all --parallel start playground",
     "prisma": "prisma"

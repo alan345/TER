@@ -1,18 +1,16 @@
 const { GraphQLServer } = require('graphql-yoga')
 const { Prisma } = require('prisma-binding')
-const resolvers = require('./resolvers')
+const resolvers = require('./src/resolvers')
 
 
 const server = new GraphQLServer({
-  typeDefs: './src/schema.graphql',
+  typeDefs: 'schema.graphql',
   resolvers,
   context: req => ({
     ...req,
     db: new Prisma({
-      typeDefs: 'src/generated/prisma.graphql', // the auto-generated GraphQL schema of the Prisma API
-      endpoint: process.env.PRISMA_ENDPOINT,
-      // secret: process.env.PRISMA_SECRET, // only needed if specified in `database/prisma.yml`
-      debug: false
+      typeDefs: 'generated-schema.graphql',
+      endpoint: 'http://localhost:4466/naperg/dev'
     })
   })
 })
