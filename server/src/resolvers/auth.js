@@ -11,6 +11,7 @@ const AuthPayload = {
   }
 }
 
+
 // query the currently logged in user
 async function me (parent, args, ctx, info) {
   const id = getUserId(ctx)
