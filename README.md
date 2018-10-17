@@ -84,7 +84,7 @@ yarn start
 
 ```sh
 # Media server: ExpressJs (port 8000)
-cd express
+cd media
 yarn install
 yarn start
 ```
