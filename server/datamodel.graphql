@@ -14,6 +14,7 @@ type Post {
   author: User
   cars: [Car!]!
 }
+
 type Chat {
   id: ID! @unique
   createdAt: DateTime!
@@ -21,7 +22,6 @@ type Chat {
   message: String!
   author: User
 }
-
 
 type Car {
   id: ID! @unique

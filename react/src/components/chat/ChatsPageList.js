@@ -22,7 +22,8 @@ class ChatsPageList extends React.Component {
             ]
           }
         })
-      }
+      },
+      onError: (err) => console.error(err),
     })
   }
 

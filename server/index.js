@@ -17,7 +17,6 @@ const server = new GraphQLServer({
 
 const options = {
 // playground: null, // Dissable playground endpoint,
-// playground: '/docs/, // Move playground to /docs/,
 }
 
 server.express.get(server.options.endpoint + 'user', (req, res, done) => {
