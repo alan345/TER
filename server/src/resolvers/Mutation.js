@@ -69,6 +69,7 @@ async function createPost (parent, args, ctx, info) {
   }
   return forwardTo('db')(parent, args, ctx, info)
 }
+
 async function createChat (parent, args, ctx, info) {
   const userId = getUserId(ctx)
   args.data.author = {
