@@ -2,7 +2,6 @@ import React from 'react'
 import ImageTemplate from '../nav/ImageTemplate'
 import Card from '@material-ui/core/Card'
 import CardHeader from '@material-ui/core/CardHeader'
-import Tooltip from '@material-ui/core/Tooltip'
 import {withRouter} from 'react-router'
 
 var parse = require('date-fns/parse')
@@ -20,11 +19,9 @@ class Chat extends React.Component {
             avatar={
               <div>
                 {this.props.chat.author && (
-                  <Tooltip  title={this.props.chat.author.name}>
-                    <div onClick={()=>this.openProfile(this.props.chat.author)}>
-                      <ImageTemplate format={'avatar'} nameFile={this.props.chat.author.nameFile}/>
-                    </div>
-                  </Tooltip>
+                  <div onClick={()=>this.openProfile(this.props.chat.author)}>
+                    <ImageTemplate format={'avatar'} nameFile={this.props.chat.author.nameFile}/>
+                  </div>
                 )}
               </div>
             }

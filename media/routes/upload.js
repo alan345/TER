@@ -25,9 +25,10 @@ router.use('/', function (req, res, next) {
 })
 
 router.post('/', (req, res, next) => {
+  console.log('post alan')
   let imageFile = req.files.file;
 
-  var dest = path.join(__dirname, '../..', 'express/public/images/')
+  var dest = path.join(__dirname, '../..', 'media/public/images/')
   imageFile.mv(`${dest}${req.files.file.name}`, function(err) {
     if (err) {
       return res.status(500).send(err);
