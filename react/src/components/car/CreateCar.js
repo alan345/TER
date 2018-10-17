@@ -41,9 +41,9 @@ class CreateCar extends React.Component {
             Create
           </Button>
           {' '}
-          <a className='f6 pointer' onClick={this.props.history.goBack}>
+          <Button onClick={this.props.history.goBack}>
             or cancel
-          </a>
+          </Button>
         </form>
       </Paper>
       </div>

@@ -7,6 +7,7 @@ import NotAuth from '../nav/error/NotAuth'
 import { AUTH_TOKEN } from '../../constants/constants'
 import Icon from '@material-ui/core/Icon'
 import Paper from '@material-ui/core/Paper'
+import Button from '@material-ui/core/Button'
 import NotFound from '../nav/error/NotFound'
 import Tooltip from '@material-ui/core/Tooltip'
 import UploadFile from '../nav/UploadFile'
@@ -85,19 +86,14 @@ class UserPage extends React.Component {
               <div>
               {this.state.isEditMode && (
               <div>
-                <a
-                  className='f6 dim br1 ba ph3 pv2 mb2 dib black pointer'
-                  onClick={() => this.updateUser(this.props.userQuery.user.id)}
-                >
+                <Button onClick={() => this.updateUser(this.props.userQuery.user.id)}>
                   Save
-                </a>{' '}
+                </Button>
+                {' '}
                 {!this.isUserMyself() && (
-                  <a
-                    className='f6 dim br1 ba ph3 pv2 mb2 dib black pointer'
-                    onClick={() => this.deleteUser(this.state.user.id)}
-                    >
+                  <Button onClick={() => this.deleteUser(this.state.user.id)}>
                     Delete
-                  </a>
+                  </Button>
                 )}
                 </div>
               )}

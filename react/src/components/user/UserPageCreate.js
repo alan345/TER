@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom'
 import gql from 'graphql-tag'
 import NotAuth from '../nav/error/NotAuth'
 import Paper from '@material-ui/core/Paper'
+import Button from '@material-ui/core/Button'
 import { withApollo } from 'react-apollo'
 import UserPageForm from './UserPageForm'
 import { AUTH_TOKEN } from '../../constants/constants'
@@ -47,12 +48,9 @@ class UserPageCreate extends React.Component {
             />
 
               <div>
-                <a
-                  className='f6 dim br1 ba ph3 pv2 mb2 dib black pointer'
-                  onClick={() => this.createUser()}
-                >
+                <Button onClick={() => this.createUser()} >
                   Save
-                </a>
+                </Button>
 
                 </div>
 

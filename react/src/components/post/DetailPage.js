@@ -5,6 +5,7 @@ import gql from 'graphql-tag'
 import ImageTemplate from '../nav/ImageTemplate'
 import { Link } from 'react-router-dom'
 import Paper from '@material-ui/core/Paper'
+import Button from '@material-ui/core/Button'
 import NotFound from '../nav/error/NotFound'
 import Loading from '../nav/error/Loading'
 
@@ -55,28 +56,20 @@ class DetailPage extends React.Component {
     if (!isPublished) {
       return (
         <React.Fragment>
-          <a
-            className='f6 dim br1 ba ph3 pv2 mb2 dib black pointer'
-            onClick={() => this.publishDraft(id)}
-          >
+          <Button onClick={() => this.publishDraft(id)}>
             Publish
-          </a>{' '}
-          <a
-            className='f6 dim br1 ba ph3 pv2 mb2 dib black pointer'
-            onClick={() => this.deletePost(id)}
-          >
+          </Button>
+          {' '}
+          <Button onClick={() => this.deletePost(id)}>
             Delete
-          </a>
+          </Button>
         </React.Fragment>
       )
     }
     return (
-      <a
-        className='f6 dim br1 ba ph3 pv2 mb2 dib black pointer'
-        onClick={() => this.deletePost(id)}
-      >
+      <Button onClick={() => this.deletePost(id)}>
         Delete
-      </a>
+      </Button>
     )
   }
 
