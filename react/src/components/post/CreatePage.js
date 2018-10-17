@@ -47,7 +47,7 @@ class CreatePage extends React.Component {
             isEditMode={true}
             onSelectFile={(nameFile) => {this.setState({nameFile: nameFile})}}/>
           <br/>
-          <Button onClick={this.handlePost} variant='raised' color='primary'>
+          <Button onClick={this.handlePost} variant='contained' color='primary'>
             + Create Post
           </Button>
           <Button onClick={this.props.history.goBack}>

@@ -37,7 +37,7 @@ class CreateCar extends React.Component {
             className={`pa3 bg-black-10 bn`}
             disabled={!this.state.name}
             type='submit'
-            variant='raised' color='primary'>
+            variant='contained' color='primary'>
             Create
           </Button>
           {' '}

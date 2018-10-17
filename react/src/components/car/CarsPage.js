@@ -57,7 +57,7 @@ class CarsPage extends Component {
             }
             />
           {' '}
-          <Button onClick={() => this.props.history.push('/car/create')} variant='raised' color='primary'>
+          <Button onClick={() => this.props.history.push('/car/create')} variant='contained' color='primary'>
             + Create Car
           </Button>
 

@@ -14,7 +14,7 @@ class ResendEmailValidation extends Component {
         {this.state.interval ? (
           <span>wait {this.state.interval}s to resend.</span>
         ) : (
-          <Button variant='raised' onClick={() => this.sendEmail()}>
+          <Button variant='contained' onClick={() => this.sendEmail()}>
             Resend Email
           </Button>
         )}

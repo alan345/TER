@@ -41,7 +41,7 @@ export class Login extends Component {
 
         </div>
         <div className='flex mt3'>
-          <Button id='ok' variant='raised' onClick={() => this._confirm()}>
+          <Button id='ok' variant='contained' onClick={() => this._confirm()}>
             Ok
           </Button>
           <Button variant='flat'

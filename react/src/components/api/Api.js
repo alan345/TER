@@ -24,7 +24,7 @@ class Api extends React.Component {
         <div className='paperOut'>
           <Paper className='paperIn'>
             <h2>API</h2>
-            <Button onClick={()=>this.callApi()} variant='raised' color='primary'>
+            <Button onClick={()=>this.callApi()} variant='contained' color='primary'>
               Call API
             </Button>
             {this.state.message && (

@@ -49,7 +49,7 @@ class ResetPassword extends Component {
 
         </div>
         <div className='flex mt3'>
-          <Button variant='raised' onClick={() => this._confirm()}>
+          <Button variant='contained' onClick={() => this._confirm()}>
             Ok
           </Button>
 

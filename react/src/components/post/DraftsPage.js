@@ -32,7 +32,7 @@ class DraftsPage extends React.Component {
         <div className='flex justify-between items-center'>
           <h1>Drafts</h1>
           {authToken && (
-            <Button onClick={() => this.props.history.replace('/create')} variant='raised' color='primary'>
+            <Button onClick={() => this.props.history.replace('/create')} variant='contained' color='primary'>
               + Create Draft
             </Button>
           ) }
