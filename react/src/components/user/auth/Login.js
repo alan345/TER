@@ -44,11 +44,11 @@ export class Login extends Component {
           <Button id='ok' variant='contained' onClick={() => this._confirm()}>
             Ok
           </Button>
-          <Button variant='flat'
+          <Button variant='text'
             onClick={() => this.props.history.push('/signup')}
           >signup
           </Button>
-          <Button variant='flat'
+          <Button variant='text'
             onClick={() => this.props.history.push('/forgetPassword')}
           >Forget Password
           </Button>
