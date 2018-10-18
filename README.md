@@ -164,7 +164,11 @@ Backend:
 # Contributing
 
 
-Your feedback is **very helpful**, please share your opinion and thoughts! If you have any questions or want to contribute yourself, don't hesitate!
+-Your feedback is **very helpful**, please share your opinion and thoughts! If you have any questions or want to contribute yourself, don't hesitate!
+
+-Tests must be implemented. Feel free to create a PR :)
+
+-Add a star to this Repo! It helps a lot!
 
 # Buy me a drink!
 
