@@ -59,7 +59,7 @@
 1/ In folder `/server/src/config` rename file `config_example.js` to `config.js` and add your own settings
 
 
-2/ Install docker and Prisma cli. (https://www.prisma.io/docs/tutorials/setup-prisma/create-new-db/mysql-gui4peul2u)
+2/ Install docker and Prisma cli. (https://www.prisma.io/docs/get-started/01-setting-up-prisma-new-database-a002/)
 
 
 3/ In folder `/server`, run:
@@ -105,7 +105,7 @@ Go to url: http://localhost:3000
 - **Scalable GraphQL server:** The server uses [`graphql-yoga`](https://github.com/prisma/graphql-yoga) which is based on Apollo Server & Express
 - **Pre-configured Apollo Client:** The project comes with a preconfigured setup for Apollo Client
 - **GraphQL database:** Includes GraphQL database binding to [Prisma](https://www.prismagraphql.com) (running on MySQL)
-- **Tooling**: Out-of-the-box support for [GraphQL Playground](https://github.com/prisma/graphql-playground) & [query performance tracing](https://github.com/apollographql/apollo-tracing)
+- **Tooling**: Out-of-the-box support for [GraphQL Playground](https://github.com/prisma/graphql-playground)
 - **Extensible**: Simple and flexible data model – easy to adjust and extend
 - **Chat**: Made with Prisma & apollo subscription. (WebSocket)
 - **Email management**:
@@ -117,8 +117,7 @@ Go to url: http://localhost:3000
   - App knows if email has been approved by the link
 
 
-For a fully-fledged **React & Apollo tutorial**, visit [How to GraphQL](https://www.howtographql.com/react-apollo/0-introduction/). You can more learn about the idea behind GraphQL boilerplates [here](https://blog.graph.cool/graphql-boilerplates-graphql-create-how-to-setup-a-graphql-project-6428be2f3a5).
-
+For a fully-fledged **React & Apollo tutorial**, visit [How to GraphQL](https://www.howtographql.com/react-apollo/0-introduction/).
 
 
 ## Documentation
