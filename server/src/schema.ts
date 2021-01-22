@@ -26,7 +26,12 @@ type Mutation {
   createDraft(authorEmail: String, content: String, title: String!): Post!
   deleteOnePost(where: PostWhereUniqueInput!): Post
   publish(id: ID): Post
-  signupUser(data: UserCreateInput!): User!
+  signupUser(name: String!, email: String!, password: String!): AuthPayload!
+}
+
+type AuthPayload {
+  token: String!
+  user: User!
 }
 
 input PostWhereUniqueInput {
@@ -99,8 +104,15 @@ export const resolvers = {
         data: { published: true },
       })
     },
-    signupUser: (parent, args, ctx: Context) => {
-      return ctx.prisma.user.create(args)
+    signupUser: async (parent, args, ctx: Context) => {
+      const user = await ctx.prisma.user.create({
+        data: {
+          name: args.name,
+          password: args.password,
+          email: args.email,
+        },
+      })
+      return { user, token: 'hello' }
     },
   },
   User: {

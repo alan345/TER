@@ -8,7 +8,7 @@ import { ApolloProvider } from "@apollo/client"
 import { ApolloClient, InMemoryCache } from "@apollo/client"
 
 const client = new ApolloClient({
-  uri: "localhost:3000",
+  uri: "http://localhost:4000",
   cache: new InMemoryCache(),
 })
 
