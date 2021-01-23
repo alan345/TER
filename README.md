@@ -2,9 +2,8 @@
 </div>
   
 <h1 align="center"><strong>Boilerplate for a Fullstack GraphQL App with React & Prisma</strong></h1>
-<h3 align="center">Authentication with roles & permissions. Backend & Frontend</h3>
-<h3 align="center">Upload image with expressJs</h3>
-<h3 align="center">Chat with GraphQL Subscriptions</h3>
+<h3 align="center">Authentication</h3>
+
 <br />
 
 ![image](https://user-images.githubusercontent.com/15246526/38530809-7a9cc69e-3c21-11e8-8eb9-6f143eb7d64d.png)
