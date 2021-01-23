@@ -31,20 +31,20 @@
 
 ## Getting started
 
-1/ migrate the database with `Prisma migrate`
-run:
+1. migrate the database with `Prisma migrate`
+   run:
 
 ```
 npx prisma migrate dev --preview-feature
 ```
 
-2/ generate the prisma client
+2. generate the prisma client
 
 ```
 npx prisma generate
 ```
 
-2/ In 2 different terminals:
+3. In 2 different terminals:
 
 ```sh
 # Prisma & Graphql (port 4000)
