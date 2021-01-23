@@ -4,6 +4,7 @@ import React from "react"
 interface User {
   id: string
   name: string
+  email: string
 }
 
 export interface PostsContextData {
@@ -15,6 +16,7 @@ export const postsContextDefaultValue: PostsContextData = {
   user: {
     id: "",
     name: "",
+    email: "",
   },
   updateUser: () => null,
 }

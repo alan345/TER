@@ -1,5 +1,9 @@
 import { Context } from './context'
 import * as jwt from 'jsonwebtoken'
+import * as bcrypt from 'bcryptjs'
+import * as crypto from 'crypto'
+import utils from './utils'
+
 export interface Decoded {
   userId: string
   exp: number
@@ -35,6 +39,7 @@ type Mutation {
   deleteOnePost(where: PostWhereUniqueInput!): Post
   publish(id: ID): Post
   signupUser(name: String!, email: String!, password: String!): AuthPayload!
+  loginUser( email: String!, password: String!): AuthPayload!
 }
 
 type AuthPayload {
@@ -124,13 +129,50 @@ export const resolvers = {
       })
     },
     signupUser: async (parent, args, ctx: Context) => {
-      const user = await ctx.prisma.user.create({
-        data: {
-          name: args.name,
-          password: args.password,
+      const userTest = await ctx.prisma.user.findUnique({
+        where: {
           email: args.email,
         },
       })
+      if (userTest) {
+        throw new Error('User Already exists')
+      }
+      utils.isPasswordSafe(args.password)
+      const password = await bcrypt.hash(args.password, 10)
+      const resetPasswordToken = crypto.randomBytes(64).toString('hex')
+      const validateEmailToken = crypto.randomBytes(64).toString('hex')
+      const user = await ctx.prisma.user.create({
+        data: {
+          name: args.name,
+          password: password,
+          email: args.email,
+          resetPasswordToken,
+          validateEmailToken,
+          resetPasswordRequest: new Date(),
+          isEmailValidated: false,
+        },
+      })
+      return {
+        user,
+        token: jwt.sign({ userId: user.id }, APP_SECRET, {
+          expiresIn: '2d',
+        }),
+      }
+    },
+    loginUser: async (parent, args, ctx: Context) => {
+      const user = await ctx.prisma.user.findFirst({
+        where: {
+          email: args.email,
+        },
+      })
+      if (!user) {
+        throw new Error('No user')
+      }
+
+      const valid = await bcrypt.compare(args.password, user.password)
+      if (!valid) {
+        throw new Error('Invalid password')
+      }
       return {
         user,
         token: jwt.sign({ userId: user.id }, APP_SECRET, {

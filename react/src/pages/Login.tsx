@@ -6,24 +6,25 @@ import { PostsContext } from "../Context"
 import { useHistory } from "react-router-dom"
 
 const MUTATION = gql`
-  mutation SignupUser($name: String!, $email: String!, $password: String!) {
-    signupUser(name: $name, email: $email, password: $password) {
+  mutation LoginUser($email: String!, $password: String!) {
+    loginUser(email: $email, password: $password) {
       token
       user {
         id
         name
+        email
       }
     }
   }
 `
-export default function Signup() {
+const Login = () => {
   const history = useHistory()
   const context = React.useContext(PostsContext)
   const [message, setMessage] = React.useState("")
   const [email, setEmail] = React.useState("")
-  const [name, setName] = React.useState("")
+
   const [password, setPassword] = React.useState("")
-  const [signupUser] = useMutation(MUTATION)
+  const [loginUser] = useMutation(MUTATION)
 
   React.useEffect(() => {
     if (context.user.id) {
@@ -31,18 +32,11 @@ export default function Signup() {
     }
   }, [context])
 
-  const handleKeyPress = (e: any) => {
-    if (e.key === "Enter") {
-      signupF()
-    }
-  }
-
-  const signupF = async () => {
+  const loginF = async () => {
     let dataUser
     try {
-      dataUser = await signupUser({
+      dataUser = await loginUser({
         variables: {
-          name,
           email,
           password,
         },
@@ -52,29 +46,22 @@ export default function Signup() {
         setMessage(graphQLError.message)
       )
     }
-    if (dataUser?.data?.signupUser) {
-      console.log(dataUser)
+    if (dataUser?.data?.loginUser) {
       setMessage("")
-
-      localStorage.setItem("AUTH_TOKEN", dataUser.data.signupUser.token)
-
-      context.updateUser(dataUser.data.signupUser.user)
-
+      localStorage.setItem("AUTH_TOKEN", dataUser.data.loginUser.token)
+      context.updateUser(dataUser.data.loginUser.user)
       history.push("/")
     }
   }
-
+  const handleKeyPress = (e: any) => {
+    if (e.key === "Enter") {
+      loginF()
+    }
+  }
   return (
     <>
-      <h3>signup</h3>
-      <div>
-        <TextField
-          id="name"
-          label="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </div>
+      <h3>Login</h3>
+
       <div>
         <TextField
           id="email"
@@ -87,6 +74,7 @@ export default function Signup() {
         <TextField
           id="password"
           label="password"
+          type={"password"}
           onKeyPress={handleKeyPress}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -94,11 +82,12 @@ export default function Signup() {
       </div>
       <div style={{ height: "15px" }} />
       <div>
-        <Button variant={"outlined"} color={"primary"} onClick={signupF}>
-          Sign up
+        <Button variant={"outlined"} color={"primary"} onClick={loginF}>
+          Login
         </Button>
       </div>
       <Typography color={"secondary"}>{message}</Typography>
     </>
   )
 }
+export default Login

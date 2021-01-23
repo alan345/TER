@@ -1,10 +1,10 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { PostsContext } from "./Context"
+import Logout from "./pages/Logout"
 
 export default function Header() {
   const context = React.useContext(PostsContext)
-  console.log(context)
 
   return (
     <div>
@@ -15,17 +15,18 @@ export default function Header() {
         </li>
         {context.user.id ? (
           <li>
-            <Link to="/logout">Logout</Link>
+            <Logout />
           </li>
         ) : (
-          <li>
-            <Link to="/signup">Signup</Link>
-          </li>
+          <>
+            <li>
+              <Link to="/signup">Signup</Link>
+            </li>
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+          </>
         )}
-
-        <li>
-          <Link to="/dashboard">Dashboard</Link>
-        </li>
       </ul>
 
       <hr />

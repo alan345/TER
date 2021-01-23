@@ -11,7 +11,16 @@ model User {
   id    Int     @default(autoincrement()) @id
   email String  @unique
   password String
-  name  String?
+
+
+    resetPasswordToken String
+  validateEmailToken String
+  resetPasswordRequest DateTime
+  isEmailValidated Boolean
+
+
+
+  name  String
   posts Post[]
 }
 
