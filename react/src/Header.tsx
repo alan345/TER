@@ -5,6 +5,7 @@ import {
   Typography,
   Button,
 } from "@material-ui/core"
+import GitHubIcon from "@material-ui/icons/GitHub"
 import React from "react"
 import { Link } from "react-router-dom"
 import { PostsContext } from "./Context"
@@ -16,6 +17,9 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
+    },
+    githubButton: {
+      color: "black",
     },
     menuButton: {
       marginRight: theme.spacing(2),
@@ -48,7 +52,16 @@ export default function Header() {
                 Naperg
               </Link>
             </Typography>
-
+            <a href="https://github.com/alan345/naperg">
+              <IconButton
+                edge="start"
+                className={classes.githubButton}
+                color="inherit"
+                aria-label="menu"
+              >
+                <GitHubIcon />
+              </IconButton>
+            </a>
             {context.user.id ? (
               <Logout />
             ) : (
