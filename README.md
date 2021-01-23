@@ -25,23 +25,8 @@
 
 ## Screenshots
 
-| Signup with key 'Enter' to change field                                                                        | Chat                                                                                                           |
-| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| ![Signup](https://j.gifs.com/XoBnGk.gif)                                                                       | ![Chat](https://j.gifs.com/APY7Jl.gif)                                                                         |
-| Order by / pagination                                                                                          | Email Validation                                                                                               |
-| ![Mobile friendly](https://j.gifs.com/W7RALn.gif)                                                              | ![image](https://user-images.githubusercontent.com/15246526/38842888-58a8858e-41a1-11e8-91d0-1d5535da7e1e.png) |
-|                                                                                                                | Forget Password                                                                                                |
-| ![image](https://user-images.githubusercontent.com/15246526/38843148-8eaa2a06-41a2-11e8-9130-d74194d39031.png) | ![image](https://user-images.githubusercontent.com/15246526/38843003-f05421a4-41a1-11e8-96a8-3c442a5fd07c.png) |
-| Users List                                                                                                     | User profile                                                                                                   |
-| ![connected object](https://j.gifs.com/xvwg93.gif)                                                             | ![User profile](https://j.gifs.com/APl611.gif)                                                                 |
-| Login                                                                                                          | Resend Link to validate email                                                                                  |
-| ![Login](https://j.gifs.com/wml6jg.gif)                                                                        | ![Link to validate email](https://j.gifs.com/PZ8V2z.gif)                                                       |
-| Create Draft with connected object (car & user)                                                                | Update Password in app                                                                                         |
-| ![connected object](https://j.gifs.com/VP9G0o.gif)                                                             | ![connected object](https://j.gifs.com/860QVr.gif)                                                             |
-| Mobile Friendly                                                                                                | Login with Avatar Profile                                                                                      |
-| ![Mobile friendly](https://j.gifs.com/1rDk1o.gif)                                                              | ![avatar profile](https://j.gifs.com/Q0Gk67.gif)                                                               |
-| REST API with graphql-yoga                                                                                     |                                                                                                                |
-| ![REST API with graphql-yoga](https://j.gifs.com/L8mnpg.gif)                                                   |                                                                                                                |
+![image](https://user-images.githubusercontent.com/15246526/105572130-1fd45f80-5d0a-11eb-9ee6-6a88da1c3bc9.png)
+|
 
 ## Getting started
 
