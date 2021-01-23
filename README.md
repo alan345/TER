@@ -94,13 +94,11 @@ Backend:
 
 # Contributing
 
--Your feedback is **very helpful**, please share your opinion and thoughts! If you have any questions or want to contribute yourself, don't hesitate!
+- Your feedback is **very helpful**, please share your opinion and thoughts! If you have any questions or want to contribute yourself, don't hesitate!
 
--Tests must be implemented. Feel free to create a PR :)
+- Tests must be implemented. Feel free to create a PR :)
 
--Add a react hook as an example. https://reactjs.org/docs/hooks-intro.html
-
--Add a star to this Repo! It helps a lot!
+- Add a star to this Repo! It helps a lot!
 
 # Who is using Naperg
 
