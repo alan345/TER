@@ -35,7 +35,13 @@
 run:
 
 ```
-prisma migrate dev --preview-feature
+npx prisma migrate dev --preview-feature
+```
+
+2/ generate the prisma client
+
+```
+npx prisma generate
 ```
 
 2/ In 2 different terminals:
