@@ -81,6 +81,8 @@ For a fully-fledged **React & Apollo tutorial**, visit [How to GraphQL](https://
 
 ## Made with..
 
+Typescript (https://www.typescriptlang.org/) for the Frontend and the Backend
+
 Frontend:
 
 - User interfaces: React https://reactjs.org/
