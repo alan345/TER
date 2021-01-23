@@ -36,13 +36,9 @@ run:
 prisma migrate dev --preview-feature
 ```
 
-```
-
-
 2/ In 2 different terminals:
 
-```
-
+```sh
 # Prisma & Graphql (port 4000)
 
 cd server
@@ -51,8 +47,7 @@ yarn start
 
 ```
 
-```
-
+```sh
 # Frontend: ReactJs (port 3000)
 
 cd react
@@ -134,4 +129,7 @@ Backend:
 If this project help you reduce time to develop, you can give me a cup of coffee :)
 
 [![paypal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CLPDWGN5UA4CU)
+
+```
+
 ```
