@@ -1,7 +1,7 @@
 import React from "react"
 import { gql, useQuery } from "@apollo/client"
 import { PostsContext } from "./Context"
-export const ME_QUERY_ROLE = gql`
+export const QUERY = gql`
   query Me {
     me {
       id
@@ -12,7 +12,7 @@ export const ME_QUERY_ROLE = gql`
 `
 
 export default function Me() {
-  const { data } = useQuery(ME_QUERY_ROLE)
+  const { data } = useQuery(QUERY)
   const context = React.useContext(PostsContext)
 
   React.useEffect(() => {

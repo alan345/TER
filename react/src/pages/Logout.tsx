@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "@material-ui/core"
 import { PostsContext } from "../Context"
-
+import { Button } from "@material-ui/core"
 export default function Logout() {
   const context = React.useContext(PostsContext)
 
@@ -13,7 +13,11 @@ export default function Logout() {
 
   return (
     <>
-      <Link onClick={logout}>Logout</Link>
+      <Link onClick={logout}>
+        <Button variant="contained" color="primary">
+          Logout
+        </Button>
+      </Link>
     </>
   )
 }
