@@ -1,18 +1,14 @@
 // src/ThemeContext.js
 
 import React from "react"
-interface User {
-  id: string
-  name: string
-  email: string
-}
+// import { User } from "./pages/model/User"
 
-export interface PostsContextData {
-  user: User
-  updateUser: (user: User) => void
-}
+// export interface PostsContextData {
+//   user: User
+//   updateUser: (user: User) => void
+// }
 
-export const postsContextDefaultValue: PostsContextData = {
+export const postsContextDefaultValue: any = {
   user: {
     id: "",
     name: "",
@@ -21,6 +17,4 @@ export const postsContextDefaultValue: PostsContextData = {
   updateUser: () => null,
 }
 
-export const PostsContext = React.createContext<PostsContextData>(
-  postsContextDefaultValue
-)
+export const PostsContext = React.createContext<any>(postsContextDefaultValue)

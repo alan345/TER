@@ -63,7 +63,14 @@ export default function Header() {
               </IconButton>
             </a>
             {context.user.id ? (
-              <Logout />
+              <>
+                <Logout />
+                <Link to="/users/1">
+                  <Button variant="contained" color="primary">
+                    Users
+                  </Button>
+                </Link>
+              </>
             ) : (
               <>
                 <Link to="/signup">

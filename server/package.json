@@ -1,7 +1,8 @@
 {
   "name": "typescript-graphql",
   "scripts": {
-    "start": "ts-node-dev --no-notify --respawn --transpile-only src/server"
+    "start-watch": "ts-node-dev --no-notify --respawn --transpile-only src/server",
+    "start": "ts-node src/server.ts"
   },
   "dependencies": {
     "@prisma/client": "2.15.0",

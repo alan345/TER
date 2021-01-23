@@ -5,6 +5,7 @@ import Login from "./pages/Login"
 import Home from "./pages/Home"
 import ForgetPassword from "./pages/ForgetPassword"
 import ResetPassword from "./pages/ResetPassword"
+import Users from "./pages/Users"
 
 export default function RouteApp() {
   return (
@@ -20,6 +21,9 @@ export default function RouteApp() {
       </Route>
       <Route path="/ForgetPassword">
         <ForgetPassword />
+      </Route>
+      <Route path="/Users/:page">
+        <Users />
       </Route>
       <Route path="/resetPassword/:resetPasswordToken">
         <ResetPassword />

@@ -24,10 +24,16 @@ type Post {
 }
 
 type Query {
+  usersPagination(page: Float!): UsersPagination!
   feed: [Post!]!
   filterPosts(searchString: String): [Post!]!
   post(where: PostWhereUniqueInput!): Post
   me: User!
+}
+
+type UsersPagination {
+  users: [User!]!
+  count: Float!
 }
 
 type Mutation {
@@ -85,6 +91,15 @@ export const resolvers = {
       return ctx.prisma.post.findMany({
         where: { published: true },
       })
+    },
+    usersPagination: async (parent, args, ctx: Context) => {
+      const take = 10
+      const users = await ctx.prisma.user.findMany({
+        take,
+        skip: (args.page - 1) * take,
+      })
+      const count = await ctx.prisma.user.count()
+      return { users, count }
     },
     filterPosts: (parent, args, ctx: Context) => {
       return ctx.prisma.post.findMany({
