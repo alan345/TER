@@ -28,7 +28,7 @@
 | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | ![image](https://user-images.githubusercontent.com/15246526/105572454-164bf700-5d0c-11eb-98a2-11feb3fdc904.png) | ![image](https://user-images.githubusercontent.com/15246526/105572426-e8ff4900-5d0b-11eb-8944-23534de29c82.png) |
 | ![image](https://user-images.githubusercontent.com/15246526/105612021-eb928a80-5d6d-11eb-8c36-0d81dc0f3953.png) | ![image](https://user-images.githubusercontent.com/15246526/105614214-e0932680-5d7c-11eb-8b14-d8da40c8c503.png) |
-|  |
+|                                                                                                                 |
 |                                                                                                                 |
 
 ## Getting started
@@ -92,7 +92,7 @@ Backend:
 - Server JS: ExpressJs http://expressjs.com/fr/
 - Server GraphQL: https://www.apollographql.com/docs/apollo-server/)
 - ORM (object-relational mapping): Prisma https://www.prisma.io/
-- Database MySQL: https://www.mysql.com/
+- Database sqlite: https://www.sqlite.org/index.html. You can replace by the database you want (PostgreSQL - MySQL - SQLite - SQL Server). Check the prisma deocumentation https://www.prisma.io/docs/concepts/
 
 # Contributing
 
