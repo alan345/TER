@@ -6,7 +6,7 @@
 
 <br />
 
-![image](https://user-images.githubusercontent.com/15246526/38530809-7a9cc69e-3c21-11e8-8eb9-6f143eb7d64d.png)
+![naperg](https://user-images.githubusercontent.com/15246526/105572650-5364b900-5d0d-11eb-8f21-0c3006e29d14.png)
 
 <div align="center"><strong>🚀 Bootstrap your fullstack GraphQL app within seconds</strong></div>
 <div align="center">Basic starter kit for a fullstack GraphQL app with React and Node.js - based on best practices from the GraphQL community.</div>
