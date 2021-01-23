@@ -26,46 +26,39 @@
 ## Screenshots
 
 ![image](https://user-images.githubusercontent.com/15246526/105572130-1fd45f80-5d0a-11eb-9ee6-6a88da1c3bc9.png)
-|
 
 ## Getting started
 
-1/ In folder `/server/src/config` rename file `config_example.js` to `config.js` and add your own settings
+1/ migrate the database with `Prisma migrate`
+run:
 
-2/ Install docker and Prisma cli. (https://www.prisma.io/docs/get-started/01-setting-up-prisma-new-database-a002/)
-
-3/ In folder `/server`, run:
-
-```sh
-#init app
-docker-compose up -d
-
-
-#Deploy app
-prisma deploy
+```
+prisma migrate dev --preview-feature
 ```
 
-4/ In 3 different terminals:
+```
 
-```sh
-# Prisma: Graphql and mySql (port 4000)
+
+2/ In 2 different terminals:
+
+```
+
+# Prisma & Graphql (port 4000)
+
 cd server
-yarn install
+yarn
 yarn start
+
 ```
 
-```sh
-# Media server: ExpressJs (port 8000)
-cd media
-yarn install
-yarn start
 ```
 
-```sh
 # Frontend: ReactJs (port 3000)
+
 cd react
-yarn install
+yarn
 yarn start
+
 ```
 
 Go to url: http://localhost:3000
@@ -141,3 +134,4 @@ Backend:
 If this project help you reduce time to develop, you can give me a cup of coffee :)
 
 [![paypal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CLPDWGN5UA4CU)
+```
