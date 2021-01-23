@@ -166,16 +166,16 @@ export const resolvers = {
       }
 
       if (!user.dateResetPasswordRequest) {
-        throw new Error('Link is out of date')
+        throw new Error('User never requested a link')
       }
       if (!user.resetPasswordToken) {
-        throw new Error('Link is out of date')
+        throw new Error('User never requested a link.')
       }
 
-      let t = new Date()
-      t.setSeconds(t.getSeconds() + 60)
+      let t = new Date(user.dateResetPasswordRequest)
+      t.setSeconds(t.getSeconds() + 360)
 
-      if (user.dateResetPasswordRequest > t) {
+      if (new Date(t).getTime() < new Date().getTime()) {
         throw new Error('Link is out of date ')
       }
       user = await ctx.prisma.user.update({
