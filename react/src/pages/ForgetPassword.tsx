@@ -4,28 +4,19 @@ import { gql, useMutation } from "@apollo/client"
 import { Typography } from "@material-ui/core"
 import { PostsContext } from "../Context"
 import { useHistory } from "react-router-dom"
-import { Link } from "react-router-dom"
 
 const MUTATION = gql`
-  mutation LoginUser($email: String!, $password: String!) {
-    loginUser(email: $email, password: $password) {
-      token
-      user {
-        id
-        name
-        email
-      }
-    }
+  mutation ForgetPassword($email: String!) {
+    forgetPassword(email: $email)
   }
 `
-const Login = () => {
+const ForgetPassword = () => {
   const history = useHistory()
   const context = React.useContext(PostsContext)
   const [message, setMessage] = React.useState("")
   const [email, setEmail] = React.useState("")
 
-  const [password, setPassword] = React.useState("")
-  const [loginUser] = useMutation(MUTATION)
+  const [forgetPassword] = useMutation(MUTATION)
 
   React.useEffect(() => {
     if (context.user.id) {
@@ -36,10 +27,9 @@ const Login = () => {
   const loginF = async () => {
     let dataUser
     try {
-      dataUser = await loginUser({
+      dataUser = await forgetPassword({
         variables: {
           email,
-          password,
         },
       })
     } catch (e) {
@@ -47,11 +37,10 @@ const Login = () => {
         setMessage(graphQLError.message)
       )
     }
-    if (dataUser?.data?.loginUser) {
-      setMessage("")
-      localStorage.setItem("AUTH_TOKEN", dataUser.data.loginUser.token)
-      context.updateUser(dataUser.data.loginUser.user)
-      history.push("/")
+    if (dataUser?.data?.forgetPassword) {
+      setMessage(
+        "🥳 Success! Please check the terminal to get the content of the email sent to the user"
+      )
     }
   }
   const handleKeyPress = (e: any) => {
@@ -61,38 +50,26 @@ const Login = () => {
   }
   return (
     <>
-      <h3>Login</h3>
+      <h3>Forget Password</h3>
 
       <div>
         <TextField
           id="email"
           label="email"
           value={email}
+          onKeyPress={handleKeyPress}
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>
-      <div>
-        <TextField
-          id="password"
-          label="password"
-          type={"password"}
-          onKeyPress={handleKeyPress}
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </div>
+
       <div style={{ height: "15px" }} />
       <div>
         <Button variant={"outlined"} color={"primary"} onClick={loginF}>
-          Login
+          ForgetPassword
         </Button>
-      </div>
-
-      <div>
-        <Link to={"/forgetPassword"}>Forget Password?</Link>
       </div>
       <Typography color={"secondary"}>{message}</Typography>
     </>
   )
 }
-export default Login
+export default ForgetPassword

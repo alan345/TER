@@ -12,6 +12,7 @@ const MUTATION = gql`
       user {
         id
         name
+        email
       }
     }
   }
@@ -53,13 +54,9 @@ export default function Signup() {
       )
     }
     if (dataUser?.data?.signupUser) {
-      console.log(dataUser)
       setMessage("")
-
       localStorage.setItem("AUTH_TOKEN", dataUser.data.signupUser.token)
-
       context.updateUser(dataUser.data.signupUser.user)
-
       history.push("/")
     }
   }

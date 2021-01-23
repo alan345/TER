@@ -68,7 +68,7 @@ Go to url: http://localhost:3000
 
 ## Features
 
-- **Scalable GraphQL server:** The server uses [`apollo-server`](https://www.apollographql.com/docs/apollo-server/
+- **Scalable GraphQL server:** The server uses [`apollo-server`](https://www.apollographql.com/docs/apollo-server/)
 - **Pre-configured Apollo Client:** The project comes with a preconfigured setup for Apollo Client
 - **Tooling**: Out-of-the-box support for [GraphQL Playground](https://github.com/prisma/graphql-playground)
 - **Extensible**: Simple and flexible data model – easy to adjust and extend
@@ -88,7 +88,7 @@ Frontend:
 Backend:
 
 - Server JS: ExpressJs http://expressjs.com/fr/
-- Server GraphQL: GraphQL yoga https://github.com/prismagraphql/graphql-yoga
+- Server GraphQL: https://www.apollographql.com/docs/apollo-server/)
 - ORM (object-relational mapping): Prisma https://www.prisma.io/
 - Database MySQL: https://www.mysql.com/
 

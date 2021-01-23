@@ -14,8 +14,8 @@ model User {
 
 
     resetPasswordToken String
+  dateResetPasswordRequest DateTime?
   validateEmailToken String
-  resetPasswordRequest DateTime
   isEmailValidated Boolean
 
 

@@ -4,11 +4,15 @@ import { gql, useMutation } from "@apollo/client"
 import { Typography } from "@material-ui/core"
 import { PostsContext } from "../Context"
 import { useHistory } from "react-router-dom"
-import { Link } from "react-router-dom"
+import { useParams } from "react-router"
+import { ParamTypes } from "../ParamTypes.type"
 
 const MUTATION = gql`
-  mutation LoginUser($email: String!, $password: String!) {
-    loginUser(email: $email, password: $password) {
+  mutation ResetPassword($password: String!, $resetPasswordToken: String!) {
+    resetPassword(
+      password: $password
+      resetPasswordToken: $resetPasswordToken
+    ) {
       token
       user {
         id
@@ -18,14 +22,16 @@ const MUTATION = gql`
     }
   }
 `
-const Login = () => {
+const ResetPassword = () => {
+  const params: ParamTypes = useParams<ParamTypes>()
+  const resetPasswordToken = params.resetPasswordToken
+
   const history = useHistory()
   const context = React.useContext(PostsContext)
   const [message, setMessage] = React.useState("")
-  const [email, setEmail] = React.useState("")
-
   const [password, setPassword] = React.useState("")
-  const [loginUser] = useMutation(MUTATION)
+
+  const [resetPassword] = useMutation(MUTATION)
 
   React.useEffect(() => {
     if (context.user.id) {
@@ -36,10 +42,10 @@ const Login = () => {
   const loginF = async () => {
     let dataUser
     try {
-      dataUser = await loginUser({
+      dataUser = await resetPassword({
         variables: {
-          email,
           password,
+          resetPasswordToken,
         },
       })
     } catch (e) {
@@ -47,10 +53,10 @@ const Login = () => {
         setMessage(graphQLError.message)
       )
     }
-    if (dataUser?.data?.loginUser) {
+    if (dataUser?.data?.resetPassword) {
       setMessage("")
-      localStorage.setItem("AUTH_TOKEN", dataUser.data.loginUser.token)
-      context.updateUser(dataUser.data.loginUser.user)
+      localStorage.setItem("AUTH_TOKEN", dataUser.data.resetPassword.token)
+      context.updateUser(dataUser.data.resetPassword.user)
       history.push("/")
     }
   }
@@ -61,38 +67,27 @@ const Login = () => {
   }
   return (
     <>
-      <h3>Login</h3>
+      <h3>Reset Password</h3>
 
-      <div>
-        <TextField
-          id="email"
-          label="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </div>
       <div>
         <TextField
           id="password"
           label="password"
-          type={"password"}
-          onKeyPress={handleKeyPress}
+          type="password"
           value={password}
+          onKeyPress={handleKeyPress}
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
+
       <div style={{ height: "15px" }} />
       <div>
         <Button variant={"outlined"} color={"primary"} onClick={loginF}>
-          Login
+          ResetPassword
         </Button>
-      </div>
-
-      <div>
-        <Link to={"/forgetPassword"}>Forget Password?</Link>
       </div>
       <Typography color={"secondary"}>{message}</Typography>
     </>
   )
 }
-export default Login
+export default ResetPassword

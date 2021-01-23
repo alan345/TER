@@ -1,13 +1,9 @@
-import { Context } from './context'
+import { Context, Decoded } from './model/appInterface'
 import * as jwt from 'jsonwebtoken'
 import * as bcrypt from 'bcryptjs'
 import * as crypto from 'crypto'
 import utils from './utils'
-
-export interface Decoded {
-  userId: string
-  exp: number
-}
+import email from './email'
 
 const APP_SECRET = 'secret'
 
@@ -40,6 +36,8 @@ type Mutation {
   publish(id: ID): Post
   signupUser(name: String!, email: String!, password: String!): AuthPayload!
   loginUser( email: String!, password: String!): AuthPayload!
+  forgetPassword( email: String!): Boolean!
+  resetPassword( password: String!, resetPasswordToken: String!): AuthPayload!
 }
 
 type AuthPayload {
@@ -128,6 +126,74 @@ export const resolvers = {
         data: { published: true },
       })
     },
+
+    forgetPassword: async (parent, args, ctx: Context) => {
+      let user = await ctx.prisma.user.findUnique({
+        where: {
+          email: args.email,
+        },
+      })
+
+      if (!user) {
+        throw new Error('Email unknown')
+      }
+      const resetPasswordToken = crypto.randomBytes(64).toString('hex')
+      user = await ctx.prisma.user.update({
+        where: {
+          id: user.id,
+        },
+        data: {
+          resetPasswordToken,
+          dateResetPasswordRequest: new Date(),
+        },
+      })
+      email.sendForgetPassword(ctx, user)
+
+      return true
+    },
+    resetPassword: async (parent, args, ctx: Context) => {
+      if (!args.resetPasswordToken) {
+        throw new Error('Error. No token')
+      }
+      let user = await ctx.prisma.user.findFirst({
+        where: {
+          resetPasswordToken: args.resetPasswordToken,
+        },
+      })
+
+      if (!user) {
+        throw new Error('Link not valide!')
+      }
+
+      if (!user.dateResetPasswordRequest) {
+        throw new Error('Link is out of date')
+      }
+      if (!user.resetPasswordToken) {
+        throw new Error('Link is out of date')
+      }
+
+      let t = new Date()
+      t.setSeconds(t.getSeconds() + 60)
+
+      if (user.dateResetPasswordRequest > t) {
+        throw new Error('Link is out of date ')
+      }
+      user = await ctx.prisma.user.update({
+        where: {
+          id: user.id,
+        },
+        data: {
+          resetPasswordToken: '',
+          dateResetPasswordRequest: null,
+        },
+      })
+      return {
+        user,
+        token: jwt.sign({ userId: user.id }, APP_SECRET, {
+          expiresIn: '2d',
+        }),
+      }
+    },
     signupUser: async (parent, args, ctx: Context) => {
       const userTest = await ctx.prisma.user.findUnique({
         where: {
@@ -139,16 +205,15 @@ export const resolvers = {
       }
       utils.isPasswordSafe(args.password)
       const password = await bcrypt.hash(args.password, 10)
-      const resetPasswordToken = crypto.randomBytes(64).toString('hex')
+
       const validateEmailToken = crypto.randomBytes(64).toString('hex')
       const user = await ctx.prisma.user.create({
         data: {
           name: args.name,
           password: password,
           email: args.email,
-          resetPasswordToken,
+          resetPasswordToken: '',
           validateEmailToken,
-          resetPasswordRequest: new Date(),
           isEmailValidated: false,
         },
       })

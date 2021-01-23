@@ -1,12 +1,11 @@
 import React from "react"
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import { BrowserRouter as Router } from "react-router-dom"
 import Header from "./Header"
 import Me from "./Me"
-import Signup from "./pages/Signup"
-import Login from "./pages/Login"
-import Home from "./pages/Home"
+
 import { PostsContext, postsContextDefaultValue } from "./Context"
 import { Card, CardContent } from "@material-ui/core/"
+import RouteApp from "./RouteApp"
 
 export default function BasicExample() {
   const [user, setUser] = React.useState(postsContextDefaultValue.user)
@@ -22,37 +21,14 @@ export default function BasicExample() {
   return (
     <PostsContext.Provider value={{ user, updateUser }}>
       <Router>
-        <div>
-          <Header />
-          <Me />
-          <Card elevation={3}>
-            <CardContent>
-              <Switch>
-                <Route exact path="/">
-                  <Home />
-                </Route>
-                <Route path="/signup">
-                  <Signup />
-                </Route>
-                <Route path="/login">
-                  <Login />
-                </Route>
-                <Route path="/dashboard">
-                  <Dashboard />
-                </Route>
-              </Switch>
-            </CardContent>
-          </Card>
-        </div>
+        <Header />
+        <Me />
+        <Card elevation={3}>
+          <CardContent>
+            <RouteApp />
+          </CardContent>
+        </Card>
       </Router>
     </PostsContext.Provider>
-  )
-}
-
-function Dashboard() {
-  return (
-    <div>
-      <h2>Dashboard</h2>
-    </div>
   )
 }
