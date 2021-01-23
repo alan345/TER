@@ -1,4 +1,11 @@
 import { Context } from './context'
+import * as jwt from 'jsonwebtoken'
+export interface Decoded {
+  userId: string
+  exp: number
+}
+
+const APP_SECRET = 'secret'
 
 export const typeDefs = `
 type User {
@@ -20,6 +27,7 @@ type Query {
   feed: [Post!]!
   filterPosts(searchString: String): [Post!]!
   post(where: PostWhereUniqueInput!): Post
+  me: User!
 }
 
 type Mutation {
@@ -59,6 +67,17 @@ input PostCreateWithoutAuthorInput {
 
 export const resolvers = {
   Query: {
+    me: (parent, args, ctx: Context) => {
+      const { authorization } = ctx.req.headers
+      const token = authorization.replace('Bearer ', '')
+      const decoded = jwt.verify(token, APP_SECRET)
+      const userId = (decoded as Decoded).userId
+
+      if (userId) {
+        return ctx.prisma.user.findUnique({ where: { id: Number(userId) } })
+      }
+      throw new Error('Not loggedin')
+    },
     feed: (parent, args, ctx: Context) => {
       return ctx.prisma.post.findMany({
         where: { published: true },
@@ -112,7 +131,12 @@ export const resolvers = {
           email: args.email,
         },
       })
-      return { user, token: 'hello' }
+      return {
+        user,
+        token: jwt.sign({ userId: user.id }, APP_SECRET, {
+          expiresIn: '2d',
+        }),
+      }
     },
   },
   User: {

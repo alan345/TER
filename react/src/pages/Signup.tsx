@@ -1,6 +1,8 @@
 import React from "react"
 import { TextField, Button } from "@material-ui/core/"
-import { gql, useMutation } from "@apollo/client"
+import { gql, useMutation, useApolloClient } from "@apollo/client"
+import { Typography } from "@material-ui/core"
+import { PostsContext } from "../Context"
 
 const MUTATION = gql`
   mutation SignupUser($name: String!, $email: String!, $password: String!) {
@@ -14,15 +16,17 @@ const MUTATION = gql`
   }
 `
 export default function Signup() {
+  const context = React.useContext(PostsContext)
+  const [message, setMessage] = React.useState("")
   const [email, setEmail] = React.useState("")
   const [name, setName] = React.useState("")
   const [password, setPassword] = React.useState("")
   const [signupUser] = useMutation(MUTATION)
-
+  const client = useApolloClient()
   const signupF = async () => {
-    let data
+    let dataUser
     try {
-      data = await signupUser({
+      dataUser = await signupUser({
         variables: {
           name,
           email,
@@ -30,11 +34,25 @@ export default function Signup() {
         },
       })
     } catch (e) {
+      setMessage("Error")
       // console.log(e)
       //
     }
-    if (data) {
-      //
+    if (dataUser?.data?.signupUser) {
+      console.log(dataUser)
+      setMessage("")
+
+      localStorage.setItem("AUTH_TOKEN", dataUser.data.signupUser.token)
+      // localStorage.setItem(
+      //   "AUTH_TOKEN_USER",
+      //   JSON.stringify(dataUser.data.signupUser.user)
+      // )
+      context.updateUser(dataUser.data.signupUser.user)
+
+      client.resetStore()
+      // this.props.client.resetStore().then(() => {
+      //   this.props.history.push(`/`)
+      // })
     }
   }
 
@@ -70,6 +88,7 @@ export default function Signup() {
           Sign up
         </Button>
       </div>
+      <Typography color={"secondary"}>{message}</Typography>
     </>
   )
 }
