@@ -34,6 +34,7 @@ type Query {
 type UsersPagination {
   users: [User!]!
   count: Float!
+  take: Float!
 }
 
 type Mutation {
@@ -94,12 +95,13 @@ export const resolvers = {
     },
     usersPagination: async (parent, args, ctx: Context) => {
       const take = 10
+      const skip = (args.page - 1) * take
       const users = await ctx.prisma.user.findMany({
         take,
-        skip: (args.page - 1) * take,
+        skip,
       })
       const count = await ctx.prisma.user.count()
-      return { users, count }
+      return { users, count, take }
     },
     filterPosts: (parent, args, ctx: Context) => {
       return ctx.prisma.post.findMany({

@@ -15,6 +15,7 @@ export const QUERY = gql`
         email
       }
       count
+      take
     }
   }
 `
@@ -37,7 +38,7 @@ const Users = () => {
   if (!data?.usersPagination?.users) return null
   return (
     <>
-      <h3>Users {page}</h3>
+      <h3>Users</h3>
       {data.usersPagination.users.map((user: User) => (
         <div key={user.id}>
           {user.name} ({user.email})
@@ -45,7 +46,9 @@ const Users = () => {
       ))}
       <div style={{ height: "20px" }} />
       <Pagination
-        count={Math.ceil(data.usersPagination.count / 10)}
+        count={Math.ceil(
+          data.usersPagination.count / data.usersPagination.take
+        )}
         onChange={onChange}
         page={page}
       />
