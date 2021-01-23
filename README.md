@@ -65,38 +65,10 @@ Go to url: http://localhost:3000
 - **GraphQL database:** Includes GraphQL database binding to [Prisma](https://www.prismagraphql.com) (running on MySQL)
 - **Tooling**: Out-of-the-box support for [GraphQL Playground](https://github.com/prisma/graphql-playground)
 - **Extensible**: Simple and flexible data model – easy to adjust and extend
-- **Chat**: Made with Prisma & apollo subscription. (WebSocket)
-- **Email management**:
-  - Welcome email + link to validate the email
-  - Forget password email
 - **Signup management**:
   - Check password strength
-  - Send welcome email + link to validate the email
-  - App knows if email has been approved by the link
 
 For a fully-fledged **React & Apollo tutorial**, visit [How to GraphQL](https://www.howtographql.com/react-apollo/0-introduction/).
-
-## Documentation
-
-### useful Commands
-
-- `prisma reset`
-- `docker container ls` list container
-- `docker stop database_prisma_1` stop container
-- `docker rm database_prisma_1` remove container
-- `docker stop $(docker ps -a -q)` stop all container
-- `docker rm $(docker ps -a -q)` remove all container
-- `docker-compose up -d` init app
-- `prisma deploy` Deploy app
-
-- `eslint .` Check JS/react syntax with eslint-plugin-react
-
-- `yarn start` starts GraphQL server on `http://localhost:4000`
-- `yarn dev` starts GraphQL server on `http://localhost:4000` _and_ opens GraphQL Playground
-- `yarn playground` opens the GraphQL Playground for the `projects` from `.graphqlconfig.yml`
-- `yarn prisma <subcommand>` gives access to local version of Prisma CLI (e.g. `yarn prisma deploy`)
-
-> **Note**: We recommend that you're using `yarn dev` during development as it will give you access to the GraphQL API or your server (defined by the application schema as well as to the Prisma API directly (defined by the Prisma database schema. If you're starting the server with `yarn start`, you'll only be able to access the API of the application schema.
 
 ## Made with..
 
@@ -112,7 +84,6 @@ Backend:
 - Server GraphQL: GraphQL yoga https://github.com/prismagraphql/graphql-yoga
 - ORM (object-relational mapping): Prisma https://www.prisma.io/
 - Database MySQL: https://www.mysql.com/
-- Send email: nodemailer https://nodemailer.com/
 
 # Contributing
 
