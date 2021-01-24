@@ -4,6 +4,7 @@ import * as bcrypt from 'bcryptjs'
 import * as crypto from 'crypto'
 import utils from './utils'
 import email from './email'
+import { PrismaClient, Prisma } from '@prisma/client'
 
 const APP_SECRET = 'secret'
 
@@ -24,13 +25,19 @@ type Post {
 }
 
 type Query {
-  usersPagination(page: Float!): UsersPagination!
+  usersPagination(page: Float!, where: UserWhereInput): UsersPagination!
   feed: [Post!]!
   filterPosts(searchString: String): [Post!]!
   post(where: PostWhereUniqueInput!): Post
   me: User!
 }
 
+input UserWhereInput {
+  name: SearchObj
+}
+input SearchObj {
+  contains: String
+}
 type UsersPagination {
   users: [User!]!
   count: Float!
@@ -96,11 +103,17 @@ export const resolvers = {
     usersPagination: async (parent, args, ctx: Context) => {
       const take = 10
       const skip = (args.page - 1) * take
+      const where: Prisma.UserWhereInput = {
+        name: {
+          contains: args.where.name.contains,
+        },
+      }
       const users = await ctx.prisma.user.findMany({
+        where,
         take,
         skip,
       })
-      const count = await ctx.prisma.user.count()
+      const count = await ctx.prisma.user.count({ where })
       return { users, count, take }
     },
     filterPosts: (parent, args, ctx: Context) => {

@@ -2,13 +2,16 @@ import React from "react"
 import { Pagination } from "@material-ui/lab"
 import { gql, useQuery } from "@apollo/client"
 import { User } from "./model/User"
-import { useHistory } from "react-router-dom"
+
+import { useHistory, useLocation } from "react-router-dom"
+
 import { ParamTypes } from "../ParamTypes.type"
 import { useParams } from "react-router"
+import Search from "./Search"
 
 export const QUERY = gql`
-  query UsersPagination($page: Float!) {
-    usersPagination(page: $page) {
+  query UsersPagination($page: Float!, $where: UserWhereInput) {
+    usersPagination(page: $page, where: $where) {
       users {
         id
         name
@@ -22,36 +25,50 @@ export const QUERY = gql`
 
 const Users = () => {
   const params: ParamTypes = useParams<ParamTypes>()
+  const queryString = require("query-string")
   const page = Number(params.page)
+  const location = useLocation()
+  const parsed = queryString.parse(location.search)
+  console.log(parsed)
 
   const history = useHistory()
   const onChange = (event: any, page: number) => {
-    history.push(`/users/${page}`)
+    history.push(`/users/${page}?${queryString.stringify(parsed)}`)
   }
 
   const { data } = useQuery(QUERY, {
     variables: {
+      where: {
+        name: {
+          contains: parsed.search,
+        },
+      },
       page,
     },
   })
 
-  if (!data?.usersPagination?.users) return null
   return (
     <>
       <h3>Users</h3>
-      {data.usersPagination.users.map((user: User) => (
-        <div key={user.id}>
-          {user.name} ({user.email})
-        </div>
-      ))}
-      <div style={{ height: "20px" }} />
-      <Pagination
-        count={Math.ceil(
-          data.usersPagination.count / data.usersPagination.take
-        )}
-        onChange={onChange}
-        page={page}
-      />
+      <Search />
+      <div style={{ height: "15px" }} />
+      {data?.usersPagination?.users && (
+        <>
+          {data.usersPagination.users.map((user: User) => (
+            <div key={user.id}>
+              {user.name} ({user.email})
+            </div>
+          ))}
+          <div style={{ height: "20px" }} />
+          <Pagination
+            count={Math.ceil(
+              data.usersPagination.count / data.usersPagination.take
+            )}
+            onChange={onChange}
+            page={page}
+          />
+        </>
+      )}
     </>
   )
 }
