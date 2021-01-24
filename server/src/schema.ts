@@ -33,6 +33,7 @@ type Query {
 }
 
 input UserWhereInput {
+  search: String
   name: SearchObj
 }
 input SearchObj {
@@ -104,10 +105,14 @@ export const resolvers = {
       const take = 10
       const skip = (args.page - 1) * take
       const where: Prisma.UserWhereInput = {
-        name: {
-          contains: args.where.name.contains,
-        },
+        OR: args.where.search
+          ? [
+              { name: { contains: args.where.search } },
+              { email: { contains: args.where.search } },
+            ]
+          : undefined,
       }
+
       const users = await ctx.prisma.user.findMany({
         where,
         take,

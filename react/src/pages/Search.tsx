@@ -21,14 +21,13 @@ const Search = () => {
 
   const searchF = () => {
     parsed.search = search
-    delete parsed.page
     history.push("?" + queryString.stringify(parsed))
   }
   return (
     <>
       <Grid item xs={12} md={3} className="">
         <FormControl className="inputWidth">
-          <InputLabel htmlFor="search">{`Last 4 digits`}</InputLabel>
+          <InputLabel htmlFor="search">{`Search`}</InputLabel>
           <Input
             endAdornment={
               <InputAdornment position="end">
@@ -38,7 +37,7 @@ const Search = () => {
                     onClick={() => {
                       setSearch("")
                       delete parsed.search
-                      delete parsed.page
+
                       history.push("?" + queryString.stringify(parsed))
                     }}
                   />

@@ -1,13 +1,11 @@
 import React from "react"
-import { Pagination } from "@material-ui/lab"
 import { gql, useQuery } from "@apollo/client"
 import { User } from "./model/User"
-
-import { useHistory, useLocation } from "react-router-dom"
-
+import { useLocation } from "react-router-dom"
 import { ParamTypes } from "../ParamTypes.type"
 import { useParams } from "react-router"
 import Search from "./Search"
+import PaginationApp from "./PaginationApp"
 
 export const QUERY = gql`
   query UsersPagination($page: Float!, $where: UserWhereInput) {
@@ -29,19 +27,17 @@ const Users = () => {
   const page = Number(params.page)
   const location = useLocation()
   const parsed = queryString.parse(location.search)
-  console.log(parsed)
+  // console.log(parsed)
 
-  const history = useHistory()
-  const onChange = (event: any, page: number) => {
-    history.push(`/users/${page}?${queryString.stringify(parsed)}`)
-  }
+  // const history = useHistory()
+  // const onChange = (event: any, page: number) => {
+  //   history.push(`/users/${page}?${queryString.stringify(parsed)}`)
+  // }
 
   const { data } = useQuery(QUERY, {
     variables: {
       where: {
-        name: {
-          contains: parsed.search,
-        },
+        search: parsed.search,
       },
       page,
     },
@@ -60,12 +56,16 @@ const Users = () => {
             </div>
           ))}
           <div style={{ height: "20px" }} />
-          <Pagination
+          {/* <Pagination
             count={Math.ceil(
               data.usersPagination.count / data.usersPagination.take
             )}
             onChange={onChange}
             page={page}
+          /> */}
+          <PaginationApp
+            count={data.usersPagination.count}
+            take={data.usersPagination.take}
           />
         </>
       )}

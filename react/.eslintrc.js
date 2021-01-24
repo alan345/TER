@@ -12,7 +12,7 @@ module.exports = {
     "react/prop-types": "off",
     "no-multiple-empty-lines": ["error", { max: 1, maxEOF: 1 }],
     "padded-blocks": ["error", "never"],
-    semi: ["error", "never"],
+    semi: ["warn", "always"],
   },
   plugins: ["react"],
   parser: "babel-eslint",
