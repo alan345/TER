@@ -4,15 +4,15 @@ import {
   IconButton,
   Typography,
   Button,
-} from "@material-ui/core"
-import GitHubIcon from "@material-ui/icons/GitHub"
-import React from "react"
-import { Link } from "react-router-dom"
-import { PostsContext } from "./Context"
-import Logout from "./pages/Logout"
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
+} from "@material-ui/core";
+import GitHubIcon from "@material-ui/icons/GitHub";
+import React from "react";
+import { Link } from "react-router-dom";
+import { PostsContext } from "./Context";
+import Logout from "./pages/Logout";
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 
-import MenuIcon from "@material-ui/icons/Menu"
+import MenuIcon from "@material-ui/icons/Menu";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -29,11 +29,11 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
     },
   })
-)
+);
 
 export default function Header() {
-  const context = React.useContext(PostsContext)
-  const classes = useStyles()
+  const context = React.useContext(PostsContext);
+  const classes = useStyles();
   return (
     <div>
       <div className={classes.root}>
@@ -65,7 +65,7 @@ export default function Header() {
             {context.user.id ? (
               <>
                 <Logout />
-                <Link to="/users/1">
+                <Link to="/users">
                   <Button variant="contained" color="primary">
                     Users
                   </Button>
@@ -89,5 +89,5 @@ export default function Header() {
         </AppBar>
       </div>
     </div>
-  )
+  );
 }

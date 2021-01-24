@@ -1,28 +1,29 @@
-import React, { useState } from "react"
-import { FormControl, InputLabel, Input, Grid } from "@material-ui/core/"
-import SearchIcon from "@material-ui/icons/Search"
-import InputAdornment from "@material-ui/core/InputAdornment"
-import { useHistory, useLocation } from "react-router-dom"
-import ClearIcon from "@material-ui/icons/Clear"
+import React, { useState } from "react";
+import { FormControl, InputLabel, Input, Grid } from "@material-ui/core/";
+import SearchIcon from "@material-ui/icons/Search";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import { useHistory, useLocation } from "react-router-dom";
+import ClearIcon from "@material-ui/icons/Clear";
 
 const Search = () => {
-  const history = useHistory()
-  const location = useLocation()
-  const queryString = require("query-string")
-  const parsed = queryString.parse(location.search)
+  const history = useHistory();
+  const location = useLocation();
+  const queryString = require("query-string");
+  const parsed = queryString.parse(location.search);
 
-  const [search, setSearch] = useState(parsed.search ? parsed.search : "")
+  const [search, setSearch] = useState(parsed.search ? parsed.search : "");
 
   const onKeyPress = (data: any) => {
     if (data.charCode === 13) {
-      searchF()
+      searchF();
     }
-  }
+  };
 
   const searchF = () => {
-    parsed.search = search
-    history.push("?" + queryString.stringify(parsed))
-  }
+    parsed.search = search;
+    parsed.page = 1;
+    history.push("?" + queryString.stringify(parsed));
+  };
   return (
     <>
       <Grid item xs={12} md={3} className="">
@@ -35,10 +36,10 @@ const Search = () => {
                   <ClearIcon
                     style={{ cursor: "pointer" }}
                     onClick={() => {
-                      setSearch("")
-                      delete parsed.search
+                      setSearch("");
+                      delete parsed.search;
 
-                      history.push("?" + queryString.stringify(parsed))
+                      history.push("?" + queryString.stringify(parsed));
                     }}
                   />
                 ) : (
@@ -57,7 +58,7 @@ const Search = () => {
         </FormControl>
       </Grid>
     </>
-  )
-}
+  );
+};
 
-export default Search
+export default Search;

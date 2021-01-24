@@ -1,11 +1,11 @@
-import React from "react"
-import { gql, useQuery } from "@apollo/client"
-import { User } from "./model/User"
-import { useLocation } from "react-router-dom"
-import { ParamTypes } from "../ParamTypes.type"
-import { useParams } from "react-router"
-import Search from "./Search"
-import PaginationApp from "./PaginationApp"
+import React from "react";
+import { gql, useQuery } from "@apollo/client";
+import { User } from "./model/User";
+import { useLocation } from "react-router-dom";
+// import { ParamTypes } from "../ParamTypes.type"
+// import { useParams } from "react-router"
+import Search from "./Search";
+import PaginationApp from "./PaginationApp";
 
 export const QUERY = gql`
   query UsersPagination($page: Float!, $where: UserWhereInput) {
@@ -19,14 +19,15 @@ export const QUERY = gql`
       take
     }
   }
-`
+`;
 
 const Users = () => {
-  const params: ParamTypes = useParams<ParamTypes>()
-  const queryString = require("query-string")
-  const page = Number(params.page)
-  const location = useLocation()
-  const parsed = queryString.parse(location.search)
+  // const params: ParamTypes = useParams<ParamTypes>()
+  const queryString = require("query-string");
+  // const page = Number(params.page)
+  const location = useLocation();
+  const parsed = queryString.parse(location.search);
+  const page = parsed.page ? Number(parsed.page) : 1;
   // console.log(parsed)
 
   // const history = useHistory()
@@ -41,7 +42,7 @@ const Users = () => {
       },
       page,
     },
-  })
+  });
 
   return (
     <>
@@ -70,6 +71,6 @@ const Users = () => {
         </>
       )}
     </>
-  )
-}
-export default Users
+  );
+};
+export default Users;
