@@ -28,11 +28,9 @@
 | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | ![image](https://user-images.githubusercontent.com/15246526/105572454-164bf700-5d0c-11eb-98a2-11feb3fdc904.png) | ![image](https://user-images.githubusercontent.com/15246526/105572426-e8ff4900-5d0b-11eb-8944-23534de29c82.png) |
 | ![image](https://user-images.githubusercontent.com/15246526/105612021-eb928a80-5d6d-11eb-8c36-0d81dc0f3953.png) | ![image](https://user-images.githubusercontent.com/15246526/105614214-e0932680-5d7c-11eb-8b14-d8da40c8c503.png) |
-
-| ![image](https://user-images.githubusercontent.com/15246526/105619254-72af2500-5da5-11eb-99a5-45d7872927ab.png)
-| |
-| |
-| |
+| a                                                                                                               | a                                                                                                               |
+|                                                                                                                 |
+|                                                                                                                 |
 
 ## Getting started
 
