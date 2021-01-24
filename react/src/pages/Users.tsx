@@ -6,6 +6,7 @@ import { Grid } from "@material-ui/core/";
 import Search from "./Search";
 import PaginationApp from "./PaginationApp";
 import DeleteUser from "./DeleteUser";
+import { PostsContext } from "../Context";
 
 export const QUERY = gql`
   query UsersPagination($page: Float!, $where: UserWhereInput) {
@@ -23,7 +24,7 @@ export const QUERY = gql`
 
 const Users = () => {
   const queryString = require("query-string");
-
+  const context = React.useContext(PostsContext);
   const location = useLocation();
   const parsed = queryString.parse(location.search);
   const page = parsed.page ? Number(parsed.page) : 1;
@@ -46,10 +47,10 @@ const Users = () => {
         <>
           {data.usersPagination.users.map((user: User) => (
             <Grid container key={user.id} spacing={2}>
-              <Grid item>
-                <DeleteUser userId={user.id} />
+              <Grid item xs={12} sm={1}>
+                {context.user.id !== user.id && <DeleteUser userId={user.id} />}
               </Grid>
-              <Grid item>
+              <Grid item xs={12} sm={6}>
                 {user.name} ({user.email})
               </Grid>
             </Grid>
