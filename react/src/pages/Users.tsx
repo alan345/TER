@@ -2,10 +2,10 @@ import React from "react";
 import { gql, useQuery } from "@apollo/client";
 import { User } from "./model/User";
 import { useLocation } from "react-router-dom";
-// import { ParamTypes } from "../ParamTypes.type"
-// import { useParams } from "react-router"
+import { Grid } from "@material-ui/core/";
 import Search from "./Search";
 import PaginationApp from "./PaginationApp";
+import DeleteUser from "./DeleteUser";
 
 export const QUERY = gql`
   query UsersPagination($page: Float!, $where: UserWhereInput) {
@@ -22,18 +22,11 @@ export const QUERY = gql`
 `;
 
 const Users = () => {
-  // const params: ParamTypes = useParams<ParamTypes>()
   const queryString = require("query-string");
-  // const page = Number(params.page)
+
   const location = useLocation();
   const parsed = queryString.parse(location.search);
   const page = parsed.page ? Number(parsed.page) : 1;
-  // console.log(parsed)
-
-  // const history = useHistory()
-  // const onChange = (event: any, page: number) => {
-  //   history.push(`/users/${page}?${queryString.stringify(parsed)}`)
-  // }
 
   const { data } = useQuery(QUERY, {
     variables: {
@@ -52,18 +45,17 @@ const Users = () => {
       {data?.usersPagination?.users && (
         <>
           {data.usersPagination.users.map((user: User) => (
-            <div key={user.id}>
-              {user.name} ({user.email})
-            </div>
+            <Grid container key={user.id} spacing={2}>
+              <Grid item>
+                <DeleteUser userId={user.id} />
+              </Grid>
+              <Grid item>
+                {user.name} ({user.email})
+              </Grid>
+            </Grid>
           ))}
           <div style={{ height: "20px" }} />
-          {/* <Pagination
-            count={Math.ceil(
-              data.usersPagination.count / data.usersPagination.take
-            )}
-            onChange={onChange}
-            page={page}
-          /> */}
+
           <PaginationApp
             count={data.usersPagination.count}
             take={data.usersPagination.take}

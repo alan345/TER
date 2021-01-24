@@ -1,4 +1,16 @@
+import config from './config'
+import * as jwt from 'jsonwebtoken'
+import { Context, Decoded } from './model/appInterface'
+
 const utils = {
+  getUserId: (ctx: Context) => {
+    const { authorization } = ctx.req.headers
+    const token = authorization.replace('Bearer ', '')
+    const decoded = jwt.verify(token, config.APP_SECRET)
+    if (!decoded) throw new Error('Not auth')
+    const userId = (decoded as Decoded).userId
+    return userId
+  },
   hasLowerCase(str: string) {
     return str.toUpperCase() !== str
   },

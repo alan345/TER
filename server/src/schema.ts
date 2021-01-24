@@ -5,8 +5,7 @@ import * as crypto from 'crypto'
 import utils from './utils'
 import email from './email'
 import { PrismaClient, Prisma } from '@prisma/client'
-
-const APP_SECRET = 'secret'
+import config from './config'
 
 export const typeDefs = `
 type User {
@@ -53,6 +52,7 @@ type Mutation {
   loginUser( email: String!, password: String!): AuthPayload!
   forgetPassword( email: String!): Boolean!
   resetPassword( password: String!, resetPasswordToken: String!): AuthPayload!
+  deleteUser( userId: String!): User!
 }
 
 type AuthPayload {
@@ -88,7 +88,7 @@ export const resolvers = {
     me: (parent, args, ctx: Context) => {
       const { authorization } = ctx.req.headers
       const token = authorization.replace('Bearer ', '')
-      const decoded = jwt.verify(token, APP_SECRET)
+      const decoded = jwt.verify(token, config.APP_SECRET)
       const userId = (decoded as Decoded).userId
 
       if (userId) {
@@ -102,6 +102,7 @@ export const resolvers = {
       })
     },
     usersPagination: async (parent, args, ctx: Context) => {
+      utils.getUserId(ctx)
       const take = 10
       const skip = (args.page - 1) * take
       const where: Prisma.UserWhereInput = {
@@ -153,6 +154,11 @@ export const resolvers = {
     deleteOnePost: (parent, args, ctx: Context) => {
       return ctx.prisma.post.delete({
         where: { id: Number(args.where.id) },
+      })
+    },
+    deleteUser: (parent, args, ctx: Context) => {
+      return ctx.prisma.user.delete({
+        where: { id: Number(args.userId) },
       })
     },
     publish: (parent, args, ctx: Context) => {
@@ -224,7 +230,7 @@ export const resolvers = {
       })
       return {
         user,
-        token: jwt.sign({ userId: user.id }, APP_SECRET, {
+        token: jwt.sign({ userId: user.id }, config.APP_SECRET, {
           expiresIn: '2d',
         }),
       }
@@ -254,7 +260,7 @@ export const resolvers = {
       })
       return {
         user,
-        token: jwt.sign({ userId: user.id }, APP_SECRET, {
+        token: jwt.sign({ userId: user.id }, config.APP_SECRET, {
           expiresIn: '2d',
         }),
       }
@@ -275,7 +281,7 @@ export const resolvers = {
       }
       return {
         user,
-        token: jwt.sign({ userId: user.id }, APP_SECRET, {
+        token: jwt.sign({ userId: user.id }, config.APP_SECRET, {
           expiresIn: '2d',
         }),
       }

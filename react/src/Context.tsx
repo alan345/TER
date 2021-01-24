@@ -1,20 +1,16 @@
-// src/ThemeContext.js
+import React from "react";
+import { User, userClass } from "./pages/model/User";
 
-import React from "react"
-// import { User } from "./pages/model/User"
-
-// export interface PostsContextData {
-//   user: User
-//   updateUser: (user: User) => void
-// }
-
-export const postsContextDefaultValue: any = {
-  user: {
-    id: "",
-    name: "",
-    email: "",
-  },
-  updateUser: () => null,
+export interface PostsContextData {
+  user: User;
+  updateUser: (user: User) => void;
 }
 
-export const PostsContext = React.createContext<any>(postsContextDefaultValue)
+export const postsContextDefaultValue: PostsContextData = {
+  user: userClass,
+  updateUser: () => null,
+};
+
+export const PostsContext = React.createContext<PostsContextData>(
+  postsContextDefaultValue
+);

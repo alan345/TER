@@ -1,15 +1,19 @@
-import React from "react"
-import { Link } from "@material-ui/core"
-import { PostsContext } from "../Context"
-import { Button } from "@material-ui/core"
+import React from "react";
+import { Link } from "@material-ui/core";
+import { PostsContext } from "../Context";
+import { Button } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
+import { userClass } from "./model/User";
+
 export default function Logout() {
-  const context = React.useContext(PostsContext)
+  const context = React.useContext(PostsContext);
+  const history = useHistory();
 
   const logout = async () => {
-    localStorage.setItem("AUTH_TOKEN", "")
-
-    context.updateUser({ id: "", name: "", email: "" })
-  }
+    history.push("/");
+    localStorage.setItem("AUTH_TOKEN", "");
+    context.updateUser(userClass);
+  };
 
   return (
     <>
@@ -19,5 +23,5 @@ export default function Logout() {
         </Button>
       </Link>
     </>
-  )
+  );
 }

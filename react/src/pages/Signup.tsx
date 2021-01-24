@@ -1,9 +1,9 @@
-import React from "react"
-import { TextField, Button } from "@material-ui/core/"
-import { gql, useMutation } from "@apollo/client"
-import { Typography } from "@material-ui/core"
-import { PostsContext } from "../Context"
-import { useHistory } from "react-router-dom"
+import React from "react";
+import { TextField, Button } from "@material-ui/core/";
+import { gql, useMutation } from "@apollo/client";
+import { Typography } from "@material-ui/core";
+import { PostsContext } from "../Context";
+import { useHistory } from "react-router-dom";
 
 const MUTATION = gql`
   mutation SignupUser($name: String!, $email: String!, $password: String!) {
@@ -16,30 +16,30 @@ const MUTATION = gql`
       }
     }
   }
-`
+`;
 export default function Signup() {
-  const history = useHistory()
-  const context = React.useContext(PostsContext)
-  const [message, setMessage] = React.useState("")
-  const [email, setEmail] = React.useState("")
-  const [name, setName] = React.useState("")
-  const [password, setPassword] = React.useState("")
-  const [signupUser] = useMutation(MUTATION)
+  const history = useHistory();
+  const context = React.useContext(PostsContext);
+  const [message, setMessage] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [name, setName] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [signupUser] = useMutation(MUTATION);
 
   React.useEffect(() => {
     if (context.user.id) {
-      history.push("/")
+      history.push("/");
     }
-  }, [context])
+  }, [context]);
 
   const handleKeyPress = (e: any) => {
     if (e.key === "Enter") {
-      signupF()
+      signupF();
     }
-  }
+  };
 
   const signupF = async () => {
-    let dataUser
+    let dataUser;
     try {
       dataUser = await signupUser({
         variables: {
@@ -47,19 +47,19 @@ export default function Signup() {
           email,
           password,
         },
-      })
+      });
     } catch (e) {
       e.graphQLErrors.some((graphQLError: any) =>
         setMessage(graphQLError.message)
-      )
+      );
     }
     if (dataUser?.data?.signupUser) {
-      setMessage("")
-      localStorage.setItem("AUTH_TOKEN", dataUser.data.signupUser.token)
-      context.updateUser(dataUser.data.signupUser.user)
-      history.push("/")
+      setMessage("");
+      localStorage.setItem("AUTH_TOKEN", dataUser.data.signupUser.token);
+      context.updateUser(dataUser.data.signupUser.user);
+      history.push("/");
     }
-  }
+  };
 
   return (
     <>
@@ -84,6 +84,7 @@ export default function Signup() {
         <TextField
           id="password"
           label="password"
+          type={"password"}
           onKeyPress={handleKeyPress}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -97,5 +98,5 @@ export default function Signup() {
       </div>
       <Typography color={"secondary"}>{message}</Typography>
     </>
-  )
+  );
 }
