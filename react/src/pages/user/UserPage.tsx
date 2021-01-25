@@ -53,7 +53,11 @@ const UserPage = () => {
           <div>Name: {user.name}</div>
           <div>Email: {user.email}</div>
           <div>Role: {user.role}</div>
-          <div>Last Login: {user.lastLogin}</div>
+          <div>
+            Last Login:{" "}
+            {user.lastLogin &&
+              new Date(user.lastLogin).toLocaleDateString("en-US")}
+          </div>
         </>
       )}
     </div>
