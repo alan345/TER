@@ -12,9 +12,10 @@ model User {
 
   createdAt                        DateTime        @default(now())
   updatedAt                        DateTime        @updatedAt
-    
+
   email String  @unique
   password String
+  role String
 
 lastLogin DateTime?
     resetPasswordToken String
@@ -26,4 +27,6 @@ lastLogin DateTime?
   name  String
 
 }
+
+
 

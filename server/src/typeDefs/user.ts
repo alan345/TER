@@ -6,7 +6,12 @@ export const user = gql`
     email: String!
     id: ID!
     name: String
+    role: Role
     lastLogin: DateTime
+  }
+  enum Role {
+    ADMIN
+    USER
   }
 
   input UserWhereInput {
