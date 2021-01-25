@@ -52,6 +52,7 @@ const UserPage = () => {
           </div>
           <div>Name: {user.name}</div>
           <div>Email: {user.email}</div>
+          <div>Role: {user.role}</div>
           <div>Last Login: {user.lastLogin}</div>
         </>
       )}

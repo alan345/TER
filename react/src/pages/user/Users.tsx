@@ -15,6 +15,7 @@ export const QUERY = gql`
         id
         name
         email
+        role
         lastLogin
       }
       count
@@ -54,8 +55,9 @@ const Users = () => {
               <Grid item xs={12} sm={6}>
                 {user.name} ({user.email})
               </Grid>
-              <Grid item xs={12} sm={4}>
+              <Grid item xs={12} sm={5}>
                 Last Login: {user.lastLogin}
+                <div>Role: {user.role}</div>
               </Grid>
             </Grid>
           ))}
