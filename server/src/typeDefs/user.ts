@@ -28,6 +28,7 @@ export const user = gql`
   }
   input UserUpdateInput {
     name: String
+    role: Role
   }
 
   type AuthPayload {

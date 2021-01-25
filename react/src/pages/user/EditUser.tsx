@@ -12,6 +12,7 @@ const MUTATION = gql`
     updateUser(data: $data, userId: $userId) {
       id
       name
+      role
     }
   }
 `;
@@ -35,6 +36,7 @@ const EditUser = (props: Props) => {
         variables: {
           data: {
             name: user.name,
+            role: user.role,
           },
           userId: props.user.id,
         },
@@ -47,7 +49,6 @@ const EditUser = (props: Props) => {
     if (dataUser?.data?.updateUser) {
       setMessage("");
       props.onUpdate();
-      // client.resetStore();
     }
   };
 
