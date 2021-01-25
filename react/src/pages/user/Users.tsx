@@ -56,7 +56,9 @@ const Users = () => {
                 {user.name} ({user.email})
               </Grid>
               <Grid item xs={12} sm={5}>
-                Last Login: {user.lastLogin}
+                Last Login:{" "}
+                {user.lastLogin &&
+                  new Date(user.lastLogin).toLocaleDateString("en-US")}
                 <div>Role: {user.role}</div>
               </Grid>
             </Grid>
