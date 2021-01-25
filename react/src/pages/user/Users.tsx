@@ -1,12 +1,12 @@
 import React from "react";
 import { gql, useQuery } from "@apollo/client";
-import { User } from "../model/User";
+import { User } from "./User";
 import { useLocation } from "react-router-dom";
 import { Grid } from "@material-ui/core/";
-import Search from "./Search";
-import PaginationApp from "./PaginationApp";
+import Search from "../Search";
+import PaginationApp from "../PaginationApp";
 import DeleteUser from "./DeleteUser";
-import { PostsContext } from "../Context";
+import { PostsContext } from "../../Context";
 
 export const QUERY = gql`
   query UsersPagination($page: Float!, $where: UserWhereInput) {

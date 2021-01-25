@@ -2,7 +2,7 @@ import React from "react";
 import { TextField, Button } from "@material-ui/core/";
 import { gql, useMutation } from "@apollo/client";
 import { Typography } from "@material-ui/core";
-import { PostsContext } from "../Context";
+import { PostsContext } from "../../Context";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 

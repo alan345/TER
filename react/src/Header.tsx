@@ -9,7 +9,7 @@ import GitHubIcon from "@material-ui/icons/GitHub";
 import React from "react";
 import { Link } from "react-router-dom";
 import { PostsContext } from "./Context";
-import Logout from "./pages/Logout";
+import Logout from "./pages/auth/Logout";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 
 import MenuIcon from "@material-ui/icons/Menu";
