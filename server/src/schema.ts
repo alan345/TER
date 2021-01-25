@@ -4,14 +4,16 @@ import * as bcrypt from 'bcryptjs'
 import * as crypto from 'crypto'
 import utils from './utils'
 import email from './email'
-import { PrismaClient, Prisma } from '@prisma/client'
+import { Prisma } from '@prisma/client'
 import config from './config'
 
 export const typeDefs = `
+scalar DateTime
 type User {
   email: String!
   id: ID!
   name: String
+  lastLogin: DateTime
   posts: [Post!]!
 }
 
@@ -25,9 +27,9 @@ type Post {
 
 type Query {
   usersPagination(page: Float!, where: UserWhereInput): UsersPagination!
-  feed: [Post!]!
-  filterPosts(searchString: String): [Post!]!
-  post(where: PostWhereUniqueInput!): Post
+  user(userId: String!): User!
+
+
   me: User!
 }
 
@@ -45,9 +47,6 @@ type UsersPagination {
 }
 
 type Mutation {
-  createDraft(authorEmail: String, content: String, title: String!): Post!
-  deleteOnePost(where: PostWhereUniqueInput!): Post
-  publish(id: ID): Post
   signupUser(name: String!, email: String!, password: String!): AuthPayload!
   loginUser( email: String!, password: String!): AuthPayload!
   forgetPassword( email: String!): Boolean!
@@ -70,37 +69,27 @@ input UserCreateInput {
   name: String
 }
 
-input PostCreateManyWithoutPostsInput {
-  connect: [PostWhereUniqueInput!]
-  create: [PostCreateWithoutAuthorInput!]
-}
 
-input PostCreateWithoutAuthorInput {
-  content: String
-  id: ID
-  published: Boolean
-  title: String!
-}
+
+
 `
 
 export const resolvers = {
   Query: {
+    user: (parent, args, ctx: Context) => {
+      const userId = utils.getUserId(ctx)
+
+      return ctx.prisma.user.findUnique({ where: { id: userId } })
+    },
     me: (parent, args, ctx: Context) => {
-      const { authorization } = ctx.req.headers
-      const token = authorization.replace('Bearer ', '')
-      const decoded = jwt.verify(token, config.APP_SECRET)
-      const userId = (decoded as Decoded).userId
+      const userId = utils.getUserId(ctx)
 
       if (userId) {
-        return ctx.prisma.user.findUnique({ where: { id: Number(userId) } })
+        return ctx.prisma.user.findUnique({ where: { id: userId } })
       }
       throw new Error('Not loggedin')
     },
-    feed: (parent, args, ctx: Context) => {
-      return ctx.prisma.post.findMany({
-        where: { published: true },
-      })
-    },
+
     usersPagination: async (parent, args, ctx: Context) => {
       utils.getUserId(ctx)
       const take = 10
@@ -122,49 +111,11 @@ export const resolvers = {
       const count = await ctx.prisma.user.count({ where })
       return { users, count, take }
     },
-    filterPosts: (parent, args, ctx: Context) => {
-      return ctx.prisma.post.findMany({
-        where: {
-          OR: [
-            { title: { contains: args.searchString } },
-            { content: { contains: args.searchString } },
-          ],
-        },
-      })
-    },
-    post: (parent, args, ctx: Context) => {
-      return ctx.prisma.post.findUnique({
-        where: { id: Number(args.where.id) },
-      })
-    },
   },
   Mutation: {
-    createDraft: (parent, args, ctx) => {
-      return ctx.prisma.post.create({
-        data: {
-          title: args.title,
-          content: args.content,
-          published: false,
-          author: args.authorEmail && {
-            connect: { email: args.authorEmail },
-          },
-        },
-      })
-    },
-    deleteOnePost: (parent, args, ctx: Context) => {
-      return ctx.prisma.post.delete({
-        where: { id: Number(args.where.id) },
-      })
-    },
     deleteUser: (parent, args, ctx: Context) => {
       return ctx.prisma.user.delete({
-        where: { id: Number(args.userId) },
-      })
-    },
-    publish: (parent, args, ctx: Context) => {
-      return ctx.prisma.post.update({
-        where: { id: Number(args.id) },
-        data: { published: true },
+        where: { id: args.userId },
       })
     },
 
@@ -254,6 +205,7 @@ export const resolvers = {
           password: password,
           email: args.email,
           resetPasswordToken: '',
+          lastLogin: new Date(),
           validateEmailToken,
           isEmailValidated: false,
         },
@@ -266,7 +218,7 @@ export const resolvers = {
       }
     },
     loginUser: async (parent, args, ctx: Context) => {
-      const user = await ctx.prisma.user.findFirst({
+      let user = await ctx.prisma.user.findFirst({
         where: {
           email: args.email,
         },
@@ -275,6 +227,12 @@ export const resolvers = {
         throw new Error('No user')
       }
 
+      user = await ctx.prisma.user.update({
+        data: { lastLogin: new Date() },
+        where: {
+          id: user.id,
+        },
+      })
       const valid = await bcrypt.compare(args.password, user.password)
       if (!valid) {
         throw new Error('Invalid password')
@@ -285,24 +243,6 @@ export const resolvers = {
           expiresIn: '2d',
         }),
       }
-    },
-  },
-  User: {
-    posts: (parent, args, ctx: Context) => {
-      return ctx.prisma.user
-        .findUnique({
-          where: { id: parent.id },
-        })
-        .posts()
-    },
-  },
-  Post: {
-    author: (parent, args, ctx: Context) => {
-      return ctx.prisma.post
-        .findUnique({
-          where: { id: parent.id },
-        })
-        .author()
     },
   },
 }

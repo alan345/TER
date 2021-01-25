@@ -1,10 +1,10 @@
-import React from "react"
-import { TextField, Button } from "@material-ui/core/"
-import { gql, useMutation } from "@apollo/client"
-import { Typography } from "@material-ui/core"
-import { PostsContext } from "../Context"
-import { useHistory } from "react-router-dom"
-import { Link } from "react-router-dom"
+import React from "react";
+import { TextField, Button } from "@material-ui/core/";
+import { gql, useMutation } from "@apollo/client";
+import { Typography } from "@material-ui/core";
+import { PostsContext } from "../Context";
+import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const MUTATION = gql`
   mutation LoginUser($email: String!, $password: String!) {
@@ -17,48 +17,42 @@ const MUTATION = gql`
       }
     }
   }
-`
+`;
 const Login = () => {
-  const history = useHistory()
-  const context = React.useContext(PostsContext)
-  const [message, setMessage] = React.useState("")
-  const [email, setEmail] = React.useState("")
+  const history = useHistory();
+  const context = React.useContext(PostsContext);
+  const [message, setMessage] = React.useState("");
+  const [email, setEmail] = React.useState("");
 
-  const [password, setPassword] = React.useState("")
-  const [loginUser] = useMutation(MUTATION)
-
-  React.useEffect(() => {
-    if (context.user.id) {
-      history.push("/")
-    }
-  }, [context])
+  const [password, setPassword] = React.useState("");
+  const [loginUser] = useMutation(MUTATION);
 
   const loginF = async () => {
-    let dataUser
+    let dataUser;
     try {
       dataUser = await loginUser({
         variables: {
           email,
           password,
         },
-      })
+      });
     } catch (e) {
       e.graphQLErrors.some((graphQLError: any) =>
         setMessage(graphQLError.message)
-      )
+      );
     }
     if (dataUser?.data?.loginUser) {
-      setMessage("")
-      localStorage.setItem("AUTH_TOKEN", dataUser.data.loginUser.token)
-      context.updateUser(dataUser.data.loginUser.user)
-      history.push("/")
+      setMessage("");
+      localStorage.setItem("AUTH_TOKEN", dataUser.data.loginUser.token);
+      context.updateUser(dataUser.data.loginUser.user);
+      history.push("/");
     }
-  }
+  };
   const handleKeyPress = (e: any) => {
     if (e.key === "Enter") {
-      loginF()
+      loginF();
     }
-  }
+  };
   return (
     <>
       <h3>Login</h3>
@@ -93,6 +87,6 @@ const Login = () => {
       </div>
       <Typography color={"secondary"}>{message}</Typography>
     </>
-  )
-}
-export default Login
+  );
+};
+export default Login;
