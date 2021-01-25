@@ -38,12 +38,11 @@
 
 ```
 npx prisma migrate dev --preview-feature
+// A user will be automatically created.
+// login: admin@naperg.com
+// pass: admin
+// role: ADMIN
 ```
-
-A user will be automatically created.
-login: admin@naperg.com
-pass: admin
-role: ADMIN
 
 2. generate the prisma client
 
