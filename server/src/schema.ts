@@ -1,4 +1,4 @@
-import { Context, Decoded } from './model/appInterface'
+import { Context } from './model/appInterface'
 import * as jwt from 'jsonwebtoken'
 import * as bcrypt from 'bcryptjs'
 import * as crypto from 'crypto'
@@ -6,78 +6,6 @@ import utils from './utils'
 import email from './email'
 import { Prisma } from '@prisma/client'
 import config from './config'
-
-export const typeDefs = `
-scalar DateTime
-type User {
-  email: String!
-  id: ID!
-  name: String
-  lastLogin: DateTime
-  posts: [Post!]!
-}
-
-type Post {
-  author: User
-  content: String
-  id: ID!
-  published: Boolean!
-  title: String!
-}
-
-type Query {
-  usersPagination(page: Float!, where: UserWhereInput): UsersPagination!
-  user(userId: String!): User!
-
-
-  me: User!
-}
-
-input UserWhereInput {
-  search: String
-  name: SearchObj
-}
-input SearchObj {
-  contains: String
-}
-type UsersPagination {
-  users: [User!]!
-  count: Float!
-  take: Float!
-}
-input UserUpdateInput {
-  name: String
-}
-
-
-type Mutation {
-  signupUser(name: String!, email: String!, password: String!): AuthPayload!
-  updateUser(data: UserUpdateInput!, userId: String!): User!
-  loginUser( email: String!, password: String!): AuthPayload!
-  forgetPassword( email: String!): Boolean!
-  resetPassword( password: String!, resetPasswordToken: String!): AuthPayload!
-  deleteUser( userId: String!): User!
-}
-
-type AuthPayload {
-  token: String!
-  user: User!
-}
-
-input PostWhereUniqueInput {
-  id: ID
-}
-
-input UserCreateInput {
-  email: String!
-  password: String!
-  name: String
-}
-
-
-
-
-`
 
 export const resolvers = {
   Query: {
