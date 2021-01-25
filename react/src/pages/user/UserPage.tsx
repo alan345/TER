@@ -4,6 +4,8 @@ import { User } from "./User";
 // import { Button } from "@material-ui/core/";
 import { gql, useQuery } from "@apollo/client";
 import { ParamTypes } from "../../ParamTypes.type";
+import { Button } from "@material-ui/core";
+import EditUser from "./EditUser";
 
 export const QUERY = gql`
   query User($userId: String!) {
@@ -19,7 +21,7 @@ export const QUERY = gql`
 const UserPage = () => {
   const params: ParamTypes = useParams<ParamTypes>();
   const userId = params.userId;
-
+  const [editMode, setEditMode] = React.useState(false);
   const { data } = useQuery(QUERY, {
     variables: {
       userId,
@@ -31,9 +33,27 @@ const UserPage = () => {
   return (
     <div>
       <h3>User</h3>
-      <div>Name: {user.name}</div>
-      <div>Email: {user.email}</div>
-      <div>Last Login: {user.lastLogin}</div>
+
+      {editMode ? (
+        <>
+          <EditUser
+            user={user}
+            onUpdate={() => setEditMode(false)}
+            onCancel={() => setEditMode(false)}
+          />
+        </>
+      ) : (
+        <>
+          <div style={{ textAlign: "right" }}>
+            <Button variant="outlined" onClick={() => setEditMode(true)}>
+              Edit
+            </Button>
+          </div>
+          <div>Name: {user.name}</div>
+          <div>Email: {user.email}</div>
+          <div>Last Login: {user.lastLogin}</div>
+        </>
+      )}
     </div>
   );
 };

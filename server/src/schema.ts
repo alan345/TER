@@ -45,9 +45,14 @@ type UsersPagination {
   count: Float!
   take: Float!
 }
+input UserUpdateInput {
+  name: String
+}
+
 
 type Mutation {
   signupUser(name: String!, email: String!, password: String!): AuthPayload!
+  updateUser(data: UserUpdateInput!, userId: String!): User!
   loginUser( email: String!, password: String!): AuthPayload!
   forgetPassword( email: String!): Boolean!
   resetPassword( password: String!, resetPasswordToken: String!): AuthPayload!
@@ -116,6 +121,14 @@ export const resolvers = {
     deleteUser: (parent, args, ctx: Context) => {
       return ctx.prisma.user.delete({
         where: { id: args.userId },
+      })
+    },
+    updateUser: (parent, args, ctx: Context) => {
+      return ctx.prisma.user.update({
+        where: { id: args.userId },
+        data: {
+          name: args.data.name,
+        },
       })
     },
 
