@@ -1,6 +1,6 @@
 import React from "react";
 import { gql, useQuery } from "@apollo/client";
-import { User } from "./User";
+import { User } from "./User.type";
 import { useLocation } from "react-router-dom";
 import { Grid } from "@material-ui/core/";
 import Search from "../Search";

@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router";
-import { User } from "./User";
+import { User } from "./User.type";
 // import { Button } from "@material-ui/core/";
 import { gql, useQuery } from "@apollo/client";
 import { ParamTypes } from "../../ParamTypes.type";
@@ -13,6 +13,7 @@ export const QUERY = gql`
       id
       name
       email
+      role
       lastLogin
     }
   }

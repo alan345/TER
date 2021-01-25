@@ -1,5 +1,5 @@
 import React from "react";
-import { User, userClass } from "./pages/user/User";
+import { User, userClass } from "./pages/user/User.type";
 
 export interface PostsContextData {
   user: User;

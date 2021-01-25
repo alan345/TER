@@ -1,7 +1,11 @@
 import React from "react";
 import { Button, TextField } from "@material-ui/core/";
 import { gql, useMutation } from "@apollo/client";
-import { User } from "./User";
+import { User } from "./User.type";
+import { FormControl } from "@material-ui/core";
+import { Select } from "@material-ui/core";
+import { InputLabel } from "@material-ui/core";
+import { MenuItem } from "@material-ui/core";
 
 const MUTATION = gql`
   mutation UpdateUser($data: UserUpdateInput!, $userId: String!) {
@@ -49,12 +53,29 @@ const EditUser = (props: Props) => {
 
   return (
     <>
-      <TextField
-        id="name"
-        label="name"
-        value={user.name}
-        onChange={(e) => setUser({ ...user, name: e.target.value })}
-      />
+      <div>
+        <TextField
+          id="name"
+          label="name"
+          value={user.name}
+          onChange={(e) => setUser({ ...user, name: e.target.value })}
+        />
+      </div>
+      <div>
+        <FormControl>
+          <InputLabel>Role</InputLabel>
+          <Select
+            labelId="role"
+            id="role"
+            value={user.role}
+            onChange={(e: any) => setUser({ ...user, role: e.target.value })}
+          >
+            <MenuItem value={"USER"}>USER</MenuItem>
+            <MenuItem value={"ADMIN"}>ADMIN</MenuItem>
+          </Select>
+        </FormControl>
+      </div>
+
       <div style={{ height: "10px" }} />
       <div>
         <Button variant={"outlined"} color={"default"} onClick={props.onCancel}>

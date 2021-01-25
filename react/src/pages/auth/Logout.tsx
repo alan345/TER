@@ -3,7 +3,7 @@ import { Link } from "@material-ui/core";
 import { PostsContext } from "../../Context";
 import { Button } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
-import { userClass } from "../user/User";
+import { userClass } from "../user/User.type";
 
 export default function Logout() {
   const context = React.useContext(PostsContext);
