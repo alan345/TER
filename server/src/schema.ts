@@ -51,11 +51,16 @@ export const resolvers = {
         where: { id: args.userId },
       })
     },
-    updateUser: (parent, args, ctx: Context) => {
+    updateUser: async (parent, args, ctx: Context) => {
+      const userId = utils.getUserId(ctx)
+      const me = await ctx.prisma.user.findUnique({ where: { id: userId } })
+      if (!me) throw new Error('Not Auth')
+
       return ctx.prisma.user.update({
         where: { id: args.userId },
         data: {
           name: args.data.name,
+          role: me.role === 'ADMIN' ? args.data.role : undefined,
         },
       })
     },
@@ -144,6 +149,7 @@ export const resolvers = {
         data: {
           name: args.name,
           password: password,
+          role: 'USER',
           email: args.email,
           resetPasswordToken: '',
           lastLogin: new Date(),
