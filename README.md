@@ -39,7 +39,7 @@
 ```
 npx prisma migrate dev --preview-feature
 ```
-A user will be automatically created from the [`seed.ts`](https://github.com/alan345/naperg/blob/master/server/prisma/seed.ts) file.
+A user will be automatically created from the [`seed.ts`](https://github.com/alan345/naperg/blob/master/server/prisma/seed.ts#L6-L14) file.
 - login: `admin@naperg.com`
 - pass: `admin`
 - role: `ADMIN`
