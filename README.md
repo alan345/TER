@@ -38,6 +38,7 @@
 
 ```
 npx prisma migrate dev --preview-feature
+
 // A user will be automatically created.
 // login: admin@naperg.com
 // pass: admin
