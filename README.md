@@ -97,10 +97,10 @@ Frontend:
 
 Backend:
 
-- Server JS: ExpressJs http://expressjs.com/fr/
+- Server JS: ExpressJs https://expressjs.com/
 - Server GraphQL: https://www.apollographql.com/docs/apollo-server/)
 - ORM (object-relational mapping): Prisma https://www.prisma.io/
-- Database sqlite: https://www.sqlite.org/index.html. You can replace by the database you want (PostgreSQL - MySQL - SQLite - SQL Server). Check the prisma deocumentation https://www.prisma.io/docs/concepts/
+- Database sqlite: https://www.sqlite.org/index.html. You can replace by the database you want (PostgreSQL - MySQL - SQLite - SQL Server). Check the prisma documentation https://www.prisma.io/docs/concepts/
 
 # Contributing
 
