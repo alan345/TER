@@ -92,7 +92,7 @@ Typescript (https://www.typescriptlang.org/) for the Frontend and the Backend
 Frontend:
 
 - User interfaces: React https://reactjs.org/
-- Design: material-ui-next https://material-ui-next.com/
+- Design: material-ui-next https://material-ui.com/
 - GraphQL tool: Apollo Client https://www.apollographql.com/
 
 Backend:
