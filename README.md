@@ -112,7 +112,7 @@ Backend:
 
 # Who is using Naperg
 
-- [NachoNacho, the SaaS marketplace subscriptions](https://nachonacho.com)
+- [NachoNacho, the BtoB SaaS marketplace for subscriptions](https://nachonacho.com)
 
 Create a PR if you are using Naperg and want to add your link here
 
