@@ -130,7 +130,12 @@ yarn start
 - login: `admin@naperg.com`
 - pass: `admin`
 - role: `ADMIN`
-- 
+
+
+
+## Tutorial
+https://www.youtube.com/watch?v=KhDNp8Aw3HM&feature=youtu.be
+
 ## Features
 
 - **Scalable GraphQL server:** The server uses [`apollo-server`](https://www.apollographql.com/docs/apollo-server/)
