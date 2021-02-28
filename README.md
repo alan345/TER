@@ -142,7 +142,7 @@ https://www.youtube.com/watch?v=KhDNp8Aw3HM&feature=youtu.be
 - **Pre-configured Apollo Client:** The project comes with a preconfigured setup for Apollo Client
 - **Tooling**: Out-of-the-box support for [GraphQL Playground](https://github.com/prisma/graphql-playground)
 - **Extensible**: Simple and flexible data model – easy to adjust and extend
-- **Search with GraphQL**: Exampel to search in 2 fields for the users: Email and name
+- **Search with GraphQL**: Example to search in 2 fields for the users: Email and name
 - **Signup management**:
   - Check password strength
 
