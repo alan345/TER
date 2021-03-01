@@ -134,6 +134,8 @@ yarn start
 
 
 ## Tutorial
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/KhDNp8Aw3HM/0.jpg)](https://www.youtube.com/watch?v=KhDNp8Aw3HM)
+
 https://www.youtube.com/watch?v=KhDNp8Aw3HM&feature=youtu.be
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/KhDNp8Aw3HM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
