@@ -134,7 +134,12 @@ yarn start
 
 
 ## Tutorial
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/KhDNp8Aw3HM/0.jpg)](https://www.youtube.com/watch?v=KhDNp8Aw3HM)
+
+![image](https://user-images.githubusercontent.com/15246526/109461303-c8b36000-7a16-11eb-88b0-fcf8a6d02209.png)
+
+
+
+[![Tutorial Naperg](https://user-images.githubusercontent.com/15246526/109461303-c8b36000-7a16-11eb-88b0-fcf8a6d02209.png)](https://www.youtube.com/watch?v=KhDNp8Aw3HM)
 
 https://www.youtube.com/watch?v=KhDNp8Aw3HM&feature=youtu.be
 
