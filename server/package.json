@@ -1,5 +1,5 @@
 {
-  "name": "typescript-graphql",
+  "name": "naperg-server",
   "scripts": {
     "start-watch": "ts-node-dev --no-notify --respawn --transpile-only src/server",
     "start": "ts-node src/server.ts"
