@@ -90,6 +90,8 @@ npx prisma migrate reset --preview-feature
 
 #### 3. Seed your Database
 
+More info if needed [`Prisma seed`]https://www.prisma.io/docs/guides/application-lifecycle/seed-database/)
+
 ```
 npx prisma db seed --preview-feature
 ```
