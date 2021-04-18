@@ -55,6 +55,8 @@ yarn
 
 #### 2. migrate the database with `Prisma migrate` run:
 
+More info if needed: [`Prisma migrate`](https://www.prisma.io/docs/concepts/components/prisma-migrate)
+
 ```
 npx prisma migrate dev
 ```
