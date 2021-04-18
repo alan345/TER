@@ -55,7 +55,7 @@ yarn
 
 #### 2. migrate the database with `Prisma migrate` run:
 
-More info if needed: [`Prisma migrate`](https://www.prisma.io/docs/concepts/components/prisma-migrate)
+More info if needed: [`Prisma Migrate`](https://www.prisma.io/docs/concepts/components/prisma-migrate)
 
 ```
 npx prisma migrate dev
@@ -90,7 +90,7 @@ npx prisma migrate reset --preview-feature
 
 #### 3. Seed your Database
 
-More info if needed [`Prisma seed`](https://www.prisma.io/docs/guides/application-lifecycle/seed-database/)
+More info if needed: [`Prisma Seed`](https://www.prisma.io/docs/guides/application-lifecycle/seed-database/)
 
 ```
 npx prisma db seed --preview-feature
@@ -102,7 +102,9 @@ A new user will be created from [`seed.ts`](https://github.com/alan345/naperg/bl
 - pass: `admin`
 - role: `ADMIN`
 
-#### 4. Check you databse with [`Prisma Studio`](https://www.prisma.io/docs/concepts/components/prisma-studio)
+#### 4. Check you databse with Prisma Studio
+
+More info if needed: [`Prisma Studio`](https://www.prisma.io/docs/concepts/components/prisma-studio)
 
 ```
 $ npx prisma studio
@@ -113,6 +115,7 @@ $ npx prisma studio
 #### 5. Generate the prisma client
 
 Prisma Client is an auto-generated database client that's tailored to your database schema.
+More info if needed: [`Prisma Generate`](https://www.prisma.io/docs/concepts/components/prisma-client/working-with-prismaclient/generating-prisma-client)
 
 ```
 npx prisma generate
