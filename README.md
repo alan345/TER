@@ -82,7 +82,8 @@ migrations/
 Everything is now in sync.
 ```
 
-to reset your database if needed, use:
+To reset your database if needed, use Prisma Reset.
+More info if needed: [`Prisma Reset`](https://www.prisma.io/docs/concepts/components/prisma-migrate#do-not-edit-or-delete-migrations-that-have-been-applied)
 
 ```
 npx prisma migrate reset --preview-feature
