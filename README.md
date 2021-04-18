@@ -3,7 +3,6 @@
   
 <h1 align="center"><strong>Boilerplate for a Fullstack GraphQL App with React & Prisma</strong></h1>
 
-
 <br />
 
 ![naperg](https://user-images.githubusercontent.com/15246526/109192820-92db5680-774c-11eb-9480-d3a6883b8588.png)
@@ -34,17 +33,19 @@
 ## Getting started
 
 #### 1. Clone the repo to your computer
+
 ```
 git clone https://github.com/alan345/naperg/
 ```
 
 #### 2. Go the the repo
+
 ```
 cd naperg
 ```
 
-
 ## Server
+
 #### 1. Install the server - # Prisma & Graphql (port 4000)
 
 ```
@@ -55,11 +56,13 @@ yarn
 #### 2. migrate the database with `Prisma migrate` run:
 
 ```
-npx prisma migrate dev --preview-feature
+npx prisma migrate dev
 ```
+
 Pick a name for your first migration. Example "init"
+
 ```
-> npx prisma migrate dev --preview-feature
+> npx prisma migrate dev
 Prisma schema loaded from prisma/schema.prisma
 Datasource "db": SQLite database "dev.db" at "file:./dev.db"
 
@@ -77,52 +80,61 @@ migrations/
 Everything is now in sync.
 ```
 
+to reset your database if needed, use:
 
-to reset your database if needed, use: 
 ```
-npx prisma migrate reset --preview-feature 
+npx prisma migrate reset --preview-feature
 ```
 
-#### 3. Seed your Database 
+#### 3. Seed your Database
+
 ```
 npx prisma db seed --preview-feature
 ```
+
 A new user will be created from [`seed.ts`](https://github.com/alan345/naperg/blob/master/server/prisma/seed.ts#L6-L14) file.
+
 - login: `admin@naperg.com`
 - pass: `admin`
 - role: `ADMIN`
 
 #### 4. Check you databse with [`Prisma Studio`](https://www.prisma.io/docs/concepts/components/prisma-studio)
+
 ```
 $ npx prisma studio
 ```
+
 ![image](https://user-images.githubusercontent.com/15246526/109402305-b4ce0800-7909-11eb-88d7-924e4db3d74f.png)
 
-
 #### 5. Generate the prisma client
+
 Prisma Client is an auto-generated database client that's tailored to your database schema.
+
 ```
 npx prisma generate
 ```
 
 #### 6. Start the server (http://localhost:4000)
+
 ```
 yarn start
 ```
 
-
-
 ## Frontend
+
 #### 1. Install the frontEnd - ReactJs (port 3000). In a new terminal run:
+
 ```sh
 cd react
 yarn
 ```
 
-#### 2. Start the frontend. 
+#### 2. Start the frontend.
+
 ```
 yarn start
 ```
+
 #### 3. Go to url: http://localhost:3000
 
 #### 4. Log in to the app with whis Admin User:
@@ -131,12 +143,9 @@ yarn start
 - pass: `admin`
 - role: `ADMIN`
 
-
-
 ## Tutorial
 
 [![Tutorial Naperg](https://user-images.githubusercontent.com/15246526/109461303-c8b36000-7a16-11eb-88b0-fcf8a6d02209.png)](https://www.youtube.com/watch?v=KhDNp8Aw3HM)
-
 
 ## Features
 
