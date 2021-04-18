@@ -115,6 +115,7 @@ $ npx prisma studio
 #### 5. Generate the prisma client
 
 Prisma Client is an auto-generated database client that's tailored to your database schema.
+
 More info if needed: [`Prisma Generate`](https://www.prisma.io/docs/concepts/components/prisma-client/working-with-prismaclient/generating-prisma-client)
 
 ```
