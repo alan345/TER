@@ -3,24 +3,111 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
+  provider = "postgresql"
+  url      = "postgresql://postgres:gathu9ae@localhost:5432/rss"
+}
+
+enum UserRole {
+  USER
+  ADMIN
+  GOD_ADMIN
+}
+
+enum SubscriptionType {
+  FREE
+  STANDARD
+  PRO
+}
+
+enum Currency {
+  RUR
+  USD
+  EUR
+}
+
+// Category is represented as tags with specific theme
+// In future: category should have subcategories to specify the themes for Users
+enum Category {
+  SPORT
+  TECHNOLOGY
+  PROGRAMMING
+  POLITICS
+  RELIGION
+  GLOBAL_WARMING
+  PHILOSOPHY
 }
 
 model User {
-  id                  String          @id @default(cuid())
-  createdAt                        DateTime        @default(now())
-  updatedAt                        DateTime        @updatedAt
-  email           String  @unique
-  password      String
-  role          String
-  lastLogin     DateTime?
-  resetPasswordToken String
-  dateResetPasswordRequest DateTime?
-  validateEmailToken String
-  isEmailValidated Boolean
-  name  String
+  id      Int      @id @default(autoincrement())
+  email   String   @unique
+  name    String?
+  userRole    UserRole     @default(USER)
+  subscriptions Subscription[] // history of subscriptions
+  feeds   Feed[]
+  createdArticleSources ArticleSource[] @relation("CreatedArticleSources") // Only User with Admin role is able to create ArticleSources
+  followingArticleSources ArticleSource[] @relation("FollowingArticleSources")
+  articles UserArticleIneraction[]
 }
 
+model Subscription {
+  id Int @id @default(autoincrement())
+  type SubscriptionType @default(FREE)
+  monthlyPrice Float // so far there will be only monthly price which in client side will be represented as e.g. 29.99 RUR
+  currency Currency @default(RUR)
+  user User @relation(fields: [userId], references: [id])
+  userId Int
+  createdAt  DateTime    @default(now())
+  expirationDate DateTime
+  isCurrent Boolean // User should have only one subscrition with `isCurrent = true`
 
+}
 
+// Feed is a list of ArticleSources containing Articles created by User
+// User creates Feed to read most interesting Articles from ArticleSources he chose to follow
+model Feed {
+  id Int @id @default(autoincrement())
+  name String @unique
+  author    User  @relation(fields: [authorId], references: [id])
+  authorId  Int
+  sources ArticleSource[]
+}
+
+// ArticleSource should be created only by Admin user role
+model ArticleSource {
+  id Int @id @default(autoincrement())
+  name String @unique
+  createdBy User @relation("CreatedArticleSources", fields: [authorId], references: [id]) // userRole should be only Admin
+  authorId Int
+  sourceUrl String
+  articles Article[]
+  keptInFeeds Feed[]
+  follower User[] @relation("FollowingArticleSources")
+}
+
+// Article is parsed by ParseArticle
+model Article {
+  id         Int         @id @default(autoincrement())
+  createdAt  DateTime    @default(now())
+  title      String
+  content    String
+  source     ArticleSource        @relation(fields: [sourceId], references: [id])
+  sourceId   Int
+  readingUsers UserArticleIneraction[]
+  categories Category[]
+}
+
+model UserArticleIneraction {
+  user        User     @relation(fields: [userId], references: [id])
+  userId      Int
+  article    Article @relation(fields: [articleId], references: [id])
+  articleId  Int
+
+  isHidden Boolean
+  isMarkedAsReadLater Boolean
+  isMarkedAsRead Boolean
+
+  @@id([userId, articleId])
+}
+
+// Model Table will be added in future releases
+// Table will be created by User. User will be able to save articles to different tables to save most interesting ones
