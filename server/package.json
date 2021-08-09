@@ -5,7 +5,7 @@
     "start": "ts-node src/server.ts"
   },
   "dependencies": {
-    "@prisma/client": "^2.24.1",
+    "@prisma/client": "2.28.0",
     "apollo-server": "^2.25.1",
     "bcryptjs": "^2.4.3",
     "crypto": "^1.0.1",
@@ -14,16 +14,16 @@
   },
   "devDependencies": {
     "@graphql-codegen/cli": "2.0.1",
-    "@types/graphql": "14.5.0",
-    "@types/node": "15.12.2",
-    "prisma": "^2.24.1",
-    "ts-node": "^10.0.0",
-    "ts-node-dev": "1.1.6",
-    "typescript": "^4.3.2",
+    "@graphql-codegen/introspection": "2.0.0",
     "@graphql-codegen/typescript": "2.0.0",
     "@graphql-codegen/typescript-document-nodes": "2.0.0",
     "@graphql-codegen/typescript-resolvers": "2.0.0",
-    "@graphql-codegen/introspection": "2.0.0"
+    "@types/graphql": "14.5.0",
+    "@types/node": "15.12.2",
+    "prisma": "2.28.0",
+    "ts-node": "^10.0.0",
+    "ts-node-dev": "1.1.6",
+    "typescript": "^4.3.2"
   },
   "prettier": {
     "singleQuote": true,
