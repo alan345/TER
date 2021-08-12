@@ -15,6 +15,14 @@ CREATE TABLE "User" (
     "id" SERIAL NOT NULL,
     "email" TEXT NOT NULL,
     "name" TEXT,
+    "password" TEXT NOT NULL,
+    "resetPasswordToken" TEXT NOT NULL,
+    "dateResetPasswordRequest" TIMESTAMP(3),
+    "validateEmailToken" TEXT NOT NULL,
+    "isEmailValidated" BOOLEAN NOT NULL DEFAULT false,
+    "lastLogin" TIMESTAMP(3),
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
     "userRole" "UserRole" NOT NULL DEFAULT E'USER',
 
     PRIMARY KEY ("id")
