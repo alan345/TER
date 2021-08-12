@@ -37,7 +37,6 @@ enum Category {
 }
 
 model User {
-  name  String
   id      Int      @id @default(autoincrement())
   email   String   @unique
   name    String?
