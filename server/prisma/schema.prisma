@@ -37,9 +37,18 @@ enum Category {
 }
 
 model User {
+  name  String
   id      Int      @id @default(autoincrement())
   email   String   @unique
   name    String?
+  password      String
+  resetPasswordToken String
+  dateResetPasswordRequest DateTime?
+  validateEmailToken String
+  isEmailValidated Boolean @default(false)
+  lastLogin     DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   userRole    UserRole     @default(USER)
   subscriptions Subscription[] // history of subscriptions
   feeds   Feed[]
