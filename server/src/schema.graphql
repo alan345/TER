@@ -132,18 +132,24 @@ input FeedUpdateInput {
   sources: [Int!]
 }
 
+input SubscriptionCreateInput {
+  type: SubscriptionType!
+  price: Int!
+  currency: Currency!
+}
+
 type Query {
-  user(): User!
+  user: User!
 
   """
   This request for page with list of user's feeds
   """
-  userFeeds(): [Feed!]!
+  userFeeds: [Feed!]!
 
   """
   This request for main page where user can see all Articles from all feeds he created
   """
-  userArticles(): [Article!]!
+  userArticles: [Article!]!
 
   """
   This request for page when user goes to specific feed from page with list of feeds
@@ -151,6 +157,13 @@ type Query {
   feedArticles(feedId: Int!): [Article!]!
 
   articleSource(aritcleSourceId: Int!): ArticleSource!
+
+  """
+  This request is for getting subscription and subscription history
+  """
+  subscription: Subscription!
+
+  subscriptionHistory: [Subscription!]!
 }
 
 type Mutation {
@@ -192,4 +205,10 @@ type Mutation {
   The result of this mutation will be either success which is TRUE or fail - FALSE
   """
   removeArticleSourceFromFeed(articleSourceId: Int, feedId: Int!): Boolean!
+
+  """
+  This request adds new subscription for user
+  The result of this mutation will be either success which is TRUE or fail - FALSE
+  """
+  createSubscription(data: SubscriptionCreateInput): Boolean!
 }

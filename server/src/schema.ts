@@ -25,6 +25,17 @@ export const resolvers = {
     //   throw new Error('Not loggedin')
     // },
 
+    subscription: (parents, args, ctx: Context) => {
+      const userId = utils.getUserId(ctx);
+
+      return ctx.prisma.subscription.findFirst({ where: { user: { id: userId }, isCurrent: true} });
+    },
+
+    subscriptionHistory: (parents, args, ctx: Context) => {
+      const userId = utils.getUserId(ctx);
+
+      return ctx.prisma.subscription.findMany({ where: { user: { id: userId } } });
+    },
   },
 
   Mutation: {
@@ -173,6 +184,10 @@ export const resolvers = {
           expiresIn: '2d',
         }),
       }
+    },
+
+    createSubscription: async (parent, args, ctx: Context) => {
+      // ...
     },
   },
 }
