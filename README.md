@@ -1,3 +1,97 @@
+# Composite App
+
+RSS App
+
+## architecture
+
+Current version: ![For MVP version](docs/images/arc_1.png)
+
+Future plans: ![Future architecture](docs/images/arc_2.png)
+
+## project structure
+
+```
+├── docs // agreements and docs
+├── server // backend with DB seed and APIs
+│   │
+│   common
+│   │   │
+│   │   ├── icons-kit // Все библиотеки уедут в отдельный репозиторий
+│   │
+│   core
+│   │   │
+│   │   └── ui-kit
+│   │       ├── assets
+│   │       ├── public
+│   │       ├── exposes
+│   │       ├── src
+│   │       │   ├── @types
+│   │       │   ├── Badge
+│   │       │   ├── Button
+│   │       │   ├── ...
+│   │       │   └── vtb-ui-kit.tsx
+│   │       ├── storybook
+│   │       ├── .babelrc
+│   │       ├── .eslintrc
+│   │       ├── .gitignore
+│   │       ├── .prettierignore
+│   │       ├── .prettierrc.json
+│   │       ├── .stylelintrc.js
+│   │       ├── CHANGELOG.md
+│   │       ├── babel.config.js
+│   │       ├── exposes.json
+│   │       ├── jest.config.js
+│   │       ├── package.json
+│   │       ├── testSetup.ts
+│   │       ├── tsconfig.json
+│   │       └── webpack.config.js
+├── packages // приложения
+|   |
+│   ├── EXAMPLE // Приблизительная структура каждого проекта
+│   │   ├── assets/styles
+│   │   ├── exposes
+│   │   ├── public
+│   │   ├── src
+│   │   │   ├── @types
+│   │   │   ├── __mocks__
+│   │   │   ├── components/Layout
+│   │   │   ├── reducers
+│   │   │   ├── utils
+│   │   │   ├── DashboardPafe.tsx
+│   │   │   ├── index.tsx
+│   │   │   ├── root.component.test.tsx
+│   │   │   ├── root.component.tsx
+│   │   │   ├── styles.scss
+│   │   │   └── store.ts
+│   │   ├── .eslintrc
+│   │   ├── .gitignore
+│   │   ├── .prettierignore
+│   │   ├── .prettierrc.json
+│   │   ├── .stylelintrc.js
+│   │   ├── CHANGELOG.md
+│   │   ├── babel.config.js
+│   │   ├── exposes.json
+│   │   ├── jest.config.js
+│   │   ├── package-lock.json
+│   │   ├── package.json
+│   │   ├── testSetup.ts
+│   │   ├── tsconfig.json
+│   │   └── webpack.config.js
+|   |____
+├── _index.html
+├── .gitignore
+├── .gitlab-ci.yml
+├── CODE_CONTRIBUTING.md // правила оформления кода
+├── GIT_CONTRIBUTING.md // правила работы с системой контроля версий
+├── package.json
+├── .gitignore
+├── package.json
+├── README.md // документация по всему проекту
+└── yarn.lock
+```
+
+## Boilerplate source
+
 <div align="center"><strong>N</strong>ode <strong>A</strong>pollo <strong>P</strong>risma <strong>E</strong>xpress <strong>R</strong>eact <strong>G</strong>raphQL
 </div>
   
@@ -35,13 +129,13 @@
 #### 1. Clone the repo to your computer
 
 ```
-git clone https://github.com/alan345/naperg/
+git clone https://github.com/akimberl/naperg rss
 ```
 
 #### 2. Go the the repo
 
 ```
-cd naperg
+cd rss
 ```
 
 ## Server
@@ -53,7 +147,11 @@ cd server
 yarn
 ```
 
-#### 2. migrate the database with `Prisma migrate` run:
+#### 2. install Postgresql database with on your local machine:
+
+More info: [`Official PostgresQL download link`](https://www.postgresql.org/download/)
+
+#### 3. migrate the database with `Prisma migrate` run:
 
 More info if needed: [`Prisma Migrate`](https://www.prisma.io/docs/concepts/components/prisma-migrate)
 
@@ -66,21 +164,7 @@ Pick a name for your first migration. Example "init"
 ```
 > npx prisma migrate dev
 Prisma schema loaded from prisma/schema.prisma
-Datasource "db": SQLite database "dev.db" at "file:./dev.db"
-
-SQLite database dev.db created at file:./dev.db
-
-✔ Name of migration … init
-The following migration(s) have been created and applied from new schema changes:
-
-migrations/
-  └─ 20210227221806_init/
-    └─ migration.sql
-
-✔ Generated Prisma Client (2.17.0) to ./node_modules/@prisma/client in 71ms
-
-Everything is now in sync.
-```
+Datasource "db": Postgresql database "rss"
 
 To reset your database if needed, use Prisma Reset.
 
@@ -184,7 +268,7 @@ Backend:
 - Server JS: ExpressJs https://expressjs.com/
 - Server GraphQL: https://www.apollographql.com/docs/apollo-server/)
 - ORM (object-relational mapping): Prisma https://www.prisma.io/
-- Database sqlite: https://www.sqlite.org/index.html. You can replace by the database you want (PostgreSQL - MySQL - SQLite - SQL Server). Check the prisma documentation https://www.prisma.io/docs/concepts/
+- Database PostgresQL. You can replace by the database you want (MySQL - SQLite - SQL Server). Check the prisma documentation https://www.prisma.io/docs/concepts/
 
 # Contributing
 
@@ -194,14 +278,99 @@ Backend:
 
 - Add a star to this Repo! It helps a lot!
 
-# Who is using Naperg
+## Структура проекта
 
-- [NachoNacho, the BtoB SaaS marketplace for subscriptions](https://nachonacho.com)
+```
+├── docs // правила работы
+├── libs // пакеты с библиотеками
+│   │
+│   common
+│   │   │
+│   │   ├── icons-kit // Все библиотеки уедут в отдельный репозиторий
+│   │
+│   core
+│   │   │
+│   │   └── ui-kit
+│   │       ├── assets
+│   │       ├── public
+│   │       ├── exposes
+│   │       ├── src
+│   │       │   ├── @types
+│   │       │   ├── Badge
+│   │       │   ├── Button
+│   │       │   ├── ...
+│   │       │   └── vtb-ui-kit.tsx
+│   │       ├── storybook
+│   │       ├── .babelrc
+│   │       ├── .eslintrc
+│   │       ├── .gitignore
+│   │       ├── .prettierignore
+│   │       ├── .prettierrc.json
+│   │       ├── .stylelintrc.js
+│   │       ├── CHANGELOG.md
+│   │       ├── babel.config.js
+│   │       ├── exposes.json
+│   │       ├── jest.config.js
+│   │       ├── package.json
+│   │       ├── testSetup.ts
+│   │       ├── tsconfig.json
+│   │       └── webpack.config.js
+├── packages // приложения
+|   |
+│   ├── EXAMPLE // Приблизительная структура каждого проекта
+│   │   ├── assets/styles
+│   │   ├── exposes
+│   │   ├── public
+│   │   ├── src
+│   │   │   ├── @types
+│   │   │   ├── __mocks__
+│   │   │   ├── components/Layout
+│   │   │   ├── reducers
+│   │   │   ├── utils
+│   │   │   ├── DashboardPafe.tsx
+│   │   │   ├── index.tsx
+│   │   │   ├── root.component.test.tsx
+│   │   │   ├── root.component.tsx
+│   │   │   ├── styles.scss
+│   │   │   └── store.ts
+│   │   ├── .eslintrc
+│   │   ├── .gitignore
+│   │   ├── .prettierignore
+│   │   ├── .prettierrc.json
+│   │   ├── .stylelintrc.js
+│   │   ├── CHANGELOG.md
+│   │   ├── babel.config.js
+│   │   ├── exposes.json
+│   │   ├── jest.config.js
+│   │   ├── package-lock.json
+│   │   ├── package.json
+│   │   ├── testSetup.ts
+│   │   ├── tsconfig.json
+│   │   └── webpack.config.js
+|   |____
+├── _index.html
+├── .gitignore
+├── .gitlab-ci.yml
+├── CODE_CONTRIBUTING.md // правила оформления кода
+├── GIT_CONTRIBUTING.md // правила работы с системой контроля версий
+├── package.json
+├── .gitignore
+├── package.json
+├── README.md // документация по всему проекту
+└── yarn.lock
+```
 
-Create a PR if you are using Naperg and want to add your link here
+## Документация
 
-# Buy me a drink!
-
-If this project help you reduce time to develop, you can give me a cup of coffee :)
-
-[![paypal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CLPDWGN5UA4CU)
+- [Правила оформления кода](./docs/Оформление_кода.md)
+- [Правила оформления стилей](./docs/Работа_со_стилями.md)
+- [Работа с системой контроля версий](./docs/Работа_с_гитом.md)
+- [Описание CI/CD](./docs/Описание_CI_CD.md)
+- [Работа с typescript](./docs/Работа_с_Typescript.md)
+- [Работа с шрифтами](./docs/Работа_с_Шрифтами.md)
+- [Работа с иконками](./docs/Работа_с_Иконками.md)
+- [Работа с либами](./docs/Работа_с_либами.md)
+- [Работа с Module Federation](./docs/Работа_с_Module_Federation.md)
+- [Настройка nginx](./docs/nginx.md)
+- [Возможные ошибки при работе с проектом](./docs/Возможные_ошибки.md)
+- [core-context](./docs/Работа_с_core-context.md)

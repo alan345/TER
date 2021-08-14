@@ -9,7 +9,7 @@ const utils = {
     const decoded = jwt.verify(token, config.APP_SECRET)
     if (!decoded) throw new Error('Not auth')
     const userId = (decoded as Decoded).userId
-    return userId
+    return Number(userId);
   },
   hasLowerCase(str: string) {
     return str.toUpperCase() !== str

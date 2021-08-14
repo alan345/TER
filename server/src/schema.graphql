@@ -1,0 +1,195 @@
+enum UserRole {
+  USER
+  ADMIN
+}
+
+enum SubscriptionType {
+  FREE
+  STANDARD
+  PRO
+}
+
+enum Currency {
+  RUR
+  USD
+  EUR
+}
+
+# Category is represented as tags with specific theme
+# In future: category should have subcategories to specify the themes for Users
+enum Category {
+  SPORT
+  TECHNOLOGY
+  PROGRAMMING
+  POLITICS
+  RELIGION
+  GLOBAL_WARMING
+  PHILOSOPHY
+}
+
+enum Role {
+  ADMIN
+  USER
+}
+
+scalar DateTime
+
+type User {
+  email: String!
+  id: ID!
+  name: String
+  role: Role!
+  lastLogin: DateTime!
+  feeds: [Feed!]!
+  subscriptions: [Subscription!]!
+  createdArticleSources: [ArticleSource!]!
+  followingArticleSources: [ArticleSource!]!
+  articles: [Article!]!
+}
+
+type AuthPayload {
+  token: String!
+  user: User!
+}
+
+type Feed {
+  id: Int!
+  name: String!
+  author: User!
+  authorId: Int!
+  sources: [ArticleSource!]!
+}
+
+type ArticleSource {
+  id: Int!
+  name: String!
+  authorId: Int!
+  sourceUrl: String!
+  articles: [Article]!
+  follower: [User]!
+}
+
+type Article {
+  id: Int! 
+
+  """
+  Articles display on main page will be sorted by created date
+  """    
+  createdAt: DateTime!
+  title: String!
+  content: String!
+  source: ArticleSource!
+  readingUsers: [User!]!
+  categories: [Category!]!
+
+  isHidden: Boolean!
+  isSavedLater: Boolean!
+  hasRead: Boolean!
+}
+
+type Subscription {
+  id: Int!
+  type: SubscriptionType!
+
+  """
+  For MVP there will be only monthly price
+  """
+  price: Int!
+  currency: Currency!
+  user: User!
+  createdAt: DateTime!
+  expirationDate: DateTime!
+
+  """
+  Current subscrition for user is the most recently created one
+  However isCurrent field provided for comfortablity
+  User should have only one subscrition with isCurrent === true
+  """
+  isCurrent: Boolean!
+
+}
+
+input UserCreateInput {
+  email: String!
+  password: String!
+  name: String!
+}
+
+input UserUpdateInput {
+  name: String
+  email: String
+  password: String
+}
+
+input FeedCreateInput {
+  name: String!
+  authorId: Int!
+  sources: [Int!]!
+}
+
+input FeedUpdateInput {
+  name: String
+  sources: [Int!]
+}
+
+type Query {
+  user(userId: Int!): User!
+
+  """
+  This request for page with list of user's feeds
+  """
+  userFeeds(authorId: Int!): [Feed!]!
+
+  """
+  This request for main page where user can see all Articles from all feeds he created
+  """
+  userArticles(userId: Int!): [Article!]!
+
+  """
+  This request for page when user goes to specific feed from page with list of feeds
+  """
+  feedArticles(feedId: Int!): [Article!]!
+
+  articleSource(aritcleSourceId: Int!): ArticleSource!
+}
+
+type Mutation {
+  signupUser(userCreateData: UserCreateInput!): AuthPayload!
+
+  """
+  In case user decides to change name, password or email
+  """
+  updateUser(data: UserUpdateInput!, userId: Int!): User!
+
+
+  """
+  Authorization made by JWT
+  """
+  loginUser(email: String!, password: String!): AuthPayload!
+
+  forgetPassword(email: String!): Boolean!
+
+  resetPassword(password: String!, resetPasswordToken: String!): AuthPayload!
+
+  """
+  In case if user decide to delete his account
+  """
+  deleteUser(userId: String!): User!
+
+  createFeed(data: FeedCreateInput!): Feed!
+
+  editFeed(data: FeedUpdateInput, feedId: Int!): Feed!
+
+
+  """
+  User from page with articleSource adds ArticleSource to one of his feeds
+  The result of this mutation will be either success which is TRUE or fail - FALSE
+  """
+  addArticleSourceToFeed(articleSourceId: Int, feedId: Int!): Boolean!
+
+  """
+  User removes article from feed
+  The result of this mutation will be either success which is TRUE or fail - FALSE
+  """
+  removeArticleSourceFromFeed(articleSourceId: Int, feedId: Int!): Boolean!
+}

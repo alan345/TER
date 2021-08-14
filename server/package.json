@@ -2,7 +2,8 @@
   "name": "naperg-server",
   "scripts": {
     "start-watch": "ts-node-dev --no-notify --respawn --transpile-only src/server",
-    "start": "ts-node src/server.ts"
+    "start": "ts-node src/server.ts",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
     "@prisma/client": "2.28.0",

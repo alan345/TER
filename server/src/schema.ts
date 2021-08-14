@@ -6,51 +6,34 @@ import utils from './utils'
 import email from './email'
 import { Prisma } from '@prisma/client'
 import config from './config'
+import { dateScalar } from './typeDefs/scalarDate';
 
 export const resolvers = {
+  DateTime: dateScalar,
   Query: {
     user: (parent, args, ctx: Context) => {
       const userId = utils.getUserId(ctx)
 
       return ctx.prisma.user.findUnique({ where: { id: userId } })
     },
-    me: (parent, args, ctx: Context) => {
-      const userId = utils.getUserId(ctx)
+    // me: (parent, args, ctx: Context) => {
+    //   const userId = utils.getUserId(ctx)
 
-      if (userId) {
-        return ctx.prisma.user.findUnique({ where: { id: userId } })
-      }
-      throw new Error('Not loggedin')
-    },
+    //   if (userId) {
+    //     return ctx.prisma.user.findUnique({ where: { id: userId } })
+    //   }
+    //   throw new Error('Not loggedin')
+    // },
 
-    usersPagination: async (parent, args, ctx: Context) => {
-      utils.getUserId(ctx)
-      const take = 10
-      const skip = (args.page - 1) * take
-      const where: Prisma.UserWhereInput = {
-        OR: args.where.search
-          ? [
-              { name: { contains: args.where.search } },
-              { email: { contains: args.where.search } },
-            ]
-          : undefined,
-      }
-
-      const users = await ctx.prisma.user.findMany({
-        where,
-        take,
-        skip,
-      })
-      const count = await ctx.prisma.user.count({ where })
-      return { users, count, take }
-    },
   },
+
   Mutation: {
     deleteUser: (parent, args, ctx: Context) => {
       return ctx.prisma.user.delete({
         where: { id: args.userId },
       })
     },
+
     updateUser: async (parent, args, ctx: Context) => {
       const userId = utils.getUserId(ctx)
       const me = await ctx.prisma.user.findUnique({ where: { id: userId } })
@@ -59,8 +42,7 @@ export const resolvers = {
       return ctx.prisma.user.update({
         where: { id: args.userId },
         data: {
-          name: args.data.name,
-          role: me.role === 'ADMIN' ? args.data.role : undefined,
+          name: args.data.name as string,
         },
       })
     },
@@ -149,7 +131,7 @@ export const resolvers = {
         data: {
           name: args.name,
           password: password,
-          role: 'USER',
+          // role: 'USER',
           email: args.email,
           resetPasswordToken: '',
           lastLogin: new Date(),
@@ -164,6 +146,7 @@ export const resolvers = {
         }),
       }
     },
+
     loginUser: async (parent, args, ctx: Context) => {
       let user = await ctx.prisma.user.findFirst({
         where: {
