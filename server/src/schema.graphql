@@ -133,17 +133,17 @@ input FeedUpdateInput {
 }
 
 type Query {
-  user(userId: Int!): User!
+  user(): User!
 
   """
   This request for page with list of user's feeds
   """
-  userFeeds(authorId: Int!): [Feed!]!
+  userFeeds(): [Feed!]!
 
   """
   This request for main page where user can see all Articles from all feeds he created
   """
-  userArticles(userId: Int!): [Article!]!
+  userArticles(): [Article!]!
 
   """
   This request for page when user goes to specific feed from page with list of feeds
