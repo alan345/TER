@@ -115,21 +115,21 @@ cd react
 yarn
 ```
 
-#### 2. Start the frontend.
+#### 4. Start the frontend.
 
 ```
 yarn start
 ```
 
-#### 3. Go to url: http://localhost:3000
+#### 5. Go to url: http://localhost:3000
 
-### 4. architecture
+### architecture
 
 Current version: ![For MVP version](docs/images/arc_1.png)
 
 Future plans: ![Future architecture](docs/images/arc_2.png)
 
-### 5. project structure
+### project structure
 
 ```
 ├── docs // agreements and docs
