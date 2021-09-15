@@ -87,7 +87,7 @@ To reset your database if needed, use Prisma Reset.
 More info if needed: [`Prisma Reset`](https://www.prisma.io/docs/concepts/components/prisma-migrate#do-not-edit-or-delete-migrations-that-have-been-applied)
 
 ```
-npx prisma migrate reset --preview-feature
+npx prisma migrate reset
 ```
 
 #### 3. Seed your Database
@@ -95,7 +95,7 @@ npx prisma migrate reset --preview-feature
 More info if needed: [`Prisma Seed`](https://www.prisma.io/docs/guides/application-lifecycle/seed-database/)
 
 ```
-npx prisma db seed --preview-feature
+npx prisma db seed
 ```
 
 A new user will be created from [`seed.ts`](https://github.com/alan345/naperg/blob/master/server/prisma/seed.ts#L6-L14) file.
