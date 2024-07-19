@@ -20,16 +20,16 @@
 
 ## Main Stack
 
-- <strong>T</strong>rpc https://trpc.io/ (End-to-end typesafe APIs made easy.)
-- <strong>E</strong>xpress https://expressjs.com/ (Fast, unopinionated, minimalist web framework for node.)
-- <strong>R</strong>eact https://reactjs.org/ (A JavaScript library for building user interfaces.)
+- <strong>T</strong>rpc https://trpc.io/ (End-to-end typesafe APIs made easy)
+- <strong>E</strong>xpress https://expressjs.com/ (Fast, unopinionated, minimalist web framework for node)
+- <strong>R</strong>eact https://reactjs.org/ (A JavaScript library for building user interfaces)
 
 ## Other Libraries
 
-- Tailwind CSS https://tailwindcss.com/ (A utility-first CSS framework for rapid UI development.)
-- TypeScript https://www.typescriptlang.org/ (TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.)
+- Tailwind CSS https://tailwindcss.com/ (A utility-first CSS framework for rapid UI development)
+- TypeScript https://www.typescriptlang.org/ (TypeScript is a typed superset of JavaScript)
 - JWT https://jwt.io/ (JSON Web Tokens)
-- ZOD https://zod.dev/ (TypeScript-first schema validation with static type inference.)
+- ZOD https://zod.dev/ (TypeScript-first schema validation with static type inference)
 - Vite https://vitejs.dev/ (Next generation frontend tooling. It's fast!)
 
 ## Features
