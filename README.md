@@ -78,9 +78,9 @@ Prioritizing developer experience: simple, efficient, and fast. This modern stac
 
 ![trpc-video-ter](https://github.com/user-attachments/assets/7ee27bbb-5e56-484c-b046-fe0186b4321d)
 
-## Testing
+## e2eTesting
 
-whioe the app is running, run:
+while the app is running, run:
 
 ```
 npx playwright test
