@@ -1,5 +1,5 @@
 {
-  "name": "checkrpay-server",
+  "name": "ter-server",
   "private": true,
   "scripts": {
     "build": "tsc",
