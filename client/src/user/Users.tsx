@@ -1,19 +1,44 @@
 import { trpc } from "../utils/trpc";
 import { useSearchParams } from "react-router-dom";
+import { SizeUsersTable } from "./SizeUsersTable";
+import React from "react";
 
 export function Users() {
-  const [searchParams] = useSearchParams();
-  let size = searchParams.get("size");
-  if (!size) {
-    size = "10";
-  }
+  const [searchParams, setSearchParams] = useSearchParams();
+  let sizeUrl = searchParams.get("size");
+  const finalSize = sizeUrl ? Number(sizeUrl) : 2;
+
+  const [sizeInput, setSizeInput] = React.useState(sizeUrl || "2");
+
   const workersQuery = trpc.getUsers.useQuery(
-    { size: Number(size) },
-    { retry: false, refetchOnWindowFocus: false }
+    { size: Number(finalSize) },
+    {
+      retry: false,
+      refetchOnWindowFocus: false,
+    }
   );
+
+  const handleSubmit = () => {
+    setSearchParams({ size: sizeInput });
+  };
 
   return (
     <div>
+      {/* <SizeUsersTable setSize={(size) => setSize(size)} /> */}
+
+      <>
+        <input
+          type="number"
+          value={sizeInput}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleSubmit();
+            }
+          }}
+          onChange={(e) => setSizeInput(e.target.value)}
+        />
+      </>
+
       <table className="min-w-full table-fixed w-full">
         <thead className="border-b border-neutral-200  dark:border-white/10 text-left">
           <tr>

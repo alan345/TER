@@ -10,6 +10,8 @@ export const userRouter = router({
       })
     )
     .query(async ({ input }) => {
+      if (input.size > 100 || input.size < 2) throw new Error("Invalid size");
+
       let data = await randomDataApi.getUsers(input.size);
 
       return data;
