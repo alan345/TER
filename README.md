@@ -4,13 +4,16 @@
 
 ## Stack
 
+TER
+
 ```
-TypeScript https://www.typescriptlang.org/ (TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.)
-Express https://expressjs.com/ (Fast, unopinionated, minimalist web framework for node.)
-Tailwind CSS https://tailwindcss.com/ (A utility-first CSS framework for rapid UI development.)
 React https://reactjs.org/ (A JavaScript library for building user interfaces.)
 Trpc https://trpc.io/ (End-to-end typesafe APIs made easy.)
+Express https://expressjs.com/ (Fast, unopinionated, minimalist web framework for node.)
 ```
+
+Tailwind CSS https://tailwindcss.com/ (A utility-first CSS framework for rapid UI development.)
+TypeScript https://www.typescriptlang.org/ (TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.)
 
 ## Explanation
 
