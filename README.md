@@ -70,5 +70,5 @@ npm run start
 ## Thanks!
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/c9ce1733-4002-44a9-9ab3-a3bc365b3648" alt="image" width="400"/>
+  <img src="https://github.com/user-attachments/assets/c9ce1733-4002-44a9-9ab3-a3bc365b3648" alt="image" width="300"/>
 </div>
