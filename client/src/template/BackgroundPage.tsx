@@ -9,6 +9,7 @@ const BackgroundPage = (props: Props) => {
       <header className="text-center flex justify-center items-center p-10">
         <div>
           <img src={levelpath} alt="logo" className="object-center m-2 h-24" />
+          <b>T</b>rpc <b>E</b>xpress <b>R</b>eact
         </div>
       </header>
       <div className="mt-10 mx-10 pb-10">{props.children}</div>
