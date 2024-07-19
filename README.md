@@ -34,8 +34,8 @@
 
 ## Features
 
-- Authentication
-- Example of a CRUD operation
+- Authentication with JWT and HttpOnly cookies
+- Example of pulling data from an external REST API ([random-data-api.com](https://random-data-api.com/))
 
 ## Installation
 
@@ -58,7 +58,6 @@ npm run start
 ## Printscreens
 
 ![TER TRPC-ExpressJs-React stack](https://github.com/user-attachments/assets/70621ac8-85bb-4096-98db-d5c54fd488a4)
-
 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/c9ce1733-4002-44a9-9ab3-a3bc365b3648" alt="image" width="400"/>
