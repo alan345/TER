@@ -7,6 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Users } from "./user/Users";
 import ContextProvider from "./ContextProvider";
 import { AuthManagement } from "./auth/AuthManagement";
+import { AuthManagementParent } from "./auth/AuthManagementParent";
 
 export function App() {
   const [queryClient] = useState(() => new QueryClient());
@@ -33,9 +34,7 @@ export function App() {
         <ContextProvider>
           <QueryClientProvider client={queryClient}>
             <BackgroundPage>
-              <div className="min-h-10">
-                <AuthManagement />
-              </div>
+              <AuthManagementParent />
               <Users />
             </BackgroundPage>
           </QueryClientProvider>
