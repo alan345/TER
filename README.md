@@ -67,15 +67,16 @@ npm run start
 
 <img width="431" alt="Health Check" src="https://github.com/user-attachments/assets/c6153606-5011-4717-911a-afdb63ecc4c0">
 
+## End-to-end typesafe with Trpc 
+![trpc-video-ter](https://github.com/user-attachments/assets/7ee27bbb-5e56-484c-b046-fe0186b4321d)
+
+
 ## Thanks!
 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/c9ce1733-4002-44a9-9ab3-a3bc365b3648" alt="image" width="400"/>
 </div>
 
-
-
-https://github.com/user-attachments/assets/e9a227bc-9e5b-400d-af1d-4dbdfb2b0295
 
 
 
