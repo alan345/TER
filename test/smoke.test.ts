@@ -5,6 +5,7 @@ test.setTimeout(5000);
 test("go to /", async ({ page }) => {
   await page.goto("/");
 
+  // check for the page
   await page.waitForSelector(`text=Trpc Express React`);
   await page.waitForSelector(`text=Loading...`);
   await page.waitForSelector(`text=Login`);
@@ -16,11 +17,13 @@ test("go to /", async ({ page }) => {
   await page.waitForSelector(`text=Avatar`);
   await page.waitForSelector("img");
 
+  // Login experience
   await page.locator("#login-button").click();
   await page.waitForSelector(`text=Cancel`);
   await page.locator("#login-mutation-button").click();
-
   await page.waitForSelector(`text=Hey Alan Doe!`);
+
+  // Logout experience
   await page.locator("#logout-button").click();
   await page.waitForSelector(`text=Login`);
 });
