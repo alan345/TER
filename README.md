@@ -31,6 +31,7 @@
 - JWT https://jwt.io/ (JSON Web Tokens)
 - ZOD https://zod.dev/ (TypeScript-first schema validation with static type inference)
 - Vite https://vitejs.dev/ (Next generation frontend tooling. It's fast!)
+- Bcrypt https://www.npmjs.com/package/bcrypt (A JavaScript library for hashing passwords)
 
 ## Features
 
@@ -63,21 +64,16 @@ npm run start
 
 ![ter-demo](https://github.com/user-attachments/assets/f18622ad-0754-4c94-b3dd-e679c2f3f271)
 
-
 - Health Check for the server (http://localhost:2022/health)
 
 <img width="431" alt="Health Check" src="https://github.com/user-attachments/assets/c6153606-5011-4717-911a-afdb63ecc4c0">
 
-## End-to-end typesafe with Trpc 
-![trpc-video-ter](https://github.com/user-attachments/assets/7ee27bbb-5e56-484c-b046-fe0186b4321d)
+## End-to-end typesafe with Trpc
 
+![trpc-video-ter](https://github.com/user-attachments/assets/7ee27bbb-5e56-484c-b046-fe0186b4321d)
 
 ## Thanks!
 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/c9ce1733-4002-44a9-9ab3-a3bc365b3648" alt="image" width="300"/>
 </div>
-
-
-
-

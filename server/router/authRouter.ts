@@ -1,8 +1,9 @@
 import { database } from "../database";
 import { publicProcedure, router, t } from "../trpc";
 import { z } from "zod";
+import bcrypt from "bcrypt";
+import { secretJwt } from "../env";
 let jwt = require("jsonwebtoken");
-const secret = "shhhhh"; //should be in an env variable
 
 const cookieName = "ter-auth";
 export const authRouter = router({
@@ -16,7 +17,13 @@ export const authRouter = router({
     .mutation(async (opts) => {
       const user = database.find((u) => u.login === opts.input.login);
       if (!user) throw new Error("Incorrect login");
-      if (user.password !== opts.input.password) {
+
+      const isPasswordCorrect = await bcrypt.compare(
+        opts.input.password,
+        user.password
+      );
+
+      if (!isPasswordCorrect) {
         throw new Error("Incorrect password");
       }
       const token = jwt.sign(
@@ -25,7 +32,7 @@ export const authRouter = router({
           exp: Math.floor(Date.now() / 1000) + 60 * 60,
           name: user.name,
         },
-        secret
+        secretJwt
       );
 
       opts.ctx.res.cookie(cookieName, token, {
@@ -49,8 +56,7 @@ export const authRouter = router({
     };
     if (!token) return res;
 
-    let decoded = jwt.verify(token, secret);
-    console.log(decoded);
+    let decoded = jwt.verify(token, secretJwt);
 
     if (decoded) {
       res = {
