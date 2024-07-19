@@ -1,6 +1,5 @@
 import React from "react";
-import { trpc } from "../utils/trpc";
-import { AppContext } from "../ContextProvider";
+
 import { LoginMutation } from "./LoginMutation";
 
 export function Login() {
