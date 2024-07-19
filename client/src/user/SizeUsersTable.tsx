@@ -1,34 +1,33 @@
 import React from "react";
-import { trpc } from "../utils/trpc";
 import { useSearchParams } from "react-router-dom";
 
 type Props = {
-  setSize: (size: string) => void;
+  initSize: number;
 };
 export function SizeUsersTable(props: Props) {
   const [searchParams, setSearchParams] = useSearchParams();
   let sizeUrl = searchParams.get("size");
-  const [size, setSize] = React.useState(sizeUrl || "2");
+  const [sizeInput, setSizeInput] = React.useState(
+    sizeUrl || props.initSize.toString()
+  );
 
-  const handleSubmit = () => {
-    console.log(size);
-    setSearchParams({ size: size });
-    props.setSize(size);
-    // e.preventDefault();
-    // searchParams.set("size", "999");
-  };
   return (
     <>
-      <input
-        type="number"
-        value={size}
-        onKeyDown={(e) => {
-          if (e.key === "Enter") {
-            handleSubmit();
-          }
-        }}
-        onChange={(e) => setSize(e.target.value)}
-      />
+      <label>Size</label>
+      <div>
+        <input
+          type="number"
+          className="w-14"
+          placeholder="Size"
+          value={sizeInput}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              setSearchParams({ size: sizeInput });
+            }
+          }}
+          onChange={(e) => setSizeInput(e.target.value)}
+        />
+      </div>
     </>
   );
 }

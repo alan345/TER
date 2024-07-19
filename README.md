@@ -39,6 +39,7 @@
 - Example of pulling data from an external REST API ([random-data-api.com](https://random-data-api.com/))
 - Store the user's details in the React context
 - Health Check for the server (http://localhost:2022/health)
+- Select the number of rows to display in the table
 
 ## Installation
 
