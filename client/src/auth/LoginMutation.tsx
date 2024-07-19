@@ -12,7 +12,7 @@ export function LoginMutation(props: Props) {
   const createWorkerMutation = trpc.login.useMutation({});
   const handleCreateWorker = () => {
     createWorkerMutation.mutate(
-      { login: "", password: "" },
+      { login: props.login, password: props.password },
       {
         onSuccess: () => context.updateUserId(),
       }

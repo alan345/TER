@@ -1,4 +1,4 @@
-import { publicProcedure, router } from "../trpc";
+import { publicProcedure, router, t } from "../trpc";
 import { z } from "zod";
 import { utils } from "../utils";
 let jwt = require("jsonwebtoken");
@@ -14,6 +14,14 @@ export const authRouter = router({
       })
     )
     .mutation(async (opts) => {
+      const database = [
+        { login: "alan@example.com", password: "securePassword" },
+      ];
+      const user = database.find((u) => u.login === opts.input.login);
+      if (!user) throw new Error("Incorrect login");
+      if (user.password !== opts.input.password) {
+        throw new Error("Incorrect password");
+      }
       const token = jwt.sign(
         {
           id: utils.randomString(10),
@@ -44,7 +52,6 @@ export const authRouter = router({
       exp: 0,
     };
     if (!token) return res;
-    // if (cookies[cookieName]) return cookies[cookieName] as string;
 
     let decoded = jwt.verify(token, secret);
     console.log(decoded);

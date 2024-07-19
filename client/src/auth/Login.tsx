@@ -4,8 +4,8 @@ import { LoginMutation } from "./LoginMutation";
 
 export function Login() {
   const [isOpen, setIsOpen] = React.useState(false);
-  const [login, setLogin] = React.useState("");
-  const [password, setPassword] = React.useState("");
+  const [login, setLogin] = React.useState("alan@example.com");
+  const [password, setPassword] = React.useState("securePassword");
 
   return (
     <div>
