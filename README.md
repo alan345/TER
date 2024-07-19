@@ -24,7 +24,7 @@
 - <strong>E</strong>xpress https://expressjs.com/ (Fast, unopinionated, minimalist web framework for node.)
 - <strong>R</strong>eact https://reactjs.org/ (A JavaScript library for building user interfaces.)
 
-## Other tools
+## Other Tools
 
 - Tailwind CSS https://tailwindcss.com/ (A utility-first CSS framework for rapid UI development.)
 - TypeScript https://www.typescriptlang.org/ (TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.)
