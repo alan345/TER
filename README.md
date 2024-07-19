@@ -7,33 +7,32 @@
 
 <h1 align="center"><strong>Boilerplate for a Fullstack App</strong></h1>
 
-## Stack
+## Project
 
-TER
+[![GitHub issues](https://img.shields.io/github/issues/alan345/naperg.svg)](https://github.com/alan345/ter/issues)
+[![GitHub forks](https://img.shields.io/github/forks/alan345/naperg.svg)](https://github.com/alan345/ter/network)
+[![GitHub stars](https://img.shields.io/github/stars/alan345/naperg.svg)](https://github.com/alan345/ter/stargazers)
+[![GitHub license](https://img.shields.io/github/license/alan345/naperg.svg)](https://github.com/alan345/ter/blob/master/LICENSE)
+![price](https://img.shields.io/badge/Price-Free-green.svg)
+[![paypal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CLPDWGN5UA4CU)
 
-```
-React https://reactjs.org/ (A JavaScript library for building user interfaces.)
-Trpc https://trpc.io/ (End-to-end typesafe APIs made easy.)
-Express https://expressjs.com/ (Fast, unopinionated, minimalist web framework for node.)
-```
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/alan345/naperg.svg?style=social)](https://twitter.com/intent/tweet?text=Wow!:&url=https%3A%2F%2Fgithub.com%2Falan345%2Fnaperg)
 
-Tailwind CSS https://tailwindcss.com/ (A utility-first CSS framework for rapid UI development.)
-TypeScript https://www.typescriptlang.org/ (TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.)
+## Main Stack
 
-## Explanation
+- React https://reactjs.org/ (A JavaScript library for building user interfaces.)
+- Trpc https://trpc.io/ (End-to-end typesafe APIs made easy.)
+- Express https://expressjs.com/ (Fast, unopinionated, minimalist web framework for node.)
 
-https://app.usebubbles.com/k4KLnyPKrTrp7BmCftu8b9/explanation
+## Other tools
+
+- Tailwind CSS https://tailwindcss.com/ (A utility-first CSS framework for rapid UI development.)
+- TypeScript https://www.typescriptlang.org/ (TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.)
+- JWT https://jwt.io/ (JSON Web Tokens)
 
 ## Installation
 
-### create a `.env` file in the `server` directory with the following content:
-
-```
-CHECKR_PAY_ACCESS_KEY=XXXXXXXXXXXXXXXXXXXX
-CHECKR_PAY_SECRET_KEY=XXXXXXXXXXXXXXXXXXXX
-```
-
-### In localhhost, in the root directory (it will run the client and the server automatically). Run:
+## In localhhost, in the root directory (it will run the client and the server automatically). Run:
 
 ```bash
 npm i
@@ -48,29 +47,3 @@ Try editing the ts files to see the type checking in action, thanks to Trpc :)
 npm run build
 npm run start
 ```
-
-## Docker
-
-You can run the server only with docker by going into the `server` directory and running:
-
-```bash
-docker compose up --build
-```
-
-## Todo
-
-- Create unit tests for the server and client
-- Securize the backend. (Auth & permissions)
-
-User story
-
-User application.
-
-- be able to pay the worker
-  - in cent.
-  - User will be ased to input the amount. In $.
-- select worker form the table and retrive all the payouts
-
-bonus
-
--
