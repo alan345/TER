@@ -2,8 +2,6 @@ import { initTRPC } from "@trpc/server";
 export const t = initTRPC.context<Context>().create();
 import * as trpcExpress from "@trpc/server/adapters/express";
 
-require("dotenv").config();
-
 const createContext = ({
   req,
   res,
