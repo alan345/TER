@@ -1,5 +1,5 @@
 {
-  "name": "checkrpay",
+  "name": "ter-fullstack-app",
   "private": true,
   "workspaces": [
     "client",
