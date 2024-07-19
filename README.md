@@ -54,6 +54,4 @@ npm run start
 ```
 
 
-
-![image](https://github.com/user-attachments/assets/c117d47b-dafb-4196-a287-6e98eb82a36b)
-
+![image](https://github.com/user-attachments/assets/c9ce1733-4002-44a9-9ab3-a3bc365b3648)
