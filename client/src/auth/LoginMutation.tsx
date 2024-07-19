@@ -29,9 +29,7 @@ export function LoginMutation(props: Props) {
       </button>{" "}
       <button onClick={props.onCancel}>Cancel</button>
       {createWorkerMutation.error && (
-        <p className="text-red-600">
-          Something went wrong! {createWorkerMutation.error.message}
-        </p>
+        <p className="text-red-600">{createWorkerMutation.error.message}</p>
       )}
     </div>
   );
