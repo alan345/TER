@@ -37,7 +37,7 @@
 ## Features
 
 - Authentication with JWT and HttpOnly cookies (https://owasp.org/www-community/HttpOnly)
-- Example of pulling data from an external REST API (https://random-data-api.com/)
+- Example of pulling data from an external REST API (https://random-data-api.com)
 - Store the user's details in the React context when logged in. (https://react.dev/learn/passing-data-deeply-with-context)
 - Health Check for the server (http://localhost:2022/health)
 - Select the number of rows to display in the table
@@ -72,7 +72,7 @@ npm run start
 
 ## Motivation
 
-Prioritizing developer experience: simple, efficient, and fast. This modern stack leverages best-in-class libraries to create a full-stack web application. Unlike the T3 app (https://create.t3.gg/), we chose not to use Next.js, allowing the frontend to remain as static files, which can be easily stored in cloud object storage like AWS S3.
+Prioritizing developer experience: simple, efficient, and fast. This modern stack leverages best-in-class libraries to create a full-stack web application. Unlike the T3 app (https://create.t3.gg), we chose not to use Next.js, allowing the frontend to remain as static files, which can be easily stored in cloud object storage like AWS S3.
 
 ## End-to-end typesafe with Trpc
 
