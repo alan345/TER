@@ -24,7 +24,7 @@
 - <strong>E</strong>xpress https://expressjs.com/ (Fast, unopinionated, minimalist web framework for node.)
 - <strong>R</strong>eact https://reactjs.org/ (A JavaScript library for building user interfaces.)
 
-## Other Tools
+## Other Libraries
 
 - Tailwind CSS https://tailwindcss.com/ (A utility-first CSS framework for rapid UI development.)
 - TypeScript https://www.typescriptlang.org/ (TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.)
@@ -56,6 +56,8 @@ npm run start
 ```
 
 ## Printscreens
+
+![Recording 2024-07-19 at 10 27 35](https://github.com/user-attachments/assets/70621ac8-85bb-4096-98db-d5c54fd488a4)
 
 <img width="1536" alt="image" src="https://github.com/user-attachments/assets/f6bf8b37-b654-49b8-ab99-a308f86c55b9">
 <img width="1536" alt="image" src="https://github.com/user-attachments/assets/1afb5eac-b72c-48a4-9807-484cde12fa13">
