@@ -20,11 +20,10 @@ export function Users() {
         <thead>
           <tr>
             <th>ID</th>
-            <th>Created At</th>
+            <th>First Name</th>
+            <th>Last Name</th>
             <th>Email</th>
-            <th>Phone</th>
-            <th>Status</th>
-            <th></th>
+            <th>avatar</th>
           </tr>
         </thead>
         <tbody>
@@ -45,7 +44,6 @@ export function Users() {
               <td>{worker.last_name}</td>
               <td>{worker.email}</td>
               <td>{worker.avatar}</td>
-              <td></td>
             </tr>
           ))}
         </tbody>

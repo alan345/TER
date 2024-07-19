@@ -10,10 +10,7 @@ export function Login() {
     createWorkerMutation.mutate(
       { login: "", password: "" },
       {
-        onSuccess: () => {
-          context.updateUserId();
-          // props.onSuccess();
-        },
+        onSuccess: () => context.updateUserId(),
       }
     );
   };

@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig } from "axios";
 import { User } from "../type/User.type";
 
 // Todo: Add logic to get the correct uri based on the environment
-const uri = "https://random-data-api.com/api/v2/users?size=2";
+const uri = "https://random-data-api.com/api/v2/users";
 
 export const randomDataApi = {
   createWorker: async (phoneNumber: string, email: string): Promise<User> => {
@@ -33,12 +33,10 @@ export const randomDataApi = {
     try {
       let res = await axios.get(uri, {
         params: {
-          page,
-          per_page: 10,
+          size: 10,
         },
       });
-      console.log("res");
-      console.log(res.data);
+
       return res.data;
     } catch (error: any) {
       if (axios.isAxiosError(error) && error && error.response) {
