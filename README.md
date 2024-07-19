@@ -83,7 +83,7 @@ Prioritizing developer experience: simple, efficient, and fast. This modern stac
 while the app is running, run:
 
 ```
-npx playwright test
+npm run test:e2e
 ```
 
 ## Thanks!

@@ -21,13 +21,16 @@ export function LoginMutation(props: Props) {
   return (
     <div>
       <button
+        id="login-mutation-button"
         disabled={createWorkerMutation.isPending}
         onClick={handleCreateWorker}
         className="rounded bg-sky-600 py-2 px-4 text-sm text-white data-[hover]:bg-sky-500 data-[hover]:data-[active]:bg-sky-700"
       >
         {createWorkerMutation.isPending ? "Closing..." : "Login"}
       </button>{" "}
-      <button onClick={props.onCancel}>Cancel</button>
+      <button id="cancel-mutation-button" onClick={props.onCancel}>
+        Cancel
+      </button>
       {createWorkerMutation.error && (
         <p className="text-red-600">{createWorkerMutation.error.message}</p>
       )}

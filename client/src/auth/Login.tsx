@@ -11,6 +11,7 @@ export function Login() {
     <div>
       {!isOpen ? (
         <button
+          id="login-button"
           className="rounded bg-sky-600 py-2 px-4 text-sm text-white data-[hover]:bg-sky-500 data-[hover]:data-[active]:bg-sky-700"
           onClick={() => setIsOpen(true)}
         >
@@ -20,6 +21,7 @@ export function Login() {
         <div>
           <div>
             <input
+              id="login-input"
               value={login}
               className="text-black"
               type="text"
@@ -29,6 +31,7 @@ export function Login() {
           </div>
           <div className="mt-1">
             <input
+              id="password-input"
               value={password}
               className="text-black"
               type="password"

@@ -16,6 +16,7 @@ export function Logout() {
   return (
     <div>
       <button
+        id="logout-button"
         disabled={createWorkerMutation.isPending}
         onClick={handleCreateWorker}
         className="rounded bg-sky-600 py-2 px-4 text-sm text-white data-[hover]:bg-sky-500 data-[hover]:data-[active]:bg-sky-700"
