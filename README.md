@@ -58,11 +58,16 @@ npm run start
 
 ## Printscreens
 
+### Main Screen
+
 ![TER TRPC-ExpressJs-React stack](https://github.com/user-attachments/assets/70621ac8-85bb-4096-98db-d5c54fd488a4)
+
+### Health Check for the server (http://localhost:2022/health)
 
 <img width="431" alt="Health Check" src="https://github.com/user-attachments/assets/c6153606-5011-4717-911a-afdb63ecc4c0">
 
 ## Thanks!
+
 <div align="center">
   <img src="https://github.com/user-attachments/assets/c9ce1733-4002-44a9-9ab3-a3bc365b3648" alt="image" width="400"/>
 </div>

@@ -1,5 +1,3 @@
-// import { initTRPC } from "@trpc/server";
-// const t = initTRPC.context<Context>().create();
 import * as trpcExpress from "@trpc/server/adapters/express";
 import express from "express";
 import cookieParser from "cookie-parser";
@@ -11,14 +9,9 @@ const createContext = ({
   req,
   res,
 }: trpcExpress.CreateExpressContextOptions) => {
-  // console.log(req.cookies);
   return { req, res };
 };
 
-// type Context = Awaited<ReturnType<typeof createContext>>;
-
-// export const publicProcedure = t.procedure;
-// export const router = t.router;
 export const mergeRouters = t.mergeRouters;
 import { authRouter } from "./router/authRouter";
 import { userRouter } from "./router/userRouter";
