@@ -16,7 +16,7 @@
 ![price](https://img.shields.io/badge/Price-Free-green.svg)
 [![paypal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CLPDWGN5UA4CU)
 
-[![Twitter](https://img.shields.io/twitter/url/https/github.com/alan345/naperg.svg?style=social)](https://twitter.com/intent/tweet?text=Wow!:&url=https%3A%2F%2Fgithub.com%2Falan345%2Fnaperg)
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/alan345/naperg.svg?style=social)](https://twitter.com/intent/tweet?text=Wow!:&url=https%3A%2F%2Fgithub.com%2Falan345%2Fter)
 
 ## Main Stack
 
@@ -30,9 +30,14 @@
 - TypeScript https://www.typescriptlang.org/ (TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.)
 - JWT https://jwt.io/ (JSON Web Tokens)
 
+## Features
+
+- Authentication
+- Example of a CRUD operation
+
 ## Installation
 
-## In localhhost, in the root directory (it will run the client and the server automatically). Run:
+In localhost, in the root directory (it will run the client and the server automatically). Run:
 
 ```bash
 npm i
