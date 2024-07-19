@@ -34,7 +34,7 @@ export function Users() {
             </tr>
           )}
           {workersQuery.data?.map((worker) => (
-            <tr key={worker.id} className="hover:bg-[#0B6081] h-10">
+            <tr key={worker.id} className="hover:bg-blue-200 h-10">
               <td>{worker.id}</td>
               <td>{worker.first_name}</td>
               <td>{worker.last_name}</td>
