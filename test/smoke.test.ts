@@ -27,3 +27,9 @@ test("go to /", async ({ page }) => {
   await page.locator("#logout-button").click();
   await page.waitForSelector(`text=Login`);
 });
+
+test("Server checks", async ({ page }) => {
+  await page.goto("http://localhost:2022/health");
+  await page.waitForSelector(`text=message`);
+  await page.waitForSelector(`text=ok`);
+});
