@@ -1,5 +1,6 @@
 import { publicProcedure, router } from "../trpc";
 import { z } from "zod";
+import { utils } from "../utils";
 let jwt = require("jsonwebtoken");
 const secret = "shhhhh"; //should be in an env variable
 
@@ -15,6 +16,7 @@ export const authRouter = router({
     .mutation(async (opts) => {
       const token = jwt.sign(
         {
+          id: utils.randomString(10),
           exp: Math.floor(Date.now() / 1000) + 60 * 60,
           name: "Alan Szternberg",
         },
@@ -31,11 +33,29 @@ export const authRouter = router({
     opts.ctx.res.clearCookie(cookieName);
     return true;
   }),
-  getAuthId: publicProcedure.query((opts) => {
+  getAuth: publicProcedure.query((opts) => {
     const cookies = opts.ctx.req.cookies;
     console.log("cookies", cookies[cookieName]);
-    if (cookies[cookieName]) return cookies[cookieName] as string;
+    const token = cookies[cookieName];
 
-    return "";
+    let res = {
+      id: "",
+      name: "",
+      exp: 0,
+    };
+    if (!token) return res;
+    // if (cookies[cookieName]) return cookies[cookieName] as string;
+
+    let decoded = jwt.verify(token, secret);
+    console.log(decoded);
+
+    if (decoded) {
+      res = {
+        id: decoded.id,
+        name: decoded.name,
+        exp: decoded.exp,
+      };
+    }
+    return res;
   }),
 });

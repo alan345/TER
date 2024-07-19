@@ -1,4 +1,3 @@
-import { CreateWorkerDialog } from "./CreateWorkerDialog";
 import { trpc } from "../utils/trpc";
 import { useSearchParams } from "react-router-dom";
 
@@ -12,9 +11,6 @@ export function Users() {
 
   return (
     <div>
-      {/* Todo: After the creation, we can update 1 line instead of the whole table*/}
-      <CreateWorkerDialog onSuccess={workersQuery.refetch} />
-
       {/* Todo: make this table responsive */}
       <table className="w-full text-sm text-left mt-4">
         <thead>
@@ -43,7 +39,9 @@ export function Users() {
               <td>{worker.first_name}</td>
               <td>{worker.last_name}</td>
               <td>{worker.email}</td>
-              <td>{worker.avatar}</td>
+              <td>
+                <img src={worker.avatar} width="60px" />
+              </td>
             </tr>
           ))}
         </tbody>

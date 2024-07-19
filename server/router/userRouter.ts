@@ -14,15 +14,4 @@ export const userRouter = router({
 
       return data;
     }),
-  createWorker: publicProcedure
-    .input(
-      z.object({
-        phone: z.string(),
-        email: z.string(),
-      })
-    )
-    .mutation(async ({ input }) => {
-      let data = await randomDataApi.createWorker(input.phone, input.email);
-      return data;
-    }),
 });

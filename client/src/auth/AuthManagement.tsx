@@ -1,5 +1,4 @@
 import React from "react";
-import { trpc } from "../utils/trpc";
 import { AppContext } from "../ContextProvider";
 import { Logout } from "./Logout";
 import { Login } from "./Login";
@@ -10,7 +9,12 @@ export function AuthManagement() {
   // const workersQuery = trpc.getAuthId.useQuery(undefined, { retry: false });
 
   if (context.userId) {
-    return <Logout />;
+    return (
+      <>
+        Hey {context.name}!
+        <Logout />
+      </>
+    );
   }
 
   if (context.isLoading) {
