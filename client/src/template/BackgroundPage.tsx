@@ -1,21 +1,17 @@
-import levelpath from "../images/logo-checkrpay.svg";
+import levelpath from "../images/ter-logo.png";
 
 type Props = {
   children: React.ReactNode;
 };
 const BackgroundPage = (props: Props) => {
   return (
-    <div className="min-h-screen bg-gradient-to-r from-[#053F6D] via-[#0E6D89] to-[#172F4B] ">
+    <div className="min-h-screen bg-gradient-to-r from-blue-50 via-blue-300 to-blue-200 ">
       <header className="text-center flex justify-center items-center p-10">
-        <h1 className="text-white text-4xl">ElderBolt</h1>
-        <div className="mx-2" />
-        by
-        <div className="mx-1" />
         <div>
-          <img src={levelpath} alt="logo" className="object-center m-2 h-3" />
+          <img src={levelpath} alt="logo" className="object-center m-2 h-24" />
         </div>
       </header>
-      <div className="mt-10 mx-10 pb-10 text-white">{props.children}</div>
+      <div className="mt-10 mx-10 pb-10">{props.children}</div>
     </div>
   );
 };
