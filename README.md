@@ -61,7 +61,8 @@ npm run start
 
 - Main Screen
 
-![TER TRPC-ExpressJs-React stack](https://github.com/user-attachments/assets/70621ac8-85bb-4096-98db-d5c54fd488a4)
+![ter-demo](https://github.com/user-attachments/assets/f18622ad-0754-4c94-b3dd-e679c2f3f271)
+
 
 - Health Check for the server (http://localhost:2022/health)
 
