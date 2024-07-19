@@ -52,3 +52,6 @@ Try editing the ts files to see the type checking in action, thanks to Trpc :)
 npm run build
 npm run start
 ```
+
+
+![image](https://github.com/user-attachments/assets/c9ce1733-4002-44a9-9ab3-a3bc365b3648)
