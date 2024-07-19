@@ -62,3 +62,6 @@ npm run start
 <div align="center">
   <img src="https://github.com/user-attachments/assets/c9ce1733-4002-44a9-9ab3-a3bc365b3648" alt="image" width="400"/>
 </div>
+
+![ter-fav](https://github.com/user-attachments/assets/dc140c56-5d43-45f6-bc4d-8e5c524ed4d2)
+
