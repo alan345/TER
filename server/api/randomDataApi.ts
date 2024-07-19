@@ -5,35 +5,11 @@ import { User } from "../type/User.type";
 const uri = "https://random-data-api.com/api/v2/users";
 
 export const randomDataApi = {
-  createWorker: async (phoneNumber: string, email: string): Promise<User> => {
-    try {
-      let res = await axios.post(uri, {
-        profile: {
-          phoneNumber,
-          email,
-        },
-      });
-      console.log(res);
-      return res.data;
-    } catch (error) {
-      if (axios.isAxiosError(error) && error && error.response) {
-        console.log(error.response.data);
-        throw (
-          // Todo: We should not pass the error given by an external API, but create a custom message to have a better experience
-          error.response.data.error_message + ": " + error.response.data.details
-        );
-      } else {
-        throw new Error("Something went wrong!");
-      }
-    }
-  },
-
-  getWorkers: async (page: number): Promise<User[]> => {
-    console.log("getWorkers");
+  getUsers: async (size: number): Promise<User[]> => {
     try {
       let res = await axios.get(uri, {
         params: {
-          size: 10,
+          size,
         },
       });
 

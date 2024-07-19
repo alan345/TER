@@ -3,12 +3,12 @@ import { useSearchParams } from "react-router-dom";
 
 export function Users() {
   const [searchParams] = useSearchParams();
-  let page = searchParams.get("page");
-  if (!page) {
-    page = "1";
+  let size = searchParams.get("size");
+  if (!size) {
+    size = "10";
   }
   const workersQuery = trpc.getUsers.useQuery(
-    { page: Number(page) },
+    { size: Number(size) },
     { retry: false, refetchOnWindowFocus: false }
   );
 

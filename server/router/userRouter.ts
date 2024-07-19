@@ -6,11 +6,11 @@ export const userRouter = router({
   getUsers: publicProcedure
     .input(
       z.object({
-        page: z.number(),
+        size: z.number(),
       })
     )
     .query(async ({ input }) => {
-      let data = await randomDataApi.getWorkers(input.page);
+      let data = await randomDataApi.getUsers(input.size);
 
       return data;
     }),
