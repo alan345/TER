@@ -1,6 +1,5 @@
 import { CreateWorkerDialog } from "./CreateWorkerDialog";
 import { trpc } from "../utils/trpc";
-import { Pagination } from "../Pagination";
 import { useSearchParams } from "react-router-dom";
 
 export function Users() {
@@ -39,23 +38,18 @@ export function Users() {
               <td colSpan={5}>Error: {workersQuery.error.message}</td>
             </tr>
           )}
-          {workersQuery.data?.data.map((worker) => (
+          {workersQuery.data?.map((worker) => (
             <tr key={worker.id} className="hover:bg-[#0B6081] h-10">
               <td>{worker.id}</td>
-              <td>{worker.createdAt}</td>
-              <td>{worker.profile.email}</td>
-              <td>{worker.profile.phoneNumber}</td>
-              <td>{worker.status}</td>
+              <td>{worker.first_name}</td>
+              <td>{worker.last_name}</td>
+              <td>{worker.email}</td>
+              <td>{worker.avatar}</td>
               <td></td>
             </tr>
           ))}
         </tbody>
       </table>
-      {workersQuery.data && (
-        <div className="mt-4">
-          <Pagination count={workersQuery.data.count} />
-        </div>
-      )}
     </div>
   );
 }
