@@ -70,6 +70,10 @@ npm run start
 
 <img width="431" alt="Health Check" src="https://github.com/user-attachments/assets/c6153606-5011-4717-911a-afdb63ecc4c0">
 
+
+## Motivation
+This stack is modern, utilizing the best-in-class libraries for creating a full-stack web application. We decided not to use Next.js to keep the frontend as static files, which can be easily stored in a cloud object storage like AWS S3.
+
 ## End-to-end typesafe with Trpc
 
 ![trpc-video-ter](https://github.com/user-attachments/assets/7ee27bbb-5e56-484c-b046-fe0186b4321d)
