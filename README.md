@@ -61,14 +61,23 @@ npm run start
 
 - Main Screen
 
-![TER TRPC-ExpressJs-React stack](https://github.com/user-attachments/assets/70621ac8-85bb-4096-98db-d5c54fd488a4)
+![ter-demo](https://github.com/user-attachments/assets/f18622ad-0754-4c94-b3dd-e679c2f3f271)
+
 
 - Health Check for the server (http://localhost:2022/health)
 
 <img width="431" alt="Health Check" src="https://github.com/user-attachments/assets/c6153606-5011-4717-911a-afdb63ecc4c0">
+
+## End-to-end typesafe with Trpc 
+![trpc-video-ter](https://github.com/user-attachments/assets/7ee27bbb-5e56-484c-b046-fe0186b4321d)
+
 
 ## Thanks!
 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/c9ce1733-4002-44a9-9ab3-a3bc365b3648" alt="image" width="300"/>
 </div>
+
+
+
+
