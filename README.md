@@ -32,6 +32,7 @@
 - ZOD https://zod.dev/ (TypeScript-first schema validation with static type inference)
 - Vite https://vitejs.dev/ (Next generation frontend tooling. It's fast!)
 - Bcrypt https://www.npmjs.com/package/bcrypt (A JavaScript library for hashing passwords)
+- Playwright https://playwright.dev/ (Node.js library to automate Chromium, Firefox and WebKit with a single API)
 
 ## Features
 
@@ -65,18 +66,25 @@ npm run start
 
 ![ter-demo](https://github.com/user-attachments/assets/ca8a97d5-974e-4574-88d8-ef2c259bda11)
 
-
 - Health Check for the server (http://localhost:2022/health)
 
 <img width="431" alt="Health Check" src="https://github.com/user-attachments/assets/c6153606-5011-4717-911a-afdb63ecc4c0">
 
-
 ## Motivation
+
 Prioritizing developer experience: simple, efficient, and fast. This modern stack leverages best-in-class libraries to create a full-stack web application. Unlike the T3 app (https://create.t3.gg/), we chose not to use Next.js, allowing the frontend to remain as static files, which can be easily stored in cloud object storage like AWS S3.
 
 ## End-to-end typesafe with Trpc
 
 ![trpc-video-ter](https://github.com/user-attachments/assets/7ee27bbb-5e56-484c-b046-fe0186b4321d)
+
+## Testing
+
+whioe the app is running, run:
+
+```
+npx playwright test
+```
 
 ## Thanks!
 
