@@ -1,3 +1,4 @@
+import { database } from "../database";
 import { publicProcedure, router, t } from "../trpc";
 import { z } from "zod";
 let jwt = require("jsonwebtoken");
@@ -13,14 +14,6 @@ export const authRouter = router({
       })
     )
     .mutation(async (opts) => {
-      const database = [
-        {
-          id: "quyet7qwehwq",
-          login: "alan@example.com",
-          password: "securePassword",
-          name: "Alan Doe",
-        },
-      ];
       const user = database.find((u) => u.login === opts.input.login);
       if (!user) throw new Error("Incorrect login");
       if (user.password !== opts.input.password) {
