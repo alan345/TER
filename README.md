@@ -78,13 +78,19 @@ Prioritizing developer experience: simple, efficient, and fast. This modern stac
 
 ![trpc-video-ter](https://github.com/user-attachments/assets/7ee27bbb-5e56-484c-b046-fe0186b4321d)
 
-## e2eTesting
-
+## E2E Testing
+- Terminal
 while the app is running, run:
 
 ```
 npm run test:e2e
 ```
+![test-ter-terminal](https://github.com/user-attachments/assets/8c6a718b-b4ee-4938-a665-cfd118bdc46c)
+
+
+- Vscode
+
+![test-ter-vscode](https://github.com/user-attachments/assets/d87b91ba-e7c8-4f60-ab17-1d61caa4f112)
 
 ## Thanks!
 
