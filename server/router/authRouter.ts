@@ -3,7 +3,7 @@ import { z } from "zod";
 let jwt = require("jsonwebtoken");
 const secret = "shhhhh"; //should be in an env variable
 
-const cookieName = "naperg-auth";
+const cookieName = "ter-auth";
 export const authRouter = router({
   login: publicProcedure
     .input(
