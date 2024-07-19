@@ -40,7 +40,6 @@ export const authRouter = router({
   }),
   getAuth: publicProcedure.query((opts) => {
     const cookies = opts.ctx.req.cookies;
-    console.log("cookies", cookies[cookieName]);
     const token = cookies[cookieName];
 
     let res = {
