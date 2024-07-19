@@ -26,13 +26,13 @@
 
 ## Other Libraries
 
-- Tailwind CSS https://tailwindcss.com/ (A utility-first CSS framework for rapid UI development)
-- TypeScript https://www.typescriptlang.org/ (TypeScript is a typed superset of JavaScript)
-- JWT https://jwt.io/ (JSON Web Tokens)
-- ZOD https://zod.dev/ (TypeScript-first schema validation with static type inference)
-- Vite https://vitejs.dev/ (Next generation frontend tooling. It's fast!)
+- Tailwind CSS https://tailwindcss.com (A utility-first CSS framework for rapid UI development)
+- TypeScript https://www.typescriptlang.org (TypeScript is a typed superset of JavaScript)
+- JWT https://jwt.io (JSON Web Tokens)
+- ZOD https://zod.dev (TypeScript-first schema validation with static type inference)
+- Vite https://vitejs.dev (Next generation frontend tooling. It's fast!)
 - Bcrypt https://www.npmjs.com/package/bcrypt (A JavaScript library for hashing passwords)
-- Playwright https://playwright.dev/ (Node.js library to automate Chromium, Firefox and WebKit with a single API)
+- Playwright https://playwright.dev (Node.js library to automate Chromium, Firefox and WebKit with a single API)
 
 ## Features
 
@@ -79,14 +79,15 @@ Prioritizing developer experience: simple, efficient, and fast. This modern stac
 ![trpc-video-ter](https://github.com/user-attachments/assets/7ee27bbb-5e56-484c-b046-fe0186b4321d)
 
 ## E2E Testing
+
 - Terminal
-while the app is running, run:
+  while the app is running, run:
 
 ```
 npm run test:e2e
 ```
-![test-ter-terminal](https://github.com/user-attachments/assets/8c6a718b-b4ee-4938-a665-cfd118bdc46c)
 
+![test-ter-terminal](https://github.com/user-attachments/assets/8c6a718b-b4ee-4938-a665-cfd118bdc46c)
 
 - Vscode
 
