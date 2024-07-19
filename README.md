@@ -1,14 +1,13 @@
-![image](https://github.com/user-attachments/assets/cc3cc768-9ee4-4c9b-b108-4c0979acbee8)
-
 # TER
 
-## Boilerplate for a Fullstack App
-
 <div align="center">
+![image](https://github.com/user-attachments/assets/cc3cc768-9ee4-4c9b-b108-4c0979acbee8)
 
 <strong>T</strong>rpc <strong>E</strong>xpress <strong>R</strong>eact
 
 </div>
+
+## Boilerplate for a Fullstack App
 
 ## Stack
 
