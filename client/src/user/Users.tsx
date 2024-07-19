@@ -2,16 +2,14 @@ import { CreateWorkerDialog } from "./CreateWorkerDialog";
 import { trpc } from "../utils/trpc";
 import { Pagination } from "../Pagination";
 import { useSearchParams } from "react-router-dom";
-import { CloseWorker } from "./CloseWorker";
-import { CreatePayoutDialog } from "./CreatePayoutDialog";
 
-export function Workers() {
+export function Users() {
   const [searchParams] = useSearchParams();
   let page = searchParams.get("page");
   if (!page) {
     page = "1";
   }
-  const workersQuery = trpc.getWorkers.useQuery({ page: Number(page) });
+  const workersQuery = trpc.getUsers.useQuery({ page: Number(page) });
 
   return (
     <div>
@@ -48,25 +46,7 @@ export function Workers() {
               <td>{worker.profile.email}</td>
               <td>{worker.profile.phoneNumber}</td>
               <td>{worker.status}</td>
-              <td>
-                {worker.status !== "manual_review" &&
-                  worker.status !== "closed" && (
-                    <>
-                      <div>
-                        <CloseWorker
-                          id={worker.id}
-                          onSuccess={workersQuery.refetch}
-                        />
-                      </div>
-                      <div className="my-1">
-                        <CreatePayoutDialog
-                          workerId={worker.id}
-                          onSuccess={() => console.log("ok")}
-                        />
-                      </div>
-                    </>
-                  )}
-              </td>
+              <td></td>
             </tr>
           ))}
         </tbody>

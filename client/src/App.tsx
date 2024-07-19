@@ -4,7 +4,7 @@ import { useState } from "react";
 import { trpc } from "./utils/trpc";
 import BackgroundPage from "./template/BackgroundPage";
 import { BrowserRouter } from "react-router-dom";
-import { Workers } from "./worker/Workers";
+import { Users } from "./user/Users";
 import { Login } from "./auth/Login";
 import { Logout } from "./auth/Logout";
 import ContextProvider from "./ContextProvider";
@@ -36,7 +36,7 @@ export function App() {
           <QueryClientProvider client={queryClient}>
             <BackgroundPage>
               <AuthManagement />
-              <Workers />
+              <Users />
             </BackgroundPage>
           </QueryClientProvider>
         </ContextProvider>

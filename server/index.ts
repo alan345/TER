@@ -21,11 +21,11 @@ const createContext = ({
 // export const router = t.router;
 export const mergeRouters = t.mergeRouters;
 import { authRouter } from "./router/authRouter";
-import { workerRouter } from "./router/workerRouter";
+import { userRouter } from "./router/userRouter";
 import { healthRouter } from "./router/healthRouter";
 import { t } from "./trpc";
 
-const appRouter = mergeRouters(authRouter, workerRouter, healthRouter);
+const appRouter = mergeRouters(authRouter, userRouter, healthRouter);
 export type AppRouter = typeof appRouter;
 
 const app = express();

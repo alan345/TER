@@ -2,7 +2,7 @@ import { useState } from "react";
 import { trpc } from "../utils/trpc";
 import { Button } from "@headlessui/react";
 import { Input } from "@headlessui/react";
-import { Worker } from "./Worker.type";
+import { Worker } from "./User.type";
 
 type Props = {
   setIsOpen: (isOpen: boolean) => void;
