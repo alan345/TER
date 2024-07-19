@@ -90,7 +90,7 @@ npx playwright test
 
 <div align="center">
   <a href="https://buymeacoffee.com/fullstackter">
-    <img width="545" alt="bmc-button" src="https://github.com/user-attachments/assets/f384fb79-52ed-4c25-bbc1-ae640385f5e4">
+    <img width="300" alt="bmc-button" src="https://github.com/user-attachments/assets/f384fb79-52ed-4c25-bbc1-ae640385f5e4">
   </a>
 </div>
 
