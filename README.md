@@ -1,13 +1,11 @@
-# TER
-
 <div align="center">
 <img src="https://github.com/user-attachments/assets/cc3cc768-9ee4-4c9b-b108-4c0979acbee8" alt="image" width="300"/>
-
+<br />
 <strong>T</strong>rpc <strong>E</strong>xpress <strong>R</strong>eact
 
 </div>
 
-## Boilerplate for a Fullstack App
+<h1 align="center"><strong>Boilerplate for a Fullstack App</strong></h1>
 
 ## Stack
 
