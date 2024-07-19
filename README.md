@@ -57,6 +57,6 @@ npm run start
 
 <img width="1536" alt="image" src="https://github.com/user-attachments/assets/f6bf8b37-b654-49b8-ab99-a308f86c55b9">
 <img width="1536" alt="image" src="https://github.com/user-attachments/assets/1afb5eac-b72c-48a4-9807-484cde12fa13">
-
-
-![image](https://github.com/user-attachments/assets/c9ce1733-4002-44a9-9ab3-a3bc365b3648)
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/c9ce1733-4002-44a9-9ab3-a3bc365b3648" alt="image" width="200"/>
+</div>
