@@ -5,7 +5,7 @@ type Props = {
 };
 const BackgroundPage = (props: Props) => {
   return (
-    <div className="min-h-screen bg-gradient-to-r from-blue-50 via-blue-300 to-blue-200 ">
+    <div className="min-h-screen bg-gradient-to-r from-purple-500 to-pink-500 ">
       <header className="text-center flex justify-center items-center p-10">
         <div>
           <img src={levelpath} alt="logo" className="object-center m-2 h-24" />

@@ -5,7 +5,6 @@ import { Login } from "./Login";
 
 export function AuthManagement() {
   const context = React.useContext(AppContext);
-  console.log(context.userId);
 
   if (context.userId) {
     return (

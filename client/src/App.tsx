@@ -5,8 +5,6 @@ import { trpc } from "./utils/trpc";
 import BackgroundPage from "./template/BackgroundPage";
 import { BrowserRouter } from "react-router-dom";
 import { Users } from "./user/Users";
-import { Login } from "./auth/Login";
-import { Logout } from "./auth/Logout";
 import ContextProvider from "./ContextProvider";
 import { AuthManagement } from "./auth/AuthManagement";
 
@@ -35,7 +33,9 @@ export function App() {
         <ContextProvider>
           <QueryClientProvider client={queryClient}>
             <BackgroundPage>
-              <AuthManagement />
+              <div className="min-h-10">
+                <AuthManagement />
+              </div>
               <Users />
             </BackgroundPage>
           </QueryClientProvider>
