@@ -36,6 +36,7 @@
 
 - Authentication with JWT and HttpOnly cookies
 - Example of pulling data from an external REST API ([random-data-api.com](https://random-data-api.com/))
+- Store the user's details in the React context
 
 ## Installation
 
