@@ -88,6 +88,11 @@ npx playwright test
 
 ## Thanks!
 
+[![buymeacoffee]([https://img.shields.io/badge/Donate-PayPal-green.svg](https://github.com/user-attachments/assets/f384fb79-52ed-4c25-bbc1-ae640385f5e4))](https://buymeacoffee.com/fullstackter)
+
+<img width="545" alt="bmc-button" src="https://github.com/user-attachments/assets/f384fb79-52ed-4c25-bbc1-ae640385f5e4">
+
+
 <div align="center">
   <img src="https://github.com/user-attachments/assets/c9ce1733-4002-44a9-9ab3-a3bc365b3648" alt="image" width="300"/>
 </div>
