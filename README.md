@@ -1,9 +1,14 @@
-
 ![image](https://github.com/user-attachments/assets/cc3cc768-9ee4-4c9b-b108-4c0979acbee8)
 
-# Checkrpay home assignment
+# TER
 
-<img width="1536" alt="image" src="https://github.com/alan345/CheckrPay/assets/15246526/ba83d304-fdc9-4a23-baeb-ecc09fe673d1">
+## Boilerplate for a Fullstack App
+
+<div align="center">
+
+<strong>T</strong>rpc <strong>E</strong>xpress <strong>R</strong>eact
+
+</div>
 
 ## Stack
 
