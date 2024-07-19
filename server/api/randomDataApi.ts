@@ -13,7 +13,7 @@ export const randomDataApi = {
       });
 
       return res.data;
-    } catch (error: any) {
+    } catch (error) {
       if (axios.isAxiosError(error) && error && error.response) {
         throw error.response.data.error_message;
       } else {
