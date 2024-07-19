@@ -1,5 +1,5 @@
-import { database } from "../database";
-import { publicProcedure, router, t } from "../trpc";
+import { database } from "../database/database";
+import { publicProcedure, router } from "../trpc";
 import { z } from "zod";
 import bcrypt from "bcrypt";
 import { secretJwt } from "../env";
