@@ -44,7 +44,7 @@
 
 ## Installation
 
-In localhost, in the root directory (it will run the client and the server automatically). Run:
+In the root directory (it will run the client and the server automatically). Run:
 
 ```bash
 npm i
