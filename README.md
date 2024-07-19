@@ -29,6 +29,7 @@
 - Tailwind CSS https://tailwindcss.com/ (A utility-first CSS framework for rapid UI development.)
 - TypeScript https://www.typescriptlang.org/ (TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.)
 - JWT https://jwt.io/ (JSON Web Tokens)
+- ZOD https://zod.dev/ (TypeScript-first schema validation with static type inference.)
 
 ## Features
 
