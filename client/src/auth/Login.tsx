@@ -43,9 +43,12 @@ export function Login() {
           </div>
           <input
             type="checkbox"
+            id="show-password-checkbox"
+            name="show-password-checkbox"
             onClick={() => setShowPassword(!showPassword)}
-          />{" "}
-          Show Password
+          />
+          <label htmlFor="show-password-checkbox">Show Password</label>
+
           <div className="mt-1">
             <LoginMutation
               onCancel={() => setIsOpen(false)}
