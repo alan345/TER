@@ -33,6 +33,7 @@
 - Vite https://vitejs.dev (Next generation frontend tooling. It's fast!)
 - Bcrypt https://www.npmjs.com/package/bcrypt (A JavaScript library for hashing passwords)
 - Playwright https://playwright.dev (Node.js library to automate Chromium, Firefox and WebKit with a single API)
+- NPM https://www.npmjs.com (Node Package Manager)
 
 ## Features
 
