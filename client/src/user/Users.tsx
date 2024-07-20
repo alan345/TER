@@ -6,7 +6,7 @@ export function Users() {
   const [searchParams] = useSearchParams();
   let sizeUrl = searchParams.get("size");
 
-  const initSize = 2;
+  const initSize = 6;
   const finalSize = sizeUrl ? Number(sizeUrl) : initSize;
 
   const workersQuery = trpc.getUsers.useQuery(
