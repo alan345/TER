@@ -72,7 +72,7 @@ npm run start
 
 ## Motivation
 
-Prioritizing developer experience: simple, efficient, and fast. This modern stack leverages best-in-class libraries to create a full-stack web application. Unlike the T3 app (https://create.t3.gg), we chose not to use Next.js, allowing the frontend to remain as static files, which can be easily stored in cloud object storage like AWS S3. Therefore this stack is to build app, not classical website as it is not SEO friendly.
+Focusing on developer experience: simple, efficient, and fast. This modern stack uses top-tier libraries to build a full-stack web application. Unlike the T3 app (https://create.t3.gg), we opted not to use Next.js, allowing the frontend to remain as static files, easily stored in cloud object storage like AWS S3. Consequently, this stack is designed for building web apps rather than traditional websites, as it is not SEO-friendly.
 
 ## End-to-end typesafe with Trpc
 
