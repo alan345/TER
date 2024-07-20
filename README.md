@@ -63,11 +63,11 @@ npm run start
 
 ## Printscreens
 
-- Main Screen
+#### Main Screen
 
 ![ter-demo](https://github.com/user-attachments/assets/ca8a97d5-974e-4574-88d8-ef2c259bda11)
 
-- Health Check for the server (http://localhost:2022/health)
+#### Health Check for the server (http://localhost:2022/health)
 
 <img width="431" alt="Health Check" src="https://github.com/user-attachments/assets/c6153606-5011-4717-911a-afdb63ecc4c0">
 
@@ -82,7 +82,7 @@ Focusing on developer experience: simple, efficient, and fast. This modern stack
 ## E2E Testing
 The tests must be run while the app is running.
 
-#### - Running the tests in the Terminal
+#### Running the tests in the Terminal
 
 ```
 npm run test:e2e
@@ -90,7 +90,7 @@ npm run test:e2e
 
 ![test-ter-terminal](https://github.com/user-attachments/assets/8c6a718b-b4ee-4938-a665-cfd118bdc46c)
 
-#### - Running the tests in Vscode
+#### Running the tests in Vscode
 
 ![test-ter-vscode](https://github.com/user-attachments/assets/d87b91ba-e7c8-4f60-ab17-1d61caa4f112)
 
