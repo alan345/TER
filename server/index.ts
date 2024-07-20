@@ -14,9 +14,15 @@ export const mergeRouters = t.mergeRouters;
 import { authRouter } from "./router/authRouter";
 import { userRouter } from "./router/userRouter";
 import { healthRouter } from "./router/healthRouter";
+import { beerRouter } from "./router/beerRouter";
 import { t } from "./trpc";
 
-const appRouter = mergeRouters(authRouter, userRouter, healthRouter);
+const appRouter = mergeRouters(
+  authRouter,
+  userRouter,
+  healthRouter,
+  beerRouter
+);
 export type AppRouter = typeof appRouter;
 
 const app = express();

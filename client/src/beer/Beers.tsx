@@ -1,15 +1,14 @@
 import { trpc } from "../utils/trpc";
 import { useSearchParams } from "react-router-dom";
-import { SizeUsersTable } from "./SizeUsersTable";
 
-export function Users() {
+export function Beers() {
   const [searchParams] = useSearchParams();
   let sizeUrl = searchParams.get("size");
 
   const initSize = 6;
   const finalSize = sizeUrl ? Number(sizeUrl) : initSize;
 
-  const workersQuery = trpc.getUsers.useQuery(
+  const workersQuery = trpc.getBeers.useQuery(
     { size: finalSize },
     {
       retry: false,
@@ -19,9 +18,7 @@ export function Users() {
 
   return (
     <div>
-      <h1>Users</h1>
-      <SizeUsersTable initSize={initSize} />
-
+      <h1>Beers</h1>
       <table className="min-w-full table-fixed w-full">
         <thead className="border-b border-neutral-200  dark:border-white/10 text-left">
           <tr>
@@ -54,15 +51,11 @@ export function Users() {
               className="border-b border-neutral-200 dark:border-white/10 hover:bg-[#CF4EC1] h-20"
             >
               <td className="whitespace-nowrap px-6 py-2 ">{worker.id}</td>
+              <td className="whitespace-nowrap px-6 py-2">{worker.brand}</td>
+              <td className="whitespace-nowrap px-6 py-2">{worker.name}</td>
+              <td className="whitespace-nowrap px-6 py-2">{worker.style}</td>
               <td className="whitespace-nowrap px-6 py-2">
-                {worker.first_name}
-              </td>
-              <td className="whitespace-nowrap px-6 py-2">
-                {worker.last_name}
-              </td>
-              <td className="whitespace-nowrap px-6 py-2">{worker.email}</td>
-              <td className="whitespace-nowrap px-6 py-2">
-                <img src={worker.avatar} width="60px" />
+                {/* <img src={worker.avatar} width="60px" /> */}
               </td>
             </tr>
           ))}

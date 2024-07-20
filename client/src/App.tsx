@@ -8,6 +8,7 @@ import { Users } from "./user/Users";
 import ContextProvider from "./ContextProvider";
 import { AuthManagement } from "./auth/AuthManagement";
 import { AuthManagementParent } from "./auth/AuthManagementParent";
+import { Beers } from "./beer/Beers";
 
 export function App() {
   const [queryClient] = useState(() => new QueryClient());
@@ -36,6 +37,8 @@ export function App() {
             <BackgroundPage>
               <AuthManagementParent />
               <Users />
+              <div className="h-80" />
+              <Beers />
             </BackgroundPage>
           </QueryClientProvider>
         </ContextProvider>
