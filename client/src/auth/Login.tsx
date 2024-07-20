@@ -1,11 +1,13 @@
 import React from "react";
 
 import { LoginMutation } from "./LoginMutation";
+import { c } from "vite/dist/node/types.d-aGj9QkWt";
 
 export function Login() {
   const [isOpen, setIsOpen] = React.useState(false);
   const [login, setLogin] = React.useState("alan@example.com");
   const [password, setPassword] = React.useState("securePassword");
+  const [showPassword, setShowPassword] = React.useState(false);
 
   return (
     <div>
@@ -34,11 +36,16 @@ export function Login() {
               id="password-input"
               value={password}
               className="text-black"
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
+          <input
+            type="checkbox"
+            onClick={() => setShowPassword(!showPassword)}
+          />{" "}
+          Show Password
           <div className="mt-1">
             <LoginMutation
               onCancel={() => setIsOpen(false)}
