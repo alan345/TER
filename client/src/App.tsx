@@ -7,7 +7,17 @@ import ContextProvider from "./ContextProvider";
 import { SubApp } from "./SubApp";
 
 export function App() {
-  const [queryClient] = useState(() => new QueryClient());
+  const [queryClient] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            retry: false,
+            // cacheTime: 1000 * 60 * 60 * 24 * 7,
+          },
+        },
+      })
+  );
 
   const [trpcClient] = useState(() =>
     trpc.createClient({

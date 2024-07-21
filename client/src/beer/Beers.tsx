@@ -14,7 +14,6 @@ export function Beers() {
   const workersQuery = trpc.getBeers.useQuery(
     { size: finalSize },
     {
-      retry: false,
       refetchOnWindowFocus: false,
     }
   );

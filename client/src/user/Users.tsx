@@ -14,7 +14,6 @@ export function Users() {
   const workersQuery = trpc.getUsers.useQuery(
     { size: finalSize },
     {
-      retry: false,
       refetchOnWindowFocus: false,
     }
   );

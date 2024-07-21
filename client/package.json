@@ -9,11 +9,11 @@
     "start": "vite preview"
   },
   "dependencies": {
-    "@tanstack/react-query": "^5.49.2",
+    "@tanstack/react-query": "^5.51.11",
     "@trpc/client": "next",
     "@trpc/react-query": "next",
     "@trpc/server": "next",
-    "react-router-dom": "^6.24.1",
+    "react-router-dom": "^6.25.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
