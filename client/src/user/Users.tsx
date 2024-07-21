@@ -23,7 +23,12 @@ export function Users() {
 
   return (
     <div>
-      <SizeTable initSize={initSize} />
+      <div className="flex justify-between mt-4">
+        <p>
+          This page is Protected. You need to be logged in to see this page.
+        </p>
+        <SizeTable initSize={initSize} />
+      </div>
       <div className="overflow-x-auto">
         <table>
           <thead>
