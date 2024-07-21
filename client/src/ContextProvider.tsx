@@ -20,29 +20,25 @@ type Props = {
 
 export default function ContextProvider(props: Props) {
   const workersQuery = trpc.getAuth.useQuery(undefined, { retry: false });
-  React.useEffect(() => {
-    setIsLoading(workersQuery.isLoading);
-    if (workersQuery.isError) {
-      setName("");
-      setUserId("");
-    } else {
-      setName(workersQuery.data?.name ? workersQuery.data.name : "");
-      setUserId(workersQuery.data?.id ? workersQuery.data.id : "");
-    }
-  }, [workersQuery]);
 
   const [userId, setUserId] = React.useState("");
   const [isLoading, setIsLoading] = React.useState(false);
   const [name, setName] = React.useState("");
 
   const updateUserId = async () => {
-    let data = await workersQuery.refetch();
-    if (data.error) {
-      setIsLoading(false);
+    await workersQuery.refetch();
+  };
+
+  React.useEffect(() => {
+    setIsLoading(workersQuery.isLoading);
+    if (workersQuery.isError) {
       setName("");
       setUserId("");
+      return;
     }
-  };
+    setName(workersQuery.data?.name ? workersQuery.data.name : "");
+    setUserId(workersQuery.data?.id ? workersQuery.data.id : "");
+  }, [workersQuery]);
 
   return (
     <AppContext.Provider

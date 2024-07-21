@@ -42,12 +42,8 @@ export function Users() {
             </th>
           </tr>
         </thead>
-        <tbody>
-          {workersQuery.isLoading && <div>Loading...</div>}
-          {workersQuery.isError && (
-            <div>Error: {workersQuery.error.message}</div>
-          )}
 
+        <tbody>
           {workersQuery.data?.map((worker) => (
             <tr
               key={worker.id}
@@ -68,6 +64,8 @@ export function Users() {
           ))}
         </tbody>
       </table>
+      {workersQuery.isLoading && <div>Loading...</div>}
+      {workersQuery.isError && <div>Error: {workersQuery.error.message}</div>}
     </div>
   );
 }

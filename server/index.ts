@@ -2,7 +2,6 @@ import * as trpcExpress from "@trpc/server/adapters/express";
 import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-// import jwt from "jsonwebtoken";
 let jwt = require("jsonwebtoken");
 
 export const createContext = ({
@@ -11,12 +10,7 @@ export const createContext = ({
 }: trpcExpress.CreateExpressContextOptions) => {
   const cookies = req.cookies;
   const token = cookies[cookieName];
-  console.log("token", token);
-  // let res = {
-  //   id: "",
-  //   name: "",
-  //   exp: 0,
-  // };
+
   if (token) {
     let decoded = jwt.verify(token, secretJwt);
     if (decoded) {
@@ -24,14 +18,6 @@ export const createContext = ({
       return { req, res, user };
     }
   }
-  // if (decoded) {
-  //   res = {
-  //     id: decoded.id,
-  //     name: decoded.name,
-  //     exp: decoded.exp,
-  //   };
-  // }
-  // return res;
 
   return { req, res };
 };
