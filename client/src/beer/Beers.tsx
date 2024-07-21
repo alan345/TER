@@ -28,10 +28,10 @@ export function Beers() {
         <table>
           <thead>
             <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Brand</th>
-              <th scope="col">Name</th>
-              <th scope="col">Style</th>
+              <th>ID</th>
+              <th>Brand</th>
+              <th>Name</th>
+              <th>Style</th>
             </tr>
           </thead>
 

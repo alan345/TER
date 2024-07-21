@@ -28,11 +28,11 @@ export function Users() {
         <table>
           <thead>
             <tr>
-              <th scope="col">ID</th>
-              <th scope="col">First Name</th>
-              <th scope="col">Last Name</th>
-              <th scope="col">Email</th>
-              <th scope="col">Avatar</th>
+              <th>ID</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Avatar</th>
             </tr>
           </thead>
 
