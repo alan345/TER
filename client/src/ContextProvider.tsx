@@ -6,12 +6,13 @@ type ContextType = {
   updateUserId: () => void;
   isLoading: boolean;
 };
-export const AppContext = React.createContext<ContextType>({
+const initialContext: ContextType = {
   userId: "",
   name: "",
   isLoading: false,
   updateUserId: () => {},
-});
+};
+export const AppContext = React.createContext<ContextType>(initialContext);
 
 type Props = {
   children: React.ReactNode;
@@ -20,23 +21,27 @@ type Props = {
 export default function ContextProvider(props: Props) {
   const workersQuery = trpc.getAuth.useQuery(undefined, { retry: false });
   React.useEffect(() => {
-    console.log("useEffect", workersQuery.data);
     setIsLoading(workersQuery.isLoading);
-    setName(workersQuery.data?.name ? workersQuery.data.name : "");
-    setUserId(workersQuery.data?.id ? workersQuery.data.id : "");
-    // if (workersQuery.data) {
-    //   console.log("data", workersQuery.data);
-    //   // context.updateUserId(workersQuery.data);
-    // }
-  }, [workersQuery.data]);
+    if (workersQuery.isError) {
+      setName("");
+      setUserId("");
+    } else {
+      setName(workersQuery.data?.name ? workersQuery.data.name : "");
+      setUserId(workersQuery.data?.id ? workersQuery.data.id : "");
+    }
+  }, [workersQuery]);
 
   const [userId, setUserId] = React.useState("");
   const [isLoading, setIsLoading] = React.useState(false);
   const [name, setName] = React.useState("");
 
-  const updateUserId = () => {
-    workersQuery.refetch();
-    // setUserId(userId);
+  const updateUserId = async () => {
+    let data = await workersQuery.refetch();
+    if (data.error) {
+      setIsLoading(false);
+      setName("");
+      setUserId("");
+    }
   };
 
   console.log(userId);

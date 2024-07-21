@@ -2,13 +2,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { httpBatchLink } from "@trpc/client";
 import { useState } from "react";
 import { trpc } from "./utils/trpc";
-import BackgroundPage from "./template/BackgroundPage";
 import { BrowserRouter } from "react-router-dom";
-import { Users } from "./user/Users";
 import ContextProvider from "./ContextProvider";
-import { AuthManagement } from "./auth/AuthManagement";
-import { AuthManagementParent } from "./auth/AuthManagementParent";
-import { Beers } from "./beer/Beers";
+import { SubApp } from "./SubApp";
 
 export function App() {
   const [queryClient] = useState(() => new QueryClient());
@@ -34,12 +30,7 @@ export function App() {
       <trpc.Provider client={trpcClient} queryClient={queryClient}>
         <ContextProvider>
           <QueryClientProvider client={queryClient}>
-            <BackgroundPage>
-              <AuthManagementParent />
-              <Users />
-              <div className="h-80" />
-              <Beers />
-            </BackgroundPage>
+            <SubApp />
           </QueryClientProvider>
         </ContextProvider>
       </trpc.Provider>

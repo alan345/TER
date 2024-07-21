@@ -3,9 +3,10 @@ import { publicProcedure, router } from "../trpc";
 import { z } from "zod";
 import bcrypt from "bcrypt";
 import { secretJwt } from "../env";
+import { TRPCError } from "@trpc/server";
 let jwt = require("jsonwebtoken");
-
-const cookieName = "ter-auth";
+// import jwt from "jsonwebtoken";
+export const cookieName = "ter-auth";
 export const authRouter = router({
   login: publicProcedure
     .input(
@@ -46,25 +47,28 @@ export const authRouter = router({
     return true;
   }),
   getAuth: publicProcedure.query((opts) => {
-    const cookies = opts.ctx.req.cookies;
-    const token = cookies[cookieName];
+    // console.log("getAuth user", opts.ctx.user);
 
-    let res = {
-      id: "",
-      name: "",
-      exp: 0,
-    };
-    if (!token) return res;
+    // const cookies = opts.ctx.req.cookies;
+    // const token = cookies[cookieName];
 
-    let decoded = jwt.verify(token, secretJwt);
+    // let res = {
+    //   id: "",
+    //   name: "",
+    //   exp: 0,
+    // };
+    // if (!token) return res;
 
-    if (decoded) {
-      res = {
-        id: decoded.id,
-        name: decoded.name,
-        exp: decoded.exp,
-      };
-    }
-    return res;
+    // let decoded = jwt.verify(token, secretJwt);
+
+    // if (decoded) {
+    //   res = {
+    //     id: decoded.id,
+    //     name: decoded.name,
+    //     exp: decoded.exp,
+    //   };
+    // }
+    if (!opts.ctx.user) throw new TRPCError({ code: "UNAUTHORIZED" });
+    return opts.ctx.user;
   }),
 });

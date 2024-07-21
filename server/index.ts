@@ -2,20 +2,48 @@ import * as trpcExpress from "@trpc/server/adapters/express";
 import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+// import jwt from "jsonwebtoken";
+let jwt = require("jsonwebtoken");
 
 export const createContext = ({
   req,
   res,
 }: trpcExpress.CreateExpressContextOptions) => {
+  const cookies = req.cookies;
+  const token = cookies[cookieName];
+  console.log("token", token);
+  // let res = {
+  //   id: "",
+  //   name: "",
+  //   exp: 0,
+  // };
+  if (token) {
+    let decoded = jwt.verify(token, secretJwt);
+    if (decoded) {
+      const user = database.find((u) => u.id === decoded.id);
+      return { req, res, user };
+    }
+  }
+  // if (decoded) {
+  //   res = {
+  //     id: decoded.id,
+  //     name: decoded.name,
+  //     exp: decoded.exp,
+  //   };
+  // }
+  // return res;
+
   return { req, res };
 };
 
 export const mergeRouters = t.mergeRouters;
-import { authRouter } from "./router/authRouter";
+import { authRouter, cookieName } from "./router/authRouter";
 import { userRouter } from "./router/userRouter";
 import { healthRouter } from "./router/healthRouter";
 import { beerRouter } from "./router/beerRouter";
 import { t } from "./trpc";
+import { secretJwt } from "./env";
+import { database } from "./database/database";
 
 const appRouter = mergeRouters(
   authRouter,

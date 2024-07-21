@@ -1,9 +1,9 @@
-import { publicProcedure, router } from "../trpc";
+import { protectedProcedure, publicProcedure, router } from "../trpc";
 import { z } from "zod";
 import { randomDataApi } from "../api/randomDataApi";
 
 export const userRouter = router({
-  getUsers: publicProcedure
+  getUsers: protectedProcedure
     .input(
       z.object({
         size: z.number(),
