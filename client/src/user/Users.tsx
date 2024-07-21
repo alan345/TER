@@ -1,6 +1,6 @@
 import { trpc } from "../utils/trpc";
 import { useSearchParams } from "react-router-dom";
-import { SizeUsersTable } from "./SizeUsersTable";
+import { SizeTable } from "../template/SizeTable";
 import { LoadingTemplate } from "../template/LoadingTemplate";
 import { ErrorTemplate } from "../template/ErrorTemplate";
 
@@ -24,7 +24,7 @@ export function Users() {
 
   return (
     <div>
-      <SizeUsersTable initSize={initSize} />
+      <SizeTable initSize={initSize} />
 
       <table>
         <thead>

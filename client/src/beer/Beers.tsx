@@ -1,5 +1,6 @@
 import { ErrorTemplate } from "../template/ErrorTemplate";
 import { LoadingTemplate } from "../template/LoadingTemplate";
+import { SizeTable } from "../template/SizeTable";
 import { trpc } from "../utils/trpc";
 import { useSearchParams } from "react-router-dom";
 
@@ -23,6 +24,7 @@ export function Beers() {
 
   return (
     <div>
+      <SizeTable initSize={initSize} />
       <table>
         <thead>
           <tr>

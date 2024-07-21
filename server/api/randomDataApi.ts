@@ -16,7 +16,8 @@ export const randomDataApi = {
       return res.data;
     } catch (error) {
       if (axios.isAxiosError(error) && error && error.response) {
-        throw error.response.data.error_message;
+        console.log(error.response.statusText);
+        throw error.response.statusText;
       } else {
         throw new Error("Something went wrong!");
       }
@@ -33,7 +34,8 @@ export const randomDataApi = {
       return res.data;
     } catch (error) {
       if (axios.isAxiosError(error) && error && error.response) {
-        throw error.response.data.error_message;
+        console.log(error.response.statusText);
+        throw error.response.statusText;
       } else {
         throw new Error("Something went wrong!");
       }
