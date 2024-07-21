@@ -18,7 +18,6 @@ export function Beers() {
 
   return (
     <div>
-      <h1>Beers</h1>
       <table className="min-w-full table-fixed w-full">
         <thead className="border-b border-neutral-200  dark:border-white/10 text-left">
           <tr>

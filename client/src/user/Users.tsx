@@ -19,7 +19,6 @@ export function Users() {
 
   return (
     <div>
-      <h1>Users</h1>
       <SizeUsersTable initSize={initSize} />
 
       <table className="min-w-full table-fixed w-full">
