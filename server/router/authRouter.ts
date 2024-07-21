@@ -4,8 +4,7 @@ import { z } from "zod";
 import bcrypt from "bcrypt";
 import { secretJwt } from "../env";
 import { TRPCError } from "@trpc/server";
-let jwt = require("jsonwebtoken");
-// import jwt from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 export const cookieName = "ter-auth";
 
 export const authRouter = router({

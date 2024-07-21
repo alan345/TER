@@ -2,7 +2,11 @@ import * as trpcExpress from "@trpc/server/adapters/express";
 import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-let jwt = require("jsonwebtoken");
+import jwt from "jsonwebtoken";
+
+export interface UserIDJwtPayload extends jwt.JwtPayload {
+  id: string;
+}
 
 export const createContext = ({
   req,
@@ -12,7 +16,7 @@ export const createContext = ({
   const token = cookies[cookieName];
 
   if (token) {
-    let decoded = jwt.verify(token, secretJwt);
+    let decoded = jwt.verify(token, secretJwt) as UserIDJwtPayload;
     if (decoded) {
       const user = database.find((u) => u.id === decoded.id);
       return { req, res, user };
