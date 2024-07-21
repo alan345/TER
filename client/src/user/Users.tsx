@@ -39,7 +39,7 @@ export function Users() {
           <tbody>
             {workersQuery.data?.map((worker) => (
               <tr key={worker.id}>
-                <td className="whitespace-nowrap px-6 py-2 ">{worker.id}</td>
+                <td>{worker.id}</td>
                 <td>{worker.first_name}</td>
                 <td>{worker.last_name}</td>
                 <td>{worker.email}</td>
