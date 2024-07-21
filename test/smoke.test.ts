@@ -10,12 +10,11 @@ test("go to /", async ({ page }) => {
   await page.waitForSelector(`text=Trpc Express React`);
   await page.waitForSelector(`text=Loading...`);
   await page.waitForSelector(`text=Login`);
-  await page.waitForSelector(`text=Size`);
   await page.waitForSelector(`text=ID`);
-  await page.waitForSelector(`text=First Name`);
-  await page.waitForSelector(`text=Last Name`);
-  await page.waitForSelector(`text=Email`);
-  await page.waitForSelector(`text=Avatar`);
+  await page.waitForSelector(`text=Beers`);
+  await page.waitForSelector(`text=Brand`);
+  await page.waitForSelector(`text=Name`);
+  await page.waitForSelector(`text=Style`);
 
   // Login experience
   await page.locator("#login-button").click();
