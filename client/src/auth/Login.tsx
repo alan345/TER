@@ -47,7 +47,9 @@ export function Login() {
             name="show-password-checkbox"
             onClick={() => setShowPassword(!showPassword)}
           />
-          <label htmlFor="show-password-checkbox">Show Password</label>
+          <label htmlFor="show-password-checkbox" className="ml-2">
+            Show Password
+          </label>
 
           <div className="mt-1">
             <LoginMutation
