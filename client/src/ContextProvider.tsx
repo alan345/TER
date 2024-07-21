@@ -44,7 +44,6 @@ export default function ContextProvider(props: Props) {
     }
   };
 
-  console.log(userId);
   return (
     <AppContext.Provider
       value={{
