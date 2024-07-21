@@ -1,7 +1,5 @@
 import React from "react";
-
 import { LoginMutation } from "./LoginMutation";
-import { c } from "vite/dist/node/types.d-aGj9QkWt";
 
 export function Login() {
   const [isOpen, setIsOpen] = React.useState(false);
