@@ -12,22 +12,19 @@ export function SizeTable(props: Props) {
   );
 
   return (
-    <>
-      <label>Size</label>
-      <div>
-        <input
-          type="number"
-          className="w-14"
-          placeholder="Size"
-          value={sizeInput}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              setSearchParams({ size: sizeInput });
-            }
-          }}
-          onChange={(e) => setSizeInput(e.target.value)}
-        />
-      </div>
-    </>
+    <div className="flex justify-end">
+      <input
+        type="number"
+        className="w-14"
+        placeholder="Lines"
+        value={sizeInput}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            setSearchParams({ size: sizeInput });
+          }
+        }}
+        onChange={(e) => setSizeInput(e.target.value)}
+      />
+    </div>
   );
 }
