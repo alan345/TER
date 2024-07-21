@@ -21,6 +21,7 @@ test("go to /", async ({ page }) => {
   await page.waitForSelector(`text=Cancel`);
   await page.locator("#login-mutation-button").click();
   await page.waitForSelector(`text=Hey Alan Doe!`);
+  await page.waitForSelector(`text=Users`);
 
   // Logout experience
   await page.locator("#logout-button").click();
