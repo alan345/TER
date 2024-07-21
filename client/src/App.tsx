@@ -13,7 +13,7 @@ export function App() {
         defaultOptions: {
           queries: {
             retry: false,
-            // cacheTime: 1000 * 60 * 60 * 24 * 7,
+            gcTime: 1000 * 60 * 60 * 24 * 7,
           },
         },
       })
