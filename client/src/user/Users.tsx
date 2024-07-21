@@ -1,6 +1,8 @@
 import { trpc } from "../utils/trpc";
 import { useSearchParams } from "react-router-dom";
 import { SizeUsersTable } from "./SizeUsersTable";
+import { LoadingTemplate } from "../template/LoadingTemplate";
+import { ErrorTemplate } from "../template/ErrorTemplate";
 
 export function Users() {
   const [searchParams] = useSearchParams();
@@ -16,6 +18,9 @@ export function Users() {
       refetchOnWindowFocus: false,
     }
   );
+  if (workersQuery.isLoading) return <LoadingTemplate />;
+  if (workersQuery.isError)
+    return <ErrorTemplate message={workersQuery.error.message} />;
 
   return (
     <div>
@@ -46,8 +51,6 @@ export function Users() {
           ))}
         </tbody>
       </table>
-      {workersQuery.isLoading && <div>Loading...</div>}
-      {workersQuery.isError && <div>Error: {workersQuery.error.message}</div>}
     </div>
   );
 }

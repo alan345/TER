@@ -1,3 +1,5 @@
+import { ErrorTemplate } from "../template/ErrorTemplate";
+import { LoadingTemplate } from "../template/LoadingTemplate";
 import { trpc } from "../utils/trpc";
 import { useSearchParams } from "react-router-dom";
 
@@ -15,6 +17,9 @@ export function Beers() {
       refetchOnWindowFocus: false,
     }
   );
+  if (workersQuery.isLoading) return <LoadingTemplate />;
+  if (workersQuery.isError)
+    return <ErrorTemplate message={workersQuery.error.message} />;
 
   return (
     <div>
@@ -22,10 +27,9 @@ export function Beers() {
         <thead>
           <tr>
             <th scope="col">ID</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Avatar</th>
+            <th scope="col">Brand</th>
+            <th scope="col">Name</th>
+            <th scope="col">Style</th>
           </tr>
         </thead>
 
@@ -36,13 +40,10 @@ export function Beers() {
               <td>{worker.brand}</td>
               <td>{worker.name}</td>
               <td>{worker.style}</td>
-              <td></td>
             </tr>
           ))}
         </tbody>
       </table>
-      {workersQuery.isLoading && <div>Loading...</div>}
-      {workersQuery.isError && <div>Error: {workersQuery.error.message}</div>}
     </div>
   );
 }
