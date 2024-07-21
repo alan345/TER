@@ -65,7 +65,8 @@ npm run start
 
 #### Main Screen
 
-![demo-ter](https://github.com/user-attachments/assets/f1680ebf-78ba-4156-9bfd-49a9e6a7f17f)
+![ter-main-demo](https://github.com/user-attachments/assets/f8d443de-5a26-4917-b9d7-070655584d54)
+
 
 
 #### Health Check for the server (http://localhost:2022/health)
