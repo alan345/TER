@@ -5,7 +5,7 @@
 
 </div>
 
-<h1 align="center"><strong>Boilerplate for a Fullstack App</strong></h1>
+<h1 align="center"><strong>Boilerplate for a Fullstack App with authentication</strong></h1>
 
 ## Project
 
