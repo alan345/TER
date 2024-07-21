@@ -24,32 +24,33 @@ export function Users() {
   return (
     <div>
       <SizeTable initSize={initSize} />
-
-      <table>
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Avatar</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {workersQuery.data?.map((worker) => (
-            <tr key={worker.id}>
-              <td className="whitespace-nowrap px-6 py-2 ">{worker.id}</td>
-              <td>{worker.first_name}</td>
-              <td>{worker.last_name}</td>
-              <td>{worker.email}</td>
-              <td>
-                <img src={worker.avatar} width="60px" />
-              </td>
+      <div className="overflow-x-auto">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Avatar</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+
+          <tbody>
+            {workersQuery.data?.map((worker) => (
+              <tr key={worker.id}>
+                <td className="whitespace-nowrap px-6 py-2 ">{worker.id}</td>
+                <td>{worker.first_name}</td>
+                <td>{worker.last_name}</td>
+                <td>{worker.email}</td>
+                <td>
+                  <img src={worker.avatar} width="60px" />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

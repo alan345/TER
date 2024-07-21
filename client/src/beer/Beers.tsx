@@ -24,27 +24,29 @@ export function Beers() {
   return (
     <div>
       <SizeTable initSize={initSize} />
-      <table>
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Brand</th>
-            <th scope="col">Name</th>
-            <th scope="col">Style</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {workersQuery.data?.map((worker) => (
-            <tr key={worker.id}>
-              <td>{worker.id}</td>
-              <td>{worker.brand}</td>
-              <td>{worker.name}</td>
-              <td>{worker.style}</td>
+      <div className="overflow-x-auto">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Brand</th>
+              <th scope="col">Name</th>
+              <th scope="col">Style</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+
+          <tbody>
+            {workersQuery.data?.map((worker) => (
+              <tr key={worker.id}>
+                <td>{worker.id}</td>
+                <td>{worker.brand}</td>
+                <td>{worker.name}</td>
+                <td>{worker.style}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

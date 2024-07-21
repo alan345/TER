@@ -15,14 +15,14 @@
     @apply text-2xl font-bold;
   }
   th {
-    @apply px-6 py-2
+    @apply px-2 py-2
   }
   td {
-    @apply whitespace-nowrap px-6 py-2
+    @apply whitespace-nowrap px-2 py-2 overflow-hidden text-ellipsis
   }
 
   table {
-    @apply min-w-full table-fixed w-full
+    @apply min-w-full table-fixed w-full min-w-[600px]
   }
 
   thead {
