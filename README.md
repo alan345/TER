@@ -79,6 +79,7 @@ Focusing on developer experience: simple, efficient, and fast. This modern stack
 ## End-to-end typesafe with Trpc
 
 ![trpc-video-ter](https://github.com/user-attachments/assets/7ee27bbb-5e56-484c-b046-fe0186b4321d)
+Video from https://trpc.io
 
 ## E2E Testing
 
