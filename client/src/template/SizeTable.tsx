@@ -15,7 +15,7 @@ export function SizeTable(props: Props) {
     <div className="flex justify-end">
       <input
         type="number"
-        className="w-12"
+        className="w-11"
         placeholder="#"
         value={sizeInput}
         onKeyDown={(e) => {
