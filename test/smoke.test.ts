@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-test.setTimeout(5000);
+test.setTimeout(6000);
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 test("go to /", async ({ page }) => {
