@@ -32,7 +32,7 @@
 - ZOD https://zod.dev (TypeScript-first schema validation with static type inference)
 - Vite https://vitejs.dev (Next generation frontend tooling. It's fast!)
 - Bcrypt https://www.npmjs.com/package/bcrypt (A JavaScript library for hashing passwords)
-- Playwright https://playwright.dev (Node.js library to automate Chromium, Firefox and WebKit with a single API)
+- Playwright https://playwright.dev (Test your web apps headlessly with a single API)
 - NPM https://www.npmjs.com (Node Package Manager)
 
 ## Features
@@ -66,7 +66,6 @@ npm run start
 #### Main Screen
 
 ![video-demo-ter](https://github.com/user-attachments/assets/e040babe-1d37-4e24-bd8f-cf5c90be93dc)
-
 
 #### Health Check for the server (http://localhost:2022/health)
 
