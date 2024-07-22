@@ -1,6 +1,6 @@
-import { devices, PlaywrightTestConfig } from '@playwright/test';
+import { devices, PlaywrightTestConfig } from "@playwright/test";
 
-const baseUrl = process.env.PLAYWRIGHT_TEST_BASE_URL || 'http://localhost:3000';
+const baseUrl = process.env.PLAYWRIGHT_TEST_BASE_URL || "http://localhost:3000";
 console.log(`ℹ️ Using base URL "${baseUrl}"`);
 
 const opts = {
@@ -9,9 +9,10 @@ const opts = {
   // collectCoverage: !!process.env.PLAYWRIGHT_HEADLESS
 };
 const config: PlaywrightTestConfig = {
-  testDir: './test',
+  testDir: "./test",
+  outputDir: "./test/test-results",
   use: {
-    ...devices['Desktop Chrome'],
+    ...devices["Desktop Chrome"],
     baseURL: baseUrl,
     headless: opts.headless,
   },
