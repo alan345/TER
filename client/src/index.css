@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.btn {
+  button {
     @apply font-bold py-2 px-4 rounded
   }
   .btn-blue {
@@ -11,6 +11,14 @@
   .btn-blue:hover {
     @apply bg-blue-700
   }
+
+  button:disabled,
+  button[disabled],   button:disabled:hover {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+  }
+
   h1 {
     @apply text-2xl font-bold
   }

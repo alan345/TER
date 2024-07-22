@@ -22,9 +22,13 @@ export function LoginMutation(props: Props) {
     <div>
       <button
         id="login-mutation-button"
-        disabled={createWorkerMutation.isPending}
+        disabled={
+          createWorkerMutation.isPending ||
+          props.login === "" ||
+          props.password === ""
+        }
         onClick={handleCreateWorker}
-        className="btn btn-blue"
+        className="btn-blue"
       >
         {createWorkerMutation.isPending ? "Closing..." : "Login"}
       </button>{" "}

@@ -12,7 +12,7 @@ export function Login() {
       {!isOpen ? (
         <button
           id="login-button"
-          className="btn btn-blue"
+          className="btn-blue"
           onClick={() => setIsOpen(true)}
         >
           Login
