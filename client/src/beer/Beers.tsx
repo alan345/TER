@@ -11,12 +11,7 @@ export function Beers() {
   const initSize = 6;
   const finalSize = sizeUrl ? Number(sizeUrl) : initSize;
 
-  const workersQuery = trpc.getBeers.useQuery(
-    { size: finalSize },
-    {
-      refetchOnWindowFocus: false,
-    }
-  );
+  const workersQuery = trpc.getBeers.useQuery({ size: finalSize });
   if (workersQuery.isLoading) return <LoadingTemplate />;
   if (workersQuery.isError)
     return <ErrorTemplate message={workersQuery.error.message} />;

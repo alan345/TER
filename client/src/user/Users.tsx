@@ -11,12 +11,7 @@ export function Users() {
   const initSize = 6;
   const finalSize = sizeUrl ? Number(sizeUrl) : initSize;
 
-  const workersQuery = trpc.getUsers.useQuery(
-    { size: finalSize },
-    {
-      refetchOnWindowFocus: false,
-    }
-  );
+  const workersQuery = trpc.getUsers.useQuery({ size: finalSize });
   if (workersQuery.isLoading) return <LoadingTemplate />;
   if (workersQuery.isError)
     return <ErrorTemplate message={workersQuery.error.message} />;
