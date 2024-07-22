@@ -3,16 +3,16 @@
 @tailwind utilities;
 
 .btn {
-    @apply font-bold py-2 px-4 rounded;
+    @apply font-bold py-2 px-4 rounded
   }
   .btn-blue {
-    @apply bg-[#034DA2] text-white;
+    @apply bg-[#034DA2] text-white
   }
   .btn-blue:hover {
-    @apply bg-blue-700;
+    @apply bg-blue-700
   }
   h1 {
-    @apply text-2xl font-bold;
+    @apply text-2xl font-bold
   }
   th {
     @apply px-2 py-2
@@ -41,10 +41,10 @@
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
     -webkit-appearance: none;
-    margin: 0;
+    margin: 0
   }
 
   /* Firefox */
   input[type=number] {
-    -moz-appearance: textfield;
+    -moz-appearance: textfield
   }
