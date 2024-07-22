@@ -15,15 +15,19 @@ export function SizeTable(props: Props) {
     <div className="flex justify-end">
       <input
         type="number"
-        className="w-16"
-        placeholder="Lines"
+        className="w-12"
+        placeholder="#"
         value={sizeInput}
         onKeyDown={(e) => {
           if (e.key === "Enter") {
             setSearchParams({ size: sizeInput });
           }
         }}
-        onChange={(e) => setSizeInput(e.target.value)}
+        onChange={(e) => {
+          if (Number(e.target.value) < 100 && Number(e.target.value) >= 0) {
+            setSizeInput(e.target.value);
+          }
+        }}
       />
     </div>
   );
