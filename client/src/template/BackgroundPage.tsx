@@ -3,6 +3,7 @@ import levelpath from "../images/ter-logo.png";
 type Props = {
   children: React.ReactNode;
 };
+
 const BackgroundPage = (props: Props) => {
   return (
     <div className="min-h-screen bg-gradient-to-r from-purple-500 to-pink-500 ">
