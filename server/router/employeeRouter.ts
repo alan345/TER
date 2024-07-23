@@ -1,9 +1,9 @@
-import { publicProcedure, router } from "../trpc";
+import { protectedProcedure, router } from "../trpc";
 import { z } from "zod";
 import { dummyRestAPIExample } from "../api/dummyRestAPIExample";
 
 export const employeeRouter = router({
-  getEmployees: publicProcedure
+  getEmployees: protectedProcedure
     .input(
       z.object({
         size: z.number(),
