@@ -1,17 +1,17 @@
-import { ErrorTemplate } from "../../template/ErrorTemplate";
-import { LoadingTemplate } from "../../template/LoadingTemplate";
-import { SizeTable } from "../../template/SizeTable";
-import { trpc } from "../../utils/trpc";
+import { trpc } from "../utils/trpc";
 import { useSearchParams } from "react-router-dom";
+import { SizeTable } from "../template/SizeTable";
+import { LoadingTemplate } from "../template/LoadingTemplate";
+import { ErrorTemplate } from "../template/ErrorTemplate";
 
-export function Albums() {
+export function Users() {
   const [searchParams] = useSearchParams();
   let sizeUrl = searchParams.get("size");
 
   const initSize = 6;
   const finalSize = sizeUrl ? Number(sizeUrl) : initSize;
 
-  const dataQuery = trpc.getAlbums.useQuery({ size: finalSize });
+  const dataQuery = trpc.getUsers.useQuery({ size: finalSize });
   if (dataQuery.isLoading) return <LoadingTemplate />;
   if (dataQuery.isError)
     return <ErrorTemplate message={dataQuery.error.message} />;
@@ -20,7 +20,7 @@ export function Albums() {
     <div>
       <div className="flex justify-between mt-4">
         <p>
-          This page is Public. You dont need to be logged in to see this page.
+          This page is Protected. You need to be logged in to see this page.
         </p>
         <SizeTable initSize={initSize} />
       </div>
@@ -29,7 +29,10 @@ export function Albums() {
           <thead>
             <tr>
               <th>ID</th>
-              <th>Title</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Avatar</th>
             </tr>
           </thead>
 
@@ -37,7 +40,12 @@ export function Albums() {
             {dataQuery.data?.map((singleElement) => (
               <tr key={singleElement.id}>
                 <td>{singleElement.id}</td>
-                <td>{singleElement.title}</td>
+                <td>{singleElement.first_name}</td>
+                <td>{singleElement.last_name}</td>
+                <td>{singleElement.email}</td>
+                <td>
+                  <img src={singleElement.avatar} width="60px" />
+                </td>
               </tr>
             ))}
           </tbody>

@@ -1,12 +1,12 @@
 import BackgroundPage from "./template/BackgroundPage";
-import { Users } from "./components/user/Users";
+import { Users } from "./components/Users";
 import { AuthManagementParent } from "./auth/AuthManagementParent";
-import { Beers } from "./components/beer/Beers";
+import { Beers } from "./components/Beers";
 import React from "react";
 import { AppContext } from "./ContextProvider";
-import { Movies } from "./components/movie/Movies";
-import { Albums } from "./components/album/Albums";
-import { Photos } from "./components/photo/Photos";
+import { Movies } from "./components/Movies";
+import { Albums } from "./components/Albums";
+import { Photos } from "./components/Photos";
 
 export function SubApp() {
   const context = React.useContext(AppContext);

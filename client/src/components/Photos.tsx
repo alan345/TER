@@ -1,17 +1,17 @@
-import { ErrorTemplate } from "../../template/ErrorTemplate";
-import { LoadingTemplate } from "../../template/LoadingTemplate";
-import { SizeTable } from "../../template/SizeTable";
-import { trpc } from "../../utils/trpc";
+import { ErrorTemplate } from "../template/ErrorTemplate";
+import { LoadingTemplate } from "../template/LoadingTemplate";
+import { SizeTable } from "../template/SizeTable";
+import { trpc } from "../utils/trpc";
 import { useSearchParams } from "react-router-dom";
 
-export function Beers() {
+export function Photos() {
   const [searchParams] = useSearchParams();
   let sizeUrl = searchParams.get("size");
 
   const initSize = 6;
   const finalSize = sizeUrl ? Number(sizeUrl) : initSize;
 
-  const dataQuery = trpc.getBeers.useQuery({ size: finalSize });
+  const dataQuery = trpc.getPhotos.useQuery({ size: finalSize });
   if (dataQuery.isLoading) return <LoadingTemplate />;
   if (dataQuery.isError)
     return <ErrorTemplate message={dataQuery.error.message} />;
@@ -29,9 +29,8 @@ export function Beers() {
           <thead>
             <tr>
               <th>ID</th>
-              <th>Brand</th>
-              <th>Name</th>
-              <th>Style</th>
+              <th>Title</th>
+              <th>Photo</th>
             </tr>
           </thead>
 
@@ -39,9 +38,14 @@ export function Beers() {
             {dataQuery.data?.map((singleElement) => (
               <tr key={singleElement.id}>
                 <td>{singleElement.id}</td>
-                <td>{singleElement.brand}</td>
-                <td>{singleElement.name}</td>
-                <td>{singleElement.style}</td>
+                <td>{singleElement.title}</td>
+                <td>
+                  <img
+                    className="w-10 h-10"
+                    src={singleElement.thumbnailUrl}
+                    alt={singleElement.title}
+                  />
+                </td>
               </tr>
             ))}
           </tbody>
