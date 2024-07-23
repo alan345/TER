@@ -34,10 +34,10 @@ export function Albums() {
           </thead>
 
           <tbody>
-            {dataQuery.data?.map((worker) => (
-              <tr key={worker.id}>
-                <td>{worker.id}</td>
-                <td>{worker.title}</td>
+            {dataQuery.data?.map((singleElement) => (
+              <tr key={singleElement.id}>
+                <td>{singleElement.id}</td>
+                <td>{singleElement.title}</td>
               </tr>
             ))}
           </tbody>

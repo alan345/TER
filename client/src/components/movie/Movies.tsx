@@ -35,11 +35,11 @@ export function Movies() {
           </thead>
 
           <tbody>
-            {dataQuery.data?.map((worker) => (
-              <tr key={worker.id}>
-                <td>{worker.id}</td>
-                <td>{worker.movie}</td>
-                <td>{worker.rating}</td>
+            {dataQuery.data?.map((singleElement) => (
+              <tr key={singleElement.id}>
+                <td>{singleElement.id}</td>
+                <td>{singleElement.movie}</td>
+                <td>{singleElement.rating}</td>
               </tr>
             ))}
           </tbody>

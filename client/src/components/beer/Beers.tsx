@@ -36,12 +36,12 @@ export function Beers() {
           </thead>
 
           <tbody>
-            {dataQuery.data?.map((worker) => (
-              <tr key={worker.id}>
-                <td>{worker.id}</td>
-                <td>{worker.brand}</td>
-                <td>{worker.name}</td>
-                <td>{worker.style}</td>
+            {dataQuery.data?.map((singleElement) => (
+              <tr key={singleElement.id}>
+                <td>{singleElement.id}</td>
+                <td>{singleElement.brand}</td>
+                <td>{singleElement.name}</td>
+                <td>{singleElement.style}</td>
               </tr>
             ))}
           </tbody>

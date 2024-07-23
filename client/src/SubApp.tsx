@@ -14,29 +14,37 @@ export function SubApp() {
   const getClassName = (tabName: string) => {
     return `cursor-pointer ${tab === tabName ? "underline" : ""}`;
   };
+
+  const elements = [
+    { name: "Movies", tab: "movies", compoent: <Movies />, isPrivate: false },
+    { name: "Beers", tab: "beers", compoent: <Beers />, isPrivate: false },
+    { name: "Albums", tab: "albums", compoent: <Albums />, isPrivate: false },
+    { name: "Users", tab: "users", compoent: <Users />, isPrivate: true },
+  ];
   return (
     <BackgroundPage>
       <AuthManagementParent />
       <nav className="flex gap-6">
-        <h1 className={getClassName("movies")} onClick={() => setTab("movies")}>
-          Movies
-        </h1>
-        <h1 className={getClassName("beers")} onClick={() => setTab("beers")}>
-          Beers
-        </h1>
-        <h1 className={getClassName("albums")} onClick={() => setTab("albums")}>
-          Albums
-        </h1>
-        {context.userId && (
-          <h1 className={getClassName("users")} onClick={() => setTab("users")}>
-            Users
-          </h1>
-        )}
+        {elements.map((element) => (
+          <span key={element.name}>
+            {((element.isPrivate && context.userId) || !element.isPrivate) && (
+              <h1
+                className={getClassName(element.tab)}
+                onClick={() => setTab(element.tab)}
+              >
+                {element.name}
+              </h1>
+            )}
+          </span>
+        ))}
       </nav>
-      {tab === "beers" && <Beers />}
-      {tab === "users" && <Users />}
-      {tab === "movies" && <Movies />}
-      {tab === "albums" && <Albums />}
+      {elements.map((element) => (
+        <div key={element.name}>
+          {((element.isPrivate && context.userId) || !element.isPrivate) && (
+            <>{tab === element.tab && element.compoent}</>
+          )}
+        </div>
+      ))}
     </BackgroundPage>
   );
 }

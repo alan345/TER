@@ -37,14 +37,14 @@ export function Users() {
           </thead>
 
           <tbody>
-            {dataQuery.data?.map((worker) => (
-              <tr key={worker.id}>
-                <td>{worker.id}</td>
-                <td>{worker.first_name}</td>
-                <td>{worker.last_name}</td>
-                <td>{worker.email}</td>
+            {dataQuery.data?.map((singleElement) => (
+              <tr key={singleElement.id}>
+                <td>{singleElement.id}</td>
+                <td>{singleElement.first_name}</td>
+                <td>{singleElement.last_name}</td>
+                <td>{singleElement.email}</td>
                 <td>
-                  <img src={worker.avatar} width="60px" />
+                  <img src={singleElement.avatar} width="60px" />
                 </td>
               </tr>
             ))}
