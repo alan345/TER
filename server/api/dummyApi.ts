@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Movie } from "../type/Movie";
+import { Movie } from "../type/Movie.type";
 
 const uri = "https://dummyapi.online/api";
 

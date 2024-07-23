@@ -12,6 +12,7 @@ import { t } from "./trpc";
 import { secretJwt } from "./env";
 import { database } from "./database/database";
 import { movieRouter } from "./router/movieRouter";
+import { photoRouter } from "./router/photoRouter";
 
 export interface UserIDJwtPayload extends jwt.JwtPayload {
   id: string;
@@ -42,6 +43,7 @@ const appRouter = mergeRouters(
   userRouter,
   healthRouter,
   albumRouter,
+  photoRouter,
   beerRouter,
   movieRouter
 );

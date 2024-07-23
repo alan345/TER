@@ -9,7 +9,7 @@ import { Albums } from "./components/album/Albums";
 
 export function SubApp() {
   const context = React.useContext(AppContext);
-  const [tab, setTab] = React.useState("beers");
+  const [tab, setTab] = React.useState("movies");
 
   const getClassName = (tabName: string) => {
     return `cursor-pointer ${tab === tabName ? "underline" : ""}`;
@@ -18,11 +18,11 @@ export function SubApp() {
     <BackgroundPage>
       <AuthManagementParent />
       <nav className="flex gap-6">
-        <h1 className={getClassName("beers")} onClick={() => setTab("beers")}>
-          Beers
-        </h1>
         <h1 className={getClassName("movies")} onClick={() => setTab("movies")}>
           Movies
+        </h1>
+        <h1 className={getClassName("beers")} onClick={() => setTab("beers")}>
+          Beers
         </h1>
         <h1 className={getClassName("albums")} onClick={() => setTab("albums")}>
           Albums
