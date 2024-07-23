@@ -13,6 +13,7 @@ import { secretJwt } from "./env";
 import { database } from "./database/database";
 import { movieRouter } from "./router/movieRouter";
 import { photoRouter } from "./router/photoRouter";
+import { employeeRouter } from "./router/EmployeeRouter";
 
 export interface UserIDJwtPayload extends jwt.JwtPayload {
   id: string;
@@ -44,6 +45,7 @@ const appRouter = mergeRouters(
   healthRouter,
   albumRouter,
   photoRouter,
+  employeeRouter,
   beerRouter,
   movieRouter
 );

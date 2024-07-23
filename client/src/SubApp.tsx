@@ -1,12 +1,13 @@
+import React from "react";
 import BackgroundPage from "./template/BackgroundPage";
 import { Users } from "./components/Users";
 import { AuthManagementParent } from "./auth/AuthManagementParent";
 import { Beers } from "./components/Beers";
-import React from "react";
 import { AppContext } from "./ContextProvider";
 import { Movies } from "./components/Movies";
 import { Albums } from "./components/Albums";
 import { Photos } from "./components/Photos";
+import { Employees } from "./components/Employees";
 
 export function SubApp() {
   const context = React.useContext(AppContext);
@@ -22,6 +23,12 @@ export function SubApp() {
     { name: "Beers", tab: "beers", compoent: <Beers />, isPrivate: false },
     { name: "Albums", tab: "albums", compoent: <Albums />, isPrivate: false },
     { name: "Users", tab: "users", compoent: <Users />, isPrivate: true },
+    {
+      name: "Employees",
+      tab: "employees",
+      compoent: <Employees />,
+      isPrivate: true,
+    },
   ];
   return (
     <BackgroundPage>
