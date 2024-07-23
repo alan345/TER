@@ -14,6 +14,7 @@ import { database } from "./database/database";
 import { movieRouter } from "./router/movieRouter";
 import { photoRouter } from "./router/photoRouter";
 import { employeeRouter } from "./router/EmployeeRouter";
+import { factRouter } from "./router/factRouter";
 
 export interface UserIDJwtPayload extends jwt.JwtPayload {
   id: string;
@@ -46,6 +47,7 @@ const appRouter = mergeRouters(
   albumRouter,
   photoRouter,
   employeeRouter,
+  factRouter,
   beerRouter,
   movieRouter
 );

@@ -8,6 +8,7 @@ import { Movies } from "./components/Movies";
 import { Albums } from "./components/Albums";
 import { Photos } from "./components/Photos";
 import { Employees } from "./components/Employees";
+import { Facts } from "./components/Facts";
 
 export function SubApp() {
   const context = React.useContext(AppContext);
@@ -22,6 +23,7 @@ export function SubApp() {
     { name: "Photos", tab: "photos", compoent: <Photos />, isPrivate: false },
     { name: "Beers", tab: "beers", compoent: <Beers />, isPrivate: false },
     { name: "Albums", tab: "albums", compoent: <Albums />, isPrivate: false },
+    { name: "Facts", tab: "facts", compoent: <Facts />, isPrivate: false },
     { name: "Users", tab: "users", compoent: <Users />, isPrivate: true },
     {
       name: "Employees",
