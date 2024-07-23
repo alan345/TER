@@ -3,6 +3,15 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import jwt from "jsonwebtoken";
+import { authRouter, cookieName } from "./router/authRouter";
+import { userRouter } from "./router/userRouter";
+import { healthRouter } from "./router/healthRouter";
+import { albumRouter } from "./router/albumRouter";
+import { beerRouter } from "./router/beerRouter";
+import { t } from "./trpc";
+import { secretJwt } from "./env";
+import { database } from "./database/database";
+import { movieRouter } from "./router/movieRouter";
 
 export interface UserIDJwtPayload extends jwt.JwtPayload {
   id: string;
@@ -27,19 +36,14 @@ export const createContext = ({
 };
 
 export const mergeRouters = t.mergeRouters;
-import { authRouter, cookieName } from "./router/authRouter";
-import { userRouter } from "./router/userRouter";
-import { healthRouter } from "./router/healthRouter";
-import { beerRouter } from "./router/beerRouter";
-import { t } from "./trpc";
-import { secretJwt } from "./env";
-import { database } from "./database/database";
 
 const appRouter = mergeRouters(
   authRouter,
   userRouter,
   healthRouter,
-  beerRouter
+  albumRouter,
+  beerRouter,
+  movieRouter
 );
 export type AppRouter = typeof appRouter;
 

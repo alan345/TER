@@ -1,8 +1,8 @@
-import { trpc } from "../utils/trpc";
+import { trpc } from "../../utils/trpc";
 import { useSearchParams } from "react-router-dom";
-import { SizeTable } from "../template/SizeTable";
-import { LoadingTemplate } from "../template/LoadingTemplate";
-import { ErrorTemplate } from "../template/ErrorTemplate";
+import { SizeTable } from "../../template/SizeTable";
+import { LoadingTemplate } from "../../template/LoadingTemplate";
+import { ErrorTemplate } from "../../template/ErrorTemplate";
 
 export function Users() {
   const [searchParams] = useSearchParams();
@@ -11,10 +11,10 @@ export function Users() {
   const initSize = 6;
   const finalSize = sizeUrl ? Number(sizeUrl) : initSize;
 
-  const workersQuery = trpc.getUsers.useQuery({ size: finalSize });
-  if (workersQuery.isLoading) return <LoadingTemplate />;
-  if (workersQuery.isError)
-    return <ErrorTemplate message={workersQuery.error.message} />;
+  const dataQuery = trpc.getUsers.useQuery({ size: finalSize });
+  if (dataQuery.isLoading) return <LoadingTemplate />;
+  if (dataQuery.isError)
+    return <ErrorTemplate message={dataQuery.error.message} />;
 
   return (
     <div>
@@ -37,7 +37,7 @@ export function Users() {
           </thead>
 
           <tbody>
-            {workersQuery.data?.map((worker) => (
+            {dataQuery.data?.map((worker) => (
               <tr key={worker.id}>
                 <td>{worker.id}</td>
                 <td>{worker.first_name}</td>

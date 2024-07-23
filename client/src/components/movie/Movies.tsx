@@ -1,20 +1,20 @@
-import { ErrorTemplate } from "../template/ErrorTemplate";
-import { LoadingTemplate } from "../template/LoadingTemplate";
-import { SizeTable } from "../template/SizeTable";
-import { trpc } from "../utils/trpc";
+import { ErrorTemplate } from "../../template/ErrorTemplate";
+import { LoadingTemplate } from "../../template/LoadingTemplate";
+import { SizeTable } from "../../template/SizeTable";
+import { trpc } from "../../utils/trpc";
 import { useSearchParams } from "react-router-dom";
 
-export function Beers() {
+export function Movies() {
   const [searchParams] = useSearchParams();
   let sizeUrl = searchParams.get("size");
 
   const initSize = 6;
   const finalSize = sizeUrl ? Number(sizeUrl) : initSize;
 
-  const workersQuery = trpc.getBeers.useQuery({ size: finalSize });
-  if (workersQuery.isLoading) return <LoadingTemplate />;
-  if (workersQuery.isError)
-    return <ErrorTemplate message={workersQuery.error.message} />;
+  const dataQuery = trpc.getMovies.useQuery({ size: finalSize });
+  if (dataQuery.isLoading) return <LoadingTemplate />;
+  if (dataQuery.isError)
+    return <ErrorTemplate message={dataQuery.error.message} />;
 
   return (
     <div>
@@ -29,19 +29,17 @@ export function Beers() {
           <thead>
             <tr>
               <th>ID</th>
-              <th>Brand</th>
               <th>Name</th>
-              <th>Style</th>
+              <th>Rating</th>
             </tr>
           </thead>
 
           <tbody>
-            {workersQuery.data?.map((worker) => (
+            {dataQuery.data?.map((worker) => (
               <tr key={worker.id}>
                 <td>{worker.id}</td>
-                <td>{worker.brand}</td>
-                <td>{worker.name}</td>
-                <td>{worker.style}</td>
+                <td>{worker.movie}</td>
+                <td>{worker.rating}</td>
               </tr>
             ))}
           </tbody>
