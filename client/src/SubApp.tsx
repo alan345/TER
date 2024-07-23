@@ -6,6 +6,7 @@ import React from "react";
 import { AppContext } from "./ContextProvider";
 import { Movies } from "./components/movie/Movies";
 import { Albums } from "./components/album/Albums";
+import { Photos } from "./components/photo/Photos";
 
 export function SubApp() {
   const context = React.useContext(AppContext);
@@ -17,6 +18,7 @@ export function SubApp() {
 
   const elements = [
     { name: "Movies", tab: "movies", compoent: <Movies />, isPrivate: false },
+    { name: "Photos", tab: "photos", compoent: <Photos />, isPrivate: false },
     { name: "Beers", tab: "beers", compoent: <Beers />, isPrivate: false },
     { name: "Albums", tab: "albums", compoent: <Albums />, isPrivate: false },
     { name: "Users", tab: "users", compoent: <Users />, isPrivate: true },

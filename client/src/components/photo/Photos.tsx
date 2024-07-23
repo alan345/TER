@@ -30,6 +30,7 @@ export function Photos() {
             <tr>
               <th>ID</th>
               <th>Title</th>
+              <th>Photo</th>
             </tr>
           </thead>
 
@@ -38,6 +39,13 @@ export function Photos() {
               <tr key={singleElement.id}>
                 <td>{singleElement.id}</td>
                 <td>{singleElement.title}</td>
+                <td>
+                  <img
+                    className="w-10 h-10"
+                    src={singleElement.thumbnailUrl}
+                    alt={singleElement.title}
+                  />
+                </td>
               </tr>
             ))}
           </tbody>
