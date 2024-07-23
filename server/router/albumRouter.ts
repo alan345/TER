@@ -1,6 +1,5 @@
 import { publicProcedure, router } from "../trpc";
 import { z } from "zod";
-import { randomDataApi } from "../api/randomDataApi";
 import { jsonPlaceholderApi } from "../api/jsonplaceholderApi";
 
 export const albumRouter = router({
