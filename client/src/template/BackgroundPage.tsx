@@ -6,7 +6,7 @@ type Props = {
 
 const BackgroundPage = (props: Props) => {
   return (
-    <div className="min-h-screen bg-gradient-to-r from-purple-500 to-pink-500 ">
+    <div className="min-h-screen bg-gradient-to-r from-purple-500 to-pink-500 text-gray-200">
       <header className="text-center flex justify-center items-center p-10">
         <div>
           <a href="https://github.com/alan345/TER" target="_blank">
