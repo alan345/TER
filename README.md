@@ -63,11 +63,8 @@ npm run start
 
 ## Printscreens
 
-#### Main Screen Desktop
-![video-demo-ter](https://github.com/user-attachments/assets/e040babe-1d37-4e24-bd8f-cf5c90be93dc)
-
-#### Main Screen Mobile
-![ter-mobile-demo](https://github.com/user-attachments/assets/955e33d0-c6be-4680-a961-73f8c060d2cf)
+#### Main Screen
+<img width="1008" alt="image" src="https://github.com/user-attachments/assets/6c68bb36-e7d3-49c4-8b0f-1189ed215eed">
 
 
 #### Health Check for the server (http://localhost:2022/health)
