@@ -13,7 +13,7 @@ import { secretJwt } from "./env";
 import { database } from "./database/database";
 import { movieRouter } from "./router/movieRouter";
 import { photoRouter } from "./router/photoRouter";
-import { employeeRouter } from "./router/EmployeeRouter";
+import { employeeRouter } from "./router/employeeRouter";
 import { factRouter } from "./router/factRouter";
 
 export interface UserIDJwtPayload extends jwt.JwtPayload {
