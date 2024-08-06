@@ -26,14 +26,14 @@
 
 ## Other Libraries
 
+- Bcrypt https://www.npmjs.com/package/bcrypt (A JavaScript library for hashing passwords)
+- JWT https://jwt.io (JSON Web Tokens)
+- NPM https://www.npmjs.com (Node Package Manager)
+- Playwright https://playwright.dev (Test your web apps headlessly with a single API)
 - Tailwind CSS https://tailwindcss.com (A utility-first CSS framework for rapid UI development)
 - TypeScript https://www.typescriptlang.org (TypeScript is a typed superset of JavaScript)
-- JWT https://jwt.io (JSON Web Tokens)
-- ZOD https://zod.dev (TypeScript-first schema validation with static type inference)
 - Vite https://vitejs.dev (Next generation frontend tooling. It's fast!)
-- Bcrypt https://www.npmjs.com/package/bcrypt (A JavaScript library for hashing passwords)
-- Playwright https://playwright.dev (Test your web apps headlessly with a single API)
-- NPM https://www.npmjs.com (Node Package Manager)
+- ZOD https://zod.dev (TypeScript-first schema validation with static type inference)
 
 ## Features
 
