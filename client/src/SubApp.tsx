@@ -35,7 +35,7 @@ export function SubApp() {
   return (
     <BackgroundPage>
       <AuthManagementParent />
-      <nav className="flex gap-6">
+      <nav className="flex gap-6 flex-wrap">
         {elements.map((element) => (
           <span key={element.name}>
             {((element.isPrivate && context.userId) || !element.isPrivate) && (

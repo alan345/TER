@@ -37,7 +37,7 @@
     @apply border-b border-neutral-200  dark:border-white/10 text-left
   }
   tr {
-    @apply border-b border-neutral-200 dark:border-white/10 hover:bg-[#CF4EC1] h-20
+    @apply border-b border-neutral-200 dark:border-white/10 hover:bg-green-200 h-20
   }
   input[type='text'], input[type='password'], input[type='number']  {
     @apply shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none
