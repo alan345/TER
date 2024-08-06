@@ -1,5 +1,4 @@
 import axios from "axios";
-import { Movie } from "../type/Movie.type";
 import { Album } from "../type/Album";
 import { Photo } from "../type/Photo.type";
 
