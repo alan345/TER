@@ -38,7 +38,12 @@
 ## Features
 
 - Authentication with JWT and HttpOnly cookies (https://owasp.org/www-community/HttpOnly)
-- Example of pulling data from an external REST API: Random Beers and random Users (https://random-data-api.com)
+- Example of pulling data from an external REST API
+  - Beers and Users (https://random-data-api.com)
+  - Facts (https://catfact.ninja)
+  - Movies (https://dummyapi.online)
+  - Employees (https://dummy.restapiexample.com)
+  - Albums and Photos (https://jsonplaceholder.typicode.com)
 - Store the user's details in the React context when logged in (https://react.dev/learn/passing-data-deeply-with-context)
 - Health Check for the server (http://localhost:2022/health)
 - Select the number of rows to display in the table
