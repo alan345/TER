@@ -27,8 +27,8 @@
 ## Other Libraries
 
 - Bcrypt https://www.npmjs.com/package/bcrypt (A JavaScript library for hashing passwords)
-- JWT https://jwt.io (JSON Web Tokens)
-- NPM https://www.npmjs.com (Node Package Manager)
+- JWT https://jwt.io (JSON Web Tokens for authentication)
+- NPM https://www.npmjs.com (Node Package Manager for managing dependencies)
 - Playwright https://playwright.dev (Test your web apps headlessly with a single API)
 - Tailwind CSS https://tailwindcss.com (A utility-first CSS framework for rapid UI development)
 - TypeScript https://www.typescriptlang.org (TypeScript is a typed superset of JavaScript)
@@ -64,7 +64,8 @@ Try editing the ts files to see the type checking in action, thanks to Trpc :)
 - Make sure to rename the file (https://github.com/alan345/TER/blob/main/server/env.ts) `env.ts` to `.env`
 - Update the key
 - Use dotenv (https://www.dotenv.org)
-- Run: 
+- Run:
+
 ```bash
 npm run build
 npm run start
@@ -73,8 +74,8 @@ npm run start
 ## Printscreens
 
 #### Main Screen
-<img width="1008" alt="image" src="https://github.com/user-attachments/assets/6c68bb36-e7d3-49c4-8b0f-1189ed215eed">
 
+<img width="1008" alt="image" src="https://github.com/user-attachments/assets/6c68bb36-e7d3-49c4-8b0f-1189ed215eed">
 
 #### Health Check for the server (http://localhost:2022/health)
 
