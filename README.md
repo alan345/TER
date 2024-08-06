@@ -59,7 +59,9 @@ npm run dev
 
 Try editing the ts files to see the type checking in action, thanks to Trpc :)
 
-## Building
+## Building Fro production
+
+Make sure to rename the file `emv.ts` to `.env` and use dotenv
 
 ```bash
 npm run build
