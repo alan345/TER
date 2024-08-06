@@ -38,7 +38,12 @@
 ## Features
 
 - Authentication with JWT and HttpOnly cookies (https://owasp.org/www-community/HttpOnly)
-- Example of pulling data from an external REST API: Random Beers and random Users (https://random-data-api.com)
+- Example of pulling data from an external REST API
+  - Beers and Users (https://random-data-api.com)
+  - Facts (https://catfact.ninja)
+  - Movies (https://dummyapi.online)
+  - Employees (https://dummy.restapiexample.com)
+  - Albums and Photos (https://jsonplaceholder.typicode.com)
 - Store the user's details in the React context when logged in (https://react.dev/learn/passing-data-deeply-with-context)
 - Health Check for the server (http://localhost:2022/health)
 - Select the number of rows to display in the table
@@ -96,7 +101,7 @@ npm run test:e2e
 
 ![test-ter-vscode](https://github.com/user-attachments/assets/d87b91ba-e7c8-4f60-ab17-1d61caa4f112)
 
-## Thanks!
+## Miscellaneous
 
 <div align="center">
   <a href="https://buymeacoffee.com/fullstackter">
@@ -109,3 +114,6 @@ npm run test:e2e
     <img src="https://github.com/user-attachments/assets/c9ce1733-4002-44a9-9ab3-a3bc365b3648" alt="image" width="300"/>
   </a>
 </div>
+<sub>
+<sub>
+A "TER" in France stands for "Train Express Régional." It's a regional rail network that provides a vital service connecting smaller towns and cities across various regions to larger urban centers. Managed by SNCF, the French national railway company, TERs are often used for commuting to work, school, or for regional travel, offering an efficient and environmentally friendly alternative to driving. The trains vary in frequency and speed, depending on the region and the distances they cover.</sub></sub>
