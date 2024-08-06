@@ -96,7 +96,7 @@ npm run test:e2e
 
 ![test-ter-vscode](https://github.com/user-attachments/assets/d87b91ba-e7c8-4f60-ab17-1d61caa4f112)
 
-## Thanks!
+## Miscellaneous
 
 <div align="center">
   <a href="https://buymeacoffee.com/fullstackter">
