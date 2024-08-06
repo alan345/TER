@@ -61,7 +61,7 @@ Try editing the ts files to see the type checking in action, thanks to Trpc :)
 
 ## Building for production
 
-Make sure to rename the file `emv.ts` to `.env` and use dotenv
+Make sure to rename the file (https://github.com/alan345/TER/blob/main/server/env.ts) `env.ts` to `.env` and use dotenv (https://www.dotenv.org)
 
 ```bash
 npm run build
