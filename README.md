@@ -44,7 +44,7 @@
   - Movies (https://dummyapi.online)
   - Employees (https://dummy.restapiexample.com)
   - Albums and Photos (https://jsonplaceholder.typicode.com)
-- Store the user's details in the React context when logged in (https://react.dev/learn/passing-data-deeply-with-context)
+- Store the user's details in the React context when logged in (https://react.dev/reference/react/useContext)
 - Health Check for the server (http://localhost:2022/health)
 - Select the number of rows to display in the table
 
