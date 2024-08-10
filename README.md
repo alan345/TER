@@ -21,7 +21,7 @@
 ## Main Stack
 
 - <strong>T</strong>rpc https://trpc.io (End-to-end typesafe APIs made easy)
-- <strong>E</strong>xpress https://expressjs.com (Fast, unopinionated, minimalist web framework for node)
+- <strong>E</strong>xpress https://expressjs.com (Fast, unopinionated, minimalist web framework for Node.js)
 - <strong>R</strong>eact https://reactjs.org (A JavaScript library for building user interfaces)
 
 ## Other Libraries
