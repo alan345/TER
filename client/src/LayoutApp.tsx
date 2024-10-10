@@ -1,10 +1,11 @@
 import React from "react";
 import levelpath from "./images/ter-logo.png";
 import { Routing } from "./Routing";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export function LayoutApp() {
   const [sidebarOpen, setSidebarOpen] = React.useState(false);
+  const location = useLocation(); // Hook to get current location
 
   return (
     <div className="flex h-screen text-gray-600">
@@ -15,7 +16,11 @@ export function LayoutApp() {
       >
         <div className="p-4 flex items-center justify-center h-24 ">
           <div>
-            <a href="https://github.com/alan345/TER" target="_blank">
+            <a
+              href="https://github.com/alan345/TER"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src={levelpath} alt="logo" className="w-24" />
               <b>T</b>rpc <b>E</b>xpress <b>R</b>eact
             </a>
@@ -24,25 +29,39 @@ export function LayoutApp() {
         <nav className="px-4 py-6">
           <Link
             to="/"
-            className="block py-2.5 px-4 rounded hover:bg-gray-100 transition"
+            className={`block py-2.5 px-4 rounded transition ${
+              location.pathname === "/" ? "bg-gray-200" : "hover:bg-gray-100"
+            }`}
           >
             Home
           </Link>
           <Link
             to="/elements"
-            className="block py-2.5 px-4 rounded hover:bg-gray-100 transition"
+            className={`block py-2.5 px-4 rounded transition ${
+              location.pathname === "/elements"
+                ? "bg-gray-200"
+                : "hover:bg-gray-100"
+            }`}
           >
             Elements
           </Link>
           <Link
             to="/contact"
-            className="block py-2.5 px-4 rounded hover:bg-gray-100 transition"
+            className={`block py-2.5 px-4 rounded transition ${
+              location.pathname === "/contact"
+                ? "bg-gray-200"
+                : "hover:bg-gray-100"
+            }`}
           >
             Contact
           </Link>
           <Link
             to="/login"
-            className="block py-2.5 px-4 rounded hover:bg-gray-100 transition"
+            className={`block py-2.5 px-4 rounded transition ${
+              location.pathname === "/login"
+                ? "bg-gray-200"
+                : "hover:bg-gray-100"
+            }`}
           >
             Login
           </Link>
