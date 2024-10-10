@@ -9,55 +9,45 @@ export function Login() {
 
   return (
     <div>
-      {!isOpen ? (
-        <button
-          id="login-button"
-          className="btn-blue"
-          onClick={() => setIsOpen(true)}
-        >
-          Login
-        </button>
-      ) : (
+      <div>
         <div>
-          <div>
-            <input
-              id="login-input"
-              value={login}
-              className="text-black"
-              type="text"
-              placeholder="Login"
-              onChange={(e) => setLogin(e.target.value)}
-            />
-          </div>
-          <div className="mt-1">
-            <input
-              id="password-input"
-              value={password}
-              className="text-black"
-              type={showPassword ? "text" : "password"}
-              placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
           <input
-            type="checkbox"
-            id="show-password-checkbox"
-            name="show-password-checkbox"
-            onClick={() => setShowPassword(!showPassword)}
+            id="login-input"
+            value={login}
+            className="text-black"
+            type="text"
+            placeholder="Login"
+            onChange={(e) => setLogin(e.target.value)}
           />
-          <label htmlFor="show-password-checkbox" className="ml-2">
-            Show Password
-          </label>
-
-          <div className="mt-1">
-            <LoginMutation
-              onCancel={() => setIsOpen(false)}
-              login={login}
-              password={password}
-            />
-          </div>
         </div>
-      )}
+        <div className="mt-1">
+          <input
+            id="password-input"
+            value={password}
+            className="text-black"
+            type={showPassword ? "text" : "password"}
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <input
+          type="checkbox"
+          id="show-password-checkbox"
+          name="show-password-checkbox"
+          onClick={() => setShowPassword(!showPassword)}
+        />
+        <label htmlFor="show-password-checkbox" className="ml-2">
+          Show Password
+        </label>
+
+        <div className="mt-1">
+          <LoginMutation
+            onCancel={() => setIsOpen(false)}
+            login={login}
+            password={password}
+          />
+        </div>
+      </div>
     </div>
   );
 }
