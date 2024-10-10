@@ -4,7 +4,7 @@ import { useState } from "react";
 import { trpc } from "./utils/trpc";
 import { BrowserRouter } from "react-router-dom";
 import ContextProvider from "./ContextProvider";
-import { SubApp } from "./SubApp";
+import { LayoutApp } from "./LayoutApp";
 
 export function App() {
   const [queryClient] = useState(
@@ -41,7 +41,7 @@ export function App() {
       <trpc.Provider client={trpcClient} queryClient={queryClient}>
         <ContextProvider>
           <QueryClientProvider client={queryClient}>
-            <SubApp />
+            <LayoutApp />
           </QueryClientProvider>
         </ContextProvider>
       </trpc.Provider>

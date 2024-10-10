@@ -1,12 +1,12 @@
 import React from "react";
-import { Users } from "./components/Users";
-import { Beers } from "./components/Beers";
-import { AppContext } from "./ContextProvider";
-import { Movies } from "./components/Movies";
-import { Albums } from "./components/Albums";
-import { Photos } from "./components/Photos";
-import { Employees } from "./components/Employees";
-import { Facts } from "./components/Facts";
+import { Users } from "../components/Users";
+import { Beers } from "../components/Beers";
+import { AppContext } from "../ContextProvider";
+import { Movies } from "../components/Movies";
+import { Albums } from "../components/Albums";
+import { Photos } from "../components/Photos";
+import { Employees } from "../components/Employees";
+import { Facts } from "../components/Facts";
 
 export function ElementsPage() {
   const context = React.useContext(AppContext);

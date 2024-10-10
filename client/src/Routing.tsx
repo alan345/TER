@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import { ElementsPage } from "./ElementsPage";
-import { Home } from "./Home";
+import { ElementsPage } from "./pages/ElementsPage";
+import { Home } from "./pages/Home";
 import { AuthManagement } from "./auth/AuthManagement";
-import { Contact } from "./Contact";
+import { Contact } from "./pages/Contact";
 
 export function Routing() {
   return (

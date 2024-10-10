@@ -3,7 +3,7 @@ import levelpath from "./images/ter-logo.png";
 import { Routing } from "./Routing";
 import { Link } from "react-router-dom";
 
-export function SubApp() {
+export function LayoutApp() {
   const [sidebarOpen, setSidebarOpen] = React.useState(false);
 
   return (
@@ -78,16 +78,12 @@ export function SubApp() {
                 ></path>
               </svg>
             </button>
-            {/* <h1 className="ml-4 text-xl font-semibold text-gray-700">Header</h1> */}
           </div>
-          {/* Additional Header Content */}
           <div className="flex items-center">
-            {/* Example Profile/Avatar */}
             <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
           </div>
         </header>
 
-        {/* Page Content */}
         <main className="flex-1 overflow-y-auto p-6">
           <Routing />
         </main>
