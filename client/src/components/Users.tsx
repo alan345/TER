@@ -1,27 +1,24 @@
-import { trpc } from "../utils/trpc";
-import { useSearchParams } from "react-router-dom";
-import { SizeTable } from "../template/SizeTable";
-import { LoadingTemplate } from "../template/LoadingTemplate";
-import { ErrorTemplate } from "../template/ErrorTemplate";
+import { trpc } from "../utils/trpc"
+import { useSearchParams } from "react-router-dom"
+import { SizeTable } from "../template/SizeTable"
+import { LoadingTemplate } from "../template/LoadingTemplate"
+import { ErrorTemplate } from "../template/ErrorTemplate"
 
-export function Users() {
-  const [searchParams] = useSearchParams();
-  let sizeUrl = searchParams.get("size");
+export const Users = () => {
+  const [searchParams] = useSearchParams()
+  let sizeUrl = searchParams.get("size")
 
-  const initSize = 6;
-  const finalSize = sizeUrl ? Number(sizeUrl) : initSize;
+  const initSize = 6
+  const finalSize = sizeUrl ? Number(sizeUrl) : initSize
 
-  const dataQuery = trpc.getUsers.useQuery({ size: finalSize });
-  if (dataQuery.isLoading) return <LoadingTemplate />;
-  if (dataQuery.isError)
-    return <ErrorTemplate message={dataQuery.error.message} />;
+  const dataQuery = trpc.getUsers.useQuery({ size: finalSize })
+  if (dataQuery.isLoading) return <LoadingTemplate />
+  if (dataQuery.isError) return <ErrorTemplate message={dataQuery.error.message} />
 
   return (
     <div>
       <div className="flex justify-between mt-4">
-        <p>
-          This page is Protected. You need to be logged in to see this page.
-        </p>
+        <p>This page is Protected. You need to be logged in to see this page.</p>
         <SizeTable initSize={initSize} />
       </div>
       <div className="overflow-x-auto">
@@ -52,5 +49,5 @@ export function Users() {
         </table>
       </div>
     </div>
-  );
+  )
 }

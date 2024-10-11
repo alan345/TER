@@ -3,6 +3,7 @@ import { ElementsPage } from "./pages/ElementsPage"
 import { Home } from "./pages/Home"
 import { AuthManagement } from "./auth/AuthManagement"
 import { Contact } from "./pages/Contact"
+import { ProfilePage } from "./pages/ProfilePage"
 
 export const AppRouting = () => {
   return (
@@ -11,6 +12,7 @@ export const AppRouting = () => {
       <Route path="/elements" element={<ElementsPage />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/login" element={<AuthManagement />} />
+      <Route path="/profile" element={<ProfilePage />} />
       <Route path="*" element={<>No page</>} />
     </Routes>
   )

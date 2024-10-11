@@ -1,7 +1,7 @@
 import React from "react"
 import { LoginMutation } from "./LoginMutation"
 
-export const LoginPage = () => {
+export const Login = () => {
   const [email, setEmail] = React.useState("alan@example.com")
   const [password, setPassword] = React.useState("securePassword")
   const [showPassword, setShowPassword] = React.useState(false)
@@ -35,9 +35,11 @@ export const LoginPage = () => {
             type="checkbox"
             id="show-password-checkbox"
             name="show-password-checkbox"
-            onClick={() => setShowPassword(!showPassword)}
+            checked={showPassword}
+            onChange={() => setShowPassword(!showPassword)}
+            className="cursor-pointer"
           />
-          <label htmlFor="show-password-checkbox" className="ml-2">
+          <label htmlFor="show-password-checkbox" className="ml-2 cursor-pointer">
             Show Password
           </label>
         </div>

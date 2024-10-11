@@ -7,23 +7,24 @@ export const AvatarMenu = () => {
 
   return (
     <div className="h-8">
-      <Link to="/login">
-        <>
-          {context.me ? (
+      <>
+        {context.me ? (
+          <Link to="/profile">
             <div className="flex items-center justify-center">
               <img
                 src={context.me.image}
-                // className="w-10 h-10 rounded-full border-4 border-gray-300 shadow-lg"
                 className="w-10 h-10 rounded-full border-4 border-gray-300 shadow-lg transition-transform duration-200 transform hover:scale-110 hover:border-[#034DA2]"
               />
             </div>
-          ) : (
+          </Link>
+        ) : (
+          <Link to="/login">
             <button id="login-mutation-button" className="btn-blue">
               Login
             </button>
-          )}
-        </>
-      </Link>
+          </Link>
+        )}
+      </>
     </div>
   )
 }

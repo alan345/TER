@@ -35,15 +35,6 @@ export const NavLinks = (props: Props) => {
       >
         Contact
       </Link>
-      <Link
-        onClick={props.onClick}
-        to="/login"
-        className={`block py-2.5 px-4 rounded transition ${
-          location.pathname === "/login" ? "bg-gray-200" : "hover:bg-gray-100"
-        }`}
-      >
-        Login
-      </Link>
     </nav>
   )
 }
