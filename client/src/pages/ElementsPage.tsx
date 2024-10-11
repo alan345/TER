@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useEffect } from "react"
+import { useLocation, useNavigate } from "react-router-dom"
 import { Users } from "../components/Users"
 import { Beers } from "../components/Beers"
 import { AppContext } from "../ContextProvider"
@@ -10,26 +11,48 @@ import { Facts } from "../components/Facts"
 
 export function ElementsPage() {
   const context = React.useContext(AppContext)
-  const [tab, setTab] = React.useState("movies")
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  // Extract the `tab` query param from the URL
+  const queryParams = new URLSearchParams(location.search)
+  const initialTab = queryParams.get("tab") || "movies"
+
+  const [tab, setTab] = React.useState(initialTab)
+
+  useEffect(() => {
+    // Sync the tab state with the query param
+    const query = new URLSearchParams(location.search)
+    const currentTab = query.get("tab") || "movies"
+    if (currentTab !== tab) {
+      setTab(currentTab)
+    }
+  }, [location.search, tab])
 
   const getClassName = (tabName: string) => {
     return `cursor-pointer ${tab === tabName ? "underline" : ""}`
   }
 
   const elements = [
-    { name: "Movies", tab: "movies", compoent: <Movies />, isPrivate: false },
-    { name: "Photos", tab: "photos", compoent: <Photos />, isPrivate: false },
-    { name: "Beers", tab: "beers", compoent: <Beers />, isPrivate: false },
-    { name: "Albums", tab: "albums", compoent: <Albums />, isPrivate: false },
-    { name: "Facts", tab: "facts", compoent: <Facts />, isPrivate: false },
-    { name: "Users", tab: "users", compoent: <Users />, isPrivate: true },
+    { name: "Movies", tab: "movies", component: <Movies />, isPrivate: false },
+    { name: "Photos", tab: "photos", component: <Photos />, isPrivate: false },
+    { name: "Beers", tab: "beers", component: <Beers />, isPrivate: false },
+    { name: "Albums", tab: "albums", component: <Albums />, isPrivate: false },
+    { name: "Facts", tab: "facts", component: <Facts />, isPrivate: false },
+    { name: "Users", tab: "users", component: <Users />, isPrivate: true },
     {
       name: "Employees",
       tab: "employees",
-      compoent: <Employees />,
+      component: <Employees />,
       isPrivate: true,
     },
   ]
+
+  const handleTabChange = (newTab: string) => {
+    // Update the query param in the URL
+    navigate(`?tab=${newTab}`)
+  }
+
   return (
     <>
       <h2 className="text-2xl font-semibold text-gray-700">Elements</h2>
@@ -37,7 +60,7 @@ export function ElementsPage() {
         {elements.map((element) => (
           <span key={element.name}>
             {((element.isPrivate && context.me) || !element.isPrivate) && (
-              <h3 className={getClassName(element.tab)} onClick={() => setTab(element.tab)}>
+              <h3 className={getClassName(element.tab)} onClick={() => handleTabChange(element.tab)}>
                 {element.name}
               </h3>
             )}
@@ -46,7 +69,7 @@ export function ElementsPage() {
       </nav>
       {elements.map((element) => (
         <div key={element.name}>
-          {((element.isPrivate && context.me) || !element.isPrivate) && <>{tab === element.tab && element.compoent}</>}
+          {((element.isPrivate && context.me) || !element.isPrivate) && <>{tab === element.tab && element.component}</>}
         </div>
       ))}
     </>
