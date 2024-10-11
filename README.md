@@ -100,12 +100,6 @@ The tests must be run while the app is running.
 npm run test:e2e
 ```
 
-![test-ter-terminal](https://github.com/user-attachments/assets/8c6a718b-b4ee-4938-a665-cfd118bdc46c)
-
-#### Running the tests in Vscode
-
-![test-ter-vscode](https://github.com/user-attachments/assets/d87b91ba-e7c8-4f60-ab17-1d61caa4f112)
-
 ## Miscellaneous
 
 <div align="center">
