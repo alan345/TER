@@ -6,15 +6,15 @@ export const AvatarMenu = () => {
   const context = React.useContext(AppContext)
 
   return (
-    <div className="h-14">
+    <div className="h-8">
       <Link to="/login">
         <>
           {context.me ? (
             <div className="flex items-center justify-center">
               <img
                 src={context.me.image}
-                // className="w-14 h-14 rounded-full border-4 border-gray-300 shadow-lg"
-                className="w-14 h-14 rounded-full border-4 border-gray-300 shadow-lg transition-transform duration-200 transform hover:scale-110 hover:border-[#034DA2]"
+                // className="w-10 h-10 rounded-full border-4 border-gray-300 shadow-lg"
+                className="w-10 h-10 rounded-full border-4 border-gray-300 shadow-lg transition-transform duration-200 transform hover:scale-110 hover:border-[#034DA2]"
               />
             </div>
           ) : (
