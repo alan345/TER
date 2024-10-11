@@ -5,6 +5,12 @@ import bcrypt from "bcrypt"
 import { secretJwt } from "../env"
 import { TRPCError } from "@trpc/server"
 import jwt from "jsonwebtoken"
+import { drizzle } from "drizzle-orm/connect"
+import { usersTable } from "../../drizzle/src/db/schema"
+
+// import { drizzle } from ""
+// import { usersTable } from ""
+
 export const cookieName = "ter-auth"
 
 export const authRouter = router({
@@ -16,6 +22,12 @@ export const authRouter = router({
       })
     )
     .mutation(async (opts) => {
+      // const db = await drizzle("node-postgres", process.env.DATABASE_URL!)
+      console.log(process.env.DATABASE_URL)
+      const db = await drizzle("node-postgres", process.env.DATABASE_URL!)
+      const users = await db.select().from(usersTable)
+      console.log("Getting all users from the database: ", users)
+
       const user = database.find((u) => u.email === opts.input.email)
       if (!user) throw new Error("Incorrect login")
 

@@ -3,7 +3,8 @@
   "private": true,
   "workspaces": [
     "client",
-    "server"
+    "server",
+    "drizzle"
   ],
   "scripts": {
     "build:client": "npm run build -w client",
