@@ -27,11 +27,8 @@ export function LoginMutation(props: Props) {
         onClick={handleCreateWorker}
         className="btn-blue"
       >
-        {createWorkerMutation.isPending ? "Closing..." : "Login"}
-      </button>{" "}
-      {/* <button id="cancel-mutation-button" onClick={props.onCancel}>
-        Cancel
-      </button> */}
+        {createWorkerMutation.isPending ? "Loading..." : "Login"}
+      </button>
       {createWorkerMutation.error && <p className="text-red-600">{createWorkerMutation.error.message}</p>}
     </div>
   )
