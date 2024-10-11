@@ -1,8 +1,7 @@
 import React from "react"
 import { LoginMutation } from "./LoginMutation"
 
-export const Login = () => {
-  const [isOpen, setIsOpen] = React.useState(false)
+export const LoginPage = () => {
   const [login, setLogin] = React.useState("alan@example.com")
   const [password, setPassword] = React.useState("securePassword")
   const [showPassword, setShowPassword] = React.useState(false)
@@ -41,7 +40,7 @@ export const Login = () => {
         </label>
 
         <div className="mt-1">
-          <LoginMutation onCancel={() => setIsOpen(false)} login={login} password={password} />
+          <LoginMutation login={login} password={password} />
         </div>
       </div>
     </div>
