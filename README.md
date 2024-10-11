@@ -74,8 +74,8 @@ npm run start
 ## Printscreens
 
 #### Main Screen
+![Recording 2024-10-11 at 09 43 21](https://github.com/user-attachments/assets/60c62f37-e663-4a3e-bfc8-bd1fc2ca3ca4)
 
-<img width="1008" alt="image" src="https://github.com/user-attachments/assets/6c68bb36-e7d3-49c4-8b0f-1189ed215eed">
 
 #### Health Check for the server (http://localhost:2022/health)
 
@@ -99,12 +99,6 @@ The tests must be run while the app is running.
 ```
 npm run test:e2e
 ```
-
-![test-ter-terminal](https://github.com/user-attachments/assets/8c6a718b-b4ee-4938-a665-cfd118bdc46c)
-
-#### Running the tests in Vscode
-
-![test-ter-vscode](https://github.com/user-attachments/assets/d87b91ba-e7c8-4f60-ab17-1d61caa4f112)
 
 ## Miscellaneous
 
