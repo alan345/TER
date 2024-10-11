@@ -74,7 +74,7 @@ npm run start
 ## Printscreens
 
 #### Main Screen
-![Recording 2024-10-11 at 09 38 55](https://github.com/user-attachments/assets/b952b3c3-9b24-4dc8-a49c-0c34d926c0f1)
+![Recording 2024-10-11 at 09 43 21](https://github.com/user-attachments/assets/60c62f37-e663-4a3e-bfc8-bd1fc2ca3ca4)
 
 
 #### Health Check for the server (http://localhost:2022/health)
