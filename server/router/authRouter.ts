@@ -47,6 +47,7 @@ export const authRouter = router({
     return {
       id: opts.ctx.user.id,
       name: opts.ctx.user.name,
+      image: opts.ctx.user.image,
     }
   }),
 })

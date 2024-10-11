@@ -36,7 +36,7 @@ export function ElementsPage() {
       <nav className="flex gap-6 flex-wrap mt-4">
         {elements.map((element) => (
           <span key={element.name}>
-            {((element.isPrivate && context.userId) || !element.isPrivate) && (
+            {((element.isPrivate && context.me) || !element.isPrivate) && (
               <h3 className={getClassName(element.tab)} onClick={() => setTab(element.tab)}>
                 {element.name}
               </h3>
@@ -46,9 +46,7 @@ export function ElementsPage() {
       </nav>
       {elements.map((element) => (
         <div key={element.name}>
-          {((element.isPrivate && context.userId) || !element.isPrivate) && (
-            <>{tab === element.tab && element.compoent}</>
-          )}
+          {((element.isPrivate && context.me) || !element.isPrivate) && <>{tab === element.tab && element.compoent}</>}
         </div>
       ))}
     </>

@@ -1,10 +1,10 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { httpBatchLink } from "@trpc/client";
-import { useState } from "react";
-import { trpc } from "./utils/trpc";
-import { BrowserRouter } from "react-router-dom";
-import ContextProvider from "./ContextProvider";
-import { LayoutApp } from "./LayoutApp";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import { httpBatchLink } from "@trpc/client"
+import { useState } from "react"
+import { trpc } from "./utils/trpc"
+import { BrowserRouter } from "react-router-dom"
+import { ContextProvider } from "./ContextProvider"
+import { LayoutApp } from "./LayoutApp"
 
 export function App() {
   const [queryClient] = useState(
@@ -18,7 +18,7 @@ export function App() {
           },
         },
       })
-  );
+  )
 
   const [trpcClient] = useState(() =>
     trpc.createClient({
@@ -30,12 +30,12 @@ export function App() {
             return fetch(url, {
               ...options,
               credentials: "include",
-            });
+            })
           },
         }),
       ],
     })
-  );
+  )
   return (
     <BrowserRouter>
       <trpc.Provider client={trpcClient} queryClient={queryClient}>
@@ -46,5 +46,5 @@ export function App() {
         </ContextProvider>
       </trpc.Provider>
     </BrowserRouter>
-  );
+  )
 }

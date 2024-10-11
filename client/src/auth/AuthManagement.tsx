@@ -5,10 +5,10 @@ import { LoginPage } from "./LoginPage"
 
 export function AuthManagement() {
   const context = React.useContext(AppContext)
-  if (context.userId) {
+  if (context.me) {
     return (
       <>
-        Hey {context.name}!
+        Hey {context.me.name}!
         <Logout />
       </>
     )

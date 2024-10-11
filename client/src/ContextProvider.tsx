@@ -1,55 +1,54 @@
-import React from "react";
-import { trpc } from "./utils/trpc";
+import React from "react"
+import { trpc } from "./utils/trpc"
 type ContextType = {
-  userId: string;
-  name: string;
-  updateUserId: () => void;
-  isLoading: boolean;
-};
+  me: {
+    id: string
+    name: string
+    image: string
+  } | null
+  updateUserId: () => void
+  isLoading: boolean
+}
 const initialContext: ContextType = {
-  userId: "",
-  name: "",
+  me: null,
   isLoading: false,
   updateUserId: () => {},
-};
-export const AppContext = React.createContext<ContextType>(initialContext);
+}
+export const AppContext = React.createContext<ContextType>(initialContext)
 
 type Props = {
-  children: React.ReactNode;
-};
+  children: React.ReactNode
+}
 
-export default function ContextProvider(props: Props) {
-  const workersQuery = trpc.getAuth.useQuery(undefined, { retry: false });
+export const ContextProvider = (props: Props) => {
+  const getAuthQuery = trpc.getAuth.useQuery(undefined, { retry: false })
 
-  const [userId, setUserId] = React.useState("");
-  const [isLoading, setIsLoading] = React.useState(false);
-  const [name, setName] = React.useState("");
-
+  const [isLoading, setIsLoading] = React.useState(false)
+  const [me, setMe] = React.useState<ContextType["me"]>(null)
   const updateUserId = async () => {
-    await workersQuery.refetch();
-  };
+    await getAuthQuery.refetch()
+  }
 
   React.useEffect(() => {
-    setIsLoading(workersQuery.isLoading);
-    if (workersQuery.isError) {
-      setName("");
-      setUserId("");
-      return;
+    setIsLoading(getAuthQuery.isLoading)
+    if (getAuthQuery.isError) {
+      setMe(null)
+      return
     }
-    setName(workersQuery.data?.name ? workersQuery.data.name : "");
-    setUserId(workersQuery.data?.id ? workersQuery.data.id : "");
-  }, [workersQuery]);
+    if (getAuthQuery.data) {
+      setMe(getAuthQuery.data)
+    }
+  }, [getAuthQuery])
 
   return (
     <AppContext.Provider
       value={{
-        userId,
-        name,
+        me,
         isLoading,
         updateUserId,
       }}
     >
       {props.children}
     </AppContext.Provider>
-  );
+  )
 }
