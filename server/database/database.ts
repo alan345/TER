@@ -1,7 +1,7 @@
 export const database = [
   {
     id: "quyet7qwehwq",
-    login: "alan@example.com",
+    email: "alan@example.com",
     name: "Alan Doe",
     image:
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Round&hairColor=Auburn&facialHairType=BeardMedium&facialHairColor=Platinum&clotheType=BlazerShirt&eyeType=Side&eyebrowType=UnibrowNatural&mouthType=Tongue&skinColor=Light",
@@ -9,7 +9,7 @@ export const database = [
   },
   {
     id: "gsu7qwehwq",
-    login: "paul@example.com",
+    email: "paul@example.com",
     name: "Paul Doe",
     image:
       "https://avataaars.io/?avatarStyle=Transparent&topType=WinterHat3&accessoriesType=Prescription01&hatColor=Red&hairColor=Red&facialHairType=BeardLight&facialHairColor=Black&clotheType=Hoodie&clotheColor=Black&eyeType=Hearts&eyebrowType=UpDown&mouthType=ScreamOpen&skinColor=Yellow",
@@ -17,7 +17,7 @@ export const database = [
   },
   {
     id: "7qwehwq",
-    login: "john@example.com",
+    email: "john@example.com",
     name: "John Doe",
     image:
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairFrizzle&accessoriesType=Prescription01&hairColor=Black&facialHairType=Blank&facialHairColor=Brown&clotheType=BlazerSweater&clotheColor=Gray02&eyeType=Side&eyebrowType=Default&mouthType=Default&skinColor=Black",

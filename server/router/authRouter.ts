@@ -11,12 +11,12 @@ export const authRouter = router({
   login: publicProcedure
     .input(
       z.object({
-        login: z.string(),
+        email: z.string(),
         password: z.string(),
       })
     )
     .mutation(async (opts) => {
-      const user = database.find((u) => u.login === opts.input.login)
+      const user = database.find((u) => u.email === opts.input.email)
       if (!user) throw new Error("Incorrect login")
 
       const isPasswordCorrect = await bcrypt.compare(opts.input.password, user.password)
