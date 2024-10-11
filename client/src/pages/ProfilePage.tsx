@@ -5,9 +5,7 @@ import { Logout } from "../auth/Logout"
 
 export const ProfilePage = () => {
   const context = React.useContext(AppContext)
-  if (context.isLoading) {
-    return <div>Loading</div>
-  }
+
   if (!context.me) {
     return null
   }
