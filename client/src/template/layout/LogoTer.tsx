@@ -1,4 +1,4 @@
-import logoTer from "../images/ter-logo.png"
+import logoTer from "../../images/ter-logo.png"
 
 export const LogoTer = () => {
   return (
