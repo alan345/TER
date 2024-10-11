@@ -1,5 +1,5 @@
 import React from "react"
-import { AppContext } from "../ContextProvider"
+import { AppContext } from "../../ContextProvider"
 import { Link } from "react-router-dom"
 
 export const AvatarMenu = () => {

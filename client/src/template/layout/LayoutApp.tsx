@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react"
-import levelpath from "../images/ter-logo.png"
-import { AppRouting } from "../AppRouting"
-import { AvatarMenu } from "../components/AvatarMenu"
+import { AppRouting } from "../../AppRouting"
+import { AvatarMenu } from "./AvatarMenu"
 import { NavLinks } from "./NavLinks"
 import { BurgerLogic } from "./BurgerLogic"
 import { LogoTer } from "./LogoTer"
@@ -9,10 +8,8 @@ import { LogoTer } from "./LogoTer"
 export const LayoutApp = () => {
   const [sidebarOpen, setSidebarOpen] = React.useState(false)
 
-  // Define the sidebarRef with the correct HTMLDivElement type
   const sidebarRef = useRef<HTMLDivElement>(null)
 
-  // Close sidebar when clicking outside of it
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       // Check if click is outside the sidebar
@@ -36,7 +33,7 @@ export const LayoutApp = () => {
         } transition-transform duration-200 ease-in-out md:relative md:translate-x-0`}
       >
         <LogoTer />
-        <NavLinks />
+        <NavLinks onClick={() => setSidebarOpen(false)} />
       </div>
 
       <div className="flex-1 flex flex-col overflow-hidden">
