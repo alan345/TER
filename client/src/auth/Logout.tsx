@@ -8,13 +8,14 @@ export const Logout = () => {
   const context = React.useContext(AppContext)
   const logoutMutation = trpc.logout.useMutation({})
   const logout = async () => {
-    await logoutMutation.mutateAsync(undefined, {
-      onSuccess: () => {
-        console.log("success Logout")
-        context.updateUserId()
-      },
-    })
-    navigate("/login")
+    try {
+      await logoutMutation.mutateAsync(undefined)
+      console.log("success Logout")
+      navigate("/login")
+      context.updateUserId()
+    } catch (error) {
+      console.log(error)
+    }
   }
   return (
     <div>
