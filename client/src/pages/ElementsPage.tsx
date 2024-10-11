@@ -9,19 +9,17 @@ import { Photos } from "../components/Photos"
 import { Employees } from "../components/Employees"
 import { Facts } from "../components/Facts"
 
-export function ElementsPage() {
+export const ElementsPage = () => {
   const context = React.useContext(AppContext)
   const location = useLocation()
   const navigate = useNavigate()
 
-  // Extract the `tab` query param from the URL
   const queryParams = new URLSearchParams(location.search)
   const initialTab = queryParams.get("tab") || "movies"
 
   const [tab, setTab] = React.useState(initialTab)
 
   useEffect(() => {
-    // Sync the tab state with the query param
     const query = new URLSearchParams(location.search)
     const currentTab = query.get("tab") || "movies"
     if (currentTab !== tab) {
@@ -49,7 +47,6 @@ export function ElementsPage() {
   ]
 
   const handleTabChange = (newTab: string) => {
-    // Update the query param in the URL
     navigate(`?tab=${newTab}`)
   }
 
