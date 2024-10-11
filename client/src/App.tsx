@@ -4,7 +4,7 @@ import { useState } from "react"
 import { trpc } from "./utils/trpc"
 import { BrowserRouter } from "react-router-dom"
 import { ContextProvider } from "./ContextProvider"
-import { LayoutApp } from "./LayoutApp"
+import { LayoutApp } from "./template/LayoutApp"
 
 export function App() {
   const [queryClient] = useState(

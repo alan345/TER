@@ -1,11 +1,11 @@
 import React from "react"
-import levelpath from "./images/ter-logo.png"
-import { AppRouting } from "./AppRouting"
-import { Link, useLocation } from "react-router-dom"
+import levelpath from "../images/ter-logo.png"
+import { AppRouting } from "../AppRouting"
+import { AvatarMenu } from "../components/AvatarMenu"
+import { NavLinks } from "./NavLinks"
 
 export const LayoutApp = () => {
   const [sidebarOpen, setSidebarOpen] = React.useState(false)
-  const location = useLocation()
 
   return (
     <div className="flex h-screen text-gray-600">
@@ -22,40 +22,7 @@ export const LayoutApp = () => {
             </a>
           </div>
         </div>
-        <nav className="px-4 py-6">
-          <Link
-            to="/"
-            className={`block py-2.5 px-4 rounded transition ${
-              location.pathname === "/" ? "bg-gray-200" : "hover:bg-gray-100"
-            }`}
-          >
-            Home
-          </Link>
-          <Link
-            to="/elements"
-            className={`block py-2.5 px-4 rounded transition ${
-              location.pathname === "/elements" ? "bg-gray-200" : "hover:bg-gray-100"
-            }`}
-          >
-            Elements
-          </Link>
-          <Link
-            to="/contact"
-            className={`block py-2.5 px-4 rounded transition ${
-              location.pathname === "/contact" ? "bg-gray-200" : "hover:bg-gray-100"
-            }`}
-          >
-            Contact
-          </Link>
-          <Link
-            to="/login"
-            className={`block py-2.5 px-4 rounded transition ${
-              location.pathname === "/login" ? "bg-gray-200" : "hover:bg-gray-100"
-            }`}
-          >
-            Login
-          </Link>
-        </nav>
+        <NavLinks />
       </div>
 
       <div className="flex-1 flex flex-col overflow-hidden">
@@ -79,7 +46,7 @@ export const LayoutApp = () => {
             </button>
           </div>
           <div className="flex items-center">
-            <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
+            <AvatarMenu />
           </div>
         </header>
 
