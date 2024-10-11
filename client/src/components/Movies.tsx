@@ -1,6 +1,5 @@
 import { ErrorTemplate } from "../template/ErrorTemplate"
 import { LoadingTemplate } from "../template/LoadingTemplate"
-import { SizeTable } from "../template/SizeTable"
 import { trpc } from "../utils/trpc"
 import { useSearchParams } from "react-router-dom"
 
@@ -19,7 +18,6 @@ export const Movies = () => {
     <div>
       <div className="flex justify-between mt-4">
         <p>This page is Public. You dont need to be logged in to see this page.</p>
-        <SizeTable initSize={initSize} />
       </div>
       <div className="overflow-x-auto">
         <table>
