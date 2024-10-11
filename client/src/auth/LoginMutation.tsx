@@ -14,7 +14,6 @@ export const LoginMutation = (props: Props) => {
   const login = async () => {
     try {
       let data = await createWorkerMutation.mutateAsync({ email: props.email, password: props.password })
-      console.log(data)
       context.updateUserId()
       navigate("/profile")
     } catch (error) {
