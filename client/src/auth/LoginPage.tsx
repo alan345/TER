@@ -8,7 +8,8 @@ export const LoginPage = () => {
 
   return (
     <div>
-      <div>
+      <h2 className="text-2xl font-semibold text-gray-700">Login</h2>
+      <div className="mt-4">
         <div>
           <input
             id="login-input"
@@ -29,17 +30,18 @@ export const LoginPage = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <input
-          type="checkbox"
-          id="show-password-checkbox"
-          name="show-password-checkbox"
-          onClick={() => setShowPassword(!showPassword)}
-        />
-        <label htmlFor="show-password-checkbox" className="ml-2">
-          Show Password
-        </label>
-
-        <div className="mt-1">
+        <div className="mt-2">
+          <input
+            type="checkbox"
+            id="show-password-checkbox"
+            name="show-password-checkbox"
+            onClick={() => setShowPassword(!showPassword)}
+          />
+          <label htmlFor="show-password-checkbox" className="ml-2">
+            Show Password
+          </label>
+        </div>
+        <div className="mt-4">
           <LoginMutation login={login} password={password} />
         </div>
       </div>
