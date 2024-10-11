@@ -2,7 +2,7 @@ import React from "react"
 import { LoginMutation } from "./LoginMutation"
 
 export const LoginPage = () => {
-  const [login, setLogin] = React.useState("alan@example.com")
+  const [email, setEmail] = React.useState("alan@example.com")
   const [password, setPassword] = React.useState("securePassword")
   const [showPassword, setShowPassword] = React.useState(false)
 
@@ -13,11 +13,11 @@ export const LoginPage = () => {
         <div>
           <input
             id="login-input"
-            value={login}
+            value={email}
             className="text-black"
             type="text"
             placeholder="Login"
-            onChange={(e) => setLogin(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div className="mt-1">
@@ -42,7 +42,7 @@ export const LoginPage = () => {
           </label>
         </div>
         <div className="mt-4">
-          <LoginMutation login={login} password={password} />
+          <LoginMutation email={email} password={password} />
         </div>
       </div>
     </div>

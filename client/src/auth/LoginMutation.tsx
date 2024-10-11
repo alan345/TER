@@ -4,7 +4,7 @@ import { AppContext } from "../ContextProvider"
 
 type Props = {
   password: string
-  login: string
+  email: string
   // onCancel: () => void
 }
 export function LoginMutation(props: Props) {
@@ -12,7 +12,7 @@ export function LoginMutation(props: Props) {
   const createWorkerMutation = trpc.login.useMutation({})
   const handleCreateWorker = async () => {
     try {
-      let data = await createWorkerMutation.mutateAsync({ login: props.login, password: props.password })
+      let data = await createWorkerMutation.mutateAsync({ email: props.email, password: props.password })
       console.log(data)
       context.updateUserId()
     } catch (error) {
@@ -22,8 +22,8 @@ export function LoginMutation(props: Props) {
   return (
     <div>
       <button
-        id="login-mutation-button"
-        disabled={createWorkerMutation.isPending || props.login === "" || props.password === ""}
+        id="email-mutation-button"
+        disabled={createWorkerMutation.isPending || props.email === "" || props.password === ""}
         onClick={handleCreateWorker}
         className="btn-blue"
       >
