@@ -1,10 +1,10 @@
-import { Route, Routes } from "react-router-dom";
-import { ElementsPage } from "./pages/ElementsPage";
-import { Home } from "./pages/Home";
-import { AuthManagement } from "./auth/AuthManagement";
-import { Contact } from "./pages/Contact";
+import { Route, Routes } from "react-router-dom"
+import { ElementsPage } from "./pages/ElementsPage"
+import { Home } from "./pages/Home"
+import { AuthManagement } from "./auth/AuthManagement"
+import { Contact } from "./pages/Contact"
 
-export function Routing() {
+export const AppRouting = () => {
   return (
     <Routes>
       <Route index element={<Home />} />
@@ -13,5 +13,5 @@ export function Routing() {
       <Route path="/login" element={<AuthManagement />} />
       <Route path="*" element={<>No page</>} />
     </Routes>
-  );
+  )
 }
