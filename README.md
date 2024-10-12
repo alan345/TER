@@ -24,6 +24,11 @@
 - <strong>E</strong>xpress https://expressjs.com (Fast, unopinionated, minimalist web framework for Node.js)
 - <strong>R</strong>eact https://reactjs.org (A JavaScript library for building user interfaces)
 
+## Preview
+
+<img width="1536" alt="image" src="https://github.com/user-attachments/assets/cbd48166-15bb-41e8-8fdb-faae85270e43">
+
+
 ## Other Libraries
 
 - Bcrypt https://www.npmjs.com/package/bcrypt (A JavaScript library for hashing passwords)
