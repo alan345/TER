@@ -10,11 +10,11 @@ type Props = {
 export const LoginMutation = (props: Props) => {
   const navigate = useNavigate()
   const context = React.useContext(AppContext)
-  const createWorkerMutation = trpc.login.useMutation({})
+  const loginMutation = trpc.login.useMutation({})
   const login = async () => {
     try {
-      let data = await createWorkerMutation.mutateAsync({ email: props.email, password: props.password })
-      context.updateUserId()
+      await loginMutation.mutateAsync({ email: props.email, password: props.password })
+      context.updateUser()
       navigate("/profile")
     } catch (error) {
       console.log(error)
@@ -24,13 +24,13 @@ export const LoginMutation = (props: Props) => {
     <div>
       <button
         id="email-mutation-button"
-        disabled={createWorkerMutation.isPending || props.email === "" || props.password === ""}
+        disabled={loginMutation.isPending || props.email === "" || props.password === ""}
         onClick={login}
         className="btn-blue"
       >
-        {createWorkerMutation.isPending ? "Loading..." : "Login"}
+        {loginMutation.isPending ? "Loading..." : "Login"}
       </button>
-      {createWorkerMutation.error && <p className="text-red-600">{createWorkerMutation.error.message}</p>}
+      {loginMutation.error && <p className="text-red-600">{loginMutation.error.message}</p>}
     </div>
   )
 }

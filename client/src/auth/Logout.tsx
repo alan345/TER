@@ -12,7 +12,7 @@ export const Logout = () => {
       await logoutMutation.mutateAsync(undefined)
       console.log("success Logout")
       navigate("/login")
-      context.updateUserId()
+      context.updateUser()
     } catch (error) {
       console.log(error)
     }
