@@ -26,7 +26,7 @@
 
 ## Preview
 
-<img width="1536" alt="image" src="https://github.com/user-attachments/assets/cbd48166-15bb-41e8-8fdb-faae85270e43">
+<img width="1536" alt="image" src="https://github.com/user-attachments/assets/f8728944-8a90-4914-b3ef-0fd04f355386">
 
 
 ## Other Libraries
