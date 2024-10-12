@@ -35,6 +35,18 @@ export const NavLinks = (props: Props) => {
       >
         Contact
       </Link>
+      <a
+        href="https://github.com/alan345/TER"
+        className="block py-2.5 px-4 rounded transition hover:bg-gray-100"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
+          alt="GitHub"
+          className="inline-block h-6 w-6"
+        />
+      </a>
     </nav>
   )
 }
