@@ -107,9 +107,9 @@ npm run test:e2e
 
 ## Other recommendations 
 
-- You need a databse? Use postgres https://www.postgresql.org/
-- you need an ORM? Use drizzle https://orm.drizzle.team/
-- you need a  component library? Use Chakra https://v2.chakra-ui.com/
+- Need a databse? Check out postgres https://www.postgresql.org/
+- Need an ORM? Check out drizzle https://orm.drizzle.team/
+- Need a component library? Chexk out Chakra https://v2.chakra-ui.com/
 
 
 ## Miscellaneous
