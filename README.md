@@ -105,7 +105,7 @@ The tests must be run while the app is running.
 npm run test:e2e
 ```
 
-## other recommendations 
+## Other recommendations 
 
 - You need a databse? Use postgres https://www.postgresql.org/
 - you need an ORM? Use drizzle https://orm.drizzle.team/
