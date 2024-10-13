@@ -105,6 +105,13 @@ The tests must be run while the app is running.
 npm run test:e2e
 ```
 
+## other recommendations 
+
+- You need a databse? Use postgres https://www.postgresql.org/
+- you need an ORM? Use drizzle https://orm.drizzle.team/
+- you need a  component library? Use Chakra https://v2.chakra-ui.com/
+
+
 ## Miscellaneous
 
 <div align="center">
