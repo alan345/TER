@@ -18,8 +18,14 @@ export const Contact = () => {
       <p className="text-sm text-gray-600 text-center">
         (Disclaimer: Shouting may not yield a response, but I appreciate the enthusiasm!)
       </p>
-
-      <p className="text-sm text-gray-600 text-center mt-10">Genreated by Chat GPT 4o mini</p>
+      <a
+        href="https://github.com/alan345/TER"
+        className="block py-2.5 px-4 rounded transition hover:bg-gray-100 mt-8"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img src="https://img.shields.io/github/stars/alan345/ter.svg" alt="GitHub" className="" />
+      </a>
     </div>
   )
 }

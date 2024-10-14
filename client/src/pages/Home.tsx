@@ -1,11 +1,8 @@
 export const Home = () => {
   return (
     <>
-      <h2 className="text-2xl font-semibold text-gray-700">Welcome to Your Dashboard</h2>
-      <p className="mt-4">
-        This is a basic layout for your site using React and Tailwind CSS. Customize the menu, header, and content area
-        as needed.
-      </p>
+      <h2 className="text-2xl font-semibold text-gray-700">Home</h2>
+      <iframe src="https://alan345.github.io/TER/" width="100%" height="100%" />
     </>
   )
 }
