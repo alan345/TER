@@ -24,6 +24,11 @@
 - <strong>E</strong>xpress https://expressjs.com (Fast, unopinionated, minimalist web framework for Node.js)
 - <strong>R</strong>eact https://reactjs.org (A JavaScript library for building user interfaces)
 
+## Preview
+
+<img width="1328" alt="image" src="https://github.com/user-attachments/assets/0dc901fe-71ff-43be-832c-596b779c278f">
+
+
 ## Other Libraries
 
 - Bcrypt https://www.npmjs.com/package/bcrypt (A JavaScript library for hashing passwords)
@@ -61,7 +66,7 @@ Try editing the ts files to see the type checking in action, thanks to Trpc :)
 
 ## Building for production
 
-- Make sure to rename the file (https://github.com/alan345/TER/blob/main/server/env.ts) `env.ts` to `.env`
+- Rename the file (https://github.com/alan345/TER/blob/main/server/env.ts) `env.ts` to `.env`
 - Update the key
 - Use dotenv (https://www.dotenv.org)
 - Run:
@@ -99,6 +104,13 @@ The tests must be run while the app is running.
 ```
 npm run test:e2e
 ```
+
+## Other recommendations 
+
+- Need a databse? Check out postgres https://www.postgresql.org/
+- Need an ORM? Check out drizzle https://orm.drizzle.team/
+- Need a component library? Check out Chakra https://v2.chakra-ui.com/
+
 
 ## Miscellaneous
 
