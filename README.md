@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://github.com/user-attachments/assets/cc3cc768-9ee4-4c9b-b108-4c0979acbee8" alt="image" width="300"/>
+<img src="https://github.com/user-attachments/assets/cc3cc768-9ee4-4c9b-b108-4c0979acbee8" alt="image" height="144"/>
 <br />
 <strong>T</strong>rpc <strong>E</strong>xpress <strong>R</strong>eact
 
@@ -27,7 +27,6 @@
 ## Preview
 
 <img width="1328" alt="image" src="https://github.com/user-attachments/assets/0dc901fe-71ff-43be-832c-596b779c278f">
-
 
 ## Other Libraries
 
@@ -79,8 +78,8 @@ npm run start
 ## Printscreens
 
 #### Main Screen
-![Recording 2024-10-11 at 09 43 21](https://github.com/user-attachments/assets/60c62f37-e663-4a3e-bfc8-bd1fc2ca3ca4)
 
+![Recording 2024-10-11 at 09 43 21](https://github.com/user-attachments/assets/60c62f37-e663-4a3e-bfc8-bd1fc2ca3ca4)
 
 #### Health Check for the server (http://localhost:2022/health)
 
@@ -105,12 +104,11 @@ The tests must be run while the app is running.
 npm run test:e2e
 ```
 
-## Other recommendations 
+## Other recommendations
 
 - Need a databse? Check out postgres https://www.postgresql.org/
 - Need an ORM? Check out drizzle https://orm.drizzle.team/
 - Need a component library? Check out Chakra https://v2.chakra-ui.com/
-
 
 ## Miscellaneous
 
