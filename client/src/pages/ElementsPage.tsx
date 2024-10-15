@@ -1,6 +1,5 @@
 import React, { useEffect } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
-import { Users } from "../components/Users"
 import { Beers } from "../components/Beers"
 import { AppContext } from "../ContextProvider"
 import { Movies } from "../components/Movies"
@@ -37,7 +36,6 @@ export const ElementsPage = () => {
     { name: "Beers", tab: "beers", component: <Beers />, isPrivate: false },
     { name: "Albums", tab: "albums", component: <Albums />, isPrivate: false },
     { name: "Facts", tab: "facts", component: <Facts />, isPrivate: false },
-    { name: "Users", tab: "users", component: <Users />, isPrivate: true },
     {
       name: "Employees",
       tab: "employees",

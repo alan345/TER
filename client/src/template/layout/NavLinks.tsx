@@ -1,11 +1,13 @@
+import { useContext } from "react"
 import { Link, useLocation } from "react-router-dom"
+import { AppContext } from "../../ContextProvider"
 
 type Props = {
   onClick: () => void
 }
 export const NavLinks = (props: Props) => {
   const location = useLocation()
-
+  const context = useContext(AppContext)
   return (
     <nav className="px-4 py-6">
       <Link
@@ -26,6 +28,17 @@ export const NavLinks = (props: Props) => {
       >
         Elements
       </Link>
+      {context.me && (
+        <Link
+          onClick={props.onClick}
+          to="/users"
+          className={`block py-2.5 px-4 rounded transition ${
+            location.pathname === "/users" ? "bg-gray-200" : "hover:bg-gray-100"
+          }`}
+        >
+          Users
+        </Link>
+      )}
       <Link
         onClick={props.onClick}
         to="/contact"

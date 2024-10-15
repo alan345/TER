@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react"
-import { AppRouting } from "../../AppRouting"
+import { AppRouter } from "../../AppRouter"
 import { AvatarMenu } from "./AvatarMenu"
 import { NavLinks } from "./NavLinks"
 import { BurgerLogic } from "./BurgerLogic"
@@ -49,7 +49,7 @@ export const LayoutApp = () => {
         </header>
 
         <main className="flex-1 overflow-y-auto p-6">
-          <AppRouting />
+          <AppRouter />
         </main>
       </div>
     </div>
