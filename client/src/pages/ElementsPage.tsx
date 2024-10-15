@@ -52,7 +52,6 @@ export const ElementsPage = () => {
 
   return (
     <>
-      <h2 className="text-2xl font-semibold text-gray-700">Elements</h2>
       <nav className="flex gap-6 flex-wrap mt-4">
         {elements.map((element) => (
           <span key={element.name}>
