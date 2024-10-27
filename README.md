@@ -107,6 +107,7 @@ npm run test:e2e
 - Need a databse? Check out postgres https://www.postgresql.org/
 - Need an ORM? Check out drizzle https://orm.drizzle.team/
 - Need a component library? Check out Chakra https://v2.chakra-ui.com/
+- Need icons? Check out https://tabler.io/icons/
 
 ## Miscellaneous
 
