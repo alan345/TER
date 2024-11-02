@@ -30,14 +30,14 @@
 
 ## Other Libraries
 
-- Bcrypt https://www.npmjs.com/package/bcrypt (A JavaScript library for hashing passwords)
-- JWT https://jwt.io (JSON Web Tokens for authentication)
-- NPM https://www.npmjs.com (Node Package Manager for managing dependencies)
-- Playwright https://playwright.dev (Test your web apps headlessly with a single API)
-- Tailwind CSS https://tailwindcss.com (A utility-first CSS framework for rapid UI development)
-- TypeScript https://www.typescriptlang.org (TypeScript is a typed superset of JavaScript)
-- Vite https://vitejs.dev (Next generation frontend tooling. It's fast!)
-- ZOD https://zod.dev (TypeScript-first schema validation with static type inference)
+- [Bcrypt](https://www.npmjs.com/package/bcrypt) - A JavaScript library for hashing passwords
+- [JWT](https://jwt.io) - JSON Web Tokens for authentication
+- [NPM](https://www.npmjs.com) - Node Package Manager for managing dependencies
+- [Playwright](https://playwright.dev) - Test your web apps headlessly with a single API
+- [Tailwind CSS](https://tailwindcss.com) - A utility-first CSS framework for rapid UI development
+- [TypeScript](https://www.typescriptlang.org) - TypeScript is a typed superset of JavaScript
+- [Vite](https://vitejs.dev) - Next generation frontend tooling. It's fast!
+- [ZOD](https://zod.dev) - TypeScript-first schema validation with static type inference
 
 ## Features
 
@@ -104,13 +104,14 @@ npm run test:e2e
 
 ## Other recommendations
 
-- Need a databse? Check out postgres https://www.postgresql.org/
-- Need an ORM? Check out drizzle https://orm.drizzle.team/
-- Need a component library? Check out Chakra https://v2.chakra-ui.com/
-- Need icons? Check out https://tabler.io/icons/
+- Need a database? Check out [PostgreSQL](https://www.postgresql.org/)
+- Need an ORM? Check out [Drizzle](https://orm.drizzle.team/)
+- Need a component library? Check out [Chakra UI](https://v2.chakra-ui.com/)
+- Need icons? Check out [Tabler Icons](https://tabler.io/icons/)
 
 ## Who is using TER?
-- Nachonacho.com A SaaS marketplace. https://Nachonacho.com
+
+- [Nachonacho.com](https://Nachonacho.com) - A SaaS marketplace.
 
 ## Miscellaneous
 
