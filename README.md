@@ -111,7 +111,7 @@ npm run test:e2e
 
 ## Who is using TER?
 
-- [Nachonacho.com](https://Nachonacho.com) - A SaaS marketplace.
+- [Nachonacho.com](https://Nachonacho.com) - The world's largest marketplace for Software & Services
 
 ## Miscellaneous
 
