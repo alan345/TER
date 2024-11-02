@@ -109,6 +109,9 @@ npm run test:e2e
 - Need a component library? Check out Chakra https://v2.chakra-ui.com/
 - Need icons? Check out https://tabler.io/icons/
 
+## Who is using TER?
+- Nachonacho.com A SaaS marketplace. https://Nachonacho.com
+
 ## Miscellaneous
 
 <div align="center">
