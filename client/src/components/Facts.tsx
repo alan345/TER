@@ -18,7 +18,6 @@ export const Facts = () => {
     <div>
       <div className="flex justify-between mt-4">
         <p>This page is Public. You dont need to be logged in to see this page.</p>
-        {/* <SizeTable initSize={initSize} /> */}
       </div>
       <div className="overflow-x-auto">
         <table>

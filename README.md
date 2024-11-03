@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://github.com/user-attachments/assets/cc3cc768-9ee4-4c9b-b108-4c0979acbee8" alt="image" width="300"/>
+<img src="https://github.com/user-attachments/assets/cc3cc768-9ee4-4c9b-b108-4c0979acbee8" alt="image" height="144"/>
 <br />
 <strong>T</strong>rpc <strong>E</strong>xpress <strong>R</strong>eact
 
@@ -20,30 +20,34 @@
 
 ## Main Stack
 
-- <strong>T</strong>rpc https://trpc.io (End-to-end typesafe APIs made easy)
-- <strong>E</strong>xpress https://expressjs.com (Fast, unopinionated, minimalist web framework for Node.js)
-- <strong>R</strong>eact https://reactjs.org (A JavaScript library for building user interfaces)
+- **T**rpc [trpc.io](https://trpc.io) - End-to-end typesafe APIs made easy
+- **E**xpress [expressjs.com](https://expressjs.com) - Fast, unopinionated, minimalist web framework for Node.js
+- **R**eact [reactjs.org](https://reactjs.org) - A JavaScript library for building user interfaces
+
+## Preview
+
+<img width="1328" alt="image" src="https://github.com/user-attachments/assets/0dc901fe-71ff-43be-832c-596b779c278f">
 
 ## Other Libraries
 
-- Bcrypt https://www.npmjs.com/package/bcrypt (A JavaScript library for hashing passwords)
-- JWT https://jwt.io (JSON Web Tokens for authentication)
-- NPM https://www.npmjs.com (Node Package Manager for managing dependencies)
-- Playwright https://playwright.dev (Test your web apps headlessly with a single API)
-- Tailwind CSS https://tailwindcss.com (A utility-first CSS framework for rapid UI development)
-- TypeScript https://www.typescriptlang.org (TypeScript is a typed superset of JavaScript)
-- Vite https://vitejs.dev (Next generation frontend tooling. It's fast!)
-- ZOD https://zod.dev (TypeScript-first schema validation with static type inference)
+- [Bcrypt](https://www.npmjs.com/package/bcrypt) - A JavaScript library for hashing passwords
+- [JWT](https://jwt.io) - JSON Web Tokens for authentication
+- [NPM](https://www.npmjs.com) - Node Package Manager for managing dependencies
+- [Playwright](https://playwright.dev) - Test your web apps headlessly with a single API
+- [Tailwind CSS](https://tailwindcss.com) - A utility-first CSS framework for rapid UI development
+- [TypeScript](https://www.typescriptlang.org) - TypeScript is a typed superset of JavaScript
+- [Vite](https://vitejs.dev) - Next generation frontend tooling. It's fast!
+- [ZOD](https://zod.dev) - TypeScript-first schema validation with static type inference
 
 ## Features
 
 - Authentication with JWT and HttpOnly cookies (https://owasp.org/www-community/HttpOnly)
 - Example of pulling data from an external REST API
-  - Beers and Users (https://random-data-api.com)
-  - Facts (https://catfact.ninja)
-  - Movies (https://dummyapi.online)
-  - Employees (https://dummy.restapiexample.com)
-  - Albums and Photos (https://jsonplaceholder.typicode.com)
+  - [Beers and Users](https://random-data-api.com)
+  - [Facts](https://catfact.ninja)
+  - [Movies](https://dummyapi.online)
+  - [Employees](https://dummy.restapiexample.com)
+  - [Albums and Photos](https://jsonplaceholder.typicode.com)
 - Store the user's details in the React context when logged in (https://react.dev/reference/react/useContext)
 - Health Check for the server (http://localhost:2022/health)
 - Select the number of rows to display in the table
@@ -61,10 +65,8 @@ Try editing the ts files to see the type checking in action, thanks to Trpc :)
 
 ## Building for production
 
-- Make sure to rename the file (https://github.com/alan345/TER/blob/main/server/env.ts) `env.ts` to `.env`
-- Update the key
-- Use dotenv (https://www.dotenv.org)
-- Run:
+- Rename the file (https://github.com/alan345/TER/blob/main/server/env.ts) `env.ts` to `.env`
+- Update the key using dotenv (https://www.dotenv.org)
 
 ```bash
 npm run build
@@ -74,8 +76,8 @@ npm run start
 ## Printscreens
 
 #### Main Screen
-![Recording 2024-10-11 at 09 43 21](https://github.com/user-attachments/assets/60c62f37-e663-4a3e-bfc8-bd1fc2ca3ca4)
 
+![Recording 2024-10-11 at 09 43 21](https://github.com/user-attachments/assets/60c62f37-e663-4a3e-bfc8-bd1fc2ca3ca4)
 
 #### Health Check for the server (http://localhost:2022/health)
 
@@ -99,6 +101,19 @@ The tests must be run while the app is running.
 ```
 npm run test:e2e
 ```
+
+## Other recommendations
+
+- Need a database? Check out [PostgreSQL](https://www.postgresql.org/)
+- Need an ORM? Check out [Drizzle](https://orm.drizzle.team/)
+- Need a component library? Check out [Chakra UI](https://v2.chakra-ui.com/)
+- Need icons? Check out [Tabler Icons](https://tabler.io/icons/)
+
+## Who is using TER?
+
+- [Nachonacho.com](https://Nachonacho.com) - The world's largest marketplace for Software & Services
+
+Create a PR if you want to add your project here.
 
 ## Miscellaneous
 
