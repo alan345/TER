@@ -10,7 +10,6 @@ import { albumRouter } from "./router/albumRouter"
 import { beerRouter } from "./router/beerRouter"
 import { t } from "./trpc"
 import { secretJwt } from "./env"
-import { database } from "./database/database"
 import { movieRouter } from "./router/movieRouter"
 import { photoRouter } from "./router/photoRouter"
 import { employeeRouter } from "./router/employeeRouter"
@@ -37,11 +36,11 @@ export const createContext = async ({ req, res }: trpcExpress.CreateExpressConte
 
       console.log("user ctx", user)
       // const user = database.find((u) => u.id === decoded.id)
-      return { req, res, user }
+      return { req, res, user, db }
     }
   }
 
-  return { req, res }
+  return { req, res, db }
 }
 
 export const mergeRouters = t.mergeRouters
