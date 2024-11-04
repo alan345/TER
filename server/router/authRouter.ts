@@ -5,8 +5,10 @@ import bcrypt from "bcrypt"
 import { secretJwt } from "../env"
 import { TRPCError } from "@trpc/server"
 import jwt from "jsonwebtoken"
-import { drizzle } from "drizzle-orm/connect"
+import { drizzle } from "drizzle-orm/node-postgres"
 import { usersTable } from "../../drizzle/src/db/schema"
+import * as schema from "../../drizzle/src/db/schema"
+import { eq, lt, gte, ne } from "drizzle-orm"
 
 // import { drizzle } from ""
 // import { usersTable } from ""
@@ -24,8 +26,19 @@ export const authRouter = router({
     .mutation(async (opts) => {
       // const db = await drizzle("node-postgres", process.env.DATABASE_URL!)
       console.log(process.env.DATABASE_URL)
-      const db = await drizzle("node-postgres", process.env.DATABASE_URL!)
-      const users = await db.select().from(usersTable)
+      const db = drizzle(process.env.DATABASE_URL!, { schema })
+      // const users = await db
+      //   .select({
+      //     password: usersTable.password,
+      //     id: usersTable.id,
+      //   })
+      //   .from(usersTable)
+      // .where(eq(usersTable.email, opts.input.email))
+      // .limit(1)
+
+      const users = await db.query.usersTable.findFirst({
+        where: eq(usersTable.email, opts.input.email),
+      })
       console.log("Getting all users from the database: ", users)
 
       const user = database.find((u) => u.email === opts.input.email)

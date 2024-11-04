@@ -1,10 +1,10 @@
 import "dotenv/config"
 import { eq } from "drizzle-orm"
 import { database } from "../../server/database/database"
-import { drizzle } from "drizzle-orm/connect"
+import { drizzle } from "drizzle-orm/node-postgres"
 import { usersTable } from "./db/schema"
 async function main() {
-  const db = await drizzle("node-postgres", process.env.DATABASE_URL!)
+  const db = drizzle(process.env.DATABASE_URL!)
 
   const databaseNoId = database.map((u) => {
     const { id, ...rest } = u
