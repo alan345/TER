@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import { trpc } from "../../utils/trpc"
 import { inferRouterOutputs } from "@trpc/server"
 import { AppRouter } from "../../../../server"
@@ -46,10 +46,11 @@ const UpdateUserName = (props: Props) => {
               onChange={(e) => setName(e.target.value)}
               type="text"
               placeholder="Name"
-              className="pr-10"
+              className="pr-20"
+              style={{ paddingRight: "26px" }}
             />
             <CheckFat
-              className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer hover:text-gray-600 transition-colors"
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer hover:text-green-600 transition-colors"
               onClick={updateUser}
             />
           </div>
