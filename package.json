@@ -1,10 +1,11 @@
 {
-  "name": "ter-fullstack-app",
+  "name": "ter",
   "private": true,
   "workspaces": [
     "client",
     "server",
-    "drizzle"
+    "drizzle",
+    "shared"
   ],
   "scripts": {
     "build:client": "npm run build -w client",

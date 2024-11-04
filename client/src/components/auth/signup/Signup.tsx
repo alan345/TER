@@ -3,19 +3,20 @@ import { z } from "zod"
 import { trpc } from "../../../utils/trpc"
 import { AppContext } from "../../../ContextProvider"
 import { Link, useNavigate } from "react-router-dom"
+import { zodSignup } from "@ter/shared/schemas/zod"
 
-const signupSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters").max(50, "Name must be less than 50 characters"),
-  email: z.string().email("Please enter a valid email address").min(1, "Email is required"),
-  password: z
-    .string()
-    .min(8, "Password must be at least 8 characters")
-    .regex(/[A-Z]/, "Password must contain at least one uppercase letter")
-    .regex(/[a-z]/, "Password must contain at least one lowercase letter")
-    .regex(/[0-9]/, "Password must contain at least one number")
-    .regex(/[^A-Za-z0-9]/, "Password must contain at least one special character"),
-})
-
+const signupSchema = zodSignup
+// const signupSchema = z.object({
+//   name: z.string().min(2, "Name must be at least 2 characters").max(50, "Name must be less than 50 characters"),
+//   email: z.string().email("Please enter a valid email address").min(1, "Email is required"),
+//   password: z
+//     .string()
+//     .min(8, "Password must be at least 8 characters")
+//     .regex(/[A-Z]/, "Password must contain at least one uppercase letter")
+//     .regex(/[a-z]/, "Password must contain at least one lowercase letter")
+//     .regex(/[0-9]/, "Password must contain at least one number")
+//     .regex(/[^A-Za-z0-9]/, "Password must contain at least one special character"),
+// })
 type SignupFormData = z.infer<typeof signupSchema>
 
 export const Signup = () => {
@@ -99,11 +100,7 @@ export const Signup = () => {
             onChange={handleInputChange}
             onBlur={handleInputBlur}
             className={`
-              ${
-                touchedFields.name && errors.name && !activeFields.name
-                  ? "border-red-500 focus:border-red-500 focus:ring-red-200"
-                  : "border-gray-300 focus:border-blue-500 focus:ring-blue-200"
-              } focus:ring-2`}
+              ${touchedFields.name && errors.name && !activeFields.name ? "input-error" : "input-default"} `}
             type="text"
             placeholder="Name"
           />
@@ -120,11 +117,7 @@ export const Signup = () => {
             onChange={handleInputChange}
             onBlur={handleInputBlur}
             className={`
-              ${
-                touchedFields.email && errors.email && !activeFields.email
-                  ? "border-red-500 focus:border-red-500 focus:ring-red-200"
-                  : "border-gray-300 focus:border-blue-500 focus:ring-blue-200"
-              } focus:ring-2`}
+              ${touchedFields.email && errors.email && !activeFields.email ? "input-error" : "input-default"} `}
             type="text"
             placeholder="Email"
           />
@@ -142,10 +135,8 @@ export const Signup = () => {
             onBlur={handleInputBlur}
             className={`
                 ${
-                  touchedFields.password && errors.password && !activeFields.password
-                    ? "border-red-500 focus:border-red-500 focus:ring-red-200"
-                    : "border-gray-300 focus:border-blue-500 focus:ring-blue-200"
-                } focus:ring-2`}
+                  touchedFields.password && errors.password && !activeFields.password ? "input-error" : "input-default"
+                }`}
             type={showPassword ? "text" : "password"}
             placeholder="Password"
           />
