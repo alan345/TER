@@ -16,19 +16,27 @@ import { photoRouter } from "./router/photoRouter"
 import { employeeRouter } from "./router/employeeRouter"
 import { factRouter } from "./router/factRouter"
 import "dotenv/config"
+import { drizzle } from "drizzle-orm/node-postgres"
+import { usersTable } from "../drizzle/src/db/schema"
+import * as schema from "../drizzle/src/db/schema"
+import { eq } from "drizzle-orm"
 
 export interface UserIDJwtPayload extends jwt.JwtPayload {
   id: string
 }
 
-export const createContext = ({ req, res }: trpcExpress.CreateExpressContextOptions) => {
+export const createContext = async ({ req, res }: trpcExpress.CreateExpressContextOptions) => {
   const cookies = req.cookies
   const token = cookies[cookieName]
-
+  const db = drizzle(process.env.DATABASE_URL!, { schema })
   if (token) {
     let decoded = jwt.verify(token, secretJwt) as UserIDJwtPayload
     if (decoded) {
-      const user = database.find((u) => u.id === decoded.id)
+      console.log("decoded", decoded.id)
+      const user = await db.query.usersTable.findFirst({ where: eq(usersTable.id, decoded.id) })
+
+      console.log("user ctx", user)
+      // const user = database.find((u) => u.id === decoded.id)
       return { req, res, user }
     }
   }
