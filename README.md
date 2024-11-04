@@ -60,7 +60,7 @@
 
 ```bash
 psql -U user // replace user by your postgres user
-createdb ter
+CREATE DATABASE ter;
 ```
 
 - Update the [file](https://github.com/alan345/TER/blob/main/env.ts) `env.ts` with with your database credentials
