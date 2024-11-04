@@ -59,6 +59,7 @@
 - Create a database called `ter`
 
 ```bash
+psql -U user // replace user by your postgres user
 createdb ter
 ```
 
