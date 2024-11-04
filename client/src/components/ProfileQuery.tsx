@@ -2,6 +2,7 @@ import { trpc } from "../utils/trpc"
 import { LoadingTemplate } from "../template/LoadingTemplate"
 import { ErrorTemplate } from "../template/ErrorTemplate"
 import { useState } from "react"
+import iconAvatar from "../assets/icons/avatar.svg"
 
 type Props = {
   meId: string
@@ -18,7 +19,7 @@ export const ProfileQuery = (props: Props) => {
       <div className="mt-4">
         <div>
           <img
-            src={dataQuery.data.image}
+            src={dataQuery.data.image ? dataQuery.data.image : iconAvatar}
             onLoad={() => setIsLoaded(true)}
             className={`w-36 h-36 rounded-full shadow-lg transition-transform duration-200 transform hover:scale-110 ${
               isLoaded ? "border-4 border-gray-300 hover:border-[#034DA2]" : ""

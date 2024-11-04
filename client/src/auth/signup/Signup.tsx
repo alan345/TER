@@ -74,9 +74,6 @@ export const Signup = () => {
     setIsSubmitting(true)
 
     try {
-      const validatedData = signupSchema.parse(formData)
-      console.log("Form submitted:", validatedData)
-
       await signupMutation.mutateAsync({
         email: formData.email,
         password: formData.password,
@@ -93,7 +90,7 @@ export const Signup = () => {
   return (
     <div>
       <h2 className="text-2xl font-semibold text-gray-700">Sign up</h2>
-      <form onSubmit={onSubmit} className="mt-4 space-y-4">
+      <form onSubmit={onSubmit} className="mt-4 space-y-2">
         <div>
           <input
             id="name-input"
@@ -137,23 +134,21 @@ export const Signup = () => {
         </div>
 
         <div>
-          <div>
-            <input
-              id="password-input"
-              name="password"
-              value={formData.password}
-              onChange={handleInputChange}
-              onBlur={handleInputBlur}
-              className={`
+          <input
+            id="password-input"
+            name="password"
+            value={formData.password}
+            onChange={handleInputChange}
+            onBlur={handleInputBlur}
+            className={`
                 ${
                   touchedFields.password && errors.password && !activeFields.password
                     ? "border-red-500 focus:border-red-500 focus:ring-red-200"
                     : "border-gray-300 focus:border-blue-500 focus:ring-blue-200"
                 } focus:ring-2`}
-              type={showPassword ? "text" : "password"}
-              placeholder="Password"
-            />
-          </div>
+            type={showPassword ? "text" : "password"}
+            placeholder="Password"
+          />
           {touchedFields.password && errors.password && !activeFields.password && (
             <p className="mt-1 text-sm text-red-500">{errors.password}</p>
           )}
@@ -176,6 +171,7 @@ export const Signup = () => {
         <button type="submit" disabled={isSubmitting || !isFormValid()} className="btn-blue">
           {isSubmitting ? <span>Signing up...</span> : <span>Sign up</span>}
         </button>
+        {signupMutation.error && <p className="text-red-600">{signupMutation.error.message}</p>}
       </form>
       <p className="text-sm mt-6">
         I have an account{" "}
