@@ -2,7 +2,7 @@ import React from "react"
 import { z } from "zod"
 import { trpc } from "../../utils/trpc"
 import { AppContext } from "../../ContextProvider"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const signupSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters").max(50, "Name must be less than 50 characters"),
@@ -63,14 +63,18 @@ export const Signup = () => {
     setIsSubmitting(true)
 
     try {
+      const validatedData = signupSchema.parse(formData)
+      // await new Promise((resolve) => setTimeout(resolve, 1000))
+      console.log("Form submitted:", validatedData)
       // const validatedData = signupSchema.parse(formData)
-      setIsSubmitting(false)
+
       await signupMutation.mutateAsync({ email: formData.email, password: formData.password, name: formData.name })
       context.updateUser()
       navigate("/profile")
       // await new Promise((resolve) => setTimeout(resolve, 1000))
       // console.log("Form submitted:", validatedData)
     } catch (error) {
+      setIsSubmitting(false)
       // if (error instanceof z.ZodError) {
       //   const newErrors: Partial<Record<keyof SignupFormData, string>> = {}
       //   error.errors.forEach((err) => {
@@ -179,6 +183,12 @@ export const Signup = () => {
           {isSubmitting ? <span>Signing up...</span> : <span>Sign up</span>}
         </button>
       </form>
+      <p className="text-sm mt-6">
+        I have an account{" "}
+        <Link className="link" to="/login">
+          Login
+        </Link>
+      </p>
     </div>
   )
 }

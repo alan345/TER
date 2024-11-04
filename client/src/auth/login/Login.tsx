@@ -50,7 +50,7 @@ export const Login = () => {
         <p className="text-sm mt-6">
           Do not have an account yet?{" "}
           <Link className="link" to="/signup">
-            Signup
+            Sign up
           </Link>
         </p>
       </div>
