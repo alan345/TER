@@ -62,7 +62,7 @@
 createdb ter
 ```
 
-- Update the file `env.ts`
+- Update the [file](https://github.com/alan345/TER/blob/main/env.ts) `env.ts` with with your database credentials
 - Run in the terminal In the root directory:
 
 ```bash
