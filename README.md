@@ -81,8 +81,8 @@ npm run dev
 
 ## Building for production
 
-- Rename the file (https://github.com/alan345/TER/blob/main/server/env.ts) `env.ts` to `.env`
-- Update the key using dotenv (https://www.dotenv.org)
+- Rename the [file](https://github.com/alan345/TER/blob/main/env.ts) `env.ts` to `.env`
+- Update the key using [dotenv](https://www.dotenv.org)
 
 ```bash
 npm run build
