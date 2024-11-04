@@ -34,6 +34,7 @@
 - [Drizzle](https://orm.drizzle.team/) - A TypeScript-first ORM for Node.js
 - [JWT](https://jwt.io) - JSON Web Tokens for authentication
 - [NPM](https://www.npmjs.com) - Node Package Manager for managing dependencies
+- [phosphoricons](https://phosphoricons.com) - A flexible icon family for interfaces, diagrams, presentations — whatever, really
 - [Playwright](https://playwright.dev) - Test your web apps headlessly with a single API
 - [Tailwind CSS](https://tailwindcss.com) - A utility-first CSS framework for rapid UI development
 - [TypeScript](https://www.typescriptlang.org) - TypeScript is a typed superset of JavaScript
