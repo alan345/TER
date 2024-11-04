@@ -38,10 +38,21 @@ export const Signup = () => {
       const fieldSchema = signupSchema.shape[fieldName]
       fieldSchema.parse(value)
       setErrors((prev) => ({ ...prev, [fieldName]: undefined }))
+      return true
     } catch (error) {
       if (error instanceof z.ZodError) {
         setErrors((prev) => ({ ...prev, [fieldName]: error.errors[0].message }))
       }
+      return false
+    }
+  }
+
+  const isFormValid = () => {
+    try {
+      signupSchema.parse(formData)
+      return true
+    } catch {
+      return false
     }
   }
 
@@ -64,31 +75,20 @@ export const Signup = () => {
 
     try {
       const validatedData = signupSchema.parse(formData)
-      // await new Promise((resolve) => setTimeout(resolve, 1000))
       console.log("Form submitted:", validatedData)
-      // const validatedData = signupSchema.parse(formData)
 
-      await signupMutation.mutateAsync({ email: formData.email, password: formData.password, name: formData.name })
+      await signupMutation.mutateAsync({
+        email: formData.email,
+        password: formData.password,
+        name: formData.name,
+      })
       context.updateUser()
       navigate("/profile")
-      // await new Promise((resolve) => setTimeout(resolve, 1000))
-      // console.log("Form submitted:", validatedData)
     } catch (error) {
       setIsSubmitting(false)
-      // if (error instanceof z.ZodError) {
-      //   const newErrors: Partial<Record<keyof SignupFormData, string>> = {}
-      //   error.errors.forEach((err) => {
-      //     if (err.path[0]) {
-      //       newErrors[err.path[0] as keyof SignupFormData] = err.message
-      //     }
-      //   })
-      //   setErrors(newErrors)
-      // }
       console.error("Submission error:", error)
     }
   }
-
-  const isFormDirty = Object.values(formData).some((value) => value !== "")
 
   return (
     <div>
@@ -173,13 +173,7 @@ export const Signup = () => {
           </label>
         </div>
 
-        <button
-          type="submit"
-          disabled={isSubmitting || !isFormDirty}
-          className={`btn-blue
-            ${isSubmitting || !isFormDirty ? "opacity-50 cursor-not-allowed" : ""}
-          `}
-        >
+        <button type="submit" disabled={isSubmitting || !isFormValid()} className="btn-blue">
           {isSubmitting ? <span>Signing up...</span> : <span>Sign up</span>}
         </button>
       </form>

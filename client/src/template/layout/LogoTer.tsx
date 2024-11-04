@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import logoTer from "../../images/ter-logo.png"
+import logoTer from "../../assets/images/ter-logo.png"
 
 export const LogoTer = () => {
   return (
