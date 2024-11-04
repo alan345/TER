@@ -28,17 +28,12 @@ export interface UserIDJwtPayload extends jwt.JwtPayload {
 export const createContext = async ({ req, res }: trpcExpress.CreateExpressContextOptions) => {
   const cookies = req.cookies
   const token = cookies[cookieName]
-  // const db = drizzle(process.env.DATABASE_URL!, { schema })
   const db = drizzle(DATABASE_URL, { schema })
 
   if (token) {
     let decoded = jwt.verify(token, secretJwt) as UserIDJwtPayload
     if (decoded) {
-      console.log("decoded", decoded.id)
       const user = await db.query.usersTable.findFirst({ where: eq(usersTable.id, decoded.id) })
-
-      console.log("user ctx", user)
-      // const user = database.find((u) => u.id === decoded.id)
       return { req, res, user, db }
     }
   }

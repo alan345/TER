@@ -19,7 +19,7 @@ export const authRouter = router({
     .mutation(async (opts) => {
       const db = opts.ctx.db
       const user = await db.query.usersTable.findFirst({ where: eq(usersTable.email, opts.input.email) })
-      console.log("Getting all users from the database: ", user)
+      // console.log("Getting all users from the database: ", user)
 
       if (!user) throw new Error("Incorrect login")
 
