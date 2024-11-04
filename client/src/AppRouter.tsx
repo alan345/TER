@@ -6,6 +6,7 @@ import { Contact } from "./pages/Contact"
 import { ProfilePage } from "./pages/ProfilePage"
 import { PrivateRoute } from "./PrivateRoute"
 import { UsersPage } from "./pages/UsersPage"
+import { Signup } from "./auth/signup/Signup"
 
 export const AppRouter = () => {
   return (
@@ -14,6 +15,7 @@ export const AppRouter = () => {
       <Route path="/elements" element={<ElementsPage />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/login" element={<AuthManagement />} />
+      <Route path="/signup" element={<Signup />} />
       <Route path="/profile" element={<PrivateRoute element={<ProfilePage />} />} />
       <Route path="/users" element={<PrivateRoute element={<UsersPage />} />} />
       <Route path="*" element={<>No page</>} />

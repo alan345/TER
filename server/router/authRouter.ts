@@ -42,6 +42,47 @@ export const authRouter = router({
       })
       return true
     }),
+  signup: publicProcedure
+    .input(
+      z.object({
+        email: z.string(),
+        name: z.string(),
+        password: z.string(),
+      })
+    )
+    .mutation(async (opts) => {
+      const db = opts.ctx.db
+      const user = await db.query.usersTable.findFirst({ where: eq(usersTable.email, opts.input.email) })
+      if (user) throw new Error("User already exists")
+
+      const newUsers = await db
+        .insert(usersTable)
+        .values({
+          name: opts.input.name,
+          email: opts.input.email,
+          password: await bcrypt.hash(opts.input.password, 10),
+        })
+        .returning({ id: usersTable.id })
+
+      // const isPasswordCorrect = await bcrypt.compare(opts.input.password, user.password)
+
+      // if (!isPasswordCorrect) {
+      //   throw new Error("Incorrect password")
+      // }
+      const token = jwt.sign(
+        {
+          id: newUsers[0].id,
+          exp: Math.floor(Date.now() / 1000) + 60 * 60,
+        },
+        secretJwt
+      )
+
+      opts.ctx.res.cookie(cookieName, token, {
+        maxAge: 900000,
+        httpOnly: true,
+      })
+      return true
+    }),
   logout: publicProcedure.mutation(async (opts) => {
     opts.ctx.res.clearCookie(cookieName)
     return true
