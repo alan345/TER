@@ -32,7 +32,7 @@ export const UsersPage = () => {
               <td>{user.id}</td>
               <td>{user.name}</td>
               <td>{user.email}</td>
-              <td>{user.image && <img src={user.image} width="60px" />}</td>
+              <td>{user.image && <img src={user.image} width="50px" />}</td>
             </tr>
           ))}
         </tbody>
