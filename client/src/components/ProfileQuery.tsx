@@ -3,6 +3,7 @@ import { LoadingTemplate } from "../template/LoadingTemplate"
 import { ErrorTemplate } from "../template/ErrorTemplate"
 import { useState } from "react"
 import iconAvatar from "../assets/icons/avatar.svg"
+import UpdateUserName from "./user/UpdateUserName"
 
 type Props = {
   meId: string
@@ -28,7 +29,8 @@ export const ProfileQuery = (props: Props) => {
           />
         </div>
         <div className="mt-4">
-          <p>Name: {dataQuery.data.name}</p>
+          <UpdateUserName user={dataQuery.data} onUpdate={() => dataQuery.refetch()} />
+
           <p>Email: {dataQuery.data.email}</p>
         </div>
       </div>
