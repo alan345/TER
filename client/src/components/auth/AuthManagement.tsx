@@ -1,5 +1,5 @@
 import React from "react"
-import { AppContext } from "../ContextProvider"
+import { AppContext } from "../../ContextProvider"
 import { Logout } from "./Logout"
 import { Login } from "./login/Login"
 

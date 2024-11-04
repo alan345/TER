@@ -1,6 +1,6 @@
 import React from "react"
-import { trpc } from "../utils/trpc"
-import { AppContext } from "../ContextProvider"
+import { trpc } from "../../utils/trpc"
+import { AppContext } from "../../ContextProvider"
 import { useNavigate } from "react-router-dom"
 
 export const Logout = () => {

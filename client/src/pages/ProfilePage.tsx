@@ -1,7 +1,7 @@
 import React from "react"
 import { AppContext } from "../ContextProvider"
 import { ProfileQuery } from "../components/ProfileQuery"
-import { Logout } from "../auth/Logout"
+import { Logout } from "../components/auth/Logout"
 
 export const ProfilePage = () => {
   const context = React.useContext(AppContext)

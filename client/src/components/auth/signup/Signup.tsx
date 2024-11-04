@@ -1,7 +1,7 @@
 import React from "react"
 import { z } from "zod"
-import { trpc } from "../../utils/trpc"
-import { AppContext } from "../../ContextProvider"
+import { trpc } from "../../../utils/trpc"
+import { AppContext } from "../../../ContextProvider"
 import { Link, useNavigate } from "react-router-dom"
 
 const signupSchema = z.object({
