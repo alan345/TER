@@ -45,6 +45,7 @@
 ## Features
 
 - Authentication with JWT and HttpOnly cookies (https://owasp.org/www-community/HttpOnly)
+- Signup, login, and logout
 - Example of pulling data from an external REST API
   - [Beers and Users](https://random-data-api.com)
   - [Facts](https://catfact.ninja)
