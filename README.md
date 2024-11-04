@@ -122,7 +122,6 @@ npm run test:e2e
 ## Other recommendations
 
 - Need a component library? Check out [Chakra UI](https://v2.chakra-ui.com/)
-- Need icons? Check out [Tabler Icons](https://tabler.io/icons/)
 
 ## Who is using TER?
 
