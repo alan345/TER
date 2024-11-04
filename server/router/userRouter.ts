@@ -11,7 +11,6 @@ export const userRouter = router({
       })
     )
     .query(async (opts) => {
-      console.log(opts.input.page)
       const page = opts.input.page
       const limit = 2
       const db = opts.ctx.db
@@ -19,7 +18,6 @@ export const userRouter = router({
         limit,
         offset: page * limit,
       })
-
       return { users, page, limit }
     }),
   getUser: protectedProcedure
