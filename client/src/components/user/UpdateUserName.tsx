@@ -2,9 +2,9 @@ import { useState } from "react"
 import { trpc } from "../../utils/trpc"
 import { inferRouterOutputs } from "@trpc/server"
 import { AppRouter } from "../../../../server"
-type RouterOutput = inferRouterOutputs<AppRouter>
 import { Pencil, CheckFat, SpinnerGap } from "@phosphor-icons/react"
 import SavedIconEffect from "./SavedIconEffect"
+type RouterOutput = inferRouterOutputs<AppRouter>
 
 type Props = {
   user: RouterOutput["getUser"]
