@@ -6,7 +6,7 @@ export const Contact = () => {
 
       <p className="text-md text-center mb-4">
         You can reach me at{" "}
-        <a href="https://github.com/alan345/TER/issues" className="text-blue-500 underline hover:text-blue-700">
+        <a href="https://github.com/alan345/TER/issues" className="link">
           this magical link
         </a>
       </p>

@@ -1,0 +1,21 @@
+{
+  "name": "drizzle",
+  "version": "1.0.0",
+  "scripts": {
+    "push": "npx drizzle-kit push",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.36.0",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.11.10",
+    "drizzle-kit": "^0.27.1",
+    "tsx": "^4.19.1"
+  }
+}

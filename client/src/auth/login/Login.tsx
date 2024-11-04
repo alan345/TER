@@ -1,5 +1,6 @@
 import React from "react"
 import { LoginMutation } from "./LoginMutation"
+import { Link } from "react-router-dom"
 
 export const Login = () => {
   const [email, setEmail] = React.useState("alan@example.com")
@@ -12,11 +13,11 @@ export const Login = () => {
       <div className="mt-4">
         <div>
           <input
-            id="login-input"
+            id="email-input"
             value={email}
             className="text-black"
             type="text"
-            placeholder="Login"
+            placeholder="Email"
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
@@ -46,6 +47,12 @@ export const Login = () => {
         <div className="mt-4">
           <LoginMutation email={email} password={password} />
         </div>
+        <p className="text-sm mt-6">
+          Do not have an account yet?{" "}
+          <Link className="link" to="/signup">
+            Sign up
+          </Link>
+        </p>
       </div>
     </div>
   )

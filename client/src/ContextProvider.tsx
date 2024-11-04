@@ -1,10 +1,11 @@
 import React from "react"
 import { trpc } from "./utils/trpc"
+
 type ContextType = {
   me: {
     id: string
     name: string
-    image: string
+    image: string | null
   } | null
   updateUser: () => void
   isLoading: boolean

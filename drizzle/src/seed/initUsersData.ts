@@ -1,6 +1,5 @@
-export const database = [
+export const initUsersData = [
   {
-    id: "jdhdya",
     email: "alan@example.com",
     name: "Alan Doe",
     image:
@@ -8,7 +7,6 @@ export const database = [
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
   },
   {
-    id: "jsiqla",
     email: "paul@example.com",
     name: "Paul Doe",
     image:
@@ -16,31 +14,14 @@ export const database = [
     password: "$2b$10$4AjaxVnYZnw0ZB55ggLm1.tbWqVc2mjecpYnDuYORn8QQzFhcSHgW", // hashed version. non-hashed is "verySecurePassword"
   },
   {
-    id: "hdnakq",
     email: "john@example.com",
     name: "John Doe",
     image:
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairFrizzle&accessoriesType=Prescription01&hairColor=Black&facialHairType=Blank&facialHairColor=Brown&clotheType=BlazerSweater&clotheColor=Gray02&eyeType=Side&eyebrowType=Default&mouthType=Default&skinColor=Black",
     password: "$2b$10$.w4jBul1DjE37JSuQdQBJuw44AA5SwDfhv/uh11OmioOSuqBgNEWe", // hashed version. non-hashed is "veryVerySecurePassword"
   },
+
   {
-    id: "mskaqs",
-    email: "user1@example.com",
-    name: "User One",
-    image:
-      "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairCurly&hairColor=Blonde&facialHairType=MoustacheFancy&facialHairColor=Auburn&clotheType=GraphicShirt&clotheColor=PastelYellow&eyeType=Wink&eyebrowType=RaisedExcitedNatural&mouthType=Disbelief&skinColor=Brown",
-    password: "$2b$10$ABCDEFHIJKLMNOPQRSTUVWXYZ1234567890", // Example hashed password
-  },
-  {
-    id: "xyzwqa",
-    email: "user2@example.com",
-    name: "User Two",
-    image:
-      "https://avataaars.io/?avatarStyle=Transparent&topType=Hat&hatColor=Blue03&clotheType=BlazerSweater&eyeType=Squint&eyebrowType=AngryNatural&mouthType=Smile&skinColor=Pale",
-    password: "$2b$10$ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890", // Example hashed password
-  },
-  {
-    id: "xyzopw",
     email: "user50@example.com",
     name: "User Fifty",
     image:
@@ -48,7 +29,6 @@ export const database = [
     password: "$2b$10$ABCDE12345FGHIJKLMNOPQRSTUVWXYZ67890", // Example hashed password
   },
   {
-    id: "u1e7qwehwq",
     email: "lisa@example.com",
     name: "Lisa Smith",
     image:
@@ -56,7 +36,6 @@ export const database = [
     password: "$2b$10$dhEjiLMN7P5k5p.ZPvFWh.R4u3DzIznT9zEfGhReNTtYPVE9MW77i", // hashed version. non-hashed is "randomPassword1"
   },
   {
-    id: "u2e7qwehwq",
     email: "mike@example.com",
     name: "Mike Johnson",
     image:
@@ -64,7 +43,6 @@ export const database = [
     password: "$2b$10$yT.JbJeYNLnmy5jK9Es0UOhRKaWOUtmJ1GRX0dviuNmhlSx9B9U0W", // hashed version. non-hashed is "randomPassword2"
   },
   {
-    id: "u3e7qwehwq",
     email: "jane@example.com",
     name: "Jane Brown",
     image:
@@ -72,7 +50,6 @@ export const database = [
     password: "$2b$10$LzFKo5t7KvNb7F1sQ2W.O.W2dCefrZnD5RG9hTfX3EqLyNMbZ2E9e", // hashed version. non-hashed is "randomPassword3"
   },
   {
-    id: "u4e7qwehwq",
     email: "emma@example.com",
     name: "Emma White",
     image:
@@ -80,7 +57,6 @@ export const database = [
     password: "$2b$10$MBFbXjFXeg.q.TzDCQ7NXu1DyoOJtAErUpFxnOY5f0f6FqUpfFbVG", // hashed version. non-hashed is "randomPassword4"
   },
   {
-    id: "u5e7qwehwq",
     email: "james@example.com",
     name: "James Green",
     image:
@@ -88,7 +64,6 @@ export const database = [
     password: "$2b$10$k8Tw0H9ck5NG0gjYu9UJvOrFtZGiHs2MRM6qisSxsifzZL6LTTBrS", // hashed version. non-hashed is "randomPassword5"
   },
   {
-    id: "u6e7qwehwq",
     email: "charlotte@example.com",
     name: "Charlotte Lee",
     image:
@@ -96,7 +71,6 @@ export const database = [
     password: "$2b$10$cRwx4kPphVrXtRvlkDCnGurnNUU.SrFMFwT7fjxVcz9CKRxYq8AiG", // hashed version. non-hashed is "randomPassword6"
   },
   {
-    id: "u7e7qwehwq",
     email: "david@example.com",
     name: "David Harris",
     image:
@@ -104,7 +78,6 @@ export const database = [
     password: "$2b$10$JmOtZHHjX.RvsARfjxfVTO0ptUKVZ79OBH.K8D5iGVtjo8zt0rX9O", // hashed version. non-hashed is "randomPassword7"
   },
   {
-    id: "u8e7qwehwq",
     email: "mia@example.com",
     name: "Mia Clark",
     image:
@@ -112,7 +85,6 @@ export const database = [
     password: "$2b$10$MxRJ5OFxZ4/5lkXa6gJIQum5PzMHjciEvb9dNrOdhLJ7hz5bbXtCK", // hashed version. non-hashed is "randomPassword8"
   },
   {
-    id: "mskaqs",
     email: "user1@example.com",
     name: "User One",
     image:
@@ -120,7 +92,6 @@ export const database = [
     password: "$2b$10$ABCDEFHIJKLMNOPQRSTUVWXYZ1234567890",
   },
   {
-    id: "xyzwqa",
     email: "user2@example.com",
     name: "User Two",
     image:
@@ -128,15 +99,6 @@ export const database = [
     password: "$2b$10$ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
   },
   {
-    id: "usr001",
-    email: "emma@example.com",
-    name: "Emma Johnson",
-    image:
-      "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairStraight&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Smile&skinColor=Light",
-    password: "$2b$10$ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
-  },
-  {
-    id: "usr002",
     email: "liam@example.com",
     name: "Liam Smith",
     image:
@@ -144,7 +106,6 @@ export const database = [
     password: "$2b$10$BCDEFGHIJKLMNOPQRSTUVWXYZA1234567890",
   },
   {
-    id: "usr003",
     email: "olivia@example.com",
     name: "Olivia Brown",
     image:
@@ -152,7 +113,6 @@ export const database = [
     password: "$2b$10$CDEFGHIJKLMNOPQRSTUVWXYZAB1234567890",
   },
   {
-    id: "usr004",
     email: "noah@example.com",
     name: "Noah Wilson",
     image:
@@ -160,7 +120,6 @@ export const database = [
     password: "$2b$10$DEFGHIJKLMNOPQRSTUVWXYZABC1234567890",
   },
   {
-    id: "usr005",
     email: "ava@example.com",
     name: "Ava Taylor",
     image:
@@ -168,7 +127,6 @@ export const database = [
     password: "$2b$10$EFGHIJKLMNOPQRSTUVWXYZABCD1234567890",
   },
   {
-    id: "usr006",
     email: "ethan@example.com",
     name: "Ethan Davis",
     image:
@@ -176,7 +134,6 @@ export const database = [
     password: "$2b$10$FGHIJKLMNOPQRSTUVWXYZABCDE1234567890",
   },
   {
-    id: "usr007",
     email: "sophia@example.com",
     name: "Sophia Anderson",
     image:
@@ -184,7 +141,6 @@ export const database = [
     password: "$2b$10$GHIJKLMNOPQRSTUVWXYZABCDEF1234567890",
   },
   {
-    id: "usr008",
     email: "mason@example.com",
     name: "Mason Thomas",
     image:
@@ -192,7 +148,6 @@ export const database = [
     password: "$2b$10$HIJKLMNOPQRSTUVWXYZABCDEFG1234567890",
   },
   {
-    id: "usr009",
     email: "isabella@example.com",
     name: "Isabella Jackson",
     image:
@@ -200,39 +155,28 @@ export const database = [
     password: "$2b$10$IJKLMNOPQRSTUVWXYZABCDEFGH1234567890",
   },
   {
-    id: "usr010",
     email: "william@example.com",
     name: "William White",
     image:
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortWaved&accessoriesType=Blank&hairColor=Black&facialHairType=BeardLight&facialHairColor=Black&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light",
     password: "$2b$10$JKLMNOPQRSTUVWXYZABCDEFGHI1234567890",
   },
+
   {
-    id: "usr011",
-    email: "mia@example.com",
-    name: "Mia Harris",
-    image:
-      "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairStraight&accessoriesType=Blank&hairColor=Blonde&facialHairType=Blank&clotheType=ShirtScoopNeck&clotheColor=PastelRed&eyeType=Default&eyebrowType=Default&mouthType=Smile&skinColor=Light",
-    password: "$2b$10$KLMNOPQRSTUVWXYZABCDEFGHIJ1234567890",
-  },
-  {
-    id: "usr012",
-    email: "james@example.com",
+    email: "james_martin@example.com",
     name: "James Martin",
     image:
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Prescription01&hairColor=Auburn&facialHairType=BeardMagestic&facialHairColor=Auburn&clotheType=ShirtCrewNeck&clotheColor=Blue03&eyeType=Side&eyebrowType=RaisedExcited&mouthType=Default&skinColor=Pale",
     password: "$2b$10$LMNOPQRSTUVWXYZABCDEFGHIJK1234567890",
   },
   {
-    id: "usr013",
-    email: "charlotte@example.com",
+    email: "charlotte_t@example.com",
     name: "Charlotte Thompson",
     image:
       "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairCurly&accessoriesType=Round&hairColor=Black&facialHairType=Blank&clotheType=Overall&clotheColor=Gray01&eyeType=Happy&eyebrowType=Default&mouthType=Smile&skinColor=Light",
     password: "$2b$10$MNOPQRSTUVWXYZABCDEFGHIJKL1234567890",
   },
   {
-    id: "usr014",
     email: "benjamin@example.com",
     name: "Benjamin Garcia",
     image:
@@ -240,7 +184,6 @@ export const database = [
     password: "$2b$10$NOPQRSTUVWXYZABCDEFGHIJKLM1234567890",
   },
   {
-    id: "usr015",
     email: "amelia@example.com",
     name: "Amelia Martinez",
     image:
@@ -248,7 +191,6 @@ export const database = [
     password: "$2b$10$OPQRSTUVWXYZABCDEFGHIJKLMN1234567890",
   },
   {
-    id: "usr016",
     email: "elijah@example.com",
     name: "Elijah Robinson",
     image:
@@ -256,7 +198,6 @@ export const database = [
     password: "$2b$10$PQRSTUVWXYZABCDEFGHIJKLMNO1234567890",
   },
   {
-    id: "usr017",
     email: "harper@example.com",
     name: "Harper Clark",
     image:
@@ -264,7 +205,6 @@ export const database = [
     password: "$2b$10$QRSTUVWXYZABCDEFGHIJKLMNOP1234567890",
   },
   {
-    id: "usr018",
     email: "lucas@example.com",
     name: "Lucas Rodriguez",
     image:

@@ -54,14 +54,25 @@
 
 ## Installation
 
-In the root directory (it will run the client and the server automatically). Run:
+- Make sure a postgres database is running.
+- Update the file `env.ts`
+- Install the repo
 
 ```bash
 npm i
-npm run dev
 ```
 
-Try editing the ts files to see the type checking in action, thanks to Trpc :)
+- Setup the database
+
+```bash
+npm run push
+```
+
+- In the root directory (it will run the client and the server automatically). Run:
+
+```bash
+npm run dev
+```
 
 ## Building for production
 
