@@ -48,7 +48,7 @@ export const Login = () => {
           <LoginMutation email={email} password={password} />
         </div>
         <p className="text-sm mt-6">
-          Do not have an account yet?{" "}
+          Don’t have an account yet?{" "}
           <Link className="link" to="/signup">
             Sign up
           </Link>
