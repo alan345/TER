@@ -31,12 +31,9 @@ const UpdateUserName = (props: Props) => {
       <div className="flex items-center gap-2 h-10">
         <div>Name: </div>
         {!isEdit ? (
-          <div className="flex items-center gap-2 group">
+          <div className="flex items-center gap-2 group" onClick={() => setIsEdit(true)}>
             <div>{name}</div>
-            <Pencil
-              className="cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity"
-              onClick={() => setIsEdit(true)}
-            />
+            <Pencil className="cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity" />
             {mutation.isSuccess && <SavedIconEffect />}
             {mutation.isPending && <SpinnerGap className="animate-spin" />}
           </div>
