@@ -1,5 +1,4 @@
 import "dotenv/config"
-import { eq } from "drizzle-orm"
 import { database } from "../../server/database/database"
 import { drizzle } from "drizzle-orm/node-postgres"
 import { usersTable } from "./db/schema"
