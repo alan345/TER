@@ -1,5 +1,5 @@
-import React, { useEffect } from "react"
-import { useLocation, useNavigate } from "react-router-dom"
+import React from "react"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import { Beers } from "../components/Beers"
 import { AppContext } from "../ContextProvider"
 import { Movies } from "../components/Movies"
@@ -13,21 +13,11 @@ export const ElementsPage = () => {
   const location = useLocation()
   const navigate = useNavigate()
 
-  const queryParams = new URLSearchParams(location.search)
-  const initialTab = queryParams.get("tab") || "movies"
-
-  const [tab, setTab] = React.useState(initialTab)
-
-  useEffect(() => {
-    const query = new URLSearchParams(location.search)
-    const currentTab = query.get("tab") || "movies"
-    if (currentTab !== tab) {
-      setTab(currentTab)
-    }
-  }, [location.search, tab])
+  const query = new URLSearchParams(location.search)
+  const currentTab = query.get("tab") || "movies"
 
   const getClassName = (tabName: string) => {
-    return `cursor-pointer ${tab === tabName ? "underline" : ""}`
+    return `cursor-pointer ${currentTab === tabName ? "underline" : ""}`
   }
 
   const elements = [
@@ -44,26 +34,24 @@ export const ElementsPage = () => {
     },
   ]
 
-  const handleTabChange = (newTab: string) => {
-    navigate(`?tab=${newTab}`)
-  }
-
   return (
     <>
       <nav className="flex gap-6 flex-wrap mt-4">
         {elements.map((element) => (
           <span key={element.name}>
             {((element.isPrivate && context.me) || !element.isPrivate) && (
-              <h3 className={getClassName(element.tab)} onClick={() => handleTabChange(element.tab)}>
-                {element.name}
-              </h3>
+              <Link to={`?tab=${element.tab}`}>
+                <h3 className={getClassName(element.tab)}>{element.name}</h3>
+              </Link>
             )}
           </span>
         ))}
       </nav>
       {elements.map((element) => (
         <div key={element.name}>
-          {((element.isPrivate && context.me) || !element.isPrivate) && <>{tab === element.tab && element.component}</>}
+          {((element.isPrivate && context.me) || !element.isPrivate) && (
+            <>{currentTab === element.tab && element.component}</>
+          )}
         </div>
       ))}
     </>
