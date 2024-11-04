@@ -31,6 +31,7 @@
 ## Other Libraries
 
 - [Bcrypt](https://www.npmjs.com/package/bcrypt) - A JavaScript library for hashing passwords
+- [Drizzle](https://orm.drizzle.team/) - A TypeScript-first ORM for Node.js
 - [JWT](https://jwt.io) - JSON Web Tokens for authentication
 - [NPM](https://www.npmjs.com) - Node Package Manager for managing dependencies
 - [Playwright](https://playwright.dev) - Test your web apps headlessly with a single API
@@ -115,8 +116,6 @@ npm run test:e2e
 
 ## Other recommendations
 
-- Need a database? Check out [PostgreSQL](https://www.postgresql.org/)
-- Need an ORM? Check out [Drizzle](https://orm.drizzle.team/)
 - Need a component library? Check out [Chakra UI](https://v2.chakra-ui.com/)
 - Need icons? Check out [Tabler Icons](https://tabler.io/icons/)
 
