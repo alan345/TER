@@ -36,6 +36,7 @@
 - [NPM](https://www.npmjs.com) - Node Package Manager for managing dependencies
 - [phosphoricons](https://phosphoricons.com) - A flexible icon family for interfaces, diagrams, presentations — whatever, really
 - [Playwright](https://playwright.dev) - Test your web apps headlessly with a single API
+- [Postgres](https://www.postgresql.org) - The world's most advanced open source database
 - [Tailwind CSS](https://tailwindcss.com) - A utility-first CSS framework for rapid UI development
 - [TypeScript](https://www.typescriptlang.org) - TypeScript is a typed superset of JavaScript
 - [Vite](https://vitejs.dev) - Next generation frontend tooling. It's fast!
