@@ -46,6 +46,11 @@ const UpdateUserName = (props: Props) => {
               onChange={(e) => setName(e.target.value)}
               type="text"
               placeholder="Name"
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  updateUser()
+                }
+              }}
               className="pr-20"
               style={{ paddingRight: "26px" }}
             />
