@@ -55,7 +55,7 @@
 
 ## Installation
 
-- Make sure a postgres database is running.
+- Make sure a postgres database is running
 - Create a database called `ter`
 
 ```bash
