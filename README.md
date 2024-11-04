@@ -63,7 +63,7 @@ createdb ter
 ```
 
 - Update the file `env.ts`
-- Run in the terminal:
+- Run in the terminal In the root directory:
 
 ```bash
 // Install the dependencies
@@ -75,7 +75,7 @@ npm run push
 // Seed the database
 npm run seed
 
-// In the root directory (it will run the client and the server automatically). Run:
+// Run the app (it will run the client and the server automatically)
 npm run dev
 ```
 
