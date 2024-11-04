@@ -1,6 +1,6 @@
 import { protectedProcedure, publicProcedure, router } from "../trpc"
 import { z } from "zod"
-import { database } from "../database/database"
+// import { database } from "../../drizzle/src/seed/initUsersData"
 // import { drizzle } from "drizzle-orm/node-postgres"
 import { usersTable } from "../../drizzle/src/db/schema"
 // import * as schema from "../../drizzle/src/db/schema"
@@ -14,7 +14,7 @@ export const userRouter = router({
       })
     )
     .query(async ({ input }) => {
-      return database
+      return []
     }),
   getUser: protectedProcedure
     .input(

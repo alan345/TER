@@ -9,7 +9,7 @@ import { healthRouter } from "./router/healthRouter"
 import { albumRouter } from "./router/albumRouter"
 import { beerRouter } from "./router/beerRouter"
 import { t } from "./trpc"
-import { secretJwt } from "./env"
+import { secretJwt, DATABASE_URL } from "../env"
 import { movieRouter } from "./router/movieRouter"
 import { photoRouter } from "./router/photoRouter"
 import { employeeRouter } from "./router/employeeRouter"
@@ -27,7 +27,9 @@ export interface UserIDJwtPayload extends jwt.JwtPayload {
 export const createContext = async ({ req, res }: trpcExpress.CreateExpressContextOptions) => {
   const cookies = req.cookies
   const token = cookies[cookieName]
-  const db = drizzle(process.env.DATABASE_URL!, { schema })
+  // const db = drizzle(process.env.DATABASE_URL!, { schema })
+  const db = drizzle(DATABASE_URL, { schema })
+
   if (token) {
     let decoded = jwt.verify(token, secretJwt) as UserIDJwtPayload
     if (decoded) {

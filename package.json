@@ -13,6 +13,7 @@
     "dev:client": "npm run dev -w client",
     "dev:server": "npm run dev -w server",
     "dev": "run-p dev:*",
+    "push": "npm run push -w drizzle",
     "start:client": "npm run start -w client",
     "start:server": "npm run start -w server",
     "start": "run-p start:*",

@@ -2,6 +2,7 @@
   "name": "drizzle",
   "version": "1.0.0",
   "scripts": {
+    "push": "npx drizzle-kit push",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
