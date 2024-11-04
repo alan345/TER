@@ -1,8 +1,8 @@
 import "dotenv/config"
-import { initUsersData } from "./seed/initUsersData"
+import { initUsersData } from "./initUsersData"
 import { drizzle } from "drizzle-orm/node-postgres"
-import { usersTable } from "./db/schema"
-import { DATABASE_URL } from "../../env"
+import { usersTable } from "../db/schema"
+import { DATABASE_URL } from "../../../env"
 async function main() {
   // const db = drizzle(process.env.DATABASE_URL!)
   const db = drizzle(DATABASE_URL)

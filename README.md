@@ -56,6 +56,12 @@
 ## Installation
 
 - Make sure a postgres database is running.
+- Create a database called `ter`
+
+```bash
+createdb ter
+```
+
 - Update the file `env.ts`
 - Install the repo
 
@@ -67,6 +73,12 @@ npm i
 
 ```bash
 npm run push
+```
+
+- Seed the database
+
+```bash
+npm run seed
 ```
 
 - In the root directory (it will run the client and the server automatically). Run:
