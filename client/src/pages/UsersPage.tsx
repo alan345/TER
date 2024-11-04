@@ -2,6 +2,7 @@ import { trpc } from "../utils/trpc"
 import { LoadingTemplate } from "../template/LoadingTemplate"
 import { ErrorTemplate } from "../template/ErrorTemplate"
 import { Link, useLocation } from "react-router-dom"
+import { CaretRight, CaretLeft } from "@phosphor-icons/react"
 
 export const UsersPage = () => {
   const location = useLocation()
@@ -37,10 +38,16 @@ export const UsersPage = () => {
           ))}
         </tbody>
       </table>
-      <div className="flex justify-end mt-4">
-        {pageNumber > 1 && <Link to={`?page=${pageNumber - 1}`} className="mr-2">{`<`}</Link>}
+      <div className="flex justify-end items-center mt-4">
+        {pageNumber > 1 && (
+          <Link to={`?page=${pageNumber - 1}`} className="link mr-2">
+            <CaretLeft />
+          </Link>
+        )}
         {pageNumber}
-        <Link className="ml-2" to={`?page=${pageNumber + 1}`}>{`>`}</Link>
+        <Link className="link ml-2" to={`?page=${pageNumber + 1}`}>
+          <CaretRight />
+        </Link>
       </div>
     </div>
   )
