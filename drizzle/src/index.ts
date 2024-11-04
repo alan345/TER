@@ -1,17 +1,18 @@
 import "dotenv/config"
 import { eq } from "drizzle-orm"
+import { database } from "../../server/database/database"
 import { drizzle } from "drizzle-orm/connect"
 import { usersTable } from "./db/schema"
 async function main() {
   const db = await drizzle("node-postgres", process.env.DATABASE_URL!)
-  // const user: typeof usersTable.$inferInsert = {
-  //   name: "John",
-  //   password: "123456",
-  //   // age: 30,
 
-  //   email: "johna@example.com",
-  // }
-  // await db.insert(usersTable).values(user)
+  const databaseNoId = database.map((u) => {
+    const { id, ...rest } = u
+    return rest
+  })
+  await db.delete(usersTable)
+  // .where(eq(usersTable.email, user.email))
+  await db.insert(usersTable).values(databaseNoId)
   // console.log("New user created!")
   const users = await db.select().from(usersTable)
   console.log("Getting all users from the database: ", users)
