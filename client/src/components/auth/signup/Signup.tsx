@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { zodSignup } from "@ter/shared/schemas/zod"
 
 type SignupFormData = z.infer<typeof zodSignup>
+type ErrorsType = Partial<Record<keyof SignupFormData, string[]>>
 
 export const Signup = () => {
   const navigate = useNavigate()
@@ -16,7 +17,7 @@ export const Signup = () => {
     email: "",
     password: "",
   })
-  const [errors, setErrors] = React.useState<Partial<Record<keyof SignupFormData, string>>>({})
+  const [errors, setErrors] = React.useState<ErrorsType>({})
   const [touchedFields, setTouchedFields] = React.useState<Partial<Record<keyof SignupFormData, boolean>>>({})
   const [activeFields, setActiveFields] = React.useState<Partial<Record<keyof SignupFormData, boolean>>>({})
   const [showPassword, setShowPassword] = React.useState(false)
@@ -30,7 +31,8 @@ export const Signup = () => {
       return true
     } catch (error) {
       if (error instanceof z.ZodError) {
-        setErrors((prev) => ({ ...prev, [fieldName]: error.errors[0].message }))
+        const fieldErrors = error.errors.map((err) => err.message)
+        setErrors((prev) => ({ ...prev, [fieldName]: fieldErrors }))
       }
       return false
     }
@@ -91,9 +93,13 @@ export const Signup = () => {
             type="text"
             placeholder="Name"
           />
-          {touchedFields.name && errors.name && !activeFields.name && (
-            <p className="mt-1 text-sm text-red-500">{errors.name}</p>
-          )}
+          {touchedFields.name &&
+            !activeFields.name &&
+            errors.name?.map((error, idx) => (
+              <p key={idx} className="mt-1 text-sm text-red-500">
+                {error}
+              </p>
+            ))}
         </div>
 
         <div>
@@ -107,9 +113,13 @@ export const Signup = () => {
             type="text"
             placeholder="Email"
           />
-          {touchedFields.email && errors.email && !activeFields.email && (
-            <p className="mt-1 text-sm text-red-500">{errors.email}</p>
-          )}
+          {touchedFields.email &&
+            !activeFields.email &&
+            errors.email?.map((error, idx) => (
+              <p key={idx} className="mt-1 text-sm text-red-500">
+                {error}
+              </p>
+            ))}
         </div>
 
         <div>
@@ -125,9 +135,11 @@ export const Signup = () => {
             type={showPassword ? "text" : "password"}
             placeholder="Password"
           />
-          {touchedFields.password && errors.password && !activeFields.password && (
-            <p className="mt-1 text-sm text-red-500">{errors.password}</p>
-          )}
+          {errors.password?.map((error, idx) => (
+            <p key={idx} className="mt-1 text-sm text-red-500">
+              {error}
+            </p>
+          ))}
         </div>
 
         <div>

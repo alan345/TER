@@ -1,11 +1,26 @@
 import React from "react"
-import { LoginMutation } from "./LoginMutation"
 import { Link } from "react-router-dom"
+import { trpc } from "../../../utils/trpc"
+import { AppContext } from "../../../ContextProvider"
+import { useNavigate } from "react-router-dom"
 
 export const Login = () => {
   const [email, setEmail] = React.useState("alan@example.com")
   const [password, setPassword] = React.useState("securePassword")
   const [showPassword, setShowPassword] = React.useState(false)
+
+  const navigate = useNavigate()
+  const context = React.useContext(AppContext)
+  const loginMutation = trpc.login.useMutation({})
+  const login = async () => {
+    try {
+      await loginMutation.mutateAsync({ email, password })
+      context.updateUser()
+      navigate("/profile")
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <div>
@@ -45,7 +60,17 @@ export const Login = () => {
           </label>
         </div>
         <div className="mt-4">
-          <LoginMutation email={email} password={password} />
+          <div>
+            <button
+              id="email-mutation-button"
+              disabled={loginMutation.isPending || email === "" || password === ""}
+              onClick={login}
+              className="btn-blue"
+            >
+              {loginMutation.isPending ? "Loading..." : "Login"}
+            </button>
+            {loginMutation.error && <p className="text-red-600">{loginMutation.error.message}</p>}
+          </div>
         </div>
         <p className="text-sm mt-6">
           Don’t have an account yet?{" "}
