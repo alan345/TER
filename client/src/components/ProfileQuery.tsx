@@ -1,15 +1,14 @@
 import { trpc } from "../utils/trpc"
 import { LoadingTemplate } from "../template/LoadingTemplate"
 import { ErrorTemplate } from "../template/ErrorTemplate"
-import { useState } from "react"
 import iconAvatar from "../assets/icons/avatar.svg"
 import UpdateUserName from "./user/UpdateUserName"
+import ImgAvatar from "../template/layout/ImgAvatar"
 
 type Props = {
   meId: string
 }
 export const ProfileQuery = (props: Props) => {
-  const [isLoaded, setIsLoaded] = useState(false)
   const dataQuery = trpc.getUser.useQuery({ id: props.meId })
   if (dataQuery.isLoading) return <LoadingTemplate />
   if (dataQuery.isError) return <ErrorTemplate message={dataQuery.error.message} />
@@ -19,12 +18,9 @@ export const ProfileQuery = (props: Props) => {
       <h2 className="text-2xl font-semibold text-gray-700">Profile</h2>
       <div className="mt-4">
         <div>
-          <img
+          <ImgAvatar
             src={dataQuery.data.image ? dataQuery.data.image : iconAvatar}
-            onLoad={() => setIsLoaded(true)}
-            className={`w-36 h-36 rounded-full shadow-lg transition-transform duration-200 transform hover:scale-110 ${
-              isLoaded ? "border-4 border-gray-300 hover:border-[#034DA2]" : ""
-            }`}
+            className="w-36 h-36"
             alt="Profile"
           />
         </div>

@@ -1,7 +1,7 @@
 import React from "react"
 import { AppContext } from "../../ContextProvider"
 import { Link } from "react-router-dom"
-import iconAvatar from "../../assets/icons/avatar.svg"
+import ImgAvatar from "./ImgAvatar"
 export const AvatarMenu = () => {
   const context = React.useContext(AppContext)
 
@@ -11,10 +11,7 @@ export const AvatarMenu = () => {
         {context.me ? (
           <Link to="/profile">
             <div className="flex items-center justify-center">
-              <img
-                src={context.me.image ? context.me.image : iconAvatar}
-                className="w-10 h-10 rounded-full border-4 border-gray-300 shadow-lg transition-transform duration-200 transform hover:scale-110 hover:border-[#034DA2]"
-              />
+              <ImgAvatar src={context.me.image} alt="Profile Image" className="w-10 h-10" />
             </div>
           </Link>
         ) : (

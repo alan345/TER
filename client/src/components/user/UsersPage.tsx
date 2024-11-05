@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom"
 import { trpc } from "../../utils/trpc"
 import { ErrorTemplate } from "../../template/ErrorTemplate"
 import { Pagination } from "./Pagination"
+import ImgAvatar from "../../template/layout/ImgAvatar"
 
 export const UsersPage = () => {
   const location = useLocation()
@@ -29,7 +30,9 @@ export const UsersPage = () => {
               <td>{user.id}</td>
               <td>{user.name}</td>
               <td>{user.email}</td>
-              <td>{user.image && <img src={user.image} width="50px" />}</td>
+              <td>
+                <ImgAvatar src={user.image} alt="Profile Image" className="w-10 h-10" />
+              </td>
             </tr>
           ))}
         </tbody>
