@@ -1,5 +1,5 @@
 {
-  "name": "drizzle",
+  "name": "@ter/drizzle",
   "version": "1.0.0",
   "scripts": {
     "push": "npx drizzle-kit push",

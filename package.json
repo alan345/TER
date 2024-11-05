@@ -1,10 +1,11 @@
 {
-  "name": "ter-fullstack-app",
+  "name": "ter",
   "private": true,
   "workspaces": [
     "client",
     "server",
-    "drizzle"
+    "drizzle",
+    "shared"
   ],
   "scripts": {
     "build:client": "npm run build -w client",
@@ -12,6 +13,7 @@
     "build": "run-s build:server build:client",
     "dev:client": "npm run dev -w client",
     "dev:server": "npm run dev -w server",
+    "clean": "rm -rf node_modules && rm -rf client/node_modules && rm -rf server/node_modules && rm -rf drizzle/node_modules && rm -rf shared/node_modules && rm -rf client/dist && rm -rf server/dist && rm -rf drizzle/dist && rm -rf shared/dist && rm -rf package-lock.json && rm -rf client/package-lock.json && rm -rf server/package-lock.json && rm -rf drizzle/package-lock.json && rm -rf shared/package-lock.json",
     "dev": "run-p dev:*",
     "push": "npm run push -w drizzle",
     "seed": "npm run seed -w drizzle",
