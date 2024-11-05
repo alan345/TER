@@ -5,19 +5,7 @@ import { AppContext } from "../../../ContextProvider"
 import { Link, useNavigate } from "react-router-dom"
 import { zodSignup } from "@ter/shared/schemas/zod"
 
-const signupSchema = zodSignup
-// const signupSchema = z.object({
-//   name: z.string().min(2, "Name must be at least 2 characters").max(50, "Name must be less than 50 characters"),
-//   email: z.string().email("Please enter a valid email address").min(1, "Email is required"),
-//   password: z
-//     .string()
-//     .min(8, "Password must be at least 8 characters")
-//     .regex(/[A-Z]/, "Password must contain at least one uppercase letter")
-//     .regex(/[a-z]/, "Password must contain at least one lowercase letter")
-//     .regex(/[0-9]/, "Password must contain at least one number")
-//     .regex(/[^A-Za-z0-9]/, "Password must contain at least one special character"),
-// })
-type SignupFormData = z.infer<typeof signupSchema>
+type SignupFormData = z.infer<typeof zodSignup>
 
 export const Signup = () => {
   const navigate = useNavigate()
@@ -36,7 +24,7 @@ export const Signup = () => {
 
   const validateField = (fieldName: keyof SignupFormData, value: string) => {
     try {
-      const fieldSchema = signupSchema.shape[fieldName]
+      const fieldSchema = zodSignup.shape[fieldName]
       fieldSchema.parse(value)
       setErrors((prev) => ({ ...prev, [fieldName]: undefined }))
       return true
@@ -50,7 +38,7 @@ export const Signup = () => {
 
   const isFormValid = () => {
     try {
-      signupSchema.parse(formData)
+      zodSignup.parse(formData)
       return true
     } catch {
       return false
@@ -173,5 +161,3 @@ export const Signup = () => {
     </div>
   )
 }
-
-export default Signup

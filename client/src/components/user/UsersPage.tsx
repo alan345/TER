@@ -1,12 +1,15 @@
-import { Link, useLocation } from "react-router-dom"
-import { CaretRight, CaretLeft } from "@phosphor-icons/react"
-import UsersQuery from "./UsersQuery"
+import { useLocation } from "react-router-dom"
+import { trpc } from "../../utils/trpc"
+import { ErrorTemplate } from "../../template/ErrorTemplate"
+import { Pagination } from "./Pagination"
 
 export const UsersPage = () => {
   const location = useLocation()
   const query = new URLSearchParams(location.search)
   const page = query.get("page")
   const pageNumber = page ? parseInt(page, 10) : 1
+  const dataQuery = trpc.getUsers.useQuery({ page: pageNumber })
+  if (dataQuery.isError) return <ErrorTemplate message={dataQuery.error.message} />
 
   return (
     <div>
@@ -20,22 +23,21 @@ export const UsersPage = () => {
             <th>Avatar</th>
           </tr>
         </thead>
-
         <tbody>
-          <UsersQuery page={pageNumber} />
+          {dataQuery.data?.users.map((user) => (
+            <tr key={user.id}>
+              <td>{user.id}</td>
+              <td>{user.name}</td>
+              <td>{user.email}</td>
+              <td>{user.image && <img src={user.image} width="50px" />}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
-      <div className="flex justify-end items-center mt-4">
-        {pageNumber > 1 && (
-          <Link to={`?page=${pageNumber - 1}`} className="link mr-2">
-            <CaretLeft />
-          </Link>
-        )}
-        {pageNumber}
-        <Link className="link ml-2" to={`?page=${pageNumber + 1}`}>
-          <CaretRight />
-        </Link>
-      </div>
+      {dataQuery.isLoading && <div>Loading...</div>}
+      {dataQuery.data && (
+        <Pagination limit={dataQuery.data.limit} page={dataQuery.data.page} total={dataQuery.data.total} />
+      )}
     </div>
   )
 }
