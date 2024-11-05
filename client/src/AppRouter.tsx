@@ -6,7 +6,7 @@ import { Contact } from "./pages/Contact"
 import { ProfilePage } from "./components/auth/ProfilePage"
 import { PrivateRoute } from "./PrivateRoute"
 import { UsersPage } from "./components/user/UsersPage"
-import { Signup } from "./components/auth/signup/Signup"
+import { Signup } from "./components/auth/Signup"
 
 export const AppRouter = () => {
   return (
