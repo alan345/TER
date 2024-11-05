@@ -5,8 +5,9 @@ import { AppContext } from "../../../ContextProvider"
 import { useNavigate } from "react-router-dom"
 import { z } from "zod"
 import { zod } from "@ter/shared/schemas/zod"
+const zodLogin = zod.zodLogin
 
-type LoginFormData = z.infer<typeof zod.zodLogin>
+type LoginFormData = z.infer<typeof zodLogin>
 type ErrorsType = Partial<Record<keyof LoginFormData, string[]>>
 
 export const Login = () => {
@@ -36,7 +37,7 @@ export const Login = () => {
 
   const validateField = (fieldName: keyof LoginFormData, value: string) => {
     try {
-      const fieldSchema = zod.zodLogin.shape[fieldName]
+      const fieldSchema = zodLogin.shape[fieldName]
       fieldSchema.parse(value)
       setErrors((prev) => ({ ...prev, [fieldName]: undefined }))
       return true
@@ -51,7 +52,7 @@ export const Login = () => {
 
   const isFormValid = () => {
     try {
-      zod.zodLogin.parse(formData)
+      zodLogin.parse(formData)
       return true
     } catch {
       return false
