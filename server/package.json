@@ -1,5 +1,5 @@
 {
-  "name": "ter-server",
+  "name": "@ter/server",
   "private": true,
   "scripts": {
     "build": "tsc",
