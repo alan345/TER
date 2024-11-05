@@ -3,9 +3,9 @@ import { z } from "zod"
 import { trpc } from "../../../utils/trpc"
 import { AppContext } from "../../../ContextProvider"
 import { Link, useNavigate } from "react-router-dom"
-import { zodSignup } from "@ter/shared/schemas/zod"
+import { zod } from "@ter/shared/schemas/zod"
 
-type SignupFormData = z.infer<typeof zodSignup>
+type SignupFormData = z.infer<typeof zod.zodSignup>
 type ErrorsType = Partial<Record<keyof SignupFormData, string[]>>
 
 export const Signup = () => {
@@ -18,14 +18,13 @@ export const Signup = () => {
     password: "",
   })
   const [errors, setErrors] = React.useState<ErrorsType>({})
-  const [touchedFields, setTouchedFields] = React.useState<Partial<Record<keyof SignupFormData, boolean>>>({})
   const [activeFields, setActiveFields] = React.useState<Partial<Record<keyof SignupFormData, boolean>>>({})
   const [showPassword, setShowPassword] = React.useState(false)
   const [isSubmitting, setIsSubmitting] = React.useState(false)
 
   const validateField = (fieldName: keyof SignupFormData, value: string) => {
     try {
-      const fieldSchema = zodSignup.shape[fieldName]
+      const fieldSchema = zod.zodSignup.shape[fieldName]
       fieldSchema.parse(value)
       setErrors((prev) => ({ ...prev, [fieldName]: undefined }))
       return true
@@ -40,7 +39,7 @@ export const Signup = () => {
 
   const isFormValid = () => {
     try {
-      zodSignup.parse(formData)
+      zod.zodSignup.parse(formData)
       return true
     } catch {
       return false
@@ -56,7 +55,6 @@ export const Signup = () => {
 
   const handleInputBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name } = e.target
-    setTouchedFields((prev) => ({ ...prev, [name]: true }))
     setActiveFields((prev) => ({ ...prev, [name]: false }))
   }
 
@@ -89,12 +87,11 @@ export const Signup = () => {
             value={formData.name}
             onChange={handleInputChange}
             onBlur={handleInputBlur}
-            className={touchedFields.name && errors.name && !activeFields.name ? "input-error" : "input-default"}
+            className={errors.name && !activeFields.name ? "input-error" : "input-default"}
             type="text"
             placeholder="Name"
           />
-          {touchedFields.name &&
-            !activeFields.name &&
+          {!activeFields.name &&
             errors.name?.map((error, idx) => (
               <p key={idx} className="mt-1 text-sm text-red-500">
                 {error}
@@ -109,12 +106,11 @@ export const Signup = () => {
             value={formData.email}
             onChange={handleInputChange}
             onBlur={handleInputBlur}
-            className={touchedFields.email && errors.email && !activeFields.email ? "input-error" : "input-default"}
+            className={errors.email && !activeFields.email ? "input-error" : "input-default"}
             type="text"
             placeholder="Email"
           />
-          {touchedFields.email &&
-            !activeFields.email &&
+          {!activeFields.email &&
             errors.email?.map((error, idx) => (
               <p key={idx} className="mt-1 text-sm text-red-500">
                 {error}
@@ -129,9 +125,7 @@ export const Signup = () => {
             value={formData.password}
             onChange={handleInputChange}
             onBlur={handleInputBlur}
-            className={
-              touchedFields.password && errors.password && !activeFields.password ? "input-error" : "input-default"
-            }
+            className={errors.password && !activeFields.password ? "input-error" : "input-default"}
             type={showPassword ? "text" : "password"}
             placeholder="Password"
           />

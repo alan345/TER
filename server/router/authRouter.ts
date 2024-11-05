@@ -7,43 +7,36 @@ import jwt from "jsonwebtoken"
 import { usersTable } from "@ter/drizzle/src/db/schema"
 import { eq } from "drizzle-orm"
 export const cookieName = "ter-auth"
-import { zodSignup } from "@ter/shared/schemas/zod"
+import { zod } from "@ter/shared/schemas/zod"
 
 export const authRouter = router({
-  login: publicProcedure
-    .input(
-      z.object({
-        email: z.string(),
-        password: z.string(),
-      })
+  login: publicProcedure.input(zod.zodLogin).mutation(async (opts) => {
+    const db = opts.ctx.db
+    const user = await db.query.usersTable.findFirst({ where: eq(usersTable.email, opts.input.email) })
+    // console.log("Getting all users from the database: ", user)
+
+    if (!user) throw new Error("Incorrect login")
+
+    const isPasswordCorrect = await bcrypt.compare(opts.input.password, user.password)
+
+    if (!isPasswordCorrect) {
+      throw new Error("Incorrect password")
+    }
+    const token = jwt.sign(
+      {
+        id: user.id,
+        exp: Math.floor(Date.now() / 1000) + 60 * 60,
+      },
+      secretJwt
     )
-    .mutation(async (opts) => {
-      const db = opts.ctx.db
-      const user = await db.query.usersTable.findFirst({ where: eq(usersTable.email, opts.input.email) })
-      // console.log("Getting all users from the database: ", user)
 
-      if (!user) throw new Error("Incorrect login")
-
-      const isPasswordCorrect = await bcrypt.compare(opts.input.password, user.password)
-
-      if (!isPasswordCorrect) {
-        throw new Error("Incorrect password")
-      }
-      const token = jwt.sign(
-        {
-          id: user.id,
-          exp: Math.floor(Date.now() / 1000) + 60 * 60,
-        },
-        secretJwt
-      )
-
-      opts.ctx.res.cookie(cookieName, token, {
-        maxAge: 900000,
-        httpOnly: true,
-      })
-      return true
-    }),
-  signup: publicProcedure.input(zodSignup).mutation(async (opts) => {
+    opts.ctx.res.cookie(cookieName, token, {
+      maxAge: 900000,
+      httpOnly: true,
+    })
+    return true
+  }),
+  signup: publicProcedure.input(zod.zodSignup).mutation(async (opts) => {
     const db = opts.ctx.db
     const user = await db.query.usersTable.findFirst({ where: eq(usersTable.email, opts.input.email) })
     if (user) throw new Error("User already exists")
