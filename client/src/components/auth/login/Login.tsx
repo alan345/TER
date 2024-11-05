@@ -51,7 +51,7 @@ export const Login = () => {
 
   const isFormValid = () => {
     try {
-      zod.zodSignup.parse(formData)
+      zod.zodLogin.parse(formData)
       return true
     } catch {
       return false
