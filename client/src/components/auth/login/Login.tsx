@@ -3,23 +3,71 @@ import { Link } from "react-router-dom"
 import { trpc } from "../../../utils/trpc"
 import { AppContext } from "../../../ContextProvider"
 import { useNavigate } from "react-router-dom"
+import { z } from "zod"
+import { zod } from "@ter/shared/schemas/zod"
+
+type LoginFormData = z.infer<typeof zod.zodLogin>
+type ErrorsType = Partial<Record<keyof LoginFormData, string[]>>
 
 export const Login = () => {
-  const [email, setEmail] = React.useState("alan@example.com")
-  const [password, setPassword] = React.useState("securePassword")
   const [showPassword, setShowPassword] = React.useState(false)
+  const [errors, setErrors] = React.useState<ErrorsType>({})
+  const [isSubmitting, setIsSubmitting] = React.useState(false)
+  const [activeFields, setActiveFields] = React.useState<Partial<Record<keyof LoginFormData, boolean>>>({})
+  const [formData, setFormData] = React.useState<LoginFormData>({
+    password: "securePassword",
+    email: "alan@example.com",
+  })
 
   const navigate = useNavigate()
   const context = React.useContext(AppContext)
   const loginMutation = trpc.login.useMutation({})
   const login = async () => {
+    // e.preventDefault()
+    setIsSubmitting(true)
     try {
-      await loginMutation.mutateAsync({ email, password })
+      await loginMutation.mutateAsync({ email: formData.email, password: formData.password })
       context.updateUser()
       navigate("/profile")
     } catch (error) {
       console.log(error)
     }
+  }
+
+  const validateField = (fieldName: keyof LoginFormData, value: string) => {
+    try {
+      const fieldSchema = zod.zodLogin.shape[fieldName]
+      fieldSchema.parse(value)
+      setErrors((prev) => ({ ...prev, [fieldName]: undefined }))
+      return true
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        const fieldErrors = error.errors.map((err) => err.message)
+        setErrors((prev) => ({ ...prev, [fieldName]: fieldErrors }))
+      }
+      return false
+    }
+  }
+
+  const isFormValid = () => {
+    try {
+      zod.zodSignup.parse(formData)
+      return true
+    } catch {
+      return false
+    }
+  }
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+    setActiveFields((prev) => ({ ...prev, [name]: true }))
+    validateField(name as keyof LoginFormData, value)
+  }
+
+  const handleInputBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name } = e.target
+    setActiveFields((prev) => ({ ...prev, [name]: false }))
   }
 
   return (
@@ -29,22 +77,38 @@ export const Login = () => {
         <div>
           <input
             id="email-input"
-            value={email}
-            className="text-black"
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
+            onBlur={handleInputBlur}
+            className={errors.email && !activeFields.email ? "input-error" : "input-default"}
             type="text"
             placeholder="Email"
-            onChange={(e) => setEmail(e.target.value)}
           />
+          {!activeFields.email &&
+            errors.email?.map((error, idx) => (
+              <p key={idx} className="mt-1 text-sm text-red-500">
+                {error}
+              </p>
+            ))}
         </div>
         <div className="mt-1">
           <input
             id="password-input"
-            value={password}
-            className="text-black"
+            name="password"
+            value={formData.password}
+            onChange={handleInputChange}
+            onBlur={handleInputBlur}
+            className={errors.password && !activeFields.password ? "input-error" : "input-default"}
             type={showPassword ? "text" : "password"}
             placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
           />
+          {!activeFields.password &&
+            errors.password?.map((error, idx) => (
+              <p key={idx} className="mt-1 text-sm text-red-500">
+                {error}
+              </p>
+            ))}
         </div>
         <div className="mt-2">
           <input
@@ -63,7 +127,8 @@ export const Login = () => {
           <div>
             <button
               id="email-mutation-button"
-              disabled={loginMutation.isPending || email === "" || password === ""}
+              disabled={isSubmitting || !isFormValid()}
+              // disabled={loginMutation.isPending || email === "" || password === ""}
               onClick={login}
               className="btn-blue"
             >
