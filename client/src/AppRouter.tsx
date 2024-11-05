@@ -3,9 +3,9 @@ import { ElementsPage } from "./pages/ElementsPage"
 import { Home } from "./pages/Home"
 import { AuthManagement } from "./components/auth/AuthManagement"
 import { Contact } from "./pages/Contact"
-import { ProfilePage } from "./pages/ProfilePage"
+import { ProfilePage } from "./components/auth/ProfilePage"
 import { PrivateRoute } from "./PrivateRoute"
-import { UsersPage } from "./pages/UsersPage"
+import { UsersPage } from "./components/user/UsersPage"
 import { Signup } from "./components/auth/signup/Signup"
 
 export const AppRouter = () => {
