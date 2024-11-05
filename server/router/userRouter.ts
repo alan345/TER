@@ -1,7 +1,7 @@
 import { protectedProcedure, router } from "../trpc"
 import { z } from "zod"
 import { usersTable } from "@ter/drizzle/src/db/schema"
-import { eq } from "drizzle-orm"
+import { eq, count } from "drizzle-orm"
 
 export const userRouter = router({
   updateUser: protectedProcedure
@@ -19,28 +19,6 @@ export const userRouter = router({
         .where(eq(usersTable.id, opts.input.id))
         .returning()
 
-      // mutation.usersTable.({ where: eq(usersTable.email, opts.input.email) })
-      // console.log("Getting all users from the database: ", user)
-
-      // if (!user) throw new Error("Incorrect login")
-
-      // const isPasswordCorrect = await bcrypt.compare(opts.input.password, user.password)
-
-      // if (!isPasswordCorrect) {
-      //   throw new Error("Incorrect password")
-      // }
-      // const token = jwt.sign(
-      //   {
-      //     id: user.id,
-      //     exp: Math.floor(Date.now() / 1000) + 60 * 60,
-      //   },
-      //   secretJwt
-      // )
-
-      // opts.ctx.res.cookie(cookieName, token, {
-      //   maxAge: 900000,
-      //   httpOnly: true,
-      // })
       return user
     }),
 
@@ -58,7 +36,10 @@ export const userRouter = router({
         limit,
         offset: page * limit,
       })
-      return { users, page, limit }
+      const totalData = await db.select({ count: count() }).from(usersTable)
+      const total = totalData[0].count
+
+      return { users, page, limit, total }
     }),
   getUser: protectedProcedure
     .input(
