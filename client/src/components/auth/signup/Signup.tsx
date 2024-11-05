@@ -87,8 +87,7 @@ export const Signup = () => {
             value={formData.name}
             onChange={handleInputChange}
             onBlur={handleInputBlur}
-            className={`
-              ${touchedFields.name && errors.name && !activeFields.name ? "input-error" : "input-default"} `}
+            className={touchedFields.name && errors.name && !activeFields.name ? "input-error" : "input-default"}
             type="text"
             placeholder="Name"
           />
@@ -104,8 +103,7 @@ export const Signup = () => {
             value={formData.email}
             onChange={handleInputChange}
             onBlur={handleInputBlur}
-            className={`
-              ${touchedFields.email && errors.email && !activeFields.email ? "input-error" : "input-default"} `}
+            className={touchedFields.email && errors.email && !activeFields.email ? "input-error" : "input-default"}
             type="text"
             placeholder="Email"
           />
@@ -121,10 +119,9 @@ export const Signup = () => {
             value={formData.password}
             onChange={handleInputChange}
             onBlur={handleInputBlur}
-            className={`
-                ${
-                  touchedFields.password && errors.password && !activeFields.password ? "input-error" : "input-default"
-                }`}
+            className={
+              touchedFields.password && errors.password && !activeFields.password ? "input-error" : "input-default"
+            }
             type={showPassword ? "text" : "password"}
             placeholder="Password"
           />
