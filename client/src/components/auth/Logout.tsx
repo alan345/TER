@@ -3,7 +3,7 @@ import { trpc } from "../../utils/trpc"
 import { AppContext } from "../../ContextProvider"
 import { useNavigate } from "react-router-dom"
 
-export const Logout = () => {
+const Logout = () => {
   const navigate = useNavigate()
   const context = React.useContext(AppContext)
   const logoutMutation = trpc.logout.useMutation({})
@@ -26,3 +26,4 @@ export const Logout = () => {
     </div>
   )
 }
+export default Logout

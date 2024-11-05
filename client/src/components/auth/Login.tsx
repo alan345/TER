@@ -10,7 +10,7 @@ const zodLogin = zod.zodLogin
 type LoginFormData = z.infer<typeof zodLogin>
 type ErrorsType = Partial<Record<keyof LoginFormData, string[]>>
 
-export const Login = () => {
+const Login = () => {
   const [showPassword, setShowPassword] = React.useState(false)
   const [errors, setErrors] = React.useState<ErrorsType>({})
   const [isSubmitting, setIsSubmitting] = React.useState(false)
@@ -22,16 +22,18 @@ export const Login = () => {
 
   const navigate = useNavigate()
   const context = React.useContext(AppContext)
-  const loginMutation = trpc.login.useMutation({})
-  const login = async () => {
-    // e.preventDefault()
+  const loginMutation = trpc.login.useMutation()
+
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
     setIsSubmitting(true)
     try {
       await loginMutation.mutateAsync({ email: formData.email, password: formData.password })
       context.updateUser()
       navigate("/profile")
     } catch (error) {
-      console.log(error)
+      setIsSubmitting(false)
+      console.error("Submission error:", error)
     }
   }
 
@@ -74,7 +76,7 @@ export const Login = () => {
   return (
     <div>
       <h2 className="text-2xl font-semibold text-gray-700">Login</h2>
-      <div className="mt-4">
+      <form onSubmit={onSubmit} className="mt-4 space-y-2">
         <div>
           <input
             id="email-input"
@@ -93,7 +95,7 @@ export const Login = () => {
               </p>
             ))}
         </div>
-        <div className="mt-1">
+        <div>
           <input
             id="password-input"
             name="password"
@@ -111,7 +113,7 @@ export const Login = () => {
               </p>
             ))}
         </div>
-        <div className="mt-2">
+        <div>
           <input
             type="checkbox"
             id="show-password-checkbox"
@@ -124,19 +126,16 @@ export const Login = () => {
             Show Password
           </label>
         </div>
-        <div className="mt-4">
-          <div>
-            <button
-              id="email-mutation-button"
-              disabled={isSubmitting || !isFormValid()}
-              // disabled={loginMutation.isPending || email === "" || password === ""}
-              onClick={login}
-              className="btn-blue"
-            >
-              {loginMutation.isPending ? "Loading..." : "Login"}
-            </button>
-            {loginMutation.error && <p className="text-red-600">{loginMutation.error.message}</p>}
-          </div>
+        <div>
+          <button
+            id="email-mutation-button"
+            disabled={isSubmitting || !isFormValid()}
+            type="submit"
+            className="btn-blue"
+          >
+            {loginMutation.isPending ? "Loading..." : "Login"}
+          </button>
+          {loginMutation.error && <p className="text-red-600">{loginMutation.error.message}</p>}
         </div>
         <p className="text-sm mt-6">
           Don’t have an account yet?{" "}
@@ -144,7 +143,9 @@ export const Login = () => {
             Sign up
           </Link>
         </p>
-      </div>
+      </form>
     </div>
   )
 }
+
+export default Login

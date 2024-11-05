@@ -1,7 +1,7 @@
 import React from "react"
 import { AppContext } from "../../ContextProvider"
-import { Logout } from "./Logout"
-import { Login } from "./Login"
+import Logout from "./Logout"
+import Login from "./Login"
 
 export function AuthManagement() {
   const context = React.useContext(AppContext)
