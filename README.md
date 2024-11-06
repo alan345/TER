@@ -138,6 +138,8 @@ Create a PR if you want to add your project here.
 
 ## Miscellaneous
 
+Medium post: [https://alan-szternberg.medium.com/create-a-full-stack-app-with-trpc-react-and-express-35ed95f0851a]([url](https://alan-szternberg.medium.com/create-a-full-stack-app-with-trpc-react-and-express-35ed95f0851a))
+
 <div align="center">
   <a href="https://buymeacoffee.com/fullstackter">
     <img width="300" alt="bmc-button" src="https://github.com/user-attachments/assets/f384fb79-52ed-4c25-bbc1-ae640385f5e4">
