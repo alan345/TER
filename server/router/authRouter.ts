@@ -1,7 +1,7 @@
 import { publicProcedure, router } from "../trpc"
 import { z } from "zod"
 import bcrypt from "bcrypt"
-import { secretJwt } from "../env"
+import { secretJwt } from "@ter/shared/env"
 import { TRPCError } from "@trpc/server"
 import jwt from "jsonwebtoken"
 import { usersTable } from "@ter/drizzle/src/db/schema"

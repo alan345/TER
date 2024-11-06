@@ -2,3 +2,4 @@
 
 // export const DATABASE_URL = "postgresql://alan@localhost:5432/ter?schema=public"
 export const secretJwt = "shhhhh"
+export const DATABASE_URL = "postgresql://alan@localhost:5432/ter?schema=public"
