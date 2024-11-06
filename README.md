@@ -46,8 +46,8 @@
 
 ## Features
 
-- Authentication with JWT and HttpOnly cookies (https://owasp.org/www-community/HttpOnly)
-- Signup, login, and logout
+- Authentication (Signup, login, and logout) with JWT and HttpOnly cookies (https://owasp.org/www-community/HttpOnly)
+- [Yarn Workspace](https://yarnpkg.com/features/workspaces) witin a monorepo approach in order to share some files across the client and the server
 - Example of pulling data from an external REST API
   - [Beers and Users](https://random-data-api.com)
   - [Facts](https://catfact.ninja)
