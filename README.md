@@ -26,7 +26,8 @@
 
 ## Preview
 
-<img width="1328" alt="image" src="https://github.com/user-attachments/assets/0dc901fe-71ff-43be-832c-596b779c278f">
+![Recording 2024-11-05 at 16 31 02](https://github.com/user-attachments/assets/899a703d-796a-4a0c-8ef8-983db9d1158c)
+
 
 ## Other Libraries
 
