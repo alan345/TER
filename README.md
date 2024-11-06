@@ -47,7 +47,7 @@
 ## Features
 
 - [HttpOnly cookies](https://owasp.org/www-community/HttpOnly) for Authentication (Signup, login, and logout)
-- [Yarn Workspace](https://yarnpkg.com/features/workspaces) witin a monorepo approach in order to share some files across the client and the server
+- [Yarn Workspace](https://yarnpkg.com/features/workspaces) in a monorepo setup to share files between the client and server
 - Example of pulling data from an external REST API
   - [Beers and Users](https://random-data-api.com)
   - [Facts](https://catfact.ninja)
