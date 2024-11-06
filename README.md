@@ -26,7 +26,7 @@
 
 ## Preview
 
-![Recording 2024-11-05 at 16 31 02](https://github.com/user-attachments/assets/899a703d-796a-4a0c-8ef8-983db9d1158c)
+![Recording 2024-11-05 at 16 31 02](https://github.com/user-attachments/assets/bcbb276b-6855-4161-b4df-a4da36c3b7f0)
 
 
 ## Other Libraries
