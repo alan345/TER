@@ -87,8 +87,7 @@ npm run dev
 
 ## Building for production
 
-- Remove this [file](https://github.com/alan345/TER/blob/main/shared/env.ts) end use dotenv to store these values
-- Update the key using [dotenv](https://www.dotenv.org)
+- Remove this [file](https://github.com/alan345/TER/blob/main/shared/env.ts) end use [dotenv](https://www.dotenv.org) to store these values
 
 ```bash
 npm run build
