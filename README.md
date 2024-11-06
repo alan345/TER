@@ -137,6 +137,11 @@ npm run test:e2e
 Create a PR if you want to add your project here.
 
 ## Miscellaneous
+<div>
+  
+Medium post: https://alan-szternberg.medium.com/create-a-full-stack-app-with-trpc-react-and-express-35ed95f0851a
+
+</div>
 
 <div align="center">
   <a href="https://buymeacoffee.com/fullstackter">
