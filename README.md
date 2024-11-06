@@ -87,7 +87,7 @@ npm run dev
 
 ## Building for production
 
-- Rename the [file](https://github.com/alan345/TER/blob/main/env.ts) `env.ts` to `.env`
+- Remove this [file](https://github.com/alan345/TER/blob/main/shared/env.ts) end use dotenv to store these values
 - Update the key using [dotenv](https://www.dotenv.org)
 
 ```bash
