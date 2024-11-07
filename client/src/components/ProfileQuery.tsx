@@ -4,7 +4,7 @@ import { ErrorTemplate } from "../template/ErrorTemplate"
 import iconAvatar from "../assets/icons/avatar.svg"
 import UpdateUserName from "./user/UpdateUserName"
 import ImgAvatar from "../template/layout/ImgAvatar"
-import UpdateAge from "./user/UpdateAge"
+import UpdateUserAge from "./user/UpdateUserAge"
 import Logout from "./auth/Logout"
 
 type Props = {
@@ -31,9 +31,8 @@ export const ProfileQuery = (props: Props) => {
         </div>
         <div className="mt-4">
           <UpdateUserName user={dataQuery.data} onUpdate={() => dataQuery.refetch()} />
-          <UpdateAge user={dataQuery.data} onUpdate={() => dataQuery.refetch()} />
-
-          <p>Email: {dataQuery.data.email}</p>
+          <UpdateUserAge user={dataQuery.data} onUpdate={() => dataQuery.refetch()} />
+          <div className="flex items-center gap-2 h-8">Email: {dataQuery.data.email}</div>
         </div>
       </div>
     </div>

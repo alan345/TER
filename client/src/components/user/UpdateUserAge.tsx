@@ -11,7 +11,7 @@ type Props = {
   onUpdate: () => void
 }
 
-const UpdateAge = (props: Props) => {
+const UpdateUserAge = (props: Props) => {
   const [isEdit, setIsEdit] = useState(false)
   const [age, setAge] = useState<number | "">(props.user.age ? props.user.age : "")
   const mutation = trpc.updateUser.useMutation()
@@ -31,12 +31,12 @@ const UpdateAge = (props: Props) => {
   }
   return (
     <div>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 h-8">
         <div>Age: </div>
         {!isEdit ? (
-          <div className="flex items-center gap-2 group" onClick={() => setIsEdit(true)}>
+          <div className="flex items-center gap-2 group cursor-pointer" onClick={() => setIsEdit(true)}>
             <div>{age}</div>
-            <Pencil className="cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity" />
+            <Pencil className="opacity-0 group-hover:opacity-100 transition-opacity" />
             {mutation.isSuccess && <SavedIconEffect />}
             {mutation.isPending && <SpinnerGap className="animate-spin" />}
           </div>
@@ -75,4 +75,4 @@ const UpdateAge = (props: Props) => {
   )
 }
 
-export default UpdateAge
+export default UpdateUserAge
