@@ -30,8 +30,8 @@ export const ProfileQuery = (props: Props) => {
           />
         </div>
         <div className="mt-4">
-          <UpdateUserName user={dataQuery.data} onUpdate={() => dataQuery.refetch()} />
-          <UpdateUserAge user={dataQuery.data} onUpdate={() => dataQuery.refetch()} />
+          <UpdateUserName user={dataQuery.data} onUpdate={dataQuery.refetch} />
+          <UpdateUserAge user={dataQuery.data} onUpdate={dataQuery.refetch} />
           <div className="flex items-center gap-2 h-8">Email: {dataQuery.data.email}</div>
         </div>
       </div>
