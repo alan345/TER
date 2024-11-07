@@ -2,6 +2,7 @@ import React from "react"
 import { trpc } from "../../utils/trpc"
 import { AppContext } from "../../ContextProvider"
 import { useNavigate } from "react-router-dom"
+import { SignOut } from "@phosphor-icons/react"
 
 const Logout = () => {
   const navigate = useNavigate()
@@ -19,9 +20,14 @@ const Logout = () => {
   }
   return (
     <div>
-      <button id="logout-button" disabled={logoutMutation.isPending} onClick={logout} className="btn btn-blue">
-        {logoutMutation.isPending ? "Closing..." : "Logout"}
-      </button>{" "}
+      <button
+        id="logout-button"
+        disabled={logoutMutation.isPending}
+        onClick={logout}
+        className="btn btn-blue flex items-center"
+      >
+        <SignOut className="mr-2" /> {logoutMutation.isPending ? "Closing..." : "Logout"}
+      </button>
       {logoutMutation.error && <p className="text-red-600">Something went wrong! {logoutMutation.error.message}</p>}
     </div>
   )
