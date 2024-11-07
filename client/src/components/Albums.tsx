@@ -15,7 +15,7 @@ export const Albums = () => {
   if (dataQuery.isError) return <ErrorTemplate message={dataQuery.error.message} />
 
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto mt-6">
       <table>
         <thead>
           <tr>
