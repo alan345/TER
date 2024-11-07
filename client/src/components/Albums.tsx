@@ -15,29 +15,24 @@ export const Albums = () => {
   if (dataQuery.isError) return <ErrorTemplate message={dataQuery.error.message} />
 
   return (
-    <div>
-      <div className="flex justify-between mt-4">
-        <p>This page is Public. You dont need to be logged in to see this page.</p>
-      </div>
-      <div className="overflow-x-auto">
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Title</th>
-            </tr>
-          </thead>
+    <div className="overflow-x-auto">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+          </tr>
+        </thead>
 
-          <tbody>
-            {dataQuery.data?.map((singleElement) => (
-              <tr key={singleElement.id}>
-                <td>{singleElement.id}</td>
-                <td>{singleElement.title}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+        <tbody>
+          {dataQuery.data?.map((singleElement) => (
+            <tr key={singleElement.id}>
+              <td>{singleElement.id}</td>
+              <td>{singleElement.title}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   )
 }
