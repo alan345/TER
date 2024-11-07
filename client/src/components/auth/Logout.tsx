@@ -18,6 +18,7 @@ const Logout = () => {
       console.log(error)
     }
   }
+
   return (
     <div>
       <button
@@ -26,7 +27,7 @@ const Logout = () => {
         onClick={logout}
         className="btn btn-blue flex items-center"
       >
-        <SignOut className="mr-2" /> {logoutMutation.isPending ? "Closing..." : "Logout"}
+        <SignOut className="mr-2" /> Logout
       </button>
       {logoutMutation.error && <p className="text-red-600">Something went wrong! {logoutMutation.error.message}</p>}
     </div>
