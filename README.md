@@ -47,7 +47,7 @@
 ## Features
 
 - [HttpOnly cookies](https://owasp.org/www-community/HttpOnly) for Authentication (Signup, login, and logout)
-- [Yarn Workspace](https://yarnpkg.com/features/workspaces) in a monorepo setup to share files between the client and server
+- [NPM Workspace](https://docs.npmjs.com/cli/v8/using-npm/workspaces) in a monorepo setup to share files between the client and server
 - Example of pulling data from an external REST API
   - [Beers and Users](https://random-data-api.com)
   - [Facts](https://catfact.ninja)
@@ -137,7 +137,7 @@ Create a PR if you want to add your project here.
 
 <div>
   
-Medium post: https://alan-szternberg.medium.com/create-a-full-stack-app-with-trpc-react-and-express-35ed95f0851a
+Discover the details of this project in this [Medium post](https://alan-szternberg.medium.com/create-a-full-stack-app-with-trpc-react-and-express-35ed95f0851a)
 
 </div>
 
