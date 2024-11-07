@@ -9,13 +9,14 @@ export const userRouter = router({
       z.object({
         id: z.string(),
         name: z.string().optional(),
+        age: z.number().min(2, "Age must be at least 2").max(120, "Age must be at max 120").optional(),
       })
     )
     .mutation(async (opts) => {
       const db = opts.ctx.db
       const user = await db
         .update(usersTable)
-        .set({ name: opts.input.name })
+        .set({ name: opts.input.name, age: opts.input.age })
         .where(eq(usersTable.id, opts.input.id))
         .returning()
 

@@ -11,28 +11,31 @@ type Props = {
   onUpdate: () => void
 }
 
-const UpdateUserName = (props: Props) => {
+const UpdateAge = (props: Props) => {
   const [isEdit, setIsEdit] = useState(false)
-  const [name, setName] = useState(props.user.name)
+  const [age, setAge] = useState<number | "">(props.user.age ? props.user.age : "")
   const mutation = trpc.updateUser.useMutation()
 
   const updateUser = async () => {
     try {
       setIsEdit(false)
-      await mutation.mutateAsync({ id: props.user.id, name })
+      await mutation.mutateAsync({ id: props.user.id, age: Number(age) })
       props.onUpdate()
     } catch (error) {
+      setIsEdit(true)
       console.log(error)
     }
   }
-
+  if (mutation.error) {
+    console.log(JSON.parse(mutation.error.message)[0].message)
+  }
   return (
     <div>
       <div className="flex items-center gap-2">
-        <div>Name: </div>
+        <div>Age: </div>
         {!isEdit ? (
           <div className="flex items-center gap-2 group" onClick={() => setIsEdit(true)}>
-            <div>{name}</div>
+            <div>{age}</div>
             <Pencil className="cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity" />
             {mutation.isSuccess && <SavedIconEffect />}
             {mutation.isPending && <SpinnerGap className="animate-spin" />}
@@ -42,9 +45,12 @@ const UpdateUserName = (props: Props) => {
             <input
               id="id-input-name"
               name="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              type="text"
+              value={age}
+              onChange={(e) => {
+                const inputValue = e.target.value
+                setAge(inputValue === "" ? "" : Number(inputValue))
+              }}
+              type="number"
               placeholder="Name"
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
@@ -62,9 +68,11 @@ const UpdateUserName = (props: Props) => {
         )}
       </div>
 
-      {mutation.error && <p className="text-red-600">{mutation.error.message}</p>}
+      {mutation.error?.message && (
+        <p className="text-red-600">Error: {JSON.parse(mutation.error.message)[0].message}</p>
+      )}
     </div>
   )
 }
 
-export default UpdateUserName
+export default UpdateAge

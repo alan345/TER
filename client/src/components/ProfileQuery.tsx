@@ -4,6 +4,7 @@ import { ErrorTemplate } from "../template/ErrorTemplate"
 import iconAvatar from "../assets/icons/avatar.svg"
 import UpdateUserName from "./user/UpdateUserName"
 import ImgAvatar from "../template/layout/ImgAvatar"
+import UpdateAge from "./user/UpdateAge"
 
 type Props = {
   meId: string
@@ -26,6 +27,7 @@ export const ProfileQuery = (props: Props) => {
         </div>
         <div className="mt-4">
           <UpdateUserName user={dataQuery.data} onUpdate={() => dataQuery.refetch()} />
+          <UpdateAge user={dataQuery.data} onUpdate={() => dataQuery.refetch()} />
 
           <p>Email: {dataQuery.data.email}</p>
         </div>
