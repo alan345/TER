@@ -5,6 +5,7 @@ import { AppContext } from "../../ContextProvider"
 import { useNavigate } from "react-router-dom"
 import { z } from "zod"
 import { zod } from "@ter/shared/schemas/zod"
+import { SignIn } from "@phosphor-icons/react"
 const zodLogin = zod.zodLogin
 
 type LoginFormData = z.infer<typeof zodLogin>
@@ -131,8 +132,9 @@ const Login = () => {
             id="email-mutation-button"
             disabled={isSubmitting || !isFormValid()}
             type="submit"
-            className="btn-blue"
+            className="btn-blue flex items-center"
           >
+            <SignIn className="mr-2" />
             {loginMutation.isPending ? "Loading..." : "Login"}
           </button>
           {loginMutation.error && <p className="text-red-600">{loginMutation.error.message}</p>}

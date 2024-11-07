@@ -2,6 +2,7 @@ import React from "react"
 import { AppContext } from "../../ContextProvider"
 import { Link } from "react-router-dom"
 import ImgAvatar from "./ImgAvatar"
+import { SignIn } from "@phosphor-icons/react"
 export const AvatarMenu = () => {
   const context = React.useContext(AppContext)
 
@@ -16,7 +17,8 @@ export const AvatarMenu = () => {
           </Link>
         ) : (
           <Link to="/login">
-            <button id="login-mutation-button" className="btn-blue">
+            <button id="login-mutation-button" className="btn-blue flex items-center">
+              <SignIn className="mr-2" />
               Login
             </button>
           </Link>
