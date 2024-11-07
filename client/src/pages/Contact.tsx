@@ -1,6 +1,6 @@
 export const Contact = () => {
   return (
-    <div className="flex flex-col items-center justify-center mt-64">
+    <div className="flex flex-col items-center justify-center mt-2">
       <h1 className="text-3xl font-bold text-center mb-4">Got Questions? Just Want to Chat? Find a Bug?</h1>
       <p className="text-lg text-center mb-4">Love this? Hate this? Can't decide? Either way, let me know!</p>
 
