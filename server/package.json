@@ -1,6 +1,8 @@
 {
   "name": "@ter/server",
   "private": true,
+  "author": "Alan Szternberg",
+  "license": "ISC",
   "scripts": {
     "build": "tsc",
     "dev": "tsx watch index.ts",
@@ -27,7 +29,7 @@
     "@types/jsonwebtoken": "^9.0.7",
     "@types/node": "^22.7.5",
     "eslint": "^9.14.0",
-    "tsx": "^4.19.1",
+    "tsx": "^4.19.2",
     "typescript": "^5.6.3"
   }
 }
