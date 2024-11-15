@@ -1,19 +1,21 @@
 import { publicProcedure, router } from "../trpc"
 import { z } from "zod"
 import bcrypt from "bcrypt"
-import { secretJwt } from "@ter/shared/env"
+
 import { TRPCError } from "@trpc/server"
 import jwt from "jsonwebtoken"
 import { usersTable } from "@ter/drizzle/src/db/schema"
 import { eq } from "drizzle-orm"
-export const cookieName = "ter-auth"
 import { zod } from "@ter/shared/schemas/zod"
+import "dotenv/config"
+const secretJwt = process.env.JWT_SECRET || ""
+import config from "../config"
+const cookieName = config.cookieName
 
 export const authRouter = router({
   login: publicProcedure.input(zod.zodLogin).mutation(async (opts) => {
     const db = opts.ctx.db
     const user = await db.query.usersTable.findFirst({ where: eq(usersTable.email, opts.input.email) })
-    // console.log("Getting all users from the database: ", user)
 
     if (!user) throw new Error("Incorrect login")
 
@@ -22,6 +24,9 @@ export const authRouter = router({
     if (!isPasswordCorrect) {
       throw new Error("Incorrect password")
     }
+
+    if (!secretJwt) throw new Error("JWT_SECRET is not defined")
+
     const token = jwt.sign(
       {
         id: user.id,

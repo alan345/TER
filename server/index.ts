@@ -3,31 +3,37 @@ import express from "express"
 import cookieParser from "cookie-parser"
 import cors from "cors"
 import jwt from "jsonwebtoken"
-import { authRouter, cookieName } from "./router/authRouter"
+import { authRouter } from "./router/authRouter"
 import { userRouter } from "./router/userRouter"
 import { healthRouter } from "./router/healthRouter"
 import { albumRouter } from "./router/albumRouter"
 import { beerRouter } from "./router/beerRouter"
 import { t } from "./trpc"
-import { secretJwt, DATABASE_URL } from "@ter/shared/env"
 import { movieRouter } from "./router/movieRouter"
 import { photoRouter } from "./router/photoRouter"
 import { employeeRouter } from "./router/employeeRouter"
 import { factRouter } from "./router/factRouter"
-import "dotenv/config"
 import { drizzle } from "drizzle-orm/node-postgres"
 import { usersTable } from "@ter/drizzle/src/db/schema"
 import * as schema from "@ter/drizzle/src/db/schema"
 import { eq } from "drizzle-orm"
+import config from "./config"
+const cookieName = config.cookieName
+
+import "dotenv/config"
+const secretJwt = process.env.JWT_SECRET
+const databaseUrl = process.env.DATABASE_URL
 
 export interface UserIDJwtPayload extends jwt.JwtPayload {
   id: string
 }
 
 export const createContext = async ({ req, res }: trpcExpress.CreateExpressContextOptions) => {
+  if (!secretJwt) throw new Error("JWT_SECRET is not defined")
+  if (!databaseUrl) throw new Error("DATABASE_URL is not defined")
   const cookies = req.cookies
   const token = cookies[cookieName]
-  const db = drizzle(DATABASE_URL, { schema })
+  const db = drizzle(databaseUrl, { schema })
 
   if (token) {
     let decoded = jwt.verify(token, secretJwt) as UserIDJwtPayload
