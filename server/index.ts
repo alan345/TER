@@ -17,10 +17,11 @@ import { drizzle } from "drizzle-orm/node-postgres"
 import { usersTable } from "@ter/drizzle/src/db/schema"
 import * as schema from "@ter/drizzle/src/db/schema"
 import { eq } from "drizzle-orm"
-import config from "./config"
-const cookieName = config.cookieName
+import { cookieName } from "./configTer"
 
-import "dotenv/config"
+import { config } from "dotenv"
+config({ path: "../.env" })
+
 const secretJwt = process.env.JWT_SECRET
 const databaseUrl = process.env.DATABASE_URL
 
@@ -31,6 +32,7 @@ export interface UserIDJwtPayload extends jwt.JwtPayload {
 export const createContext = async ({ req, res }: trpcExpress.CreateExpressContextOptions) => {
   if (!secretJwt) throw new Error("JWT_SECRET is not defined")
   if (!databaseUrl) throw new Error("DATABASE_URL is not defined")
+  const config = { secretJwt, databaseUrl, cookieName }
   const cookies = req.cookies
   const token = cookies[cookieName]
   const db = drizzle(databaseUrl, { schema })
@@ -39,11 +41,11 @@ export const createContext = async ({ req, res }: trpcExpress.CreateExpressConte
     let decoded = jwt.verify(token, secretJwt) as UserIDJwtPayload
     if (decoded) {
       const user = await db.query.usersTable.findFirst({ where: eq(usersTable.id, decoded.id) })
-      return { req, res, user, db }
+      return { req, res, user, db, config }
     }
   }
 
-  return { req, res, db }
+  return { req, res, db, config }
 }
 
 export const mergeRouters = t.mergeRouters

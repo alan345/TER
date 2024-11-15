@@ -1,20 +1,18 @@
 import { publicProcedure, router } from "../trpc"
-import { z } from "zod"
 import bcrypt from "bcrypt"
-
 import { TRPCError } from "@trpc/server"
 import jwt from "jsonwebtoken"
 import { usersTable } from "@ter/drizzle/src/db/schema"
 import { eq } from "drizzle-orm"
 import { zod } from "@ter/shared/schemas/zod"
-import "dotenv/config"
-const secretJwt = process.env.JWT_SECRET || ""
-import config from "../config"
-const cookieName = config.cookieName
 
 export const authRouter = router({
   login: publicProcedure.input(zod.zodLogin).mutation(async (opts) => {
-    const db = opts.ctx.db
+    const {
+      db,
+      config: { secretJwt, cookieName },
+    } = opts.ctx
+
     const user = await db.query.usersTable.findFirst({ where: eq(usersTable.email, opts.input.email) })
 
     if (!user) throw new Error("Incorrect login")
@@ -24,8 +22,6 @@ export const authRouter = router({
     if (!isPasswordCorrect) {
       throw new Error("Incorrect password")
     }
-
-    if (!secretJwt) throw new Error("JWT_SECRET is not defined")
 
     const token = jwt.sign(
       {
@@ -42,7 +38,11 @@ export const authRouter = router({
     return true
   }),
   signup: publicProcedure.input(zod.zodSignup).mutation(async (opts) => {
-    const db = opts.ctx.db
+    const {
+      db,
+      config: { secretJwt, cookieName },
+    } = opts.ctx
+
     const user = await db.query.usersTable.findFirst({ where: eq(usersTable.email, opts.input.email) })
     if (user) throw new Error("User already exists")
 
@@ -75,6 +75,9 @@ export const authRouter = router({
     return true
   }),
   logout: publicProcedure.mutation(async (opts) => {
+    const {
+      config: { cookieName },
+    } = opts.ctx
     opts.ctx.res.clearCookie(cookieName)
     return true
   }),
