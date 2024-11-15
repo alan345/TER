@@ -60,6 +60,7 @@
 
 ## Installation
 
+- Update the `.gitignore` [file](https://github.com/alan345/TER/blob/main/.gitignore) by uncommenting `# .env` to ensure your credentials remain private and are not exposed.
 - Make sure a postgres database is running
 - Create a database called `ter`
 
@@ -86,8 +87,6 @@ npm run dev
 ```
 
 ## Building for production
-
-- Update the `.gitignore` [file](https://github.com/alan345/TER/blob/main/.gitignore) by uncommenting `# .env` to ensure your credentials remain private and are not exposed.
 
 ```bash
 npm run build
