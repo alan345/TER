@@ -1,8 +1,8 @@
-import axios from "axios";
-import { Album } from "../type/Album";
-import { Photo } from "../type/Photo.type";
+import axios from "axios"
+import { Album } from "../type/Album"
+import { Photo } from "../type/Photo.type"
 
-const uri = "https://jsonplaceholder.typicode.com";
+const uri = "https://jsonplaceholder.typicode.com"
 
 export const jsonPlaceholderApi = {
   getAlbums: async (size: number): Promise<Album[]> => {
@@ -11,15 +11,15 @@ export const jsonPlaceholderApi = {
         params: {
           size,
         },
-      });
+      })
 
-      return res.data;
+      return res.data
     } catch (error) {
       if (axios.isAxiosError(error) && error && error.response) {
-        console.log(error.response.statusText);
-        throw error.response.statusText;
+        console.log(error.response.statusText)
+        throw error.response.statusText
       } else {
-        throw new Error("Something went wrong!");
+        throw new Error("Something went wrong!")
       }
     }
   },
@@ -29,16 +29,16 @@ export const jsonPlaceholderApi = {
         params: {
           size,
         },
-      });
+      })
 
-      return res.data;
+      return res.data
     } catch (error) {
       if (axios.isAxiosError(error) && error && error.response) {
-        console.log(error.response.statusText);
-        throw error.response.statusText;
+        console.log(error.response.statusText)
+        throw error.response.statusText
       } else {
-        throw new Error("Something went wrong!");
+        throw new Error("Something went wrong!")
       }
     }
   },
-};
+}

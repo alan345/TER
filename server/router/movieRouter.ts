@@ -1,6 +1,6 @@
-import { publicProcedure, router } from "../trpc";
-import { z } from "zod";
-import { dummyApi } from "../api/dummyapi";
+import { publicProcedure, router } from "../trpc"
+import { z } from "zod"
+import { dummyApi } from "../api/dummyApi"
 
 export const movieRouter = router({
   getMovies: publicProcedure
@@ -10,9 +10,9 @@ export const movieRouter = router({
       })
     )
     .query(async ({ input }) => {
-      if (input.size > 100 || input.size < 2) throw new Error("Invalid size");
+      if (input.size > 100 || input.size < 2) throw new Error("Invalid size")
 
-      let data = await dummyApi.getMovies(input.size);
-      return data;
+      let data = await dummyApi.getMovies(input.size)
+      return data
     }),
-});
+})
