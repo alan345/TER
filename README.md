@@ -68,7 +68,7 @@ psql -U user // replace user by your postgres user
 CREATE DATABASE ter;
 ```
 
-- Update the [file](https://github.com/alan345/TER/blob/main/shared/env.ts) `env.ts` with with your database credentials
+- Update the [file](https://github.com/alan345/TER/blob/main/.env) `.env` with with your database credentials
 - Run in the terminal In the root directory:
 
 ```bash
@@ -87,7 +87,7 @@ npm run dev
 
 ## Building for production
 
-- Remove this [file](https://github.com/alan345/TER/blob/main/shared/env.ts) `env.ts` and use [dotenv](https://www.dotenv.org) to store these values
+- Updte the `.gitignore` [file](https://github.com/alan345/TER/blob/main/.gitignore) `.env` by uncommeting the the line `# .env` so you credidentails are not exposed
 
 ```bash
 npm run build
