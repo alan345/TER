@@ -87,7 +87,7 @@ npm run dev
 
 ## Building for production
 
-- Update the `.gitignore` [file](https://github.com/alan345/TER/blob/main/.gitignore) by uncommeting `# .env` so you credidentails are not exposed
+- Update the `.gitignore` [file](https://github.com/alan345/TER/blob/main/.gitignore) by uncommenting `# .env` to ensure your credentials remain private and are not exposed.
 
 ```bash
 npm run build
