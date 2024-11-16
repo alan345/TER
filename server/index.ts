@@ -1,5 +1,4 @@
 import * as trpcExpress from "@trpc/server/adapters/express"
-// import { zod } from "@ter/shared/schemas/zod"
 import express from "express"
 import cookieParser from "cookie-parser"
 import cors from "cors"
@@ -16,12 +15,9 @@ import { employeeRouter } from "./router/employeeRouter"
 import { factRouter } from "./router/factRouter"
 import { drizzle } from "drizzle-orm/node-postgres"
 import { usersTable } from "@ter/drizzle"
-// import * as schema from "@ter/drizzle/src/db/schema"
 import * as schema from "@ter/drizzle"
-
 import { eq } from "drizzle-orm"
 import { cookieName } from "./configTer"
-
 import { config } from "dotenv"
 config({ path: "../.env" })
 
@@ -33,7 +29,6 @@ export interface UserIDJwtPayload extends jwt.JwtPayload {
 }
 
 export const createContext = async ({ req, res }: trpcExpress.CreateExpressContextOptions) => {
-  // console.log(zod.zodLogin)
   if (!secretJwt) throw new Error("JWT_SECRET is not defined")
   if (!databaseUrl) throw new Error("DATABASE_URL is not defined")
   const config = { secretJwt, databaseUrl, cookieName }
