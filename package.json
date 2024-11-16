@@ -10,17 +10,19 @@
   "scripts": {
     "build:client": "npm run build -w client",
     "build:server": "npm run build -w server",
-    "build": "run-s build:server build:client",
+    "build:drizzle": "npm run build -w drizzle",
+    "build:shared": "npm run build -w shared",
+    "build": "run-s build:server build:client build:drizzle build:shared",
     "dev:client": "npm run dev -w client",
     "dev:server": "npm run dev -w server",
-    "clean": "rm -rf node_modules && rm -rf client/node_modules && rm -rf server/node_modules && rm -rf drizzle/node_modules && rm -rf shared/node_modules && rm -rf client/dist && rm -rf server/dist && rm -rf drizzle/dist && rm -rf shared/dist && rm -rf package-lock.json && rm -rf client/package-lock.json && rm -rf server/package-lock.json && rm -rf drizzle/package-lock.json && rm -rf shared/package-lock.json",
     "dev": "run-p dev:*",
     "push": "npm run push -w drizzle",
     "seed": "npm run seed -w drizzle",
     "start:client": "npm run start -w client",
     "start:server": "npm run start -w server",
     "start": "run-p start:*",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "clean": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' + && find . -name 'package-lock.json' -type f -delete"
   },
   "devDependencies": {
     "@playwright/test": "^1.35.2",

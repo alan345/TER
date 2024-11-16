@@ -1,6 +1,6 @@
 import { protectedProcedure, router } from "../trpc"
 import { z } from "zod"
-import { usersTable } from "@ter/drizzle/src/db/schema"
+import { usersTable } from "@ter/drizzle"
 import { eq, count } from "drizzle-orm"
 
 export const userRouter = router({

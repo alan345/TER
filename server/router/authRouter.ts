@@ -2,9 +2,9 @@ import { publicProcedure, router } from "../trpc"
 import bcrypt from "bcrypt"
 import { TRPCError } from "@trpc/server"
 import jwt from "jsonwebtoken"
-import { usersTable } from "@ter/drizzle/src/db/schema"
+import { usersTable } from "@ter/drizzle"
 import { eq } from "drizzle-orm"
-import { zod } from "@ter/shared/schemas/zod"
+import { zod } from "@ter/shared"
 
 export const authRouter = router({
   login: publicProcedure.input(zod.zodLogin).mutation(async (opts) => {

@@ -4,10 +4,12 @@
   "author": "Alan Szternberg",
   "license": "ISC",
   "scripts": {
+    "build": "tsc",
     "push": "npx drizzle-kit push",
     "seed": "npx tsx src/seed/seed.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "main": "dist/index.js",
   "description": "",
   "dependencies": {
     "dotenv": "^16.4.5",
