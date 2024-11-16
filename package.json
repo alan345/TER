@@ -4,15 +4,14 @@
   "workspaces": [
     "client",
     "server",
-    "drizzle",
-    "shared"
+    "packages/*"
   ],
   "scripts": {
     "build:client": "npm run build -w client",
     "build:server": "npm run build -w server",
-    "build:drizzle": "npm run build -w drizzle",
-    "build:shared": "npm run build -w shared",
-    "build": "run-s build:server build:client build:drizzle build:shared",
+    "build:drizzle": "npm run build -w packages/drizzle",
+    "build:zod": "npm run build -w packages/zod",
+    "build": "run-s build:drizzle build:zod build:server build:client",
     "dev:client": "npm run dev -w client",
     "dev:server": "npm run dev -w server",
     "dev": "run-p dev:*",
