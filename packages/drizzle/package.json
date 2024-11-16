@@ -13,12 +13,12 @@
   "description": "",
   "dependencies": {
     "dotenv": "^16.4.5",
-    "drizzle-orm": "^0.36.1",
+    "drizzle-orm": "^0.36.3",
     "pg": "^8.13.1"
   },
   "devDependencies": {
     "@types/pg": "^8.11.10",
-    "drizzle-kit": "^0.28.0",
-    "tsx": "^4.19.1"
+    "drizzle-kit": "^0.28.1",
+    "tsx": "^4.19.2"
   }
 }

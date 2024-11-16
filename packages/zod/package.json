@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "main": "dist/index.js",
-  "author": "",
+  "author": "Alan Szternberg",
   "license": "ISC",
   "description": "",
   "dependencies": {
