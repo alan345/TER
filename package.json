@@ -11,7 +11,7 @@
     "build:server": "npm run build -w server",
     "build:drizzle": "npm run build -w packages/drizzle",
     "build:zod": "npm run build -w packages/zod",
-    "build": "run-s build:drizzle build:zod build:server build:client",
+    "build": "run-s build:*",
     "dev:client": "npm run dev -w client",
     "dev:server": "npm run dev -w server",
     "dev": "run-p dev:*",
