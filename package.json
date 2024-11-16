@@ -22,7 +22,7 @@
     "start:server": "npm run start -w server",
     "start": "run-p start:*",
     "test:e2e": "playwright test",
-    "clean": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' + && find . -name 'package-lock.json' -type f -delete"
+    "clean": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' + && find . -name 'package-lock.json' -type f -delete && find . -name 'dist' -type d -prune -exec rm -rf '{}' +"
   },
   "devDependencies": {
     "@playwright/test": "^1.35.2",
