@@ -28,7 +28,6 @@
 
 <img width="1328" alt="image" src="https://github.com/user-attachments/assets/bcbb276b-6855-4161-b4df-a4da36c3b7f0">
 
-
 ## Other Libraries
 
 - [Bcrypt](https://www.npmjs.com/package/bcrypt) - A JavaScript library for hashing passwords
@@ -59,6 +58,7 @@
 
 ## Installation
 
+- Update the `.env` [file](https://github.com/alan345/TER/blob/main/.env) with with your database credentials
 - Update the `.gitignore` [file](https://github.com/alan345/TER/blob/main/.gitignore) by uncommenting `# .env` to ensure your credentials remain private and are not exposed.
 - Make sure a postgres database is running
 - Create a database called `ter`
@@ -68,7 +68,6 @@ psql -U user // replace user by your postgres user
 CREATE DATABASE ter;
 ```
 
-- Update the [file](https://github.com/alan345/TER/blob/main/.env) `.env` with with your database credentials
 - Run in the terminal In the root directory:
 
 ```bash
