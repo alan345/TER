@@ -34,6 +34,7 @@
 - [Drizzle](https://orm.drizzle.team/) - A TypeScript-first ORM for Node.js
 - [JWT](https://jwt.io) - JSON Web Tokens for authentication
 - [NPM](https://www.npmjs.com) - Node Package Manager for managing dependencies
+- [NPM Workspace](https://docs.npmjs.com/cli/v10/using-npm/workspaces) Workspaces for managing multiple packages in a single repository
 - [phosphoricons](https://phosphoricons.com) - A flexible icon family for interfaces, diagrams, presentations — whatever, really
 - [Playwright](https://playwright.dev) - Test your web apps headlessly with a single API
 - [Postgres](https://www.postgresql.org) - The world's most advanced open source database
@@ -45,16 +46,14 @@
 ## Features
 
 - [HttpOnly cookies](https://owasp.org/www-community/HttpOnly) for Authentication (Signup, login, and logout)
-- [NPM Workspace](https://docs.npmjs.com/cli/v8/using-npm/workspaces) in a monorepo setup to share files between the client and server
 - Example of pulling data from an external REST API
   - [Beers and Users](https://random-data-api.com)
   - [Facts](https://catfact.ninja)
   - [Movies](https://dummyapi.online)
   - [Employees](https://dummy.restapiexample.com)
   - [Albums and Photos](https://jsonplaceholder.typicode.com)
-- Store the user's details in the React context when logged in (https://react.dev/reference/react/useContext)
+- [React context](https://react.dev/reference/react/useContext) is used to store the user's details when logged in
 - Health Check for the server (http://localhost:2022/health)
-- Select the number of rows to display in the table
 
 ## Installation
 
