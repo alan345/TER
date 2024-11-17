@@ -28,7 +28,6 @@
 
 <img width="1328" alt="image" src="https://github.com/user-attachments/assets/bcbb276b-6855-4161-b4df-a4da36c3b7f0">
 
-<img width="1328" alt="image" src="https://github.com/user-attachments/assets/0dc901fe-71ff-43be-832c-596b779c278f">
 
 ## Other Libraries
 
