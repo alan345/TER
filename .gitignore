@@ -1,3 +1,3 @@
 node_modules
 dist
-# .env # Encomment this line
+# .env # Uncomment this line
