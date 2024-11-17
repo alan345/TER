@@ -60,8 +60,7 @@
 
 - Update the `.env` [file](https://github.com/alan345/TER/blob/main/.env) with with your database credentials
 - Update the `.gitignore` [file](https://github.com/alan345/TER/blob/main/.gitignore) by uncommenting `# .env` to ensure your credentials remain private and are not exposed.
-- Make sure a postgres database is running
-- Create a database called `ter`
+- Make sure a postgres database is running and create a new database called `ter`
 
 ```bash
 psql -U user // replace user by your postgres user
