@@ -121,6 +121,7 @@ npm run test:e2e
 ## Other recommendations
 
 - Need a component library? Check out [Chakra UI](https://v2.chakra-ui.com/)
+- If your stack is getting more and more shared workspaces, consider using [pnpm](https://pnpm.io/workspaces) instead of npm
 
 ## Who is using TER?
 
