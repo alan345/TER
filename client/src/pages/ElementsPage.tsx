@@ -8,7 +8,7 @@ import { Photos } from "../components/Photos"
 import { Employees } from "../components/Employees"
 import { Facts } from "../components/Facts"
 
-export const ElementsPage = () => {
+const ElementsPage = () => {
   const context = React.useContext(AppContext)
   const location = useLocation()
   const navigate = useNavigate()
@@ -57,3 +57,5 @@ export const ElementsPage = () => {
     </>
   )
 }
+
+export default ElementsPage

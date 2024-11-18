@@ -1,12 +1,12 @@
 import { Route, Routes } from "react-router-dom"
-import { ElementsPage } from "./pages/ElementsPage"
-import { Home } from "./pages/Home"
-import { AuthManagement } from "./components/auth/AuthManagement"
-import { Contact } from "./pages/Contact"
-import { ProfilePage } from "./components/auth/ProfilePage"
-import { PrivateRoute } from "./PrivateRoute"
-import { UsersPage } from "./components/user/UsersPage"
-import { Signup } from "./components/auth/Signup"
+import ElementsPage from "./pages/ElementsPage"
+import Home from "./pages/Home"
+import AuthManagement from "./components/auth/AuthManagement"
+import Contact from "./pages/Contact"
+import ProfilePage from "./components/auth/ProfilePage"
+import PrivateRoute from "./PrivateRoute"
+import UsersPage from "./components/user/UsersPage"
+import Signup from "./components/auth/Signup"
 
 export const AppRouter = () => {
   return (

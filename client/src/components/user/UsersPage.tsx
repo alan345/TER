@@ -4,7 +4,7 @@ import { ErrorTemplate } from "../../template/ErrorTemplate"
 import { Pagination } from "./Pagination"
 import ImgAvatar from "../../template/layout/ImgAvatar"
 
-export const UsersPage = () => {
+const UsersPage = () => {
   const location = useLocation()
   const query = new URLSearchParams(location.search)
   const page = query.get("page")
@@ -44,3 +44,5 @@ export const UsersPage = () => {
     </div>
   )
 }
+
+export default UsersPage

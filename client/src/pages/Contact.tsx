@@ -1,4 +1,4 @@
-export const Contact = () => {
+const Contact = () => {
   return (
     <div className="flex flex-col items-center justify-center mt-2">
       <h1 className="text-3xl font-bold text-center mb-4">Got Questions? Just Want to Chat? Find a Bug?</h1>
@@ -22,3 +22,4 @@ export const Contact = () => {
     </div>
   )
 }
+export default Contact

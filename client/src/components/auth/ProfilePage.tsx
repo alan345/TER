@@ -2,7 +2,7 @@ import React from "react"
 import { AppContext } from "../../ContextProvider"
 import { ProfileQuery } from "../ProfileQuery"
 
-export const ProfilePage = () => {
+const ProfilePage = () => {
   const context = React.useContext(AppContext)
 
   if (!context.me) {
@@ -10,3 +10,4 @@ export const ProfilePage = () => {
   }
   return <ProfileQuery meId={context.me.id} />
 }
+export default ProfilePage

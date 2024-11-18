@@ -8,7 +8,7 @@ const zodSignup = zod.zodSignup
 type SignupFormData = z.infer<typeof zodSignup>
 type ErrorsType = Partial<Record<keyof SignupFormData, string[]>>
 
-export const Signup = () => {
+const Signup = () => {
   const navigate = useNavigate()
   const context = React.useContext(AppContext)
   const signupMutation = trpc.signup.useMutation({})
@@ -164,3 +164,5 @@ export const Signup = () => {
     </div>
   )
 }
+
+export default Signup

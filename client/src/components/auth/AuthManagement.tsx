@@ -3,7 +3,7 @@ import { AppContext } from "../../ContextProvider"
 import Logout from "./Logout"
 import Login from "./Login"
 
-export function AuthManagement() {
+const AuthManagement = () => {
   const context = React.useContext(AppContext)
   if (context.me) {
     return (
@@ -19,3 +19,4 @@ export function AuthManagement() {
   }
   return <Login />
 }
+export default AuthManagement
