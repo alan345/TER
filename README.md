@@ -28,7 +28,6 @@
 
 ![ter-preview](https://github.com/user-attachments/assets/c9d549a4-7020-498d-9e7e-e5c92600dd51)
 
-
 ## Other Libraries
 
 - [Bcrypt](https://www.npmjs.com/package/bcrypt) - A JavaScript library for hashing passwords
@@ -96,9 +95,6 @@ npm run start
 <img width="1429" alt="image" src="https://github.com/user-attachments/assets/9a717a89-abc7-4c6f-bc24-76c67f8be69c">
 
 <img width="1405" alt="image" src="https://github.com/user-attachments/assets/b992a6f9-648d-4afc-a55e-8fd1edf18f42">
-
-
-![Recording 2024-10-11 at 09 43 21](https://github.com/user-attachments/assets/60c62f37-e663-4a3e-bfc8-bd1fc2ca3ca4)
 
 #### Health Check for the server (http://localhost:2022/health)
 
