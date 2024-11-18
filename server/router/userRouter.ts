@@ -1,7 +1,7 @@
 import { protectedProcedure, router } from "../trpc"
 import { z } from "zod"
 import { usersTable } from "@ter/drizzle"
-import { eq, count } from "drizzle-orm"
+import { eq, count, asc } from "drizzle-orm"
 
 export const userRouter = router({
   updateUser: protectedProcedure
@@ -36,6 +36,7 @@ export const userRouter = router({
       const users = await db.query.usersTable.findMany({
         limit,
         offset: page * limit,
+        orderBy: [asc(usersTable.createdAt)],
       })
       const totalData = await db.select({ count: count() }).from(usersTable)
       const total = totalData[0].count
