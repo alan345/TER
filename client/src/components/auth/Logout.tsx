@@ -13,7 +13,7 @@ const Logout = () => {
       await logoutMutation.mutateAsync(undefined)
       console.log("success Logout")
       navigate("/login")
-      context.updateUser()
+      context.updateAuth()
     } catch (error) {
       console.log(error)
     }
@@ -25,7 +25,7 @@ const Logout = () => {
         id="logout-button"
         disabled={logoutMutation.isPending}
         onClick={logout}
-        className="btn btn-blue flex items-center"
+        className="btn-blue flex items-center"
       >
         <SignOut className="mr-2" /> Logout
       </button>

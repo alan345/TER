@@ -5,6 +5,7 @@ import jwt from "jsonwebtoken"
 import { usersTable } from "@ter/drizzle"
 import { eq } from "drizzle-orm"
 import { zod } from "@ter/shared"
+import { utils } from "../utils"
 
 export const authRouter = router({
   login: publicProcedure.input(zod.zodLogin).mutation(async (opts) => {
@@ -26,7 +27,29 @@ export const authRouter = router({
     const token = jwt.sign(
       {
         id: user.id,
-        exp: Math.floor(Date.now() / 1000) + 60 * 60,
+        exp: utils.getNewExp(),
+      },
+      secretJwt
+    )
+
+    opts.ctx.res.cookie(cookieName, token, {
+      maxAge: 900000,
+      httpOnly: true,
+    })
+    return true
+  }),
+  refreshToken: publicProcedure.mutation(async (opts) => {
+    const {
+      config: { secretJwt, cookieName },
+    } = opts.ctx
+
+    const me = opts.ctx.user
+    if (!me) throw new Error("User not found")
+
+    const token = jwt.sign(
+      {
+        id: me.id,
+        exp: utils.getNewExp(),
       },
       secretJwt
     )
@@ -58,7 +81,7 @@ export const authRouter = router({
     const token = jwt.sign(
       {
         id: newUsers[0].id,
-        exp: Math.floor(Date.now() / 1000) + 60 * 60,
+        exp: utils.getNewExp(),
       },
       secretJwt
     )

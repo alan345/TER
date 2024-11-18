@@ -30,7 +30,7 @@ const Login = () => {
     setIsSubmitting(true)
     try {
       await loginMutation.mutateAsync({ email: formData.email, password: formData.password })
-      context.updateUser()
+      context.updateAuth()
       navigate("/profile")
     } catch (error) {
       setIsSubmitting(false)

@@ -1,7 +1,6 @@
 import React from "react"
 import { AppContext } from "../../ContextProvider"
 import ProfileQuery from "./ProfileQuery"
-import Logout from "./Logout"
 import SessionData from "./SessionData"
 
 const ProfilePage = () => {
@@ -14,9 +13,6 @@ const ProfilePage = () => {
     <>
       <ProfileQuery meId={context.me.id} />
       <SessionData />
-      <div className="mt-6">
-        <Logout />
-      </div>
     </>
   )
 }

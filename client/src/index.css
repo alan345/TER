@@ -11,6 +11,12 @@ button {
 .btn-blue:hover {
   @apply bg-blue-700;
 }
+.btn-gray {
+  @apply bg-gray-500 text-white;
+}
+.btn-gray:hover {
+  @apply bg-gray-700;
+}
 
 button:disabled,
 button[disabled],

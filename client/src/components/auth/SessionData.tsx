@@ -1,6 +1,7 @@
 import React from "react"
 import { AppContext } from "../../ContextProvider"
 import TimeLeftSession from "./TimeLeftSession"
+import RefreshToken from "./RefreshToken"
 
 const SessionData = () => {
   const context = React.useContext(AppContext)
@@ -23,6 +24,9 @@ const SessionData = () => {
             {new Date(context.decoded.exp * 1000).toLocaleTimeString()}
           </div>
           <TimeLeftSession exp={context.decoded.exp} />
+          <div className="mt-6">
+            <RefreshToken />
+          </div>
         </div>
       )}
     </div>

@@ -12,14 +12,14 @@ type ContextType = {
     exp: number
     iat: number
   } | null
-  updateUser: () => void
+  updateAuth: () => void
   isLoadingAuth: boolean
 }
 const initialContext: ContextType = {
   me: null,
   decoded: null,
   isLoadingAuth: false,
-  updateUser: () => {},
+  updateAuth: () => {},
 }
 export const AppContext = React.createContext<ContextType>(initialContext)
 
@@ -33,7 +33,7 @@ const ContextProvider = (props: Props) => {
   const [isLoadingAuth, setIsLoadingAuth] = React.useState(false)
   const [me, setMe] = React.useState<ContextType["me"]>(null)
   const [decoded, setDecoded] = React.useState<ContextType["decoded"]>(null)
-  const updateUser = async () => {
+  const updateAuth = async () => {
     await getAuthQuery.refetch()
   }
 
@@ -55,7 +55,7 @@ const ContextProvider = (props: Props) => {
         me,
         decoded,
         isLoadingAuth,
-        updateUser,
+        updateAuth,
       }}
     >
       {props.children}

@@ -5,6 +5,7 @@ import iconAvatar from "../../assets/icons/avatar.svg"
 import UpdateUserName from "../user/UpdateUserName"
 import ImgAvatar from "../../template/layout/ImgAvatar"
 import UpdateUserAge from "../user/UpdateUserAge"
+import Logout from "./Logout"
 
 type Props = {
   meId: string
@@ -17,7 +18,10 @@ const ProfileQuery = (props: Props) => {
   if (!dataQuery.data) return <div>No data</div>
   return (
     <div>
-      <h2>Profile</h2>
+      <div className="flex items-center justify-between">
+        <h2>Profile</h2>
+        <Logout />
+      </div>
 
       <div className="mt-4">
         <div>
