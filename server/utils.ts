@@ -1,3 +1,5 @@
+import { timeSession } from "./configTer"
+
 export const utils = {
   randomString: (len: number) => {
     const charSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
@@ -9,6 +11,6 @@ export const utils = {
     return randomString
   },
   getNewExp: () => {
-    return Math.floor(Date.now() / 1000) + 60 * 60
+    return Math.floor(Date.now() / 1000) + timeSession
   },
 }

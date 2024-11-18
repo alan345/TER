@@ -6,6 +6,7 @@ import { usersTable } from "@ter/drizzle"
 import { eq } from "drizzle-orm"
 import { zod } from "@ter/shared"
 import { utils } from "../utils"
+import { timeSession } from "../configTer"
 
 export const authRouter = router({
   login: publicProcedure.input(zod.zodLogin).mutation(async (opts) => {
@@ -27,7 +28,7 @@ export const authRouter = router({
     const token = jwt.sign({ id: user.id, exp: utils.getNewExp() }, secretJwt)
 
     opts.ctx.res.cookie(cookieName, token, {
-      maxAge: 900000,
+      maxAge: timeSession * 1000,
       httpOnly: true,
     })
     return true
@@ -43,7 +44,7 @@ export const authRouter = router({
     const token = jwt.sign({ id: me.id, exp: utils.getNewExp() }, secretJwt)
 
     opts.ctx.res.cookie(cookieName, token, {
-      maxAge: 900000,
+      maxAge: timeSession * 1000,
       httpOnly: true,
     })
     return true
@@ -69,7 +70,7 @@ export const authRouter = router({
     const token = jwt.sign({ id: newUsers[0].id, exp: utils.getNewExp() }, secretJwt)
 
     opts.ctx.res.cookie(cookieName, token, {
-      maxAge: 900000,
+      maxAge: timeSession * 1000,
       httpOnly: true,
     })
     return true
