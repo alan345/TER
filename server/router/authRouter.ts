@@ -24,13 +24,7 @@ export const authRouter = router({
       throw new Error("Incorrect password")
     }
 
-    const token = jwt.sign(
-      {
-        id: user.id,
-        exp: utils.getNewExp(),
-      },
-      secretJwt
-    )
+    const token = jwt.sign({ id: user.id, exp: utils.getNewExp() }, secretJwt)
 
     opts.ctx.res.cookie(cookieName, token, {
       maxAge: 900000,
@@ -46,13 +40,7 @@ export const authRouter = router({
     const me = opts.ctx.user
     if (!me) throw new Error("User not found")
 
-    const token = jwt.sign(
-      {
-        id: me.id,
-        exp: utils.getNewExp(),
-      },
-      secretJwt
-    )
+    const token = jwt.sign({ id: me.id, exp: utils.getNewExp() }, secretJwt)
 
     opts.ctx.res.cookie(cookieName, token, {
       maxAge: 900000,
@@ -78,13 +66,7 @@ export const authRouter = router({
       })
       .returning({ id: usersTable.id })
 
-    const token = jwt.sign(
-      {
-        id: newUsers[0].id,
-        exp: utils.getNewExp(),
-      },
-      secretJwt
-    )
+    const token = jwt.sign({ id: newUsers[0].id, exp: utils.getNewExp() }, secretJwt)
 
     opts.ctx.res.cookie(cookieName, token, {
       maxAge: 900000,
