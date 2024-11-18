@@ -4,7 +4,6 @@ type Props = {
   exp: number
 }
 const TimeLeftSession = (props: Props) => {
-  TimeLeftSession
   const [time, setTime] = React.useState(Date.now())
 
   React.useEffect(() => {

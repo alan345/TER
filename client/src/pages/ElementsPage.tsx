@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, useLocation, useNavigate } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { Beers } from "../components/Beers"
 import { AppContext } from "../ContextProvider"
 import { Movies } from "../components/Movies"
@@ -11,7 +11,6 @@ import { Facts } from "../components/Facts"
 const ElementsPage = () => {
   const context = React.useContext(AppContext)
   const location = useLocation()
-  const navigate = useNavigate()
 
   const query = new URLSearchParams(location.search)
   const currentTab = query.get("tab") || "movies"
