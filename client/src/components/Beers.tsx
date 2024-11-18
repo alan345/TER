@@ -6,7 +6,7 @@ import { useSearchParams } from "react-router-dom"
 
 export const Beers = () => {
   const [searchParams] = useSearchParams()
-  let sizeUrl = searchParams.get("size")
+  const sizeUrl = searchParams.get("size")
 
   const initSize = 6
   const finalSize = sizeUrl ? Number(sizeUrl) : initSize

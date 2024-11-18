@@ -6,7 +6,7 @@ type Props = {
 };
 export function SizeTable(props: Props) {
   const [searchParams, setSearchParams] = useSearchParams();
-  let sizeUrl = searchParams.get("size");
+  const sizeUrl = searchParams.get("size");
   const [sizeInput, setSizeInput] = React.useState(
     sizeUrl || props.initSize.toString()
   );

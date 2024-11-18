@@ -5,7 +5,7 @@ import ErrorTemplate from "../template/ErrorTemplate"
 
 export const Facts = () => {
   const [searchParams] = useSearchParams()
-  let sizeUrl = searchParams.get("size")
+  const sizeUrl = searchParams.get("size")
 
   const initSize = 6
   const finalSize = sizeUrl ? Number(sizeUrl) : initSize
