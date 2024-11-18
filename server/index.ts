@@ -26,6 +26,8 @@ const databaseUrl = process.env.DATABASE_URL
 
 export interface UserIDJwtPayload extends jwt.JwtPayload {
   id: string
+  exp: number
+  iat: number
 }
 
 export const createContext = async ({ req, res }: trpcExpress.CreateExpressContextOptions) => {
@@ -39,8 +41,10 @@ export const createContext = async ({ req, res }: trpcExpress.CreateExpressConte
   if (token) {
     let decoded = jwt.verify(token, secretJwt) as UserIDJwtPayload
     if (decoded) {
+      console.log("decoded")
+      console.log(decoded)
       const user = await db.query.usersTable.findFirst({ where: eq(usersTable.id, decoded.id) })
-      return { req, res, user, db, config }
+      return { req, res, user, db, config, decoded }
     }
   }
 

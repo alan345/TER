@@ -7,11 +7,17 @@ type ContextType = {
     name: string
     image: string | null
   } | null
+  decoded: {
+    id: string
+    exp: number
+    iat: number
+  } | null
   updateUser: () => void
   isLoading: boolean
 }
 const initialContext: ContextType = {
   me: null,
+  decoded: null,
   isLoading: false,
   updateUser: () => {},
 }
@@ -26,6 +32,7 @@ const ContextProvider = (props: Props) => {
 
   const [isLoading, setIsLoading] = React.useState(false)
   const [me, setMe] = React.useState<ContextType["me"]>(null)
+  const [decoded, setDecoded] = React.useState<ContextType["decoded"]>(null)
   const updateUser = async () => {
     await getAuthQuery.refetch()
   }
@@ -37,7 +44,12 @@ const ContextProvider = (props: Props) => {
       return
     }
     if (getAuthQuery.data) {
-      setMe(getAuthQuery.data)
+      if (getAuthQuery.data.user) {
+        setMe(getAuthQuery.data.user)
+      }
+      if (getAuthQuery.data.decoded) {
+        setDecoded(getAuthQuery.data.decoded)
+      }
     }
   }, [getAuthQuery])
 
@@ -45,6 +57,7 @@ const ContextProvider = (props: Props) => {
     <AppContext.Provider
       value={{
         me,
+        decoded,
         isLoading,
         updateUser,
       }}

@@ -18,7 +18,7 @@ export const ProfileQuery = (props: Props) => {
   return (
     <div>
       <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-semibold text-gray-700">Profile</h2>
+        <h2>Profile</h2>
         <Logout />
       </div>
       <div className="mt-4">

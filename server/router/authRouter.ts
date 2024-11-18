@@ -79,9 +79,12 @@ export const authRouter = router({
   getAuth: publicProcedure.query((opts) => {
     if (!opts.ctx.user) throw new TRPCError({ code: "UNAUTHORIZED" })
     return {
-      id: opts.ctx.user.id,
-      name: opts.ctx.user.name,
-      image: opts.ctx.user.image,
+      user: {
+        id: opts.ctx.user.id,
+        name: opts.ctx.user.name,
+        image: opts.ctx.user.image,
+      },
+      decoded: opts.ctx.decoded,
     }
   }),
 })
