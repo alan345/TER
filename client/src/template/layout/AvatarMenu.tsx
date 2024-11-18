@@ -3,7 +3,8 @@ import { AppContext } from "../../ContextProvider"
 import { Link } from "react-router-dom"
 import ImgAvatar from "./ImgAvatar"
 import { SignIn } from "@phosphor-icons/react"
-export const AvatarMenu = () => {
+
+const AvatarMenu = () => {
   const context = React.useContext(AppContext)
 
   return (
@@ -27,3 +28,4 @@ export const AvatarMenu = () => {
     </div>
   )
 }
+export default AvatarMenu

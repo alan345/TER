@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import logoTer from "../../assets/images/ter-logo.png"
 
-export const LogoTer = () => {
+const LogoTer = () => {
   return (
     <div className="p-4 flex items-center justify-center h-24 ">
       <div>
@@ -13,3 +13,4 @@ export const LogoTer = () => {
     </div>
   )
 }
+export default LogoTer

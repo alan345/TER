@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from "react"
-import { AppRouter } from "../../AppRouter"
-import { AvatarMenu } from "./AvatarMenu"
-import { NavLinks } from "./NavLinks"
-import { BurgerLogic } from "./BurgerLogic"
-import { LogoTer } from "./LogoTer"
+import AppRouter from "../../AppRouter"
+import AvatarMenu from "./AvatarMenu"
+import NavLinks from "./NavLinks"
+import BurgerLogic from "./BurgerLogic"
+import LogoTer from "./LogoTer"
 
 const LayoutApp = () => {
   const [sidebarOpen, setSidebarOpen] = React.useState(false)

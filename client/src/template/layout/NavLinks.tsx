@@ -5,7 +5,8 @@ import { AppContext } from "../../ContextProvider"
 type Props = {
   onClick: () => void
 }
-export const NavLinks = (props: Props) => {
+
+const NavLinks = (props: Props) => {
   const location = useLocation()
   const context = useContext(AppContext)
   return (
@@ -63,3 +64,4 @@ export const NavLinks = (props: Props) => {
     </nav>
   )
 }
+export default NavLinks

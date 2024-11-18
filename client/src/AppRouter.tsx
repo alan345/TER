@@ -8,7 +8,7 @@ import PrivateRoute from "./PrivateRoute"
 import UsersPage from "./components/user/UsersPage"
 import Signup from "./components/auth/Signup"
 
-export const AppRouter = () => {
+const AppRouter = () => {
   return (
     <Routes>
       <Route index element={<Home />} />
@@ -22,3 +22,4 @@ export const AppRouter = () => {
     </Routes>
   )
 }
+export default AppRouter
