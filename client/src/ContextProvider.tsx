@@ -44,12 +44,8 @@ const ContextProvider = (props: Props) => {
       return
     }
     if (getAuthQuery.data) {
-      if (getAuthQuery.data.user) {
-        setMe(getAuthQuery.data.user)
-      }
-      if (getAuthQuery.data.decoded) {
-        setDecoded(getAuthQuery.data.decoded)
-      }
+      setMe(getAuthQuery.data.user)
+      setDecoded(getAuthQuery.data.decoded)
     }
   }, [getAuthQuery])
 
