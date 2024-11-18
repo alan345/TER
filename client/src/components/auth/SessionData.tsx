@@ -1,5 +1,6 @@
 import React from "react"
 import { AppContext } from "../../ContextProvider"
+import TimeLeftSession from "./TimeLeftSession"
 
 const SessionData = () => {
   const context = React.useContext(AppContext)
@@ -21,6 +22,7 @@ const SessionData = () => {
             End (Exp): {new Date(context.decoded.exp * 1000).toLocaleDateString()}{" "}
             {new Date(context.decoded.exp * 1000).toLocaleTimeString()}
           </div>
+          <TimeLeftSession exp={context.decoded.exp} />
         </div>
       )}
     </div>
