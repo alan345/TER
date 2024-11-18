@@ -17,13 +17,12 @@ const SessionData = () => {
       <h4>Sesssion</h4>
       {context.decoded && (
         <div className="text-xs">
-          <div>Id: {context.decoded.id}</div>
           <div>
-            Start (Iat): {new Date(context.decoded.iat * 1000).toLocaleDateString()}{" "}
+            Start: {new Date(context.decoded.iat * 1000).toLocaleDateString()}{" "}
             {new Date(context.decoded.iat * 1000).toLocaleTimeString()}
           </div>
           <div>
-            End (Exp): {new Date(context.decoded.exp * 1000).toLocaleDateString()}{" "}
+            End: {new Date(context.decoded.exp * 1000).toLocaleDateString()}{" "}
             {new Date(context.decoded.exp * 1000).toLocaleTimeString()}
           </div>
           <TimeLeftSession exp={context.decoded.exp} />
