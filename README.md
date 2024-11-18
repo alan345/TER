@@ -91,7 +91,12 @@ npm run start
 
 ## Printscreens
 
+<img width="1425" alt="image" src="https://github.com/user-attachments/assets/bc8c89cd-ebf2-43ca-9c8f-9a8ed8bfe582">
+
 <img width="1429" alt="image" src="https://github.com/user-attachments/assets/9a717a89-abc7-4c6f-bc24-76c67f8be69c">
+
+<img width="1405" alt="image" src="https://github.com/user-attachments/assets/b992a6f9-648d-4afc-a55e-8fd1edf18f42">
+
 
 ![Recording 2024-10-11 at 09 43 21](https://github.com/user-attachments/assets/60c62f37-e663-4a3e-bfc8-bd1fc2ca3ca4)
 
