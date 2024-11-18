@@ -17,12 +17,20 @@ const AvatarMenu = () => {
             </div>
           </Link>
         ) : (
-          <Link to="/login">
-            <button id="login-mutation-button" className="btn-blue flex items-center">
-              <SignIn className="mr-2" />
-              Login
-            </button>
-          </Link>
+          <div className="flex gap-2">
+            <Link to="/login">
+              <button id="login-mutation-button" className="btn-white  flex items-center">
+                <SignIn className="mr-2" />
+                Login
+              </button>
+            </Link>
+            <Link to="/signup">
+              <button id="login-mutation-button" className="btn-white flex items-center">
+                <SignIn className="mr-2" />
+                Sign up
+              </button>
+            </Link>
+          </div>
         )}
       </>
     </div>
