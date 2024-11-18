@@ -1,7 +1,7 @@
 import { trpc } from "../utils/trpc"
 import { useSearchParams } from "react-router-dom"
 import { LoadingTemplate } from "../template/LoadingTemplate"
-import { ErrorTemplate } from "../template/ErrorTemplate"
+import ErrorTemplate from "../template/ErrorTemplate"
 
 export const Facts = () => {
   const [searchParams] = useSearchParams()

@@ -1,4 +1,4 @@
-import { ErrorTemplate } from "../template/ErrorTemplate"
+import ErrorTemplate from "../template/ErrorTemplate"
 import { LoadingTemplate } from "../template/LoadingTemplate"
 import { SizeTable } from "../template/SizeTable"
 import { trpc } from "../utils/trpc"

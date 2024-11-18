@@ -27,7 +27,7 @@ const SessionData = () => {
             {new Date(context.decoded.exp * 1000).toLocaleTimeString()}
           </div>
           <TimeLeftSession exp={context.decoded.exp} />
-          <div className="mt-6">
+          <div className="mt-4">
             <RefreshToken />
           </div>
         </div>

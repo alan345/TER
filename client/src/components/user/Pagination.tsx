@@ -6,7 +6,7 @@ type Props = {
   total: number
   limit: number
 }
-export const Pagination = (props: Props) => {
+const Pagination = (props: Props) => {
   return (
     <div className="flex justify-end items-center mt-4">
       {props.page > 1 && (
@@ -23,3 +23,4 @@ export const Pagination = (props: Props) => {
     </div>
   )
 }
+export default Pagination

@@ -1,4 +1,4 @@
-import { ErrorTemplate } from "../template/ErrorTemplate"
+import ErrorTemplate from "../template/ErrorTemplate"
 import { LoadingTemplate } from "../template/LoadingTemplate"
 import { trpc } from "../utils/trpc"
 import { useSearchParams } from "react-router-dom"

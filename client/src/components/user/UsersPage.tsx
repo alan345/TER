@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom"
 import { trpc } from "../../utils/trpc"
-import { ErrorTemplate } from "../../template/ErrorTemplate"
-import { Pagination } from "./Pagination"
+import ErrorTemplate from "../../template/ErrorTemplate"
+import Pagination from "./Pagination"
 import ImgAvatar from "../../template/layout/ImgAvatar"
 
 const UsersPage = () => {
