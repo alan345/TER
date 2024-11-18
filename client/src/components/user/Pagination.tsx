@@ -15,7 +15,7 @@ const Pagination = (props: Props) => {
         </Link>
       )}
       {props.page}
-      {(props.page + 1) * props.limit < props.total && (
+      {props.page * props.limit < props.total && (
         <Link className="link ml-2" to={`?page=${props.page + 1}`}>
           <CaretRight />
         </Link>
