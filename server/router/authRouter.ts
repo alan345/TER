@@ -27,6 +27,8 @@ export const authRouter = router({
 
     const token = jwt.sign({ id: user.id, exp: utils.getNewExp() }, secretJwt)
 
+    await db.update(usersTable).set({ lastLoginAt: new Date() }).where(eq(usersTable.id, user.id)).returning()
+
     opts.ctx.res.cookie(cookieName, token, {
       maxAge: timeSession * 1000,
       httpOnly: true,
@@ -63,6 +65,7 @@ export const authRouter = router({
       .values({
         name: opts.input.name,
         email: opts.input.email,
+        lastLoginAt: new Date(),
         password: await bcrypt.hash(opts.input.password, 10),
       })
       .returning({ id: usersTable.id })

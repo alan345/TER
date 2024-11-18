@@ -6,7 +6,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Round&hairColor=Auburn&facialHairType=BeardMedium&facialHairColor=Platinum&clotheType=BlazerShirt&eyeType=Side&eyebrowType=UnibrowNatural&mouthType=Tongue&skinColor=Light",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 25,
-    createdAt: new Date("2024-01-01"),
+    createdAt: new Date("2024-11-28"),
   },
   {
     email: "paul@example.com",

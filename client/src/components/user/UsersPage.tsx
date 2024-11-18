@@ -20,6 +20,7 @@ const UsersPage = () => {
           <tr>
             <th>Name</th>
             <th>Created At</th>
+            <th>Last Login At</th>
             <th>Email</th>
             <th>Avatar</th>
           </tr>
@@ -29,6 +30,7 @@ const UsersPage = () => {
             <tr key={user.id}>
               <td>{user.name}</td>
               <td>{new Date(user.createdAt).toLocaleString()}</td>
+              <td>{user.lastLoginAt ? new Date(user.lastLoginAt).toLocaleString() : ""}</td>
               <td>{user.email}</td>
               <td>
                 <ImgAvatar src={user.image} alt="Profile Image" className="w-10 h-10" />
