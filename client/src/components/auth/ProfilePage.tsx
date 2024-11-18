@@ -1,6 +1,7 @@
 import React from "react"
 import { AppContext } from "../../ContextProvider"
-import { ProfileQuery } from "../ProfileQuery"
+import ProfileQuery from "../ProfileQuery"
+import Logout from "./Logout"
 
 const ProfilePage = () => {
   const context = React.useContext(AppContext)
@@ -26,6 +27,9 @@ const ProfilePage = () => {
             </div>
           </div>
         )}
+      </div>
+      <div className="mt-6">
+        <Logout />
       </div>
     </>
   )

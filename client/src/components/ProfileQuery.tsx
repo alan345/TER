@@ -5,22 +5,20 @@ import iconAvatar from "../assets/icons/avatar.svg"
 import UpdateUserName from "./user/UpdateUserName"
 import ImgAvatar from "../template/layout/ImgAvatar"
 import UpdateUserAge from "./user/UpdateUserAge"
-import Logout from "./auth/Logout"
 
 type Props = {
   meId: string
 }
-export const ProfileQuery = (props: Props) => {
+
+const ProfileQuery = (props: Props) => {
   const dataQuery = trpc.getUser.useQuery({ id: props.meId })
   if (dataQuery.isLoading) return <LoadingTemplate />
   if (dataQuery.isError) return <ErrorTemplate message={dataQuery.error.message} />
   if (!dataQuery.data) return <div>No data</div>
   return (
     <div>
-      <div className="flex items-center justify-between">
-        <h2>Profile</h2>
-        <Logout />
-      </div>
+      <h2>Profile</h2>
+
       <div className="mt-4">
         <div>
           <ImgAvatar
@@ -38,3 +36,4 @@ export const ProfileQuery = (props: Props) => {
     </div>
   )
 }
+export default ProfileQuery
