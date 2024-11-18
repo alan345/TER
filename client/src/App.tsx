@@ -3,10 +3,10 @@ import { httpBatchLink } from "@trpc/client"
 import { useState } from "react"
 import { trpc } from "./utils/trpc"
 import { BrowserRouter } from "react-router-dom"
-import { ContextProvider } from "./ContextProvider"
-import { LayoutApp } from "./template/layout/LayoutApp"
+import ContextProvider from "./ContextProvider"
+import LayoutApp from "./template/layout/LayoutApp"
 
-export function App() {
+const App = () => {
   const [queryClient] = useState(
     () =>
       new QueryClient({
@@ -48,3 +48,5 @@ export function App() {
     </BrowserRouter>
   )
 }
+
+export default App

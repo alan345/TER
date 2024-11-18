@@ -21,7 +21,7 @@ type Props = {
   children: React.ReactNode
 }
 
-export const ContextProvider = (props: Props) => {
+const ContextProvider = (props: Props) => {
   const getAuthQuery = trpc.getAuth.useQuery(undefined, { retry: false })
 
   const [isLoading, setIsLoading] = React.useState(false)
@@ -53,3 +53,4 @@ export const ContextProvider = (props: Props) => {
     </AppContext.Provider>
   )
 }
+export default ContextProvider

@@ -5,7 +5,7 @@ import { NavLinks } from "./NavLinks"
 import { BurgerLogic } from "./BurgerLogic"
 import { LogoTer } from "./LogoTer"
 
-export const LayoutApp = () => {
+const LayoutApp = () => {
   const [sidebarOpen, setSidebarOpen] = React.useState(false)
 
   const sidebarRef = useRef<HTMLDivElement>(null)
@@ -55,3 +55,5 @@ export const LayoutApp = () => {
     </div>
   )
 }
+
+export default LayoutApp
