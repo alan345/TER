@@ -91,7 +91,7 @@ npm run start
 
 ## Printscreens
 
-#### Main Screen
+<img width="1429" alt="image" src="https://github.com/user-attachments/assets/9a717a89-abc7-4c6f-bc24-76c67f8be69c">
 
 ![Recording 2024-10-11 at 09 43 21](https://github.com/user-attachments/assets/60c62f37-e663-4a3e-bfc8-bd1fc2ca3ca4)
 
