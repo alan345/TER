@@ -2,6 +2,7 @@ import React from "react"
 import { AppContext } from "../../ContextProvider"
 import TimeLeftSession from "./TimeLeftSession"
 import RefreshToken from "./RefreshToken"
+import Logout from "./Logout"
 
 const SessionData = () => {
   const context = React.useContext(AppContext)
