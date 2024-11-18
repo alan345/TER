@@ -7,7 +7,7 @@ type Props = {
 
 const PrivateRoute = (props: Props) => {
   const context = useContext(AppContext)
-  if (context.isLoading) return <>Loading!</>
+  if (context.isLoadingAuth) return <>Loading!</>
   if (!context.me) return <>This page is private. Please login.</>
   return <>{props.element}</>
 }

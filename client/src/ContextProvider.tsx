@@ -13,12 +13,12 @@ type ContextType = {
     iat: number
   } | null
   updateUser: () => void
-  isLoading: boolean
+  isLoadingAuth: boolean
 }
 const initialContext: ContextType = {
   me: null,
   decoded: null,
-  isLoading: false,
+  isLoadingAuth: false,
   updateUser: () => {},
 }
 export const AppContext = React.createContext<ContextType>(initialContext)
@@ -30,7 +30,7 @@ type Props = {
 const ContextProvider = (props: Props) => {
   const getAuthQuery = trpc.getAuth.useQuery(undefined, { retry: false })
 
-  const [isLoading, setIsLoading] = React.useState(false)
+  const [isLoadingAuth, setIsLoadingAuth] = React.useState(false)
   const [me, setMe] = React.useState<ContextType["me"]>(null)
   const [decoded, setDecoded] = React.useState<ContextType["decoded"]>(null)
   const updateUser = async () => {
@@ -38,7 +38,7 @@ const ContextProvider = (props: Props) => {
   }
 
   React.useEffect(() => {
-    setIsLoading(getAuthQuery.isLoading)
+    setIsLoadingAuth(getAuthQuery.isLoading)
     if (getAuthQuery.isError) {
       setMe(null)
       return
@@ -58,7 +58,7 @@ const ContextProvider = (props: Props) => {
       value={{
         me,
         decoded,
-        isLoading,
+        isLoadingAuth,
         updateUser,
       }}
     >

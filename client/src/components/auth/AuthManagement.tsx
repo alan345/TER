@@ -14,7 +14,7 @@ const AuthManagement = () => {
     )
   }
 
-  if (context.isLoading) {
+  if (context.isLoadingAuth) {
     return <div>Loading</div>
   }
   return <Login />
