@@ -18,8 +18,8 @@ const UsersPage = () => {
       <table>
         <thead>
           <tr>
-            <th>ID</th>
             <th>Name</th>
+            <th>Created At</th>
             <th>Email</th>
             <th>Avatar</th>
           </tr>
@@ -27,8 +27,8 @@ const UsersPage = () => {
         <tbody>
           {dataQuery.data?.users.map((user) => (
             <tr key={user.id}>
-              <td>{user.id}</td>
               <td>{user.name}</td>
+              <td>{new Date(user.createdAt).toLocaleString()}</td>
               <td>{user.email}</td>
               <td>
                 <ImgAvatar src={user.image} alt="Profile Image" className="w-10 h-10" />
