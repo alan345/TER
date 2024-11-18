@@ -68,7 +68,7 @@ const Signup = () => {
         password: formData.password,
         name: formData.name,
       })
-      context.updateUser()
+      context.updateAuth()
       navigate("/profile")
     } catch (error) {
       setIsSubmitting(false)
