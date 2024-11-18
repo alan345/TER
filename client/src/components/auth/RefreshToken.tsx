@@ -1,7 +1,7 @@
 import React from "react"
 import { trpc } from "../../utils/trpc"
 import { AppContext } from "../../ContextProvider"
-import { SignOut, ArrowsClockwise } from "@phosphor-icons/react"
+import { ArrowsClockwise } from "@phosphor-icons/react"
 
 const RefreshToken = () => {
   const context = React.useContext(AppContext)
