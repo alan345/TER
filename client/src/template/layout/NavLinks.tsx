@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { AppContext } from "../../ContextProvider"
+import { House, FileText, Users, PencilLine } from "@phosphor-icons/react"
 
 type Props = {
   onClick: () => void
@@ -18,7 +19,10 @@ const NavLinks = (props: Props) => {
           location.pathname === "/" ? "bg-gray-200" : "hover:bg-gray-100"
         }`}
       >
-        Home
+        <div className="flex items-center">
+          <House className="mr-2" />
+          Home
+        </div>
       </Link>
       <Link
         onClick={props.onClick}
@@ -27,7 +31,11 @@ const NavLinks = (props: Props) => {
           location.pathname === "/elements" ? "bg-gray-200" : "hover:bg-gray-100"
         }`}
       >
-        Elements
+        {" "}
+        <div className="flex items-center">
+          <FileText className="mr-2" />
+          Elements
+        </div>
       </Link>
       {context.me && (
         <Link
@@ -37,7 +45,10 @@ const NavLinks = (props: Props) => {
             location.pathname === "/users" ? "bg-gray-200" : "hover:bg-gray-100"
           }`}
         >
-          Users
+          <div className="flex items-center">
+            <Users className="mr-2" />
+            Users
+          </div>
         </Link>
       )}
       <Link
@@ -47,7 +58,10 @@ const NavLinks = (props: Props) => {
           location.pathname === "/contact" ? "bg-gray-200" : "hover:bg-gray-100"
         }`}
       >
-        Contact
+        <div className="flex items-center">
+          <PencilLine className="mr-2" />
+          Contact
+        </div>
       </Link>
       <a
         href="https://github.com/alan345/TER"

@@ -8,6 +8,7 @@ import PrivateRoute from "./PrivateRoute"
 import UsersPage from "./components/user/UsersPage"
 import Signup from "./components/auth/Signup"
 import { House } from "@phosphor-icons/react"
+
 const AppRouter = () => {
   return (
     <Routes>
