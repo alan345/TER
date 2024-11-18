@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
 import { AppContext } from "./ContextProvider"
+import AuthButtons from "./template/layout/AuthButtons"
 
 type Props = {
   element: React.ReactNode
@@ -8,7 +9,16 @@ type Props = {
 const PrivateRoute = (props: Props) => {
   const context = useContext(AppContext)
   if (context.isLoadingAuth) return <>Loading!</>
-  if (!context.me) return <>This page is private. Please login.</>
+  if (!context.me)
+    return (
+      <div>
+        <h1>Error</h1>
+        <p>This page is private.</p>
+        <div className="mt-8">
+          <AuthButtons />
+        </div>
+      </div>
+    )
   return <>{props.element}</>
 }
 
