@@ -33,7 +33,6 @@
 - [Bcrypt](https://www.npmjs.com/package/bcrypt) - A JavaScript library for hashing passwords
 - [Drizzle](https://orm.drizzle.team/) - A TypeScript-first ORM for Node.js
 - [JWT](https://jwt.io) - JSON Web Tokens for authentication
-- [NPM](https://www.npmjs.com) - Node Package Manager for managing dependencies
 - [NPM Workspace](https://docs.npmjs.com/cli/v10/using-npm/workspaces) Workspaces for managing multiple packages in a single repository
 - [Phosphor Icons](https://phosphoricons.com) - A flexible icon family for interfaces, diagrams, presentations — whatever, really
 - [Playwright](https://playwright.dev) - Test your web apps headlessly with a single API
