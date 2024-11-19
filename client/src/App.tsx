@@ -24,7 +24,7 @@ const App = () => {
     trpc.createClient({
       links: [
         httpBatchLink({
-          // Todo: based on the environement, we should use the correct url dynamically
+          // based on the environement, we should use the correct url dynamically
           url: "http://localhost:2022",
           fetch(url, options) {
             return fetch(url, {

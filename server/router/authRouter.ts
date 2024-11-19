@@ -1,4 +1,4 @@
-import { publicProcedure, router } from "../trpc"
+import { publicProcedure, protectedProcedure, router } from "../trpc"
 import bcrypt from "bcrypt"
 import { TRPCError } from "@trpc/server"
 import jwt from "jsonwebtoken"
@@ -35,13 +35,12 @@ export const authRouter = router({
     })
     return true
   }),
-  refreshToken: publicProcedure.mutation(async (opts) => {
+  refreshToken: protectedProcedure.mutation(async (opts) => {
     const {
       config: { secretJwt, cookieName },
     } = opts.ctx
 
     const me = opts.ctx.user
-    if (!me) throw new Error("User not found")
 
     const token = jwt.sign({ id: me.id, exp: utils.getNewExp() }, secretJwt)
 
