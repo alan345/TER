@@ -45,6 +45,7 @@ const UpdateUserAge = (props: Props) => {
             <input
               id="id-input-name"
               name="name"
+              autoFocus
               value={age}
               onChange={(e) => {
                 const inputValue = e.target.value

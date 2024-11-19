@@ -42,6 +42,7 @@ const UpdateUserName = (props: Props) => {
             <input
               id="id-input-name"
               name="name"
+              autoFocus
               value={name}
               onChange={(e) => setName(e.target.value)}
               type="text"
