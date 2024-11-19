@@ -39,13 +39,17 @@ export const createContext = async ({ req, res }: trpcExpress.CreateExpressConte
   const db = drizzle(databaseUrl, { schema })
 
   if (token) {
-    let decoded = jwt.verify(token, secretJwt) as UserIDJwtPayload
-    if (decoded) {
-      const user = await db.query.usersTable.findFirst({ where: eq(usersTable.id, decoded.id) })
-      return { req, res, user, db, config, decoded }
+    try {
+      let decoded = jwt.verify(token, secretJwt) as UserIDJwtPayload
+      if (decoded) {
+        const user = await db.query.usersTable.findFirst({ where: eq(usersTable.id, decoded.id) })
+        return { req, res, user, db, config, decoded }
+      }
+    } catch (error) {
+      console.log("error", error)
+      res.clearCookie(cookieName)
     }
   }
-
   return { req, res, db, config }
 }
 
