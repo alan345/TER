@@ -82,6 +82,7 @@ const Login = () => {
           <input
             id="email-input"
             name="email"
+            autoFocus
             value={formData.email}
             onChange={handleInputChange}
             onBlur={handleInputBlur}
