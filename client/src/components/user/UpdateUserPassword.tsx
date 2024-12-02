@@ -23,9 +23,7 @@ const UpdateUserPassword = (props: Props) => {
       console.log(error)
     }
   }
-  if (mutation.error) {
-    console.log(JSON.parse(mutation.error.message)[0].message)
-  }
+
   return (
     <div>
       <div className="flex items-center gap-2 h-8">
@@ -46,7 +44,7 @@ const UpdateUserPassword = (props: Props) => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               type="password"
-              placeholder="Password"
+              placeholder="New password"
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
                   updateUser()
