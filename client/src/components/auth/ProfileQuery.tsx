@@ -6,6 +6,7 @@ import UpdateUserName from "../user/UpdateUserName"
 import ImgAvatar from "../../template/layout/ImgAvatar"
 import UpdateUserAge from "../user/UpdateUserAge"
 import Logout from "./Logout"
+import UpdateUserPassword from "../user/UpdateUserPassword"
 
 type Props = {
   meId: string
@@ -35,6 +36,8 @@ const ProfileQuery = (props: Props) => {
           <UpdateUserName user={dataQuery.data} onUpdate={dataQuery.refetch} />
           <UpdateUserAge user={dataQuery.data} onUpdate={dataQuery.refetch} />
           <div className="flex items-center gap-2 h-8">Email: {dataQuery.data.email}</div>
+          <UpdateUserPassword onUpdate={dataQuery.refetch} />
+          {/* <div className="flex items-center gap-2 h-8">Password: **********</div> */}
         </div>
       </div>
     </div>

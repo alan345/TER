@@ -7,6 +7,7 @@ import { eq } from "drizzle-orm"
 import { zod } from "@ter/shared"
 import { utils } from "../utils"
 import { timeSession } from "../configTer"
+import { z } from "zod"
 
 export const authRouter = router({
   login: publicProcedure.input(zod.zodLogin).mutation(async (opts) => {
@@ -50,6 +51,24 @@ export const authRouter = router({
     })
     return true
   }),
+  updateUserPassord: protectedProcedure
+    .input(
+      z.object({
+        password: z.string(),
+      })
+    )
+    .mutation(async (opts) => {
+      const me = opts.ctx.user
+      const db = opts.ctx.db
+      const user = await db
+        .update(usersTable)
+        .set({ password: await bcrypt.hash(opts.input.password, 10) })
+        .where(eq(usersTable.id, me.id))
+        .returning()
+
+      return user
+    }),
+
   signup: publicProcedure.input(zod.zodSignup).mutation(async (opts) => {
     const {
       db,
