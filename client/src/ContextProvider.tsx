@@ -12,14 +12,14 @@ type ContextType = {
     exp: number
     iat: number
   } | null
-  updateAuth: () => void
+  updateAuth: () => Promise<void>
   isLoadingAuth: boolean
 }
 const initialContext: ContextType = {
   me: null,
   decoded: null,
   isLoadingAuth: false,
-  updateAuth: () => {},
+  updateAuth: async () => {},
 }
 export const AppContext = React.createContext<ContextType>(initialContext)
 

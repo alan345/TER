@@ -1,3 +1,3 @@
 export const LoadingTemplate = () => {
-  return <div>Loading...</div>;
-};
+  return <div className="p-6">Loading...</div>
+}

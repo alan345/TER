@@ -11,7 +11,7 @@ const PrivateRoute = (props: Props) => {
   if (context.isLoadingAuth) return <>Loading!</>
   if (!context.me)
     return (
-      <div>
+      <div className="p-6">
         <h1>Error</h1>
         <p>This page is private.</p>
         <div className="mt-8">

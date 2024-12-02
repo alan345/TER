@@ -10,10 +10,10 @@ const ProfilePage = () => {
     return null
   }
   return (
-    <>
+    <div className="p-6">
       <ProfileQuery meId={context.me.id} />
       <SessionData />
-    </>
+    </div>
   )
 }
 export default ProfilePage

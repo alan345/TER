@@ -30,7 +30,7 @@ const Login = () => {
     setIsSubmitting(true)
     try {
       await loginMutation.mutateAsync({ email: formData.email, password: formData.password })
-      context.updateAuth()
+      await context.updateAuth()
       navigate("/profile")
     } catch (error) {
       setIsSubmitting(false)
@@ -75,7 +75,7 @@ const Login = () => {
   }
 
   return (
-    <div>
+    <div className="p-6">
       <h2 className="text-2xl font-semibold text-gray-700">Login</h2>
       <form onSubmit={onSubmit} className="mt-4 space-y-2">
         <div>
