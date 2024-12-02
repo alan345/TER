@@ -16,6 +16,7 @@ const UpdateUserPassword = (props: Props) => {
     try {
       setIsEdit(false)
       await mutation.mutateAsync({ password })
+      setPassword("")
       props.onUpdate()
     } catch (error) {
       setIsEdit(true)

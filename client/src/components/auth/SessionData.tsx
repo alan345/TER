@@ -9,9 +9,7 @@ const SessionData = () => {
   if (!context.me) {
     return null
   }
-  if (context.decoded?.exp && context.decoded?.iat) {
-    console.log(context.decoded.exp - context.decoded.iat)
-  }
+
   return (
     <div className="mt-10">
       <h4>Sesssion</h4>
