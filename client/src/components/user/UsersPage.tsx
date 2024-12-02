@@ -43,12 +43,14 @@ const UsersPage = () => {
           {dataQuery.isLoading && <div>Loading...</div>}
         </div>
       </div>
-      <div className="border-t border-gray-300">
-        {dataQuery.data && (
-          <div className="sticky bottom-0 h-10 pr-6">
-            <Pagination limit={dataQuery.data.limit} page={dataQuery.data.page} total={dataQuery.data.total} />
+      <div className="border-t border-gray-200">
+        <div className="sticky bottom-0 h-10 mr-6 mt-4">
+          <div className="flex justify-end">
+            {dataQuery.data && (
+              <Pagination limit={dataQuery.data.limit} page={dataQuery.data.page} total={dataQuery.data.total} />
+            )}
           </div>
-        )}
+        </div>
       </div>
     </div>
   )
