@@ -52,10 +52,13 @@ const UpdateUserPassword = (props: Props) => {
                   updateUser()
                 }
               }}
+              onBlur={() => setIsEdit(false)}
               className="pr-20"
               style={{ paddingRight: "26px" }}
             />
             <CheckFat
+              id="icon-check"
+              onMouseDown={(e) => e.preventDefault()}
               className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer hover:text-green-600 transition-colors"
               onClick={updateUser}
             />

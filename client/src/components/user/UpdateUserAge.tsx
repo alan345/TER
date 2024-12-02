@@ -35,7 +35,7 @@ const UpdateUserAge = (props: Props) => {
         <div>Age: </div>
         {!isEdit ? (
           <div className="flex items-center gap-2 group cursor-pointer" onClick={() => setIsEdit(true)}>
-            <div>{age}</div>
+            <div>{props.user.age}</div>
             <Pencil className="opacity-0 group-hover:opacity-100 transition-opacity" />
             {mutation.isSuccess && <SavedIconEffect />}
             {mutation.isPending && <SpinnerGap className="animate-spin" />}
@@ -47,6 +47,7 @@ const UpdateUserAge = (props: Props) => {
               name="name"
               autoFocus
               value={age}
+              onBlur={() => setIsEdit(false)}
               onChange={(e) => {
                 const inputValue = e.target.value
                 setAge(inputValue === "" ? "" : Number(inputValue))
@@ -62,6 +63,8 @@ const UpdateUserAge = (props: Props) => {
               style={{ paddingRight: "26px" }}
             />
             <CheckFat
+              id="icon-check"
+              onMouseDown={(e) => e.preventDefault()}
               className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer hover:text-green-600 transition-colors"
               onClick={updateUser}
             />
