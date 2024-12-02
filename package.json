@@ -24,7 +24,7 @@
     "clean": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' + && find . -name 'package-lock.json' -type f -delete && find . -name 'dist' -type d -prune -exec rm -rf '{}' +"
   },
   "devDependencies": {
-    "@playwright/test": "^1.35.2",
+    "@playwright/test": "^1.49.0",
     "npm-run-all": "^4.1.5",
     "wait-port": "^1.1.0"
   }
