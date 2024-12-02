@@ -34,7 +34,7 @@ const ElementsPage = () => {
   ]
 
   return (
-    <>
+    <div className="p-6">
       <nav className="flex gap-6 flex-wrap mt-4">
         {elements.map((element) => (
           <span key={element.name}>
@@ -53,7 +53,7 @@ const ElementsPage = () => {
           )}
         </div>
       ))}
-    </>
+    </div>
   )
 }
 

@@ -31,7 +31,7 @@ export const userRouter = router({
     )
     .query(async (opts) => {
       const page = opts.input.page
-      const limit = 5
+      const limit = 12
       const db = opts.ctx.db
       const users = await db.query.usersTable.findMany({
         limit,

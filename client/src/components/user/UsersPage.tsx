@@ -13,36 +13,43 @@ const UsersPage = () => {
   if (dataQuery.isError) return <ErrorTemplate message={dataQuery.error.message} />
 
   return (
-    <div>
-      <div className="flex justify-between mt-4"></div>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Created At</th>
-            <th>Last Login At</th>
-            <th>Email</th>
-            <th>Avatar</th>
-          </tr>
-        </thead>
-        <tbody>
-          {dataQuery.data?.users.map((user) => (
-            <tr key={user.id}>
-              <td>{user.name}</td>
-              <td>{new Date(user.createdAt).toLocaleString()}</td>
-              <td>{user.lastLoginAt ? new Date(user.lastLoginAt).toLocaleString() : ""}</td>
-              <td>{user.email}</td>
-              <td>
-                <ImgAvatar src={user.image} alt="Profile Image" className="w-10 h-10" />
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      {dataQuery.isLoading && <div>Loading...</div>}
-      {dataQuery.data && (
-        <Pagination limit={dataQuery.data.limit} page={dataQuery.data.page} total={dataQuery.data.total} />
-      )}
+    <div className="flex flex-col h-full">
+      <div className="flex-1 overflow-y-auto">
+        <div className="p-4">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Created At</th>
+                <th>Last Login At</th>
+                <th>Email</th>
+                <th>Avatar</th>
+              </tr>
+            </thead>
+            <tbody>
+              {dataQuery.data?.users.map((user) => (
+                <tr key={user.id}>
+                  <td>{user.name}</td>
+                  <td>{new Date(user.createdAt).toLocaleString()}</td>
+                  <td>{user.lastLoginAt ? new Date(user.lastLoginAt).toLocaleString() : ""}</td>
+                  <td>{user.email}</td>
+                  <td>
+                    <ImgAvatar src={user.image} alt="Profile Image" className="w-10 h-10" />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          {dataQuery.isLoading && <div>Loading...</div>}
+        </div>
+      </div>
+      <div className="border-t border-gray-300">
+        {dataQuery.data && (
+          <div className="sticky bottom-0 h-10 pr-6">
+            <Pagination limit={dataQuery.data.limit} page={dataQuery.data.page} total={dataQuery.data.total} />
+          </div>
+        )}
+      </div>
     </div>
   )
 }
