@@ -53,6 +53,7 @@
   - [Albums and Photos](https://jsonplaceholder.typicode.com)
 - [React context](https://react.dev/reference/react/useContext) is used to store the user's details when logged in
 - Health Check for the server (http://localhost:2022/health)
+- Search with Debounce Using a Custom Hook
 
 ## Installation
 
