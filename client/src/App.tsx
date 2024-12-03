@@ -5,6 +5,7 @@ import { trpc } from "./utils/trpc"
 import { BrowserRouter } from "react-router-dom"
 import ContextProvider from "./ContextProvider"
 import LayoutApp from "./template/layout/LayoutApp"
+import MyIdle from "./MyIdle"
 
 const App = () => {
   const [queryClient] = useState(
@@ -41,7 +42,9 @@ const App = () => {
       <trpc.Provider client={trpcClient} queryClient={queryClient}>
         <ContextProvider>
           <QueryClientProvider client={queryClient}>
-            <LayoutApp />
+            <MyIdle>
+              <LayoutApp />
+            </MyIdle>
           </QueryClientProvider>
         </ContextProvider>
       </trpc.Provider>
