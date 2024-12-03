@@ -21,7 +21,7 @@ const Pagination = (props: Props) => {
   }
   return (
     <div className="flex">
-      <div className="min-w-28">
+      <div className="flex items-center min-w-24 text-xs">
         {props.total === 0 ? 0 : props.page * props.limit - (props.limit - 1)} -{" "}
         {!isLastPage ? props.total : props.page * props.limit} of {props.total}
       </div>
