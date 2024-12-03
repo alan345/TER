@@ -7,11 +7,9 @@ import Search from "../search/Search"
 
 const UsersPage = () => {
   const location = useLocation()
-  // const navigate = useNavigate()
   const query = new URLSearchParams(location.search)
   const page = query.get("page")
   const search = query.get("search") || undefined
-  // console.log(search)
   const pageNumber = page ? parseInt(page, 10) : 1
   const dataQuery = trpc.getUsers.useQuery({ page: pageNumber, search })
   if (dataQuery.isError) return <ErrorTemplate message={dataQuery.error.message} />

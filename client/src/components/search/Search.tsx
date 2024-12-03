@@ -6,7 +6,7 @@ const Search = () => {
   const query = new URLSearchParams(location.search)
   const search = query.get("search") || ""
 
-  const { inputValue, setInputValue } = useDebouncedSearch(search)
+  const [inputValue, setInputValue] = useDebouncedSearch(search)
 
   return (
     <input
