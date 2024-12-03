@@ -45,7 +45,7 @@
 ## Features
 
 - [HttpOnly cookies](https://owasp.org/www-community/HttpOnly) for Authentication (Signup, login, and logout)
-- Example of pulling data from an external REST API
+- Example of pulling data from externals REST API
   - [Beers and Users](https://random-data-api.com)
   - [Facts](https://catfact.ninja)
   - [Movies](https://dummyapi.online)
