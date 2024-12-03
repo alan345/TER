@@ -22,6 +22,8 @@ const UsersPage = () => {
           <input
             id="id-search"
             name="search"
+            type="text"
+            className="mb-4"
             placeholder="Search"
             onChange={(e) => {
               const searchParams = new URLSearchParams(location.search)
