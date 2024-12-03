@@ -11,7 +11,7 @@ const MyIdle = (props: Props) => {
   useEffect(() => {
     const interval = setInterval(() => {
       context.updateAuth()
-    }, 1000 * 5) // 120000 milliseconds = 2 minutes
+    }, 1000 * 60)
 
     return () => clearInterval(interval) // Cleanup interval on component unmount
   }, [context])
