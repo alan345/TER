@@ -5,13 +5,14 @@ import Pagination from "./Pagination"
 import ImgAvatar from "../../template/layout/ImgAvatar"
 import Search from "../search/Search"
 import { CloudWarning } from "@phosphor-icons/react"
+import utils from "../../utils/utils"
+
 const UsersPage = () => {
   const location = useLocation()
   const query = new URLSearchParams(location.search)
   const page = query.get("page")
   const search = query.get("search") || undefined
-  const pageNumber = page ? parseInt(page, 10) : 1
-  const dataQuery = trpc.getUsers.useQuery({ page: pageNumber, search })
+  const dataQuery = trpc.getUsers.useQuery({ page: utils.sanitizePage(page), search })
   if (dataQuery.isError) return <ErrorTemplate message={dataQuery.error.message} />
 
   return (
