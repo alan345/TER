@@ -37,7 +37,7 @@ export const userRouter = router({
         limit,
         offset: (page - 1) * limit,
         orderBy: [desc(usersTable.createdAt)],
-        columns: { id: true, name: true, age: true, email: true, image: true, createdAt: true, lastLoginAt: true },
+        columns: { id: true, name: true, email: true, image: true, createdAt: true, lastLoginAt: true },
       })
       const totalData = await db.select({ count: count() }).from(usersTable)
       const total = totalData[0].count
