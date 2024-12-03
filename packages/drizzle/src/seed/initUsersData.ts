@@ -432,4 +432,22 @@ export const initUsersData = [
     age: 28,
     createdAt: new Date("2024-02-12"),
   },
+  {
+    email: "lucas-miller@example.com",
+    name: "Lucas Miller",
+    image:
+      "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortFlat&accessoriesType=Wayfarers&hairColor=Brown&facialHairType=BeardLight&clotheType=Hoodie&eyeType=Default&eyebrowType=Default&mouthType=Smile&skinColor=DarkBrown",
+    password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
+    age: 30,
+    createdAt: new Date("2024-02-13"),
+  },
+  {
+    email: "emma-smith@example.com",
+    name: "Emma Smith",
+    image:
+      "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairSides&accessoriesType=Sunglasses&hairColor=Black&facialHairType=Blank&clotheType=BlazerSweater&eyeType=Surprised&eyebrowType=AngryNatural&mouthType=Grimace&skinColor=DarkBrown",
+    password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
+    age: 26,
+    createdAt: new Date("2024-02-14"),
+  },
 ]
