@@ -42,9 +42,7 @@ export const userRouter = router({
         where: opts.input.search ? ilike(usersTable.name, `%${opts.input.search}%`) : undefined,
       })
       const totalData = await db
-        .select({
-          count: count(),
-        })
+        .select({ count: count() })
         .from(usersTable)
         .where(opts.input.search ? ilike(usersTable.name, `%${opts.input.search}%`) : undefined)
       const total = totalData[0].count
