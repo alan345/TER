@@ -3,7 +3,7 @@ import { trpc } from "../../utils/trpc"
 import ErrorTemplate from "../../template/ErrorTemplate"
 import Pagination from "./Pagination"
 import ImgAvatar from "../../template/layout/ImgAvatar"
-import Search from "./Search"
+import Search from "../search/Search"
 
 const UsersPage = () => {
   const location = useLocation()
