@@ -1,7 +1,7 @@
 import { protectedProcedure, router } from "../trpc"
 import { z } from "zod"
 import { usersTable } from "@ter/drizzle"
-import { eq, count, desc } from "drizzle-orm"
+import { eq, count, desc, ilike } from "drizzle-orm"
 
 export const userRouter = router({
   updateUser: protectedProcedure
@@ -27,6 +27,7 @@ export const userRouter = router({
     .input(
       z.object({
         page: z.number(),
+        search: z.string().optional(),
       })
     )
     .query(async (opts) => {
@@ -38,6 +39,7 @@ export const userRouter = router({
         offset: (page - 1) * limit,
         orderBy: [desc(usersTable.createdAt)],
         columns: { id: true, name: true, email: true, image: true, createdAt: true, lastLoginAt: true },
+        where: opts.input.search ? ilike(usersTable.name, `%${opts.input.search}%`) : undefined,
       })
       const totalData = await db.select({ count: count() }).from(usersTable)
       const total = totalData[0].count

@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import { trpc } from "../../utils/trpc"
 import ErrorTemplate from "../../template/ErrorTemplate"
 import Pagination from "./Pagination"
@@ -6,16 +6,30 @@ import ImgAvatar from "../../template/layout/ImgAvatar"
 
 const UsersPage = () => {
   const location = useLocation()
+  const navigate = useNavigate()
   const query = new URLSearchParams(location.search)
   const page = query.get("page")
+  const search = query.get("search") || undefined
+  console.log(search)
   const pageNumber = page ? parseInt(page, 10) : 1
-  const dataQuery = trpc.getUsers.useQuery({ page: pageNumber })
+  const dataQuery = trpc.getUsers.useQuery({ page: pageNumber, search })
   if (dataQuery.isError) return <ErrorTemplate message={dataQuery.error.message} />
 
   return (
     <div className="flex flex-col h-full">
       <div className="flex-1 overflow-y-auto">
         <div className="p-4">
+          <input
+            id="id-search"
+            name="search"
+            placeholder="Search"
+            onChange={(e) => {
+              const searchParams = new URLSearchParams(location.search)
+              searchParams.set("search", e.target.value)
+              navigate(`${location.pathname}?${searchParams.toString()}`)
+              // window.history.replaceState(null, "", `${location.pathname}?${searchParams.toString()}`)
+            }}
+          />
           <table>
             <thead>
               <tr>
