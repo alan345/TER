@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 
-const useDebouncedSearch = (initialValue: string) => {
+const useDebounced = (initialValue: string) => {
   const delay = 400
   const [inputValue, setInputValue] = useState(initialValue)
   const location = useLocation()
@@ -22,4 +22,4 @@ const useDebouncedSearch = (initialValue: string) => {
   return [inputValue, setInputValue] as const
 }
 
-export default useDebouncedSearch
+export default useDebounced

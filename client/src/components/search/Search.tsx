@@ -1,4 +1,4 @@
-import useDebouncedSearch from "./useDebouncedSearch"
+import useDebounced from "./useDebounced"
 import { useLocation } from "react-router-dom"
 
 const Search = () => {
@@ -6,7 +6,7 @@ const Search = () => {
   const query = new URLSearchParams(location.search)
   const search = query.get("search") || ""
 
-  const [inputValue, setInputValue] = useDebouncedSearch(search)
+  const [inputValue, setInputValue] = useDebounced(search)
 
   return (
     <input
