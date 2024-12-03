@@ -4,7 +4,7 @@ import ErrorTemplate from "../../template/ErrorTemplate"
 import Pagination from "./Pagination"
 import ImgAvatar from "../../template/layout/ImgAvatar"
 import Search from "../search/Search"
-
+import { CloudWarning } from "@phosphor-icons/react"
 const UsersPage = () => {
   const location = useLocation()
   const query = new URLSearchParams(location.search)
@@ -43,6 +43,14 @@ const UsersPage = () => {
               ))}
             </tbody>
           </table>
+          {dataQuery.data?.users.length === 0 && (
+            <div className="flex justify-center items-center mt-10">
+              <div className="flex items-center gap-2">
+                <CloudWarning className="text-4xl text-orange-400" />
+                <div>No users found</div>
+              </div>
+            </div>
+          )}
           {dataQuery.isLoading && <div>Loading...</div>}
         </div>
       </div>

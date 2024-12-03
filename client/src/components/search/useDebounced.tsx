@@ -9,12 +9,13 @@ const useDebounced = (initialValue: string) => {
 
   useEffect(() => {
     const handler = setTimeout(() => {
-      if (!inputValue) {
-        navigate(`${location.pathname}`)
-        return
-      }
       const searchParams = new URLSearchParams(location.search)
-      searchParams.set("search", inputValue)
+      if (inputValue) {
+        searchParams.set("search", inputValue)
+        // searchParams.delete("page")
+      } else {
+        searchParams.delete("search")
+      }
       navigate(`${location.pathname}?${searchParams.toString()}`)
     }, delay)
     return () => clearTimeout(handler)

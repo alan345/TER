@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { CaretRight, CaretLeft } from "@phosphor-icons/react"
 
 type Props = {
@@ -7,16 +7,27 @@ type Props = {
   limit: number
 }
 const Pagination = (props: Props) => {
+  const location = useLocation()
   const isLastPage = props.page * props.limit < props.total
+
+  const getLinkPage = (page: number) => {
+    const searchParams = new URLSearchParams(location.search)
+    if (page <= 1) {
+      searchParams.delete("page")
+    } else {
+      searchParams.set("page", page.toString())
+    }
+    return `${location.pathname}?${searchParams.toString()}`
+  }
   return (
     <div className="flex">
       <div className="min-w-28">
-        {props.page * props.limit - (props.limit - 1)} - {!isLastPage ? props.total : props.page * props.limit} of{" "}
-        {props.total}
+        {props.total === 0 ? 0 : props.page * props.limit - (props.limit - 1)} -{" "}
+        {!isLastPage ? props.total : props.page * props.limit} of {props.total}
       </div>
       <div className="flex items-center">
         {props.page > 1 ? (
-          <Link to={`?page=${props.page - 1}`} className="link mr-2 hover:bg-gray-100 rounded-full p-1">
+          <Link to={getLinkPage(props.page - 1)} className="link mr-2 hover:bg-gray-100 rounded-full p-1">
             <CaretLeft />
           </Link>
         ) : (
@@ -25,7 +36,7 @@ const Pagination = (props: Props) => {
           </div>
         )}
         {isLastPage ? (
-          <Link className="link ml-2 hover:bg-gray-100 rounded-full p-1" to={`?page=${props.page + 1}`}>
+          <Link to={getLinkPage(props.page + 1)} className="link ml-2 hover:bg-gray-100 rounded-full p-1">
             <CaretRight />
           </Link>
         ) : (
