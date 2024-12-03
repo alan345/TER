@@ -37,6 +37,9 @@ const ProfileQuery = (props: Props) => {
           <UpdateUserAge user={dataQuery.data} onUpdate={dataQuery.refetch} />
           <div className="flex items-center gap-2 h-8">Email: {dataQuery.data.email}</div>
           <UpdateUserPassword onUpdate={dataQuery.refetch} />
+          <div className="flex items-center gap-2 h-8">
+            Last Login At: {dataQuery.data.lastLoginAt ? new Date(dataQuery.data.lastLoginAt).toLocaleString() : ""}
+          </div>
           {/* <div className="flex items-center gap-2 h-8">Password: **********</div> */}
         </div>
       </div>

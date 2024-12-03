@@ -52,7 +52,10 @@ export const userRouter = router({
     .query(async (opts) => {
       const id = opts.input.id
       const db = opts.ctx.db
-      const user = await db.query.usersTable.findFirst({ where: eq(usersTable.id, id) })
+      const user = await db.query.usersTable.findFirst({
+        columns: { id: true, name: true, age: true, email: true, image: true, createdAt: true, lastLoginAt: true },
+        where: eq(usersTable.id, id),
+      })
 
       if (!user) throw new Error("User not found")
 
