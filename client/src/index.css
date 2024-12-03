@@ -62,6 +62,13 @@ tr {
 tbody tr {
   @apply hover:bg-gray-50 h-20;
 }
+tbody tr:hover td {
+  @apply pl-3;
+}
+
+tbody tr td {
+  @apply transition-all duration-300;
+}
 input[type="text"],
 input[type="password"],
 input[type="number"] {
