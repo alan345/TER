@@ -6,7 +6,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Round&hairColor=Auburn&facialHairType=BeardMedium&facialHairColor=Platinum&clotheType=BlazerShirt&eyeType=Side&eyebrowType=UnibrowNatural&mouthType=Tongue&skinColor=Light",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 25,
-    createdAt: new Date("2024-11-28"),
+    createdAt: new Date("2024-11-28T11:12:54Z"),
   },
   {
     email: "paul@example.com",
@@ -15,7 +15,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=WinterHat3&accessoriesType=Prescription01&hatColor=Red&hairColor=Red&facialHairType=BeardLight&facialHairColor=Black&clotheType=Hoodie&clotheColor=Black&eyeType=Hearts&eyebrowType=UpDown&mouthType=ScreamOpen&skinColor=Yellow",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 30,
-    createdAt: new Date("2024-01-02"),
+    createdAt: new Date("2024-01-02T12:43:21Z"),
   },
   {
     email: "john@example.com",
@@ -24,7 +24,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairFrizzle&accessoriesType=Prescription01&hairColor=Black&facialHairType=Blank&facialHairColor=Brown&clotheType=BlazerSweater&clotheColor=Gray02&eyeType=Side&eyebrowType=Default&mouthType=Default&skinColor=Black",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 28,
-    createdAt: new Date("2024-01-03"),
+    createdAt: new Date("2024-01-03T12:12:26Z"),
   },
   {
     email: "user50@example.com",
@@ -33,7 +33,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairDreads02&hairColor=SilverGray&facialHairType=BeardMagestic&facialHairColor=BlondeGold&clotheType=ShirtCrewNeck&clotheColor=Red&eyeType=Close&eyebrowType=SadConcernedNatural&mouthType=Grimace&skinColor=DarkBrown",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 35,
-    createdAt: new Date("2024-01-04"),
+    createdAt: new Date("2024-01-04T12:12:26Z"),
   },
   {
     email: "lisa@example.com",
@@ -42,7 +42,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShaggyMullet&accessoriesType=Sunglasses&hairColor=Blonde&facialHairType=Blank&clotheType=CollarSweater&eyeType=WinkWacky&eyebrowType=RaisedExcitedNatural&mouthType=Grimace&skinColor=Pale",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 27,
-    createdAt: new Date("2024-01-05"),
+    createdAt: new Date("2024-01-05T12:12:26Z"),
   },
   {
     email: "mike@example.com",
@@ -51,7 +51,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairDreads01&accessoriesType=Kurt&hairColor=Brown&facialHairType=BeardLight&clotheType=BlazerShirt&eyeType=WinkWacky&eyebrowType=FlatNatural&mouthType=Smile&skinColor=Tanned",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 32,
-    createdAt: new Date("2024-01-06"),
+    createdAt: new Date("2024-01-06T12:12:26Z"),
   },
   {
     email: "jane@example.com",
@@ -60,7 +60,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Round&hairColor=Auburn&facialHairType=Blank&clotheType=Hoodie&eyeType=Wink&eyebrowType=UnibrowNatural&mouthType=Smile&skinColor=Brown",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 29,
-    createdAt: new Date("2024-01-07"),
+    createdAt: new Date("2024-01-07T12:12:26Z"),
   },
   {
     email: "emma@example.com",
@@ -69,7 +69,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairSides&accessoriesType=Sunglasses&hairColor=Black&facialHairType=Blank&clotheType=BlazerSweater&eyeType=Surprised&eyebrowType=AngryNatural&mouthType=Grimace&skinColor=DarkBrown",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 26,
-    createdAt: new Date("2024-01-08"),
+    createdAt: new Date("2024-01-08T12:12:26Z"),
   },
   {
     email: "james@example.com",
@@ -78,7 +78,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=WinterHat4&accessoriesType=Round&hairColor=Brown&facialHairType=MoustacheFancy&facialHairColor=Red&clotheType=Overall&eyeType=Hearts&eyebrowType=FlatNatural&mouthType=Serious&skinColor=Tanned",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 31,
-    createdAt: new Date("2024-01-09"),
+    createdAt: new Date("2024-01-09T12:12:26Z"),
   },
   {
     email: "charlotte@example.com",
@@ -87,7 +87,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=WinterHat2&accessoriesType=Wayfarers&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Close&eyebrowType=FlatNatural&mouthType=Disbelief&skinColor=Black",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 24,
-    createdAt: new Date("2024-01-10"),
+    createdAt: new Date("2024-01-10T12:12:26Z"),
   },
   {
     email: "david@example.com",
@@ -96,7 +96,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=WinterHat3&accessoriesType=Kurt&hairColor=Brown&facialHairType=MoustacheMagnum&facialHairColor=Red&clotheType=CollarSweater&eyeType=Hearts&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Pale",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 33,
-    createdAt: new Date("2024-01-11"),
+    createdAt: new Date("2024-01-11T12:12:26Z"),
   },
   {
     email: "mia-w@example.com",
@@ -105,7 +105,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairStraight2&accessoriesType=Round&hairColor=Red&facialHairType=Blank&clotheType=BlazerSweater&eyeType=Wink&eyebrowType=Default&mouthType=Smile&skinColor=Light",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 22,
-    createdAt: new Date("2024-01-12"),
+    createdAt: new Date("2024-01-12T12:12:26Z"),
   },
   {
     email: "user1@example.com",
@@ -114,7 +114,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairCurly&hairColor=Blonde&facialHairType=MoustacheFancy&facialHairColor=Auburn&clotheType=GraphicShirt&clotheColor=PastelYellow&eyeType=Wink&eyebrowType=RaisedExcitedNatural&mouthType=Disbelief&skinColor=Brown",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 29,
-    createdAt: new Date("2024-01-13"),
+    createdAt: new Date("2024-01-13T12:12:26Z"),
   },
   {
     email: "user2@example.com",
@@ -123,7 +123,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=Hat&hatColor=Blue03&clotheType=BlazerSweater&eyeType=Squint&eyebrowType=AngryNatural&mouthType=Smile&skinColor=Pale",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 34,
-    createdAt: new Date("2024-01-14"),
+    createdAt: new Date("2024-01-14T12:12:26Z"),
   },
   {
     email: "liam-s@example.com",
@@ -132,7 +132,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortRound&accessoriesType=Prescription02&hairColor=Black&facialHairType=BeardLight&facialHairColor=Black&clotheType=Hoodie&clotheColor=PastelBlue&eyeType=Happy&eyebrowType=Default&mouthType=Twinkle&skinColor=Pale",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 23,
-    createdAt: new Date("2024-01-15"),
+    createdAt: new Date("2024-01-15T12:12:26Z"),
   },
   {
     email: "olivia@example.com",
@@ -141,7 +141,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairCurvy&accessoriesType=Kurt&hairColor=Red&facialHairType=Blank&clotheType=ShirtVNeck&clotheColor=PastelGreen&eyeType=Surprised&eyebrowType=RaisedExcited&mouthType=Smile&skinColor=Tanned",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 28,
-    createdAt: new Date("2024-01-16"),
+    createdAt: new Date("2024-01-16T12:12:26Z"),
   },
   {
     email: "noah@example.com",
@@ -150,7 +150,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairTheCaesar&accessoriesType=Wayfarers&hairColor=Blonde&facialHairType=MoustacheFancy&facialHairColor=Blonde&clotheType=ShirtScoopNeck&clotheColor=Blue03&eyeType=Wink&eyebrowType=FlatNatural&mouthType=Default&skinColor=Light",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 28,
-    createdAt: new Date("2024-01-17"),
+    createdAt: new Date("2024-01-17T12:12:26Z"),
   },
   {
     email: "sophia-anderson@example.com",
@@ -159,7 +159,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairBob&accessoriesType=Prescription01&hairColor=Black&facialHairType=Blank&clotheType=Overall&clotheColor=Blue03&eyeType=Default&eyebrowType=Default&mouthType=Smile&skinColor=Tanned",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 28,
-    createdAt: new Date("2024-01-18"),
+    createdAt: new Date("2024-01-18T12:12:26Z"),
   },
   {
     email: "mason@example.com",
@@ -168,7 +168,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairDreads01&accessoriesType=Prescription02&hairColor=Auburn&facialHairType=Blank&clotheType=ShirtVNeck&clotheColor=White&eyeType=Surprised&eyebrowType=RaisedExcited&mouthType=Twinkle&skinColor=DarkBrown",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 21,
-    createdAt: new Date("2024-01-19"),
+    createdAt: new Date("2024-01-19T12:12:26Z"),
   },
   {
     email: "isabella@example.com",
@@ -177,7 +177,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairMiaWallace&accessoriesType=Kurt&hairColor=Red&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Smile&skinColor=Pale",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 32,
-    createdAt: new Date("2024-01-20"),
+    createdAt: new Date("2024-01-20T12:12:26Z"),
   },
   {
     email: "william@example.com",
@@ -186,7 +186,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortWaved&accessoriesType=Blank&hairColor=Black&facialHairType=BeardLight&facialHairColor=Black&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 32,
-    createdAt: new Date("2024-01-21"),
+    createdAt: new Date("2024-01-21T12:12:26Z"),
   },
 
   {
@@ -196,7 +196,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Prescription01&hairColor=Auburn&facialHairType=BeardMagestic&facialHairColor=Auburn&clotheType=ShirtCrewNeck&clotheColor=Blue03&eyeType=Side&eyebrowType=RaisedExcited&mouthType=Default&skinColor=Pale",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 32,
-    createdAt: new Date("2024-01-22"),
+    createdAt: new Date("2024-01-22T12:12:26Z"),
   },
   {
     email: "charlotte_t@example.com",
@@ -205,7 +205,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairCurly&accessoriesType=Round&hairColor=Black&facialHairType=Blank&clotheType=Overall&clotheColor=Gray01&eyeType=Happy&eyebrowType=Default&mouthType=Smile&skinColor=Light",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 34,
-    createdAt: new Date("2024-01-23"),
+    createdAt: new Date("2024-01-23T12:12:26Z"),
   },
   {
     email: "benjamin@example.com",
@@ -214,7 +214,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairTheCaesarSidePart&accessoriesType=Sunglasses&hairColor=Brown&facialHairType=BeardMedium&facialHairColor=Brown&clotheType=BlazerSweater&clotheColor=Black&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 36,
-    createdAt: new Date("2024-01-24"),
+    createdAt: new Date("2024-01-24T12:12:26Z"),
   },
   {
     email: "amelia@example.com",
@@ -223,7 +223,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairNotTooLong&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=ShirtVNeck&clotheColor=PastelGreen&eyeType=Default&eyebrowType=Default&mouthType=Smile&skinColor=Light",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 39,
-    createdAt: new Date("2024-01-25"),
+    createdAt: new Date("2024-01-25T12:12:26Z"),
   },
   {
     email: "elijah@example.com",
@@ -232,7 +232,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairDreads01&accessoriesType=Blank&hairColor=Black&facialHairType=BeardLight&facialHairColor=Black&clotheType=Hoodie&clotheColor=Blue03&eyeType=Surprised&eyebrowType=RaisedExcited&mouthType=Twinkle&skinColor=DarkBrown",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 41,
-    createdAt: new Date("2024-01-26"),
+    createdAt: new Date("2024-01-26T12:12:26Z"),
   },
   {
     email: "harper@example.com",
@@ -241,7 +241,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairStraight2&accessoriesType=Kurt&hairColor=Red&facialHairType=Blank&clotheType=ShirtCrewNeck&clotheColor=White&eyeType=Default&eyebrowType=Default&mouthType=Smile&skinColor=Pale",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 32,
-    createdAt: new Date("2024-01-27"),
+    createdAt: new Date("2024-01-27T12:12:26Z"),
   },
   {
     email: "lucas-r@example.com",
@@ -250,7 +250,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortWaved&accessoriesType=Prescription01&hairColor=Brown&facialHairType=BeardMedium&facialHairColor=Brown&clotheType=CollarSweater&clotheColor=Blue03&eyeType=Side&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 30,
-    createdAt: new Date("2024-01-28"),
+    createdAt: new Date("2024-01-28T11:12:26Z"),
   },
   {
     email: "ava@example.com",
@@ -259,7 +259,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairStraight&accessoriesType=Round&hairColor=Blonde&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Happy&eyebrowType=Default&mouthType=Smile&skinColor=Light",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 27,
-    createdAt: new Date("2024-01-29"),
+    createdAt: new Date("2024-01-29T12:12:26Z"),
   },
   {
     email: "ethan@example.com",
@@ -268,7 +268,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortFlat&accessoriesType=Wayfarers&hairColor=Brown&facialHairType=BeardLight&clotheType=Hoodie&eyeType=Default&eyebrowType=Default&mouthType=Smile&skinColor=DarkBrown",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 29,
-    createdAt: new Date("2024-01-30"),
+    createdAt: new Date("2024-01-30T12:12:26Z"),
   },
   {
     email: "mia@example.com",
@@ -277,7 +277,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairStraight2&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=BlazerSweater&eyeType=Happy&eyebrowType=Default&mouthType=Smile&skinColor=Light",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 26,
-    createdAt: new Date("2024-01-31"),
+    createdAt: new Date("2024-01-31T12:12:26Z"),
   },
   {
     email: "logan@example.com",
@@ -286,7 +286,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Round&hairColor=Brown&facialHairType=BeardLight&clotheType=ShirtCrewNeck&eyeType=Default&eyebrowType=Default&mouthType=Smile&skinColor=Light",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 31,
-    createdAt: new Date("2024-02-01"),
+    createdAt: new Date("2024-02-01T12:12:26Z"),
   },
   {
     email: "ella@example.com",
@@ -295,7 +295,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairStraight&accessoriesType=Round&hairColor=Blonde&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Happy&eyebrowType=Default&mouthType=Smile&skinColor=Light",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 28,
-    createdAt: new Date("2024-02-02"),
+    createdAt: new Date("2024-02-02T12:12:26Z"),
   },
   {
     email: "lucas-k@example.com",
@@ -304,7 +304,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortFlat&accessoriesType=Wayfarers&hairColor=Brown&facialHairType=BeardLight&clotheType=Hoodie&eyeType=Default&eyebrowType=Default&mouthType=Smile&skinColor=DarkBrown",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 30,
-    createdAt: new Date("2024-02-03"),
+    createdAt: new Date("2024-02-03T12:12:26Z"),
   },
   {
     email: "sophia-w@example.com",
@@ -313,7 +313,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairStraight2&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=BlazerSweater&eyeType=Happy&eyebrowType=Default&mouthType=Smile&skinColor=Light",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 27,
-    createdAt: new Date("2024-02-04"),
+    createdAt: new Date("2024-02-04T12:12:26Z"),
   },
   {
     email: "jackson-h@example.com",
@@ -322,7 +322,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Round&hairColor=Brown&facialHairType=BeardLight&clotheType=ShirtCrewNeck&eyeType=Default&eyebrowType=Default&mouthType=Smile&skinColor=Light",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 32,
-    createdAt: new Date("2024-02-05"),
+    createdAt: new Date("2024-02-05T12:12:26Z"),
   },
   {
     email: "amelia-clark@example.com",
@@ -331,7 +331,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairStraight&accessoriesType=Round&hairColor=Blonde&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Happy&eyebrowType=Default&mouthType=Smile&skinColor=Light",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 29,
-    createdAt: new Date("2024-02-06"),
+    createdAt: new Date("2024-02-06T12:12:26Z"),
   },
   {
     email: "oliver-martinez@example.com",
@@ -340,7 +340,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortFlat&accessoriesType=Wayfarers&hairColor=Brown&facialHairType=BeardLight&clotheType=Hoodie&eyeType=Default&eyebrowType=Default&mouthType=Smile&skinColor=DarkBrown",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 31,
-    createdAt: new Date("2024-02-07"),
+    createdAt: new Date("2024-02-07T12:12:26Z"),
   },
   {
     email: "lucas-king@example.com",
@@ -349,7 +349,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortFlat&accessoriesType=Wayfarers&hairColor=Brown&facialHairType=BeardLight&clotheType=Hoodie&eyeType=Default&eyebrowType=Default&mouthType=Smile&skinColor=DarkBrown",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 30,
-    createdAt: new Date("2024-02-03"),
+    createdAt: new Date("2024-02-03T12:12:26Z"),
   },
   {
     email: "sophia@example.com",
@@ -358,7 +358,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairStraight2&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=BlazerSweater&eyeType=Happy&eyebrowType=Default&mouthType=Smile&skinColor=Light",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 27,
-    createdAt: new Date("2024-02-04"),
+    createdAt: new Date("2024-02-04T12:12:26Z"),
   },
   {
     email: "jackson@example.com",
@@ -367,7 +367,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Round&hairColor=Brown&facialHairType=BeardLight&clotheType=ShirtCrewNeck&eyeType=Default&eyebrowType=Default&mouthType=Smile&skinColor=Light",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 32,
-    createdAt: new Date("2024-02-05"),
+    createdAt: new Date("2024-02-05T12:12:26Z"),
   },
   {
     email: "amelia-c@example.com",
@@ -376,7 +376,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairStraight&accessoriesType=Round&hairColor=Blonde&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Happy&eyebrowType=Default&mouthType=Smile&skinColor=Light",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 29,
-    createdAt: new Date("2024-02-06"),
+    createdAt: new Date("2024-02-06T12:12:26Z"),
   },
   {
     email: "oliver-m@example.com",
@@ -385,7 +385,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortFlat&accessoriesType=Wayfarers&hairColor=Brown&facialHairType=BeardLight&clotheType=Hoodie&eyeType=Default&eyebrowType=Default&mouthType=Smile&skinColor=DarkBrown",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 31,
-    createdAt: new Date("2024-02-07"),
+    createdAt: new Date("2024-02-07T12:12:26Z"),
   },
   {
     email: "emma-d@example.com",
@@ -394,7 +394,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairSides&accessoriesType=Sunglasses&hairColor=Black&facialHairType=Blank&clotheType=BlazerSweater&eyeType=Surprised&eyebrowType=AngryNatural&mouthType=Grimace&skinColor=DarkBrown",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 26,
-    createdAt: new Date("2024-02-08"),
+    createdAt: new Date("2024-02-08T12:12:26Z"),
   },
   {
     email: "liam@example.com",
@@ -403,7 +403,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortRound&accessoriesType=Prescription02&hairColor=Black&facialHairType=BeardLight&facialHairColor=Black&clotheType=Hoodie&clotheColor=PastelBlue&eyeType=Happy&eyebrowType=Default&mouthType=Twinkle&skinColor=Pale",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 23,
-    createdAt: new Date("2024-02-09"),
+    createdAt: new Date("2024-02-09T12:12:26Z"),
   },
   {
     email: "olivia-b@example.com",
@@ -412,7 +412,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairCurvy&accessoriesType=Kurt&hairColor=Red&facialHairType=Blank&clotheType=ShirtVNeck&clotheColor=PastelGreen&eyeType=Surprised&eyebrowType=RaisedExcited&mouthType=Smile&skinColor=Tanned",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 28,
-    createdAt: new Date("2024-02-10"),
+    createdAt: new Date("2024-02-10T12:12:26Z"),
   },
   {
     email: "noah-w@example.com",
@@ -421,7 +421,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairTheCaesar&accessoriesType=Wayfarers&hairColor=Blonde&facialHairType=MoustacheFancy&facialHairColor=Blonde&clotheType=ShirtScoopNeck&clotheColor=Blue03&eyeType=Wink&eyebrowType=FlatNatural&mouthType=Default&skinColor=Light",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 28,
-    createdAt: new Date("2024-02-11"),
+    createdAt: new Date("2024-02-11T12:12:26Z"),
   },
   {
     email: "sophia-a@example.com",
@@ -430,7 +430,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairBob&accessoriesType=Prescription01&hairColor=Black&facialHairType=Blank&clotheType=Overall&clotheColor=Blue03&eyeType=Default&eyebrowType=Default&mouthType=Smile&skinColor=Tanned",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 28,
-    createdAt: new Date("2024-02-12"),
+    createdAt: new Date("2024-02-12T12:12:26Z"),
   },
   {
     email: "lucas-miller@example.com",
@@ -439,7 +439,7 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortFlat&accessoriesType=Wayfarers&hairColor=Brown&facialHairType=BeardLight&clotheType=Hoodie&eyeType=Default&eyebrowType=Default&mouthType=Smile&skinColor=DarkBrown",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 30,
-    createdAt: new Date("2024-02-13"),
+    createdAt: new Date("2024-02-13T12:12:26Z"),
   },
   {
     email: "emma-smith@example.com",
@@ -448,6 +448,6 @@ export const initUsersData = [
       "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairSides&accessoriesType=Sunglasses&hairColor=Black&facialHairType=Blank&clotheType=BlazerSweater&eyeType=Surprised&eyebrowType=AngryNatural&mouthType=Grimace&skinColor=DarkBrown",
     password: "$2b$10$6K4nDgAfAfE5ktaWbHU3meBaZYbsWMBm97/8628/hM7jTz3gJUyMm", // hashed version. non-hashed is "securePassword"
     age: 26,
-    createdAt: new Date("2024-02-14"),
+    createdAt: new Date("2024-02-14T12:12:26Z"),
   },
 ]
