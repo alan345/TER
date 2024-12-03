@@ -50,7 +50,7 @@ td {
 }
 
 table {
-  @apply min-w-full table-fixed w-full min-w-[600px];
+  @apply min-w-full table-fixed w-full;
 }
 
 thead {
