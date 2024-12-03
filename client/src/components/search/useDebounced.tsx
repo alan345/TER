@@ -13,10 +13,7 @@ const useDebounced = (initialValue: string) => {
       searchParams.set("search", inputValue)
       navigate(`${location.pathname}?${searchParams.toString()}`)
     }, delay)
-
-    return () => {
-      clearTimeout(handler)
-    }
+    return () => clearTimeout(handler)
   }, [inputValue, location.pathname, navigate, location.search, delay])
 
   return [inputValue, setInputValue] as const
