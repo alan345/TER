@@ -18,8 +18,16 @@ export const Beers = () => {
   return (
     <div className="p-6">
       <h1>Beers</h1>
-      <div className="flex justify-between">
+      <p>
+        This data comes from an external API:{" "}
+        <a className="link" href="https://random-data-api.com" target="_blank" rel="noopener noreferrer">
+          Random Data API
+        </a>
+        .
+      </p>
+      <div className="flex items-center mt-4 mb-4">
         <SizeTable initSize={initSize} />
+        <span className="ml-1">Beers per page</span>
       </div>
       <div className="overflow-x-auto">
         <table>
