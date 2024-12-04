@@ -21,7 +21,9 @@ const UsersPage = () => {
         <div className="p-6">
           <h1>Users</h1>
           <p>This page is private. You can access it only when logged in.</p>
-          <Search />
+          <div className="mt-4 mb-4">
+            <Search />
+          </div>
           <table>
             <thead>
               <tr>

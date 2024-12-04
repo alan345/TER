@@ -1,8 +1,9 @@
 const Contact = () => {
   return (
     <div className="p-6">
+      <h1>Contact</h1>
       <div className="flex flex-col items-center justify-center mt-2">
-        <h1 className="text-3xl font-bold text-center mb-4">Got Questions? Just Want to Chat? Find a Bug?</h1>
+        <h2 className="mt-10">Got Questions? Just Want to Chat? Find a Bug?</h2>
         <p className="text-lg text-center mb-4">Love this? Hate this? Can`t decide? Either way, let me know!</p>
 
         <p className="text-md text-center mb-4">

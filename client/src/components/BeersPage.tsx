@@ -4,7 +4,7 @@ import { SizeTable } from "../template/SizeTable"
 import { trpc } from "../utils/trpc"
 import { useSearchParams } from "react-router-dom"
 
-export const Beers = () => {
+const BeersPage = () => {
   const [searchParams] = useSearchParams()
   const sizeUrl = searchParams.get("size")
 
@@ -18,6 +18,7 @@ export const Beers = () => {
   return (
     <div className="p-6">
       <h1>Beers</h1>
+      <p>This page is public. Both logged-in and non-logged-in users can access it.</p>
       <p>
         This data comes from an external API:{" "}
         <a className="link" href="https://random-data-api.com" target="_blank" rel="noopener noreferrer">
@@ -55,3 +56,5 @@ export const Beers = () => {
     </div>
   )
 }
+
+export default BeersPage
