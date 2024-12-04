@@ -18,7 +18,7 @@ button {
   @apply bg-gray-700;
 }
 .btn-white {
-  @apply bg-white text-black border border-black;
+  @apply bg-white text-gray-500 border border-gray-500;
 }
 .btn-white:hover {
   @apply bg-gray-100;

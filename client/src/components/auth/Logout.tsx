@@ -3,14 +3,15 @@ import { trpc } from "../../utils/trpc"
 import { AppContext } from "../../ContextProvider"
 import { useNavigate } from "react-router-dom"
 import { SignOut } from "@phosphor-icons/react"
+import ErrorMutation from "../user/ErrorMutation"
 
 const Logout = () => {
   const navigate = useNavigate()
   const context = React.useContext(AppContext)
-  const logoutMutation = trpc.logout.useMutation({})
+  const mutation = trpc.logout.useMutation({})
   const logout = async () => {
     try {
-      await logoutMutation.mutateAsync(undefined)
+      await mutation.mutateAsync(undefined)
       console.log("success Logout")
       await context.updateAuth()
       navigate("/login")
@@ -21,15 +22,10 @@ const Logout = () => {
 
   return (
     <div>
-      <button
-        id="logout-button"
-        disabled={logoutMutation.isPending}
-        onClick={logout}
-        className="btn-blue flex items-center"
-      >
+      <button id="logout-button" disabled={mutation.isPending} onClick={logout} className="btn-blue flex items-center">
         <SignOut className="mr-2" /> Logout
       </button>
-      {logoutMutation.error && <p className="text-red-600">Something went wrong! {logoutMutation.error.message}</p>}
+      {mutation.error && <ErrorMutation data={mutation.error} />}
     </div>
   )
 }

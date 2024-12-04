@@ -4,6 +4,7 @@ import { inferRouterOutputs } from "@trpc/server"
 import { AppRouter } from "../../../../server"
 import { Pencil, CheckFat, SpinnerGap } from "@phosphor-icons/react"
 import SavedIconEffect from "./SavedIconEffect"
+import ErrorMutation from "./ErrorMutation"
 type RouterOutput = inferRouterOutputs<AppRouter>
 
 type Props = {
@@ -72,9 +73,7 @@ const UpdateUserAge = (props: Props) => {
         )}
       </div>
 
-      {mutation.error?.message && (
-        <p className="text-red-600">Error: {JSON.parse(mutation.error.message)[0].message}</p>
-      )}
+      {mutation.error && <ErrorMutation data={mutation.error} />}
     </div>
   )
 }

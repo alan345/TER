@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom"
 import { z } from "zod"
 import { zod } from "@ter/shared/schemas/zod"
 import { SignIn } from "@phosphor-icons/react"
+import ErrorMutation from "../user/ErrorMutation"
 const zodLogin = zod.zodLogin
 
 type LoginFormData = z.infer<typeof zodLogin>
@@ -23,13 +24,13 @@ const Login = () => {
 
   const navigate = useNavigate()
   const context = React.useContext(AppContext)
-  const loginMutation = trpc.login.useMutation()
+  const mutation = trpc.login.useMutation()
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
     try {
-      await loginMutation.mutateAsync({ email: formData.email, password: formData.password })
+      await mutation.mutateAsync({ email: formData.email, password: formData.password })
       await context.updateAuth()
       navigate("/profile")
     } catch (error) {
@@ -136,9 +137,9 @@ const Login = () => {
             className="btn-blue flex items-center"
           >
             <SignIn className="mr-2" />
-            {loginMutation.isPending ? "Loading..." : "Login"}
+            {mutation.isPending ? "Loading..." : "Login"}
           </button>
-          {loginMutation.error && <p className="text-red-600">{loginMutation.error.message}</p>}
+          {mutation.error && <ErrorMutation data={mutation.error} />}
         </div>
         <p className="text-sm mt-6">
           Don’t have an account yet?{" "}

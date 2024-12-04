@@ -2,6 +2,7 @@ import { useState } from "react"
 import { trpc } from "../../utils/trpc"
 import { Pencil, CheckFat, SpinnerGap } from "@phosphor-icons/react"
 import SavedIconEffect from "./SavedIconEffect"
+import ErrorMutation from "./ErrorMutation"
 
 type Props = {
   onUpdate: () => void
@@ -64,9 +65,7 @@ const UpdateUserPassword = (props: Props) => {
         )}
       </div>
 
-      {mutation.error?.message && (
-        <p className="text-red-600">Error: {JSON.parse(mutation.error.message)[0].message}</p>
-      )}
+      {mutation.error && <ErrorMutation data={mutation.error} />}
     </div>
   )
 }

@@ -4,6 +4,7 @@ import { AppContext } from "../../ContextProvider"
 import { Link, useNavigate } from "react-router-dom"
 import { z } from "zod"
 import { zod } from "@ter/shared/schemas/zod"
+import ErrorMutation from "../user/ErrorMutation"
 const zodSignup = zod.zodSignup
 type SignupFormData = z.infer<typeof zodSignup>
 type ErrorsType = Partial<Record<keyof SignupFormData, string[]>>
@@ -11,7 +12,7 @@ type ErrorsType = Partial<Record<keyof SignupFormData, string[]>>
 const Signup = () => {
   const navigate = useNavigate()
   const context = React.useContext(AppContext)
-  const signupMutation = trpc.signup.useMutation({})
+  const mutation = trpc.signup.useMutation({})
   const [formData, setFormData] = React.useState<SignupFormData>({
     name: "",
     email: "",
@@ -63,7 +64,7 @@ const Signup = () => {
     setIsSubmitting(true)
 
     try {
-      await signupMutation.mutateAsync({
+      await mutation.mutateAsync({
         email: formData.email,
         password: formData.password,
         name: formData.name,
@@ -153,7 +154,7 @@ const Signup = () => {
         <button type="submit" disabled={isSubmitting || !isFormValid()} className="btn-blue">
           {isSubmitting ? <span>Signing up...</span> : <span>Sign up</span>}
         </button>
-        {signupMutation.error && <p className="text-red-600">{signupMutation.error.message}</p>}
+        {mutation.error && <ErrorMutation data={mutation.error} />}
       </form>
       <p className="text-sm mt-6">
         I have an account{" "}
