@@ -4,7 +4,7 @@ import ErrorTemplate from "../../template/ErrorTemplate"
 import Pagination from "./Pagination"
 import ImgAvatar from "../../template/layout/ImgAvatar"
 import Search from "../search/Search"
-import { CloudWarning } from "@phosphor-icons/react"
+import { Users, CloudWarning } from "@phosphor-icons/react"
 import utils from "../../utils/utils"
 
 const UsersPage = () => {
@@ -19,7 +19,11 @@ const UsersPage = () => {
     <div className="flex flex-col h-full">
       <div className="flex-1 overflow-y-auto">
         <div className="p-6">
-          <h1>Users</h1>
+          <div className="flex items-center">
+            <Users className="text-3xl mr-3" />
+            <h1>Users</h1>
+          </div>
+
           <p>This page is private. You can access it only when logged in.</p>
           <div className="mt-4 mb-4">
             <Search />
