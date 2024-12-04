@@ -18,7 +18,8 @@ const UsersPage = () => {
   return (
     <div className="flex flex-col h-full">
       <div className="flex-1 overflow-y-auto">
-        <div className="p-4">
+        <div className="p-6">
+          <h1>Users</h1>
           <Search />
           <table>
             <thead>

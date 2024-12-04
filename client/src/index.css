@@ -32,8 +32,9 @@ button:disabled:hover {
   color: #666666;
 }
 
+
 h1 {
-  @apply text-3xl font-bold;
+  @apply text-2xl font-bold text-gray-700 mt-2 mb-2;
 }
 h2 {
   @apply text-2xl font-semibold text-gray-700;

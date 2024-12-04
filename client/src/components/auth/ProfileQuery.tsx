@@ -5,7 +5,6 @@ import iconAvatar from "../../assets/icons/avatar.svg"
 import UpdateUserName from "../user/UpdateUserName"
 import ImgAvatar from "../../template/layout/ImgAvatar"
 import UpdateUserAge from "../user/UpdateUserAge"
-import Logout from "./Logout"
 import UpdateUserPassword from "../user/UpdateUserPassword"
 import UpdateUserEmail from "../user/UpdateUserEmail"
 
@@ -20,11 +19,6 @@ const ProfileQuery = (props: Props) => {
   if (!dataQuery.data) return <div>No data</div>
   return (
     <div>
-      <div className="flex items-center justify-between">
-        <h2>Profile</h2>
-        <Logout />
-      </div>
-
       <div className="mt-4">
         <div>
           <ImgAvatar

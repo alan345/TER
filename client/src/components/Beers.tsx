@@ -16,8 +16,9 @@ export const Beers = () => {
   if (dataQuery.isError) return <ErrorTemplate message={dataQuery.error.message} />
 
   return (
-    <div>
-      <div className="flex justify-between mt-4">
+    <div className="p-6">
+      <h1>Beers</h1>
+      <div className="flex justify-between">
         <SizeTable initSize={initSize} />
       </div>
       <div className="overflow-x-auto">

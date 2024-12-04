@@ -6,13 +6,8 @@ import jwt from "jsonwebtoken"
 import { authRouter } from "./router/authRouter"
 import { userRouter } from "./router/userRouter"
 import { healthRouter } from "./router/healthRouter"
-import { albumRouter } from "./router/albumRouter"
 import { beerRouter } from "./router/beerRouter"
 import { t } from "./trpc"
-import { movieRouter } from "./router/movieRouter"
-import { photoRouter } from "./router/photoRouter"
-import { employeeRouter } from "./router/employeeRouter"
-import { factRouter } from "./router/factRouter"
 import { drizzle } from "drizzle-orm/node-postgres"
 import { usersTable } from "@ter/drizzle"
 import * as schema from "@ter/drizzle"
@@ -55,17 +50,7 @@ export const createContext = async ({ req, res }: trpcExpress.CreateExpressConte
 
 export const mergeRouters = t.mergeRouters
 
-const appRouter = mergeRouters(
-  authRouter,
-  userRouter,
-  healthRouter,
-  albumRouter,
-  photoRouter,
-  employeeRouter,
-  factRouter,
-  beerRouter,
-  movieRouter
-)
+const appRouter = mergeRouters(authRouter, userRouter, healthRouter, beerRouter)
 export type AppRouter = typeof appRouter
 
 const app = express()

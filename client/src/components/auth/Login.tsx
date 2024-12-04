@@ -77,7 +77,7 @@ const Login = () => {
 
   return (
     <div className="p-6">
-      <h2 className="text-2xl font-semibold text-gray-700">Login</h2>
+      <h1>Login</h1>
       <form onSubmit={onSubmit} className="mt-4 space-y-2">
         <div>
           <input

@@ -45,12 +45,7 @@
 ## Features
 
 - [HttpOnly cookies](https://owasp.org/www-community/HttpOnly) for Authentication (Signup, login, and logout)
-- Example of pulling data from externals REST API
-  - [Beers and Users](https://random-data-api.com)
-  - [Facts](https://catfact.ninja)
-  - [Movies](https://dummyapi.online)
-  - [Employees](https://dummy.restapiexample.com)
-  - [Albums and Photos](https://jsonplaceholder.typicode.com)
+- [Beers from random-data-api.com](https://random-data-api.com) Example of pulling data from externals REST API
 - [React context](https://react.dev/reference/react/useContext) is used to store the user's details when logged in
 - Health Check for the server (http://localhost:2022/health)
 - Search with Debounce Using a Custom Hook

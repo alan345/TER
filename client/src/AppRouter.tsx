@@ -1,5 +1,4 @@
 import { Link, Route, Routes } from "react-router-dom"
-import ElementsPage from "./pages/ElementsPage"
 import HomePage from "./pages/HomePage"
 import AuthManagement from "./components/auth/AuthManagement"
 import Contact from "./pages/Contact"
@@ -8,12 +7,13 @@ import PrivateRoute from "./PrivateRoute"
 import UsersPage from "./components/user/UsersPage"
 import Signup from "./components/auth/Signup"
 import { House } from "@phosphor-icons/react"
+import { Beers } from "./components/Beers"
 
 const AppRouter = () => {
   return (
     <Routes>
       <Route index element={<HomePage />} />
-      <Route path="/elements" element={<ElementsPage />} />
+      <Route path="/beers" element={<Beers />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/login" element={<AuthManagement />} />
       <Route path="/signup" element={<Signup />} />
@@ -22,7 +22,7 @@ const AppRouter = () => {
       <Route
         path="*"
         element={
-          <div>
+          <div className="p-6">
             <h1>Error</h1>
             <p>Nothing to see here..</p>
             <div className="mt-8">
