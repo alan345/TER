@@ -24,7 +24,8 @@ const RefreshToken = () => {
         onClick={refreshToken}
         className="btn-gray flex items-center"
       >
-        <ArrowsClockwise className="mr-2" /> Refresh Session
+        <ArrowsClockwise className="mr-2" />
+        Refresh Session
       </button>
       {mutation.error && <ErrorMutation data={mutation.error} />}
     </div>
