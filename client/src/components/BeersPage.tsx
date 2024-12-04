@@ -3,7 +3,7 @@ import { LoadingTemplate } from "../template/LoadingTemplate"
 import { SizeTable } from "../template/SizeTable"
 import { trpc } from "../utils/trpc"
 import { useSearchParams } from "react-router-dom"
-
+import { BeerStein } from "@phosphor-icons/react"
 const BeersPage = () => {
   const [searchParams] = useSearchParams()
   const sizeUrl = searchParams.get("size")
@@ -16,7 +16,10 @@ const BeersPage = () => {
 
   return (
     <div className="p-6">
-      <h1>Beers</h1>
+      <div className="flex items-center">
+        <BeerStein className="text-3xl mr-3" />
+        <h1>Beers</h1>
+      </div>
       <p>This page is public. Both logged-in and non-logged-in users can access it.</p>
       <p>
         This data comes from an external API:{" "}
