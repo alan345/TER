@@ -14,6 +14,7 @@ import * as schema from "@ter/drizzle"
 import { eq } from "drizzle-orm"
 import { cookieName } from "./configTer"
 import { config } from "dotenv"
+config({ path: "../.env.local" })
 config({ path: "../.env" })
 
 const secretJwt = process.env.JWT_SECRET
@@ -53,8 +54,9 @@ export const mergeRouters = t.mergeRouters
 const appRouter = mergeRouters(authRouter, userRouter, healthRouter, beerRouter)
 export type AppRouter = typeof appRouter
 
+console.log(process.env)
 const app = express()
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }))
+app.use(cors({ credentials: true, origin: process.env.CLIENT_URL }))
 app.use(cookieParser())
 app.use(
   "/",
