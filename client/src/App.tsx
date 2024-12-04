@@ -26,7 +26,7 @@ const App = () => {
       links: [
         httpBatchLink({
           // based on the environement, we should use the correct url dynamically
-          url: "http://localhost:2022",
+          url: import.meta.env.VITE_URL_BACKEND ?? "http://localhost:2022",
           fetch(url, options) {
             return fetch(url, {
               ...options,
