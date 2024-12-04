@@ -24,44 +24,48 @@ const UpdateUserPassword = (props: Props) => {
       console.log(error)
     }
   }
+  const label = "Password"
 
   return (
     <div>
       <div className="flex items-center gap-2 h-8">
-        <div>Password: </div>
         {!isEdit ? (
           <div className="flex items-center gap-2 group cursor-pointer" onClick={() => setIsEdit(true)}>
+            <div>{label}:</div>
             <div>xxxxxxxx</div>
             <Pencil className="opacity-0 group-hover:opacity-100 transition-opacity" />
             {mutation.isSuccess && <SavedIconEffect />}
             {mutation.isPending && <SpinnerGap className="animate-spin" />}
           </div>
         ) : (
-          <div className="relative">
-            <input
-              id="id-input-password"
-              name="password"
-              autoFocus
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              type="password"
-              placeholder="New password"
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  updateUser()
-                }
-              }}
-              onBlur={() => setIsEdit(false)}
-              className="pr-20"
-              style={{ paddingRight: "26px" }}
-            />
-            <CheckFat
-              id="icon-check"
-              onMouseDown={(e) => e.preventDefault()}
-              className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer hover:text-green-600 transition-colors"
-              onClick={updateUser}
-            />
-          </div>
+          <>
+            <div>{label}:</div>
+            <div className="relative">
+              <input
+                id="id-input-password"
+                name="password"
+                autoFocus
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                type="password"
+                placeholder="New password"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    updateUser()
+                  }
+                }}
+                onBlur={() => setIsEdit(false)}
+                className="pr-20"
+                style={{ paddingRight: "26px" }}
+              />
+              <CheckFat
+                id="icon-check"
+                onMouseDown={(e) => e.preventDefault()}
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer hover:text-green-600 transition-colors"
+                onClick={updateUser}
+              />
+            </div>
+          </>
         )}
       </div>
 
