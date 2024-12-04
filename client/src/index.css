@@ -69,6 +69,14 @@ tbody tr:hover td {
 tbody tr td {
   @apply transition-all duration-300;
 }
+
+.move-right {
+  @apply transition-all duration-300;
+}
+.move-right:hover {
+  @apply pl-1;
+}
+
 input[type="text"],
 input[type="password"],
 input[type="number"] {

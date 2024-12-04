@@ -29,7 +29,7 @@ const UpdateUserAge = (props: Props) => {
   }
   const label = "Age"
   return (
-    <div>
+    <div className="move-right">
       <div className="flex items-center gap-2 h-8">
         {!isEdit ? (
           <div className="flex items-center gap-2 group cursor-pointer" onClick={() => setIsEdit(true)}>
