@@ -13,7 +13,6 @@ const BeersPage = () => {
 
   const dataQuery = trpc.getBeers.useQuery({ size: finalSize })
   if (dataQuery.isLoading) return <LoadingTemplate />
-  if (dataQuery.isError) return <ErrorTemplate message={dataQuery.error.message} />
 
   return (
     <div className="p-6">
@@ -52,6 +51,8 @@ const BeersPage = () => {
             ))}
           </tbody>
         </table>
+
+        {dataQuery.isError && <ErrorTemplate message={dataQuery.error.message} />}
       </div>
     </div>
   )

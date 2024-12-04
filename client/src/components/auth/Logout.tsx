@@ -12,7 +12,6 @@ const Logout = () => {
   const logout = async () => {
     try {
       await mutation.mutateAsync(undefined)
-      console.log("success Logout")
       await context.updateAuth()
       navigate("/login")
     } catch (error) {

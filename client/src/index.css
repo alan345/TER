@@ -6,19 +6,19 @@ button {
   @apply font-bold py-2 px-4 rounded;
 }
 .btn-blue {
-  @apply bg-[#034DA2] text-white;
+  @apply bg-[#034DA2] text-white text-xs;
 }
 .btn-blue:hover {
   @apply bg-blue-700;
 }
 .btn-gray {
-  @apply bg-gray-500 text-white;
+  @apply bg-gray-500 text-white text-xs;
 }
 .btn-gray:hover {
   @apply bg-gray-700;
 }
 .btn-white {
-  @apply bg-white text-gray-500 border border-gray-500;
+  @apply bg-white text-gray-500 border border-gray-500 text-xs;
 }
 .btn-white:hover {
   @apply bg-gray-100;
