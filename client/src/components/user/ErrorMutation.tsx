@@ -8,14 +8,14 @@ type Props = {
 const ErrorMutation = (props: Props) => {
   if (!props.data.message) return null
 
-  let parsedMessage
+  let message: string
   try {
-    parsedMessage = JSON.parse(props.data.message)[0].message
+    message = JSON.parse(props.data.message)[0].message
   } catch {
-    parsedMessage = props.data.message
+    message = props.data.message
   }
 
-  return <p className="text-red-600">Error: {parsedMessage}</p>
+  return <p className="text-red-600">Error: {message}</p>
 }
 
 export default ErrorMutation
