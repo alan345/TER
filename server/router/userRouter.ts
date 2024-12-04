@@ -8,6 +8,7 @@ export const userRouter = router({
     .input(
       z.object({
         id: z.string(),
+        email: z.string().email("Invalid email").optional(),
         name: z.string().min(2, "Name must be at least 2 chars").max(50, "Name must be at max 50 chars").optional(),
         age: z.number().min(2, "Age must be at least 2").max(120, "Age must be at max 120").optional(),
       })
@@ -16,7 +17,7 @@ export const userRouter = router({
       const db = opts.ctx.db
       const user = await db
         .update(usersTable)
-        .set({ name: opts.input.name, age: opts.input.age })
+        .set({ name: opts.input.name, age: opts.input.age, email: opts.input.email })
         .where(eq(usersTable.id, opts.input.id))
         .returning()
 

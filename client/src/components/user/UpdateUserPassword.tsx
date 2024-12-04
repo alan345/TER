@@ -50,9 +50,8 @@ const UpdateUserPassword = (props: Props) => {
                 type="password"
                 placeholder="New password"
                 onKeyDown={(e) => {
-                  if (e.key === "Enter") {
-                    updateUser()
-                  }
+                  if (e.key === "Escape") setIsEdit(false)
+                  if (e.key === "Enter") updateUser()
                 }}
                 onBlur={() => setIsEdit(false)}
                 className="pr-20"

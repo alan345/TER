@@ -56,9 +56,8 @@ const UpdateUserAge = (props: Props) => {
                 type="number"
                 placeholder="Name"
                 onKeyDown={(e) => {
-                  if (e.key === "Enter") {
-                    updateUser()
-                  }
+                  if (e.key === "Escape") setIsEdit(false)
+                  if (e.key === "Enter") updateUser()
                 }}
                 className="pr-20"
                 style={{ paddingRight: "26px" }}

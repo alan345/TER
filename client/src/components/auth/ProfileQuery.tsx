@@ -7,6 +7,7 @@ import ImgAvatar from "../../template/layout/ImgAvatar"
 import UpdateUserAge from "../user/UpdateUserAge"
 import Logout from "./Logout"
 import UpdateUserPassword from "../user/UpdateUserPassword"
+import UpdateUserEmail from "../user/UpdateUserEmail"
 
 type Props = {
   meId: string
@@ -35,11 +36,8 @@ const ProfileQuery = (props: Props) => {
         <div className="mt-4">
           <UpdateUserName user={dataQuery.data} onUpdate={dataQuery.refetch} />
           <UpdateUserAge user={dataQuery.data} onUpdate={dataQuery.refetch} />
-          <div className="flex items-center gap-2 h-8">Email: {dataQuery.data.email}</div>
+          <UpdateUserEmail user={dataQuery.data} onUpdate={dataQuery.refetch} />
           <UpdateUserPassword onUpdate={dataQuery.refetch} />
-          <div className="flex items-center gap-2 h-8">
-            Last Login At: {dataQuery.data.lastLoginAt ? new Date(dataQuery.data.lastLoginAt).toLocaleString() : ""}
-          </div>
         </div>
       </div>
     </div>

@@ -12,29 +12,29 @@ type Props = {
   onUpdate: () => void
 }
 
-const UpdateUserName = (props: Props) => {
+const UpdateUserEmail = (props: Props) => {
   const [isEdit, setIsEdit] = useState(false)
-  const [name, setName] = useState(props.user.name)
+  const [email, setEmail] = useState(props.user.email)
   const mutation = trpc.updateUser.useMutation()
 
   const updateUser = async () => {
     try {
       setIsEdit(false)
-      await mutation.mutateAsync({ id: props.user.id, name })
+      await mutation.mutateAsync({ id: props.user.id, email })
       props.onUpdate()
     } catch (error) {
       console.log(error)
     }
   }
 
-  const label = "Name"
+  const label = "Email"
   return (
     <div>
       <div className="flex items-center gap-2 h-8">
         {!isEdit ? (
           <div className="flex items-center gap-2 group cursor-pointer" onClick={() => setIsEdit(true)}>
             <div>{label}:</div>
-            <div>{props.user.name}</div>
+            <div>{props.user.email}</div>
             <Pencil className=" opacity-0 group-hover:opacity-100 transition-opacity" />
             {mutation.isSuccess && <SavedIconEffect />}
             {mutation.isPending && <SpinnerGap className="animate-spin" />}
@@ -48,8 +48,8 @@ const UpdateUserName = (props: Props) => {
                 name="name"
                 autoFocus
                 onBlur={() => setIsEdit(false)}
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 type="text"
                 placeholder="Name"
                 onKeyDown={(e) => {
@@ -74,4 +74,4 @@ const UpdateUserName = (props: Props) => {
   )
 }
 
-export default UpdateUserName
+export default UpdateUserEmail
