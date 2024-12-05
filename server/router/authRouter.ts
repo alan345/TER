@@ -36,12 +36,13 @@ export const authRouter = router({
     const userAgent = opts.ctx.req.headers["user-agent"]
     const deviceId = cookies[cookieNameDevice]
     console.log("deviceId", deviceId)
+    const forHundredDaysInMs = 400 * 24 * 60 * 60 * 1000
     if (!deviceId) {
       const newDevice = await db
         .insert(devicesTable)
         .values({ userAgent, lastLoginAt })
         .returning({ id: devicesTable.id })
-      opts.ctx.res.cookie(cookieNameDevice, newDevice[0].id, utils.getParamsCookies(400 * 24 * 60 * 60 * 1000))
+      opts.ctx.res.cookie(cookieNameDevice, newDevice[0].id, utils.getParamsCookies(forHundredDaysInMs))
       return true
     }
     const device = await db.query.devicesTable.findFirst({ where: eq(devicesTable.id, deviceId) })
@@ -51,7 +52,7 @@ export const authRouter = router({
         .insert(devicesTable)
         .values({ userAgent, lastLoginAt })
         .returning({ id: devicesTable.id })
-      opts.ctx.res.cookie(cookieNameDevice, newDevice[0].id, utils.getParamsCookies(400 * 24 * 60 * 60 * 1000))
+      opts.ctx.res.cookie(cookieNameDevice, newDevice[0].id, utils.getParamsCookies(forHundredDaysInMs))
       return true
     }
 
@@ -61,7 +62,7 @@ export const authRouter = router({
       .where(eq(devicesTable.id, device.id))
       .returning({ id: devicesTable.id })
 
-    opts.ctx.res.cookie(cookieNameDevice, deviceUpdated[0].id, utils.getParamsCookies(400 * 24 * 60 * 60 * 1000))
+    opts.ctx.res.cookie(cookieNameDevice, deviceUpdated[0].id, utils.getParamsCookies(forHundredDaysInMs))
     return true
   }),
   refreshToken: protectedProcedure.mutation(async (opts) => {
