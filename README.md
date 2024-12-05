@@ -24,6 +24,12 @@
 - **E**xpress [expressjs.com](https://expressjs.com) - Fast, unopinionated, minimalist web framework for Node.js
 - **R**eact [reactjs.org](https://reactjs.org) - A JavaScript library for building user interfaces
 
+## Demo
+
+https://ter-b207.onrender.com/
+
+Hosted for free by [render.com](https://render.com/)
+
 ## Preview
 
 ![ter-preview](https://github.com/user-attachments/assets/c9d549a4-7020-498d-9e7e-e5c92600dd51)
