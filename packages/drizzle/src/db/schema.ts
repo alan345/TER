@@ -18,7 +18,7 @@ export const usersRelations = relations(usersTable, ({ many }) => ({
 
 export const devicesTable = pgTable("devices", {
   id: uuid().defaultRandom().primaryKey(),
-  userAgent: varchar(),
+  userAgent: varchar().notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   lastLoginAt: timestamp("last_login_at"),
   userId: uuid("user_id").notNull(),

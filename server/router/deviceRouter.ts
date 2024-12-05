@@ -15,17 +15,26 @@ export const deviceRouter = router({
       const page = opts.input.page
       const limit = 12
       const db = opts.ctx.db
-      const users = await db.query.devicesTable.findMany({
+      const devices = await db.query.devicesTable.findMany({
         limit,
         offset: (page - 1) * limit,
         orderBy: [desc(devicesTable.createdAt)],
         columns: { id: true, createdAt: true, lastLoginAt: true, userAgent: true },
+        with: {
+          user: {
+            columns: {
+              id: true,
+              name: true,
+              image: true,
+            },
+          },
+        },
         // where: opts.input.search ? ilike(devicesTable.name, `%${opts.input.search}%`) : undefined,
       })
       const totalData = await db.select({ count: count() }).from(devicesTable)
       // .where(opts.input.search ? ilike(devicesTable.name, `%${opts.input.search}%`) : undefined)
       const total = totalData[0].count
 
-      return { users, page, limit, total }
+      return { devices, page, limit, total }
     }),
 })

@@ -2,10 +2,11 @@ import { useLocation } from "react-router-dom"
 import { trpc } from "../../utils/trpc"
 import ErrorTemplate from "../../template/ErrorTemplate"
 import Pagination from "./Pagination"
-// import ImgAvatar from "../../template/layout/ImgAvatar"
+import ImgAvatar from "../../template/layout/ImgAvatar"
 import Search from "../search/Search"
 import { Devices, CloudWarning } from "@phosphor-icons/react"
 import utils from "../../utils/utils"
+import DeviceImage from "./DeviceImage"
 
 const DevicesPage = () => {
   const location = useLocation()
@@ -34,25 +35,30 @@ const DevicesPage = () => {
                 <th>userAgent</th>
                 <th>Created At</th>
                 <th>Last Login At</th>
+                <th>User</th>
                 {/* <th>Email</th>
                 <th>Avatar</th> */}
               </tr>
             </thead>
             <tbody>
-              {dataQuery.data?.users.map((user) => (
-                <tr key={user.id}>
-                  <td>{user.userAgent}</td>
-                  <td>{new Date(user.createdAt).toLocaleString()}</td>
-                  <td>{user.lastLoginAt ? new Date(user.lastLoginAt).toLocaleString() : ""}</td>
+              {dataQuery.data?.devices.map((device) => (
+                <tr key={device.id}>
+                  <td>
+                    <DeviceImage deviceName={utils.getDeviceName(device.userAgent)} />
+                    {utils.getDeviceName(device.userAgent)}
+                  </td>
+                  <td>{new Date(device.createdAt).toLocaleString()}</td>
+                  <td>{device.lastLoginAt ? new Date(device.lastLoginAt).toLocaleString() : ""}</td>
                   {/* <td>{user.email}</td> */}
-                  {/* <td>
-                    <ImgAvatar src={user.image} alt="Profile Image" className="w-10 h-10" />
-                  </td> */}
+                  <td>
+                    <ImgAvatar src={device.user.image} alt="Profile Image" className="w-10 h-10" />
+                    <span>{device.user.name}</span>
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
-          {dataQuery.data?.users.length === 0 && (
+          {dataQuery.data?.devices.length === 0 && (
             <div className="flex justify-center items-center mt-10">
               <div className="flex items-center gap-2">
                 <CloudWarning className="text-4xl text-orange-400" />
