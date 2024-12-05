@@ -14,7 +14,6 @@ import * as schema from "@ter/drizzle"
 import { eq } from "drizzle-orm"
 import { cookieName } from "./configTer"
 import { config } from "dotenv"
-config({ path: "../.env.local" })
 config({ path: "../.env" })
 
 const secretJwt = process.env.JWT_SECRET
