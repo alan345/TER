@@ -5,6 +5,7 @@ import cors from "cors"
 import jwt from "jsonwebtoken"
 import { authRouter } from "./router/authRouter"
 import { userRouter } from "./router/userRouter"
+import { deviceRouter } from "./router/deviceRouter"
 import { healthRouter } from "./router/healthRouter"
 import { beerRouter } from "./router/beerRouter"
 import { t } from "./trpc"
@@ -50,7 +51,7 @@ export const createContext = async ({ req, res }: trpcExpress.CreateExpressConte
 
 export const mergeRouters = t.mergeRouters
 
-const appRouter = mergeRouters(authRouter, userRouter, healthRouter, beerRouter)
+const appRouter = mergeRouters(authRouter, userRouter, deviceRouter, healthRouter, beerRouter)
 export type AppRouter = typeof appRouter
 
 console.log(process.env)

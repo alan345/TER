@@ -8,6 +8,7 @@ import UsersPage from "./components/user/UsersPage"
 import Signup from "./components/auth/Signup"
 import BeersPage from "./components/BeersPage"
 import { House } from "@phosphor-icons/react"
+import DevicesPage from "./components/user/DevicesPage"
 
 const AppRouter = () => {
   return (
@@ -19,6 +20,7 @@ const AppRouter = () => {
       <Route path="/signup" element={<Signup />} />
       <Route path="/profile" element={<PrivateRoute element={<ProfilePage />} />} />
       <Route path="/users" element={<PrivateRoute element={<UsersPage />} />} />
+      <Route path="/devices" element={<PrivateRoute element={<DevicesPage />} />} />
       <Route
         path="*"
         element={

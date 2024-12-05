@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { AppContext } from "../../ContextProvider"
-import { House, Users, PencilLine, BeerStein } from "@phosphor-icons/react"
+import { House, Devices, Users, PencilLine, BeerStein } from "@phosphor-icons/react"
 
 type Props = {
   onClick: () => void
@@ -47,6 +47,20 @@ const NavLinks = (props: Props) => {
           <div className="flex items-center">
             <Users className="mr-2" />
             Users
+          </div>
+        </Link>
+      )}
+      {context.me && (
+        <Link
+          onClick={props.onClick}
+          to="/devices"
+          className={`block py-2.5 px-4 rounded transition ${
+            location.pathname === "/devices" ? "bg-gray-200" : "hover:bg-gray-100"
+          }`}
+        >
+          <div className="flex items-center">
+            <Devices className="mr-2" />
+            Devices
           </div>
         </Link>
       )}
