@@ -6,13 +6,13 @@ import { usersTable } from "@ter/drizzle"
 import { eq } from "drizzle-orm"
 import { zod } from "@ter/shared"
 import { utils } from "../utils"
-import { timeSession } from "../configTer"
+import { timeSession, cookieNameAuth } from "../configTer"
 
 export const authRouter = router({
   login: publicProcedure.input(zod.zodLogin).mutation(async (opts) => {
     const {
       db,
-      config: { secretJwt, cookieName },
+      config: { secretJwt },
     } = opts.ctx
 
     const user = await db.query.usersTable.findFirst({ where: eq(usersTable.email, opts.input.email) })
@@ -28,19 +28,20 @@ export const authRouter = router({
     const token = jwt.sign({ id: user.id, exp: utils.getNewExp() }, secretJwt)
 
     await db.update(usersTable).set({ lastLoginAt: new Date() }).where(eq(usersTable.id, user.id)).returning()
-    opts.ctx.res.cookie(cookieName, token, utils.getParamsCookies())
+    opts.ctx.res.cookie(cookieNameAuth, token, utils.getParamsCookies(timeSession * 1000))
+    opts.ctx.res.cookie("ter-device", "123")
     return true
   }),
   refreshToken: protectedProcedure.mutation(async (opts) => {
     const {
-      config: { secretJwt, cookieName },
+      config: { secretJwt },
     } = opts.ctx
 
     const me = opts.ctx.user
 
     const token = jwt.sign({ id: me.id, exp: utils.getNewExp() }, secretJwt)
 
-    opts.ctx.res.cookie(cookieName, token, utils.getParamsCookies())
+    opts.ctx.res.cookie(cookieNameAuth, token, utils.getParamsCookies(timeSession * 1000))
     return true
   }),
   updateUserPassord: protectedProcedure.input(zod.zodUpdatePassword).mutation(async (opts) => {
@@ -58,7 +59,7 @@ export const authRouter = router({
   signup: publicProcedure.input(zod.zodSignup).mutation(async (opts) => {
     const {
       db,
-      config: { secretJwt, cookieName },
+      config: { secretJwt },
     } = opts.ctx
 
     const user = await db.query.usersTable.findFirst({ where: eq(usersTable.email, opts.input.email) })
@@ -76,14 +77,11 @@ export const authRouter = router({
 
     const token = jwt.sign({ id: newUsers[0].id, exp: utils.getNewExp() }, secretJwt)
 
-    opts.ctx.res.cookie(cookieName, token, utils.getParamsCookies())
+    opts.ctx.res.cookie(cookieNameAuth, token, utils.getParamsCookies(timeSession * 1000))
     return true
   }),
   logout: publicProcedure.mutation(async (opts) => {
-    const {
-      config: { cookieName },
-    } = opts.ctx
-    opts.ctx.res.clearCookie(cookieName, utils.getParamsCookies())
+    opts.ctx.res.clearCookie(cookieNameAuth, utils.getParamsCookies(timeSession * 1000))
     return true
   }),
   getAuth: publicProcedure.query((opts) => {

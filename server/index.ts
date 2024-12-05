@@ -12,7 +12,7 @@ import { drizzle } from "drizzle-orm/node-postgres"
 import { usersTable } from "@ter/drizzle"
 import * as schema from "@ter/drizzle"
 import { eq } from "drizzle-orm"
-import { cookieName } from "./configTer"
+import { cookieNameAuth } from "./configTer"
 import { config } from "dotenv"
 config({ path: "../.env" })
 
@@ -28,9 +28,9 @@ export interface UserIDJwtPayload extends jwt.JwtPayload {
 export const createContext = async ({ req, res }: trpcExpress.CreateExpressContextOptions) => {
   if (!secretJwt) throw new Error("JWT_SECRET is not defined")
   if (!databaseUrl) throw new Error("DATABASE_URL is not defined")
-  const config = { secretJwt, databaseUrl, cookieName }
+  const config = { secretJwt, databaseUrl }
   const cookies = req.cookies
-  const token = cookies[cookieName]
+  const token = cookies[cookieNameAuth]
   const db = drizzle(databaseUrl, { schema })
 
   if (token) {
@@ -42,7 +42,7 @@ export const createContext = async ({ req, res }: trpcExpress.CreateExpressConte
       }
     } catch (error) {
       console.log("error", error)
-      res.clearCookie(cookieName)
+      res.clearCookie(cookieNameAuth)
     }
   }
   return { req, res, db, config }
