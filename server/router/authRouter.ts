@@ -32,6 +32,13 @@ export const authRouter = router({
     opts.ctx.res.cookie(cookieName, token, {
       maxAge: timeSession * 1000,
       httpOnly: true,
+      secure: process.env.NODE_ENV === "development" ? false : true,
+      domain: process.env.DOMAIN,
+      // secure: NODE_ENV === 'local' ? false : true,
+      // domain,
+      // maxAge: appTokenExpiresIn * 1000,
+
+      // if (NODE_ENV === 'local') domain = 'localhost'
     })
     return true
   }),
@@ -47,6 +54,8 @@ export const authRouter = router({
     opts.ctx.res.cookie(cookieName, token, {
       maxAge: timeSession * 1000,
       httpOnly: true,
+      secure: process.env.NODE_ENV === "development" ? false : true,
+      domain: process.env.DOMAIN,
     })
     return true
   }),
@@ -86,6 +95,8 @@ export const authRouter = router({
     opts.ctx.res.cookie(cookieName, token, {
       maxAge: timeSession * 1000,
       httpOnly: true,
+      secure: process.env.NODE_ENV === "development" ? false : true,
+      domain: process.env.DOMAIN,
     })
     return true
   }),
