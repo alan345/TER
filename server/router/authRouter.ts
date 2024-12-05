@@ -2,7 +2,7 @@ import { publicProcedure, protectedProcedure, router } from "../trpc"
 import bcrypt from "bcrypt"
 import { TRPCError } from "@trpc/server"
 import jwt from "jsonwebtoken"
-import { usersTable } from "@ter/drizzle"
+import { devicesTable, usersTable } from "@ter/drizzle"
 import { eq } from "drizzle-orm"
 import { zod } from "@ter/shared"
 import { utils } from "../utils"
@@ -15,6 +15,7 @@ export const authRouter = router({
       config: { secretJwt },
     } = opts.ctx
 
+    const lastLoginAt = new Date()
     const user = await db.query.usersTable.findFirst({ where: eq(usersTable.email, opts.input.email) })
 
     if (!user) throw new Error("Incorrect login")
@@ -27,17 +28,40 @@ export const authRouter = router({
 
     const token = jwt.sign({ id: user.id, exp: utils.getNewExp() }, secretJwt)
 
-    await db.update(usersTable).set({ lastLoginAt: new Date() }).where(eq(usersTable.id, user.id)).returning()
+    await db.update(usersTable).set({ lastLoginAt }).where(eq(usersTable.id, user.id)).returning()
     opts.ctx.res.cookie(cookieNameAuth, token, utils.getParamsCookies(timeSession * 1000))
 
     const cookies = opts.ctx.req.cookies
 
-    // console.log(opts.ctx.req)
-    console.log("User Agent:", opts.ctx.req.headers["user-agent"])
-    const deviceToken = cookies[cookieNameDevice] ?? utils.randomString(100)
-    console.log("deviceToken", deviceToken)
-    opts.ctx.res.cookie(cookieNameDevice, deviceToken, utils.getParamsCookies(400 * 24 * 60 * 60 * 1000))
+    const userAgent = opts.ctx.req.headers["user-agent"]
+    const deviceId = cookies[cookieNameDevice]
+    console.log("deviceId", deviceId)
+    if (!deviceId) {
+      const newDevice = await db
+        .insert(devicesTable)
+        .values({ userAgent, lastLoginAt })
+        .returning({ id: devicesTable.id })
+      opts.ctx.res.cookie(cookieNameDevice, newDevice[0].id, utils.getParamsCookies(400 * 24 * 60 * 60 * 1000))
+      return true
+    }
+    const device = await db.query.devicesTable.findFirst({ where: eq(devicesTable.id, deviceId) })
 
+    if (!device) {
+      const newDevice = await db
+        .insert(devicesTable)
+        .values({ userAgent, lastLoginAt })
+        .returning({ id: devicesTable.id })
+      opts.ctx.res.cookie(cookieNameDevice, newDevice[0].id, utils.getParamsCookies(400 * 24 * 60 * 60 * 1000))
+      return true
+    }
+
+    const deviceUpdated = await db
+      .update(devicesTable)
+      .set({ lastLoginAt })
+      .where(eq(devicesTable.id, device.id))
+      .returning({ id: devicesTable.id })
+
+    opts.ctx.res.cookie(cookieNameDevice, deviceUpdated[0].id, utils.getParamsCookies(400 * 24 * 60 * 60 * 1000))
     return true
   }),
   refreshToken: protectedProcedure.mutation(async (opts) => {
