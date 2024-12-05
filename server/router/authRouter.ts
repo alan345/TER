@@ -104,6 +104,8 @@ export const authRouter = router({
     } = opts.ctx
     opts.ctx.res.clearCookie(cookieName, {
       sameSite: "none",
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "development" ? false : true,
     })
     return true
   }),
