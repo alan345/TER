@@ -33,6 +33,7 @@ export const authRouter = router({
       maxAge: timeSession * 1000,
       httpOnly: true,
       secure: process.env.NODE_ENV === "development" ? false : true,
+      sameSite: "none",
       // domain: process.env.DOMAIN,
     })
     return true
@@ -50,6 +51,7 @@ export const authRouter = router({
       maxAge: timeSession * 1000,
       httpOnly: true,
       secure: process.env.NODE_ENV === "development" ? false : true,
+      sameSite: "none",
       // domain: process.env.DOMAIN,
     })
     return true
@@ -91,6 +93,7 @@ export const authRouter = router({
       maxAge: timeSession * 1000,
       httpOnly: true,
       secure: process.env.NODE_ENV === "development" ? false : true,
+      sameSite: "none",
       // domain: process.env.DOMAIN,
     })
     return true
