@@ -1,3 +1,4 @@
+import { CookieOptions } from "express"
 import { timeSession } from "./configTer"
 
 export const utils = {
@@ -12,5 +13,13 @@ export const utils = {
   },
   getNewExp: () => {
     return Math.floor(Date.now() / 1000) + timeSession
+  },
+  getParamsCookies: (): CookieOptions => {
+    return {
+      maxAge: timeSession * 1000,
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "development" ? false : true,
+      sameSite: process.env.NODE_ENV === "development" ? undefined : "none",
+    }
   },
 }

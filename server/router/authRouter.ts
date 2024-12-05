@@ -28,14 +28,7 @@ export const authRouter = router({
     const token = jwt.sign({ id: user.id, exp: utils.getNewExp() }, secretJwt)
 
     await db.update(usersTable).set({ lastLoginAt: new Date() }).where(eq(usersTable.id, user.id)).returning()
-
-    opts.ctx.res.cookie(cookieName, token, {
-      maxAge: timeSession * 1000,
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "development" ? false : true,
-      sameSite: "none",
-      // domain: process.env.DOMAIN,
-    })
+    opts.ctx.res.cookie(cookieName, token, utils.getParamsCookies())
     return true
   }),
   refreshToken: protectedProcedure.mutation(async (opts) => {
@@ -47,13 +40,7 @@ export const authRouter = router({
 
     const token = jwt.sign({ id: me.id, exp: utils.getNewExp() }, secretJwt)
 
-    opts.ctx.res.cookie(cookieName, token, {
-      maxAge: timeSession * 1000,
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "development" ? false : true,
-      sameSite: "none",
-      // domain: process.env.DOMAIN,
-    })
+    opts.ctx.res.cookie(cookieName, token, utils.getParamsCookies())
     return true
   }),
   updateUserPassord: protectedProcedure.input(zod.zodUpdatePassword).mutation(async (opts) => {
@@ -89,24 +76,14 @@ export const authRouter = router({
 
     const token = jwt.sign({ id: newUsers[0].id, exp: utils.getNewExp() }, secretJwt)
 
-    opts.ctx.res.cookie(cookieName, token, {
-      maxAge: timeSession * 1000,
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "development" ? false : true,
-      sameSite: "none",
-      // domain: process.env.DOMAIN,
-    })
+    opts.ctx.res.cookie(cookieName, token, utils.getParamsCookies())
     return true
   }),
   logout: publicProcedure.mutation(async (opts) => {
     const {
       config: { cookieName },
     } = opts.ctx
-    opts.ctx.res.clearCookie(cookieName, {
-      sameSite: "none",
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "development" ? false : true,
-    })
+    opts.ctx.res.clearCookie(cookieName, utils.getParamsCookies())
     return true
   }),
   getAuth: publicProcedure.query((opts) => {
