@@ -3,7 +3,7 @@ import { trpc } from "../../utils/trpc"
 import ErrorTemplate from "../../template/ErrorTemplate"
 import Pagination from "./Pagination"
 import ImgAvatar from "../../template/layout/ImgAvatar"
-import Search from "../search/Search"
+// import Search from "../search/Search"
 import { Devices, CloudWarning } from "@phosphor-icons/react"
 import utils from "../../utils/utils"
 import DeviceImage from "./DeviceImage"
@@ -26,9 +26,9 @@ const DevicesPage = () => {
           </div>
 
           <p>This page is private. You can access it only when logged in.</p>
-          <div className="mt-4 mb-4">
+          {/* <div className="mt-4 mb-4">
             <Search />
-          </div>
+          </div> */}
           <table>
             <thead>
               <tr>
