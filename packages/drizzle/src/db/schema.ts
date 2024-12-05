@@ -1,5 +1,6 @@
 import { pgTable, varchar, integer, uuid, timestamp } from "drizzle-orm/pg-core"
 import { relations } from "drizzle-orm"
+
 export const usersTable = pgTable("users", {
   id: uuid().defaultRandom().primaryKey(),
   name: varchar({ length: 255 }).notNull(),
@@ -10,6 +11,7 @@ export const usersTable = pgTable("users", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
   lastLoginAt: timestamp("last_login_at"),
 })
+
 export const usersRelations = relations(usersTable, ({ many }) => ({
   devices: many(devicesTable),
 }))
@@ -19,4 +21,12 @@ export const devicesTable = pgTable("devices", {
   userAgent: varchar(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   lastLoginAt: timestamp("last_login_at"),
+  userId: uuid("user_id").notNull(),
 })
+
+export const devicesRelations = relations(devicesTable, ({ one }) => ({
+  user: one(usersTable, {
+    fields: [devicesTable.userId],
+    references: [usersTable.id],
+  }),
+}))

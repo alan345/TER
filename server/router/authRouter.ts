@@ -31,16 +31,15 @@ export const authRouter = router({
     await db.update(usersTable).set({ lastLoginAt }).where(eq(usersTable.id, user.id)).returning()
     opts.ctx.res.cookie(cookieNameAuth, token, utils.getParamsCookies(timeSession * 1000))
 
-    const cookies = opts.ctx.req.cookies
-
     const userAgent = opts.ctx.req.headers["user-agent"]
+    const cookies = opts.ctx.req.cookies
     const deviceId = cookies[cookieNameDevice]
     console.log("deviceId", deviceId)
-    const forHundredDaysInMs = 400 * 24 * 60 * 60 * 1000
+    const forHundredDaysInMs = 400 * 24 * 60 * 60 * 1000 // https://developer.chrome.com/blog/cookie-max-age-expires/
     if (!deviceId) {
       const newDevice = await db
         .insert(devicesTable)
-        .values({ userAgent, lastLoginAt })
+        .values({ userAgent, lastLoginAt, userId: user.id })
         .returning({ id: devicesTable.id })
       opts.ctx.res.cookie(cookieNameDevice, newDevice[0].id, utils.getParamsCookies(forHundredDaysInMs))
       return true
@@ -50,7 +49,7 @@ export const authRouter = router({
     if (!device) {
       const newDevice = await db
         .insert(devicesTable)
-        .values({ userAgent, lastLoginAt })
+        .values({ userAgent, lastLoginAt, userId: user.id })
         .returning({ id: devicesTable.id })
       opts.ctx.res.cookie(cookieNameDevice, newDevice[0].id, utils.getParamsCookies(forHundredDaysInMs))
       return true
