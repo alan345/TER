@@ -26,7 +26,7 @@
 
 ## Demo
 
-https://ter-b207.onrender.com/
+Go to [ter-b207.onrender.com](https://ter-b207.onrender.com/) to see the app in action.
 
 Hosted for free by [render.com](https://render.com/)
 
