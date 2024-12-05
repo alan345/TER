@@ -12,7 +12,7 @@ import { drizzle } from "drizzle-orm/node-postgres"
 import { usersTable } from "@ter/drizzle"
 import * as schema from "@ter/drizzle"
 import { eq } from "drizzle-orm"
-import { cookieNameAuth } from "./configTer"
+import { cookieNameAuth, cookieNameDevice } from "./configTer"
 import { config } from "dotenv"
 config({ path: "../.env" })
 
@@ -30,12 +30,12 @@ export const createContext = async ({ req, res }: trpcExpress.CreateExpressConte
   if (!databaseUrl) throw new Error("DATABASE_URL is not defined")
   const config = { secretJwt, databaseUrl }
   const cookies = req.cookies
-  const token = cookies[cookieNameAuth]
+  const authToken = cookies[cookieNameAuth]
   const db = drizzle(databaseUrl, { schema })
 
-  if (token) {
+  if (authToken) {
     try {
-      let decoded = jwt.verify(token, secretJwt) as UserIDJwtPayload
+      let decoded = jwt.verify(authToken, secretJwt) as UserIDJwtPayload
       if (decoded) {
         const user = await db.query.usersTable.findFirst({ where: eq(usersTable.id, decoded.id) })
         return { req, res, user, db, config, decoded }

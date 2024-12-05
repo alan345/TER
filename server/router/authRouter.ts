@@ -6,7 +6,7 @@ import { usersTable } from "@ter/drizzle"
 import { eq } from "drizzle-orm"
 import { zod } from "@ter/shared"
 import { utils } from "../utils"
-import { timeSession, cookieNameAuth } from "../configTer"
+import { timeSession, cookieNameAuth, cookieNameDevice } from "../configTer"
 
 export const authRouter = router({
   login: publicProcedure.input(zod.zodLogin).mutation(async (opts) => {
@@ -29,7 +29,15 @@ export const authRouter = router({
 
     await db.update(usersTable).set({ lastLoginAt: new Date() }).where(eq(usersTable.id, user.id)).returning()
     opts.ctx.res.cookie(cookieNameAuth, token, utils.getParamsCookies(timeSession * 1000))
-    opts.ctx.res.cookie("ter-device", "123")
+
+    const cookies = opts.ctx.req.cookies
+
+    // console.log(opts.ctx.req)
+    console.log("User Agent:", opts.ctx.req.headers["user-agent"])
+    const deviceToken = cookies[cookieNameDevice] ?? utils.randomString(100)
+    console.log("deviceToken", deviceToken)
+    opts.ctx.res.cookie(cookieNameDevice, deviceToken, utils.getParamsCookies(400 * 24 * 60 * 60 * 1000))
+
     return true
   }),
   refreshToken: protectedProcedure.mutation(async (opts) => {
