@@ -102,7 +102,9 @@ export const authRouter = router({
     const {
       config: { cookieName },
     } = opts.ctx
-    opts.ctx.res.clearCookie(cookieName)
+    opts.ctx.res.clearCookie(cookieName, {
+      sameSite: "none",
+    })
     return true
   }),
   getAuth: publicProcedure.query((opts) => {
