@@ -58,6 +58,9 @@ console.log(process.env)
 const app = express()
 app.use(cors({ credentials: true, origin: process.env.CLIENT_URL }))
 app.use(cookieParser())
+app.get("/", (req, res) => {
+  res.json({ message: "Hello, TER!" })
+})
 app.use(
   "/",
   trpcExpress.createExpressMiddleware({
