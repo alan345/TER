@@ -1,4 +1,5 @@
 import { devicesTable } from "@ter/drizzle"
+import * as schema from "@ter/drizzle"
 import { eq } from "drizzle-orm"
 
 import { NodePgClient, NodePgDatabase } from "drizzle-orm/node-postgres"

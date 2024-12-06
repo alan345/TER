@@ -6,6 +6,7 @@ import ImgAvatar from "../../template/layout/ImgAvatar"
 import { Devices, CloudWarning } from "@phosphor-icons/react"
 import utils from "../../utils/utils"
 import DeviceImage from "./DeviceImage"
+import ChipUserId from "./ChipUserId"
 
 const DevicesPage = () => {
   const location = useLocation()
@@ -27,11 +28,7 @@ const DevicesPage = () => {
           <p>This page is private. You can access it only when logged in.</p>
 
           <div className="mt-4 mb-4">
-            {userId && (
-              <div className="inline-flex items-center bg-gray-200 text-gray-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded-full">
-                <span className="mr-1">userId:</span> {userId}
-              </div>
-            )}
+            <ChipUserId />
             {/* <Search /> */}
           </div>
           <table>
