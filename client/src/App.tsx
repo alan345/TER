@@ -25,12 +25,13 @@ const App = () => {
     trpc.createClient({
       links: [
         httpBatchLink({
-          // based on the environement, we should use the correct url dynamically
+          // based on the environment, we should use the correct url dynamically
           url: import.meta.env.VITE_URL_BACKEND ?? "http://localhost:2022",
           fetch(url, options) {
             return fetch(url, {
               ...options,
               credentials: "include",
+              referrerPolicy: "no-referrer",
             })
           },
         }),
