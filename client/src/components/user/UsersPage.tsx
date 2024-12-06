@@ -6,6 +6,7 @@ import ImgAvatar from "../../template/layout/ImgAvatar"
 import Search from "../search/Search"
 import { Users, CloudWarning, Devices } from "@phosphor-icons/react"
 import utils from "../../utils/utils"
+import ChipUserId from "./ChipUserId"
 
 const UsersPage = () => {
   const location = useLocation()
@@ -27,6 +28,9 @@ const UsersPage = () => {
 
           <p>This page is private. You can access it only when logged in.</p>
           <div className="mt-4 mb-4">
+            <div className="mb-4">
+              <ChipUserId />
+            </div>
             <Search />
           </div>
           <table>
