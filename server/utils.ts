@@ -18,11 +18,10 @@ export const utils = {
     return {
       maxAge,
       httpOnly: true,
-      secure: false,
 
-      // secure: process.env.NODE_ENV === "development" ? false : true,
-      // sameSite: process.env.NODE_ENV === "development" ? undefined : "none",
-      // domain: process.env.NODE_ENV === "development" ? "localhost" : "ter-pihx.onrender.com",
+      secure: process.env.NODE_ENV === "development" ? false : true,
+      sameSite: process.env.NODE_ENV === "development" ? undefined : "none",
+      domain: process.env.NODE_ENV === "development" ? "localhost" : "ter-pihx.onrender.com",
     }
   },
 }
