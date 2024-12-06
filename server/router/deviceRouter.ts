@@ -4,6 +4,19 @@ import { devicesTable } from "@ter/drizzle"
 import { count, desc, eq } from "drizzle-orm"
 
 export const deviceRouter = router({
+  deleteDevice: protectedProcedure
+    .input(
+      z.object({
+        deviceId: z.string(),
+      })
+    )
+    .mutation(async (opts) => {
+      const db = opts.ctx.db
+      await db.delete(devicesTable).where(eq(devicesTable.id, opts.input.deviceId))
+
+      return true
+    }),
+
   getDevices: protectedProcedure
     .input(
       z.object({

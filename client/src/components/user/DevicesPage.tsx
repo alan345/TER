@@ -7,6 +7,7 @@ import { Devices, CloudWarning } from "@phosphor-icons/react"
 import utils from "../../utils/utils"
 import DeviceImage from "./DeviceImage"
 import ChipUserId from "./ChipUserId"
+import DeleteDevice from "./DeleteDevice"
 
 const DevicesPage = () => {
   const location = useLocation()
@@ -38,8 +39,7 @@ const DevicesPage = () => {
                 <th>Created At</th>
                 <th>Last Login At</th>
                 <th>User</th>
-                {/* <th>Email</th>
-                <th>Avatar</th> */}
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -51,12 +51,14 @@ const DevicesPage = () => {
                   </td>
                   <td>{new Date(device.createdAt).toLocaleString()}</td>
                   <td>{device.lastLoginAt ? new Date(device.lastLoginAt).toLocaleString() : ""}</td>
-                  {/* <td>{user.email}</td> */}
                   <td>
                     <ImgAvatar src={device.user.image} alt="Profile Image" className="w-10 h-10" />
                     <Link className="link" to={`/users?userId=${device.user.id}`}>
                       <span>{device.user.name}</span>
                     </Link>
+                  </td>
+                  <td>
+                    <DeleteDevice deviceId={device.id} onDelete={() => dataQuery.refetch()} />
                   </td>
                 </tr>
               ))}

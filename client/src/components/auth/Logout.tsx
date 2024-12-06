@@ -8,7 +8,7 @@ import ErrorMutation from "../user/ErrorMutation"
 const Logout = () => {
   const navigate = useNavigate()
   const context = React.useContext(AppContext)
-  const mutation = trpc.logout.useMutation({})
+  const mutation = trpc.logout.useMutation()
   const logout = async () => {
     try {
       await mutation.mutateAsync(undefined)
