@@ -1,7 +1,7 @@
 import { protectedProcedure, router } from "../trpc"
 import { z } from "zod"
 import { devicesTable } from "@ter/drizzle"
-import { count, desc } from "drizzle-orm"
+import { count, desc, eq } from "drizzle-orm"
 
 export const deviceRouter = router({
   getDevices: protectedProcedure
@@ -9,6 +9,7 @@ export const deviceRouter = router({
       z.object({
         page: z.number(),
         search: z.string().optional(),
+        userId: z.string().optional(),
       })
     )
     .query(async (opts) => {
@@ -29,7 +30,8 @@ export const deviceRouter = router({
             },
           },
         },
-        // where: opts.input.search ? ilike(devicesTable.name, `%${opts.input.search}%`) : undefined,
+
+        where: opts.input.userId ? eq(devicesTable.userId, opts.input.userId) : undefined,
       })
       const totalData = await db.select({ count: count() }).from(devicesTable)
       // .where(opts.input.search ? ilike(devicesTable.name, `%${opts.input.search}%`) : undefined)

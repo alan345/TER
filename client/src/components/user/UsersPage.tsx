@@ -1,10 +1,10 @@
-import { useLocation } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { trpc } from "../../utils/trpc"
 import ErrorTemplate from "../../template/ErrorTemplate"
 import Pagination from "./Pagination"
 import ImgAvatar from "../../template/layout/ImgAvatar"
 import Search from "../search/Search"
-import { Users, CloudWarning } from "@phosphor-icons/react"
+import { Users, CloudWarning, Devices } from "@phosphor-icons/react"
 import utils from "../../utils/utils"
 
 const UsersPage = () => {
@@ -36,6 +36,7 @@ const UsersPage = () => {
                 <th>Last Login At</th>
                 <th>Email</th>
                 <th>Avatar</th>
+                <th>Devices</th>
               </tr>
             </thead>
             <tbody>
@@ -47,6 +48,13 @@ const UsersPage = () => {
                   <td>{user.email}</td>
                   <td>
                     <ImgAvatar src={user.image} alt="Profile Image" className="w-10 h-10" />
+                  </td>
+                  <td>
+                    <Link className="link" to={`/devices?userId=${user.id}`}>
+                      <button className="btn-white">
+                        <Devices className="text-2xl" />
+                      </button>
+                    </Link>
                   </td>
                 </tr>
               ))}

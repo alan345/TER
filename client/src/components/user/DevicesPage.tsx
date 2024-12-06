@@ -3,7 +3,6 @@ import { trpc } from "../../utils/trpc"
 import ErrorTemplate from "../../template/ErrorTemplate"
 import Pagination from "./Pagination"
 import ImgAvatar from "../../template/layout/ImgAvatar"
-// import Search from "../search/Search"
 import { Devices, CloudWarning } from "@phosphor-icons/react"
 import utils from "../../utils/utils"
 import DeviceImage from "./DeviceImage"
@@ -13,9 +12,10 @@ const DevicesPage = () => {
   const query = new URLSearchParams(location.search)
   const page = query.get("page")
   const search = query.get("search") || undefined
-  const dataQuery = trpc.getDevices.useQuery({ page: utils.sanitizePage(page), search })
+  const userId = query.get("userId") || undefined
+  const dataQuery = trpc.getDevices.useQuery({ page: utils.sanitizePage(page), search, userId })
   if (dataQuery.isError) return <ErrorTemplate message={dataQuery.error.message} />
-
+  console.log(userId)
   return (
     <div className="flex flex-col h-full">
       <div className="flex-1 overflow-y-auto">
@@ -62,7 +62,7 @@ const DevicesPage = () => {
             <div className="flex justify-center items-center mt-10">
               <div className="flex items-center gap-2">
                 <CloudWarning className="text-4xl text-orange-400" />
-                <div>No users found</div>
+                <div>No devices found</div>
               </div>
             </div>
           )}
