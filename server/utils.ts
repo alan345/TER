@@ -1,5 +1,5 @@
 import { CookieOptions } from "express"
-import { timeSession } from "./configTer"
+import { timeSessionCookie } from "./configTer"
 
 export const utils = {
   randomString: (len: number) => {
@@ -12,7 +12,7 @@ export const utils = {
     return randomString
   },
   getNewExp: () => {
-    return Math.floor(Date.now() / 1000) + timeSession
+    return Math.floor(Date.now() / 1000) + timeSessionCookie / 1000
   },
   getParamsCookies: (maxAge: number): CookieOptions => {
     return {

@@ -2,11 +2,12 @@ import { publicProcedure, protectedProcedure, router } from "../trpc"
 import bcrypt from "bcrypt"
 import { TRPCError } from "@trpc/server"
 import jwt from "jsonwebtoken"
-import { devicesTable, usersTable } from "@ter/drizzle"
+import { usersTable } from "@ter/drizzle"
 import { eq } from "drizzle-orm"
 import { zod } from "@ter/shared"
 import { utils } from "../utils"
-import { timeSession, cookieNameAuth, cookieNameDevice } from "../configTer"
+import { timeSessionCookie, cookieNameAuth, cookieNameDevice, timeDeviceCookie } from "../configTer"
+import manageDevice from "../helper/manageDevice"
 
 export const authRouter = router({
   login: publicProcedure.input(zod.zodLogin).mutation(async (opts) => {
@@ -22,46 +23,20 @@ export const authRouter = router({
 
     const isPasswordCorrect = await bcrypt.compare(opts.input.password, user.password)
 
-    if (!isPasswordCorrect) {
-      throw new Error("Incorrect password")
-    }
+    if (!isPasswordCorrect) throw new Error("Incorrect password")
 
-    const token = jwt.sign({ id: user.id, exp: utils.getNewExp() }, secretJwt)
+    const userId = user.id
+    const token = jwt.sign({ id: userId, exp: utils.getNewExp() }, secretJwt)
 
-    await db.update(usersTable).set({ lastLoginAt }).where(eq(usersTable.id, user.id)).returning()
-    opts.ctx.res.cookie(cookieNameAuth, token, utils.getParamsCookies(timeSession * 1000))
+    await db.update(usersTable).set({ lastLoginAt }).where(eq(usersTable.id, userId)).returning()
+    opts.ctx.res.cookie(cookieNameAuth, token, utils.getParamsCookies(timeSessionCookie))
 
     const userAgent = opts.ctx.req.headers["user-agent"] ?? ""
     const cookies = opts.ctx.req.cookies
-    const deviceId = cookies[cookieNameDevice]
-    console.log("deviceId", deviceId)
-    const forHundredDaysInMs = 400 * 24 * 60 * 60 * 1000 // https://developer.chrome.com/blog/cookie-max-age-expires/
-    if (!deviceId) {
-      const newDevice = await db
-        .insert(devicesTable)
-        .values({ userAgent, lastLoginAt, userId: user.id })
-        .returning({ id: devicesTable.id })
-      opts.ctx.res.cookie(cookieNameDevice, newDevice[0].id, utils.getParamsCookies(forHundredDaysInMs))
-      return true
-    }
-    const device = await db.query.devicesTable.findFirst({ where: eq(devicesTable.id, deviceId) })
+    const deviceIdFromCookie = cookies[cookieNameDevice]
+    const updatedDevice = await manageDevice.getAndUpdateDevice(db, userId, userAgent, deviceIdFromCookie)
 
-    if (!device) {
-      const newDevice = await db
-        .insert(devicesTable)
-        .values({ userAgent, lastLoginAt, userId: user.id })
-        .returning({ id: devicesTable.id })
-      opts.ctx.res.cookie(cookieNameDevice, newDevice[0].id, utils.getParamsCookies(forHundredDaysInMs))
-      return true
-    }
-
-    const deviceUpdated = await db
-      .update(devicesTable)
-      .set({ lastLoginAt })
-      .where(eq(devicesTable.id, device.id))
-      .returning({ id: devicesTable.id })
-
-    opts.ctx.res.cookie(cookieNameDevice, deviceUpdated[0].id, utils.getParamsCookies(forHundredDaysInMs))
+    opts.ctx.res.cookie(cookieNameDevice, updatedDevice.id, utils.getParamsCookies(timeDeviceCookie))
     return true
   }),
   refreshToken: protectedProcedure.mutation(async (opts) => {
@@ -73,7 +48,7 @@ export const authRouter = router({
 
     const token = jwt.sign({ id: me.id, exp: utils.getNewExp() }, secretJwt)
 
-    opts.ctx.res.cookie(cookieNameAuth, token, utils.getParamsCookies(timeSession * 1000))
+    opts.ctx.res.cookie(cookieNameAuth, token, utils.getParamsCookies(timeSessionCookie))
     return true
   }),
   updateUserPassord: protectedProcedure.input(zod.zodUpdatePassword).mutation(async (opts) => {
@@ -107,13 +82,21 @@ export const authRouter = router({
       })
       .returning({ id: usersTable.id })
 
-    const token = jwt.sign({ id: newUsers[0].id, exp: utils.getNewExp() }, secretJwt)
+    const userId = newUsers[0].id
+    const token = jwt.sign({ id: userId, exp: utils.getNewExp() }, secretJwt)
 
-    opts.ctx.res.cookie(cookieNameAuth, token, utils.getParamsCookies(timeSession * 1000))
+    opts.ctx.res.cookie(cookieNameAuth, token, utils.getParamsCookies(timeSessionCookie))
+
+    const userAgent = opts.ctx.req.headers["user-agent"] ?? ""
+    const cookies = opts.ctx.req.cookies
+    const deviceIdFromCookie = cookies[cookieNameDevice]
+    const updatedDevice = await manageDevice.getAndUpdateDevice(db, userId, userAgent, deviceIdFromCookie)
+
+    opts.ctx.res.cookie(cookieNameDevice, updatedDevice.id, utils.getParamsCookies(timeDeviceCookie))
     return true
   }),
   logout: publicProcedure.mutation(async (opts) => {
-    opts.ctx.res.clearCookie(cookieNameAuth, utils.getParamsCookies(timeSession * 1000))
+    opts.ctx.res.clearCookie(cookieNameAuth, utils.getParamsCookies(timeSessionCookie))
     return true
   }),
   getAuth: publicProcedure.query((opts) => {
