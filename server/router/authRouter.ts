@@ -32,12 +32,7 @@ export const authRouter = router({
     opts.ctx.res.cookie(cookieNameAuth, token, utils.getParamsCookies(timeSessionCookie))
 
     const userAgent = opts.ctx.req.headers["user-agent"] || ""
-    let ip =
-      (Array.isArray(opts.ctx.req.headers["x-forwarded-for"]) && opts.ctx.req.headers["x-forwarded-for"].length > 0
-        ? opts.ctx.req.headers["x-forwarded-for"][0]
-        : undefined) ||
-      opts.ctx.req.socket.remoteAddress ||
-      ""
+    let ip = (opts.ctx.req.headers["x-forwarded-for"] || opts.ctx.req.socket.remoteAddress || "").toString()
     const cookies = opts.ctx.req.cookies
     const deviceIdFromCookie = cookies[cookieNameDevice]
     const updatedDevice = await manageDevice.getAndUpdateDevice(db, userId, userAgent, ip, deviceIdFromCookie)
@@ -94,12 +89,7 @@ export const authRouter = router({
     opts.ctx.res.cookie(cookieNameAuth, token, utils.getParamsCookies(timeSessionCookie))
 
     const userAgent = opts.ctx.req.headers["user-agent"] || ""
-    let ip =
-      (Array.isArray(opts.ctx.req.headers["x-forwarded-for"]) && opts.ctx.req.headers["x-forwarded-for"].length > 0
-        ? opts.ctx.req.headers["x-forwarded-for"][0]
-        : undefined) ||
-      opts.ctx.req.socket.remoteAddress ||
-      ""
+    let ip = (opts.ctx.req.headers["x-forwarded-for"] || opts.ctx.req.socket.remoteAddress || "").toString()
     const cookies = opts.ctx.req.cookies
     const deviceIdFromCookie = cookies[cookieNameDevice]
     const updatedDevice = await manageDevice.getAndUpdateDevice(db, userId, userAgent, deviceIdFromCookie, ip)
