@@ -19,8 +19,8 @@ export const utils = {
       maxAge,
       httpOnly: true,
       secure: process.env.NODE_ENV === "development" ? false : true,
-      sameSite: process.env.NODE_ENV === "development" ? undefined : "none",
-      domain: process.env.NODE_ENV === "development" ? "localhost" : "ter-b207.onrender.com",
+      // sameSite: process.env.NODE_ENV === "development" ? undefined : "none",
+      domain: process.env.NODE_ENV === "development" ? "localhost" : ".onrender.com",
     }
   },
 }
