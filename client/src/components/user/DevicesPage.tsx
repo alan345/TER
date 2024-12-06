@@ -34,7 +34,7 @@ const DevicesPage = () => {
           <table>
             <thead>
               <tr>
-                <th>userAgent</th>
+                <th>Device</th>
                 <th>Created At</th>
                 <th>Last Login At</th>
                 <th>User</th>
