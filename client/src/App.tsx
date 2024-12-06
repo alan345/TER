@@ -31,7 +31,6 @@ const App = () => {
             return fetch(url, {
               ...options,
               credentials: "include",
-              referrerPolicy: "no-referrer",
             })
           },
         }),
