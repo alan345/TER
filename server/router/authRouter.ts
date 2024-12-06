@@ -31,7 +31,7 @@ export const authRouter = router({
     await db.update(usersTable).set({ lastLoginAt }).where(eq(usersTable.id, user.id)).returning()
     opts.ctx.res.cookie(cookieNameAuth, token, utils.getParamsCookies(timeSession * 1000))
 
-    const userAgent = opts.ctx.req.headers["user-agent"]
+    const userAgent = opts.ctx.req.headers["user-agent"] ?? ""
     const cookies = opts.ctx.req.cookies
     const deviceId = cookies[cookieNameDevice]
     console.log("deviceId", deviceId)
