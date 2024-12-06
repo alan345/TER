@@ -49,7 +49,8 @@ const DevicesPage = () => {
                   <tr key={device.id}>
                     <td>
                       <DeviceImage deviceName={utils.getDeviceName(device.userAgent)} />
-                      {utils.getDeviceName(device.userAgent)}
+                      <div>{utils.getDeviceName(device.userAgent)}</div>
+                      <div>{device.ip}</div>
                     </td>
                     <td>{new Date(device.createdAt).toLocaleString()}</td>
                     <td>{device.lastLoginAt ? new Date(device.lastLoginAt).toLocaleString() : ""}</td>

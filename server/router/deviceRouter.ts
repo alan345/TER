@@ -33,7 +33,7 @@ export const deviceRouter = router({
         limit,
         offset: (page - 1) * limit,
         orderBy: [desc(devicesTable.createdAt)],
-        columns: { id: true, createdAt: true, lastLoginAt: true, userAgent: true },
+        columns: { id: true, createdAt: true, lastLoginAt: true, userAgent: true, ip: true },
         with: {
           user: {
             columns: {
