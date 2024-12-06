@@ -21,6 +21,7 @@ export const utils = {
       secure: process.env.NODE_ENV === "development" ? false : true,
       sameSite: process.env.NODE_ENV === "development" ? undefined : "none",
       domain: process.env.NODE_ENV === "development" ? "localhost" : "ter-pihx.onrender.com",
+      partitioned: true,
     }
   },
 }
