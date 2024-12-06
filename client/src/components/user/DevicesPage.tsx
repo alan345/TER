@@ -32,38 +32,41 @@ const DevicesPage = () => {
             <ChipUserId />
             {/* <Search /> */}
           </div>
-          <table>
-            <thead>
-              <tr>
-                <th>Device</th>
-                <th>Created At</th>
-                <th>Last Login At</th>
-                <th>User</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {dataQuery.data?.devices.map((device) => (
-                <tr key={device.id}>
-                  <td>
-                    <DeviceImage deviceName={utils.getDeviceName(device.userAgent)} />
-                    {utils.getDeviceName(device.userAgent)}
-                  </td>
-                  <td>{new Date(device.createdAt).toLocaleString()}</td>
-                  <td>{device.lastLoginAt ? new Date(device.lastLoginAt).toLocaleString() : ""}</td>
-                  <td>
-                    <ImgAvatar src={device.user.image} alt="Profile Image" className="w-10 h-10" />
-                    <Link className="link" to={`/users?userId=${device.user.id}`}>
-                      <span>{device.user.name}</span>
-                    </Link>
-                  </td>
-                  <td>
-                    <DeleteDevice deviceId={device.id} onDelete={() => dataQuery.refetch()} />
-                  </td>
+
+          <div className="overflow-x-auto w-full">
+            <table className="table-auto ">
+              <thead>
+                <tr>
+                  <th>Device</th>
+                  <th>Created At</th>
+                  <th>Last Login At</th>
+                  <th>User</th>
+                  <th>Action</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {dataQuery.data?.devices.map((device) => (
+                  <tr key={device.id}>
+                    <td>
+                      <DeviceImage deviceName={utils.getDeviceName(device.userAgent)} />
+                      {utils.getDeviceName(device.userAgent)}
+                    </td>
+                    <td>{new Date(device.createdAt).toLocaleString()}</td>
+                    <td>{device.lastLoginAt ? new Date(device.lastLoginAt).toLocaleString() : ""}</td>
+                    <td>
+                      <ImgAvatar src={device.user.image} alt="Profile Image" className="w-10 h-10" />
+                      <Link className="link" to={`/users?userId=${device.user.id}`}>
+                        <span>{device.user.name}</span>
+                      </Link>
+                    </td>
+                    <td>
+                      <DeleteDevice deviceId={device.id} onDelete={() => dataQuery.refetch()} />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
           {dataQuery.data?.devices.length === 0 && (
             <div className="flex justify-center items-center mt-10">
               <div className="flex items-center gap-2">

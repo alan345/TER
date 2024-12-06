@@ -33,38 +33,40 @@ const UsersPage = () => {
             </div>
             <Search />
           </div>
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Created At</th>
-                <th>Last Login At</th>
-                <th>Email</th>
-                <th>Avatar</th>
-                <th>Devices</th>
-              </tr>
-            </thead>
-            <tbody>
-              {dataQuery.data?.users.map((user) => (
-                <tr key={user.id}>
-                  <td>{user.name}</td>
-                  <td>{new Date(user.createdAt).toLocaleString()}</td>
-                  <td>{user.lastLoginAt ? new Date(user.lastLoginAt).toLocaleString() : ""}</td>
-                  <td>{user.email}</td>
-                  <td>
-                    <ImgAvatar src={user.image} alt="Profile Image" className="w-10 h-10" />
-                  </td>
-                  <td>
-                    <Link className="link" to={`/devices?userId=${user.id}`}>
-                      <button className="btn-white">
-                        <Devices className="text-2xl" />
-                      </button>
-                    </Link>
-                  </td>
+          <div className="overflow-x-auto w-full">
+            <table className="table-auto border-collapse w-full">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Created At</th>
+                  <th>Last Login At</th>
+                  <th>Email</th>
+                  <th>Avatar</th>
+                  <th>Devices</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {dataQuery.data?.users.map((user) => (
+                  <tr key={user.id}>
+                    <td>{user.name}</td>
+                    <td>{new Date(user.createdAt).toLocaleString()}</td>
+                    <td>{user.lastLoginAt ? new Date(user.lastLoginAt).toLocaleString() : ""}</td>
+                    <td>{user.email}</td>
+                    <td>
+                      <ImgAvatar src={user.image} alt="Profile Image" className="w-10 h-10" />
+                    </td>
+                    <td>
+                      <Link className="link" to={`/devices?userId=${user.id}`}>
+                        <button className="btn-white">
+                          <Devices className="text-2xl" />
+                        </button>
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
           {dataQuery.data?.users.length === 0 && (
             <div className="flex justify-center items-center mt-10">
               <div className="flex items-center gap-2">

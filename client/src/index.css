@@ -32,7 +32,6 @@ button:disabled:hover {
   color: #666666;
 }
 
-
 h1 {
   @apply text-2xl font-bold text-gray-700 mt-2 mb-2;
 }
@@ -63,14 +62,14 @@ tr {
 tbody tr {
   @apply hover:bg-gray-50 h-20;
 }
-tbody tr:hover td {
+/* tbody tr:hover td {
   @apply pl-3;
 }
 
 tbody tr td {
   @apply transition-all duration-300;
 }
-
+ */
 .move-right {
   @apply transition-all duration-300;
 }

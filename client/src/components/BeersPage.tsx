@@ -32,8 +32,8 @@ const BeersPage = () => {
         <SizeTable initSize={initSize} />
         <span className="ml-1">Beers per page</span>
       </div>
-      <div className="overflow-x-auto">
-        <table>
+      <div className="overflow-x-auto w-full">
+        <table className="table-auto border-collapse w-full">
           <thead>
             <tr>
               <th>ID</th>
