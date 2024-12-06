@@ -50,7 +50,7 @@ const DevicesPage = () => {
                     <td>
                       <DeviceImage deviceName={utils.getDeviceName(device.userAgent)} />
                       <div>{utils.getDeviceName(device.userAgent)}</div>
-                      <div>{device.ip}</div>
+                      <div className="text-xs">{device.ip}</div>
                     </td>
                     <td>{new Date(device.createdAt).toLocaleString()}</td>
                     <td>{device.lastLoginAt ? new Date(device.lastLoginAt).toLocaleString() : ""}</td>

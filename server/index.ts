@@ -60,6 +60,7 @@ app.use(cookieParser())
 app.get("/", (_req, res) => {
   res.json({ message: "Hello, TER!" })
 })
+
 app.use(
   "/",
   trpcExpress.createExpressMiddleware({
