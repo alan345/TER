@@ -54,7 +54,6 @@ export const mergeRouters = t.mergeRouters
 const appRouter = mergeRouters(authRouter, userRouter, deviceRouter, healthRouter, beerRouter)
 export type AppRouter = typeof appRouter
 
-console.log(process.env)
 const app = express()
 app.use(cors({ credentials: true, origin: process.env.CLIENT_URL }))
 app.use(cookieParser())

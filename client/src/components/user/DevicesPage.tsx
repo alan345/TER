@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { trpc } from "../../utils/trpc"
 import ErrorTemplate from "../../template/ErrorTemplate"
 import Pagination from "./Pagination"
@@ -52,7 +52,9 @@ const DevicesPage = () => {
                   {/* <td>{user.email}</td> */}
                   <td>
                     <ImgAvatar src={device.user.image} alt="Profile Image" className="w-10 h-10" />
-                    <span>{device.user.name}</span>
+                    <Link className="link" to={`/users?userId=${device.user.id}`}>
+                      <span>{device.user.name}</span>
+                    </Link>
                   </td>
                 </tr>
               ))}

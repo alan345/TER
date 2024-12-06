@@ -1,7 +1,6 @@
-import { devicesTable, usersTable } from "@ter/drizzle"
+import { devicesTable } from "@ter/drizzle"
 import { eq } from "drizzle-orm"
-import { zod } from "@ter/shared"
-import { utils } from "../utils"
+
 import { NodePgClient, NodePgDatabase } from "drizzle-orm/node-postgres"
 
 const manageDevice = {
