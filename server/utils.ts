@@ -19,6 +19,7 @@ export const utils = {
       maxAge,
       httpOnly: true,
       secure: false,
+      sameSite: "none",
       // secure: process.env.NODE_ENV === "development" ? false : true,
       // sameSite: process.env.NODE_ENV === "development" ? undefined : "lax",
       // domain: process.env.NODE_ENV === "development" ? "localhost" : ".onrender.com",
