@@ -15,7 +15,7 @@ const DevicesPage = () => {
   const userId = query.get("userId") || undefined
   const dataQuery = trpc.getDevices.useQuery({ page: utils.sanitizePage(page), search, userId })
   if (dataQuery.isError) return <ErrorTemplate message={dataQuery.error.message} />
-  console.log(userId)
+
   return (
     <div className="flex flex-col h-full">
       <div className="flex-1 overflow-y-auto">
@@ -24,11 +24,16 @@ const DevicesPage = () => {
             <Devices className="text-3xl mr-3" />
             <h1>Devices</h1>
           </div>
-
           <p>This page is private. You can access it only when logged in.</p>
-          {/* <div className="mt-4 mb-4">
-            <Search />
-          </div> */}
+
+          <div className="mt-4 mb-4">
+            {userId && (
+              <div className="inline-flex items-center bg-gray-200 text-gray-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded-full">
+                <span className="mr-1">userId:</span> {userId}
+              </div>
+            )}
+            {/* <Search /> */}
+          </div>
           <table>
             <thead>
               <tr>

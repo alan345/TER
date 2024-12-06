@@ -5,7 +5,7 @@ import { NodePgClient, NodePgDatabase } from "drizzle-orm/node-postgres"
 
 const manageDevice = {
   getAndUpdateDevice: async (
-    db: NodePgDatabase<typeof import("/Users/alan/Documents/apps/TER/packages/drizzle/index")> & {
+    db: NodePgDatabase<typeof import("@ter/drizzle")> & {
       $client: NodePgClient
     },
     userId: string,

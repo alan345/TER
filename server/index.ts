@@ -57,7 +57,7 @@ export type AppRouter = typeof appRouter
 const app = express()
 app.use(cors({ credentials: true, origin: process.env.CLIENT_URL }))
 app.use(cookieParser())
-app.get("/", (req, res) => {
+app.get("/", (_req, res) => {
   res.json({ message: "Hello, TER!" })
 })
 app.use(
