@@ -1,7 +1,7 @@
 import { protectedProcedure, router } from "../trpc"
 import { z } from "zod"
 import { usersTable } from "@ter/drizzle"
-import { eq, count, desc, ilike, and } from "drizzle-orm"
+import { eq, count, asc, ilike, and } from "drizzle-orm"
 
 export const userRouter = router({
   updateUser: protectedProcedure
@@ -39,7 +39,7 @@ export const userRouter = router({
       const users = await db.query.usersTable.findMany({
         limit,
         offset: (page - 1) * limit,
-        orderBy: [desc(usersTable.createdAt)],
+        orderBy: [asc(usersTable.name)],
         columns: { id: true, name: true, email: true, image: true, createdAt: true, lastLoginAt: true },
         where: and(
           opts.input.search ? ilike(usersTable.name, `%${opts.input.search}%`) : undefined,
