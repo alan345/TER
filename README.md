@@ -24,7 +24,6 @@
 - **E**xpress [expressjs.com](https://expressjs.com) - Fast, unopinionated, minimalist web framework for Node.js
 - **R**eact [reactjs.org](https://reactjs.org) - A JavaScript library for building user interfaces
 
-
 ## Preview
 
 ![ter-preview](https://github.com/user-attachments/assets/c9d549a4-7020-498d-9e7e-e5c92600dd51)
@@ -53,7 +52,7 @@
 
 ## Installation
 
-- Update the `.env` [file](https://github.com/alan345/TER/blob/main/.env) with with your database credentials
+- Update the `.env` [file](https://github.com/alan345/TER/blob/main/.env) and the cleint `.env` [file](https://github.com/alan345/TER/blob/main/client/.env) with your credentials
 - Update the `.gitignore` [file](https://github.com/alan345/TER/blob/main/.gitignore) by uncommenting `# .env` to ensure your credentials remain private and are not exposed.
 - Make sure Postgres is running and create a new database called `ter`
 
