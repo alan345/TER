@@ -32,7 +32,7 @@ export const deviceRouter = router({
       const devices = await db.query.devicesTable.findMany({
         limit,
         offset: (page - 1) * limit,
-        orderBy: [desc(devicesTable.createdAt)],
+        orderBy: [desc(devicesTable.lastLoginAt)],
         columns: { id: true, createdAt: true, lastLoginAt: true, userAgent: true, ip: true },
         with: {
           user: {
