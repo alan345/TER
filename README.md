@@ -86,16 +86,13 @@ npm run start
 
 ## Printscreens
 
-<img width="1240" alt="Screenshot 2024-12-07 at 9 05 44 PM" src="https://github.com/user-attachments/assets/41cc01de-5296-46a3-8cc3-4e37651d383b">
-<img width="1240" alt="Screenshot 2024-12-07 at 9 05 37 PM" src="https://github.com/user-attachments/assets/10bd71cb-406b-4989-83aa-20fd5ce32e9b">
-<img width="1240" alt="Screenshot 2024-12-07 at 9 05 31 PM" src="https://github.com/user-attachments/assets/121c11d3-1dc7-41a8-92f7-63ac9ca437a3">
-<img width="1240" alt="Screenshot 2024-12-07 at 9 05 24 PM" src="https://github.com/user-attachments/assets/c7233558-0e8f-4d53-87e7-77db87101677">
-<img width="1240" alt="Screenshot 2024-12-07 at 9 05 19 PM" src="https://github.com/user-attachments/assets/33b5cb7c-96fc-4fdc-ba1f-bd8da096218b">
-<img width="1240" alt="Screenshot 2024-12-07 at 9 05 15 PM" src="https://github.com/user-attachments/assets/03327d88-bcc6-482b-832e-bd5433756aa0">
-<img width="1240" alt="Screenshot 2024-12-07 at 9 04 55 PM" src="https://github.com/user-attachments/assets/cc229157-7066-427d-ae53-c7b3a280d835">
-<img width="1131" alt="Screenshot 2024-12-07 at 9 03 26 PM" src="https://github.com/user-attachments/assets/50382d51-d784-492e-b12b-f0c17887ec7c">
-<img width="1240" alt="Screenshot 2024-12-07 at 9 05 47 PM" src="https://github.com/user-attachments/assets/a99d8da4-9c9f-41f5-9aae-040ce7fe5e91">
-
+<img width="1240" alt="Ter - Home" src="https://github.com/user-attachments/assets/03327d88-bcc6-482b-832e-bd5433756aa0">
+<img width="1240" alt="Ter - Login" src="https://github.com/user-attachments/assets/cc229157-7066-427d-ae53-c7b3a280d835">
+<img width="1240" alt="Ter - Signup" src="https://github.com/user-attachments/assets/41cc01de-5296-46a3-8cc3-4e37651d383b">
+<img width="1240" alt="Ter - Profile" src="https://github.com/user-attachments/assets/c7233558-0e8f-4d53-87e7-77db87101677">
+<img width="1240" alt="Ter - Users" src="https://github.com/user-attachments/assets/121c11d3-1dc7-41a8-92f7-63ac9ca437a3">
+<img width="1240" alt="Ter - Devices" src="https://github.com/user-attachments/assets/10bd71cb-406b-4989-83aa-20fd5ce32e9b">
+<img width="1240" alt="Ter - Beers" src="https://github.com/user-attachments/assets/a99d8da4-9c9f-41f5-9aae-040ce7fe5e91">
 
 #### Health Check for the server (http://localhost:2022/health)
 
