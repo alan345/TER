@@ -38,6 +38,7 @@ export const authRouter = router({
     console.log("deviceIdFromCookie", deviceIdFromCookie)
     const updatedDevice = await manageDevice.getAndUpdateDevice(db, userId, userAgent, ip, deviceIdFromCookie)
 
+    console.log("updatedDevice ++ ", updatedDevice)
     opts.ctx.res.cookie(cookieNameDevice, updatedDevice.id, utils.getParamsCookies(timeDeviceCookie))
     return true
   }),
