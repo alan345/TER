@@ -13,7 +13,7 @@ import { drizzle } from "drizzle-orm/node-postgres"
 import { usersTable } from "@ter/drizzle"
 import * as schema from "@ter/drizzle"
 import { eq } from "drizzle-orm"
-import { cookieNameAuth, cookieNameDeviceId } from "./configTer"
+import { cookieNameAuth } from "./configTer"
 import { config } from "dotenv"
 config({ path: "../.env" })
 
