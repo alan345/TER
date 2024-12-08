@@ -1,12 +1,12 @@
 import { devicesTable } from "@ter/drizzle"
-import * as drizzle from "@ter/drizzle"
+import * as schema from "@ter/drizzle"
 import { eq } from "drizzle-orm"
 
 import { NodePgDatabase } from "drizzle-orm/node-postgres"
 
 const manageDevice = {
   getAndUpdateDevice: async (
-    db: NodePgDatabase<typeof drizzle>,
+    db: NodePgDatabase<typeof schema>,
     userId: string,
     userAgent: string,
     ip: string,
