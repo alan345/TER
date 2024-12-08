@@ -34,6 +34,7 @@ export const authRouter = router({
     const userAgent = opts.ctx.req.headers["user-agent"] || ""
     let ip = opts.ctx.req.ip || ""
     const cookies = opts.ctx.req.cookies
+    console.log("cookies", cookies)
     const deviceIdFromCookie = cookies[cookieNameDevice]
     console.log("deviceIdFromCookie", deviceIdFromCookie)
     const updatedDevice = await manageDevice.getAndUpdateDevice(db, userId, userAgent, ip, deviceIdFromCookie)
