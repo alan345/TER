@@ -35,6 +35,7 @@ export const authRouter = router({
     let ip = opts.ctx.req.ip || ""
     const cookies = opts.ctx.req.cookies
     const deviceIdFromCookie = cookies[cookieNameDevice]
+    console.log("deviceIdFromCookie", deviceIdFromCookie)
     const updatedDevice = await manageDevice.getAndUpdateDevice(db, userId, userAgent, ip, deviceIdFromCookie)
 
     opts.ctx.res.cookie(cookieNameDevice, updatedDevice.id, utils.getParamsCookies(timeDeviceCookie))
@@ -92,7 +93,7 @@ export const authRouter = router({
     let ip = opts.ctx.req.ip || ""
     const cookies = opts.ctx.req.cookies
     const deviceIdFromCookie = cookies[cookieNameDevice]
-    console.log("deviceIdFromCookie", deviceIdFromCookie)
+
     const updatedDevice = await manageDevice.getAndUpdateDevice(db, userId, userAgent, ip, deviceIdFromCookie)
     opts.ctx.res.cookie(cookieNameDevice, updatedDevice.id, utils.getParamsCookies(timeDeviceCookie))
 
