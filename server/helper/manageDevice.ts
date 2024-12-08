@@ -29,6 +29,8 @@ const manageDevice = {
         .insert(devicesTable)
         .values({ userAgent, lastLoginAt, userId, ip })
         .returning({ id: devicesTable.id })
+      console.log("newDevice[0]")
+      console.log(newDevice[0])
       return newDevice[0]
     }
     console.log("device update")
