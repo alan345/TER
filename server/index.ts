@@ -13,7 +13,7 @@ import { drizzle } from "drizzle-orm/node-postgres"
 import { usersTable } from "@ter/drizzle"
 import * as schema from "@ter/drizzle"
 import { eq } from "drizzle-orm"
-import { cookieNameAuth, cookieNameDevice } from "./configTer"
+import { cookieNameAuth, cookieNameDeviceId } from "./configTer"
 import { config } from "dotenv"
 config({ path: "../.env" })
 
@@ -60,7 +60,7 @@ app.use(cookieParser())
 app.get("/", (_req, res) => {
   res.json({ message: "Hello, TER!" })
 })
-// app.set("trust proxy", true)
+app.set("trust proxy", true)
 app.use(
   "/",
   trpcExpress.createExpressMiddleware({
