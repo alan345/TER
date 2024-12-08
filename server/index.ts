@@ -60,7 +60,7 @@ app.use(cookieParser())
 app.get("/", (_req, res) => {
   res.json({ message: "Hello, TER!" })
 })
-
+app.set("trust proxy", true)
 app.use(
   "/",
   trpcExpress.createExpressMiddleware({

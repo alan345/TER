@@ -32,7 +32,7 @@ export const authRouter = router({
     opts.ctx.res.cookie(cookieNameAuth, token, utils.getParamsCookies(timeSessionCookie))
 
     const userAgent = opts.ctx.req.headers["user-agent"] || ""
-    let ip = (opts.ctx.req.headers["x-forwarded-for"] || opts.ctx.req.socket.remoteAddress || "").toString()
+    let ip = opts.ctx.req.ip
     const cookies = opts.ctx.req.cookies
     const deviceIdFromCookie = cookies[cookieNameDevice]
     const updatedDevice = await manageDevice.getAndUpdateDevice(db, userId, userAgent, ip, deviceIdFromCookie)
@@ -89,7 +89,7 @@ export const authRouter = router({
     opts.ctx.res.cookie(cookieNameAuth, token, utils.getParamsCookies(timeSessionCookie))
 
     const userAgent = opts.ctx.req.headers["user-agent"] || ""
-    let ip = (opts.ctx.req.headers["x-forwarded-for"] || opts.ctx.req.socket.remoteAddress || "").toString()
+    let ip = opts.ctx.req.ip
     const cookies = opts.ctx.req.cookies
     const deviceIdFromCookie = cookies[cookieNameDevice]
     const updatedDevice = await manageDevice.getAndUpdateDevice(db, userId, userAgent, deviceIdFromCookie, ip)
