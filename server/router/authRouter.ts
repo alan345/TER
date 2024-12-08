@@ -6,7 +6,7 @@ import { usersTable } from "@ter/drizzle"
 import { eq } from "drizzle-orm"
 import { zod } from "@ter/shared"
 import { utils } from "../utils"
-import { timeSessionCookie, cookieNameAuth, cookieNameDevice, timeDeviceCookie } from "../configTer"
+import { timeSessionCookie, cookieNameAuth, cookieNameDeviceId, timeDeviceCookie } from "../configTer"
 import manageDevice from "../helper/manageDevice"
 
 export const authRouter = router({
@@ -34,10 +34,10 @@ export const authRouter = router({
     const userAgent = opts.ctx.req.headers["user-agent"] || ""
     let ip = opts.ctx.req.ip || ""
     const cookies = opts.ctx.req.cookies
-    const deviceIdFromCookie = cookies[cookieNameDevice]
+    const deviceIdFromCookie = cookies[cookieNameDeviceId]
     const updatedDevice = await manageDevice.getAndUpdateDevice(db, userId, userAgent, ip, deviceIdFromCookie)
 
-    opts.ctx.res.cookie(cookieNameDevice, updatedDevice.id, utils.getParamsCookies(timeDeviceCookie))
+    opts.ctx.res.cookie(cookieNameDeviceId, updatedDevice.id, utils.getParamsCookies(timeDeviceCookie))
     return true
   }),
   refreshToken: protectedProcedure.mutation(async (opts) => {
@@ -91,10 +91,10 @@ export const authRouter = router({
     const userAgent = opts.ctx.req.headers["user-agent"] || ""
     let ip = opts.ctx.req.ip || ""
     const cookies = opts.ctx.req.cookies
-    const deviceIdFromCookie = cookies[cookieNameDevice]
+    const deviceIdFromCookie = cookies[cookieNameDeviceId]
 
     const updatedDevice = await manageDevice.getAndUpdateDevice(db, userId, userAgent, ip, deviceIdFromCookie)
-    opts.ctx.res.cookie(cookieNameDevice, updatedDevice.id, utils.getParamsCookies(timeDeviceCookie))
+    opts.ctx.res.cookie(cookieNameDeviceId, updatedDevice.id, utils.getParamsCookies(timeDeviceCookie))
 
     return true
   }),
