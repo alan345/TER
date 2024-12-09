@@ -4,7 +4,7 @@ import { inferRouterOutputs } from "@trpc/server"
 import { AppRouter } from "../../../../server"
 import { Pencil, CheckFat, SpinnerGap } from "@phosphor-icons/react"
 import SavedIconEffect from "./SavedIconEffect"
-import ErrorMutation from "./ErrorMutation"
+import ErrorMutation from "../../layout/ErrorMutation"
 type RouterOutput = inferRouterOutputs<AppRouter>
 
 type Props = {

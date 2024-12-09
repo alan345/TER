@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react"
-import AppRouter from "../../AppRouter"
-import AvatarMenu from "./AvatarMenu"
+import AppRouter from "../AppRouter"
+import AvatarMenu from "../auth/AvatarMenu"
 import NavLinks from "./NavLinks"
 import BurgerLogic from "./BurgerLogic"
 import LogoTer from "./LogoTer"

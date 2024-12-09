@@ -2,7 +2,7 @@ import React from "react"
 import { trpc } from "../../utils/trpc"
 import { AppContext } from "../../ContextProvider"
 import { ArrowsClockwise } from "@phosphor-icons/react"
-import ErrorMutation from "../user/ErrorMutation"
+import ErrorMutation from "../../layout/ErrorMutation"
 
 const RefreshToken = () => {
   const context = React.useContext(AppContext)

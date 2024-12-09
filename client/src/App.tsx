@@ -4,7 +4,7 @@ import { useState } from "react"
 import { trpc } from "./utils/trpc"
 import { BrowserRouter } from "react-router-dom"
 import ContextProvider from "./ContextProvider"
-import LayoutApp from "./template/layout/LayoutApp"
+import LayoutApp from "./layout/LayoutApp"
 import MyIdle from "./MyIdle"
 
 const App = () => {

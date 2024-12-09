@@ -8,7 +8,7 @@ import UsersPage from "./components/user/UsersPage"
 import Signup from "./components/auth/Signup"
 import BeersPage from "./components/BeersPage"
 import { House } from "@phosphor-icons/react"
-import DevicesPage from "./components/user/DevicesPage"
+import DevicesPage from "./components/device/DevicesPage"
 
 const AppRouter = () => {
   return (

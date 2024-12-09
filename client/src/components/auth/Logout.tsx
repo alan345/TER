@@ -3,7 +3,7 @@ import { trpc } from "../../utils/trpc"
 import { AppContext } from "../../ContextProvider"
 import { useNavigate } from "react-router-dom"
 import { SignOut } from "@phosphor-icons/react"
-import ErrorMutation from "../user/ErrorMutation"
+import ErrorMutation from "../../layout/ErrorMutation"
 
 const Logout = () => {
   const navigate = useNavigate()

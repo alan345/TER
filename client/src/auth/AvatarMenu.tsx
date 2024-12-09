@@ -1,7 +1,7 @@
 import React from "react"
-import { AppContext } from "../../ContextProvider"
+import { AppContext } from "../ContextProvider"
 import { Link } from "react-router-dom"
-import ImgAvatar from "./ImgAvatar"
+import ImgAvatar from "../layout/ImgAvatar"
 import AuthButtons from "./AuthButtons"
 
 const AvatarMenu = () => {

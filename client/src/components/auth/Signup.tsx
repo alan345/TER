@@ -4,7 +4,7 @@ import { AppContext } from "../../ContextProvider"
 import { Link, useNavigate } from "react-router-dom"
 import { z } from "zod"
 import { zod } from "@ter/shared/schemas/zod"
-import ErrorMutation from "../user/ErrorMutation"
+import ErrorMutation from "../../layout/ErrorMutation"
 const zodSignup = zod.zodSignup
 type SignupFormData = z.infer<typeof zodSignup>
 type ErrorsType = Partial<Record<keyof SignupFormData, string[]>>

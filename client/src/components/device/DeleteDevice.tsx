@@ -1,6 +1,6 @@
 import { trpc } from "../../utils/trpc"
 import { Trash } from "@phosphor-icons/react"
-import ErrorMutation from "./ErrorMutation"
+import ErrorMutation from "../../layout/ErrorMutation"
 
 type Props = {
   deviceId: string

@@ -4,7 +4,7 @@ import iconAvatar from "../../assets/icons/avatar.svg"
 import ErrorTemplate from "../../template/ErrorTemplate"
 import { useLocation, useNavigate } from "react-router-dom"
 import { XCircle } from "@phosphor-icons/react"
-import ImgAvatar from "../../template/layout/ImgAvatar"
+import ImgAvatar from "../../layout/ImgAvatar"
 
 type Props = {
   userId: string

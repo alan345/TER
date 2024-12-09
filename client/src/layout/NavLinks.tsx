@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { Link, useLocation } from "react-router-dom"
-import { AppContext } from "../../ContextProvider"
+import { AppContext } from "../ContextProvider"
 import { House, Devices, Users, PencilLine, BeerStein } from "@phosphor-icons/react"
 
 type Props = {

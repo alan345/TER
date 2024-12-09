@@ -2,7 +2,7 @@ import { useState } from "react"
 import { trpc } from "../../utils/trpc"
 import { Pencil, CheckFat, SpinnerGap } from "@phosphor-icons/react"
 import SavedIconEffect from "./SavedIconEffect"
-import ErrorMutation from "./ErrorMutation"
+import ErrorMutation from "../../layout/ErrorMutation"
 
 type Props = {
   onUpdate: () => void

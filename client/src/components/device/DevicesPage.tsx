@@ -1,12 +1,12 @@
 import { Link, useLocation } from "react-router-dom"
 import { trpc } from "../../utils/trpc"
 import ErrorTemplate from "../../template/ErrorTemplate"
-import Pagination from "./Pagination"
-import ImgAvatar from "../../template/layout/ImgAvatar"
+import Pagination from "../../layout/Pagination"
+import ImgAvatar from "../../layout/ImgAvatar"
 import { Devices, CloudWarning } from "@phosphor-icons/react"
 import utils from "../../utils/utils"
 import DeviceImage from "./DeviceImage"
-import ChipUserId from "./ChipUserId"
+import ChipUserId from "../user/ChipUserId"
 import DeleteDevice from "./DeleteDevice"
 
 const DevicesPage = () => {

@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import { AppContext } from "./ContextProvider"
-import AuthButtons from "./template/layout/AuthButtons"
+import AuthButtons from "./auth/AuthButtons"
 
 type Props = {
   element: React.ReactNode

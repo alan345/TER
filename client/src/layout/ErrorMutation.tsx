@@ -1,5 +1,5 @@
 import { TRPCClientErrorLike } from "@trpc/client"
-import { AppRouter } from "../../../../server"
+import { AppRouter } from "../../../server"
 
 type Props = {
   data: TRPCClientErrorLike<AppRouter>

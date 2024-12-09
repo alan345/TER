@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom"
 import { z } from "zod"
 import { zod } from "@ter/shared/schemas/zod"
 import { SignIn } from "@phosphor-icons/react"
-import ErrorMutation from "../user/ErrorMutation"
+import ErrorMutation from "../../layout/ErrorMutation"
 const zodLogin = zod.zodLogin
 
 type LoginFormData = z.infer<typeof zodLogin>
