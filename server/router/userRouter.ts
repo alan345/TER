@@ -54,7 +54,7 @@ export const userRouter = router({
 
       return { users, page, limit, total }
     }),
-  getUser: protectedProcedure
+  getUserProfile: protectedProcedure
     .input(
       z.object({
         id: z.string(),
@@ -65,6 +65,24 @@ export const userRouter = router({
       const db = opts.ctx.db
       const user = await db.query.usersTable.findFirst({
         columns: { id: true, name: true, age: true, email: true, image: true, createdAt: true, lastLoginAt: true },
+        where: eq(usersTable.id, id),
+      })
+
+      if (!user) throw new Error("User not found")
+
+      return user
+    }),
+  getUser: protectedProcedure
+    .input(
+      z.object({
+        id: z.string(),
+      })
+    )
+    .query(async (opts) => {
+      const id = opts.input.id
+      const db = opts.ctx.db
+      const user = await db.query.usersTable.findFirst({
+        columns: { id: true, name: true, image: true },
         where: eq(usersTable.id, id),
       })
 

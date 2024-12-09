@@ -13,7 +13,7 @@ type Props = {
 }
 
 const ProfileQuery = (props: Props) => {
-  const dataQuery = trpc.getUser.useQuery({ id: props.meId })
+  const dataQuery = trpc.getUserProfile.useQuery({ id: props.meId })
   if (dataQuery.isLoading) return <LoadingTemplate />
   if (dataQuery.isError) return <ErrorTemplate message={dataQuery.error.message} />
   if (!dataQuery.data) return <div>No data</div>
