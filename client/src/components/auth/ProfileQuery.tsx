@@ -1,7 +1,7 @@
 import { trpc } from "../../utils/trpc"
 import { LoadingTemplate } from "../../template/LoadingTemplate"
 import ErrorTemplate from "../../template/ErrorTemplate"
-import iconAvatar from "../../assets/icons/avatar.svg"
+import iconAvatar from "@ter/client/src/assets/icons/avatar.svg"
 import UpdateUserName from "../user/UpdateUserName"
 import ImgAvatar from "../../layout/ImgAvatar"
 import UpdateUserAge from "../user/UpdateUserAge"

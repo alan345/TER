@@ -1,5 +1,5 @@
 import React from "react"
-import iconAvatar from "../assets/icons/avatar.svg"
+import iconAvatar from "@ter/client/src/assets/icons/avatar.svg"
 
 type Props = {
   src?: React.ImgHTMLAttributes<HTMLImageElement>["src"] | null
