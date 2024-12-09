@@ -28,9 +28,7 @@ const UsersPage = () => {
 
           <p>This page is private. You can access it only when logged in.</p>
           <div className="mt-4 mb-4">
-            <div className="mb-4">
-              <ChipUserId />
-            </div>
+            <div className="mb-4">{userId && <ChipUserId userId={userId} />}</div>
             <Search />
           </div>
           <div className="overflow-x-auto w-full">

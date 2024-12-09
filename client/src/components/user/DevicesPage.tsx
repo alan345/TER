@@ -29,7 +29,7 @@ const DevicesPage = () => {
           <p>This page is private. You can access it only when logged in.</p>
 
           <div className="mt-4 mb-4">
-            <ChipUserId />
+            {userId && <ChipUserId userId={userId} />}
             {/* <Search /> */}
           </div>
 
