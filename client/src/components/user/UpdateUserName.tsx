@@ -56,7 +56,6 @@ const UpdateUserName = (props: Props) => {
                   if (e.key === "Escape") setIsEdit(false)
                   if (e.key === "Enter") updateUser()
                 }}
-                className="pr-20"
                 style={{ paddingRight: "26px" }}
               />
               <CheckFat
