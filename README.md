@@ -26,7 +26,7 @@
 
 ## Demo
 
-<a href="https://client.ter.work.gd/">
+<a href="https://client.ter.work.gd/" height="100">
   <img src="https://github.com/user-attachments/assets/27c49fe1-094a-47dc-be47-2e2aec6536f5" />
 </a>
 
