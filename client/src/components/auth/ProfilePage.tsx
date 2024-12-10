@@ -19,8 +19,7 @@ const ProfilePage = () => {
         <Logout />
       </div>
       <ProfileQuery meId={context.me.id} />
-      <SessionData />
-      <div className="mt-6">
+      <div className="mt-2">
         <Link className="link" to={`/devices?userId=${context.me.id}`}>
           <button className="btn-white">
             <div className="flex items-center">
@@ -29,6 +28,7 @@ const ProfilePage = () => {
           </button>
         </Link>
       </div>
+      <SessionData />
     </div>
   )
 }
