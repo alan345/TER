@@ -32,8 +32,6 @@
 
 Hosted by [render.com](http://render.com/) for free
 
-
-
 ## Preview
 
 ![ter-preview](https://github.com/user-attachments/assets/c9d549a4-7020-498d-9e7e-e5c92600dd51)
@@ -140,13 +138,10 @@ Create a PR if you want to add your project here.
 
 ## Miscellaneous
 
-<div>
-  
 Discover the details of this project in
+
 - [Medium post](https://alan-szternberg.medium.com/create-a-full-stack-app-with-trpc-react-and-express-35ed95f0851a)
 - [Dev.to post](https://dev.to/alan345/how-to-create-a-web-app-in-2024-using-a-modern-stack-react-trpc-and-express-4eac)
-
-</div>
 
 <div align="center">
   <a href="https://buymeacoffee.com/fullstackter">
