@@ -8,7 +8,7 @@ import ErrorMutation from "../../layout/ErrorMutation"
 type RouterOutput = inferRouterOutputs<AppRouter>
 
 type Props = {
-  user: RouterOutput["getUser"]
+  user: RouterOutput["getUserProfile"]
   onUpdate: () => void
 }
 
