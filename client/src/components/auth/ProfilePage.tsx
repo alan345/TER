@@ -24,7 +24,7 @@ const ProfilePage = () => {
         <Link className="link" to={`/devices?userId=${context.me.id}`}>
           <button className="btn-white">
             <div className="flex items-center">
-              <Devices className="text-2xl mr-2" /> Devices
+              <Devices className="text-xl mr-2" /> Devices
             </div>
           </button>
         </Link>
