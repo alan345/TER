@@ -1,6 +1,6 @@
 import { devicesTable } from "@ter/drizzle"
 import * as schema from "@ter/drizzle"
-import { eq, and } from "drizzle-orm"
+import { eq, and, or, inArray } from "drizzle-orm"
 
 import { NodePgDatabase } from "drizzle-orm/node-postgres"
 
@@ -10,19 +10,27 @@ const manageDevice = {
     userId: string,
     userAgent: string,
     ip: string,
-    deviceId?: string
+    deviceIdFromCookie: string
   ) => {
+    let deviceIds: string[] = []
+    try {
+      deviceIds = JSON.parse(deviceIdFromCookie)
+    } catch {
+      deviceIds = []
+    }
+
     const lastLoginAt = new Date()
-    if (!deviceId) {
+    if (!deviceIds) {
       const newDevice = await db
         .insert(devicesTable)
         .values({ userAgent, lastLoginAt, userId, ip })
         .returning({ id: devicesTable.id })
-      return newDevice[0]
+
+      return Array.from(new Set([...deviceIds, newDevice[0].id]))
     }
 
     const device = await db.query.devicesTable.findFirst({
-      where: and(eq(devicesTable.userId, userId), eq(devicesTable.id, deviceId)),
+      where: and(eq(devicesTable.userId, userId), inArray(devicesTable.id, deviceIds)),
     })
 
     if (!device) {
@@ -30,15 +38,15 @@ const manageDevice = {
         .insert(devicesTable)
         .values({ userAgent, lastLoginAt, userId, ip })
         .returning({ id: devicesTable.id })
-      return newDevice[0]
+      return Array.from(new Set([...deviceIds, newDevice[0].id]))
     }
 
-    const deviceUpdated = await db
+    const newDevice = await db
       .update(devicesTable)
       .set({ lastLoginAt, ip })
       .where(eq(devicesTable.id, device.id))
       .returning({ id: devicesTable.id })
-    return deviceUpdated[0]
+    return Array.from(new Set([...deviceIds, newDevice[0].id]))
   },
 }
 export default manageDevice

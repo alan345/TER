@@ -34,10 +34,11 @@ export const authRouter = router({
     const userAgent = opts.ctx.req.headers["user-agent"] || ""
     let ip = opts.ctx.req.ip || ""
     const cookies = opts.ctx.req.cookies
-    const deviceIdFromCookie = cookies[cookieNameDeviceId]
-    const updatedDevice = await manageDevice.getAndUpdateDevice(db, userId, userAgent, ip, deviceIdFromCookie)
+    const deviceIdFromCookie: string = cookies[cookieNameDeviceId]
 
-    opts.ctx.res.cookie(cookieNameDeviceId, updatedDevice.id, utils.getParamsCookies(timeDeviceCookie))
+    const uniqueIds = await manageDevice.getAndUpdateDevice(db, userId, userAgent, ip, deviceIdFromCookie)
+
+    opts.ctx.res.cookie(cookieNameDeviceId, JSON.stringify(uniqueIds), utils.getParamsCookies(timeDeviceCookie))
     return true
   }),
   refreshToken: protectedProcedure.mutation(async (opts) => {
@@ -91,10 +92,16 @@ export const authRouter = router({
     const userAgent = opts.ctx.req.headers["user-agent"] || ""
     let ip = opts.ctx.req.ip || ""
     const cookies = opts.ctx.req.cookies
-    const deviceIdFromCookie = cookies[cookieNameDeviceId]
+    // const deviceIdFromCookie = cookies[cookieNameDeviceId]
 
-    const updatedDevice = await manageDevice.getAndUpdateDevice(db, userId, userAgent, ip, deviceIdFromCookie)
-    opts.ctx.res.cookie(cookieNameDeviceId, updatedDevice.id, utils.getParamsCookies(timeDeviceCookie))
+    const deviceIdFromCookie: string = cookies[cookieNameDeviceId]
+
+    const uniqueIds = await manageDevice.getAndUpdateDevice(db, userId, userAgent, ip, deviceIdFromCookie)
+
+    opts.ctx.res.cookie(cookieNameDeviceId, JSON.stringify(uniqueIds), utils.getParamsCookies(timeDeviceCookie))
+
+    // const updatedDevice = await manageDevice.getAndUpdateDevice(db, userId, userAgent, ip, deviceIdFromCookie)
+    // opts.ctx.res.cookie(cookieNameDeviceId, updatedDevice.id, utils.getParamsCookies(timeDeviceCookie))
 
     return true
   }),
