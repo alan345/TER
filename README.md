@@ -26,9 +26,10 @@
 
 ## Demo
 
+
 <div align="center">
   <a href="https://client.ter.work.gd/" >
-    <img src="https://github.com/user-attachments/assets/27c49fe1-094a-47dc-be47-2e2aec6536f5" height="100px" />
+    <img width="200" alt="Demo TER" src="https://github.com/user-attachments/assets/b343633f-237a-4377-b8be-114185103645">
   </a>
 </div>
 
