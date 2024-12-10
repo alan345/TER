@@ -10,11 +10,11 @@ const manageDevice = {
     userId: string,
     userAgent: string,
     ip: string,
-    deviceIdFromCookie: string
+    deviceIdsFromCookieString: string
   ) => {
     let deviceIds: string[] = []
     try {
-      deviceIds = JSON.parse(deviceIdFromCookie)
+      deviceIds = JSON.parse(deviceIdsFromCookieString)
     } catch {
       deviceIds = []
     }

@@ -6,7 +6,7 @@ import { usersTable } from "@ter/drizzle"
 import { eq } from "drizzle-orm"
 import { zod } from "@ter/shared"
 import { utils } from "../utils"
-import { timeSessionCookie, cookieNameAuth, cookieNameDeviceId, timeDeviceCookie } from "../configTer"
+import { timeSessionCookie, cookieNameAuth, cookieNameDeviceIds, timeDeviceCookie } from "../configTer"
 import manageDevice from "../helper/manageDevice"
 
 export const authRouter = router({
@@ -34,11 +34,11 @@ export const authRouter = router({
     const userAgent = opts.ctx.req.headers["user-agent"] || ""
     let ip = opts.ctx.req.ip || ""
     const cookies = opts.ctx.req.cookies
-    const deviceIdFromCookie: string = cookies[cookieNameDeviceId]
+    const deviceIdsFromCookieString: string = cookies[cookieNameDeviceIds]
 
-    const uniqueIds = await manageDevice.getAndUpdateDevice(db, userId, userAgent, ip, deviceIdFromCookie)
+    const uniqueIds = await manageDevice.getAndUpdateDevice(db, userId, userAgent, ip, deviceIdsFromCookieString)
 
-    opts.ctx.res.cookie(cookieNameDeviceId, JSON.stringify(uniqueIds), utils.getParamsCookies(timeDeviceCookie))
+    opts.ctx.res.cookie(cookieNameDeviceIds, JSON.stringify(uniqueIds), utils.getParamsCookies(timeDeviceCookie))
     return true
   }),
   refreshToken: protectedProcedure.mutation(async (opts) => {
@@ -93,12 +93,11 @@ export const authRouter = router({
     let ip = opts.ctx.req.ip || ""
     const cookies = opts.ctx.req.cookies
     // const deviceIdFromCookie = cookies[cookieNameDeviceId]
+    const deviceIdsFromCookieString: string = cookies[cookieNameDeviceIds]
 
-    const deviceIdFromCookie: string = cookies[cookieNameDeviceId]
+    const uniqueIds = await manageDevice.getAndUpdateDevice(db, userId, userAgent, ip, deviceIdsFromCookieString)
 
-    const uniqueIds = await manageDevice.getAndUpdateDevice(db, userId, userAgent, ip, deviceIdFromCookie)
-
-    opts.ctx.res.cookie(cookieNameDeviceId, JSON.stringify(uniqueIds), utils.getParamsCookies(timeDeviceCookie))
+    opts.ctx.res.cookie(cookieNameDeviceIds, JSON.stringify(uniqueIds), utils.getParamsCookies(timeDeviceCookie))
 
     // const updatedDevice = await manageDevice.getAndUpdateDevice(db, userId, userAgent, ip, deviceIdFromCookie)
     // opts.ctx.res.cookie(cookieNameDeviceId, updatedDevice.id, utils.getParamsCookies(timeDeviceCookie))
