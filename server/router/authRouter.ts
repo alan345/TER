@@ -99,9 +99,6 @@ export const authRouter = router({
 
     opts.ctx.res.cookie(cookieNameDeviceIds, JSON.stringify(uniqueIds), utils.getParamsCookies(timeDeviceCookie))
 
-    // const updatedDevice = await manageDevice.getAndUpdateDevice(db, userId, userAgent, ip, deviceIdFromCookie)
-    // opts.ctx.res.cookie(cookieNameDeviceId, updatedDevice.id, utils.getParamsCookies(timeDeviceCookie))
-
     return true
   }),
   logout: publicProcedure.mutation(async (opts) => {
