@@ -20,8 +20,6 @@ const DevicesPage = () => {
   const userId = query.get("userId") || undefined
   const dataQuery = trpc.getDevices.useQuery({ page: utils.sanitizePage(page), search, userId })
   if (dataQuery.isError) return <ErrorTemplate message={dataQuery.error.message} />
-  console.log(context)
-  // const myDeviceId = context.deviceId
   return (
     <div className="flex flex-col h-full">
       <div className="flex-1 overflow-y-auto">
