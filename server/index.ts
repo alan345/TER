@@ -13,8 +13,9 @@ import { drizzle } from "drizzle-orm/node-postgres"
 import { usersTable } from "@ter/drizzle"
 import * as schema from "@ter/drizzle"
 import { eq } from "drizzle-orm"
-import { cookieNameAuth } from "./configTer"
+import { cookieNameAuth, cookieNameDeviceIds } from "./configTer"
 import { config } from "dotenv"
+import manageDevice from "./helper/manageDevice"
 config({ path: "../.env" })
 
 const secretJwt = process.env.JWT_SECRET
@@ -39,7 +40,14 @@ export const createContext = async ({ req, res }: trpcExpress.CreateExpressConte
       let decoded = jwt.verify(authToken, secretJwt) as UserIDJwtPayload
       if (decoded) {
         const user = await db.query.usersTable.findFirst({ where: eq(usersTable.id, decoded.id) })
-        return { req, res, user, db, config, decoded }
+        if (!user) throw new Error("User not found")
+
+        const cookies = req.cookies
+        const deviceIdsFromCookieString: string = cookies[cookieNameDeviceIds]
+        const device = await manageDevice.getDeviceFromCookieString(db, user.id, deviceIdsFromCookieString)
+
+        if (!device) throw new Error("Device not found")
+        return { req, res, user, db, config, decoded, device }
       }
     } catch (error) {
       console.log("error", error)

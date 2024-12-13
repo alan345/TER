@@ -12,6 +12,7 @@ type ContextType = {
     exp: number
     iat: number
   } | null
+  deviceId: string | null
   updateAuth: () => Promise<void>
   isLoadingAuth: boolean
 }
@@ -19,6 +20,7 @@ const initialContext: ContextType = {
   me: null,
   decoded: null,
   isLoadingAuth: false,
+  deviceId: null,
   updateAuth: async () => {},
 }
 export const AppContext = React.createContext<ContextType>(initialContext)
@@ -33,6 +35,7 @@ const ContextProvider = (props: Props) => {
   const [isLoadingAuth, setIsLoadingAuth] = React.useState(false)
   const [me, setMe] = React.useState<ContextType["me"]>(null)
   const [decoded, setDecoded] = React.useState<ContextType["decoded"]>(null)
+  const [deviceId, setDeviceId] = React.useState<ContextType["deviceId"]>(null)
   const updateAuth = async () => {
     await getAuthQuery.refetch()
   }
@@ -46,6 +49,7 @@ const ContextProvider = (props: Props) => {
     if (getAuthQuery.data) {
       setMe(getAuthQuery.data.user)
       setDecoded(getAuthQuery.data.decoded)
+      setDeviceId(getAuthQuery.data.deviceid)
     }
   }, [getAuthQuery])
 
@@ -56,6 +60,7 @@ const ContextProvider = (props: Props) => {
         decoded,
         isLoadingAuth,
         updateAuth,
+        deviceId,
       }}
     >
       {props.children}

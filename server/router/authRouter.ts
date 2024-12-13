@@ -113,6 +113,7 @@ export const authRouter = router({
         name: opts.ctx.user.name,
         image: opts.ctx.user.image,
       },
+      deviceid: opts.ctx.device.id,
       decoded: opts.ctx.decoded,
     }
   }),

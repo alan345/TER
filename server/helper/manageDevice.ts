@@ -5,6 +5,17 @@ import { eq, and, or, inArray } from "drizzle-orm"
 import { NodePgDatabase } from "drizzle-orm/node-postgres"
 
 const manageDevice = {
+  getDeviceFromCookieString: async (
+    db: NodePgDatabase<typeof schema>,
+    userId: string,
+    deviceIdsFromCookieString: string
+  ) => {
+    const deviceIds = manageDevice.getDeviceIdsFromCookieString(deviceIdsFromCookieString)
+    const device = await db.query.devicesTable.findFirst({
+      where: and(eq(devicesTable.userId, userId), inArray(devicesTable.id, deviceIds)),
+    })
+    return device
+  },
   getAndUpdateDevice: async (
     db: NodePgDatabase<typeof schema>,
     userId: string,
@@ -12,14 +23,8 @@ const manageDevice = {
     ip: string,
     deviceIdsFromCookieString: string
   ) => {
-    let deviceIds: string[] = []
-    try {
-      deviceIds = JSON.parse(deviceIdsFromCookieString)
-    } catch {
-      deviceIds = []
-    }
-
     const lastLoginAt = new Date()
+    const deviceIds = manageDevice.getDeviceIdsFromCookieString(deviceIdsFromCookieString)
     if (!deviceIds) {
       const newDevice = await db
         .insert(devicesTable)
@@ -47,6 +52,15 @@ const manageDevice = {
       .where(eq(devicesTable.id, device.id))
       .returning({ id: devicesTable.id })
     return Array.from(new Set([...deviceIds, newDevice[0].id]))
+  },
+  getDeviceIdsFromCookieString: (deviceIdsFromCookieString: string) => {
+    let deviceIds: string[] = []
+    try {
+      deviceIds = JSON.parse(deviceIdsFromCookieString)
+    } catch {
+      deviceIds = []
+    }
+    return deviceIds
   },
 }
 export default manageDevice
