@@ -8,8 +8,11 @@ import utils from "../../utils/utils"
 import DeviceImage from "./DeviceImage"
 import ChipUserId from "../user/ChipUserId"
 import DeleteDevice from "./DeleteDevice"
+import React from "react"
+import { AppContext } from "../../ContextProvider"
 
 const DevicesPage = () => {
+  const context = React.useContext(AppContext)
   const location = useLocation()
   const query = new URLSearchParams(location.search)
   const page = query.get("page")
@@ -17,7 +20,8 @@ const DevicesPage = () => {
   const userId = query.get("userId") || undefined
   const dataQuery = trpc.getDevices.useQuery({ page: utils.sanitizePage(page), search, userId })
   if (dataQuery.isError) return <ErrorTemplate message={dataQuery.error.message} />
-
+  console.log(context)
+  // const myDeviceId = context.deviceId
   return (
     <div className="flex flex-col h-full">
       <div className="flex-1 overflow-y-auto">
@@ -48,8 +52,13 @@ const DevicesPage = () => {
                 {dataQuery.data?.devices.map((device) => (
                   <tr key={device.id}>
                     <td>
-                      <DeviceImage deviceName={utils.getDeviceName(device.userAgent)} />
-                      <div>{utils.getDeviceName(device.userAgent)}</div>
+                      <DeviceImage
+                        deviceName={utils.getDeviceName(device.userAgent)}
+                        className={`text-3xl ${device.id === context.deviceId ? "text-[#034DA2]" : ""}`}
+                      />
+                      <div className={`${device.id === context.deviceId ? "text-[#034DA2]" : ""}`}>
+                        {utils.getDeviceName(device.userAgent)}
+                      </div>
                       {device.ip && device.ip !== "::1" && <div className="text-xxs">{device.ip}</div>}
                     </td>
                     <td>{new Date(device.createdAt).toLocaleString()}</td>
