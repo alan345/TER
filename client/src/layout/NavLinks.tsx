@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { Link, useLocation } from "react-router"
+import { NavLink } from "react-router"
 import { AppContext } from "../ContextProvider"
 import { House, Devices, Users, PencilLine, BeerStein } from "@phosphor-icons/react"
 
@@ -8,74 +8,73 @@ type Props = {
 }
 
 const NavLinks = (props: Props) => {
-  const location = useLocation()
   const context = useContext(AppContext)
   return (
     <nav className="px-4 py-6">
-      <Link
+      <NavLink
         onClick={props.onClick}
         to="/"
-        className={`block py-2.5 px-4 rounded transition ${
-          location.pathname === "/" ? "bg-gray-200" : "hover:bg-gray-100"
-        }`}
+        className={({ isActive }) =>
+          `block py-2.5 px-4 rounded transition ${isActive ? "bg-gray-200" : "hover:bg-gray-100"}`
+        }
       >
         <div className="flex items-center">
           <House className="mr-2" />
           Home
         </div>
-      </Link>
-      <Link
+      </NavLink>
+      <NavLink
         onClick={props.onClick}
         to="/beers"
-        className={`block py-2.5 px-4 rounded transition ${
-          location.pathname === "/beers" ? "bg-gray-200" : "hover:bg-gray-100"
-        }`}
+        className={({ isActive }) =>
+          `block py-2.5 px-4 rounded transition ${isActive ? "bg-gray-200" : "hover:bg-gray-100"}`
+        }
       >
         <div className="flex items-center">
           <BeerStein className="mr-2" />
           Beers
         </div>
-      </Link>
+      </NavLink>
       {context.me && (
-        <Link
+        <NavLink
           onClick={props.onClick}
           to="/users"
-          className={`block py-2.5 px-4 rounded transition ${
-            location.pathname === "/users" ? "bg-gray-200" : "hover:bg-gray-100"
-          }`}
+          className={({ isActive }) =>
+            `block py-2.5 px-4 rounded transition ${isActive ? "bg-gray-200" : "hover:bg-gray-100"}`
+          }
         >
           <div className="flex items-center">
             <Users className="mr-2" />
             Users
           </div>
-        </Link>
+        </NavLink>
       )}
       {context.me && (
-        <Link
+        <NavLink
           onClick={props.onClick}
           to="/devices"
-          className={`block py-2.5 px-4 rounded transition ${
-            location.pathname === "/devices" ? "bg-gray-200" : "hover:bg-gray-100"
-          }`}
+          className={({ isActive }) =>
+            `block py-2.5 px-4 rounded transition ${isActive ? "bg-gray-200" : "hover:bg-gray-100"}`
+          }
         >
           <div className="flex items-center">
             <Devices className="mr-2" />
             Devices
           </div>
-        </Link>
+        </NavLink>
       )}
-      <Link
+      <NavLink
         onClick={props.onClick}
         to="/contact"
-        className={`block py-2.5 px-4 rounded transition ${
-          location.pathname === "/contact" ? "bg-gray-200" : "hover:bg-gray-100"
-        }`}
+        className={({ isActive }) =>
+          `block py-2.5 px-4 rounded transition ${isActive ? "bg-gray-200" : "hover:bg-gray-100"}`
+        }
       >
         <div className="flex items-center">
           <PencilLine className="mr-2" />
           Contact
         </div>
-      </Link>
+      </NavLink>
       <a
         href="https://github.com/alan345/TER"
         className="block py-2.5 px-4 rounded transition hover:bg-gray-100"
