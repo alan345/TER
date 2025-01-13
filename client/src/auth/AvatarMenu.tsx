@@ -1,6 +1,6 @@
 import React from "react"
 import { AppContext } from "../ContextProvider"
-import { Link } from "react-router-dom"
+import { Link } from "react-router"
 import ImgAvatar from "../layout/ImgAvatar"
 import AuthButtons from "./AuthButtons"
 

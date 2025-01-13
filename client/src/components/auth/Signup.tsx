@@ -1,7 +1,7 @@
 import React from "react"
 import { trpc } from "../../utils/trpc"
 import { AppContext } from "../../ContextProvider"
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router"
 import { z } from "zod"
 import { zod } from "@ter/shared/schemas/zod"
 import ErrorMutation from "../../layout/ErrorMutation"

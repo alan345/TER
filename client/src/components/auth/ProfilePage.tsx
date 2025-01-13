@@ -3,7 +3,7 @@ import { AppContext } from "../../ContextProvider"
 import ProfileQuery from "./ProfileQuery"
 import SessionData from "./SessionData"
 import Logout from "./Logout"
-import { Link } from "react-router-dom"
+import { Link } from "react-router"
 import { Devices } from "@phosphor-icons/react"
 
 const ProfilePage = () => {

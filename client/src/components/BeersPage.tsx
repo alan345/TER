@@ -2,7 +2,7 @@ import ErrorTemplate from "../template/ErrorTemplate"
 import { LoadingTemplate } from "../template/LoadingTemplate"
 import { SizeTable } from "../template/SizeTable"
 import { trpc } from "../utils/trpc"
-import { useSearchParams } from "react-router-dom"
+import { useSearchParams } from "react-router"
 import { BeerStein } from "@phosphor-icons/react"
 const BeersPage = () => {
   const [searchParams] = useSearchParams()

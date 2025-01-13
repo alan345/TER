@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation } from "react-router"
 import { trpc } from "../../utils/trpc"
 import ErrorTemplate from "../../template/ErrorTemplate"
 import Pagination from "../../layout/Pagination"

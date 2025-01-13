@@ -1,7 +1,7 @@
 import React from "react"
 import { trpc } from "../../utils/trpc"
 import { AppContext } from "../../ContextProvider"
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router"
 import { SignOut } from "@phosphor-icons/react"
 import ErrorMutation from "../../layout/ErrorMutation"
 

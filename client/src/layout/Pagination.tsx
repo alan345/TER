@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation } from "react-router"
 import { CaretRight, CaretLeft } from "@phosphor-icons/react"
 
 type Props = {

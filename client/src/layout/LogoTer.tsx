@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router"
 import logoTer from "@ter/client/src/assets/images/ter-logo.png"
 
 const LogoTer = () => {

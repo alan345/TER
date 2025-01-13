@@ -2,7 +2,7 @@ import { trpc } from "../../utils/trpc"
 import { LoadingTemplate } from "../../template/LoadingTemplate"
 import iconAvatar from "@ter/client/src/assets/icons/avatar.svg"
 import ErrorTemplate from "../../template/ErrorTemplate"
-import { useLocation, useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router"
 import { XCircle } from "@phosphor-icons/react"
 import ImgAvatar from "../../layout/ImgAvatar"
 
