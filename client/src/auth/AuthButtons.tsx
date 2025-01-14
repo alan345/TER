@@ -1,5 +1,5 @@
 import { Link } from "react-router"
-import { SignIn, Key } from "@phosphor-icons/react"
+import { SignIn, Keyhole } from "@phosphor-icons/react"
 
 const AuthButtons = () => {
   return (
@@ -12,7 +12,7 @@ const AuthButtons = () => {
       </Link>
       <Link to="/signup">
         <button id="login-mutation-button" className="btn-white flex items-center">
-          <Key className="mr-2" />
+          <Keyhole className="mr-2" />
           Sign up
         </button>
       </Link>
