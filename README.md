@@ -45,6 +45,7 @@ Hosted by [render.com](http://render.com/) for free
 - [Phosphor Icons](https://phosphoricons.com) - A flexible icon family for interfaces, diagrams, presentations — whatever, really
 - [Playwright](https://playwright.dev) - Test your web apps headlessly with a single API
 - [Postgres](https://www.postgresql.org) - The world's most advanced open source database
+- [React Router v7](https://reactrouter.com) - Declarative routing for React
 - [Tailwind CSS](https://tailwindcss.com) - A utility-first CSS framework for rapid UI development
 - [TypeScript](https://www.typescriptlang.org) - TypeScript is a typed superset of JavaScript
 - [Vite](https://vitejs.dev) - Next generation frontend tooling. It's fast!

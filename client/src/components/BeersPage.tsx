@@ -4,6 +4,7 @@ import { SizeTable } from "../template/SizeTable"
 import { trpc } from "../utils/trpc"
 import { useSearchParams } from "react-router"
 import { BeerStein } from "@phosphor-icons/react"
+
 const BeersPage = () => {
   const [searchParams] = useSearchParams()
   const sizeUrl = searchParams.get("size")
