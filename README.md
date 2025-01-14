@@ -20,9 +20,9 @@
 
 ## Main Stack
 
-- **T**rpc [trpc.io](https://trpc.io) - End-to-end typesafe APIs made easy
-- **E**xpress [expressjs.com](https://expressjs.com) - Fast, unopinionated, minimalist web framework for Node.js
-- **R**eact [reactjs.org](https://reactjs.org) - A JavaScript library for building user interfaces
+- **T**rpc [tRPC](https://trpc.io) - End-to-end typesafe APIs made easy
+- **E**xpress [Express js 5](https://expressjs.com) - Fast, unopinionated, minimalist web framework for Node.js
+- **R**eact [React](https://reactjs.org) - A JavaScript library for building user interfaces
 
 ## Demo
 
