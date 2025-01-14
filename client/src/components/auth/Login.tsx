@@ -77,7 +77,10 @@ const Login = () => {
 
   return (
     <div className="p-6">
-      <h1>Login</h1>
+      <div className="flex items-center">
+        <SignIn className="text-3xl mr-3" />
+        <h1>Login</h1>
+      </div>
       <form onSubmit={onSubmit} className="mt-4 space-y-2">
         <div>
           <input

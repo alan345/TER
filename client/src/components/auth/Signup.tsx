@@ -6,6 +6,7 @@ import { z } from "zod"
 import { zod } from "@ter/shared/schemas/zod"
 import ErrorMutation from "../../layout/ErrorMutation"
 const zodSignup = zod.zodSignup
+import { Keyhole } from "@phosphor-icons/react"
 type SignupFormData = z.infer<typeof zodSignup>
 type ErrorsType = Partial<Record<keyof SignupFormData, string[]>>
 
@@ -79,7 +80,10 @@ const Signup = () => {
 
   return (
     <div className="p-6">
-      <h1>Sign up</h1>
+      <div className="flex items-center">
+        <Keyhole className="text-3xl mr-3" />
+        <h1>Sign up</h1>
+      </div>
       <form onSubmit={onSubmit} className="mt-4 space-y-2">
         <div>
           <input
@@ -151,7 +155,8 @@ const Signup = () => {
           </label>
         </div>
 
-        <button type="submit" disabled={isSubmitting || !isFormValid()} className="btn-blue">
+        <button type="submit" disabled={isSubmitting || !isFormValid()} className="btn-blue flex items-center">
+          <Keyhole className="mr-2" />
           {isSubmitting ? <span>Signing up...</span> : <span>Sign up</span>}
         </button>
         {mutation.error && <ErrorMutation data={mutation.error} />}
