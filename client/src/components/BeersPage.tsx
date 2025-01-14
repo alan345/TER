@@ -40,6 +40,7 @@ const BeersPage = () => {
               <th>Brand</th>
               <th>Name</th>
               <th>Style</th>
+              <th>Alcohol</th>
             </tr>
           </thead>
 
@@ -50,6 +51,7 @@ const BeersPage = () => {
                 <td>{singleElement.brand}</td>
                 <td>{singleElement.name}</td>
                 <td>{singleElement.style}</td>
+                <td>{singleElement.alcohol}</td>
               </tr>
             ))}
           </tbody>
