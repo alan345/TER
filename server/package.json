@@ -13,7 +13,7 @@
     "@ter/drizzle": "1.0.0",
     "@ter/shared": "1.0.0",
     "@trpc/server": "next",
-    "drizzle-orm": "^0.38.3",
+    "drizzle-orm": "^0.38.4",
     "axios": "^1.7.9",
     "bcrypt": "^5.1.1",
     "cookie-parser": "^1.4.7",
@@ -28,7 +28,7 @@
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/jsonwebtoken": "^9.0.7",
-    "@types/node": "^22.10.1",
+    "@types/node": "^22.10.7",
     "eslint": "^9.18.0",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3"
