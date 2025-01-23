@@ -12,7 +12,7 @@ export const usersTable = pgTable("users", {
   lastLoginAt: timestamp("last_login_at"),
 })
 
-export const usersRelations = relations(usersTable, ({ many }) => ({
+export const userDevicesRelations = relations(usersTable, ({ many }) => ({
   devices: many(devicesTable),
 }))
 
