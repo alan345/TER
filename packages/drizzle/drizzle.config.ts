@@ -1,7 +1,7 @@
 import "dotenv/config"
 import { defineConfig } from "drizzle-kit"
 import { config } from "dotenv"
-config({ path: "../../.env" })
+config({ path: "../../server.env" })
 const databaseUrl = process.env.DATABASE_URL!
 
 export default defineConfig({

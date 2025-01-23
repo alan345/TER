@@ -7,7 +7,7 @@ import { eq } from "drizzle-orm"
 import { cookieNameAuth, cookieNameDeviceIds } from "./configTer"
 import { config } from "dotenv"
 import manageDevice from "./helper/manageDevice"
-config({ path: "../.env" })
+config({ path: "../server.env" })
 
 const secretJwt = process.env.JWT_SECRET
 const databaseUrl = process.env.DATABASE_URL
