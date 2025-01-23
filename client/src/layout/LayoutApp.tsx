@@ -43,7 +43,7 @@ const LayoutApp = () => {
         <header className="flex items-center justify-between bg-white border-b border-gray-200 p-4">
           <div className="flex items-center">
             <button
-              className="text-gray-500 focus:outline-hidden md:hidden cursor-pointer"
+              className="text-gray-500 focus:outline-hidden md:hidden"
               onClick={() => setSidebarOpen(!sidebarOpen)}
             >
               <BurgerLogic sidebarOpen={sidebarOpen} />
