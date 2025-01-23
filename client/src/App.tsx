@@ -6,9 +6,21 @@ import { BrowserRouter } from "react-router"
 import ContextProvider from "./ContextProvider"
 import LayoutApp from "./layout/LayoutApp"
 import MyIdle from "./MyIdle"
+import LogoTer from "./layout/LogoTer"
 
 const App = () => {
-  console.log(import.meta.env)
+  const url = import.meta.env.VITE_URL_BACKEND
+  if (!url)
+    return (
+      <div className="p-6">
+        <LogoTer />
+        <div className="flex flex-col items-center mt-12">
+          <h1>Error</h1>
+          <p>URL_BACKEND not set in env file</p>
+        </div>
+      </div>
+    )
+
   const [queryClient] = useState(
     () =>
       new QueryClient({
@@ -26,7 +38,7 @@ const App = () => {
     trpc.createClient({
       links: [
         httpBatchLink({
-          url: import.meta.env.VITE_URL_BACKEND ?? "http://localhost:2022",
+          url: import.meta.env.VITE_URL_BACKEND,
           fetch(url, options) {
             return fetch(url, {
               ...options,

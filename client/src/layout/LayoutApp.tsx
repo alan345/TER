@@ -4,6 +4,7 @@ import AvatarMenu from "../auth/AvatarMenu"
 import NavLinks from "./NavLinks"
 import BurgerLogic from "./BurgerLogic"
 import LogoTer from "./LogoTer"
+import { Link } from "react-router"
 
 const LayoutApp = () => {
   const [sidebarOpen, setSidebarOpen] = React.useState(false)
@@ -32,14 +33,19 @@ const LayoutApp = () => {
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         } transition-transform duration-200 ease-in-out md:relative md:translate-x-0`}
       >
-        <LogoTer />
+        <Link to="/">
+          <LogoTer />
+        </Link>
         <NavLinks onClick={() => setSidebarOpen(false)} />
       </div>
 
       <div className="flex-1 flex flex-col overflow-hidden">
         <header className="flex items-center justify-between bg-white border-b border-gray-200 p-4">
           <div className="flex items-center">
-            <button className="text-gray-500 focus:outline-hidden md:hidden" onClick={() => setSidebarOpen(!sidebarOpen)}>
+            <button
+              className="text-gray-500 focus:outline-hidden md:hidden"
+              onClick={() => setSidebarOpen(!sidebarOpen)}
+            >
               <BurgerLogic sidebarOpen={sidebarOpen} />
             </button>
           </div>
