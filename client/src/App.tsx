@@ -8,6 +8,7 @@ import LayoutApp from "./layout/LayoutApp"
 import MyIdle from "./MyIdle"
 
 const App = () => {
+  console.log(import.meta.env)
   const [queryClient] = useState(
     () =>
       new QueryClient({
