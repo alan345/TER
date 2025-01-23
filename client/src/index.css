@@ -1,9 +1,29 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --text-xxs: 0.625rem;
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 button {
-  @apply font-bold py-2 px-4 rounded;
+  @apply font-bold py-2 px-4 rounded-sm;
 }
 .btn-blue {
   @apply bg-[#034DA2] text-white text-xs;
@@ -80,10 +100,10 @@ tbody tr td {
 input[type="text"],
 input[type="password"],
 input[type="number"] {
-  @apply shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none;
+  @apply shadow-sm appearance-none border rounded-sm py-2 px-3 text-gray-700 leading-tight focus:outline-hidden;
 }
 input[type="checkbox"] {
-  @apply w-4 h-4 rounded mt-2;
+  @apply w-4 h-4 rounded-sm mt-2;
 }
 
 .input-error {

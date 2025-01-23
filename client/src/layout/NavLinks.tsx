@@ -15,7 +15,7 @@ const NavLinks = (props: Props) => {
         onClick={props.onClick}
         to="/"
         className={({ isActive }) =>
-          `block py-2.5 px-4 rounded transition ${isActive ? "bg-gray-200" : "hover:bg-gray-100"}`
+          `block py-2.5 px-4 rounded-sm transition ${isActive ? "bg-gray-200" : "hover:bg-gray-100"}`
         }
       >
         <div className="flex items-center">
@@ -27,7 +27,7 @@ const NavLinks = (props: Props) => {
         onClick={props.onClick}
         to="/beers"
         className={({ isActive }) =>
-          `block py-2.5 px-4 rounded transition ${isActive ? "bg-gray-200" : "hover:bg-gray-100"}`
+          `block py-2.5 px-4 rounded-sm transition ${isActive ? "bg-gray-200" : "hover:bg-gray-100"}`
         }
       >
         <div className="flex items-center">
@@ -40,7 +40,7 @@ const NavLinks = (props: Props) => {
           onClick={props.onClick}
           to="/users"
           className={({ isActive }) =>
-            `block py-2.5 px-4 rounded transition ${isActive ? "bg-gray-200" : "hover:bg-gray-100"}`
+            `block py-2.5 px-4 rounded-sm transition ${isActive ? "bg-gray-200" : "hover:bg-gray-100"}`
           }
         >
           <div className="flex items-center">
@@ -54,7 +54,7 @@ const NavLinks = (props: Props) => {
           onClick={props.onClick}
           to="/devices"
           className={({ isActive }) =>
-            `block py-2.5 px-4 rounded transition ${isActive ? "bg-gray-200" : "hover:bg-gray-100"}`
+            `block py-2.5 px-4 rounded-sm transition ${isActive ? "bg-gray-200" : "hover:bg-gray-100"}`
           }
         >
           <div className="flex items-center">
@@ -67,7 +67,7 @@ const NavLinks = (props: Props) => {
         onClick={props.onClick}
         to="/contact"
         className={({ isActive }) =>
-          `block py-2.5 px-4 rounded transition ${isActive ? "bg-gray-200" : "hover:bg-gray-100"}`
+          `block py-2.5 px-4 rounded-sm transition ${isActive ? "bg-gray-200" : "hover:bg-gray-100"}`
         }
       >
         <div className="flex items-center">
@@ -77,7 +77,7 @@ const NavLinks = (props: Props) => {
       </NavLink>
       <a
         href="https://github.com/alan345/TER"
-        className="block py-2.5 px-4 rounded transition hover:bg-gray-100"
+        className="block py-2.5 px-4 rounded-sm transition hover:bg-gray-100"
         target="_blank"
         rel="noopener noreferrer"
       >
