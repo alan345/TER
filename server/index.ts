@@ -9,9 +9,9 @@ import { deviceRouter } from "./router/deviceRouter"
 import { healthRouter } from "./router/healthRouter"
 import { beerRouter } from "./router/beerRouter"
 import { t } from "./trpc"
-import { config } from "dotenv"
+import dotenv from "dotenv"
+dotenv.config({ path: "../server.env" })
 import { createContext } from "./createContext"
-config({ path: "../server.env" })
 
 export interface UserIDJwtPayload extends jwt.JwtPayload {
   id: string

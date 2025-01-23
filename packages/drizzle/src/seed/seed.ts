@@ -1,9 +1,8 @@
 import { initUsersData } from "./initUsersData"
 import { drizzle } from "drizzle-orm/node-postgres"
 import { usersTable, devicesTable } from "../db/schema"
-import "dotenv/config"
-import { config } from "dotenv"
-config({ path: "../../server.env" })
+import dotenv from "dotenv"
+dotenv.config({ path: "../../server.env" })
 const databaseUrl = process.env.DATABASE_URL!
 
 async function main() {

@@ -5,9 +5,9 @@ import { usersTable } from "@ter/drizzle"
 import * as schema from "@ter/drizzle"
 import { eq } from "drizzle-orm"
 import { cookieNameAuth, cookieNameDeviceIds } from "./configTer"
-import { config } from "dotenv"
+import dotenv from "dotenv"
+dotenv.config({ path: "../server.env" })
 import manageDevice from "./helper/manageDevice"
-config({ path: "../server.env" })
 
 const secretJwt = process.env.JWT_SECRET
 const databaseUrl = process.env.DATABASE_URL
