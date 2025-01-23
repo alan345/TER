@@ -20,7 +20,7 @@ const Contact = () => {
         <p className=" text-gray-600 text-center">Also, please add a star! It helps!</p>
         <a
           href="https://github.com/alan345/TER"
-          className="block py-2.5 px-4 rounded transition hover:bg-gray-100 mt-2"
+          className="block py-2.5 px-4 rounded-sm transition hover:bg-gray-100 mt-2"
           target="_blank"
           rel="noopener noreferrer"
         >
