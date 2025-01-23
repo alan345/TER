@@ -38,7 +38,7 @@ const App = () => {
     trpc.createClient({
       links: [
         httpBatchLink({
-          url: import.meta.env.VITE_URL_BACKEND,
+          url,
           fetch(url, options) {
             return fetch(url, {
               ...options,
