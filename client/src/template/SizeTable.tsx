@@ -12,7 +12,7 @@ export function SizeTable(props: Props) {
   return (
     <input
       type="number"
-      className="w-11"
+      className="w-12"
       placeholder="#"
       value={sizeInput}
       onKeyDown={(e) => {
