@@ -9,7 +9,7 @@ import { utils } from "../utils"
 import { timeSessionCookie, cookieNameAuth, cookieNameDeviceIds, timeDeviceCookie } from "../configTer"
 import manageDevice from "../helper/manageDevice"
 
-export const authRouter = router({
+ const authRouter = router({
   login: publicProcedure.input(zod.zodLogin).mutation(async (opts) => {
     const {
       db,
@@ -118,3 +118,5 @@ export const authRouter = router({
     }
   }),
 })
+
+export default authRouter

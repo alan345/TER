@@ -3,7 +3,7 @@ import { z } from "zod"
 import { usersTable } from "@ter/drizzle"
 import { eq, count, asc, ilike, and } from "drizzle-orm"
 
-export const userRouter = router({
+const userRouter = router({
   updateUser: protectedProcedure
     .input(
       z.object({
@@ -91,3 +91,4 @@ export const userRouter = router({
       return user
     }),
 })
+export default userRouter

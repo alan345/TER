@@ -3,7 +3,7 @@ import { z } from "zod"
 import { devicesTable } from "@ter/drizzle"
 import { count, desc, eq } from "drizzle-orm"
 
-export const deviceRouter = router({
+const deviceRouter = router({
   deleteDevice: protectedProcedure
     .input(
       z.object({
@@ -53,3 +53,5 @@ export const deviceRouter = router({
       return { devices, page, limit, total }
     }),
 })
+
+export default deviceRouter

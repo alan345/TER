@@ -1,6 +1,6 @@
-import { publicProcedure, router } from "../trpc";
-import { z } from "zod";
-import { randomDataApi } from "../api/randomDataApi";
+import { publicProcedure, router } from "../trpc"
+import { z } from "zod"
+import { randomDataApi } from "../api/randomDataApi"
 
 export const beerRouter = router({
   getBeers: publicProcedure
@@ -10,10 +10,11 @@ export const beerRouter = router({
       })
     )
     .query(async ({ input }) => {
-      if (input.size > 100 || input.size < 2) throw new Error("Invalid size");
+      if (input.size > 100 || input.size < 2) throw new Error("Invalid size")
 
-      let data = await randomDataApi.getBeers(input.size);
+      let data = await randomDataApi.getBeers(input.size)
 
-      return data;
+      return data
     }),
-});
+})
+export default beerRouter
