@@ -11,7 +11,7 @@ import { beerRouter } from "./router/beerRouter"
 import { t } from "./trpc"
 import dotenv from "dotenv"
 dotenv.config({ path: "../server.env" })
-import { createContext } from "./createContext"
+import { createContext } from "./context"
 
 export interface UserIDJwtPayload extends jwt.JwtPayload {
   id: string
