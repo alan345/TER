@@ -1,6 +1,7 @@
 import { initTRPC, TRPCError } from "@trpc/server"
-import { createContext } from "./createContext"
-export const t = initTRPC.context<Context>().create()
+import createContext from "./context"
+const t = initTRPC.context<Context>().create()
+export default t
 
 type Context = Awaited<ReturnType<typeof createContext>>
 

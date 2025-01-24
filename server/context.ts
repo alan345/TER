@@ -18,7 +18,7 @@ export interface UserIDJwtPayload extends jwt.JwtPayload {
   iat: number
 }
 
-export const createContext = async ({ req, res }: trpcExpress.CreateExpressContextOptions) => {
+const createContext = async ({ req, res }: trpcExpress.CreateExpressContextOptions) => {
   if (!secretJwt) throw new Error("JWT_SECRET is not defined")
   if (!databaseUrl) throw new Error("DATABASE_URL is not defined")
   const config = { secretJwt, databaseUrl }
@@ -47,3 +47,5 @@ export const createContext = async ({ req, res }: trpcExpress.CreateExpressConte
   }
   return { req, res, db, config }
 }
+
+export default createContext
