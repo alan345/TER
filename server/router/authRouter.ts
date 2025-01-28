@@ -9,7 +9,7 @@ import { utils } from "../utils"
 import { timeSessionCookie, cookieNameAuth, cookieNameDeviceIds, timeDeviceCookie } from "../configTer"
 import manageDevice from "../helper/manageDevice"
 
- const authRouter = router({
+const authRouter = router({
   login: publicProcedure.input(zod.zodLogin).mutation(async (opts) => {
     const {
       db,
@@ -34,7 +34,7 @@ import manageDevice from "../helper/manageDevice"
     const userAgent = opts.ctx.req.headers["user-agent"] || ""
     let ip = opts.ctx.req.ip || ""
     const cookies = opts.ctx.req.cookies
-    const deviceIdsFromCookieString: string = cookies[cookieNameDeviceIds]
+    const deviceIdsFromCookieString = cookies[cookieNameDeviceIds] || ""
 
     const uniqueIds = await manageDevice.getAndUpdateDevice(db, userId, userAgent, ip, deviceIdsFromCookieString)
 
@@ -92,8 +92,7 @@ import manageDevice from "../helper/manageDevice"
     const userAgent = opts.ctx.req.headers["user-agent"] || ""
     let ip = opts.ctx.req.ip || ""
     const cookies = opts.ctx.req.cookies
-    // const deviceIdFromCookie = cookies[cookieNameDeviceId]
-    const deviceIdsFromCookieString: string = cookies[cookieNameDeviceIds]
+    const deviceIdsFromCookieString = cookies[cookieNameDeviceIds] || ""
 
     const uniqueIds = await manageDevice.getAndUpdateDevice(db, userId, userAgent, ip, deviceIdsFromCookieString)
 

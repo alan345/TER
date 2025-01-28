@@ -1,4 +1,4 @@
-import * as trpcExpress from "@trpc/server/adapters/express"
+import { CreateFastifyContextOptions } from "@trpc/server/adapters/fastify"
 import jwt from "jsonwebtoken"
 import { drizzle } from "drizzle-orm/node-postgres"
 import { usersTable } from "@ter/drizzle"
@@ -18,7 +18,7 @@ export interface UserIDJwtPayload extends jwt.JwtPayload {
   iat: number
 }
 
-const createContext = async ({ req, res }: trpcExpress.CreateExpressContextOptions) => {
+const createContext = async ({ req, res }: CreateFastifyContextOptions) => {
   if (!secretJwt) throw new Error("JWT_SECRET is not defined")
   if (!databaseUrl) throw new Error("DATABASE_URL is not defined")
   const config = { secretJwt, databaseUrl }
@@ -34,7 +34,10 @@ const createContext = async ({ req, res }: trpcExpress.CreateExpressContextOptio
         if (!user) throw new Error("User not found")
 
         const cookies = req.cookies
-        const deviceIdsFromCookieString: string = cookies[cookieNameDeviceIds]
+        const deviceIdsFromCookieString = cookies[cookieNameDeviceIds]
+        if (!deviceIdsFromCookieString) {
+          throw new Error("Device cookie not found")
+        }
         const device = await manageDevice.getDeviceFromCookieString(db, user.id, deviceIdsFromCookieString)
 
         if (!device) throw new Error("Device not found")
