@@ -1,7 +1,7 @@
 import { protectedProcedure, router } from "../trpc"
 import { z } from "zod"
-import { devicesTable } from "@ter/drizzle"
-import { drizzleOrm } from "@ter/drizzle"
+import { devicesTable } from "@fsb/drizzle"
+import { drizzleOrm } from "@fsb/drizzle"
 const { count, desc, eq } = drizzleOrm
 
 const deviceRouter = router({

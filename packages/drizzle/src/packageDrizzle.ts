@@ -1,8 +1,8 @@
-import * as driZZlePgCoreImport from "drizzle-orm/pg-core"
-export const driZZlePgCoreExport = driZZlePgCoreImport
+import * as drizzlePgCoreImport from "drizzle-orm/pg-core"
+export const drizzlePgCoreExport = drizzlePgCoreImport
 
-import * as driZZleNodePgImport from "drizzle-orm/node-postgres"
-export const drizzleOrm_NodePostgres = driZZleNodePgImport
+import * as drizzleNodePgImport from "drizzle-orm/node-postgres"
+export const drizzleOrm_NodePostgres = drizzleNodePgImport
 
-import * as driZZleImport from "drizzle-orm"
-export const drizzleOrm = driZZleImport
+import * as drizzleImport from "drizzle-orm"
+export const drizzleOrm = drizzleImport

@@ -1,5 +1,5 @@
 {
-  "name": "@ter/server",
+  "name": "@fsb/server",
   "private": true,
   "author": "Alan Szternberg",
   "license": "ISC",
@@ -10,8 +10,8 @@
     "start": "node dist/index.js"
   },
   "dependencies": {
-    "@ter/drizzle": "1.0.0",
-    "@ter/shared": "1.0.0",
+    "@fsb/drizzle": "1.0.0",
+    "@fsb/shared": "1.0.0",
     "@trpc/server": "next",
     "@fastify/cookie": "^11.0.2",
     "@fastify/cors": "^10.0.2",

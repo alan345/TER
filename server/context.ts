@@ -1,11 +1,11 @@
 import { CreateFastifyContextOptions } from "@trpc/server/adapters/fastify"
 import jwt from "jsonwebtoken"
-import { drizzleOrm_NodePostgres } from "@ter/drizzle"
-import { drizzleOrm } from "@ter/drizzle"
+import { drizzleOrm_NodePostgres } from "@fsb/drizzle"
+import { drizzleOrm } from "@fsb/drizzle"
 const { eq } = drizzleOrm
 const { drizzle } = drizzleOrm_NodePostgres
-import { usersTable } from "@ter/drizzle"
-import * as schema from "@ter/drizzle"
+import { usersTable } from "@fsb/drizzle"
+import * as schema from "@fsb/drizzle"
 import { cookieNameAuth, cookieNameDeviceIds } from "./configTer"
 import dotenv from "dotenv"
 dotenv.config({ path: "../server.env" })

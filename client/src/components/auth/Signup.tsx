@@ -3,7 +3,7 @@ import { trpc } from "../../utils/trpc"
 import { AppContext } from "../../ContextProvider"
 import { Link, useNavigate } from "react-router"
 import { z } from "zod"
-import { zod } from "@ter/shared/schemas/zod"
+import { zod } from "@fsb/shared/schemas/zod"
 import ErrorMutation from "../../layout/ErrorMutation"
 const zodSignup = zod.zodSignup
 import { Keyhole } from "@phosphor-icons/react"

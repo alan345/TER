@@ -1,6 +1,6 @@
-import { devicesTable } from "@ter/drizzle"
-import * as schema from "@ter/drizzle"
-import { drizzleOrm } from "@ter/drizzle"
+import { devicesTable } from "@fsb/drizzle"
+import * as schema from "@fsb/drizzle"
+import { drizzleOrm } from "@fsb/drizzle"
 const { eq, and, inArray } = drizzleOrm
 
 import { NodePgDatabase } from "drizzle-orm/node-postgres"
