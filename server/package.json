@@ -15,7 +15,6 @@
     "@trpc/server": "next",
     "@fastify/cookie": "^11.0.2",
     "@fastify/cors": "^10.0.2",
-    "drizzle-orm": "^0.39.0",
     "axios": "^1.7.9",
     "bcrypt": "^5.1.1",
     "fastify": "^5.2.1",
