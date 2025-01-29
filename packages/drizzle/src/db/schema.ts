@@ -1,4 +1,5 @@
 import { pgTable, varchar, integer, uuid, timestamp } from "drizzle-orm/pg-core"
+
 import { relations } from "drizzle-orm"
 
 export const usersTable = pgTable("users", {

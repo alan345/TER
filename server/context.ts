@@ -1,6 +1,7 @@
 import { CreateFastifyContextOptions } from "@trpc/server/adapters/fastify"
 import jwt from "jsonwebtoken"
-import { drizzle } from "drizzle-orm/node-postgres"
+// import { drizzle } from "drizzle-orm/node-postgres"
+import { driZZleNodePgExport } from "@ter/drizzle"
 import { usersTable } from "@ter/drizzle"
 import * as schema from "@ter/drizzle"
 import { eq } from "drizzle-orm"
@@ -24,7 +25,7 @@ const createContext = async ({ req, res }: CreateFastifyContextOptions) => {
   const config = { secretJwt, databaseUrl }
   const cookies = req.cookies
   const authToken = cookies[cookieNameAuth]
-  const db = drizzle(databaseUrl, { schema })
+  const db = driZZleNodePgExport.drizzle(databaseUrl, { schema })
 
   if (authToken) {
     try {
