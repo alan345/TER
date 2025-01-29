@@ -1,7 +1,7 @@
 import { protectedProcedure, router } from "../trpc"
 import { z } from "zod"
-import { usersTable } from "@ter/drizzle"
-import { eq, count, asc, ilike, and } from "drizzle-orm"
+import { usersTable, drizzleOrm } from "@ter/drizzle"
+const { eq, count, asc, ilike, and } = drizzleOrm
 
 const userRouter = router({
   updateUser: protectedProcedure
