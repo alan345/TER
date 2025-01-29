@@ -5,8 +5,6 @@
 <h1 align="center"><strong>Fullstack SaaS Boilerplate</strong></h1>
 <h3 align="center">Built with <a href="https://fastify.io">Fastify</a>, <a href="https://trpc.io">tRPC</a>, and <a href="https://reactjs.org">React</a>.</h3>
 
-## Project
-
 [![GitHub issues](https://img.shields.io/github/issues/alan345/Fullstack-SaaS-Boilerplate.svg)](https://github.com/alan345/Fullstack-SaaS-Boilerplate/issues)
 [![GitHub forks](https://img.shields.io/github/forks/alan345/Fullstack-SaaS-Boilerplate.svg)](https://github.com/alan345/Fullstack-SaaS-Boilerplate/network)
 [![GitHub stars](https://img.shields.io/github/stars/alan345/Fullstack-SaaS-Boilerplate.svg)](https://github.com/alan345/Fullstack-SaaS-Boilerplate/stargazers)
