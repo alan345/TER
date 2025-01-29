@@ -3,7 +3,7 @@ import AppRouter from "../AppRouter"
 import AvatarMenu from "../auth/AvatarMenu"
 import NavLinks from "./NavLinks"
 import BurgerLogic from "./BurgerLogic"
-import LogoTer from "./LogoTer"
+import LogoApp from "./LogoApp"
 import { Link } from "react-router"
 
 const LayoutApp = () => {
@@ -34,7 +34,7 @@ const LayoutApp = () => {
         } transition-transform duration-200 ease-in-out md:relative md:translate-x-0`}
       >
         <Link to="/">
-          <LogoTer />
+          <LogoApp />
         </Link>
         <NavLinks onClick={() => setSidebarOpen(false)} />
       </div>

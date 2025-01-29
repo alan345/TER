@@ -6,14 +6,14 @@ import { BrowserRouter } from "react-router"
 import ContextProvider from "./ContextProvider"
 import LayoutApp from "./layout/LayoutApp"
 import MyIdle from "./MyIdle"
-import LogoTer from "./layout/LogoTer"
+import LogoApp from "./layout/LogoApp"
 
 const App = () => {
   const url = import.meta.env.VITE_URL_BACKEND
   if (!url)
     return (
       <div className="p-6">
-        <LogoTer />
+        <LogoApp />
         <div className="flex flex-col items-center mt-12">
           <h1>Error</h1>
           <p>URL_BACKEND not set in env file</p>
