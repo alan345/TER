@@ -23,6 +23,9 @@
     "test:e2e": "playwright test",
     "clean": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' + && find . -name 'package-lock.json' -type f -delete && find . -name 'dist' -type d -prune -exec rm -rf '{}' +"
   },
+  "dependencies": {
+    "drizzle-orm": "^0.36.1"
+  },
   "devDependencies": {
     "@playwright/test": "^1.50.0",
     "npm-run-all": "^4.1.5",
