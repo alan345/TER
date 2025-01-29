@@ -5,7 +5,7 @@
 
 </div>
 
-<h1 align="center"><strong>Boilerplate for a Fullstack App with authentication</strong></h1>
+<h1 align="center"><strong>Fullstack SaaS Boilerplate</strong></h1>
 
 ## Project
 
@@ -17,12 +17,6 @@
 [![paypal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://buymeacoffee.com/fullstackter)
 
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/alan345/Fullstack-SaaS-Boilerplate.svg?style=social)](https://twitter.com/intent/tweet?text=Wow!:&url=https%3A%2F%2Fgithub.com%2Falan345%2Fter)
-
-## Main Stack
-
-- **T**rpc [tRPC](https://trpc.io) - End-to-end typesafe APIs made easy
-- **E**xpress [Express 5](https://expressjs.com) - Fast, unopinionated, minimalist web framework for Node.js
-- **R**eact [React 19](https://reactjs.org) - A JavaScript library for building user interfaces
 
 ## Demo
 
@@ -36,17 +30,20 @@ Hosted by [render.com](http://render.com/) for free
 
 ![ter-preview](https://github.com/user-attachments/assets/c9d549a4-7020-498d-9e7e-e5c92600dd51)
 
-## Other Libraries
+## Stack
 
 - [Bcrypt](https://www.npmjs.com/package/bcrypt) - A JavaScript library for hashing passwords
 - [Drizzle](https://orm.drizzle.team/) - A TypeScript-first ORM for Node.js
+- [Fastify](https://fastify.io) - Fast, unopinionated, minimalist web framework for Node.js
 - [JWT](https://jwt.io) - JSON Web Tokens for authentication
 - [NPM Workspace](https://docs.npmjs.com/cli/v10/using-npm/workspaces) Workspaces for managing multiple packages in a single repository
 - [Phosphor Icons](https://phosphoricons.com) - A flexible icon family for interfaces, diagrams, presentations — whatever, really
 - [Playwright](https://playwright.dev) - Test your web apps headlessly with a single API
 - [Postgres](https://www.postgresql.org) - The world's most advanced open source database
+- [React 19](https://reactjs.org) - A JavaScript library for building user interfaces
 - [React Router v7](https://reactrouter.com) - Declarative routing for React
 - [Tailwind v4](https://tailwindcss.com) - A utility-first CSS framework for rapid UI development
+- [tRPC](https://trpc.io) - End-to-end typesafe APIs made easy
 - [TypeScript](https://www.typescriptlang.org) - TypeScript is a typed superset of JavaScript
 - [Vite](https://vitejs.dev) - Next generation frontend tooling. It's fast!
 - [ZOD](https://zod.dev) - TypeScript-first schema validation with static type inference
