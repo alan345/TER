@@ -76,7 +76,7 @@ const NavLinks = (props: Props) => {
         </div>
       </NavLink>
       <a
-        href="https://github.com/alan345/TER"
+        href="https://github.com/alan345/Fullstack-SaaS-Boilerplate"
         className="block py-2.5 px-4 rounded-sm transition hover:bg-gray-100"
         target="_blank"
         rel="noopener noreferrer"

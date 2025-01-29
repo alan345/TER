@@ -9,14 +9,14 @@
 
 ## Project
 
-[![GitHub issues](https://img.shields.io/github/issues/alan345/ter.svg)](https://github.com/alan345/ter/issues)
-[![GitHub forks](https://img.shields.io/github/forks/alan345/ter.svg)](https://github.com/alan345/ter/network)
-[![GitHub stars](https://img.shields.io/github/stars/alan345/ter.svg)](https://github.com/alan345/ter/stargazers)
-[![GitHub license](https://img.shields.io/github/license/alan345/ter.svg)](https://github.com/alan345/ter/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/alan345/Fullstack-SaaS-Boilerplate.svg)](https://github.com/alan345/Fullstack-SaaS-Boilerplate/issues)
+[![GitHub forks](https://img.shields.io/github/forks/alan345/Fullstack-SaaS-Boilerplate.svg)](https://github.com/alan345/Fullstack-SaaS-Boilerplate/network)
+[![GitHub stars](https://img.shields.io/github/stars/alan345/Fullstack-SaaS-Boilerplate.svg)](https://github.com/alan345/Fullstack-SaaS-Boilerplate/stargazers)
+[![GitHub license](https://img.shields.io/github/license/alan345/Fullstack-SaaS-Boilerplate.svg)](https://github.com/alan345/Fullstack-SaaS-Boilerplate/blob/master/LICENSE)
 [![price](https://img.shields.io/badge/Price-Free-green.svg)](https://buymeacoffee.com/fullstackter)
 [![paypal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://buymeacoffee.com/fullstackter)
 
-[![Twitter](https://img.shields.io/twitter/url/https/github.com/alan345/ter.svg?style=social)](https://twitter.com/intent/tweet?text=Wow!:&url=https%3A%2F%2Fgithub.com%2Falan345%2Fter)
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/alan345/Fullstack-SaaS-Boilerplate.svg?style=social)](https://twitter.com/intent/tweet?text=Wow!:&url=https%3A%2F%2Fgithub.com%2Falan345%2Fter)
 
 ## Main Stack
 
@@ -61,8 +61,8 @@ Hosted by [render.com](http://render.com/) for free
 
 ## Installation
 
-- Update the server `server.env` [file](https://github.com/alan345/TER/blob/main/server.env) and the client `client.env` [file](https://github.com/alan345/TER/blob/main/client/client.env) with your credentials
-- Update the `.gitignore` [file](https://github.com/alan345/TER/blob/main/.gitignore) by uncommenting `# .env` to ensure your credentials remain private and are not exposed.
+- Update the server `server.env` [file](https://github.com/alan345/Fullstack-SaaS-Boilerplate/blob/main/server.env) and the client `client.env` [file](https://github.com/alan345/Fullstack-SaaS-Boilerplate/blob/main/client/client.env) with your credentials
+- Update the `.gitignore` [file](https://github.com/alan345/Fullstack-SaaS-Boilerplate/blob/main/.gitignore) by uncommenting `# .env` to ensure your credentials remain private and are not exposed.
 - Make sure Postgres is running and create a new database called `ter`
 
 ```bash
