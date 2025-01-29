@@ -5,7 +5,7 @@
 </div>
 
 <h1 align="center"><strong>Fullstack SaaS Boilerplate</strong></h1>
-<h3 align="center">Built with tRPC, Fastify and React</h3>
+<h3 align="center">Built with Fastify, tRPC, and React</h3>
 
 ## Project
 
@@ -13,10 +13,6 @@
 [![GitHub forks](https://img.shields.io/github/forks/alan345/Fullstack-SaaS-Boilerplate.svg)](https://github.com/alan345/Fullstack-SaaS-Boilerplate/network)
 [![GitHub stars](https://img.shields.io/github/stars/alan345/Fullstack-SaaS-Boilerplate.svg)](https://github.com/alan345/Fullstack-SaaS-Boilerplate/stargazers)
 [![GitHub license](https://img.shields.io/github/license/alan345/Fullstack-SaaS-Boilerplate.svg)](https://github.com/alan345/Fullstack-SaaS-Boilerplate/blob/master/LICENSE)
-[![price](https://img.shields.io/badge/Price-Free-green.svg)](https://buymeacoffee.com/fullstackter)
-[![paypal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://buymeacoffee.com/fullstackter)
-
-[![Twitter](https://img.shields.io/twitter/url/https/github.com/alan345/Fullstack-SaaS-Boilerplate.svg?style=social)](https://twitter.com/intent/tweet?text=Wow!:&url=https%3A%2F%2Fgithub.com%2Falan345%2Fter)
 
 ## Demo
 
