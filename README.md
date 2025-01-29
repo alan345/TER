@@ -54,7 +54,7 @@ Hosted by [render.com](http://render.com/) for free
 
 - Update the server `server.env` [file](https://github.com/alan345/Fullstack-SaaS-Boilerplate/blob/main/server.env) and the client `client.env` [file](https://github.com/alan345/Fullstack-SaaS-Boilerplate/blob/main/client/client.env) with your credentials
 - Update the `.gitignore` [file](https://github.com/alan345/Fullstack-SaaS-Boilerplate/blob/main/.gitignore) by uncommenting `# .env` to ensure your credentials remain private and are not exposed.
-- Make sure Postgres is running and create a new database called `ter`
+- Make sure Postgres is running and create a new database called `fsb`
 
 ```bash
 psql -U user // replace user by your postgres user
