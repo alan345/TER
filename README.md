@@ -3,7 +3,7 @@
 </div>
 
 <h1 align="center"><strong>Fullstack SaaS Boilerplate</strong></h1>
-<h3 align="center">Built with [Fastify](https://fastify.io), [tRPC](https://trpc.io), and [React 19](https://reactjs.org)</h3>
+<h3 align="center">Built with <a href="https://fastify.io">Fastify</a>, <a href="https://trpc.io">tRPC</a>, and <a href="https://reactjs.org">React 19</a></h3>
 
 ## Project
 
