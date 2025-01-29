@@ -11,6 +11,6 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "zod": "^3.23.8"
+    "zod": "^3.24.1"
   }
 }

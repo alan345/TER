@@ -10,11 +10,11 @@
     "start": "node dist/index.js"
   },
   "dependencies": {
+    "@fastify/cookie": "^11.0.2",
+    "@fastify/cors": "^10.0.2",
     "@fsb/drizzle": "1.0.0",
     "@fsb/shared": "1.0.0",
     "@trpc/server": "next",
-    "@fastify/cookie": "^11.0.2",
-    "@fastify/cors": "^10.0.2",
     "axios": "^1.7.9",
     "bcrypt": "^5.1.1",
     "fastify": "^5.2.1",

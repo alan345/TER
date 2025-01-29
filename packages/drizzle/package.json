@@ -12,13 +12,13 @@
   "main": "dist/index.js",
   "description": "",
   "dependencies": {
-    "dotenv": "^16.4.5",
-    "drizzle-orm": "^0.39.0",
+    "dotenv": "^16.4.7",
+    "drizzle-orm": "^0.36.1",
     "pg": "^8.13.1"
   },
   "devDependencies": {
-    "@types/pg": "^8.11.10",
-    "drizzle-kit": "^0.28.1",
+    "@types/pg": "^8.11.11",
+    "drizzle-kit": "^0.30.4",
     "tsx": "^4.19.2"
   }
 }
