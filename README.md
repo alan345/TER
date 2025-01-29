@@ -15,7 +15,7 @@
 ## Demo
 
 <a href="https://client.ter.work.gd/" >
-  <img width="150" alt="Demo TER" src="https://github.com/user-attachments/assets/b343633f-237a-4377-b8be-114185103645">
+  <img width="150" alt="Demo Fullstack-SaaS-Boilerplate" src="https://github.com/user-attachments/assets/b343633f-237a-4377-b8be-114185103645">
 </a>
 
 Hosted by [render.com](http://render.com/) for free
@@ -58,7 +58,7 @@ Hosted by [render.com](http://render.com/) for free
 
 ```bash
 psql -U user // replace user by your postgres user
-CREATE DATABASE ter;
+CREATE DATABASE fsb;
 ```
 
 - Run in the terminal In the root directory:
