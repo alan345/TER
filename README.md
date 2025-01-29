@@ -1,6 +1,7 @@
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/750d0f0e-ed45-4416-8f86-27aee240e642" alt="image" height="260"/>
-  <br />
+<img src="https://github.com/user-attachments/assets/60297acc-81a1-46af-93ec-d281be20757b" alt="image" height="260"/>
+<br />
+
 </div>
 
 <h1 align="center"><strong>Fullstack SaaS Boilerplate</strong></h1>
