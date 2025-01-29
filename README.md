@@ -22,9 +22,8 @@ Hosted by [render.com](http://render.com/) for free
 
 ## Preview
 
-![ter-preview](https://github.com/user-attachments/assets/c9d549a4-7020-498d-9e7e-e5c92600dd51)
 
-![Recording 2025-01-28 at 20 15 07](https://github.com/user-attachments/assets/e2af4a06-f7b2-450d-ab5b-31f5525740a1)
+![demo](https://github.com/user-attachments/assets/4e98f29e-add9-40b2-9df5-98a04995a3e9)
 
 
 ## Stack
