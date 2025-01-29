@@ -3,7 +3,7 @@
 </div>
 
 <h1 align="center"><strong>Fullstack SaaS Boilerplate</strong></h1>
-<h3 align="center">Built with Fastify, tRPC, and React</h3>
+<h3 align="center">Built with [Fastify](https://fastify.io), [tRPC](https://trpc.io), and [React 19](https://reactjs.org)</h3>
 
 ## Project
 
@@ -22,9 +22,7 @@ Hosted by [render.com](http://render.com/) for free
 
 ## Preview
 
-
 ![demo](https://github.com/user-attachments/assets/4e98f29e-add9-40b2-9df5-98a04995a3e9)
-
 
 ## Stack
 
@@ -96,7 +94,6 @@ npm run start
 <img width="1150" alt="Screenshot 2025-01-29 at 9 23 40 AM" src="https://github.com/user-attachments/assets/5fe2a032-f161-4808-a239-16eb1bf4a5b9" />
 <img width="1150" alt="Screenshot 2025-01-29 at 9 23 46 AM" src="https://github.com/user-attachments/assets/9fe3d828-184c-4754-be92-5d8f6b9327df" />
 
-
 #### Health Check for the server (http://localhost:2022/health)
 
 <img width="431" alt="Health Check" src="https://github.com/user-attachments/assets/c6153606-5011-4717-911a-afdb63ecc4c0">
@@ -137,8 +134,6 @@ Discover the details of this project in
 
 - [Medium post](https://alan-szternberg.medium.com/create-a-full-stack-app-with-trpc-react-and-express-35ed95f0851a)
 - [Dev.to post](https://dev.to/alan345/how-to-create-a-web-app-in-2024-using-a-modern-stack-react-trpc-and-express-4eac)
-
-
 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/60297acc-81a1-46af-93ec-d281be20757b" alt="image" height="260"/>
