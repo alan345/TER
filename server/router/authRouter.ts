@@ -4,13 +4,13 @@ import { TRPCError } from "@trpc/server"
 import jwt from "jsonwebtoken"
 import { usersTable } from "@ter/drizzle"
 // import { eq } from "drizzle-orm"
-import { driZZleExport } from "@ter/drizzle"
+import { drizzleOrm } from "@ter/drizzle"
 import { zod } from "@ter/shared"
 import { utils } from "../utils"
 import { timeSessionCookie, cookieNameAuth, cookieNameDeviceIds, timeDeviceCookie } from "../configTer"
 import manageDevice from "../helper/manageDevice"
 
-const { eq } = driZZleExport
+const { eq } = drizzleOrm
 
 const authRouter = router({
   login: publicProcedure.input(zod.zodLogin).mutation(async (opts) => {
