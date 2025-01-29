@@ -2,7 +2,6 @@ import { initUsersData } from "./initUsersData"
 import { drizzle } from "drizzle-orm/node-postgres"
 import { usersTable, devicesTable } from "../db/schema"
 import dotenv from "dotenv"
-import { eq } from "drizzle-orm"
 dotenv.config({ path: "../../server.env" })
 const databaseUrl = process.env.DATABASE_URL!
 
