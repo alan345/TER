@@ -1,8 +1,10 @@
 <div align="center">
-<img src="https://github.com/user-attachments/assets/60297acc-81a1-46af-93ec-d281be20757b" alt="image" height="260"/>
-<br />
-
+  <img src="https://github.com/user-attachments/assets/60297acc-81a1-46af-93ec-d281be20757b" alt="image" height="260"/>
 </div>
+
+![logo-saas-transparent](https://github.com/user-attachments/assets/f9729f43-485a-44d4-b85d-f93dc5c09988)
+
+
 
 <h1 align="center"><strong>Fullstack SaaS Boilerplate</strong></h1>
 <h3 align="center">Built with Fastify, tRPC, and React</h3>
