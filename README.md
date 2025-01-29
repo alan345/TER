@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="[text](https://github.com/user-attachments/assets/f9729f43-485a-44d4-b85d-f93dc5c09988)" alt="image" height="260"/>
+  <img src="https://github.com/user-attachments/assets/f9729f43-485a-44d4-b85d-f93dc5c09988" alt="image" height="220"/>
 </div>
 
 <h1 align="center"><strong>Fullstack SaaS Boilerplate</strong></h1>
