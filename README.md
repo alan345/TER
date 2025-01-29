@@ -6,7 +6,7 @@
 </div>
 
 <h1 align="center"><strong>Fullstack SaaS Boilerplate</strong></h1>
-<h3>Built with tRPC, Fastify and React</h3>
+<h3 align="center">Built with tRPC, Fastify and React</h3>
 
 ## Project
 
