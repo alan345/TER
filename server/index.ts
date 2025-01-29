@@ -29,7 +29,7 @@ const fastify = Fastify({
   logger: true,
 })
 
-async function main() {
+const start = async () => {
   try {
     await fastify.register(fastifyCors, {
       credentials: true,
@@ -62,4 +62,4 @@ async function main() {
   }
 }
 
-main()
+start()
