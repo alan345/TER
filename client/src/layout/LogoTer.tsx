@@ -5,7 +5,7 @@ const LogoTer = () => {
     <div className="p-4 flex items-center justify-center h-24 ">
       <div>
         <img src={logoTer} alt="logo" className="w-24" />
-        Fullstack-SaaS-Boilerplate
+        <b className="">Fullstack SaaS Boilerplate</b>
       </div>
     </div>
   )
