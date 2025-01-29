@@ -10,3 +10,5 @@ export * as drizzleOrm_NodePostgres from "drizzle-orm/node-postgres"
 // import * as drizzleImport from "drizzle-orm"
 // export const drizzleOrm = drizzleImport
 export * as drizzleOrm from "drizzle-orm"
+
+export { NodePgDatabase } from "drizzle-orm/node-postgres"

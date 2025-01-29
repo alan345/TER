@@ -3,7 +3,7 @@ import * as schema from "@fsb/drizzle"
 import { drizzleOrm } from "@fsb/drizzle"
 const { eq, and, inArray } = drizzleOrm
 
-import { NodePgDatabase } from "drizzle-orm/node-postgres"
+import { NodePgDatabase } from "@fsb/drizzle"
 
 const manageDevice = {
   getDeviceFromCookieString: async (
