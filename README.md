@@ -1,10 +1,6 @@
 <div align="center">
-<img src="https://github.com/user-attachments/assets/750d0f0e-ed45-4416-8f86-27aee240e642" alt="image" height="260"/>
-<br />
-
-
-
-  
+  <img src="https://github.com/user-attachments/assets/750d0f0e-ed45-4416-8f86-27aee240e642" alt="image" height="260"/>
+  <br />
 </div>
 
 <h1 align="center"><strong>Fullstack SaaS Boilerplate</strong></h1>
@@ -149,7 +145,3 @@ Discover the details of this project in
     <img width="300" alt="bmc-button" src="https://github.com/user-attachments/assets/f384fb79-52ed-4c25-bbc1-ae640385f5e4">
   </a>
 </div>
-
-
-
-
