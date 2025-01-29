@@ -5,11 +5,9 @@ dotenv.config({ path: "../../server.env" })
 const databaseUrl = process.env.DATABASE_URL!
 
 if (!databaseUrl) {
-  throw new Error("DATABASE_URL is not defined. Make sure .env is loaded.")
+  throw new Error("databaseUrl is not defined. Make sure server.env is loaded.")
 }
 
-console.log("process.env)", process.env)
-console.log("databaseUrl", databaseUrl)
 export default defineConfig({
   out: "./drizzle",
   schema: "./src/db/schema.ts",
