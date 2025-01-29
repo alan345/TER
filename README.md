@@ -138,11 +138,7 @@ Discover the details of this project in
 - [Medium post](https://alan-szternberg.medium.com/create-a-full-stack-app-with-trpc-react-and-express-35ed95f0851a)
 - [Dev.to post](https://dev.to/alan345/how-to-create-a-web-app-in-2024-using-a-modern-stack-react-trpc-and-express-4eac)
 
-<div align="center">
-  <a href="https://buymeacoffee.com/fullstackter">
-    <img width="300" alt="bmc-button" src="https://github.com/user-attachments/assets/f384fb79-52ed-4c25-bbc1-ae640385f5e4">
-  </a>
-</div>
+
 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/60297acc-81a1-46af-93ec-d281be20757b" alt="image" height="260"/>
