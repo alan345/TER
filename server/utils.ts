@@ -1,4 +1,4 @@
-import { CookieOptions } from "express"
+import { CookieSerializeOptions } from "@fastify/cookie"
 import { timeSessionCookie } from "./configTer"
 
 export const utils = {
@@ -14,13 +14,13 @@ export const utils = {
   getNewExp: () => {
     return Math.floor(Date.now() / 1000) + timeSessionCookie / 1000
   },
-  getParamsCookies: (maxAge: number): CookieOptions => {
+  getParamsCookies: (maxAge: number): CookieSerializeOptions => {
     return {
-      maxAge,
+      maxAge: Math.floor(maxAge / 1000), // Convert milliseconds to seconds
+      domain: process.env.NODE_ENV === "development" ? "localhost" : undefined,
       httpOnly: true,
       secure: process.env.NODE_ENV === "development" ? false : true,
-      // sameSite: process.env.NODE_ENV === "development" ? undefined : "none",
-      // domain: process.env.NODE_ENV === "development" ? "localhost" : "ter-pihx.onrender.com",
+      path: "/",
     }
   },
 }
