@@ -88,13 +88,14 @@ npm run start
 
 ## Printscreens
 
-<img width="1240" alt="Ter - Home" src="https://github.com/user-attachments/assets/03327d88-bcc6-482b-832e-bd5433756aa0">
-<img width="1240" alt="Ter - Login" src="https://github.com/user-attachments/assets/cc229157-7066-427d-ae53-c7b3a280d835">
-<img width="1240" alt="Ter - Signup" src="https://github.com/user-attachments/assets/41cc01de-5296-46a3-8cc3-4e37651d383b">
-<img width="1240" alt="Ter - Profile" src="https://github.com/user-attachments/assets/c7233558-0e8f-4d53-87e7-77db87101677">
-<img width="1240" alt="Ter - Users" src="https://github.com/user-attachments/assets/121c11d3-1dc7-41a8-92f7-63ac9ca437a3">
-<img width="1240" alt="Ter - Devices" src="https://github.com/user-attachments/assets/10bd71cb-406b-4989-83aa-20fd5ce32e9b">
-<img width="1240" alt="Ter - Beers" src="https://github.com/user-attachments/assets/a99d8da4-9c9f-41f5-9aae-040ce7fe5e91">
+<img width="1150" alt="Screenshot 2025-01-29 at 9 23 13 AM" src="https://github.com/user-attachments/assets/6b8596cc-8367-487b-931e-6809123b1fd4" />
+<img width="1150" alt="Screenshot 2025-01-29 at 9 23 22 AM" src="https://github.com/user-attachments/assets/a4f241e9-01b8-489f-98b5-aeeeba816a4d" />
+<img width="1150" alt="Screenshot 2025-01-29 at 9 23 27 AM" src="https://github.com/user-attachments/assets/8bff976d-89bd-4c6b-83f9-a08fa60c4360" />
+<img width="1150" alt="Screenshot 2025-01-29 at 9 23 32 AM" src="https://github.com/user-attachments/assets/647b8b08-f75e-48b0-9be1-028b8a55cdc0" />
+<img width="1150" alt="Screenshot 2025-01-29 at 9 23 37 AM" src="https://github.com/user-attachments/assets/c928afeb-119a-4bbc-b85a-9f9103fe398d" />
+<img width="1150" alt="Screenshot 2025-01-29 at 9 23 40 AM" src="https://github.com/user-attachments/assets/5fe2a032-f161-4808-a239-16eb1bf4a5b9" />
+<img width="1150" alt="Screenshot 2025-01-29 at 9 23 46 AM" src="https://github.com/user-attachments/assets/9fe3d828-184c-4754-be92-5d8f6b9327df" />
+
 
 #### Health Check for the server (http://localhost:2022/health)
 
