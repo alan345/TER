@@ -35,7 +35,6 @@ Hosted by [render.com](http://render.com/) for free
 - [React 19](https://reactjs.org) - A JavaScript library for building user interfaces
 - [Tailwind v4](https://tailwindcss.com) - A utility-first CSS framework for rapid UI development
 - [tRPC](https://trpc.io) - End-to-end typesafe APIs made easy
-- [Vite](https://vitejs.dev) - Next generation frontend tooling. It's fast!
 
 ## Other dependencies
 
@@ -45,6 +44,7 @@ Hosted by [render.com](http://render.com/) for free
 - [React Router v7](https://reactrouter.com) - Declarative routing for React
 - [TypeScript](https://www.typescriptlang.org) - TypeScript is a typed superset of JavaScript
 - [ZOD](https://zod.dev) - TypeScript-first schema validation with static type inference
+- [Vite](https://vitejs.dev) - Next generation frontend tooling. It's fast!
 
 ## Features
 
