@@ -24,22 +24,26 @@ Hosted by [render.com](http://render.com/) for free
 
 ![demo](https://github.com/user-attachments/assets/4e98f29e-add9-40b2-9df5-98a04995a3e9)
 
-## Stack
+## Main Stack
 
-- [Bcrypt](https://www.npmjs.com/package/bcrypt) - A JavaScript library for hashing passwords
+
 - [Drizzle](https://orm.drizzle.team/) - A TypeScript-first ORM for Node.js
 - [Fastify](https://fastify.io) - Fast, unopinionated, minimalist web framework for Node.js
-- [JWT](https://jwt.io) - JSON Web Tokens for authentication
-- [NPM Workspace](https://docs.npmjs.com/cli/v10/using-npm/workspaces) Workspaces for managing multiple packages in a single repository
 - [Phosphor Icons](https://phosphoricons.com) - A flexible icon family for interfaces, diagrams, presentations — whatever, really
 - [Playwright](https://playwright.dev) - Test your web apps headlessly with a single API
 - [Postgres](https://www.postgresql.org) - The world's most advanced open source database
 - [React 19](https://reactjs.org) - A JavaScript library for building user interfaces
-- [React Router v7](https://reactrouter.com) - Declarative routing for React
 - [Tailwind v4](https://tailwindcss.com) - A utility-first CSS framework for rapid UI development
 - [tRPC](https://trpc.io) - End-to-end typesafe APIs made easy
-- [TypeScript](https://www.typescriptlang.org) - TypeScript is a typed superset of JavaScript
 - [Vite](https://vitejs.dev) - Next generation frontend tooling. It's fast!
+
+## Other dependencies
+
+- [Bcrypt](https://www.npmjs.com/package/bcrypt) - A JavaScript library for hashing passwords
+- [JWT](https://jwt.io) - JSON Web Tokens for authentication
+- [NPM Workspace](https://docs.npmjs.com/cli/v10/using-npm/workspaces) Workspaces for managing multiple packages in a single repository
+- [React Router v7](https://reactrouter.com) - Declarative routing for React
+- [TypeScript](https://www.typescriptlang.org) - TypeScript is a typed superset of JavaScript
 - [ZOD](https://zod.dev) - TypeScript-first schema validation with static type inference
 
 ## Features
