@@ -18,7 +18,7 @@
   <img width="150" alt="Demo Fullstack-SaaS-Boilerplate" src="https://github.com/user-attachments/assets/b343633f-237a-4377-b8be-114185103645">
 </a>
 
-<small>Hosted by [render.com](http://render.com/) for free</small>
+<small><small>Hosted by [render.com](http://render.com/) for free</small></small>
 
 ## Preview
 
