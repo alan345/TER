@@ -29,7 +29,6 @@ Hosted by [render.com](http://render.com/) for free
 
 - [Drizzle](https://orm.drizzle.team/) - A TypeScript-first ORM for Node.js
 - [Fastify](https://fastify.io) - Fast, unopinionated, minimalist web framework for Node.js
-- [Playwright](https://playwright.dev) - Test your web apps headlessly with a single API
 - [Postgres](https://www.postgresql.org) - The world's most advanced open source database
 - [React 19](https://reactjs.org) - A JavaScript library for building user interfaces
 - [Tailwind v4](https://tailwindcss.com) - A utility-first CSS framework for rapid UI development
@@ -41,6 +40,7 @@ Hosted by [render.com](http://render.com/) for free
 - [JWT](https://jwt.io) - JSON Web Tokens for authentication
 - [NPM Workspace](https://docs.npmjs.com/cli/v10/using-npm/workspaces) Workspaces for managing multiple packages in a single repository
 - [Phosphor Icons](https://phosphoricons.com) - A flexible icon family for interfaces, diagrams, presentations — whatever, really
+- [Playwright](https://playwright.dev) - Test your web apps headlessly with a single API
 - [React Router v7](https://reactrouter.com) - Declarative routing for React
 - [TypeScript](https://www.typescriptlang.org) - TypeScript is a typed superset of JavaScript
 - [ZOD](https://zod.dev) - TypeScript-first schema validation with static type inference
