@@ -18,14 +18,13 @@
   <img width="150" alt="Demo Fullstack-SaaS-Boilerplate" src="https://github.com/user-attachments/assets/b343633f-237a-4377-b8be-114185103645">
 </a>
 
-Hosted by [render.com](http://render.com/) for free
+###### Hosted by [render.com](http://render.com/) for free
 
 ## Preview
 
 ![demo](https://github.com/user-attachments/assets/4e98f29e-add9-40b2-9df5-98a04995a3e9)
 
 ## Main Stack
-
 
 - [Drizzle](https://orm.drizzle.team/) - A TypeScript-first ORM for Node.js
 - [Fastify](https://fastify.io) - Fast, unopinionated, minimalist web framework for Node.js
