@@ -24,7 +24,7 @@ const authRouter = router({
       where: eq(userTable.email, opts.input.email),
       columns: { id: true, name: true, image: true },
       with: {
-        userCredential: {
+        userCredentialERRROR: {
           columns: {
             passwordHash: true,
           },
