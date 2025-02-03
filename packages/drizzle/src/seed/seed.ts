@@ -8,6 +8,7 @@ const databaseUrl = process.env.DATABASE_URL!
 async function main() {
   console.log(`Seeding ${databaseUrl}...`)
   const db = drizzle(databaseUrl)
+  await db.delete(userCredentialTable)
   await db.delete(deviceTable)
   await db.delete(userTable)
   for (const user of initUsersData) {
