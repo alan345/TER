@@ -11,6 +11,10 @@ export const userTable = pgTable("user", {
   lastLoginAt: timestamp("last_login_at"),
 })
 
+export const userToUserCredentialRelations = relations(userTable, ({ one }) => ({
+  userCredential: one(userCredentialTable),
+}))
+
 export const userCredentialTable = pgTable("user_credential", {
   id: uuid().defaultRandom().primaryKey(),
   userId: uuid("user_id")
@@ -20,15 +24,11 @@ export const userCredentialTable = pgTable("user_credential", {
   passwordHash: text("password_hash").notNull(),
 })
 
-export const userToUserCredentialRelations = relations(userTable, ({ one }) => ({
-  userCredential: one(userCredentialTable, {
-    fields: [userTable.id],
-    references: [userCredentialTable.userId],
-  }),
-}))
-
 export const userCredentialToUserRelations = relations(userCredentialTable, ({ one }) => ({
-  user: one(userTable),
+  user: one(userTable, {
+    fields: [userCredentialTable.userId],
+    references: [userTable.id],
+  }),
 }))
 
 export const deviceTable = pgTable("device", {
