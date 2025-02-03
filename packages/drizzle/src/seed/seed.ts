@@ -5,7 +5,7 @@ import dotenv from "dotenv"
 dotenv.config({ path: "../../server.env" })
 const databaseUrl = process.env.DATABASE_URL!
 
-async function main() {
+const main = async () => {
   console.log(`Seeding ${databaseUrl}...`)
   const db = drizzle(databaseUrl)
   await db.delete(userCredentialTable)
