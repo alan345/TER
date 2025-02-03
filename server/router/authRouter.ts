@@ -2,7 +2,7 @@ import { publicProcedure, protectedProcedure, router } from "../trpc"
 import bcrypt from "bcrypt"
 import { TRPCError } from "@trpc/server"
 import jwt from "jsonwebtoken"
-import { userTable } from "@fsb/drizzle"
+import { userTable, userCredentialTable } from "@fsb/drizzle"
 import { drizzleOrm } from "@fsb/drizzle"
 import { zod } from "@fsb/shared"
 import { utils } from "../utils"
@@ -19,11 +19,18 @@ const authRouter = router({
     } = opts.ctx
 
     const lastLoginAt = new Date()
-    const user = await db.query.userTable.findFirst({ where: eq(userTable.email, opts.input.email) })
+    const user = await db.query.userTable.findFirst({
+      where: eq(userTable.email, opts.input.email),
+    })
 
     if (!user) throw new Error("Incorrect login")
+    const userCredential = await db.query.userCredentialTable.findFirst({
+      where: eq(userCredentialTable.userId, user.id),
+    })
 
-    const isPasswordCorrect = await bcrypt.compare(opts.input.password, user.password)
+    if (!userCredential) throw new Error("Incorrect login")
+
+    const isPasswordCorrect = await bcrypt.compare(opts.input.password, userCredential.passwordHash)
 
     if (!isPasswordCorrect) throw new Error("Incorrect password")
 
@@ -58,13 +65,12 @@ const authRouter = router({
   updateUserPassord: protectedProcedure.input(zod.zodUpdatePassword).mutation(async (opts) => {
     const me = opts.ctx.user
     const db = opts.ctx.db
-    const user = await db
-      .update(userTable)
-      .set({ password: await bcrypt.hash(opts.input.password, 10) })
-      .where(eq(userTable.id, me.id))
-      .returning()
+    await db
+      .update(userCredentialTable)
+      .set({ passwordHash: await bcrypt.hash(opts.input.password, 10) })
+      .where(eq(userCredentialTable.userId, me.id))
 
-    return user
+    return me
   }),
 
   signup: publicProcedure.input(zod.zodSignup).mutation(async (opts) => {
@@ -82,11 +88,16 @@ const authRouter = router({
         name: opts.input.name,
         email: opts.input.email,
         lastLoginAt: new Date(),
-        password: await bcrypt.hash(opts.input.password, 10),
+        // password: await bcrypt.hash(opts.input.password, 10),
       })
       .returning({ id: userTable.id })
-
     const userId = newUsers[0].id
+
+    await db.insert(userCredentialTable).values({
+      userId,
+      passwordHash: await bcrypt.hash(opts.input.password, 10),
+    })
+
     const token = jwt.sign({ id: userId, exp: utils.getNewExp() }, secretJwt)
 
     opts.ctx.res.cookie(cookieNameAuth, token, utils.getParamsCookies(timeSessionCookie))
