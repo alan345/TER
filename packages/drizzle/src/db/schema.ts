@@ -15,23 +15,20 @@ export const userCredentialTable = pgTable("user_credential", {
   id: uuid().defaultRandom().primaryKey(),
   userId: uuid("user_id")
     .notNull()
+    .unique()
     .references(() => userTable.id),
   passwordHash: text("password_hash").notNull(),
 })
 
-// // Define relations in `userCredentialTable`
-// export const userCredentialRelations = relations(userCredentialTable, ({ one }) => ({
-//   user: one(userTable, {
-//     fields: [userCredentialTable.userId],
-//     references: [userTable.id],
-//   }),
-// }))
-
-export const userRelations = relations(userTable, ({ one }) => ({
+export const userToUserCredentialRelations = relations(userTable, ({ one }) => ({
   userCredential: one(userCredentialTable, {
-    fields: [userTable.id], // Ensure it links correctly
+    fields: [userTable.id],
     references: [userCredentialTable.userId],
   }),
+}))
+
+export const userCredentialToUserRelations = relations(userCredentialTable, ({ one }) => ({
+  user: one(userTable),
 }))
 
 export const deviceTable = pgTable("device", {
@@ -45,15 +42,13 @@ export const deviceTable = pgTable("device", {
     .references(() => userTable.id),
 })
 
-// Define relations in `deviceTable`
-export const deviceUserRelations = relations(deviceTable, ({ one }) => ({
+export const deviceToUserRelations = relations(deviceTable, ({ one }) => ({
   user: one(userTable, {
     fields: [deviceTable.userId],
     references: [userTable.id],
   }),
 }))
 
-// Define `userDeviceRelations` properly in `userTable`
-export const userDeviceRelations = relations(userTable, ({ many }) => ({
+export const userToDevicesRelations = relations(userTable, ({ many }) => ({
   devices: many(deviceTable),
 }))

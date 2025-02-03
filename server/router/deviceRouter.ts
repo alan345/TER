@@ -47,6 +47,7 @@ const deviceRouter = router({
 
         where: opts.input.userId ? eq(deviceTable.userId, opts.input.userId) : undefined,
       })
+
       const totalData = await db.select({ count: count() }).from(deviceTable)
       // .where(opts.input.search ? ilike(devicesTable.name, `%${opts.input.search}%`) : undefined)
       const total = totalData[0].count
