@@ -19,6 +19,7 @@ const authRouter = router({
     } = opts.ctx
 
     const lastLoginAt = new Date()
+
     const user = await db.query.userTable.findFirst({
       where: eq(userTable.email, opts.input.email),
     })
