@@ -23,7 +23,7 @@ const authRouter = router({
     const user = await db.query.userTable.findFirst({
       where: eq(userTable.email, opts.input.email),
       with: {
-        userCredentials: true,
+        userCredential: true,
       },
     })
 
