@@ -4,7 +4,7 @@ import { drizzleOrm_NodePostgres } from "@fsb/drizzle"
 import { drizzleOrm } from "@fsb/drizzle"
 const { eq } = drizzleOrm
 const { drizzle } = drizzleOrm_NodePostgres
-import { usersTable } from "@fsb/drizzle"
+import { userTable } from "@fsb/drizzle"
 import * as schema from "@fsb/drizzle"
 import { cookieNameAuth, cookieNameDeviceIds } from "./configTer"
 import dotenv from "dotenv"
@@ -32,7 +32,7 @@ const createContext = async ({ req, res }: CreateFastifyContextOptions) => {
     try {
       let decoded = jwt.verify(authToken, secretJwt) as UserIDJwtPayload
       if (decoded) {
-        const user = await db.query.usersTable.findFirst({ where: eq(usersTable.id, decoded.id) })
+        const user = await db.query.userTable.findFirst({ where: eq(userTable.id, decoded.id) })
         if (!user) throw new Error("User not found")
 
         const cookies = req.cookies

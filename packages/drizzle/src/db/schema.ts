@@ -1,34 +1,36 @@
-import { pgTable, varchar, integer, uuid, timestamp } from "drizzle-orm/pg-core"
+import { pgTable, text, integer, uuid, timestamp } from "drizzle-orm/pg-core"
 
 import { relations } from "drizzle-orm"
 
-export const usersTable = pgTable("users", {
+export const userTable = pgTable("user", {
   id: uuid().defaultRandom().primaryKey(),
-  name: varchar({ length: 255 }).notNull(),
+  name: text("name").notNull(),
   age: integer(),
-  image: varchar(),
-  email: varchar({ length: 255 }).notNull().unique(),
-  password: varchar().notNull(),
+  image: text("image"),
+  email: text("email").notNull().unique(),
+  password: text("password").notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   lastLoginAt: timestamp("last_login_at"),
 })
 
-export const userDeviceRelations = relations(usersTable, ({ many }) => ({
-  devices: many(devicesTable),
+export const userDeviceRelations = relations(userTable, ({ many }) => ({
+  devices: many(deviceTable),
 }))
 
-export const devicesTable = pgTable("devices", {
+export const deviceTable = pgTable("device", {
   id: uuid().defaultRandom().primaryKey(),
-  userAgent: varchar().notNull(),
-  ip: varchar().notNull(),
+  userAgent: text("userAgent").notNull(),
+  ip: text("ip").notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   lastLoginAt: timestamp("last_login_at"),
-  userId: uuid("user_id").notNull(),
+  userId: uuid("user_id")
+    .notNull()
+    .references(() => userTable.id),
 })
 
-export const deviceUserRelations = relations(devicesTable, ({ one }) => ({
-  user: one(usersTable, {
-    fields: [devicesTable.userId],
-    references: [usersTable.id],
+export const deviceUserRelations = relations(deviceTable, ({ one }) => ({
+  user: one(userTable, {
+    fields: [deviceTable.userId],
+    references: [userTable.id],
   }),
 }))

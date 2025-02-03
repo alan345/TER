@@ -2,7 +2,7 @@ import { publicProcedure, protectedProcedure, router } from "../trpc"
 import bcrypt from "bcrypt"
 import { TRPCError } from "@trpc/server"
 import jwt from "jsonwebtoken"
-import { usersTable } from "@fsb/drizzle"
+import { userTable } from "@fsb/drizzle"
 import { drizzleOrm } from "@fsb/drizzle"
 import { zod } from "@fsb/shared"
 import { utils } from "../utils"
@@ -19,7 +19,7 @@ const authRouter = router({
     } = opts.ctx
 
     const lastLoginAt = new Date()
-    const user = await db.query.usersTable.findFirst({ where: eq(usersTable.email, opts.input.email) })
+    const user = await db.query.userTable.findFirst({ where: eq(userTable.email, opts.input.email) })
 
     if (!user) throw new Error("Incorrect login")
 
@@ -30,7 +30,7 @@ const authRouter = router({
     const userId = user.id
     const token = jwt.sign({ id: userId, exp: utils.getNewExp() }, secretJwt)
 
-    await db.update(usersTable).set({ lastLoginAt }).where(eq(usersTable.id, userId)).returning()
+    await db.update(userTable).set({ lastLoginAt }).where(eq(userTable.id, userId)).returning()
     opts.ctx.res.cookie(cookieNameAuth, token, utils.getParamsCookies(timeSessionCookie))
 
     const userAgent = opts.ctx.req.headers["user-agent"] || ""
@@ -59,9 +59,9 @@ const authRouter = router({
     const me = opts.ctx.user
     const db = opts.ctx.db
     const user = await db
-      .update(usersTable)
+      .update(userTable)
       .set({ password: await bcrypt.hash(opts.input.password, 10) })
-      .where(eq(usersTable.id, me.id))
+      .where(eq(userTable.id, me.id))
       .returning()
 
     return user
@@ -73,18 +73,18 @@ const authRouter = router({
       config: { secretJwt },
     } = opts.ctx
 
-    const user = await db.query.usersTable.findFirst({ where: eq(usersTable.email, opts.input.email) })
+    const user = await db.query.userTable.findFirst({ where: eq(userTable.email, opts.input.email) })
     if (user) throw new Error("User already exists")
 
     const newUsers = await db
-      .insert(usersTable)
+      .insert(userTable)
       .values({
         name: opts.input.name,
         email: opts.input.email,
         lastLoginAt: new Date(),
         password: await bcrypt.hash(opts.input.password, 10),
       })
-      .returning({ id: usersTable.id })
+      .returning({ id: userTable.id })
 
     const userId = newUsers[0].id
     const token = jwt.sign({ id: userId, exp: utils.getNewExp() }, secretJwt)

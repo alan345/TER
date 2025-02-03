@@ -1,6 +1,6 @@
 import { protectedProcedure, router } from "../trpc"
 import { z } from "zod"
-import { usersTable, drizzleOrm } from "@fsb/drizzle"
+import { userTable, drizzleOrm } from "@fsb/drizzle"
 const { eq, count, asc, ilike, and } = drizzleOrm
 
 const userRouter = router({
@@ -16,9 +16,9 @@ const userRouter = router({
     .mutation(async (opts) => {
       const db = opts.ctx.db
       const user = await db
-        .update(usersTable)
+        .update(userTable)
         .set({ name: opts.input.name, age: opts.input.age, email: opts.input.email })
-        .where(eq(usersTable.id, opts.input.id))
+        .where(eq(userTable.id, opts.input.id))
         .returning()
 
       return user
@@ -36,20 +36,20 @@ const userRouter = router({
       const page = opts.input.page
       const limit = 12
       const db = opts.ctx.db
-      const users = await db.query.usersTable.findMany({
+      const users = await db.query.userTable.findMany({
         limit,
         offset: (page - 1) * limit,
-        orderBy: [asc(usersTable.name)],
+        orderBy: [asc(userTable.name)],
         columns: { id: true, name: true, email: true, image: true, createdAt: true, lastLoginAt: true },
         where: and(
-          opts.input.search ? ilike(usersTable.name, `%${opts.input.search}%`) : undefined,
-          opts.input.userId ? eq(usersTable.id, opts.input.userId) : undefined
+          opts.input.search ? ilike(userTable.name, `%${opts.input.search}%`) : undefined,
+          opts.input.userId ? eq(userTable.id, opts.input.userId) : undefined
         ),
       })
       const totalData = await db
         .select({ count: count() })
-        .from(usersTable)
-        .where(opts.input.search ? ilike(usersTable.name, `%${opts.input.search}%`) : undefined)
+        .from(userTable)
+        .where(opts.input.search ? ilike(userTable.name, `%${opts.input.search}%`) : undefined)
       const total = totalData[0].count
 
       return { users, page, limit, total }
@@ -63,9 +63,9 @@ const userRouter = router({
     .query(async (opts) => {
       const id = opts.input.id
       const db = opts.ctx.db
-      const user = await db.query.usersTable.findFirst({
+      const user = await db.query.userTable.findFirst({
         columns: { id: true, name: true, age: true, email: true, image: true, createdAt: true, lastLoginAt: true },
-        where: eq(usersTable.id, id),
+        where: eq(userTable.id, id),
       })
 
       if (!user) throw new Error("User not found")
@@ -81,9 +81,9 @@ const userRouter = router({
     .query(async (opts) => {
       const id = opts.input.id
       const db = opts.ctx.db
-      const user = await db.query.usersTable.findFirst({
+      const user = await db.query.userTable.findFirst({
         columns: { id: true, name: true, image: true },
-        where: eq(usersTable.id, id),
+        where: eq(userTable.id, id),
       })
 
       if (!user) throw new Error("User not found")

@@ -1,6 +1,6 @@
 import { protectedProcedure, router } from "../trpc"
 import { z } from "zod"
-import { devicesTable } from "@fsb/drizzle"
+import { deviceTable } from "@fsb/drizzle"
 import { drizzleOrm } from "@fsb/drizzle"
 const { count, desc, eq } = drizzleOrm
 
@@ -13,7 +13,7 @@ const deviceRouter = router({
     )
     .mutation(async (opts) => {
       const db = opts.ctx.db
-      await db.delete(devicesTable).where(eq(devicesTable.id, opts.input.deviceId))
+      await db.delete(deviceTable).where(eq(deviceTable.id, opts.input.deviceId))
 
       return true
     }),
@@ -30,10 +30,10 @@ const deviceRouter = router({
       const page = opts.input.page
       const limit = 12
       const db = opts.ctx.db
-      const devices = await db.query.devicesTable.findMany({
+      const devices = await db.query.deviceTable.findMany({
         limit,
         offset: (page - 1) * limit,
-        orderBy: [desc(devicesTable.lastLoginAt)],
+        orderBy: [desc(deviceTable.lastLoginAt)],
         columns: { id: true, createdAt: true, lastLoginAt: true, userAgent: true, ip: true },
         with: {
           user: {
@@ -45,9 +45,9 @@ const deviceRouter = router({
           },
         },
 
-        where: opts.input.userId ? eq(devicesTable.userId, opts.input.userId) : undefined,
+        where: opts.input.userId ? eq(deviceTable.userId, opts.input.userId) : undefined,
       })
-      const totalData = await db.select({ count: count() }).from(devicesTable)
+      const totalData = await db.select({ count: count() }).from(deviceTable)
       // .where(opts.input.search ? ilike(devicesTable.name, `%${opts.input.search}%`) : undefined)
       const total = totalData[0].count
 
