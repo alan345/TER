@@ -18,7 +18,7 @@ async function main() {
     })
   }
 
-  console.log(`Done!`)
+  console.log(`Done !`)
   process.exit(0)
 }
 main()
